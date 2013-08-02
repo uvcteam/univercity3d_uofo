@@ -32,10 +32,17 @@ public class FormMallCategories : MonoBehaviour
 	void Start()
     {
         mInstance = this;
-        Hide();
+        //Hide();
 
         mPivotStartPos = Pivot.position;
 	}
+
+    void OnEnable()
+    {
+        mInstance = this;
+
+        mPivotStartPos = Pivot.position;
+    }
 
     // ***************************************************
     // OnDestroy [Monobehavior]
@@ -54,6 +61,7 @@ public class FormMallCategories : MonoBehaviour
 
     static public void Show(float inOffsetX = 0.0f)
     {
+        Debug.Log("Showing.");
         if (mInstance)
         {
             mInstance.gameObject.SetActiveRecursively(true);

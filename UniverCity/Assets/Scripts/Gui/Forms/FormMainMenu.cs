@@ -27,6 +27,7 @@ public class FormMainMenu : MonoBehaviour
 
         Hide();
         Show();
+        GuiMall();
 	}
 
     void OnEnable()
@@ -140,6 +141,7 @@ public class FormMainMenu : MonoBehaviour
 
     void GuiMall()
     {
+        Debug.Log("MALL");
         iTween.MoveTo(Anim, iTween.Hash("x", ScrollSnapPt.position.x, "time", 0.5f));
         mVisible = false;
 
@@ -150,13 +152,14 @@ public class FormMainMenu : MonoBehaviour
     {
         if (!mVisible)
         {
-            iTween.MoveTo(Anim, iTween.Hash("x", 0.0f, "time", 0.5f));
-            mVisible = true;
+            //iTween.MoveTo(Anim, iTween.Hash("x", 0.0f, "time", 0.5f));
+            //mVisible = true;
 
-            FormMallCategories.Hide();
-            FormMallSubcategories.Hide();
-            FormMallDetailedCategories.Hide();
-            FormMallAppPanel.Hide();
+            //FormMallCategories.Hide();
+            //FormMallSubcategories.Hide();
+            //FormMallDetailedCategories.Hide();
+            //FormMallAppPanel.Hide();
+            Application.LoadLevel(0);
         }
     }
 
