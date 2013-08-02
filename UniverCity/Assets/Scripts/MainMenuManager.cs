@@ -14,27 +14,22 @@ public class MainMenuManager : MonoBehaviour
         if (PlayerPrefs.HasKey("SignedIn") == true && PlayerPrefs.GetInt("SignedIn") == 1)
         {
             if (loginPanel != null)
-                loginPanel.gameObject.SetActive(false);
+                loginPanel.GetComponent<TweenPosition>().Play(false);
             if (adUpdatePanel != null)
-                adUpdatePanel.gameObject.SetActive(true);
-            //loginPanel.GetComponent<TweenPosition>().Play(true);
+                adUpdatePanel.GetComponent<TweenPosition>().Play(true);
             if (signedInPanel != null)
-                signedInPanel.gameObject.SetActive(true);
+                signedInPanel.GetComponent<TweenPosition>().Play(true);
+            Debug.Log("Signed In");
+        }
+        else
+        {
+            if (signedInPanel != null)
+                signedInPanel.GetComponent<TweenPosition>().Play(false);
+            if (adUpdatePanel != null)
+                adUpdatePanel.GetComponent<TweenPosition>().Play(false);
         }
     }
 
-    void OnEnable()
-    {
-        foreach (TweenPosition tween in gameObject.GetComponentsInChildren<TweenPosition>())
-        {
-            if (tween != null)
-            {
-                tween.Reset();
-                tween.Toggle();
-            }
-        }
-        
-    }
 
     public void EnableTween()
     {
@@ -62,9 +57,6 @@ public class MainMenuManager : MonoBehaviour
 
         PlayerPrefs.SetInt("SignedIn", 1);
 
-        adUpdatePanel.gameObject.SetActive(true);
-        menuPanel.gameObject.SetActive(true);
-        signedInPanel.gameObject.SetActive(true);
 
         signedInPanel.GetComponent<TweenPosition>().Play(true);
         loginPanel.GetComponent<TweenPosition>().Play(false);
