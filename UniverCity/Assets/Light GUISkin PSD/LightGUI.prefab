@@ -1,0 +1,413 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: LightGUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  material: {fileID: 2100000, guid: 26e9965e252f9144e9a027edee06ae1b, type: 2}
+  sprites:
+  - name: toggle
+    outer:
+      serializedVersion: 2
+      x: 30
+      y: 223
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 30
+      y: 223
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: togglehover
+    outer:
+      serializedVersion: 2
+      x: 50
+      y: 223
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 50
+      y: 223
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: toggleactive
+    outer:
+      serializedVersion: 2
+      x: 70
+      y: 223
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 70
+      y: 223
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ontoggle
+    outer:
+      serializedVersion: 2
+      x: 90
+      y: 223
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 90
+      y: 223
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: buttonhover
+    outer:
+      serializedVersion: 2
+      x: 80
+      y: 283
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 80
+      y: 283
+      width: 30
+      height: 30
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: buttonactive
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 243
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 243
+      width: 30
+      height: 30
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ontogglehover
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 193
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 193
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ontoggleactive
+    outer:
+      serializedVersion: 2
+      x: 20
+      y: 193
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 20
+      y: 193
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: textfield
+    outer:
+      serializedVersion: 2
+      x: 30
+      y: 243
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 30
+      y: 243
+      width: 30
+      height: 30
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: textfieldhover
+    outer:
+      serializedVersion: 2
+      x: 60
+      y: 243
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 60
+      y: 243
+      width: 30
+      height: 30
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: window
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 273
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 273
+      width: 40
+      height: 40
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: box
+    outer:
+      serializedVersion: 2
+      x: 90
+      y: 243
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 90
+      y: 243
+      width: 30
+      height: 30
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 213
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 5
+      y: 218
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: onwindow
+    outer:
+      serializedVersion: 2
+      x: 40
+      y: 273
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 40
+      y: 273
+      width: 40
+      height: 40
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: slider
+    outer:
+      serializedVersion: 2
+      x: 110
+      y: 217
+      width: 11
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 110
+      y: 217
+      width: 11
+      height: 11
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sliderthumb
+    outer:
+      serializedVersion: 2
+      x: 110
+      y: 298
+      width: 15
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 110
+      y: 298
+      width: 15
+      height: 15
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sliderthumbhover
+    outer:
+      serializedVersion: 2
+      x: 110
+      y: 283
+      width: 15
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 110
+      y: 283
+      width: 15
+      height: 15
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sliderthumbactive
+    outer:
+      serializedVersion: 2
+      x: 110
+      y: 228
+      width: 15
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 110
+      y: 228
+      width: 15
+      height: 15
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button_128
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 313
+      width: 128
+      height: 128
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 313
+      width: 128
+      height: 128
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: solidpixel
+    outer:
+      serializedVersion: 2
+      x: 80
+      y: 281
+      width: 2
+      height: 2
+    inner:
+      serializedVersion: 2
+      x: 80
+      y: 281
+      width: 2
+      height: 2
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: segoe_fixed_alpha
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 441
+      width: 1023
+      height: 583
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 441
+      width: 1023
+      height: 583
+    paddingLeft: 0
+    paddingRight: .000977517106
+    paddingTop: 0
+    paddingBottom: .756432235
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 45c1395dbdf0a08499f32f772b945fbd
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Left_Eyeball
+    100004: Right_Eyeball
+    100006: Body
+    100008: Lt_Knee
+    100010: Lt_Leg_Root
+    100012: ikHandle1
+    100014: MouthPad2
+    100016: HeadPad1
+    100018: Head_End
+    100020: Rt_Foot_Root
+    100022: Rt_Knee
+    100024: Right_Foot_Control
+    100026: Rt_Leg_Root
+    100028: Lt_Toe_End
+    100030: Lt_Toe_Root
+    100032: Lt_Foot_Root
+    100034: Head_Root
+    100036: Spine_Root
+    100038: Mouth_Rt_Upper
+    100040: Mouth_Lt_Upper
+    100042: Mouth_Lt_Lower
+    100044: Rt_Toe_End
+    100046: Rt_Toe_Root
+    100048: MouthPad1
+    100050: LeftEye_Control
+    100052: Left_Foot_Control
+    100054: RightEye_Control
+    100056: Mouth_Rt_Lower
+    100058: RIG_ROOT
+    100060: ikHandle2
+    100062: EyeContoller
+    100064: HeadPad2
+    400000: //RootNode
+    400002: Left_Eyeball
+    400004: Right_Eyeball
+    400006: Body
+    400008: Lt_Knee
+    400010: Lt_Leg_Root
+    400012: ikHandle1
+    400014: MouthPad2
+    400016: HeadPad1
+    400018: Head_End
+    400020: Rt_Foot_Root
+    400022: Rt_Knee
+    400024: Right_Foot_Control
+    400026: Rt_Leg_Root
+    400028: Lt_Toe_End
+    400030: Lt_Toe_Root
+    400032: Lt_Foot_Root
+    400034: Head_Root
+    400036: Spine_Root
+    400038: Mouth_Rt_Upper
+    400040: Mouth_Lt_Upper
+    400042: Mouth_Lt_Lower
+    400044: Rt_Toe_End
+    400046: Rt_Toe_Root
+    400048: MouthPad1
+    400050: LeftEye_Control
+    400052: Left_Foot_Control
+    400054: RightEye_Control
+    400056: Mouth_Rt_Lower
+    400058: RIG_ROOT
+    400060: ikHandle2
+    400062: EyeContoller
+    400064: HeadPad2
+    2300000: Left_Eyeball
+    2300002: Right_Eyeball
+    2300004: Body
+    3300000: Left_Eyeball
+    3300002: Right_Eyeball
+    3300004: Body
+    4300000: Body_Creature
+    4300002: Creature_Right_Eyeball
+    4300004: Creature_Left_Eyeball
+    4300006: Body
+    4300008: Right_Eyeball
+    4300010: Left_Eyeball
+    7400000: Creature-05
+    7400002: Take 001
+    11100000: //RootNode
+    13700000: Body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 3
+    bakeSimulation: 0
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 1
+  userData: 

@@ -1,0 +1,430 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: WhiteAtlas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  material: {fileID: 2100000, guid: ac0b15b4937013847b7b71e5115a0c26, type: 2}
+  sprites:
+  - name: toggle
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 150
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 150
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: buttonhover
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 320
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 5
+      y: 325
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sliderthumb
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 95
+      width: 15
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 5
+      y: 100
+      width: 5
+      height: 5
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: textfieldhover
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 290
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 5
+      y: 295
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ontoggleactive
+    outer:
+      serializedVersion: 2
+      x: 20
+      y: 150
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 20
+      y: 150
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: window
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 390
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 390
+      width: 40
+      height: 40
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sliderthumbactive
+    outer:
+      serializedVersion: 2
+      x: 15
+      y: 95
+      width: 15
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 15
+      y: 95
+      width: 15
+      height: 15
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: sliderthumbhover
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 80
+      width: 15
+      height: 15
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 80
+      width: 15
+      height: 15
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: toggleactive
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 130
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 130
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: onwindow
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 350
+      width: 40
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 350
+      width: 40
+      height: 40
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: button
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 260
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 8
+      y: 268
+      width: 14
+      height: 14
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: togglehover
+    outer:
+      serializedVersion: 2
+      x: 20
+      y: 130
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 20
+      y: 130
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: textfield
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 230
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 5
+      y: 235
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: box
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 200
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 5
+      y: 205
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ontoggle
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 110
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 110
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: slider
+    outer:
+      serializedVersion: 2
+      x: 15
+      y: 84
+      width: 11
+      height: 11
+    inner:
+      serializedVersion: 2
+      x: 15
+      y: 84
+      width: 11
+      height: 11
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: buttonactive
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 170
+      width: 30
+      height: 30
+    inner:
+      serializedVersion: 2
+      x: 5
+      y: 175
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ontogglehover
+    outer:
+      serializedVersion: 2
+      x: 20
+      y: 110
+      width: 20
+      height: 20
+    inner:
+      serializedVersion: 2
+      x: 20
+      y: 110
+      width: 20
+      height: 20
+    paddingLeft: 0
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: segoe_ui_128_0
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 430
+      width: 1023
+      height: 594
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 430
+      width: 1023
+      height: 594
+    paddingLeft: 0
+    paddingRight: .000977517106
+    paddingTop: 0
+    paddingBottom: .723905742
+  - name: segoe_fixed
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1024
+      width: 1024
+      height: 1024
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1024
+      width: 1024
+      height: 1024
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: segoe_fixed_128
+    outer:
+      serializedVersion: 2
+      x: 1024
+      y: 1024
+      width: 1024
+      height: 1024
+    inner:
+      serializedVersion: 2
+      x: 1024
+      y: 1024
+      width: 1024
+      height: 1024
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: segoe_fixed_alpha
+    outer:
+      serializedVersion: 2
+      x: 1023
+      y: 441
+      width: 1023
+      height: 583
+    inner:
+      serializedVersion: 2
+      x: 1023
+      y: 441
+      width: 1023
+      height: 583
+    paddingLeft: 0
+    paddingRight: .000977517106
+    paddingTop: 0
+    paddingBottom: .756432235
+  mCoordinates: 0
+  mPixelSize: .5
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
