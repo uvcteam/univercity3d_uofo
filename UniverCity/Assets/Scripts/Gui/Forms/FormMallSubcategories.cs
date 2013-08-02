@@ -45,7 +45,7 @@ public class FormMallSubcategories : MonoBehaviour
         public string BottomText;
     }
 
-    const float BUTTON_SPACING = 2.55f;
+    const float BUTTON_SPACING = 2.0f;
 
     // ***************************************************
     // Start [Monobehavior]

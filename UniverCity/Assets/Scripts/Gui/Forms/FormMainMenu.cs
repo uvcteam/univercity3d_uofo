@@ -141,7 +141,6 @@ public class FormMainMenu : MonoBehaviour
 
     void GuiMall()
     {
-        Debug.Log("MALL");
         iTween.MoveTo(Anim, iTween.Hash("x", ScrollSnapPt.position.x, "time", 0.5f));
         mVisible = false;
 

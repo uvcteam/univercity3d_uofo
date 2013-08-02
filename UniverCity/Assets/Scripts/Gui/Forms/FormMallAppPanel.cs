@@ -23,7 +23,7 @@ public class FormMallAppPanel : MonoBehaviour
         public string BottomText;
     }
 
-    const float BUTTON_SPACING = 3.85f;
+    const float BUTTON_SPACING = 3.0f;
 
     // ***************************************************
     // Start [Monobehavior]

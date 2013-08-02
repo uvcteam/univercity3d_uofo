@@ -24,7 +24,7 @@ public class FormMallCategories : MonoBehaviour
         public string BottomText;
     }
 
-    const float BUTTON_SPACING = 2.55f;
+    const float BUTTON_SPACING = 2.0f;
 
     // ***************************************************
     // Start [Monobehavior]
@@ -35,7 +35,8 @@ public class FormMallCategories : MonoBehaviour
         //Hide();
 
         mPivotStartPos = Pivot.position;
-	}
+	    Show();
+    }
 
     void OnEnable()
     {
@@ -61,7 +62,6 @@ public class FormMallCategories : MonoBehaviour
 
     static public void Show(float inOffsetX = 0.0f)
     {
-        Debug.Log("Showing.");
         if (mInstance)
         {
             mInstance.gameObject.SetActiveRecursively(true);
@@ -82,7 +82,6 @@ public class FormMallCategories : MonoBehaviour
     {
         if (inOffsetX != 0.0f)
             Gui.Transition(Anim, inOffsetX);
-        Debug.Log("Showing categories.");
         Pivot.position = mPivotStartPos;
         Vector3 thePos = Pivot.position;
 
