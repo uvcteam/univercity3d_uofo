@@ -39,6 +39,7 @@ public class FlyCam : MonoBehaviour
 	
 	void Update()
 	{
+        /*
         if (Application.loadedLevel != 2)
         {
             Screen.lockCursor = true;
@@ -101,8 +102,9 @@ public class FlyCam : MonoBehaviour
 		p *= Time.deltaTime;
 		f = p.y + transform.position.y;
 		transform.Translate(p);
+        */
         transform.position = new Vector3(transform.position.x,
-                                         Mathf.Clamp(f, minHeight, maxHeight),
+                                         Mathf.Clamp(transform.position.y, minHeight, maxHeight),
                                          transform.position.z);
 	}
 	
