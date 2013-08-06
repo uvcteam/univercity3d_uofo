@@ -39,7 +39,6 @@ public class FlyCam : MonoBehaviour
 	
 	void Update()
 	{
-		/*
         if (Application.loadedLevel != 2)
         {
             Screen.lockCursor = true;
@@ -105,16 +104,6 @@ public class FlyCam : MonoBehaviour
         transform.position = new Vector3(transform.position.x,
                                          Mathf.Clamp(f, minHeight, maxHeight),
                                          transform.position.z);
-		*/
-
-		if (transform.position.y < minHeight)
-			transform.position = new Vector3 (transform.position.x,
-			                                 minHeight,
-			                                 transform.position.z);
-		else if (transform.position.y > maxHeight)
-			transform.position = new Vector3 (transform.position.x,
-			                                  maxHeight,
-			                                  transform.position.z);
 	}
 	
 	Vector3 GetBaseInput()
