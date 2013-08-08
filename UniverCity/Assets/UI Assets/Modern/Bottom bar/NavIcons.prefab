@@ -1,0 +1,260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: NavIcons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
+  m_Name: 
+  material: {fileID: 2100000, guid: 7e8ad44780b95874ea177da374ed846d, type: 2}
+  sprites:
+  - name: virtual_mall
+    outer:
+      serializedVersion: 2
+      x: 411
+      y: 117
+      width: 60
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 411
+      y: 117
+      width: 60
+      height: 56
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .0357142873
+    paddingBottom: .0357142873
+  - name: arcade
+    outer:
+      serializedVersion: 2
+      x: 350
+      y: 115
+      width: 60
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 350
+      y: 115
+      width: 60
+      height: 58
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .0172413792
+    paddingBottom: .0172413792
+  - name: explorer
+    outer:
+      serializedVersion: 2
+      x: 249
+      y: 75
+      width: 60
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 249
+      y: 75
+      width: 60
+      height: 60
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: union_hall
+    outer:
+      serializedVersion: 2
+      x: 402
+      y: 72
+      width: 60
+      height: 42
+    inner:
+      serializedVersion: 2
+      x: 402
+      y: 72
+      width: 60
+      height: 42
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .214285716
+    paddingBottom: .214285716
+  - name: memory_bank
+    outer:
+      serializedVersion: 2
+      x: 350
+      y: 54
+      width: 51
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 350
+      y: 54
+      width: 51
+      height: 60
+    paddingLeft: .0784313753
+    paddingRight: .0980392173
+    paddingTop: 0
+    paddingBottom: 0
+  - name: square
+    outer:
+      serializedVersion: 2
+      x: 249
+      y: 14
+      width: 60
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 249
+      y: 14
+      width: 60
+      height: 60
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: memory_bank@2x
+    outer:
+      serializedVersion: 2
+      x: 249
+      y: 136
+      width: 100
+      height: 120
+    inner:
+      serializedVersion: 2
+      x: 249
+      y: 136
+      width: 100
+      height: 120
+    paddingLeft: .100000001
+    paddingRight: .100000001
+    paddingTop: 0
+    paddingBottom: 0
+  - name: virtual_mall@2x
+    outer:
+      serializedVersion: 2
+      x: 128
+      y: 27
+      width: 120
+      height: 112
+    inner:
+      serializedVersion: 2
+      x: 128
+      y: 27
+      width: 120
+      height: 112
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .0357142873
+    paddingBottom: .0357142873
+  - name: arcade@2x
+    outer:
+      serializedVersion: 2
+      x: 128
+      y: 140
+      width: 120
+      height: 116
+    inner:
+      serializedVersion: 2
+      x: 128
+      y: 140
+      width: 120
+      height: 116
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .0172413792
+    paddingBottom: .0172413792
+  - name: union_hall@2x
+    outer:
+      serializedVersion: 2
+      x: 350
+      y: 174
+      width: 120
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 350
+      y: 174
+      width: 120
+      height: 82
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .23170732
+    paddingBottom: .23170732
+  - name: explorer@2x
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 19
+      width: 120
+      height: 120
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 19
+      width: 120
+      height: 120
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: helv_light_22
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 140
+      width: 127
+      height: 116
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 140
+      width: 127
+      height: 116
+    paddingLeft: 0
+    paddingRight: .00787401572
+    paddingTop: 0
+    paddingBottom: .103448279
+  mCoordinates: 0
+  mPixelSize: 1
+  mReplacement: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
