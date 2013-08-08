@@ -133,10 +133,10 @@ MonoBehaviour:
       height: 60
     inner:
       serializedVersion: 2
-      x: 249
-      y: 14
-      width: 60
-      height: 60
+      x: 254
+      y: 19
+      width: 50
+      height: 50
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0

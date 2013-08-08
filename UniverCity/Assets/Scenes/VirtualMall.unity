@@ -873,6 +873,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 142067329}
   - 114: {fileID: 142067330}
+  - 114: {fileID: 142067331}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -912,7 +913,25 @@ MonoBehaviour:
   cellHeight: 5000
   repositionNow: 0
   sorted: 1
-  hideInactive: 1
+  hideInactive: 0
+--- !u!114 &142067331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 142067328}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
+  m_Name: 
+  showInPanelTool: 1
+  generateNormals: 0
+  depthPass: 0
+  widgetsAreStatic: 0
+  mDebugInfo: 1
+  mClipping: 0
+  mClipRange: {x: 328.649994, y: -780, z: 4096, w: 2048}
+  mClipSoftness: {x: 5000, y: 1}
 --- !u!1 &144713771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1103,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 238193642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 575, y: -1750, z: -100}
+  m_LocalPosition: {x: 700, y: -1750, z: -100}
   m_LocalScale: {x: .5, y: 1, z: 0}
   m_Children:
   - {fileID: 1954336260}
@@ -1120,7 +1139,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64a7aa4060da13044b70e9acd35a323f, type: 3}
   m_Name: 
-  start: {x: 575, y: -1750, z: -100}
+  start: {x: 700, y: -1750, z: -100}
   waitTime: 1
 --- !u!114 &238193646
 MonoBehaviour:
@@ -1318,7 +1337,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309137736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2417.62793, y: 827.378967, z: -99.9997406}
+  m_LocalPosition: {x: -2420, y: 835, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 142067329}
@@ -1329,7 +1348,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 309137736}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
@@ -1360,8 +1379,8 @@ MonoBehaviour:
   widgetsAreStatic: 0
   mDebugInfo: 1
   mClipping: 3
-  mClipRange: {x: 328.649994, y: -1500, z: 4096, w: 2048}
-  mClipSoftness: {x: 3866.55005, y: 99.2699966}
+  mClipRange: {x: 1500, y: -835, z: 1000, w: 2048}
+  mClipSoftness: {x: 1, y: 1}
 --- !u!1 &326163142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1520,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1513,11 +1532,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -.707106829
+      value: .707106829
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .707106829
+      value: -.707106829
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: target
@@ -1598,6 +1617,7 @@ GameObject:
   - 4: {fileID: 353455905}
   - 114: {fileID: 353455907}
   - 65: {fileID: 353455906}
+  - 114: {fileID: 353455908}
   m_Layer: 0
   m_Name: InputBlocker
   m_TagString: Untagged
@@ -1612,8 +1632,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 353455904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1913.77917, y: -.0002784729, z: -9.99936008}
-  m_LocalScale: {x: 1.90647554, y: 1.90647554, z: 1.90647554}
+  m_LocalPosition: {x: 1033.68396, y: .00251276186, z: 0}
+  m_LocalScale: {x: 60, y: 60, z: 1}
   m_Children: []
   m_Father: {fileID: 728476519}
 --- !u!65 &353455906
@@ -1646,6 +1666,23 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 0, w: 0}
   mClipSoftness: {x: 40, y: 40}
+--- !u!114 &353455908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 353455904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
+  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mPivot: 4
+  mDepth: 0
+  mAtlas: {fileID: 11400000, guid: d3856efe75c2b3245a79df4eb4ddc2d6, type: 2}
+  mSpriteName: square
 --- !u!1 &368935743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,7 +1777,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 394034265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1200, y: -0, z: 0}
+  m_LocalPosition: {x: 1800, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1739533450}
@@ -1786,8 +1823,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 512, y: 2048, z: 1}
-  m_Center: {x: 0, y: -780, z: 0}
+  m_Size: {x: 250, y: 2048, z: 1}
+  m_Center: {x: 250, y: -780, z: 0}
 --- !u!1001 &399610924
 Prefab:
   m_ObjectHideFlags: 0
@@ -1834,11 +1871,11 @@ Prefab:
     - target: {fileID: 11400006, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: mMat
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2100000, guid: 7e8ad44780b95874ea177da374ed846d, type: 2}
     - target: {fileID: 11400006, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: mTex
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2800000, guid: df9dc7c779458564fbddb25d73e40f60, type: 3}
     - target: {fileID: 11400008, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: mMat
       value: 
@@ -3355,16 +3392,16 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &728476519
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 728476518}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -225.765411, y: 27.4090672, z: -.852991998}
-  m_LocalScale: {x: .999423981, y: .999423981, z: .999423981}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
+  m_LocalPosition: {x: 1213.98169, y: .000379800797, z: -90}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1562308860}
   - {fileID: 353455905}
@@ -3468,7 +3505,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 759252004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1800, y: -0, z: 0}
+  m_LocalPosition: {x: 2400, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 837371652}
@@ -3514,8 +3551,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 512, y: 2048, z: 1}
-  m_Center: {x: 0, y: -780, z: 0}
+  m_Size: {x: 250, y: 2048, z: 1}
+  m_Center: {x: 250, y: -780, z: 0}
 --- !u!1 &759852024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4721,7 +4758,7 @@ GameObject:
   - 114: {fileID: 985677561}
   - 114: {fileID: 985677560}
   m_Layer: 0
-  m_Name: ScrollPanel(Preferred Businesses
+  m_Name: ScrollPanel(Food)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4751,7 +4788,7 @@ MonoBehaviour:
   m_Name: 
   restrictWithinPanel: 1
   disableDragIfFits: 0
-  dragEffect: 2
+  dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
   momentumAmount: 35
@@ -4773,11 +4810,11 @@ MonoBehaviour:
   showInPanelTool: 1
   generateNormals: 0
   depthPass: 0
-  widgetsAreStatic: 0
+  widgetsAreStatic: 1
   mDebugInfo: 1
-  mClipping: 0
-  mClipRange: {x: 0, y: 0, z: 1536, w: 4096}
-  mClipSoftness: {x: 1, y: 1}
+  mClipping: 1
+  mClipRange: {x: 0, y: -840, z: 1536, w: 2048}
+  mClipSoftness: {x: 1, y: 40}
 --- !u!1 &1006060660
 GameObject:
   m_ObjectHideFlags: 0
@@ -4789,7 +4826,7 @@ GameObject:
   - 114: {fileID: 1006060663}
   - 114: {fileID: 1006060662}
   m_Layer: 0
-  m_Name: ScrollPanel(Preferred Businesses
+  m_Name: ScrollPanel(Cosmetic)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4819,7 +4856,7 @@ MonoBehaviour:
   m_Name: 
   restrictWithinPanel: 1
   disableDragIfFits: 0
-  dragEffect: 2
+  dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
   momentumAmount: 35
@@ -4841,11 +4878,11 @@ MonoBehaviour:
   showInPanelTool: 1
   generateNormals: 0
   depthPass: 0
-  widgetsAreStatic: 0
+  widgetsAreStatic: 1
   mDebugInfo: 1
-  mClipping: 0
-  mClipRange: {x: 0, y: 0, z: 1536, w: 4096}
-  mClipSoftness: {x: 1, y: 1}
+  mClipping: 1
+  mClipRange: {x: 0, y: -840, z: 1536, w: 2048}
+  mClipSoftness: {x: 1, y: 40}
 --- !u!1 &1054501456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,6 +4939,64 @@ MonoBehaviour:
   mEffectDistance: {x: 1, y: 1}
   mLineWidth: 0
   mMultiline: 1
+--- !u!1 &1061593457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1061593458}
+  - 114: {fileID: 1061593459}
+  - 65: {fileID: 1061593460}
+  m_Layer: 0
+  m_Name: SlicedSprite (square)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1061593458
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061593457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 901.848511, y: 0, z: -90}
+  m_LocalScale: {x: 1000, y: 2500, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1724226053}
+--- !u!114 &1061593459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061593457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: 7e8ad44780b95874ea177da374ed846d, type: 2}
+  mTex: {fileID: 2800000, guid: df9dc7c779458564fbddb25d73e40f60, type: 3}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mPivot: 4
+  mDepth: 8
+  mAtlas: {fileID: 11400000, guid: d3856efe75c2b3245a79df4eb4ddc2d6, type: 2}
+  mSpriteName: square
+  mFillCenter: 1
+--- !u!65 &1061593460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1061593457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1067946764
 Prefab:
   m_ObjectHideFlags: 0
@@ -5235,7 +5330,7 @@ MonoBehaviour:
   m_Name: 
   restrictWithinPanel: 1
   disableDragIfFits: 0
-  dragEffect: 2
+  dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
   momentumAmount: 35
@@ -5257,11 +5352,11 @@ MonoBehaviour:
   showInPanelTool: 1
   generateNormals: 0
   depthPass: 0
-  widgetsAreStatic: 0
+  widgetsAreStatic: 1
   mDebugInfo: 1
-  mClipping: 0
-  mClipRange: {x: 0, y: 0, z: 1536, w: 4096}
-  mClipSoftness: {x: 1, y: 1}
+  mClipping: 1
+  mClipRange: {x: 0, y: -840, z: 1536, w: 2048}
+  mClipSoftness: {x: 1, y: 40}
 --- !u!1 &1122681709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,7 +5784,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5885,7 +5980,7 @@ GameObject:
   - 114: {fileID: 1267481502}
   - 114: {fileID: 1267481499}
   m_Layer: 0
-  m_Name: ScrollPanel(Preferred Businesses
+  m_Name: ScrollPanel(A&E)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5903,7 +5998,7 @@ MonoBehaviour:
   m_Name: 
   restrictWithinPanel: 1
   disableDragIfFits: 0
-  dragEffect: 2
+  dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
   momentumAmount: 35
@@ -5937,11 +6032,11 @@ MonoBehaviour:
   showInPanelTool: 1
   generateNormals: 0
   depthPass: 0
-  widgetsAreStatic: 0
+  widgetsAreStatic: 1
   mDebugInfo: 1
-  mClipping: 0
-  mClipRange: {x: 356.270355, y: -1920, z: 1536, w: 4096}
-  mClipSoftness: {x: 1, y: 1}
+  mClipping: 1
+  mClipRange: {x: 0, y: -840, z: 1536, w: 2048}
+  mClipSoftness: {x: 1, y: 40}
 --- !u!1 &1268841519
 GameObject:
   m_ObjectHideFlags: 0
@@ -7374,8 +7469,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 512, y: 2048, z: 1}
-  m_Center: {x: 0, y: -780, z: 0}
+  m_Size: {x: 250, y: 2048, z: 1}
+  m_Center: {x: 250, y: -780, z: 0}
 --- !u!1 &1412817757
 GameObject:
   m_ObjectHideFlags: 0
@@ -7719,8 +7814,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 512, y: 2048, z: 1}
-  m_Center: {x: 0, y: -780, z: 0}
+  m_Size: {x: 250, y: 2048, z: 1}
+  m_Center: {x: 250, y: -780, z: 0}
 --- !u!1001 &1508418338
 Prefab:
   m_ObjectHideFlags: 0
@@ -7846,8 +7941,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
   m_PrefabInternal: {fileID: 337540823}
   m_GameObject: {fileID: 1518131544}
-  m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
-  m_LocalPosition: {x: 0, y: -640, z: -1}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: -.707106829}
+  m_LocalPosition: {x: 0, y: -640, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 2003713071}
@@ -8311,8 +8406,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1562308859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1705.6134, y: -3.81469727e-06, z: -9.99936008}
-  m_LocalScale: {x: 2.56755567, y: 2.56755567, z: 2.56755567}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 2.56755567}
   m_Children: []
   m_Father: {fileID: 728476519}
 --- !u!65 &1562308861
@@ -8325,7 +8420,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1000, y: 1500, z: 0}
+  m_Size: {x: 1000, y: 0, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1562308862
 MonoBehaviour:
@@ -9164,9 +9259,10 @@ Transform:
   m_LocalPosition: {x: 225.765747, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1268841520}
   - {fileID: 728476519}
+  - {fileID: 1268841520}
   - {fileID: 1753800796}
+  - {fileID: 1061593458}
   - {fileID: 238193643}
   - {fileID: 309137737}
   m_Father: {fileID: 1353330171}
@@ -9487,7 +9583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1753800796
 Transform:
   m_ObjectHideFlags: 0
@@ -9496,7 +9592,7 @@ Transform:
   m_GameObject: {fileID: 1753800795}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: -.707106829}
   m_LocalPosition: {x: 900, y: 100, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_LocalScale: {x: 60, y: 60, z: 1}
   m_Children: []
   m_Father: {fileID: 1724226053}
 --- !u!114 &1753800797
@@ -9509,12 +9605,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: b8cd25dadf44f6441be4054f2a8a357f, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 0
-  mFont: {fileID: 11400000, guid: 8b7b9271ac707ba46a18636705ef4608, type: 2}
+  mFont: {fileID: 11400000, guid: faf47fc355794874aa76474d61e76cca, type: 2}
   mText: Preferred Businesses
   mMaxLineWidth: 0
   mEncoding: 1
@@ -10078,7 +10174,7 @@ Transform:
   m_PrefabInternal: {fileID: 1206206718}
   m_GameObject: {fileID: 1818969694}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: -.707106829}
-  m_LocalPosition: {x: 0, y: -0, z: -1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1969121003}
@@ -10212,7 +10308,7 @@ GameObject:
   - 114: {fileID: 1843934860}
   - 114: {fileID: 1843934859}
   m_Layer: 0
-  m_Name: ScrollPanel(Preferred Businesses
+  m_Name: ScrollPanel(Travel)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10242,7 +10338,7 @@ MonoBehaviour:
   m_Name: 
   restrictWithinPanel: 1
   disableDragIfFits: 0
-  dragEffect: 2
+  dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
   momentumAmount: 35
@@ -10264,11 +10360,11 @@ MonoBehaviour:
   showInPanelTool: 1
   generateNormals: 0
   depthPass: 0
-  widgetsAreStatic: 0
+  widgetsAreStatic: 1
   mDebugInfo: 1
-  mClipping: 0
-  mClipRange: {x: 0, y: 0, z: 1536, w: 4096}
-  mClipSoftness: {x: 1, y: 1}
+  mClipping: 1
+  mClipRange: {x: 0, y: -840, z: 1536, w: 2048}
+  mClipSoftness: {x: 1, y: 40}
 --- !u!1 &1872805717
 GameObject:
   m_ObjectHideFlags: 0
@@ -10946,7 +11042,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1970214866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 600, y: -0, z: 0}
+  m_LocalPosition: {x: 1200, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1421571052}
@@ -10992,8 +11088,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 512, y: 2048, z: 1}
-  m_Center: {x: 0, y: -780, z: 0}
+  m_Size: {x: 250, y: 2048, z: 1}
+  m_Center: {x: 250, y: -780, z: 0}
 --- !u!1001 &1972276291
 Prefab:
   m_ObjectHideFlags: 0
