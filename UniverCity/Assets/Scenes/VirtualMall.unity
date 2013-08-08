@@ -1834,11 +1834,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1546.66675
+      value: -1542.979
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -795.733337
+      value: -795.50415
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4787,7 +4787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
@@ -4855,7 +4855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
@@ -5329,7 +5329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
@@ -5997,7 +5997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
@@ -6761,7 +6761,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353330169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13333344, y: 2.13333344, z: 0}
+  m_LocalPosition: {x: -3.38372588, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1724226053}
@@ -8534,7 +8534,7 @@ Transform:
   m_PrefabInternal: {fileID: 399610924}
   m_GameObject: {fileID: 1617793462}
   m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
-  m_LocalPosition: {x: -1546.66675, y: -795.733337, z: 0}
+  m_LocalPosition: {x: -1542.979, y: -795.50415, z: 0}
   m_LocalScale: {x: 1846.08459, y: 1846.08459, z: 1846.08459}
   m_Children:
   - {fileID: 1412817758}
@@ -10337,7 +10337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
