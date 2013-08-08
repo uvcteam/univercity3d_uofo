@@ -16,8 +16,6 @@ public class UnionHallBrowseSearch : MonoBehaviour
     public string currentCategory = "";
     public UILabel pageLabel = null;
 
-    public GameObject PreviousPanel;
-
     void OnDisable()
     {
         foreach (Transform child in scrollPanel)
@@ -26,29 +24,32 @@ public class UnionHallBrowseSearch : MonoBehaviour
 
     void OnEnable()
     {
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = returnTo;
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = gameObject;
+
         foreach (Transform child in scrollPanel)
                 DestroyImmediate(child.gameObject);
 
         manager = GameObject.Find("EventManager").GetComponent<EventManager>();
         if (currentCategory == "")
         {
-            pageLabel.text = "All Engagements";
+            GameObject.Find("PageName").GetComponent<UILabel>().text = "All Engagements";
             foreach (UnionHallEvent ev in manager.events)
             {
                 Transform newEvent = Instantiate(eventButton, buttonTransform.position, buttonTransform.rotation) as Transform;
                 newEvent.Find("EventName").GetComponent<UILabel>().text = ev.Title;
                 newEvent.Find("EventDateTime").GetComponent<UILabel>().text = ev.GetEventDateTime();
-                newEvent.parent = scrollPanel;
+                newEvent.parent = scrollPanel.Find("Grid");
                 newEvent.localScale = buttonTransform.localScale;
                 newEvent.GetComponent<UIDragPanelContents>().draggablePanel = scrollPanel.GetComponent<UIDraggablePanel>();
                 newEvent.GetComponent<UIButtonMessage>().target = gameObject;
                 newEvent.gameObject.name = "Event";
-                scrollPanel.GetComponent<UIGrid>().Reposition();
+                scrollPanel.Find("Grid").GetComponent<UIGrid>().Reposition();
             }
         }
         else if (manager.eventsByCategory.ContainsKey(currentCategory))
         {
-            pageLabel.text = currentCategory;
+            GameObject.Find("PageName").GetComponent<UILabel>().text = currentCategory;
             foreach (UnionHallEvent ev in manager.eventsByCategory[currentCategory])
             {
                 Transform newEvent = Instantiate(eventButton, buttonTransform.position, buttonTransform.rotation) as Transform;
@@ -63,7 +64,7 @@ public class UnionHallBrowseSearch : MonoBehaviour
             }
         }
         else
-            pageLabel.text = currentCategory;
+            GameObject.Find("PageName").GetComponent<UILabel>().text = currentCategory;
 
         scrollPanel.GetComponent<UIGrid>().Reposition();
     }
@@ -76,6 +77,8 @@ public class UnionHallBrowseSearch : MonoBehaviour
 
     void OnSearchClicked()
     {
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = gameObject;
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = search;
         search.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }

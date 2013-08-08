@@ -13,16 +13,36 @@ public class UnionHallMainMenu : MonoBehaviour
     public GameObject editEvent = null;
     public GameObject cancelWithdraw = null;
 
+    private TopBarManager _topBar = null;
+
+    void Start()
+    {
+        _topBar = GameObject.Find("TopAnchor").GetComponent<TopBarManager>();
+        _topBar.gameObject.SetActiveRecursively(false);
+    }
+
     void OnInvitationInboxClicked()
     {
+        _topBar.prevPanel = gameObject;
+        _topBar.currentPanel = invitationInbox;
+        _topBar.gameObject.SetActiveRecursively(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Invitation Inbox";
+
         invitationInbox.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }
 
     void OnBrowseSearchClicked()
     {
-        browseSearch.GetComponent<UnionHallBrowseSearch>().returnTo = gameObject;
+        _topBar.prevPanel = gameObject;
+        _topBar.currentPanel = browseSearch;
+        _topBar.gameObject.SetActiveRecursively(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Browse/Search";
+
         browseSearch.GetComponent<UnionHallBrowseSearch>().currentCategory = "";
+        browseSearch.GetComponent<UnionHallBrowseSearch>().returnTo = gameObject;
         browseSearch.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }

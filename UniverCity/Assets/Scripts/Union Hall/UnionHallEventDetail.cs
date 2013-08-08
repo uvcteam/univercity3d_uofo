@@ -21,7 +21,7 @@ public class UnionHallEventDetail : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
+        //returnTo.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }
 

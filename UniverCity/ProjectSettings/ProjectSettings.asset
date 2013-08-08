@@ -61,10 +61,10 @@ PlayerSettings:
     width: 0
     height: 0
   m_SupportedAspectRatios:
-    4:3: 0
+    4:3: 1
     5:4: 0
     16:10: 0
-    16:9: 1
+    16:9: 0
     Others: 0
   iPhoneBundleIdentifier: com.jpthomas.uvc
   iPhoneBundleVersion: 0.6

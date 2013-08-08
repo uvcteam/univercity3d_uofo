@@ -34,7 +34,7 @@ public class UnionHallInvitationInbox : MonoBehaviour
 
             eventDetail.GetComponent<UnionHallEventDetail>().returnTo = gameObject;
             eventDetail.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            //gameObject.SetActiveRecursively(false);
         }
     }
 }

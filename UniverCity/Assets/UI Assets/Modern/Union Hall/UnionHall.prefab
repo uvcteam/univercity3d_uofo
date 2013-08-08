@@ -144,13 +144,13 @@ MonoBehaviour:
   - name: helv_bold_30
     outer:
       serializedVersion: 2
-      x: 0
+      x: 256
       y: 345
       width: 255
       height: 102
     inner:
       serializedVersion: 2
-      x: 0
+      x: 256
       y: 345
       width: 255
       height: 102
@@ -158,6 +158,108 @@ MonoBehaviour:
     paddingRight: .00392156886
     paddingTop: 0
     paddingBottom: .254901975
+  - name: back_button
+    outer:
+      serializedVersion: 2
+      x: 256
+      y: 218
+      width: 126
+      height: 126
+    inner:
+      serializedVersion: 2
+      x: 256
+      y: 218
+      width: 126
+      height: 126
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: helv_thin_44
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 263
+      width: 255
+      height: 184
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 263
+      width: 255
+      height: 184
+    paddingLeft: 0
+    paddingRight: .00392156886
+    paddingTop: 0
+    paddingBottom: .391304344
+  - name: helv_thin_44_alpha
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 78
+      width: 255
+      height: 184
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 78
+      width: 255
+      height: 184
+    paddingLeft: 0
+    paddingRight: .00392156886
+    paddingTop: 0
+    paddingBottom: .391304344
+  - name: delete_button
+    outer:
+      serializedVersion: 2
+      x: 256
+      y: 117
+      width: 102
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 256
+      y: 117
+      width: 102
+      height: 100
+    paddingLeft: .117647059
+    paddingRight: .117647059
+    paddingTop: .129999995
+    paddingBottom: .129999995
+  - name: share_button
+    outer:
+      serializedVersion: 2
+      x: 383
+      y: 228
+      width: 126
+      height: 116
+    inner:
+      serializedVersion: 2
+      x: 383
+      y: 228
+      width: 126
+      height: 116
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .043103449
+    paddingBottom: .043103449
+  - name: join_button
+    outer:
+      serializedVersion: 2
+      x: 256
+      y: 18
+      width: 100
+      height: 98
+    inner:
+      serializedVersion: 2
+      x: 256
+      y: 18
+      width: 100
+      height: 98
+    paddingLeft: .129999995
+    paddingRight: .129999995
+    paddingTop: .142857149
+    paddingBottom: .142857149
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
