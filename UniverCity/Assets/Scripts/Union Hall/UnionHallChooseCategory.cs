@@ -56,12 +56,12 @@ public class UnionHallChooseCategory : MonoBehaviour
         {
             Transform newCat = Instantiate(catButton, buttonTransform.position, buttonTransform.rotation) as Transform;
             newCat.Find("CategoryName").GetComponent<UILabel>().text = cat.Name;
-            newCat.parent = scrollPanel;
+            newCat.parent = scrollPanel.Find("Grid");
             newCat.localScale = buttonTransform.localScale;
             newCat.GetComponent<UIDragPanelContents>().draggablePanel = scrollPanel.GetComponent<UIDraggablePanel>();
             newCat.GetComponent<UIButtonMessage>().target = gameObject;
             newCat.gameObject.name = "btn Category";
-            scrollPanel.GetComponent<UIGrid>().Reposition();
+            scrollPanel.Find("Grid").GetComponent<UIGrid>().Reposition();
             
             if (newEvent.interests.Contains(cat.Id))
                 newCat.Find("Background").GetComponent<UISlicedSprite>().color = Color.red;
@@ -92,7 +92,7 @@ public class UnionHallChooseCategory : MonoBehaviour
                     if (!newEvent.interests.Contains(cat.Id))
                     {
                         newEvent.interests.Add(cat.Id);
-                        background.color = Color.red;
+                        background.color = new Color(0.49f, 0.78f, 0.20f, 1.0f);
                     }
                     else
                     {

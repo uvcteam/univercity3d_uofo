@@ -19,6 +19,9 @@ public class UnionHallCancel : MonoBehaviour
 
     void OnEnable()
     {
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = returnTo;
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = gameObject;
+
         foreach (Transform child in scrollPanel)
             DestroyImmediate(child.gameObject);
 
@@ -65,7 +68,7 @@ public class UnionHallCancel : MonoBehaviour
             }
 
             cancelDetail.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            //gameObject.SetActiveRecursively(false);
         }
     }
 }

@@ -23,7 +23,7 @@ public class UnionHallCancelDetail : MonoBehaviour
     void OnBackClicked()
     {
         returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        //gameObject.SetActiveRecursively(false);
     }
 
     void OnContinueClicked()

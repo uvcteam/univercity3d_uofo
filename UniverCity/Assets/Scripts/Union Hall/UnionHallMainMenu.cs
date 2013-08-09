@@ -13,19 +13,19 @@ public class UnionHallMainMenu : MonoBehaviour
     public GameObject editEvent = null;
     public GameObject cancelWithdraw = null;
 
-    private TopBarManager _topBar = null;
+    public TopBarManager topBar = null;
 
     void Start()
     {
-        _topBar = GameObject.Find("TopAnchor").GetComponent<TopBarManager>();
-        _topBar.gameObject.SetActiveRecursively(false);
+        topBar = GameObject.Find("TopAnchor").GetComponent<TopBarManager>();
+        topBar.gameObject.SetActiveRecursively(false);
     }
 
     void OnInvitationInboxClicked()
     {
-        _topBar.prevPanel = gameObject;
-        _topBar.currentPanel = invitationInbox;
-        _topBar.gameObject.SetActiveRecursively(true);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = invitationInbox;
+        topBar.gameObject.SetActiveRecursively(true);
 
         GameObject.Find("PageName").GetComponent<UILabel>().text = "Invitation Inbox";
 
@@ -35,9 +35,9 @@ public class UnionHallMainMenu : MonoBehaviour
 
     void OnBrowseSearchClicked()
     {
-        _topBar.prevPanel = gameObject;
-        _topBar.currentPanel = browseSearch;
-        _topBar.gameObject.SetActiveRecursively(true);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = browseSearch;
+        topBar.gameObject.SetActiveRecursively(true);
 
         GameObject.Find("PageName").GetComponent<UILabel>().text = "Browse/Search";
 
@@ -48,6 +48,12 @@ public class UnionHallMainMenu : MonoBehaviour
     }
     void OnCreateClicked()
     {
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = createEvent;
+        topBar.gameObject.SetActiveRecursively(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Create Event";
+
         createEvent.SetActiveRecursively(true);
         createEvent.GetComponent<UnionHallCreateEngagement>().NewEvent();
         gameObject.SetActiveRecursively(false);
@@ -55,12 +61,24 @@ public class UnionHallMainMenu : MonoBehaviour
 
     void OnEditClicked()
     {
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = editEvent;
+        topBar.gameObject.SetActiveRecursively(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Edit";
+
         editEvent.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }
 
     void OnCancelWithdrawClicked()
     {
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = cancelWithdraw;
+        topBar.gameObject.SetActiveRecursively(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Cancel/Withdraw";
+
         cancelWithdraw.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }

@@ -46,12 +46,12 @@ public class UnionHallSearch : MonoBehaviour
         {
             Transform newCat = Instantiate(catButton, buttonTransform.position, buttonTransform.rotation) as Transform;
             newCat.Find("CategoryName").GetComponent<UILabel>().text = cat.Name;
-            newCat.parent = scrollPanel;
+            newCat.parent = scrollPanel.Find("Grid");
             newCat.localScale = buttonTransform.localScale;
             newCat.GetComponent<UIDragPanelContents>().draggablePanel = scrollPanel.GetComponent<UIDraggablePanel>();
             newCat.GetComponent<UIButtonMessage>().target = gameObject;
             newCat.gameObject.name = "btn Category";
-            scrollPanel.GetComponent<UIGrid>().Reposition();
+            scrollPanel.Find("Grid").GetComponent<UIGrid>().Reposition();
         }
     }
 

@@ -8,7 +8,7 @@ public class UnionHallWithdrawDetail : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
+        //returnTo.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }
 

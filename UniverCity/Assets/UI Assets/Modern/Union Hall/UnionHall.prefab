@@ -42,14 +42,14 @@ MonoBehaviour:
   - name: browse-search
     outer:
       serializedVersion: 2
-      x: 2561
-      y: 1536
+      x: 3074
+      y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
-      y: 1536
+      x: 3074
+      y: 3584
       width: 512
       height: 512
     paddingLeft: 0
@@ -59,14 +59,14 @@ MonoBehaviour:
   - name: edit
     outer:
       serializedVersion: 2
-      x: 3074
-      y: 1536
+      x: 2561
+      y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 3074
-      y: 1536
+      x: 2561
+      y: 3071
       width: 512
       height: 512
     paddingLeft: 0
@@ -77,13 +77,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 448
+      y: 2496
       width: 2560
       height: 1600
     inner:
       serializedVersion: 2
       x: 0
-      y: 448
+      y: 2496
       width: 2560
       height: 1600
     paddingLeft: 0
@@ -94,13 +94,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2561
-      y: 1023
+      y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 2561
-      y: 1023
+      y: 2558
       width: 512
       height: 512
     paddingLeft: 0
@@ -111,13 +111,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 3074
-      y: 1023
+      y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 3074
-      y: 1023
+      y: 3071
       width: 512
       height: 512
     paddingLeft: 0
@@ -127,14 +127,14 @@ MonoBehaviour:
   - name: create
     outer:
       serializedVersion: 2
-      x: 2561
-      y: 510
+      x: 3074
+      y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
-      y: 510
+      x: 3074
+      y: 2558
       width: 512
       height: 512
     paddingLeft: 0
@@ -144,14 +144,14 @@ MonoBehaviour:
   - name: helv_bold_30
     outer:
       serializedVersion: 2
-      x: 256
-      y: 345
+      x: 3587
+      y: 3624
       width: 255
       height: 102
     inner:
       serializedVersion: 2
-      x: 256
-      y: 345
+      x: 3587
+      y: 3624
       width: 255
       height: 102
     paddingLeft: 0
@@ -161,14 +161,14 @@ MonoBehaviour:
   - name: back_button
     outer:
       serializedVersion: 2
-      x: 256
-      y: 218
+      x: 3843
+      y: 3970
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 256
-      y: 218
+      x: 3843
+      y: 3970
       width: 126
       height: 126
     paddingLeft: 0
@@ -178,14 +178,14 @@ MonoBehaviour:
   - name: helv_thin_44
     outer:
       serializedVersion: 2
-      x: 0
-      y: 263
+      x: 3587
+      y: 3912
       width: 255
       height: 184
     inner:
       serializedVersion: 2
-      x: 0
-      y: 263
+      x: 3587
+      y: 3912
       width: 255
       height: 184
     paddingLeft: 0
@@ -195,14 +195,14 @@ MonoBehaviour:
   - name: helv_thin_44_alpha
     outer:
       serializedVersion: 2
-      x: 0
-      y: 78
+      x: 3587
+      y: 3727
       width: 255
       height: 184
     inner:
       serializedVersion: 2
-      x: 0
-      y: 78
+      x: 3587
+      y: 3727
       width: 255
       height: 184
     paddingLeft: 0
@@ -212,14 +212,14 @@ MonoBehaviour:
   - name: delete_button
     outer:
       serializedVersion: 2
-      x: 256
-      y: 117
+      x: 3970
+      y: 3996
       width: 102
       height: 100
     inner:
       serializedVersion: 2
-      x: 256
-      y: 117
+      x: 3970
+      y: 3996
       width: 102
       height: 100
     paddingLeft: .117647059
@@ -229,14 +229,14 @@ MonoBehaviour:
   - name: share_button
     outer:
       serializedVersion: 2
-      x: 383
-      y: 228
+      x: 3843
+      y: 3668
       width: 126
       height: 116
     inner:
       serializedVersion: 2
-      x: 383
-      y: 228
+      x: 3843
+      y: 3668
       width: 126
       height: 116
     paddingLeft: 0
@@ -246,20 +246,139 @@ MonoBehaviour:
   - name: join_button
     outer:
       serializedVersion: 2
-      x: 256
-      y: 18
+      x: 3970
+      y: 3813
       width: 100
       height: 98
     inner:
       serializedVersion: 2
-      x: 256
-      y: 18
+      x: 3970
+      y: 3813
       width: 100
       height: 98
     paddingLeft: .129999995
     paddingRight: .129999995
     paddingTop: .142857149
     paddingBottom: .142857149
+  - name: ok_button
+    outer:
+      serializedVersion: 2
+      x: 3843
+      y: 3785
+      width: 126
+      height: 126
+    inner:
+      serializedVersion: 2
+      x: 3843
+      y: 3785
+      width: 126
+      height: 126
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: warning_icon
+    outer:
+      serializedVersion: 2
+      x: 3587
+      y: 3467
+      width: 126
+      height: 116
+    inner:
+      serializedVersion: 2
+      x: 3587
+      y: 3467
+      width: 126
+      height: 116
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: .043103449
+    paddingBottom: .043103449
+  - name: withdraw
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1983
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1983
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: cancel
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1470
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1470
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: settings
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 957
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 957
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: choose_categories
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 444
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 444
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: save
+    outer:
+      serializedVersion: 2
+      x: 2561
+      y: 3584
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 2561
+      y: 3584
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

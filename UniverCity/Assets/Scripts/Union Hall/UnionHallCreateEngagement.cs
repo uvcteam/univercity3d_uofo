@@ -24,6 +24,11 @@ public class UnionHallCreateEngagement : MonoBehaviour
     private bool newEvent = true;
     private string errorMessage = "";
 
+    void OnEnable()
+    {
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Create Engagement";
+    }
+
     void OnEngagementSettingsClicked()
     {
         engagementSettings.SetActiveRecursively(true);
@@ -79,6 +84,7 @@ public class UnionHallCreateEngagement : MonoBehaviour
 
         settingsSet = false;
         newEvent = true;
+        create.isEnabled = false;
     }
 
     public void SettingsSet()

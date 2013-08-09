@@ -40,10 +40,10 @@ MonoBehaviour:
   mMat: {fileID: 2100000, guid: b8cd25dadf44f6441be4054f2a8a357f, type: 2}
   mUVRect:
     serializedVersion: 2
-    x: .0625
-    y: .769042969
+    x: .875732422
+    y: .083984375
     width: .0625
-    height: .0625
+    height: .03125
   mFont:
     mGlyphs: []
     mSize: 30
