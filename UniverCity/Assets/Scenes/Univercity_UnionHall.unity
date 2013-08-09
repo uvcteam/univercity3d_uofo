@@ -24137,6 +24137,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2180914e520806408bcf791ef597812, type: 3}
   m_Name: 
+  homePanel: {fileID: 418283496}
   currentPanel: {fileID: 0}
   prevPanel: {fileID: 0}
 --- !u!114 &1799957806
