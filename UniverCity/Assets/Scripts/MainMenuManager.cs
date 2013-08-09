@@ -56,11 +56,11 @@ public class MainMenuManager : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("SignedIn", 1);
+        Application.LoadLevel(4);
 
-
-        signedInPanel.GetComponent<TweenPosition>().Play(true);
-        loginPanel.GetComponent<TweenPosition>().Play(false);
-        adUpdatePanel.GetComponent<TweenPosition>().Play(true);
+        //signedInPanel.GetComponent<TweenPosition>().Play(true);
+        //loginPanel.GetComponent<TweenPosition>().Play(false);
+        //adUpdatePanel.GetComponent<TweenPosition>().Play(true);
 
     }
 

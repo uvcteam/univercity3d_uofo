@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: NavIcons
+  m_Name: MemoryBank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,257 +37,240 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d0c51bb0b6e93049af5e88f93826e3b, type: 3}
   m_Name: 
-  material: {fileID: 2100000, guid: 7e8ad44780b95874ea177da374ed846d, type: 2}
+  material: {fileID: 2100000, guid: f7da0c88c1f74d842a052101c6b53b1c, type: 2}
   sprites:
-  - name: virtual_mall
+  - name: preferences
     outer:
       serializedVersion: 2
-      x: 958
-      y: 847
-      width: 60
-      height: 56
+      x: 3074
+      y: 3584
+      width: 512
+      height: 512
     inner:
       serializedVersion: 2
-      x: 958
-      y: 847
-      width: 60
-      height: 56
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0357142873
-    paddingBottom: .0357142873
-  - name: arcade
-    outer:
-      serializedVersion: 2
-      x: 897
-      y: 845
-      width: 60
-      height: 58
-    inner:
-      serializedVersion: 2
-      x: 897
-      y: 845
-      width: 60
-      height: 58
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0172413792
-    paddingBottom: .0172413792
-  - name: explorer
-    outer:
-      serializedVersion: 2
-      x: 769
-      y: 847
-      width: 60
-      height: 60
-    inner:
-      serializedVersion: 2
-      x: 769
-      y: 847
-      width: 60
-      height: 60
+      x: 3074
+      y: 3584
+      width: 512
+      height: 512
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: union_hall
-    outer:
-      serializedVersion: 2
-      x: 686
-      y: 581
-      width: 60
-      height: 42
-    inner:
-      serializedVersion: 2
-      x: 686
-      y: 581
-      width: 60
-      height: 42
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .214285716
-    paddingBottom: .214285716
   - name: memory_bank
     outer:
       serializedVersion: 2
-      x: 634
-      y: 563
-      width: 51
-      height: 60
+      x: 0
+      y: 2496
+      width: 2560
+      height: 1600
     inner:
       serializedVersion: 2
-      x: 634
-      y: 563
-      width: 51
-      height: 60
-    paddingLeft: .0784313753
-    paddingRight: .0980392173
+      x: 0
+      y: 2496
+      width: 2560
+      height: 1600
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: journal_vault
+    outer:
+      serializedVersion: 2
+      x: 2561
+      y: 3071
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 2561
+      y: 3071
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: private_journal
+    outer:
+      serializedVersion: 2
+      x: 2561
+      y: 2558
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 2561
+      y: 2558
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: invite
+    outer:
+      serializedVersion: 2
+      x: 3074
+      y: 3071
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 3074
+      y: 3071
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: notifications_new
+    outer:
+      serializedVersion: 2
+      x: 3074
+      y: 2558
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 3074
+      y: 2558
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: notifications
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1983
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1983
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: help
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1470
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1470
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: vaults
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 957
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 957
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: photo_vault
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 444
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 444
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: video_vault
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 1983
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 1983
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: profile_placeholder
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 1470
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 1470
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
   - name: square
     outer:
       serializedVersion: 2
-      x: 830
-      y: 847
+      x: 3587
+      y: 4036
       width: 60
       height: 60
     inner:
       serializedVersion: 2
-      x: 835
-      y: 852
+      x: 3592
+      y: 4041
       width: 50
       height: 50
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: memory_bank@2x
+  - name: sign_out
     outer:
       serializedVersion: 2
-      x: 769
-      y: 719
-      width: 100
-      height: 120
-    inner:
-      serializedVersion: 2
-      x: 769
-      y: 719
-      width: 100
-      height: 120
-    paddingLeft: .100000001
-    paddingRight: .100000001
-    paddingTop: 0
-    paddingBottom: 0
-  - name: virtual_mall@2x
-    outer:
-      serializedVersion: 2
-      x: 634
-      y: 624
-      width: 120
-      height: 112
-    inner:
-      serializedVersion: 2
-      x: 634
-      y: 624
-      width: 120
-      height: 112
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0357142873
-    paddingBottom: .0357142873
-  - name: arcade@2x
-    outer:
-      serializedVersion: 2
-      x: 513
-      y: 620
-      width: 120
-      height: 116
-    inner:
-      serializedVersion: 2
-      x: 513
-      y: 620
-      width: 120
-      height: 116
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .0172413792
-    paddingBottom: .0172413792
-  - name: union_hall@2x
-    outer:
-      serializedVersion: 2
-      x: 513
-      y: 537
-      width: 120
-      height: 82
-    inner:
-      serializedVersion: 2
-      x: 513
-      y: 537
-      width: 120
-      height: 82
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: .23170732
-    paddingBottom: .23170732
-  - name: explorer@2x
-    outer:
-      serializedVersion: 2
-      x: 897
-      y: 904
-      width: 120
-      height: 120
-    inner:
-      serializedVersion: 2
-      x: 897
-      y: 904
-      width: 120
-      height: 120
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: helv_light_22
-    outer:
-      serializedVersion: 2
-      x: 769
-      y: 908
-      width: 127
-      height: 116
-    inner:
-      serializedVersion: 2
-      x: 769
-      y: 908
-      width: 127
-      height: 116
-    paddingLeft: 0
-    paddingRight: .00787401572
-    paddingTop: 0
-    paddingBottom: .103448279
-  - name: helv_bold_30
-    outer:
-      serializedVersion: 2
-      x: 513
-      y: 737
-      width: 255
-      height: 102
-    inner:
-      serializedVersion: 2
-      x: 513
-      y: 737
-      width: 255
-      height: 102
-    paddingLeft: 0
-    paddingRight: .00392156886
-    paddingTop: 0
-    paddingBottom: .254901975
-  - name: helv_thin_44_alpha
-    outer:
-      serializedVersion: 2
-      x: 513
-      y: 840
-      width: 255
-      height: 184
-    inner:
-      serializedVersion: 2
-      x: 513
-      y: 840
-      width: 255
-      height: 184
-    paddingLeft: 0
-    paddingRight: .00392156886
-    paddingTop: 0
-    paddingBottom: .391304344
-  - name: sign_in
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 512
+      x: 2561
+      y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 512
+      x: 2561
+      y: 3584
       width: 512
       height: 512
     paddingLeft: 0

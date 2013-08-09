@@ -7,9 +7,15 @@ public class MemoryBank : MonoBehaviour
     public GameObject NotificationPanel = null;
     public GameObject EntriesPanel = null;
 
+    void OnEnable()
+    {
+        if (!PlayerPrefs.HasKey("SignedIn") || PlayerPrefs.GetInt("SignedIn") == 0)
+            Application.LoadLevel(0);
+    }
+
     void OnJournalClicked()
     {
-        JournalPanel.SetActiveRecursively(true);
+        EntriesPanel.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }
 
@@ -29,12 +35,6 @@ public class MemoryBank : MonoBehaviour
         Debug.Log("Open Video Vault");
     }
 
-    void OnJournalVaultClicked()
-    {
-        EntriesPanel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
-    }
-
     void OnPreferencesClicked()
     {
         Debug.Log("Open Preferences");
@@ -50,9 +50,9 @@ public class MemoryBank : MonoBehaviour
         Debug.Log("Open Help");
     }
 
-    void OnBackClicked()
+    void OnSignOutClicked()
     {
-        gameObject.SetActiveRecursively(false);
+        PlayerPrefs.SetInt("SignedIn", 0);
         Application.LoadLevel(0);
     }
 }
