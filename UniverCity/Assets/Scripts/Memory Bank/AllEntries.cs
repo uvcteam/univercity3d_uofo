@@ -4,6 +4,12 @@ using System.Collections;
 public class AllEntries : MonoBehaviour 
 {
     public GameObject PreviousPanel;
+    public GameObject entryPanel;
+
+    void OnEnable()
+    {
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Private Journal";
+    }
 
     void OnAllEntriesClicked()
     {
@@ -12,33 +18,16 @@ public class AllEntries : MonoBehaviour
 
     void OnNewEntryClicked()
     {
-        Debug.Log("New entry.");
-    }
-
-    void OnAddPhotoClicked()
-    {
-        Debug.Log("Add photo.");
-    }
-
-    void OnAddVideoClicked()
-    {
-        Debug.Log("Add video.");
-    }
-
-    void OnSaveEntryClicked()
-    {
-        Debug.Log("Save entry.");
-    }
-
-    void OnLastEntryClicked()
-    {
-        Debug.Log("Last entry.");
+        entryPanel.SetActiveRecursively(true);
+        gameObject.SetActiveRecursively(false);
     }
 
     void OnEntryClicked()
     {
         Debug.Log("Load this entry.");
     }
+
+
 
     void OnBackClicked()
     {

@@ -43,13 +43,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 958
-      y: 847
+      y: 1871
       width: 60
       height: 56
     inner:
       serializedVersion: 2
       x: 958
-      y: 847
+      y: 1871
       width: 60
       height: 56
     paddingLeft: 0
@@ -60,13 +60,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 897
-      y: 845
+      y: 1869
       width: 60
       height: 58
     inner:
       serializedVersion: 2
       x: 897
-      y: 845
+      y: 1869
       width: 60
       height: 58
     paddingLeft: 0
@@ -77,13 +77,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 769
-      y: 847
+      y: 1871
       width: 60
       height: 60
     inner:
       serializedVersion: 2
       x: 769
-      y: 847
+      y: 1871
       width: 60
       height: 60
     paddingLeft: 0
@@ -94,13 +94,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 686
-      y: 581
+      y: 1605
       width: 60
       height: 42
     inner:
       serializedVersion: 2
       x: 686
-      y: 581
+      y: 1605
       width: 60
       height: 42
     paddingLeft: 0
@@ -111,13 +111,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 634
-      y: 563
+      y: 1587
       width: 51
       height: 60
     inner:
       serializedVersion: 2
       x: 634
-      y: 563
+      y: 1587
       width: 51
       height: 60
     paddingLeft: .0784313753
@@ -128,13 +128,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 830
-      y: 847
+      y: 1871
       width: 60
       height: 60
     inner:
       serializedVersion: 2
       x: 835
-      y: 852
+      y: 1876
       width: 50
       height: 50
     paddingLeft: 0
@@ -145,13 +145,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 769
-      y: 719
+      y: 1743
       width: 100
       height: 120
     inner:
       serializedVersion: 2
       x: 769
-      y: 719
+      y: 1743
       width: 100
       height: 120
     paddingLeft: .100000001
@@ -162,13 +162,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 634
-      y: 624
+      y: 1648
       width: 120
       height: 112
     inner:
       serializedVersion: 2
       x: 634
-      y: 624
+      y: 1648
       width: 120
       height: 112
     paddingLeft: 0
@@ -179,13 +179,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 620
+      y: 1644
       width: 120
       height: 116
     inner:
       serializedVersion: 2
       x: 513
-      y: 620
+      y: 1644
       width: 120
       height: 116
     paddingLeft: 0
@@ -196,13 +196,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 537
+      y: 1561
       width: 120
       height: 82
     inner:
       serializedVersion: 2
       x: 513
-      y: 537
+      y: 1561
       width: 120
       height: 82
     paddingLeft: 0
@@ -213,13 +213,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 897
-      y: 904
+      y: 1928
       width: 120
       height: 120
     inner:
       serializedVersion: 2
       x: 897
-      y: 904
+      y: 1928
       width: 120
       height: 120
     paddingLeft: 0
@@ -230,13 +230,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 769
-      y: 908
+      y: 1932
       width: 127
       height: 116
     inner:
       serializedVersion: 2
       x: 769
-      y: 908
+      y: 1932
       width: 127
       height: 116
     paddingLeft: 0
@@ -247,13 +247,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 737
+      y: 1761
       width: 255
       height: 102
     inner:
       serializedVersion: 2
       x: 513
-      y: 737
+      y: 1761
       width: 255
       height: 102
     paddingLeft: 0
@@ -264,13 +264,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 840
+      y: 1864
       width: 255
       height: 184
     inner:
       serializedVersion: 2
       x: 513
-      y: 840
+      y: 1864
       width: 255
       height: 184
     paddingLeft: 0
@@ -281,13 +281,30 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 512
+      y: 1023
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 0
-      y: 512
+      y: 1023
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: new_entry
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1536
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1536
       width: 512
       height: 512
     paddingLeft: 0

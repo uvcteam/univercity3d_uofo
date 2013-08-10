@@ -7,20 +7,31 @@ public class MemoryBank : MonoBehaviour
     public GameObject NotificationPanel = null;
     public GameObject EntriesPanel = null;
 
+    public TopBarManager topBar = null;
+
     void OnEnable()
     {
         if (!PlayerPrefs.HasKey("SignedIn") || PlayerPrefs.GetInt("SignedIn") == 0)
             Application.LoadLevel(0);
+        topBar.gameObject.SetActiveRecursively(false);
     }
 
     void OnJournalClicked()
     {
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = EntriesPanel;
+        topBar.gameObject.SetActiveRecursively(true);
+
         EntriesPanel.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }
 
     void OnNotificationsClicked()
     {
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = NotificationPanel;
+        topBar.gameObject.SetActiveRecursively(true);
+
         NotificationPanel.SetActiveRecursively(true);
         gameObject.SetActiveRecursively(false);
     }

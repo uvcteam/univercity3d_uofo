@@ -5,6 +5,11 @@ public class Notification : MonoBehaviour
 {
     public GameObject PreviousPanel;
 
+    void OnEnable()
+    {
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Notifications";
+    }
+
     void OnSaveClicked()
     {
         Debug.Log("Save.");

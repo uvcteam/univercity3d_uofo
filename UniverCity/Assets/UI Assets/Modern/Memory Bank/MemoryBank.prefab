@@ -263,6 +263,23 @@ MonoBehaviour:
   - name: sign_out
     outer:
       serializedVersion: 2
+      x: 513
+      y: 957
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 957
+      width: 512
+      height: 512
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: new_entry
+    outer:
+      serializedVersion: 2
       x: 2561
       y: 3584
       width: 512
