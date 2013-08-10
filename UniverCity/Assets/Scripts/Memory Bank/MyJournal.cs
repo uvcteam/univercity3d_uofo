@@ -6,7 +6,7 @@ public class MyJournal : MonoBehaviour
     public GameObject AllEntries = null;
     public GameObject PreviousPanel;
 
-    void Enable()
+    void OnEnable()
     {
         GameObject.Find("PageName").GetComponent<UILabel>().text = "New Entry";
         GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = PreviousPanel;
