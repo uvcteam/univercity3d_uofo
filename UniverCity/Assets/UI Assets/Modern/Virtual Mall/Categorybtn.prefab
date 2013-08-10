@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11400008}
   - 114: {fileID: 11400010}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Categorybtn
   m_TagString: Untagged
@@ -100,6 +101,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 256, y: 300, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cadd2f5c6b6eeb439613720753bc833, type: 3}
+  m_Name: 
+  topAnchor: {fileID: 0}
+  category: 2
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
   m_Name: 
   target: {fileID: 0}
-  functionName: OnClick
+  functionName: ActivateTopAchor
   trigger: 0
   includeChildren: 0
 --- !u!114 &11400012
@@ -171,7 +184,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 6
   mAtlas: {fileID: 11400000, guid: 64b76f4e4a5e8e741a086bd9479d85d5, type: 2}
-  mSpriteName: food_restaurants
+  mSpriteName: ae_upscale
   mFillCenter: 1
 --- !u!114 &11400016
 MonoBehaviour:
@@ -210,7 +223,7 @@ MonoBehaviour:
   mPivot: 0
   mDepth: 7
   mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
-  mText: Restaurants
+  mText: Upscale
   mMaxLineWidth: 211
   mEncoding: 1
   mMaxLineCount: 2

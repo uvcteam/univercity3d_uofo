@@ -14,18 +14,20 @@ public class BusinessManager : MonoBehaviour
     // Just a straight list of the businesses.
     public List<Business> businesses = new List<Business>();
     public Dictionary<Vector2, List<Business>> busByCoord = new Dictionary<Vector2, List<Business>>();
+    public GameObject loader;
 
 	// Use this for initialization
 	void Start () 
     {
         DontDestroyOnLoad(this);
-        StartCoroutine(GetBusinessInformation());
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
+        if (GameObject.FindGameObjectWithTag("BusinessManager") == null)
+        {
+            gameObject.tag = "BusinessManager";
+            StartCoroutine(GetBusinessInformation());
+        }
+        else
+            Destroy(gameObject);
+        
 	}
 
     // ***************************************************
@@ -34,6 +36,7 @@ public class BusinessManager : MonoBehaviour
     // ---------------------------------------------------
     public IEnumerator GetBusinessInformation()
     {
+        loader.SetActive(true);
         string bURL = "http://www.univercity3d.com/univercity/BusinessInfo?u=UofO";
         string bLURL = "http://www.univercity3d.com/univercity/BusinessLogos?b=";
         string bName = "";
@@ -158,6 +161,8 @@ public class BusinessManager : MonoBehaviour
             // Apply the new logo.
             businesses[i].logo.Apply();
         }
+
+        loader.SetActive(false);
     }
 }
 
