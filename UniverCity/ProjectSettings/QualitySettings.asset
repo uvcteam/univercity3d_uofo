@@ -26,6 +26,7 @@ QualitySettings:
     particleRaycastBudget: 4
     excludedTargetPlatforms:
     - Web
+    - FlashPlayer
   - serializedVersion: 2
     name: Fast
     pixelLightCount: 0

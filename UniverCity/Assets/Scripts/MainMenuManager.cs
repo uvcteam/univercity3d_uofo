@@ -13,13 +13,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("SignedIn") == true && PlayerPrefs.GetInt("SignedIn") == 1)
         {
-            if (loginPanel != null)
-                loginPanel.GetComponent<TweenPosition>().Play(false);
-            if (adUpdatePanel != null)
-                adUpdatePanel.GetComponent<TweenPosition>().Play(true);
-            if (signedInPanel != null)
-                signedInPanel.GetComponent<TweenPosition>().Play(true);
-            Debug.Log("Signed In");
+            Application.LoadLevel(4);
         }
         else
         {

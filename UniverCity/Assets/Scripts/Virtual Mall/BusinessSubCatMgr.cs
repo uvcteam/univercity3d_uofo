@@ -29,9 +29,9 @@ public class BusinessSubCatMgr : MonoBehaviour
                 btn.transform.parent = grid;
                 btn.transform.Find("Logo").gameObject.AddComponent<UITexture>();
                 btn.transform.Find("Logo").GetComponent<UITexture>().mainTexture = business.logo;
-                //btn.transform.Find("Logo").renderer.material.mainTexture = business.logo;
                 btn.transform.Find("Name").GetComponent<UILabel>().text = business.name;
                 btn.transform.Find("Description").GetComponent<UILabel>().text = business.desc;
+                btn.GetComponent<BusinessBtn>().businessId = business.id;
                 btn.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
                 grid.GetComponent<UIGrid>().Reposition();
             }

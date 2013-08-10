@@ -728,10 +728,10 @@ MonoBehaviour:
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 512
-      width: 512
-      height: 512
+      x: 5
+      y: 517
+      width: 502
+      height: 502
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0

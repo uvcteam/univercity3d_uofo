@@ -10,20 +10,18 @@ public class AutoScroll : MonoBehaviour
     public float waitTime = 5.0f;
 	
 	// Update is called once per frame
-	void LateUpdate () 
+    void LateUpdate()
     {
         if (transform.position.y > 6.5f)
         {
             transform.localPosition = start;
-            Debug.Log("Wrap back");
         }
 
         if ((Time.time - _lastTimeTouched > waitTime) && !_pressed)
         {
-            Debug.Log("Go");
             transform.Translate(new Vector3(0.0f, 0.25f * Time.deltaTime, 0.0f));
         }
-	}
+    }
 
     void OnPressed()
     {
@@ -34,6 +32,5 @@ public class AutoScroll : MonoBehaviour
     {
         _lastTimeTouched = Time.time;
         _pressed = false;
-        Debug.Log("Released");
     }
 }
