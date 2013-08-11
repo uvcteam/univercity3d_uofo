@@ -12,5 +12,6 @@
 *.suo
 *.exe
 *.dll
+*.DS_Store
 
 [Tt]humbs.db.meta
