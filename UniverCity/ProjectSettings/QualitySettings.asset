@@ -27,6 +27,7 @@ QualitySettings:
     excludedTargetPlatforms:
     - Web
     - FlashPlayer
+    - iPhone
   - serializedVersion: 2
     name: Fast
     pixelLightCount: 0
@@ -47,6 +48,7 @@ QualitySettings:
     particleRaycastBudget: 16
     excludedTargetPlatforms:
     - Web
+    - iPhone
   - serializedVersion: 2
     name: Simple
     pixelLightCount: 1
@@ -67,6 +69,7 @@ QualitySettings:
     particleRaycastBudget: 64
     excludedTargetPlatforms:
     - Web
+    - iPhone
   - serializedVersion: 2
     name: Good
     pixelLightCount: 2
@@ -87,6 +90,7 @@ QualitySettings:
     particleRaycastBudget: 256
     excludedTargetPlatforms:
     - Web
+    - iPhone
   - serializedVersion: 2
     name: Beautiful
     pixelLightCount: 3
@@ -107,6 +111,7 @@ QualitySettings:
     particleRaycastBudget: 1024
     excludedTargetPlatforms:
     - Web
+    - iPhone
   - serializedVersion: 2
     name: Fantastic
     pixelLightCount: 4
