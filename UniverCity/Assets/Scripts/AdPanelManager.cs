@@ -41,8 +41,8 @@ public class AdPanelManager : MonoBehaviour
         myTween.Toggle();
         foreach (Transform child in transform)
             child.gameObject.SetActive(false);
-		leftStick.SetActive(false);
-		rightStick.SetActive(false);
+		leftStick.SetActive(true);
+		rightStick.SetActive(true);
 	}
 
     void OnTweenFinished(UITweener tweener)

@@ -1337,7 +1337,7 @@ Transform:
   m_GameObject: {fileID: 211132466}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 50, z: 0}
-  m_LocalScale: {x: 2048, y: 98, z: 1}
+  m_LocalScale: {x: 3400, y: 98, z: 1}
   m_Children: []
   m_Father: {fileID: 1412817758}
 --- !u!114 &211132468
@@ -2094,11 +2094,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.78504658
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1021.60748
+      value: -1024
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4626,7 +4626,7 @@ Transform:
   m_GameObject: {fileID: 1061593457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 901.848511, y: 0, z: -90}
-  m_LocalScale: {x: 1000, y: 2500, z: 1}
+  m_LocalScale: {x: 1000, y: 3100, z: 1}
   m_Children: []
   m_Father: {fileID: 1724226053}
 --- !u!114 &1061593459
@@ -6399,7 +6399,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353330169}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: -4.78504658, y: 2.39252329, z: 0}
+  m_LocalPosition: {x: 0, y: -2.32202148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1724226053}
@@ -8375,7 +8375,7 @@ Transform:
   m_PrefabInternal: {fileID: 399610924}
   m_GameObject: {fileID: 1617793462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.78504658, y: -1021.60748, z: 0}
+  m_LocalPosition: {x: 0, y: -1024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1412817758}
@@ -8702,7 +8702,7 @@ Transform:
   m_GameObject: {fileID: 1661018599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -50, z: 0}
-  m_LocalScale: {x: 2048, y: 300, z: 1}
+  m_LocalScale: {x: 3400, y: 300, z: 1}
   m_Children: []
   m_Father: {fileID: 1888009451}
 --- !u!114 &1661018601
@@ -10431,7 +10431,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02842fa4878db54f9587ff4de7d9f2d, type: 3}
   m_Name: 
-  draggablePanel: {fileID: 0}
+  draggablePanel: {fileID: 1006060662}
   panel: {fileID: 0}
 --- !u!114 &1906010849
 MonoBehaviour:
@@ -12149,7 +12149,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 200, y: 100, z: 0}
-  m_Center: {x: 10, y: 5, z: -1}
+  m_Center: {x: 94, y: 0, z: 0}
 --- !u!1 &2122406139
 GameObject:
   m_ObjectHideFlags: 0

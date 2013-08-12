@@ -34935,8 +34935,8 @@ MonoBehaviour:
   newAd: {fileID: 0}
   ObjectToTween: {fileID: 0}
   myTween: {fileID: 0}
-  leftStick: {fileID: 0}
-  rightStick: {fileID: 0}
+  leftStick: {fileID: 118038371}
+  rightStick: {fileID: 81735905}
 --- !u!114 &1440508043
 MonoBehaviour:
   m_ObjectHideFlags: 0

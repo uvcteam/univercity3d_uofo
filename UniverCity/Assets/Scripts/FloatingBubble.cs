@@ -55,7 +55,7 @@ public class FloatingBubble : MonoBehaviour
                                                         ObjectToTween.transform.rotation.w);
 
         myTween.eventReceiver = gameObject;
-        GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = false;
+        //GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = false;
         ObjectToTween.rigidbody.isKinematic = true;
 		myTween.Reset();
         myTween.Toggle();

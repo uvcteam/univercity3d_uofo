@@ -12,8 +12,7 @@ public class AutoScroll : MonoBehaviour
 	// Update is called once per frame
     void LateUpdate()
     {
-        Debug.Log(Camera.current.WorldToScreenPoint(transform.position));
-        if (Camera.current.WorldToScreenPoint(transform.position).x < -1360)
+        if (Camera.current != null && Camera.current.WorldToScreenPoint(transform.position).x < -1360)
         {
             transform.localPosition = start;
         }
