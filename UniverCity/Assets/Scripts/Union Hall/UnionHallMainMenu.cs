@@ -17,7 +17,7 @@ public class UnionHallMainMenu : MonoBehaviour
 
     void Start()
     {
-        topBar = GameObject.Find("TopAnchor").GetComponent<TopBarManager>();
+        //topBar = GameObject.Find("TopAnchor").GetComponent<TopBarManager>();
         topBar.gameObject.SetActiveRecursively(false);
     }
 

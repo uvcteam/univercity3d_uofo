@@ -7021,7 +7021,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acb1b77c64e9ef543b342c3e8b0704d7, type: 3}
   m_Name: 
-  orientation: 3
+  orientation: 5
 --- !u!4 &363000876
 Transform:
   m_ObjectHideFlags: 0
@@ -20000,7 +20000,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 8bfd79f0217249949bed0c040902cc3d, type: 2}
       propertyPath: orientation
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bfd79f0217249949bed0c040902cc3d, type: 2}
@@ -34935,6 +34935,8 @@ MonoBehaviour:
   newAd: {fileID: 0}
   ObjectToTween: {fileID: 0}
   myTween: {fileID: 0}
+  leftStick: {fileID: 0}
+  rightStick: {fileID: 0}
 --- !u!114 &1440508043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40573,7 +40575,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1746009959}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.79649138, y: 1.79649127, z: 0}
+  m_LocalPosition: {x: 0, y: -2.32202148, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1440508041}

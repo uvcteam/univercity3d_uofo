@@ -13,6 +13,9 @@ public class AdPanelManager : MonoBehaviour
     public GameObject ObjectToTween = null;
     public TweenTransform myTween;
 	private GameObject oldPos = null;
+	
+	public GameObject leftStick;
+	public GameObject rightStick;
 
     void Awake()
     {
@@ -38,6 +41,8 @@ public class AdPanelManager : MonoBehaviour
         myTween.Toggle();
         foreach (Transform child in transform)
             child.gameObject.SetActive(false);
+		leftStick.SetActive(false);
+		rightStick.SetActive(false);
 	}
 
     void OnTweenFinished(UITweener tweener)
@@ -66,6 +71,8 @@ public class AdPanelManager : MonoBehaviour
     public void SetPosition(Transform trans, GameObject myBubble)
     {
         bubble = myBubble;
+		leftStick.SetActive(false);
+		rightStick.SetActive(false);
         // Add all of the new businesses.
         foreach (Business bus in manager.busByCoord[new Vector2(trans.localPosition.x, trans.localPosition.z)])
         {
