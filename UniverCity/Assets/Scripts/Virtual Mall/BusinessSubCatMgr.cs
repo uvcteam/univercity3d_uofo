@@ -25,7 +25,7 @@ public class BusinessSubCatMgr : MonoBehaviour
         if(_businessManager.businessesByCategory.ContainsKey(category))
             foreach (var business in _businessManager.businessesByCategory[category])
             {
-                btn = (GameObject)Instantiate(businessBtn);
+                btn = (GameObject)Instantiate(businessBtn, Vector3.zero, Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                 btn.transform.parent = grid;
                 btn.transform.Find("Logo").gameObject.AddComponent<UITexture>();
                 btn.transform.Find("Logo").GetComponent<UITexture>().mainTexture = business.logo;

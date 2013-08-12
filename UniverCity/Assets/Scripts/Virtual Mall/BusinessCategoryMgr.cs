@@ -34,7 +34,7 @@ public class BusinessCategoryMgr : MonoBehaviour
 
         foreach(string categoryName in _MallCateGories.theCategories.OrderBy(x=>x))
         {
-            business = (GameObject)Instantiate(businessCategory, Vector3.zero, Quaternion.identity);
+            business = (GameObject)Instantiate(businessCategory, Vector3.zero, Quaternion.Euler(new Vector3(0.0f, 0.0f, 90.0f)));
             business.transform.parent = grid;
             business.transform.Find("Label").GetComponent<UILabel>().text = categoryName;
 
