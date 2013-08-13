@@ -85,6 +85,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400010}
+  - 114: {fileID: 11400018}
+  m_Layer: 0
+  m_Name: Sprite (square)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -109,6 +125,7 @@ Transform:
   - {fileID: 400008}
   - {fileID: 400000}
   - {fileID: 400004}
+  - {fileID: 400010}
   m_Father: {fileID: 0}
 --- !u!4 &400004
 Transform:
@@ -144,6 +161,17 @@ Transform:
   m_LocalScale: {x: 68, y: 68, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
+--- !u!4 &400010
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 210.724121, y: -832.297913, z: 0}
+  m_LocalScale: {x: 128, y: 4048, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400002}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -154,7 +182,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 250, y: 2048, z: 1}
+  m_Size: {x: 250, y: 4048, z: 1}
   m_Center: {x: 275, y: -780, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -320,6 +348,23 @@ MonoBehaviour:
   mEffectDistance: {x: 1, y: 1}
   mLineWidth: 0
   mMultiline: 1
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
+  m_Name: 
+  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
+  mTex: {fileID: 2800000, guid: f70ec3557719cac4bb18a01146b59c31, type: 3}
+  mColor: {r: .941176474, g: .941176474, b: .941176474, a: 1}
+  mPivot: 4
+  mDepth: -4
+  mAtlas: {fileID: 11400000, guid: 64b76f4e4a5e8e741a086bd9479d85d5, type: 2}
+  mSpriteName: square
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
