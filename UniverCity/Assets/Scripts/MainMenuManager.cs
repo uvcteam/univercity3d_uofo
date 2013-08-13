@@ -9,20 +9,20 @@ public class MainMenuManager : MonoBehaviour
     public UIPanel signedInPanel;
     public float tweenTime = 0.33f;
 
-    void Awake()
-    {
-        if (PlayerPrefs.HasKey("SignedIn") == true && PlayerPrefs.GetInt("SignedIn") == 1)
-        {
-            Application.LoadLevel(4);
-        }
-        else
-        {
-            if (signedInPanel != null)
-                signedInPanel.GetComponent<TweenPosition>().Play(false);
-            if (adUpdatePanel != null)
-                adUpdatePanel.GetComponent<TweenPosition>().Play(false);
-        }
-    }
+    //void Awake()
+    //{
+    //    if (PlayerPrefs.HasKey("SignedIn") == true && PlayerPrefs.GetInt("SignedIn") == 1)
+    //    {
+    //        Application.LoadLevel(4);
+    //    }
+    //    else
+    //    {
+    //        if (signedInPanel != null)
+    //            signedInPanel.GetComponent<TweenPosition>().Play(false);
+    //        if (adUpdatePanel != null)
+    //            adUpdatePanel.GetComponent<TweenPosition>().Play(false);
+    //    }
+    //}
 
 
     public void EnableTween()
@@ -65,6 +65,11 @@ public class MainMenuManager : MonoBehaviour
         loginPanel.GetComponent<TweenPosition>().Play(true);
         signedInPanel.GetComponent<TweenPosition>().Play(false);
         adUpdatePanel.GetComponent<TweenPosition>().Play(false);
+    }
 
+    void LoadingFinished()
+    {
+        if (PlayerPrefs.HasKey("SignedIn"))
+            Application.LoadLevel(4);
     }
 }
