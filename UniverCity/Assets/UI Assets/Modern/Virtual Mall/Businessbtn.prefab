@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
   m_Name: 
-  tweenTarget: {fileID: 100004}
+  tweenTarget: {fileID: 0}
   hover: {r: .501960814, g: .501960814, b: .501960814, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003

@@ -6,7 +6,7 @@ public class CategoryButton : MonoBehaviour
     public GameObject topAnchor;
     public eMallSubcategory category;
 
-    void OnPress()
+    void ActivateTopAnchor()
     {
         topAnchor.gameObject.SetActiveRecursively(true);
         topAnchor.GetComponent<TopBarManager>().prevPanel.SetActiveRecursively(false);
