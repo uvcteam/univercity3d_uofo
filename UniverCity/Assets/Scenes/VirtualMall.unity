@@ -1061,6 +1061,10 @@ Prefab:
       propertyPath: category
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400010, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
+      propertyPath: functionName
+      value: ActivateTopAnchor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
   m_RootGameObject: {fileID: 1518131544}
@@ -1208,7 +1212,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 200, z: 1}
+  m_Size: {x: 700, y: 300, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &195735553
 Prefab:
@@ -1378,7 +1382,7 @@ GameObject:
   - 114: {fileID: 238193644}
   - 114: {fileID: 238193645}
   m_Layer: 0
-  m_Name: ScrollPanel(Preferred Businesses
+  m_Name: ScrollPanel(Preferred Businesses)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1391,7 +1395,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 238193642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500.000244, y: -1100.00024, z: -62.6715698}
+  m_LocalPosition: {x: 600, y: -1100.00024, z: -62.6715698}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1954336260}
@@ -1427,7 +1431,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64a7aa4060da13044b70e9acd35a323f, type: 3}
   m_Name: 
-  start: {x: 500, y: -1100, z: -100}
+  start: {x: 600, y: -1100, z: -100}
   waitTime: 1
 --- !u!114 &238193646
 MonoBehaviour:
@@ -2066,7 +2070,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 200, z: 1}
+  m_Size: {x: 700, y: 300, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &394034265
 GameObject:
@@ -2151,11 +2155,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.79439247
+      value: -1.12609971
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1022.20349
+      value: -1022.87347
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4914,7 +4918,7 @@ Transform:
   m_GameObject: {fileID: 1077938036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 200, z: 1}
+  m_LocalScale: {x: 600, y: 300, z: 1}
   m_Children: []
   m_Father: {fileID: 1346645506}
 --- !u!114 &1077938038
@@ -5353,7 +5357,7 @@ Transform:
   m_GameObject: {fileID: 1195046344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 200, z: 1}
+  m_LocalScale: {x: 600, y: 300, z: 1}
   m_Children: []
   m_Father: {fileID: 185550049}
 --- !u!114 &1195046346
@@ -6117,7 +6121,7 @@ Transform:
   m_GameObject: {fileID: 1327120490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 200, z: 1}
+  m_LocalScale: {x: 600, y: 300, z: 1}
   m_Children: []
   m_Father: {fileID: 1590732810}
 --- !u!114 &1327120492
@@ -6571,7 +6575,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 200, z: 1}
+  m_Size: {x: 700, y: 300, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1353330169
 GameObject:
@@ -6613,7 +6617,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353330169}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: -1.79439247, y: 1.79649127, z: 0}
+  m_LocalPosition: {x: -1.12609971, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1724226053}
@@ -7439,7 +7443,7 @@ Transform:
   m_GameObject: {fileID: 1454408441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 200, z: 1}
+  m_LocalScale: {x: 600, y: 300, z: 1}
   m_Children: []
   m_Father: {fileID: 378227964}
 --- !u!114 &1454408443
@@ -8054,7 +8058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
   m_Name: 
   target: {fileID: 1518131544}
-  functionName: ActivateTopAchor
+  functionName: ActivateTopAnchor
   trigger: 0
   includeChildren: 0
 --- !u!114 &1518131549
@@ -8255,7 +8259,7 @@ Transform:
   m_GameObject: {fileID: 1534192426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 200, z: 1}
+  m_LocalScale: {x: 600, y: 300, z: 1}
   m_Children: []
   m_Father: {fileID: 2119225978}
 --- !u!114 &1534192428
@@ -8555,7 +8559,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 200, z: 1}
+  m_Size: {x: 700, y: 300, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1608584221
 GameObject:
@@ -8651,7 +8655,7 @@ Transform:
   m_PrefabInternal: {fileID: 399610924}
   m_GameObject: {fileID: 1617793462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.79439247, y: -1022.20349, z: 0}
+  m_LocalPosition: {x: -1.12609971, y: -1022.87347, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children:
   - {fileID: 1412817758}
@@ -9149,6 +9153,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6806880921bafaf44841c16a05b9b4b4, type: 3}
   m_Name: 
+  preferredBusinesses: {fileID: 238193642}
   businessCategory: {fileID: 100002, guid: 6cf83c4946d99c944b1c8db9f021ff3c, type: 2}
 --- !u!1 &1712562370
 GameObject:
@@ -11500,7 +11505,7 @@ Prefab:
     - target: {fileID: 11400014, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: currentPanel
       value: 
-      objectReference: {fileID: 309137736}
+      objectReference: {fileID: 1687732684}
     - target: {fileID: 11400014, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: homePanel
       value: 
@@ -11548,7 +11553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2180914e520806408bcf791ef597812, type: 3}
   m_Name: 
   homePanel: {fileID: 309137736}
-  currentPanel: {fileID: 309137736}
+  currentPanel: {fileID: 1687732684}
   prevPanel: {fileID: 309137736}
 --- !u!114 &2027787661
 MonoBehaviour:
@@ -12381,7 +12386,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 200, z: 1}
+  m_Size: {x: 700, y: 300, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2121212047
 GameObject:

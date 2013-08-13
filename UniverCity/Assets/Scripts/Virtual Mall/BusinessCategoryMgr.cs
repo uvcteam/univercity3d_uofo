@@ -4,6 +4,7 @@ using System.Linq;
 
 public class BusinessCategoryMgr : MonoBehaviour 
 {
+    public GameObject preferredBusinesses;
     private FormMallDetailedCategories _MallCateGories = new FormMallDetailedCategories();
     public GameObject businessCategory;
     private BusinessManager _businessManager;
@@ -17,11 +18,17 @@ public class BusinessCategoryMgr : MonoBehaviour
         clipPos = GetComponent<UIPanel>().clipRange;
     }
 
+    void OnEnable()
+    {
+        preferredBusinesses.SetActive(false);
+    }
+
     void OnDisable()
     {
         transform.localPosition = startPos;
         GetComponent<UIPanel>().clipRange = clipPos;
         Destroy(GetComponent<SpringPanel>());//.enabled = true;
+        preferredBusinesses.SetActive(true);
         //Application.LoadLevel(5);
     }
 
