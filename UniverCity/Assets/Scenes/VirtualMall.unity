@@ -1395,7 +1395,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 238193642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 600, y: -1100.00024, z: -62.6715698}
+  m_LocalPosition: {x: 600.000183, y: -1100.00049, z: -62.6715698}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1954336260}
@@ -4787,7 +4787,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1061593457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 901.849243, y: 4.59273224e-08, z: -37.8611145}
+  m_LocalPosition: {x: 900, y: 4.59273224e-08, z: -37.8611145}
   m_LocalScale: {x: 1000, y: 3100, z: 1}
   m_Children: []
   m_Father: {fileID: 1724226053}
@@ -9099,7 +9099,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1687732684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 563.900208, z: 0}
+  m_LocalPosition: {x: -182, y: 563.900513, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 728264184}
@@ -9141,7 +9141,7 @@ MonoBehaviour:
   widgetsAreStatic: 0
   mDebugInfo: 1
   mClipping: 1
-  mClipRange: {x: -380, y: -890, z: 1530.69995, w: 2048}
+  mClipRange: {x: -263, y: -890, z: 1300, w: 2048}
   mClipSoftness: {x: 1, y: 1}
 --- !u!114 &1687732688
 MonoBehaviour:
@@ -9155,6 +9155,8 @@ MonoBehaviour:
   m_Name: 
   preferredBusinesses: {fileID: 238193642}
   businessCategory: {fileID: 100002, guid: 6cf83c4946d99c944b1c8db9f021ff3c, type: 2}
+  camera: {fileID: 638007801}
+  hidePanel: {fileID: 1061593459}
 --- !u!1 &1712562370
 GameObject:
   m_ObjectHideFlags: 0
@@ -9361,9 +9363,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1687732685}
-  - {fileID: 1061593458}
-  - {fileID: 238193643}
   - {fileID: 309137737}
+  - {fileID: 238193643}
+  - {fileID: 1061593458}
   m_Father: {fileID: 1353330171}
 --- !u!114 &1724226054
 MonoBehaviour:
@@ -10768,7 +10770,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02842fa4878db54f9587ff4de7d9f2d, type: 3}
   m_Name: 
-  draggablePanel: {fileID: 1006060662}
+  draggablePanel: {fileID: 0}
   panel: {fileID: 0}
 --- !u!114 &1906010849
 MonoBehaviour:

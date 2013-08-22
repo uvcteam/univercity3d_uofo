@@ -5,8 +5,11 @@ using System.Linq;
 public class BusinessCategoryMgr : MonoBehaviour 
 {
     public GameObject preferredBusinesses;
-    private FormMallDetailedCategories _MallCateGories = new FormMallDetailedCategories();
     public GameObject businessCategory;
+    public Camera camera;
+    public UISlicedSprite hidePanel;
+
+    private FormMallDetailedCategories _MallCateGories = new FormMallDetailedCategories();
     private BusinessManager _businessManager;
     private Vector3 startPos;
     private Vector4 clipPos;
@@ -20,7 +23,10 @@ public class BusinessCategoryMgr : MonoBehaviour
 
     void OnEnable()
     {
-        preferredBusinesses.SetActive(false);
+        //preferredBusinesses.SetActive(false);
+        preferredBusinesses.transform.localPosition = new Vector3(400.0f, -1100.0f, -60.0f);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, -1100.0f, -60.0f);
+        hidePanel.transform.localPosition = new Vector3(700.0f, 4.5f, -40.0f);
     }
 
     void OnDisable()
@@ -28,7 +34,10 @@ public class BusinessCategoryMgr : MonoBehaviour
         transform.localPosition = startPos;
         GetComponent<UIPanel>().clipRange = clipPos;
         Destroy(GetComponent<SpringPanel>());//.enabled = true;
-        preferredBusinesses.SetActive(true);
+        //preferredBusinesses.SetActive(true);
+        preferredBusinesses.transform.localPosition = new Vector3(600.0f, -1100.0f, -60.0f);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(600.0f, -1100.0f, -60.0f);
+        hidePanel.transform.localPosition = new Vector3(900.0f, 4.5f, -40.0f);
         //Application.LoadLevel(5);
     }
 

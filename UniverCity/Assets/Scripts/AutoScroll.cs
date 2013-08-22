@@ -12,7 +12,7 @@ public class AutoScroll : MonoBehaviour
 	// Update is called once per frame
     void LateUpdate()
     {
-        if (Camera.current != null && Camera.current.WorldToScreenPoint(transform.position).x < -1360)
+        if (Camera.current != null && transform.localPosition.y > 4000.0f)
         {
             transform.localPosition = start;
         }
