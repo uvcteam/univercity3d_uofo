@@ -43,13 +43,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 754
+      y: 1778
       width: 540
       height: 270
     inner:
       serializedVersion: 2
       x: 513
-      y: 754
+      y: 1778
       width: 540
       height: 270
     paddingLeft: 0
@@ -59,14 +59,14 @@ MonoBehaviour:
   - name: pts_resorts
     outer:
       serializedVersion: 2
-      x: 1181
-      y: 771
+      x: 127
+      y: 1282
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1181
-      y: 771
+      x: 127
+      y: 1282
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -76,14 +76,14 @@ MonoBehaviour:
   - name: helv_light_34
     outer:
       serializedVersion: 2
-      x: 513
-      y: 628
+      x: 769
+      y: 1652
       width: 255
       height: 125
     inner:
       serializedVersion: 2
-      x: 513
-      y: 628
+      x: 769
+      y: 1652
       width: 255
       height: 125
     paddingLeft: 0
@@ -93,14 +93,14 @@ MonoBehaviour:
   - name: med_physicaltherapy
     outer:
       serializedVersion: 2
-      x: 264
-      y: 385
+      x: 1054
+      y: 1658
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 264
-      y: 385
+      x: 1054
+      y: 1658
       width: 126
       height: 126
     paddingLeft: 0
@@ -110,14 +110,14 @@ MonoBehaviour:
   - name: food_nowfood
     outer:
       serializedVersion: 2
-      x: 264
-      y: 258
+      x: 1318
+      y: 1541
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 264
-      y: 258
+      x: 1318
+      y: 1541
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -127,14 +127,14 @@ MonoBehaviour:
   - name: med_accupuncture
     outer:
       serializedVersion: 2
-      x: 264
-      y: 131
+      x: 1181
+      y: 1658
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 264
-      y: 131
+      x: 1181
+      y: 1658
       width: 126
       height: 126
     paddingLeft: 0
@@ -144,14 +144,14 @@ MonoBehaviour:
   - name: med_physician
     outer:
       serializedVersion: 2
-      x: 264
-      y: 4
+      x: 1318
+      y: 1922
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 264
-      y: 4
+      x: 1318
+      y: 1922
       width: 126
       height: 126
     paddingLeft: 0
@@ -161,14 +161,14 @@ MonoBehaviour:
   - name: med_lasik
     outer:
       serializedVersion: 2
-      x: 513
-      y: 501
+      x: 1318
+      y: 1795
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 513
-      y: 501
+      x: 1318
+      y: 1795
       width: 126
       height: 126
     paddingLeft: 0
@@ -178,14 +178,14 @@ MonoBehaviour:
   - name: hfb_hairtreatment
     outer:
       serializedVersion: 2
-      x: 640
-      y: 501
+      x: 1318
+      y: 1668
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 640
-      y: 501
+      x: 1318
+      y: 1668
       width: 126
       height: 126
     paddingLeft: 0
@@ -195,14 +195,14 @@ MonoBehaviour:
   - name: med_counseling
     outer:
       serializedVersion: 2
-      x: 0
-      y: 248
+      x: 1054
+      y: 1785
       width: 263
       height: 263
     inner:
       serializedVersion: 2
-      x: 0
-      y: 248
+      x: 1054
+      y: 1785
       width: 263
       height: 263
     paddingLeft: 0
@@ -212,14 +212,14 @@ MonoBehaviour:
   - name: ttt_travelagencies
     outer:
       serializedVersion: 2
-      x: 767
-      y: 501
+      x: 1445
+      y: 1922
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 767
-      y: 501
+      x: 1445
+      y: 1922
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -229,14 +229,14 @@ MonoBehaviour:
   - name: ae_funstuff
     outer:
       serializedVersion: 2
-      x: 894
-      y: 501
+      x: 1445
+      y: 1795
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 894
-      y: 501
+      x: 1445
+      y: 1795
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -246,14 +246,14 @@ MonoBehaviour:
   - name: food_restaurants
     outer:
       serializedVersion: 2
-      x: 513
-      y: 374
+      x: 1445
+      y: 1668
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 513
-      y: 374
+      x: 1445
+      y: 1668
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -263,14 +263,14 @@ MonoBehaviour:
   - name: hfb_plasticcosmetic
     outer:
       serializedVersion: 2
-      x: 513
-      y: 247
+      x: 1445
+      y: 1541
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 513
-      y: 247
+      x: 1445
+      y: 1541
       width: 126
       height: 126
     paddingLeft: 0
@@ -280,14 +280,14 @@ MonoBehaviour:
   - name: pts_campgrounds
     outer:
       serializedVersion: 2
-      x: 513
-      y: 120
+      x: 1572
+      y: 1922
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 513
-      y: 120
+      x: 1572
+      y: 1922
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -297,14 +297,14 @@ MonoBehaviour:
   - name: med_hospital
     outer:
       serializedVersion: 2
-      x: 640
-      y: 374
+      x: 1699
+      y: 1922
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 640
-      y: 374
+      x: 1699
+      y: 1922
       width: 126
       height: 126
     paddingLeft: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: food_coffeeteajuice
     outer:
       serializedVersion: 2
-      x: 767
-      y: 374
+      x: 1826
+      y: 1922
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 767
-      y: 374
+      x: 1826
+      y: 1922
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -331,14 +331,14 @@ MonoBehaviour:
   - name: med_addictiontreatment
     outer:
       serializedVersion: 2
-      x: 894
-      y: 374
+      x: 1572
+      y: 1795
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 894
-      y: 374
+      x: 1572
+      y: 1795
       width: 126
       height: 126
     paddingLeft: 0
@@ -348,14 +348,14 @@ MonoBehaviour:
   - name: hfb_bodyart
     outer:
       serializedVersion: 2
-      x: 640
-      y: 247
+      x: 1572
+      y: 1668
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 640
-      y: 247
+      x: 1572
+      y: 1668
       width: 126
       height: 126
     paddingLeft: 0
@@ -365,14 +365,14 @@ MonoBehaviour:
   - name: ttt_tours
     outer:
       serializedVersion: 2
-      x: 640
-      y: 120
+      x: 1572
+      y: 1541
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 640
-      y: 120
+      x: 1572
+      y: 1541
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -382,14 +382,14 @@ MonoBehaviour:
   - name: med_speechtherapy
     outer:
       serializedVersion: 2
-      x: 767
-      y: 247
+      x: 1699
+      y: 1795
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 767
-      y: 247
+      x: 1699
+      y: 1795
       width: 126
       height: 126
     paddingLeft: 0
@@ -399,14 +399,14 @@ MonoBehaviour:
   - name: food_specialtastes
     outer:
       serializedVersion: 2
-      x: 894
-      y: 247
+      x: 1826
+      y: 1795
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 894
-      y: 247
+      x: 1826
+      y: 1795
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -416,14 +416,14 @@ MonoBehaviour:
   - name: med_optometry
     outer:
       serializedVersion: 2
-      x: 767
-      y: 120
+      x: 1699
+      y: 1668
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 767
-      y: 120
+      x: 1699
+      y: 1668
       width: 126
       height: 126
     paddingLeft: 0
@@ -433,14 +433,14 @@ MonoBehaviour:
   - name: med_audiology
     outer:
       serializedVersion: 2
-      x: 894
-      y: 120
+      x: 1699
+      y: 1541
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 894
-      y: 120
+      x: 1699
+      y: 1541
       width: 126
       height: 126
     paddingLeft: 0
@@ -450,14 +450,14 @@ MonoBehaviour:
   - name: ttt_taxis
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 898
+      x: 1826
+      y: 1668
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 898
+      x: 1826
+      y: 1668
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -467,14 +467,14 @@ MonoBehaviour:
   - name: med_nutritionist
     outer:
       serializedVersion: 2
-      x: 1181
-      y: 898
+      x: 1826
+      y: 1541
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1181
-      y: 898
+      x: 1826
+      y: 1541
       width: 126
       height: 126
     paddingLeft: 0
@@ -484,14 +484,14 @@ MonoBehaviour:
   - name: ae_upscale
     outer:
       serializedVersion: 2
-      x: 1308
-      y: 898
+      x: 0
+      y: 1409
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1308
-      y: 898
+      x: 0
+      y: 1409
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -501,14 +501,14 @@ MonoBehaviour:
   - name: med_herbal
     outer:
       serializedVersion: 2
-      x: 1435
-      y: 898
+      x: 0
+      y: 1282
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1435
-      y: 898
+      x: 0
+      y: 1282
       width: 126
       height: 126
     paddingLeft: 0
@@ -518,14 +518,14 @@ MonoBehaviour:
   - name: ttt_tickets
     outer:
       serializedVersion: 2
-      x: 1562
-      y: 898
+      x: 0
+      y: 1155
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1562
-      y: 898
+      x: 0
+      y: 1155
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -535,14 +535,14 @@ MonoBehaviour:
   - name: pts_hotels
     outer:
       serializedVersion: 2
-      x: 1689
-      y: 898
+      x: 0
+      y: 1028
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1689
-      y: 898
+      x: 0
+      y: 1028
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -552,14 +552,14 @@ MonoBehaviour:
   - name: pts_bedbreakfast
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 390
+      x: 0
+      y: 901
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 390
+      x: 0
+      y: 901
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -569,14 +569,14 @@ MonoBehaviour:
   - name: med_dentist
     outer:
       serializedVersion: 2
-      x: 1816
-      y: 898
+      x: 0
+      y: 774
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1816
-      y: 898
+      x: 0
+      y: 774
       width: 126
       height: 126
     paddingLeft: 0
@@ -586,14 +586,14 @@ MonoBehaviour:
   - name: pts_vacationrentals
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 771
+      x: 0
+      y: 647
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 771
+      x: 0
+      y: 647
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -603,14 +603,14 @@ MonoBehaviour:
   - name: ae_howlin
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 644
+      x: 0
+      y: 520
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 644
+      x: 0
+      y: 520
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -620,14 +620,14 @@ MonoBehaviour:
   - name: med_massage
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 517
+      x: 0
+      y: 393
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 517
+      x: 0
+      y: 393
       width: 126
       height: 126
     paddingLeft: 0
@@ -637,14 +637,14 @@ MonoBehaviour:
   - name: med_urgent
     outer:
       serializedVersion: 2
-      x: 1308
-      y: 771
+      x: 0
+      y: 266
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1308
-      y: 771
+      x: 0
+      y: 266
       width: 126
       height: 126
     paddingLeft: 0
@@ -654,14 +654,14 @@ MonoBehaviour:
   - name: hfb_fitness
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 263
+      x: 0
+      y: 139
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 263
+      x: 0
+      y: 139
       width: 126
       height: 126
     paddingLeft: 0
@@ -671,14 +671,14 @@ MonoBehaviour:
   - name: pts_guesthouses
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 136
+      x: 0
+      y: 12
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 136
+      x: 0
+      y: 12
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -688,14 +688,14 @@ MonoBehaviour:
   - name: med_chiropractor
     outer:
       serializedVersion: 2
-      x: 1054
-      y: 9
+      x: 127
+      y: 1409
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 1054
-      y: 9
+      x: 127
+      y: 1409
       width: 126
       height: 126
     paddingLeft: 0
@@ -705,14 +705,14 @@ MonoBehaviour:
   - name: helv_thin_44
     outer:
       serializedVersion: 2
-      x: 0
-      y: 63
+      x: 513
+      y: 1593
       width: 255
       height: 184
     inner:
       serializedVersion: 2
-      x: 0
-      y: 63
+      x: 513
+      y: 1593
       width: 255
       height: 184
     paddingLeft: 0
@@ -723,13 +723,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 512
+      y: 1536
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 5
-      y: 517
+      y: 1541
       width: 502
       height: 502
     paddingLeft: 0
@@ -739,20 +739,3879 @@ MonoBehaviour:
   - name: square
     outer:
       serializedVersion: 2
-      x: 0
-      y: 2
+      x: 747
+      y: 1148
       width: 60
       height: 60
     inner:
       serializedVersion: 2
-      x: 0
-      y: 2
+      x: 747
+      y: 1148
       width: 60
       height: 60
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: health insurance+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 488
+      width: 61
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 488
+      width: 61
+      height: 70
+    paddingLeft: .540983617
+    paddingRight: .55737704
+    paddingTop: .342857152
+    paddingBottom: .485714287
+  - name: allergies+
+    outer:
+      serializedVersion: 2
+      x: 1624
+      y: 1392
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1624
+      y: 1392
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .391304344
+    paddingBottom: .463768125
+  - name: sports medicine+
+    outer:
+      serializedVersion: 2
+      x: 1700
+      y: 1392
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1700
+      y: 1392
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .391304344
+    paddingBottom: .463768125
+  - name: accupuncture+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 804
+      width: 47
+      height: 70
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 804
+      width: 47
+      height: 70
+    paddingLeft: .808510661
+    paddingRight: .914893627
+    paddingTop: .428571433
+    paddingBottom: .400000006
+  - name: Indian+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 257
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 257
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: mall+
+    outer:
+      serializedVersion: 2
+      x: 1365
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1365
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .698113203
+    paddingBottom: .716981113
+  - name: hair treatment+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 984
+      width: 90
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 984
+      width: 90
+      height: 66
+    paddingLeft: .200000003
+    paddingRight: .222222224
+    paddingTop: .454545468
+    paddingBottom: .484848499
+  - name: towing services+
+    outer:
+      serializedVersion: 2
+      x: 1720
+      y: 1472
+      width: 89
+      height: 63
+    inner:
+      serializedVersion: 2
+      x: 1720
+      y: 1472
+      width: 89
+      height: 63
+    paddingLeft: .21348314
+    paddingRight: .224719107
+    paddingTop: .523809552
+    paddingBottom: .507936537
+  - name: local tours+
+    outer:
+      serializedVersion: 2
+      x: 615
+      y: 1541
+      width: 99
+      height: 51
+    inner:
+      serializedVersion: 2
+      x: 615
+      y: 1541
+      width: 99
+      height: 51
+    paddingLeft: .13131313
+    paddingRight: .161616161
+    paddingTop: .862745106
+    paddingBottom: .647058845
+  - name: apartments+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .397260278
+    paddingBottom: .356164396
+  - name: nutritionists+
+    outer:
+      serializedVersion: 2
+      x: 1953
+      y: 1670
+      width: 75
+      height: 36
+    inner:
+      serializedVersion: 2
+      x: 1953
+      y: 1670
+      width: 75
+      height: 36
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: 1.16666663
+    paddingBottom: 1.38888884
+  - name: fast food+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 1085
+      width: 58
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 1085
+      width: 58
+      height: 62
+    paddingLeft: .586206913
+    paddingRight: .620689631
+    paddingTop: .564516127
+    paddingBottom: .5
+  - name: pizza+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 1018
+      width: 68
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 1018
+      width: 68
+      height: 73
+    paddingLeft: .426470578
+    paddingRight: .455882341
+    paddingTop: .410958916
+    paddingBottom: .342465758
+  - name: keys and locksmiths+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 68
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 68
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .369863003
+    paddingBottom: .383561641
+  - name: home theatre-entertainment system+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 563
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 563
+      width: 62
+      height: 75
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: resorts+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 419
+      width: 82
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 419
+      width: 82
+      height: 77
+    paddingLeft: .280487806
+    paddingRight: .280487806
+    paddingTop: .311688304
+    paddingBottom: .350649357
+  - name: self storage facilities+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 765
+      width: 101
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 765
+      width: 101
+      height: 82
+    paddingLeft: .138613865
+    paddingRight: .128712878
+    paddingTop: .23170732
+    paddingBottom: .329268306
+  - name: japanese+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 1237
+      width: 71
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 1237
+      width: 71
+      height: 100
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .180000007
+    paddingBottom: .100000001
+  - name: middle eastern+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 1041
+      width: 72
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 1041
+      width: 72
+      height: 97
+    paddingLeft: .416666657
+    paddingRight: .361111104
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: vegetarian+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 298
+      width: 64
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 298
+      width: 64
+      height: 65
+    paddingLeft: .46875
+    paddingRight: .53125
+    paddingTop: .492307693
+    paddingBottom: .476923078
+  - name: shop+
+    outer:
+      serializedVersion: 2
+      x: 1820
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1820
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .641509414
+    paddingBottom: .773584902
+  - name: automobile insurance+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 599
+      width: 69
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 599
+      width: 69
+      height: 85
+    paddingLeft: .434782594
+    paddingRight: .420289844
+    paddingTop: .247058824
+    paddingBottom: .258823544
+  - name: airline tickets+
+    outer:
+      serializedVersion: 2
+      x: 1953
+      y: 1830
+      width: 89
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 1953
+      y: 1830
+      width: 89
+      height: 91
+    paddingLeft: .179775283
+    paddingRight: .258426964
+    paddingTop: .16483517
+    paddingBottom: .241758242
+  - name: dmv+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 1210
+      width: 76
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 1210
+      width: 76
+      height: 79
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .316455692
+    paddingBottom: .303797454
+  - name: health fitness and beauty+
+    outer:
+      serializedVersion: 2
+      x: 1147
+      y: 1392
+      width: 76
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1147
+      y: 1392
+      width: 76
+      height: 69
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .420289844
+    paddingBottom: .434782594
+  - name: train tickets+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 1025
+      width: 95
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 1025
+      width: 95
+      height: 91
+    paddingLeft: .115789473
+    paddingRight: .231578946
+    paddingTop: .109890111
+    paddingBottom: .296703309
+  - name: optometry+
+    outer:
+      serializedVersion: 2
+      x: 887
+      y: 1230
+      width: 83
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 887
+      y: 1230
+      width: 83
+      height: 39
+    paddingLeft: .277108431
+    paddingRight: .265060246
+    paddingTop: 1.23076928
+    paddingBottom: 1.05128205
+  - name: yoga2+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 839
+      width: 77
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 839
+      width: 77
+      height: 77
+    paddingLeft: .324675322
+    paddingRight: .337662339
+    paddingTop: .350649357
+    paddingBottom: .311688304
+  - name: brew pubs+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 506
+      width: 62
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 506
+      width: 62
+      height: 85
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .247058824
+    paddingBottom: .258823544
+  - name: dentists+
+    outer:
+      serializedVersion: 2
+      x: 1984
+      y: 1463
+      width: 63
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 1984
+      y: 1463
+      width: 63
+      height: 72
+    paddingLeft: .523809552
+    paddingRight: .507936537
+    paddingTop: .416666657
+    paddingBottom: .361111104
+  - name: hospital+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 1049
+      width: 90
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 1049
+      width: 90
+      height: 75
+    paddingLeft: .200000003
+    paddingRight: .222222224
+    paddingTop: .346666664
+    paddingBottom: .360000014
+  - name: ambulance+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 949
+      width: 58
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 949
+      width: 58
+      height: 59
+    paddingLeft: .603448272
+    paddingRight: .603448272
+    paddingTop: .559322059
+    paddingBottom: .61016947
+  - name: television and cable services+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 1198
+      width: 80
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 1198
+      width: 80
+      height: 62
+    paddingLeft: .3125
+    paddingRight: .287499994
+    paddingTop: .532258093
+    paddingBottom: .532258093
+  - name: accident and personal injury+
+    outer:
+      serializedVersion: 2
+      x: 1953
+      y: 1707
+      width: 89
+      height: 87
+    inner:
+      serializedVersion: 2
+      x: 1953
+      y: 1707
+      width: 89
+      height: 87
+    paddingLeft: .21348314
+    paddingRight: .224719107
+    paddingTop: .229885057
+    paddingBottom: .241379306
+  - name: concerts and music venues+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 1204
+      width: 114
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 1204
+      width: 114
+      height: 77
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: .246753246
+    paddingBottom: .415584415
+  - name: community services+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 170
+      width: 65
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 170
+      width: 65
+      height: 79
+    paddingLeft: .476923078
+    paddingRight: .492307693
+    paddingTop: .32911393
+    paddingBottom: .291139245
+  - name: cameras+
+    outer:
+      serializedVersion: 2
+      x: 1863
+      y: 1274
+      width: 72
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 1863
+      y: 1274
+      width: 72
+      height: 49
+    paddingLeft: .388888896
+    paddingRight: .388888896
+    paddingTop: .795918345
+    paddingBottom: .816326559
+  - name: bathroom+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 639
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 639
+      width: 62
+      height: 75
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: limos+
+    outer:
+      serializedVersion: 2
+      x: 1308
+      y: 1284
+      width: 105
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 1308
+      y: 1284
+      width: 105
+      height: 39
+    paddingLeft: .104761906
+    paddingRight: .114285715
+    paddingTop: 1.17948723
+    paddingBottom: 1.1025641
+  - name: speech therapy+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 788
+      width: 62
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 788
+      width: 62
+      height: 76
+    paddingLeft: .516129017
+    paddingRight: .54838711
+    paddingTop: .355263144
+    paddingBottom: .328947365
+  - name: religious worship+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 487
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 487
+      width: 62
+      height: 75
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .360000014
+    paddingBottom: .346666664
+  - name: tires and wheel alignment+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 694
+      width: 55
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 694
+      width: 55
+      height: 54
+    paddingLeft: .654545426
+    paddingRight: .672727287
+    paddingTop: .759259284
+    paddingBottom: .611111104
+  - name: live music clubs and dancing+
+    outer:
+      serializedVersion: 2
+      x: 870
+      y: 1569
+      width: 114
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 870
+      y: 1569
+      width: 114
+      height: 82
+    paddingLeft: .0701754391
+    paddingRight: .0526315793
+    paddingTop: .23170732
+    paddingBottom: .329268306
+  - name: thrift stores+
+    outer:
+      serializedVersion: 2
+      x: 1729
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1729
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .200000003
+    paddingRight: .222222224
+    paddingTop: .867924511
+    paddingBottom: .547169805
+  - name: outlet stores+
+    outer:
+      serializedVersion: 2
+      x: 1638
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1638
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .698113203
+    paddingBottom: .716981113
+  - name: campgrounds+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 575
+      width: 82
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 575
+      width: 82
+      height: 77
+    paddingLeft: .280487806
+    paddingRight: .280487806
+    paddingTop: .311688304
+    paddingBottom: .350649357
+  - name: lighting+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 290
+      width: 77
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 290
+      width: 77
+      height: 75
+    paddingLeft: .324675322
+    paddingRight: .337662339
+    paddingTop: .426666677
+    paddingBottom: .280000001
+  - name: insurance+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 16
+      width: 61
+      height: 64
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 16
+      width: 61
+      height: 64
+    paddingLeft: .55737704
+    paddingRight: .540983617
+    paddingTop: .453125
+    paddingBottom: .546875
+  - name: breakfast and brunch+
+    outer:
+      serializedVersion: 2
+      x: 971
+      y: 1228
+      width: 74
+      height: 41
+    inner:
+      serializedVersion: 2
+      x: 971
+      y: 1228
+      width: 74
+      height: 41
+    paddingLeft: .405405402
+    paddingRight: .32432431
+    paddingTop: 1.14634144
+    paddingBottom: .975609779
+  - name: liquor+
+    outer:
+      serializedVersion: 2
+      x: 1547
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1547
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .716981113
+    paddingBottom: .698113203
+  - name: bed and breakfast+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 263
+      width: 82
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 263
+      width: 82
+      height: 77
+    paddingLeft: .280487806
+    paddingRight: .280487806
+    paddingTop: .311688304
+    paddingBottom: .350649357
+  - name: art galleries+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 217
+      width: 52
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 217
+      width: 52
+      height: 80
+    paddingLeft: .730769217
+    paddingRight: .730769217
+    paddingTop: .300000012
+    paddingBottom: .300000012
+  - name: bedroom+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 335
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 335
+      width: 62
+      height: 75
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: audio, video and home theater install+
+    outer:
+      serializedVersion: 2
+      x: 596
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 596
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .369863003
+    paddingBottom: .383561641
+  - name: interior bling+
+    outer:
+      serializedVersion: 2
+      x: 1773
+      y: 1283
+      width: 89
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1773
+      y: 1283
+      width: 89
+      height: 40
+    paddingLeft: .224719107
+    paddingRight: .21348314
+    paddingTop: 1.10000002
+    paddingBottom: 1.10000002
+  - name: tickets+
+    outer:
+      serializedVersion: 2
+      x: 1101
+      y: 1327
+      width: 89
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 1101
+      y: 1327
+      width: 89
+      height: 57
+    paddingLeft: .224719107
+    paddingRight: .21348314
+    paddingTop: .61403507
+    paddingBottom: .631578922
+  - name: cosmetics+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 1388
+      width: 76
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 1388
+      width: 76
+      height: 80
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .212500006
+    paddingBottom: .387499988
+  - name: investment+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 1208
+      width: 82
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 1208
+      width: 82
+      height: 83
+    paddingLeft: .268292695
+    paddingRight: .292682916
+    paddingTop: .289156616
+    paddingBottom: .253012061
+  - name: contractors+
+    outer:
+      serializedVersion: 2
+      x: 996
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 996
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .369863003
+    paddingBottom: .383561641
+  - name: rv+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 433
+      width: 79
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 433
+      width: 79
+      height: 54
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .703703701
+    paddingBottom: .666666687
+  - name: wheels+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 749
+      width: 55
+      height: 54
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 749
+      width: 55
+      height: 54
+    paddingLeft: .654545426
+    paddingRight: .672727287
+    paddingTop: .759259284
+    paddingBottom: .611111104
+  - name: cinema -  movie theaters+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 73
+      width: 98
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 73
+      width: 98
+      height: 73
+    paddingLeft: .163265303
+    paddingRight: .142857149
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: curtains, drapes and blinds+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 1261
+      width: 81
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 1261
+      width: 81
+      height: 62
+    paddingLeft: .296296299
+    paddingRight: .283950627
+    paddingTop: .59677422
+    paddingBottom: .467741936
+  - name: performing arts+
+    outer:
+      serializedVersion: 2
+      x: 929
+      y: 1324
+      width: 85
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 929
+      y: 1324
+      width: 85
+      height: 60
+    paddingLeft: .247058824
+    paddingRight: .258823544
+    paddingTop: .600000024
+    paddingBottom: .533333361
+  - name: gyn+
+    outer:
+      serializedVersion: 2
+      x: 1852
+      y: 1392
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1852
+      y: 1392
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .391304344
+    paddingBottom: .463768125
+  - name: audiology+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 441
+      width: 75
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 441
+      width: 75
+      height: 78
+    paddingLeft: .373333335
+    paddingRight: .333333343
+    paddingTop: .346153855
+    paddingBottom: .294871807
+  - name: bbq+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 157
+      width: 70
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 157
+      width: 70
+      height: 59
+    paddingLeft: .414285719
+    paddingRight: .414285719
+    paddingTop: .61016947
+    paddingBottom: .559322059
+  - name: audio systems+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 973
+      width: 89
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 973
+      width: 89
+      height: 75
+    paddingLeft: .21348314
+    paddingRight: .224719107
+    paddingTop: .280000001
+    paddingBottom: .426666677
+  - name: plumbers+
+    outer:
+      serializedVersion: 2
+      x: 1476
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1476
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .291139245
+    paddingRight: .32911393
+    paddingTop: .397260278
+    paddingBottom: .356164396
+  - name: roofing+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 890
+      width: 79
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 890
+      width: 79
+      height: 82
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .280487806
+    paddingBottom: .280487806
+  - name: vehicle sales+
+    outer:
+      serializedVersion: 2
+      x: 1953
+      y: 1536
+      width: 89
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 1953
+      y: 1536
+      width: 89
+      height: 39
+    paddingLeft: .224719107
+    paddingRight: .21348314
+    paddingTop: 1.20512819
+    paddingBottom: 1.07692313
+  - name: family practive+
+    outer:
+      serializedVersion: 2
+      x: 1928
+      y: 1392
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1928
+      y: 1392
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .391304344
+    paddingBottom: .463768125
+  - name: vietnamese+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 355
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 355
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: cajun-creole+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 1338
+      width: 71
+      height: 100
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 1338
+      width: 71
+      height: 100
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .180000007
+    paddingBottom: .100000001
+  - name: body art+
+    outer:
+      serializedVersion: 2
+      x: 1394
+      y: 1392
+      width: 76
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1394
+      y: 1392
+      width: 76
+      height: 69
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .405797094
+    paddingBottom: .449275374
+  - name: tax preparation services+
+    outer:
+      serializedVersion: 2
+      x: 2002
+      y: 1326
+      width: 43
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 2002
+      y: 1326
+      width: 43
+      height: 58
+    paddingLeft: 1
+    paddingRight: .976744175
+    paddingTop: .620689631
+    paddingBottom: .586206913
+  - name: banks and credit unions+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 364
+      width: 62
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 364
+      width: 62
+      height: 68
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .426470578
+    paddingBottom: .455882341
+  - name: physicians+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 520
+      width: 75
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 520
+      width: 75
+      height: 78
+    paddingLeft: .386666656
+    paddingRight: .319999993
+    paddingTop: .346153855
+    paddingBottom: .294871807
+  - name: auto body and collision repair+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 1292
+      width: 89
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 1292
+      width: 89
+      height: 77
+    paddingLeft: .224719107
+    paddingRight: .21348314
+    paddingTop: .285714298
+    paddingBottom: .376623362
+  - name: chiropractors+
+    outer:
+      serializedVersion: 2
+      x: 1025
+      y: 1686
+      width: 23
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 1025
+      y: 1686
+      width: 23
+      height: 91
+    paddingLeft: 2.347826
+    paddingRight: 2.21739125
+    paddingTop: .208791211
+    paddingBottom: .197802201
+  - name: audio home theatre system+
+    outer:
+      serializedVersion: 2
+      x: 1224
+      y: 1404
+      width: 92
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 1224
+      y: 1404
+      width: 92
+      height: 57
+    paddingLeft: .184782609
+    paddingRight: .206521735
+    paddingTop: .631578922
+    paddingBottom: .61403507
+  - name: seafood+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 159
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 159
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: lastik surgery+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 424
+      width: 102
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 424
+      width: 102
+      height: 73
+    paddingLeft: .127450988
+    paddingRight: .127450988
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: dermatology+
+    outer:
+      serializedVersion: 2
+      x: 1548
+      y: 1392
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1548
+      y: 1392
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .420289844
+    paddingBottom: .434782594
+  - name: formal and wedding+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 629
+      width: 60
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 629
+      width: 60
+      height: 73
+    paddingLeft: .600000024
+    paddingRight: .533333361
+    paddingTop: .369863003
+    paddingBottom: .383561641
+  - name: big box stores+
+    outer:
+      serializedVersion: 2
+      x: 838
+      y: 1270
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 838
+      y: 1270
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .735849082
+    paddingBottom: .679245293
+  - name: carpet and flooring+
+    outer:
+      serializedVersion: 2
+      x: 870
+      y: 1541
+      width: 94
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 870
+      y: 1541
+      width: 94
+      height: 27
+    paddingLeft: .180851057
+    paddingRight: .180851057
+    paddingTop: 2.03703713
+    paddingBottom: 1.70370376
+  - name: italian+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 649
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 649
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: addiction treatment+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 857
+      width: 59
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 857
+      width: 59
+      height: 78
+    paddingLeft: .593220353
+    paddingRight: .576271176
+    paddingTop: .346153855
+    paddingBottom: .294871807
+  - name: tanning-waxing+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 1134
+      width: 80
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 1134
+      width: 80
+      height: 75
+    paddingLeft: .275000006
+    paddingRight: .324999988
+    paddingTop: .293333322
+    paddingBottom: .413333327
+  - name: scooters+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 1
+      width: 85
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 1
+      width: 85
+      height: 66
+    paddingLeft: .270588249
+    paddingRight: .235294119
+    paddingTop: .439393938
+    paddingBottom: .5
+  - name: cards and gifts+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 96
+      width: 70
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 96
+      width: 70
+      height: 73
+    paddingLeft: .442857146
+    paddingRight: .385714293
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: community places+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 715
+      width: 65
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 715
+      width: 65
+      height: 72
+    paddingLeft: .476923078
+    paddingRight: .492307693
+    paddingTop: .388888896
+    paddingBottom: .388888896
+  - name: outdoor lighting and accessories+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 100
+      width: 75
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 100
+      width: 75
+      height: 83
+    paddingLeft: .373333335
+    paddingRight: .333333343
+    paddingTop: .277108431
+    paddingBottom: .265060246
+  - name: house cleaning+
+    outer:
+      serializedVersion: 2
+      x: 1396
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1396
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: thai+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 943
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 943
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: fitness+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 18
+      width: 76
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 18
+      width: 76
+      height: 81
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .271604925
+    paddingBottom: .30864197
+  - name: home office+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 31
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 31
+      width: 62
+      height: 75
+    paddingLeft: .54838711
+    paddingRight: .516129017
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: chinese+
+    outer:
+      serializedVersion: 2
+      x: 769
+      y: 1554
+      width: 100
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 769
+      y: 1554
+      width: 100
+      height: 97
+    paddingLeft: .150000006
+    paddingRight: .129999995
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: ticket sales+
+    outer:
+      serializedVersion: 2
+      x: 812
+      y: 1179
+      width: 71
+      height: 45
+    inner:
+      serializedVersion: 2
+      x: 812
+      y: 1179
+      width: 71
+      height: 45
+    paddingLeft: .394366205
+    paddingRight: .408450693
+    paddingTop: .933333337
+    paddingBottom: .911111116
+  - name: barkeries+
+    outer:
+      serializedVersion: 2
+      x: 1191
+      y: 1325
+      width: 82
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 1191
+      y: 1325
+      width: 82
+      height: 59
+    paddingLeft: .292682916
+    paddingRight: .268292695
+    paddingTop: .576271176
+    paddingBottom: .593220353
+  - name: autos+
+    outer:
+      serializedVersion: 2
+      x: 1936
+      y: 1284
+      width: 89
+      height: 39
+    inner:
+      serializedVersion: 2
+      x: 1936
+      y: 1284
+      width: 89
+      height: 39
+    paddingLeft: .224719107
+    paddingRight: .21348314
+    paddingTop: 1.15384614
+    paddingBottom: 1.12820518
+  - name: moving boxes and supplies+
+    outer:
+      serializedVersion: 2
+      x: 1117
+      y: 1280
+      width: 101
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 1117
+      y: 1280
+      width: 101
+      height: 43
+    paddingLeft: .138613865
+    paddingRight: .128712878
+    paddingTop: 1.04651165
+    paddingBottom: .930232584
+  - name: nutritionists2+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 1245
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 1245
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .420289844
+    paddingBottom: .434782594
+  - name: indoor sports faclilties+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 679
+      width: 62
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 679
+      width: 62
+      height: 86
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .220930234
+    paddingBottom: .267441869
+  - name: buffets+
+    outer:
+      serializedVersion: 2
+      x: 1810
+      y: 1470
+      width: 86
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 1810
+      y: 1470
+      width: 86
+      height: 65
+    paddingLeft: .255813956
+    paddingRight: .232558146
+    paddingTop: .492307693
+    paddingBottom: .476923078
+  - name: diner+
+    outer:
+      serializedVersion: 2
+      x: 1456
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1456
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .754716992
+    paddingBottom: .660377383
+  - name: trucks+
+    outer:
+      serializedVersion: 2
+      x: 1693
+      y: 1274
+      width: 79
+      height: 49
+    inner:
+      serializedVersion: 2
+      x: 1693
+      y: 1274
+      width: 79
+      height: 49
+    paddingLeft: .316455692
+    paddingRight: .303797454
+    paddingTop: .795918345
+    paddingBottom: .816326559
+  - name: urgent care+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 703
+      width: 59
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 703
+      width: 59
+      height: 75
+    paddingLeft: .542372882
+    paddingRight: .627118647
+    paddingTop: .306666672
+    paddingBottom: .400000006
+  - name: women shoes+
+    outer:
+      serializedVersion: 2
+      x: 984
+      y: 1399
+      width: 85
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 984
+      y: 1399
+      width: 85
+      height: 62
+    paddingLeft: .294117659
+    paddingRight: .211764708
+    paddingTop: .59677422
+    paddingBottom: .467741936
+  - name: realtors+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 366
+      width: 79
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 366
+      width: 79
+      height: 74
+    paddingLeft: .278481007
+    paddingRight: .341772139
+    paddingTop: .391891897
+    paddingBottom: .337837845
+  - name: transmission+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 245
+      width: 85
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 245
+      width: 85
+      height: 85
+    paddingLeft: .247058824
+    paddingRight: .258823544
+    paddingTop: .247058824
+    paddingBottom: .258823544
+  - name: paint and wall coverings+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 945
+      width: 67
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 945
+      width: 67
+      height: 72
+    paddingLeft: .447761208
+    paddingRight: .462686568
+    paddingTop: .388888896
+    paddingBottom: .388888896
+  - name: building materials+
+    outer:
+      serializedVersion: 2
+      x: 1556
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1556
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .397260278
+    paddingBottom: .356164396
+  - name: yard tools+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 498
+      width: 74
+      height: 101
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 498
+      width: 74
+      height: 101
+    paddingLeft: .364864856
+    paddingRight: .364864856
+    paddingTop: .0693069324
+    paddingBottom: .198019803
+  - name: interior decor+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 259
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 259
+      width: 62
+      height: 75
+    paddingLeft: .54838711
+    paddingRight: .516129017
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: hobbies+
+    outer:
+      serializedVersion: 2
+      x: 908
+      y: 1389
+      width: 75
+      height: 72
+    inner:
+      serializedVersion: 2
+      x: 908
+      y: 1389
+      width: 75
+      height: 72
+    paddingLeft: .386666656
+    paddingRight: .319999993
+    paddingTop: .416666657
+    paddingBottom: .361111104
+  - name: mobile - cell phone services+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 937
+      width: 60
+      height: 92
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 937
+      width: 60
+      height: 92
+    paddingLeft: .550000012
+    paddingRight: .583333313
+    paddingTop: .195652172
+    paddingBottom: .195652172
+  - name: athletic+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 627
+      width: 40
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 627
+      width: 40
+      height: 66
+    paddingLeft: 1.10000002
+    paddingRight: 1.10000002
+    paddingTop: .469696969
+    paddingBottom: .469696969
+  - name: emergency medical+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 216
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 216
+      width: 79
+      height: 73
+    paddingLeft: .291139245
+    paddingRight: .32911393
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: radiatior and cooling systems+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 731
+      width: 89
+      height: 71
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 731
+      width: 89
+      height: 71
+    paddingLeft: .21348314
+    paddingRight: .224719107
+    paddingTop: .352112681
+    paddingBottom: .450704217
+  - name: men shoes+
+    outer:
+      serializedVersion: 2
+      x: 1015
+      y: 1324
+      width: 85
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 1015
+      y: 1324
+      width: 85
+      height: 60
+    paddingLeft: .294117659
+    paddingRight: .211764708
+    paddingTop: .649999976
+    paddingBottom: .483333319
+  - name: tattoos and piercings+
+    outer:
+      serializedVersion: 2
+      x: 1070
+      y: 1392
+      width: 76
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1070
+      y: 1392
+      width: 76
+      height: 69
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .405797094
+    paddingBottom: .449275374
+  - name: recreation centers+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 13
+      width: 62
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 13
+      width: 62
+      height: 82
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .268292695
+    paddingBottom: .292682916
+  - name: coffees and teas+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 865
+      width: 61
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 865
+      width: 61
+      height: 79
+    paddingLeft: .573770463
+    paddingRight: .524590135
+    paddingTop: .278481007
+    paddingBottom: .341772139
+  - name: exterior decor+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 1290
+      width: 62
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 1290
+      width: 62
+      height: 97
+    paddingLeft: .54838711
+    paddingRight: .516129017
+    paddingTop: .0927835032
+    paddingBottom: .226804122
+  - name: carpenters+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 142
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 142
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: athletic shoes+
+    outer:
+      serializedVersion: 2
+      x: 843
+      y: 1324
+      width: 85
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 843
+      y: 1324
+      width: 85
+      height: 60
+    paddingLeft: .294117659
+    paddingRight: .211764708
+    paddingTop: .583333313
+    paddingBottom: .550000012
+  - name: outdoor furniture and appliances+
+    outer:
+      serializedVersion: 2
+      x: 1181
+      y: 1563
+      width: 96
+      height: 94
+    inner:
+      serializedVersion: 2
+      x: 1181
+      y: 1563
+      width: 96
+      height: 94
+    paddingLeft: .166666672
+    paddingRight: .166666672
+    paddingTop: .127659574
+    paddingBottom: .234042555
+  - name: physical therapy+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 1385
+      width: 75
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 1385
+      width: 75
+      height: 76
+    paddingLeft: .360000014
+    paddingRight: .346666664
+    paddingTop: .355263144
+    paddingBottom: .328947365
+  - name: snail mail+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 1
+      width: 68
+      height: 67
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 1
+      width: 68
+      height: 67
+    paddingLeft: .426470578
+    paddingRight: .455882341
+    paddingTop: .50746268
+    paddingBottom: .402985066
+  - name: exterior bling+
+    outer:
+      serializedVersion: 2
+      x: 818
+      y: 1400
+      width: 89
+      height: 61
+    inner:
+      serializedVersion: 2
+      x: 818
+      y: 1400
+      width: 89
+      height: 61
+    paddingLeft: .224719107
+    paddingRight: .21348314
+    paddingTop: .524590135
+    paddingBottom: .573770463
+  - name: casino+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 420
+      width: 62
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 420
+      width: 62
+      height: 85
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .223529413
+    paddingBottom: .282352954
+  - name: pods-mobile storage+
+    outer:
+      serializedVersion: 2
+      x: 513
+      y: 1536
+      width: 101
+      height: 56
+    inner:
+      serializedVersion: 2
+      x: 513
+      y: 1536
+      width: 101
+      height: 56
+    paddingLeft: .138613865
+    paddingRight: .128712878
+    paddingTop: .803571403
+    paddingBottom: .482142866
+  - name: windows+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 81
+      width: 55
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 81
+      width: 55
+      height: 75
+    paddingLeft: .672727287
+    paddingRight: .654545426
+    paddingTop: .360000014
+    paddingBottom: .346666664
+  - name: police+
+    outer:
+      serializedVersion: 2
+      x: 1054
+      y: 1551
+      width: 88
+      height: 19
+    inner:
+      serializedVersion: 2
+      x: 1054
+      y: 1551
+      width: 88
+      height: 19
+    paddingLeft: .227272734
+    paddingRight: .227272734
+    paddingTop: 2.94736838
+    paddingBottom: 2.78947377
+  - name: heating and air conditioning+
+    outer:
+      serializedVersion: 2
+      x: 1076
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1076
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: arcades+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 1457
+      width: 91
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 1457
+      width: 91
+      height: 78
+    paddingLeft: .219780222
+    paddingRight: .186813191
+    paddingTop: .307692319
+    paddingBottom: .333333343
+  - name: antiques+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 568
+      width: 33
+      height: 58
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 568
+      width: 33
+      height: 58
+    paddingLeft: 1.42424238
+    paddingRight: 1.4545455
+    paddingTop: .689655185
+    paddingBottom: .517241359
+  - name: medical+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 1125
+      width: 83
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 1125
+      width: 83
+      height: 82
+    paddingLeft: .277108431
+    paddingRight: .265060246
+    paddingTop: .292682916
+    paddingBottom: .268292695
+  - name: casual+
+    outer:
+      serializedVersion: 2
+      x: 2004
+      y: 1395
+      width: 40
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 2004
+      y: 1395
+      width: 40
+      height: 66
+    paddingLeft: 1.07500005
+    paddingRight: 1.125
+    paddingTop: .469696969
+    paddingBottom: .469696969
+  - name: gas - service stations+
+    outer:
+      serializedVersion: 2
+      x: 1219
+      y: 1276
+      width: 88
+      height: 47
+    inner:
+      serializedVersion: 2
+      x: 1219
+      y: 1276
+      width: 88
+      height: 47
+    paddingLeft: .215909094
+    paddingRight: .23863636
+    paddingTop: .957446814
+    paddingBottom: .765957475
+  - name: juice bars+
+    outer:
+      serializedVersion: 2
+      x: 202
+      y: 166
+      width: 49
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 202
+      y: 166
+      width: 49
+      height: 78
+    paddingLeft: .918367326
+    paddingRight: .693877578
+    paddingTop: .307692319
+    paddingBottom: .333333343
+  - name: security systems+
+    outer:
+      serializedVersion: 2
+      x: 756
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 756
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .369863003
+    paddingBottom: .383561641
+  - name: financial planning advisors+
+    outer:
+      serializedVersion: 2
+      x: 1278
+      y: 1576
+      width: 39
+      height: 81
+    inner:
+      serializedVersion: 2
+      x: 1278
+      y: 1576
+      width: 39
+      height: 81
+    paddingLeft: 1.15384614
+    paddingRight: 1.12820518
+    paddingTop: .30864197
+    paddingBottom: .271604925
+  - name: amusement parks+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 559
+      width: 62
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 559
+      width: 62
+      height: 69
+    paddingLeft: .580645144
+    paddingRight: .483870953
+    paddingTop: .434782594
+    paddingBottom: .420289844
+  - name: pool-spa services+
+    outer:
+      serializedVersion: 2
+      x: 676
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 676
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .291139245
+    paddingRight: .32911393
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: wineries+
+    outer:
+      serializedVersion: 2
+      x: 1953
+      y: 1576
+      width: 84
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 1953
+      y: 1576
+      width: 84
+      height: 91
+    paddingLeft: .261904776
+    paddingRight: .261904776
+    paddingTop: .208791211
+    paddingBottom: .197802201
+  - name: ears, nose and throat+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 1315
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 1315
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .391304344
+    paddingBottom: .463768125
+  - name: hair salons+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 917
+      width: 90
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 917
+      width: 90
+      height: 66
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .454545468
+    paddingBottom: .484848499
+  - name: rental moving trucks+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 600
+      width: 101
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 600
+      width: 101
+      height: 80
+    paddingLeft: .138613865
+    paddingRight: .128712878
+    paddingTop: .287499994
+    paddingBottom: .3125
+  - name: licenses+
+    outer:
+      serializedVersion: 2
+      x: 812
+      y: 1225
+      width: 74
+      height: 44
+    inner:
+      serializedVersion: 2
+      x: 812
+      y: 1225
+      width: 74
+      height: 44
+    paddingLeft: .364864856
+    paddingRight: .364864856
+    paddingTop: 1.02272725
+    paddingBottom: .886363626
+  - name: shoes+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 1324
+      width: 86
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 1324
+      width: 86
+      height: 60
+    paddingLeft: .279069781
+    paddingRight: .209302321
+    paddingTop: .649999976
+    paddingBottom: .483333319
+  - name: gym+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 766
+      width: 63
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 766
+      width: 63
+      height: 85
+    paddingLeft: .523809552
+    paddingRight: .507936537
+    paddingTop: .223529413
+    paddingBottom: .282352954
+  - name: hotels and motels+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 653
+      width: 82
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 653
+      width: 82
+      height: 77
+    paddingLeft: .280487806
+    paddingRight: .280487806
+    paddingTop: .311688304
+    paddingBottom: .350649357
+  - name: accountants+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 1030
+      width: 70
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 1030
+      width: 70
+      height: 80
+    paddingLeft: .400000006
+    paddingRight: .428571433
+    paddingTop: .224999994
+    paddingBottom: .375
+  - name: delis+
+    outer:
+      serializedVersion: 2
+      x: 1591
+      y: 1283
+      width: 101
+      height: 40
+    inner:
+      serializedVersion: 2
+      x: 1591
+      y: 1283
+      width: 101
+      height: 40
+    paddingLeft: .138613865
+    paddingRight: .128712878
+    paddingTop: 1.20000005
+    paddingBottom: 1
+  - name: nightclub+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 1196
+      width: 62
+      height: 91
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 1196
+      width: 62
+      height: 91
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .142857149
+    paddingBottom: .263736278
+  - name: internet services+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 1370
+      width: 82
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 1370
+      width: 82
+      height: 86
+    paddingLeft: .317073166
+    paddingRight: .243902445
+    paddingTop: .267441869
+    paddingBottom: .220930234
+  - name: appliances+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 936
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 936
+      width: 62
+      height: 75
+    paddingLeft: .54838711
+    paddingRight: .516129017
+    paddingTop: .400000006
+    paddingBottom: .306666672
+  - name: telephone services+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 329
+      width: 58
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 329
+      width: 58
+      height: 90
+    paddingLeft: .603448272
+    paddingRight: .603448272
+    paddingTop: .200000003
+    paddingBottom: .222222224
+  - name: mufflers and exhaust systems+
+    outer:
+      serializedVersion: 2
+      x: 1471
+      y: 1392
+      width: 76
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1471
+      y: 1392
+      width: 76
+      height: 69
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .405797094
+    paddingBottom: .449275374
+  - name: overnight delivery services+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 1092
+      width: 68
+      height: 74
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 1092
+      width: 68
+      height: 74
+    paddingLeft: .441176474
+    paddingRight: .441176474
+    paddingTop: .351351351
+    paddingBottom: .378378391
+  - name: government+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 779
+      width: 59
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 779
+      width: 59
+      height: 77
+    paddingLeft: .576271176
+    paddingRight: .593220353
+    paddingTop: .337662339
+    paddingBottom: .324675322
+  - name: solar systems+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 681
+      width: 98
+      height: 83
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 681
+      width: 98
+      height: 83
+    paddingLeft: .153061226
+    paddingRight: .153061226
+    paddingTop: .216867477
+    paddingBottom: .3253012
+  - name: gas services+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 1135
+      width: 79
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 1135
+      width: 79
+      height: 62
+    paddingLeft: .316455692
+    paddingRight: .303797454
+    paddingTop: .59677422
+    paddingBottom: .467741936
+  - name: take out and delivery+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 1072
+      width: 79
+      height: 62
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 1072
+      width: 79
+      height: 62
+    paddingLeft: .354430377
+    paddingRight: .265822798
+    paddingTop: .54838711
+    paddingBottom: .516129017
+  - name: post office+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 250
+      width: 66
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 250
+      width: 66
+      height: 78
+    paddingLeft: .469696969
+    paddingRight: .469696969
+    paddingTop: .243589744
+    paddingBottom: .397435904
+  - name: television-audio+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 411
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 411
+      width: 62
+      height: 75
+    paddingLeft: .54838711
+    paddingRight: .516129017
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: atvs+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 1469
+      width: 94
+      height: 66
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 1469
+      width: 94
+      height: 66
+    paddingLeft: .180851057
+    paddingRight: .180851057
+    paddingTop: .560606062
+    paddingBottom: .378787875
+  - name: power tools+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 1439
+      width: 74
+      height: 96
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 1439
+      width: 74
+      height: 96
+    paddingLeft: .364864856
+    paddingRight: .364864856
+    paddingTop: .125
+    paddingBottom: .208333328
+  - name: outdoor sports+
+    outer:
+      serializedVersion: 2
+      x: 985
+      y: 1554
+      width: 67
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 985
+      y: 1554
+      width: 67
+      height: 97
+    paddingLeft: .313432842
+    paddingRight: .597014904
+    paddingTop: .0824742243
+    paddingBottom: .237113401
+  - name: indoor sports+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 592
+      width: 62
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 592
+      width: 62
+      height: 86
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .220930234
+    paddingBottom: .267441869
+  - name: american+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 453
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 453
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: petshop+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 1270
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 1270
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .679245293
+    paddingBottom: .735849082
+  - name: jazz and blues+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 1209
+      width: 64
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 1209
+      width: 64
+      height: 60
+    paddingLeft: .53125
+    paddingRight: .46875
+    paddingTop: .533333361
+    paddingBottom: .600000024
+  - name: taxis and limos+
+    outer:
+      serializedVersion: 2
+      x: 1054
+      y: 1571
+      width: 105
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 1054
+      y: 1571
+      width: 105
+      height: 86
+    paddingLeft: .114285715
+    paddingRight: .104761906
+    paddingTop: .255813956
+    paddingBottom: .232558146
+  - name: yogurt+
+    outer:
+      serializedVersion: 2
+      x: 213
+      y: 255
+      width: 39
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 213
+      y: 255
+      width: 39
+      height: 75
+    paddingLeft: 1.20512819
+    paddingRight: 1.07692313
+    paddingTop: .319999993
+    paddingBottom: .386666656
+  - name: barbers+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 1051
+      width: 73
+      height: 82
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 1051
+      width: 73
+      height: 82
+    paddingLeft: .356164396
+    paddingRight: .397260278
+    paddingTop: .268292695
+    paddingBottom: .292682916
+  - name: nails+
+    outer:
+      serializedVersion: 2
+      x: 1317
+      y: 1392
+      width: 76
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1317
+      y: 1392
+      width: 76
+      height: 69
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .405797094
+    paddingBottom: .449275374
+  - name: television and dvr+
+    outer:
+      serializedVersion: 2
+      x: 752
+      y: 1327
+      width: 90
+      height: 57
+    inner:
+      serializedVersion: 2
+      x: 752
+      y: 1327
+      width: 90
+      height: 57
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .684210539
+    paddingBottom: .561403513
+  - name: garbage - waste management services+
+    outer:
+      serializedVersion: 2
+      x: 202
+      y: 519
+      width: 49
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 202
+      y: 519
+      width: 49
+      height: 80
+    paddingLeft: .816326559
+    paddingRight: .795918345
+    paddingTop: .287499994
+    paddingBottom: .3125
+  - name: martial arts+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 1386
+      width: 76
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 1386
+      width: 76
+      height: 75
+    paddingLeft: .342105269
+    paddingRight: .342105269
+    paddingTop: .319999993
+    paddingBottom: .386666656
+  - name: weight loss centers+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 852
+      width: 65
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 852
+      width: 65
+      height: 84
+    paddingLeft: .476923078
+    paddingRight: .492307693
+    paddingTop: .261904776
+    paddingBottom: .261904776
+  - name: attorneys+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 762
+      width: 78
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 762
+      width: 78
+      height: 76
+    paddingLeft: .320512831
+    paddingRight: .320512831
+    paddingTop: .328947365
+    paddingBottom: .355263144
+  - name: cabinets and countertops+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 1167
+      width: 66
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 1167
+      width: 66
+      height: 77
+    paddingLeft: .454545468
+    paddingRight: .484848499
+    paddingTop: .324675322
+    paddingBottom: .337662339
+  - name: french+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 551
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 551
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: vaction rentals+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 497
+      width: 82
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 497
+      width: 82
+      height: 77
+    paddingLeft: .268292695
+    paddingRight: .292682916
+    paddingTop: .311688304
+    paddingBottom: .350649357
+  - name: general practice+
+    outer:
+      serializedVersion: 2
+      x: 421
+      y: 685
+      width: 78
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 421
+      y: 685
+      width: 78
+      height: 76
+    paddingLeft: .320512831
+    paddingRight: .320512831
+    paddingTop: .328947365
+    paddingBottom: .355263144
+  - name: shop tools+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 69
+      width: 74
+      height: 89
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 69
+      width: 74
+      height: 89
+    paddingLeft: .364864856
+    paddingRight: .364864856
+    paddingTop: .224719107
+    paddingBottom: .21348314
+  - name: fire+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 848
+      width: 95
+      height: 90
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 848
+      width: 95
+      height: 90
+    paddingLeft: .157894731
+    paddingRight: .189473689
+    paddingTop: .311111122
+    paddingBottom: .111111112
+  - name: herbal medicine+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 1111
+      width: 67
+      height: 84
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 1111
+      width: 67
+      height: 84
+    paddingLeft: .462686568
+    paddingRight: .447761208
+    paddingTop: .273809522
+    paddingBottom: .25
+  - name: cruises+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 1381
+      width: 72
+      height: 80
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 1381
+      width: 72
+      height: 80
+    paddingLeft: .375
+    paddingRight: .402777791
+    paddingTop: .3125
+    paddingBottom: .287499994
+  - name: counseling and mental health+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 803
+      width: 75
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 803
+      width: 75
+      height: 86
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .197674423
+    paddingBottom: .290697664
+  - name: apartment - house insurance+
+    outer:
+      serializedVersion: 2
+      x: 516
+      y: 1288
+      width: 62
+      height: 92
+    inner:
+      serializedVersion: 2
+      x: 516
+      y: 1288
+      width: 62
+      height: 92
+    paddingLeft: .564516127
+    paddingRight: .5
+    paddingTop: .152173907
+    paddingBottom: .239130437
+  - name: mexican+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 747
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 747
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: taxis+
+    outer:
+      serializedVersion: 2
+      x: 1414
+      y: 1277
+      width: 89
+      height: 46
+    inner:
+      serializedVersion: 2
+      x: 1414
+      y: 1277
+      width: 89
+      height: 46
+    paddingLeft: .224719107
+    paddingRight: .21348314
+    paddingTop: .847826064
+    paddingBottom: .934782624
+  - name: restaurants+
+    outer:
+      serializedVersion: 2
+      x: 1953
+      y: 1949
+      width: 84
+      height: 99
+    inner:
+      serializedVersion: 2
+      x: 1953
+      y: 1949
+      width: 84
+      height: 99
+    paddingLeft: .261904776
+    paddingRight: .261904776
+    paddingTop: .181818187
+    paddingBottom: .111111112
+  - name: kitchen+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 107
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 107
+      width: 62
+      height: 75
+    paddingLeft: .54838711
+    paddingRight: .516129017
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: windshields+
+    outer:
+      serializedVersion: 2
+      x: 1032
+      y: 1271
+      width: 84
+      height: 52
+    inner:
+      serializedVersion: 2
+      x: 1032
+      y: 1271
+      width: 84
+      height: 52
+    paddingLeft: .261904776
+    paddingRight: .261904776
+    paddingTop: .692307711
+    paddingBottom: .769230783
+  - name: houses+
+    outer:
+      serializedVersion: 2
+      x: 1316
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1316
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .278481007
+    paddingRight: .341772139
+    paddingTop: .397260278
+    paddingBottom: .356164396
+  - name: mediterranean+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 845
+      width: 71
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 845
+      width: 71
+      height: 97
+    paddingLeft: .436619729
+    paddingRight: .366197169
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: furniture+
+    outer:
+      serializedVersion: 2
+      x: 589
+      y: 183
+      width: 62
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 589
+      y: 183
+      width: 62
+      height: 75
+    paddingLeft: .532258093
+    paddingRight: .532258093
+    paddingTop: .413333327
+    paddingBottom: .293333322
+  - name: massage therapy+
+    outer:
+      serializedVersion: 2
+      x: 742
+      y: 1385
+      width: 75
+      height: 76
+    inner:
+      serializedVersion: 2
+      x: 742
+      y: 1385
+      width: 75
+      height: 76
+    paddingLeft: .360000014
+    paddingRight: .346666664
+    paddingTop: .355263144
+    paddingBottom: .328947365
+  - name: internal medicine+
+    outer:
+      serializedVersion: 2
+      x: 1776
+      y: 1392
+      width: 75
+      height: 69
+    inner:
+      serializedVersion: 2
+      x: 1776
+      y: 1392
+      width: 75
+      height: 69
+    paddingLeft: .346666664
+    paddingRight: .360000014
+    paddingTop: .391304344
+    paddingBottom: .463768125
+  - name: steaks and chops+
+    outer:
+      serializedVersion: 2
+      x: 254
+      y: 1139
+      width: 73
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 254
+      y: 1139
+      width: 73
+      height: 97
+    paddingLeft: .397260278
+    paddingRight: .356164396
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: handyman+
+    outer:
+      serializedVersion: 2
+      x: 1236
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1236
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .369863003
+    paddingBottom: .383561641
+  - name: rooms+
+    outer:
+      serializedVersion: 2
+      x: 1156
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 1156
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .316455692
+    paddingRight: .303797454
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: campus security+
+    outer:
+      serializedVersion: 2
+      x: 1636
+      y: 1467
+      width: 83
+      height: 68
+    inner:
+      serializedVersion: 2
+      x: 1636
+      y: 1467
+      width: 83
+      height: 68
+    paddingLeft: .265060246
+    paddingRight: .277108431
+    paddingTop: .441176474
+    paddingBottom: .441176474
+  - name: greek+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 147
+      width: 74
+      height: 97
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 147
+      width: 74
+      height: 97
+    paddingLeft: .378378391
+    paddingRight: .351351351
+    paddingTop: .185567006
+    paddingBottom: .134020612
+  - name: guest houses and hostels+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 341
+      width: 82
+      height: 77
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 341
+      width: 82
+      height: 77
+    paddingLeft: .280487806
+    paddingRight: .280487806
+    paddingTop: .311688304
+    paddingBottom: .350649357
+  - name: check cashing - pay day loans+
+    outer:
+      serializedVersion: 2
+      x: 929
+      y: 1280
+      width: 102
+      height: 43
+    inner:
+      serializedVersion: 2
+      x: 929
+      y: 1280
+      width: 102
+      height: 43
+    paddingLeft: .127450988
+    paddingRight: .127450988
+    paddingTop: 1.06976748
+    paddingBottom: .906976759
+  - name: bus tickets+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 939
+      width: 101
+      height: 85
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 939
+      width: 101
+      height: 85
+    paddingLeft: .108910888
+    paddingRight: .158415839
+    paddingTop: .117647059
+    paddingBottom: .388235301
+  - name: clothing stores+
+    outer:
+      serializedVersion: 2
+      x: 1274
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1274
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .735849082
+    paddingBottom: .679245293
+  - name: movers and moving companies+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 1117
+      width: 101
+      height: 86
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 1117
+      width: 101
+      height: 86
+    paddingLeft: .138613865
+    paddingRight: .128712878
+    paddingTop: .244186044
+    paddingBottom: .244186044
+  - name: vintage+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 875
+      width: 46
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 875
+      width: 46
+      height: 73
+    paddingLeft: .826086938
+    paddingRight: .956521749
+    paddingTop: .383561641
+    paddingBottom: .369863003
+  - name: electrical sevices+
+    outer:
+      serializedVersion: 2
+      x: 207
+      y: 344
+      width: 46
+      height: 79
+    inner:
+      serializedVersion: 2
+      x: 207
+      y: 344
+      width: 46
+      height: 79
+    paddingLeft: .869565189
+    paddingRight: .913043499
+    paddingTop: .341772139
+    paddingBottom: .278481007
+  - name: poison control+
+    outer:
+      serializedVersion: 2
+      x: 665
+      y: 1012
+      width: 79
+      height: 59
+    inner:
+      serializedVersion: 2
+      x: 665
+      y: 1012
+      width: 79
+      height: 59
+    paddingLeft: .341772139
+    paddingRight: .278481007
+    paddingTop: .576271176
+    paddingBottom: .593220353
+  - name: second consignment+
+    outer:
+      serializedVersion: 2
+      x: 1911
+      y: 1331
+      width: 90
+      height: 53
+    inner:
+      serializedVersion: 2
+      x: 1911
+      y: 1331
+      width: 90
+      height: 53
+    paddingLeft: .211111113
+    paddingRight: .211111113
+    paddingTop: .679245293
+    paddingBottom: .735849082
+  - name: food court+
+    outer:
+      serializedVersion: 2
+      x: 1897
+      y: 1470
+      width: 86
+      height: 65
+    inner:
+      serializedVersion: 2
+      x: 1897
+      y: 1470
+      width: 86
+      height: 65
+    paddingLeft: .255813956
+    paddingRight: .232558146
+    paddingTop: .507692337
+    paddingBottom: .461538464
+  - name: consignment+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 12
+      width: 117
+      height: 60
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 12
+      width: 117
+      height: 60
+    paddingLeft: .0769230798
+    paddingRight: .0170940179
+    paddingTop: .683333337
+    paddingBottom: .449999988
+  - name: water services+
+    outer:
+      serializedVersion: 2
+      x: 747
+      y: 1009
+      width: 46
+      height: 75
+    inner:
+      serializedVersion: 2
+      x: 747
+      y: 1009
+      width: 46
+      height: 75
+    paddingLeft: .869565189
+    paddingRight: .913043499
+    paddingTop: .373333335
+    paddingBottom: .333333343
+  - name: landscapers and gardeners+
+    outer:
+      serializedVersion: 2
+      x: 329
+      y: 184
+      width: 80
+      height: 78
+    inner:
+      serializedVersion: 2
+      x: 329
+      y: 184
+      width: 80
+      height: 78
+    paddingLeft: .287499994
+    paddingRight: .3125
+    paddingTop: .269230783
+    paddingBottom: .371794879
+  - name: painters+
+    outer:
+      serializedVersion: 2
+      x: 916
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 916
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .291139245
+    paddingRight: .32911393
+    paddingTop: .356164396
+    paddingBottom: .397260278
+  - name: computers laptops tablets+
+    outer:
+      serializedVersion: 2
+      x: 1504
+      y: 1276
+      width: 86
+      height: 47
+    inner:
+      serializedVersion: 2
+      x: 1504
+      y: 1276
+      width: 86
+      height: 47
+    paddingLeft: .244186044
+    paddingRight: .244186044
+    paddingTop: .893617034
+    paddingBottom: .829787254
+  - name: electricians+
+    outer:
+      serializedVersion: 2
+      x: 836
+      y: 1462
+      width: 79
+      height: 73
+    inner:
+      serializedVersion: 2
+      x: 836
+      y: 1462
+      width: 79
+      height: 73
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .356164396
+    paddingBottom: .397260278
+  - name: Museums+
+    outer:
+      serializedVersion: 2
+      x: 127
+      y: 331
+      width: 79
+      height: 92
+    inner:
+      serializedVersion: 2
+      x: 127
+      y: 331
+      width: 79
+      height: 92
+    paddingLeft: .303797454
+    paddingRight: .316455692
+    paddingTop: .206521735
+    paddingBottom: .184782609
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
