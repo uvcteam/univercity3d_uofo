@@ -24,7 +24,6 @@ public class MainMenuManager : MonoBehaviour
     //    }
     //}
 
-
     public void EnableTween()
     {
         foreach (TweenPosition tween in gameObject.GetComponentsInChildren<TweenPosition>())
@@ -70,6 +69,6 @@ public class MainMenuManager : MonoBehaviour
     void LoadingFinished()
     {
         if (PlayerPrefs.HasKey("SignedIn"))
-            Application.LoadLevel(4);
+            gameObject.SetActive(false);
     }
 }
