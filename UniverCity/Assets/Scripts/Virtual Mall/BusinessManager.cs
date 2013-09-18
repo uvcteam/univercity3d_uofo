@@ -16,6 +16,7 @@ public class BusinessManager : MonoBehaviour
     public Dictionary<Vector2, List<Business>> busByCoord = new Dictionary<Vector2, List<Business>>();
     public GameObject loader;
     public GameObject loginPanel;
+    public Transform businessAdPrefab;
 
 	// Use this for initialization
 	void Start () 

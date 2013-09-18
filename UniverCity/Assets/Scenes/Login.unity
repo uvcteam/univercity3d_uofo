@@ -201,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 13055271}
   m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
-  m_LocalPosition: {x: -2.13333344, y: 2.13333344, z: 0}
+  m_LocalPosition: {x: -3.23368406, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 409045125}
@@ -1863,6 +1863,10 @@ Prefab:
       propertyPath: loginPanel
       value: 
       objectReference: {fileID: 829445372}
+    - target: {fileID: 11400000, guid: c8f4637b7a1a5084aacdac3f7cc69846, type: 2}
+      propertyPath: businessAdPrefab
+      value: 
+      objectReference: {fileID: 400000, guid: 4679f6aaeae9ce6448924befd242c03f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8f4637b7a1a5084aacdac3f7cc69846, type: 2}
   m_RootGameObject: {fileID: 1004413405}
@@ -2119,6 +2123,7 @@ MonoBehaviour:
   businesses: []
   loader: {fileID: 409045124}
   loginPanel: {fileID: 829445372}
+  businessAdPrefab: {fileID: 400000, guid: 4679f6aaeae9ce6448924befd242c03f, type: 2}
 --- !u!4 &1004413407
 Transform:
   m_ObjectHideFlags: 0
@@ -3084,11 +3089,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.13333344
+      value: -3.23368406
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1021.86664
+      value: -1022.38232
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3768,7 +3773,7 @@ Transform:
   m_PrefabInternal: {fileID: 1389251280}
   m_GameObject: {fileID: 1622973634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13333344, y: -1021.86664, z: 0}
+  m_LocalPosition: {x: -3.23368406, y: -1022.38232, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children:
   - {fileID: 1965992039}
