@@ -11,6 +11,16 @@ public class AdManager : MonoBehaviour
     public AdData AdInfo = new AdData();
     public static string MediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
 
+    // Use this for initialization
+    void Start()
+    {
+        DontDestroyOnLoad(this);
+        if (GameObject.FindGameObjectWithTag("AdManager") == null)
+            gameObject.tag = "AdManager";
+        else
+            Destroy(gameObject);
+    }
+
     public IEnumerator GetAd(int id)
     {
         BusinessID = id;
