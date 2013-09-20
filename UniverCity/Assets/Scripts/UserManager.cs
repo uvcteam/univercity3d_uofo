@@ -19,6 +19,20 @@ public class UserManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    void Awake()
+    {
+        if (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1)
+        {
+            CurrentUser = new User(
+                PlayerPrefs.GetString("token"),
+                PlayerPrefs.GetString("name"),
+                PlayerPrefs.GetString("email"),
+                PlayerPrefs.GetString("university"));
+        }
+        else
+            CurrentUser = null;
+    }
+
     public IEnumerator SignIn(string email, string password)
     {
         string loginURL = "http://www.univercity3d.com/univercity/DeviceLogin?";
@@ -37,6 +51,18 @@ public class UserManager : MonoBehaviour
 
         if (PageToDisable != null)
             PageToDisable.SetActive(false);
+
+        PlayerPrefs.SetInt("loggedIn", 1);
+        PlayerPrefs.SetString("token", CurrentUser.Token);
+        PlayerPrefs.SetString("name", CurrentUser.Name);
+        PlayerPrefs.SetString("email", CurrentUser.Email);
+        PlayerPrefs.SetString("university", CurrentUser.University);
+    }
+
+    public void SignOut()
+    {
+        PlayerPrefs.SetInt("loggedIn", 0);
+        CurrentUser = null;
     }
 }
 
@@ -82,5 +108,14 @@ public class User
         name = user["name"] as string;
         email = e;
         university = user["university"] as string;
+    }
+
+    public User(string t, string n, string e, string u)
+    {
+        loggedIn = true;
+        token = t;
+        name = n;
+        email = e;
+        university = u;
     }
 }
