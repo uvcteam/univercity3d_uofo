@@ -60,13 +60,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2780
-      y: 797
+      y: 543
       width: 126
       height: 126
     inner:
       serializedVersion: 2
       x: 2780
-      y: 797
+      y: 543
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -94,13 +94,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2780
-      y: 670
+      y: 416
       width: 126
       height: 126
     inner:
       serializedVersion: 2
       x: 2780
-      y: 670
+      y: 416
       width: 126
       height: 126
     paddingLeft: 0
@@ -111,13 +111,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2780
-      y: 543
+      y: 289
       width: 126
       height: 126
     inner:
       serializedVersion: 2
       x: 2780
-      y: 543
+      y: 289
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -128,13 +128,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2780
-      y: 416
+      y: 162
       width: 126
       height: 126
     inner:
       serializedVersion: 2
       x: 2780
-      y: 416
+      y: 162
       width: 126
       height: 126
     paddingLeft: 0
@@ -144,14 +144,14 @@ MonoBehaviour:
   - name: med_physician
     outer:
       serializedVersion: 2
-      x: 2780
-      y: 289
+      x: 3415
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2780
-      y: 289
+      x: 3415
+      y: 1178
       width: 126
       height: 126
     paddingLeft: 0
@@ -161,14 +161,14 @@ MonoBehaviour:
   - name: med_lasik
     outer:
       serializedVersion: 2
-      x: 2780
-      y: 162
+      x: 3669
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2780
-      y: 162
+      x: 3669
+      y: 1178
       width: 126
       height: 126
     paddingLeft: 0
@@ -178,14 +178,14 @@ MonoBehaviour:
   - name: hfb_hairtreatment
     outer:
       serializedVersion: 2
-      x: 2780
-      y: 35
+      x: 3923
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2780
-      y: 35
+      x: 3923
+      y: 1178
       width: 126
       height: 126
     paddingLeft: 0
@@ -213,13 +213,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2907
-      y: 1178
+      y: 924
       width: 126
       height: 126
     inner:
       serializedVersion: 2
       x: 2907
-      y: 1178
+      y: 924
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -229,14 +229,14 @@ MonoBehaviour:
   - name: ae_funstuff
     outer:
       serializedVersion: 2
-      x: 3034
-      y: 1178
+      x: 2907
+      y: 416
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3034
-      y: 1178
+      x: 2907
+      y: 416
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -246,14 +246,14 @@ MonoBehaviour:
   - name: food_restaurants
     outer:
       serializedVersion: 2
-      x: 3161
-      y: 1178
+      x: 2652
+      y: 1038
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3161
-      y: 1178
+      x: 2652
+      y: 1038
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -263,14 +263,14 @@ MonoBehaviour:
   - name: hfb_plasticcosmetic
     outer:
       serializedVersion: 2
-      x: 3288
-      y: 1178
+      x: 2652
+      y: 911
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3288
-      y: 1178
+      x: 2652
+      y: 911
       width: 126
       height: 126
     paddingLeft: 0
@@ -280,14 +280,14 @@ MonoBehaviour:
   - name: pts_campgrounds
     outer:
       serializedVersion: 2
-      x: 3415
-      y: 1178
+      x: 2652
+      y: 784
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3415
-      y: 1178
+      x: 2652
+      y: 784
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -297,14 +297,14 @@ MonoBehaviour:
   - name: med_hospital
     outer:
       serializedVersion: 2
-      x: 3542
-      y: 1178
+      x: 2652
+      y: 657
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3542
-      y: 1178
+      x: 2652
+      y: 657
       width: 126
       height: 126
     paddingLeft: 0
@@ -314,14 +314,14 @@ MonoBehaviour:
   - name: food_coffeeteajuice
     outer:
       serializedVersion: 2
-      x: 3669
-      y: 1178
+      x: 2652
+      y: 530
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3669
-      y: 1178
+      x: 2652
+      y: 530
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -331,14 +331,14 @@ MonoBehaviour:
   - name: med_addictiontreatment
     outer:
       serializedVersion: 2
-      x: 3796
-      y: 1178
+      x: 2652
+      y: 403
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3796
-      y: 1178
+      x: 2652
+      y: 403
       width: 126
       height: 126
     paddingLeft: 0
@@ -348,14 +348,14 @@ MonoBehaviour:
   - name: hfb_bodyart
     outer:
       serializedVersion: 2
-      x: 3923
-      y: 1178
+      x: 2652
+      y: 276
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3923
-      y: 1178
+      x: 2652
+      y: 276
       width: 126
       height: 126
     paddingLeft: 0
@@ -365,14 +365,14 @@ MonoBehaviour:
   - name: ttt_tours
     outer:
       serializedVersion: 2
-      x: 2907
-      y: 1051
+      x: 2652
+      y: 149
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2907
-      y: 1051
+      x: 2652
+      y: 149
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -382,14 +382,14 @@ MonoBehaviour:
   - name: med_speechtherapy
     outer:
       serializedVersion: 2
-      x: 2907
-      y: 924
+      x: 2652
+      y: 22
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2907
-      y: 924
+      x: 2652
+      y: 22
       width: 126
       height: 126
     paddingLeft: 0
@@ -399,14 +399,14 @@ MonoBehaviour:
   - name: food_specialtastes
     outer:
       serializedVersion: 2
-      x: 2907
-      y: 797
+      x: 2780
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2907
-      y: 797
+      x: 2780
+      y: 1178
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -416,13 +416,13 @@ MonoBehaviour:
   - name: med_optometry
     outer:
       serializedVersion: 2
-      x: 2907
+      x: 2780
       y: 670
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2907
+      x: 2780
       y: 670
       width: 126
       height: 126
@@ -433,14 +433,14 @@ MonoBehaviour:
   - name: med_audiology
     outer:
       serializedVersion: 2
-      x: 2907
-      y: 543
+      x: 2780
+      y: 1051
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2907
-      y: 543
+      x: 2780
+      y: 1051
       width: 126
       height: 126
     paddingLeft: 0
@@ -450,14 +450,14 @@ MonoBehaviour:
   - name: ttt_taxis
     outer:
       serializedVersion: 2
-      x: 2907
-      y: 416
+      x: 2780
+      y: 924
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2907
-      y: 416
+      x: 2780
+      y: 924
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -467,14 +467,14 @@ MonoBehaviour:
   - name: med_nutritionist
     outer:
       serializedVersion: 2
-      x: 2907
-      y: 289
+      x: 2780
+      y: 797
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2907
-      y: 289
+      x: 2780
+      y: 797
       width: 126
       height: 126
     paddingLeft: 0
@@ -484,14 +484,14 @@ MonoBehaviour:
   - name: ae_upscale
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 1166
+      x: 2907
+      y: 162
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 1166
+      x: 2907
+      y: 162
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -501,14 +501,14 @@ MonoBehaviour:
   - name: med_herbal
     outer:
       serializedVersion: 2
-      x: 2780
-      y: 924
+      x: 2907
+      y: 289
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2780
-      y: 924
+      x: 2907
+      y: 289
       width: 126
       height: 126
     paddingLeft: 0
@@ -518,14 +518,14 @@ MonoBehaviour:
   - name: ttt_tickets
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 1039
+      x: 2907
+      y: 543
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 1039
+      x: 2907
+      y: 543
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -535,14 +535,14 @@ MonoBehaviour:
   - name: pts_hotels
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 912
+      x: 2907
+      y: 670
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 912
+      x: 2907
+      y: 670
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -552,14 +552,14 @@ MonoBehaviour:
   - name: pts_bedbreakfast
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 785
+      x: 2907
+      y: 797
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 785
+      x: 2907
+      y: 797
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -569,14 +569,14 @@ MonoBehaviour:
   - name: med_dentist
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 658
+      x: 3796
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 658
+      x: 3796
+      y: 1178
       width: 126
       height: 126
     paddingLeft: 0
@@ -586,14 +586,14 @@ MonoBehaviour:
   - name: pts_vacationrentals
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 531
+      x: 2907
+      y: 1051
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 531
+      x: 2907
+      y: 1051
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -603,14 +603,14 @@ MonoBehaviour:
   - name: ae_howlin
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 404
+      x: 3542
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 404
+      x: 3542
+      y: 1178
       width: 126
       height: 126
     paddingLeft: .00793650839
@@ -620,14 +620,14 @@ MonoBehaviour:
   - name: med_massage
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 277
+      x: 3288
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 277
+      x: 3288
+      y: 1178
       width: 126
       height: 126
     paddingLeft: 0
@@ -637,14 +637,14 @@ MonoBehaviour:
   - name: med_urgent
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 150
+      x: 3161
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 150
+      x: 3161
+      y: 1178
       width: 126
       height: 126
     paddingLeft: 0
@@ -654,14 +654,14 @@ MonoBehaviour:
   - name: hfb_fitness
     outer:
       serializedVersion: 2
-      x: 2652
-      y: 23
+      x: 3034
+      y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2652
-      y: 23
+      x: 3034
+      y: 1178
       width: 126
       height: 126
     paddingLeft: 0
@@ -671,13 +671,13 @@ MonoBehaviour:
   - name: pts_guesthouses
     outer:
       serializedVersion: 2
-      x: 2780
+      x: 2907
       y: 1178
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 2780
+      x: 2907
       y: 1178
       width: 126
       height: 126
@@ -689,13 +689,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2780
-      y: 1051
+      y: 35
       width: 126
       height: 126
     inner:
       serializedVersion: 2
       x: 2780
-      y: 1051
+      y: 35
       width: 126
       height: 126
     paddingLeft: 0
@@ -791,13 +791,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2089
-      y: 620
+      y: 757
       width: 148
       height: 136
     inner:
       serializedVersion: 2
       x: 2089
-      y: 620
+      y: 757
       width: 148
       height: 136
     paddingLeft: .358108103
@@ -825,13 +825,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 317
+      y: 1302
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 317
+      y: 1302
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -841,13 +841,13 @@ MonoBehaviour:
   - name: mall+
     outer:
       serializedVersion: 2
-      x: 3674
+      x: 3855
       y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 3674
+      x: 3855
       y: 1644
       width: 180
       height: 106
@@ -859,13 +859,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 1651
+      y: 1784
       width: 180
       height: 132
     inner:
       serializedVersion: 2
       x: 1755
-      y: 1651
+      y: 1784
       width: 180
       height: 132
     paddingLeft: .200000003
@@ -910,13 +910,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 608
+      y: 161
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1755
-      y: 608
+      y: 161
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -978,13 +978,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1580
-      y: 389
+      y: 687
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1580
-      y: 389
+      y: 687
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -994,14 +994,14 @@ MonoBehaviour:
   - name: home theatre-entertainment system+
     outer:
       serializedVersion: 2
-      x: 3955
-      y: 1751
+      x: 2238
+      y: 743
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 3955
-      y: 1751
+      x: 2238
+      y: 743
       width: 124
       height: 150
     paddingLeft: .532258093
@@ -1012,13 +1012,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1416
-      y: 1433
+      y: 1741
       width: 163
       height: 153
     inner:
       serializedVersion: 2
       x: 1416
-      y: 1433
+      y: 1741
       width: 163
       height: 153
     paddingLeft: .282208592
@@ -1045,14 +1045,14 @@ MonoBehaviour:
   - name: japanese+
     outer:
       serializedVersion: 2
-      x: 366
-      y: 357
+      x: 513
+      y: 492
       width: 143
       height: 203
     inner:
       serializedVersion: 2
-      x: 366
-      y: 357
+      x: 513
+      y: 492
       width: 143
       height: 203
     paddingLeft: .433566421
@@ -1096,14 +1096,14 @@ MonoBehaviour:
   - name: shop+
     outer:
       serializedVersion: 2
-      x: 2590
-      y: 1530
+      x: 3674
+      y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 2590
-      y: 1530
+      x: 3674
+      y: 1644
       width: 180
       height: 106
     paddingLeft: .211111113
@@ -1164,13 +1164,13 @@ MonoBehaviour:
   - name: health fitness and beauty+
     outer:
       serializedVersion: 2
-      x: 3155
+      x: 3002
       y: 1763
       width: 152
       height: 138
     inner:
       serializedVersion: 2
-      x: 3155
+      x: 3002
       y: 1763
       width: 152
       height: 138
@@ -1232,14 +1232,14 @@ MonoBehaviour:
   - name: brew pubs+
     outer:
       serializedVersion: 2
-      x: 513
-      y: 696
+      x: 866
+      y: 899
       width: 174
       height: 170
     inner:
       serializedVersion: 2
-      x: 513
-      y: 696
+      x: 866
+      y: 899
       width: 174
       height: 170
     paddingLeft: .183908045
@@ -1317,13 +1317,13 @@ MonoBehaviour:
   - name: accident and personal injury+
     outer:
       serializedVersion: 2
-      x: 863
+      x: 688
       y: 1253
       width: 178
       height: 174
     inner:
       serializedVersion: 2
-      x: 863
+      x: 688
       y: 1253
       width: 178
       height: 174
@@ -1385,14 +1385,14 @@ MonoBehaviour:
   - name: bathroom+
     outer:
       serializedVersion: 2
-      x: 2089
-      y: 30
+      x: 1944
+      y: 156
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 2089
-      y: 30
+      x: 1944
+      y: 156
       width: 124
       height: 150
     paddingLeft: .532258093
@@ -1487,13 +1487,13 @@ MonoBehaviour:
   - name: thrift stores+
     outer:
       serializedVersion: 2
-      x: 3493
+      x: 3312
       y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 3493
+      x: 3312
       y: 1644
       width: 180
       height: 106
@@ -1504,13 +1504,13 @@ MonoBehaviour:
   - name: outlet stores+
     outer:
       serializedVersion: 2
-      x: 3855
+      x: 2950
       y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 3855
+      x: 2950
       y: 1644
       width: 180
       height: 106
@@ -1522,13 +1522,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1416
-      y: 1279
+      y: 1433
       width: 163
       height: 153
     inner:
       serializedVersion: 2
       x: 1416
-      y: 1279
+      y: 1433
       width: 163
       height: 153
     paddingLeft: .282208592
@@ -1589,13 +1589,13 @@ MonoBehaviour:
   - name: liquor+
     outer:
       serializedVersion: 2
-      x: 3312
+      x: 2769
       y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 3312
+      x: 2769
       y: 1644
       width: 180
       height: 106
@@ -1607,13 +1607,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1416
-      y: 1587
+      y: 1895
       width: 163
       height: 153
     inner:
       serializedVersion: 2
       x: 1416
-      y: 1587
+      y: 1895
       width: 163
       height: 153
     paddingLeft: .282208592
@@ -1640,14 +1640,14 @@ MonoBehaviour:
   - name: bedroom+
     outer:
       serializedVersion: 2
-      x: 1944
-      y: 307
+      x: 2089
+      y: 332
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 1944
-      y: 307
+      x: 2089
+      y: 332
       width: 124
       height: 150
     paddingLeft: .532258093
@@ -1657,14 +1657,14 @@ MonoBehaviour:
   - name: audio, video and home theater install+
     outer:
       serializedVersion: 2
-      x: 1580
-      y: 687
+      x: 1755
+      y: 1502
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1580
-      y: 687
+      x: 1755
+      y: 1502
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -1709,13 +1709,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1416
-      y: 960
+      y: 798
       width: 152
       height: 161
     inner:
       serializedVersion: 2
       x: 1416
-      y: 960
+      y: 798
       width: 152
       height: 161
     paddingLeft: .342105269
@@ -1743,13 +1743,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 459
+      y: 1055
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1755
-      y: 459
+      y: 1055
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -1828,13 +1828,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2238
-      y: 1509
+      y: 1630
       width: 170
       height: 120
     inner:
       serializedVersion: 2
       x: 2238
-      y: 1509
+      y: 1630
       width: 170
       height: 120
     paddingLeft: .247058824
@@ -1845,13 +1845,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2089
-      y: 757
+      y: 1305
       width: 148
       height: 136
     inner:
       serializedVersion: 2
       x: 2089
-      y: 757
+      y: 1305
       width: 148
       height: 136
     paddingLeft: .358108103
@@ -1913,13 +1913,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 906
+      y: 12
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1755
-      y: 906
+      y: 12
       width: 157
       height: 148
     paddingLeft: .299363047
@@ -1997,14 +1997,14 @@ MonoBehaviour:
   - name: cajun-creole+
     outer:
       serializedVersion: 2
-      x: 513
-      y: 492
+      x: 366
+      y: 357
       width: 143
       height: 203
     inner:
       serializedVersion: 2
-      x: 513
-      y: 492
+      x: 366
+      y: 357
       width: 143
       height: 203
     paddingLeft: .433566421
@@ -2014,13 +2014,13 @@ MonoBehaviour:
   - name: body art+
     outer:
       serializedVersion: 2
-      x: 2849
+      x: 3155
       y: 1763
       width: 152
       height: 138
     inner:
       serializedVersion: 2
-      x: 2849
+      x: 3155
       y: 1763
       width: 152
       height: 138
@@ -2134,13 +2134,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 711
+      y: 1696
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 711
+      y: 1696
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -2168,13 +2168,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2089
-      y: 894
+      y: 620
       width: 148
       height: 136
     inner:
       serializedVersion: 2
       x: 2089
-      y: 894
+      y: 620
       width: 148
       height: 136
     paddingLeft: .358108103
@@ -2201,13 +2201,13 @@ MonoBehaviour:
   - name: big box stores+
     outer:
       serializedVersion: 2
-      x: 2769
+      x: 3493
       y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 2769
+      x: 3493
       y: 1644
       width: 180
       height: 106
@@ -2236,13 +2236,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 1499
+      y: 908
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 1499
+      y: 908
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -2354,14 +2354,14 @@ MonoBehaviour:
   - name: house cleaning+
     outer:
       serializedVersion: 2
-      x: 1580
-      y: 91
+      x: 1755
+      y: 1204
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1580
-      y: 91
+      x: 1755
+      y: 1204
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -2372,13 +2372,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 1105
+      y: 317
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 1105
+      y: 317
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -2389,13 +2389,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1416
-      y: 798
+      y: 960
       width: 152
       height: 161
     inner:
       serializedVersion: 2
       x: 1416
-      y: 798
+      y: 960
       width: 152
       height: 161
     paddingLeft: .342105269
@@ -2405,14 +2405,14 @@ MonoBehaviour:
   - name: home office+
     outer:
       serializedVersion: 2
-      x: 1944
-      y: 5
+      x: 3955
+      y: 1751
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 1944
-      y: 5
+      x: 3955
+      y: 1751
       width: 124
       height: 150
     paddingLeft: .54838711
@@ -2524,13 +2524,13 @@ MonoBehaviour:
   - name: indoor sports faclilties+
     outer:
       serializedVersion: 2
-      x: 513
+      x: 688
       y: 1070
       width: 174
       height: 172
     inner:
       serializedVersion: 2
-      x: 513
+      x: 688
       y: 1070
       width: 174
       height: 172
@@ -2541,13 +2541,13 @@ MonoBehaviour:
   - name: buffets+
     outer:
       serializedVersion: 2
-      x: 3362
+      x: 3189
       y: 1918
       width: 172
       height: 130
     inner:
       serializedVersion: 2
-      x: 3362
+      x: 3189
       y: 1918
       width: 172
       height: 130
@@ -2558,13 +2558,13 @@ MonoBehaviour:
   - name: diner+
     outer:
       serializedVersion: 2
-      x: 2950
+      x: 3131
       y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 2950
+      x: 3131
       y: 1644
       width: 180
       height: 106
@@ -2678,13 +2678,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 161
+      y: 1353
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1755
-      y: 161
+      y: 1353
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -2711,14 +2711,14 @@ MonoBehaviour:
   - name: interior decor+
     outer:
       serializedVersion: 2
-      x: 1944
-      y: 156
+      x: 2089
+      y: 30
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 1944
-      y: 156
+      x: 2089
+      y: 30
       width: 124
       height: 150
     paddingLeft: .54838711
@@ -2813,14 +2813,14 @@ MonoBehaviour:
   - name: men shoes+
     outer:
       serializedVersion: 2
-      x: 3784
-      y: 1781
+      x: 2238
+      y: 1509
       width: 170
       height: 120
     inner:
       serializedVersion: 2
-      x: 3784
-      y: 1781
+      x: 2238
+      y: 1509
       width: 170
       height: 120
     paddingLeft: .294117659
@@ -2898,14 +2898,14 @@ MonoBehaviour:
   - name: carpenters+
     outer:
       serializedVersion: 2
-      x: 1580
-      y: 538
+      x: 1755
+      y: 459
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1580
-      y: 538
+      x: 1755
+      y: 459
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -2915,14 +2915,14 @@ MonoBehaviour:
   - name: athletic shoes+
     outer:
       serializedVersion: 2
-      x: 2238
-      y: 1630
+      x: 3784
+      y: 1781
       width: 170
       height: 120
     inner:
       serializedVersion: 2
-      x: 2238
-      y: 1630
+      x: 3784
+      y: 1781
       width: 170
       height: 120
     paddingLeft: .294117659
@@ -3000,14 +3000,14 @@ MonoBehaviour:
   - name: casino+
     outer:
       serializedVersion: 2
-      x: 863
-      y: 1072
+      x: 513
+      y: 696
       width: 174
       height: 170
     inner:
       serializedVersion: 2
-      x: 863
-      y: 1072
+      x: 513
+      y: 696
       width: 174
       height: 170
     paddingLeft: .183908045
@@ -3069,13 +3069,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 1055
+      y: 757
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1755
-      y: 1055
+      y: 757
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -3187,14 +3187,14 @@ MonoBehaviour:
   - name: security systems+
     outer:
       serializedVersion: 2
-      x: 1755
-      y: 757
+      x: 1580
+      y: 91
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1755
-      y: 757
+      x: 1580
+      y: 91
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -3238,14 +3238,14 @@ MonoBehaviour:
   - name: pool-spa services+
     outer:
       serializedVersion: 2
-      x: 1755
-      y: 310
+      x: 1580
+      y: 240
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1755
-      y: 310
+      x: 1580
+      y: 240
       width: 157
       height: 148
     paddingLeft: .299363047
@@ -3273,13 +3273,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2089
-      y: 1168
+      y: 894
       width: 148
       height: 136
     inner:
       serializedVersion: 2
       x: 2089
-      y: 1168
+      y: 894
       width: 148
       height: 136
     paddingLeft: .358108103
@@ -3290,13 +3290,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 1784
+      y: 1651
       width: 180
       height: 132
     inner:
       serializedVersion: 2
       x: 1755
-      y: 1784
+      y: 1651
       width: 180
       height: 132
     paddingLeft: .211111113
@@ -3357,14 +3357,14 @@ MonoBehaviour:
   - name: gym+
     outer:
       serializedVersion: 2
-      x: 866
-      y: 899
+      x: 863
+      y: 1072
       width: 174
       height: 170
     inner:
       serializedVersion: 2
-      x: 866
-      y: 899
+      x: 863
+      y: 1072
       width: 174
       height: 170
     paddingLeft: .183908045
@@ -3375,13 +3375,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1416
-      y: 1741
+      y: 1587
       width: 163
       height: 153
     inner:
       serializedVersion: 2
       x: 1416
-      y: 1741
+      y: 1587
       width: 163
       height: 153
     paddingLeft: .282208592
@@ -3459,14 +3459,14 @@ MonoBehaviour:
   - name: appliances+
     outer:
       serializedVersion: 2
-      x: 2238
-      y: 592
+      x: 1944
+      y: 307
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 2238
-      y: 592
+      x: 1944
+      y: 307
       width: 124
       height: 150
     paddingLeft: .54838711
@@ -3612,14 +3612,14 @@ MonoBehaviour:
   - name: television-audio+
     outer:
       serializedVersion: 2
-      x: 2089
-      y: 181
+      x: 1944
+      y: 5
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 2089
-      y: 181
+      x: 1944
+      y: 5
       width: 124
       height: 150
     paddingLeft: .54838711
@@ -3680,13 +3680,13 @@ MonoBehaviour:
   - name: indoor sports+
     outer:
       serializedVersion: 2
-      x: 688
+      x: 513
       y: 1070
       width: 174
       height: 172
     inner:
       serializedVersion: 2
-      x: 688
+      x: 513
       y: 1070
       width: 174
       height: 172
@@ -3698,13 +3698,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 1696
+      y: 514
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 1696
+      y: 514
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -3714,14 +3714,14 @@ MonoBehaviour:
   - name: petshop+
     outer:
       serializedVersion: 2
-      x: 2588
-      y: 1644
+      x: 2409
+      y: 1530
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 2588
-      y: 1644
+      x: 2409
+      y: 1530
       width: 180
       height: 106
     paddingLeft: .211111113
@@ -3799,13 +3799,13 @@ MonoBehaviour:
   - name: nails+
     outer:
       serializedVersion: 2
-      x: 3002
+      x: 2849
       y: 1763
       width: 152
       height: 138
     inner:
       serializedVersion: 2
-      x: 3002
+      x: 2849
       y: 1763
       width: 152
       height: 138
@@ -3919,13 +3919,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 514
+      y: 1105
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 514
+      y: 1105
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -3935,14 +3935,14 @@ MonoBehaviour:
   - name: vaction rentals+
     outer:
       serializedVersion: 2
-      x: 1416
-      y: 1895
+      x: 0
+      y: 2
       width: 163
       height: 153
     inner:
       serializedVersion: 2
-      x: 1416
-      y: 1895
+      x: 0
+      y: 2
       width: 163
       height: 153
     paddingLeft: .269938648
@@ -3969,13 +3969,13 @@ MonoBehaviour:
   - name: shop tools+
     outer:
       serializedVersion: 2
-      x: 688
+      x: 867
       y: 1249
       width: 174
       height: 178
     inner:
       serializedVersion: 2
-      x: 688
+      x: 867
       y: 1249
       width: 174
       height: 178
@@ -4072,13 +4072,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 1302
+      y: 1499
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 1302
+      y: 1499
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -4122,14 +4122,14 @@ MonoBehaviour:
   - name: kitchen+
     outer:
       serializedVersion: 2
-      x: 2089
-      y: 332
+      x: 2238
+      y: 592
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 2089
-      y: 332
+      x: 2238
+      y: 592
       width: 124
       height: 150
     paddingLeft: .54838711
@@ -4156,14 +4156,14 @@ MonoBehaviour:
   - name: houses+
     outer:
       serializedVersion: 2
-      x: 1755
-      y: 1204
+      x: 1580
+      y: 389
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1755
-      y: 1204
+      x: 1580
+      y: 389
       width: 157
       height: 148
     paddingLeft: .286624193
@@ -4174,13 +4174,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1054
-      y: 908
+      y: 711
       width: 143
       height: 196
     inner:
       serializedVersion: 2
       x: 1054
-      y: 908
+      y: 711
       width: 143
       height: 196
     paddingLeft: .433566421
@@ -4190,14 +4190,14 @@ MonoBehaviour:
   - name: furniture+
     outer:
       serializedVersion: 2
-      x: 2238
-      y: 743
+      x: 2089
+      y: 181
       width: 124
       height: 150
     inner:
       serializedVersion: 2
-      x: 2238
-      y: 743
+      x: 2089
+      y: 181
       width: 124
       height: 150
     paddingLeft: .532258093
@@ -4225,13 +4225,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 2089
-      y: 1305
+      y: 1168
       width: 148
       height: 136
     inner:
       serializedVersion: 2
       x: 2089
-      y: 1305
+      y: 1168
       width: 148
       height: 136
     paddingLeft: .358108103
@@ -4259,13 +4259,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 1353
+      y: 310
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1755
-      y: 1353
+      y: 310
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -4275,14 +4275,14 @@ MonoBehaviour:
   - name: rooms+
     outer:
       serializedVersion: 2
-      x: 1755
-      y: 1502
+      x: 1580
+      y: 538
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1755
-      y: 1502
+      x: 1580
+      y: 538
       width: 157
       height: 148
     paddingLeft: .324840754
@@ -4326,14 +4326,14 @@ MonoBehaviour:
   - name: guest houses and hostels+
     outer:
       serializedVersion: 2
-      x: 0
-      y: 2
+      x: 1416
+      y: 1279
       width: 163
       height: 153
     inner:
       serializedVersion: 2
-      x: 0
-      y: 2
+      x: 1416
+      y: 1279
       width: 163
       height: 153
     paddingLeft: .282208592
@@ -4377,14 +4377,14 @@ MonoBehaviour:
   - name: clothing stores+
     outer:
       serializedVersion: 2
-      x: 3131
-      y: 1644
+      x: 2590
+      y: 1530
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 3131
-      y: 1644
+      x: 2590
+      y: 1530
       width: 180
       height: 106
     paddingLeft: .211111113
@@ -4462,14 +4462,14 @@ MonoBehaviour:
   - name: second consignment+
     outer:
       serializedVersion: 2
-      x: 2409
-      y: 1530
+      x: 2588
+      y: 1644
       width: 180
       height: 106
     inner:
       serializedVersion: 2
-      x: 2409
-      y: 1530
+      x: 2588
+      y: 1644
       width: 180
       height: 106
     paddingLeft: .211111113
@@ -4479,13 +4479,13 @@ MonoBehaviour:
   - name: food court+
     outer:
       serializedVersion: 2
-      x: 3189
+      x: 3362
       y: 1918
       width: 172
       height: 130
     inner:
       serializedVersion: 2
-      x: 3189
+      x: 3362
       y: 1918
       width: 172
       height: 130
@@ -4547,14 +4547,14 @@ MonoBehaviour:
   - name: painters+
     outer:
       serializedVersion: 2
-      x: 1580
-      y: 240
+      x: 1755
+      y: 608
       width: 157
       height: 148
     inner:
       serializedVersion: 2
-      x: 1580
-      y: 240
+      x: 1755
+      y: 608
       width: 157
       height: 148
     paddingLeft: .299363047
@@ -4582,13 +4582,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 1755
-      y: 12
+      y: 906
       width: 157
       height: 148
     inner:
       serializedVersion: 2
       x: 1755
-      y: 12
+      y: 906
       width: 157
       height: 148
     paddingLeft: .312101901
@@ -4629,6 +4629,23 @@ MonoBehaviour:
     paddingRight: .243902445
     paddingTop: .267441869
     paddingBottom: .220930234
+  - name: speech_bubble
+    outer:
+      serializedVersion: 2
+      x: 2652
+      y: 1165
+      width: 127
+      height: 127
+    inner:
+      serializedVersion: 2
+      x: 2732
+      y: 1245
+      width: -33
+      height: -33
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

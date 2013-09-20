@@ -4,6 +4,7 @@ using System.Collections;
 public class VirtualMallManager : MonoBehaviour 
 {
     public GameObject topAnchor;
+    public GameObject businessAd;
 	// Use this for initialization
 	void Start () 
     {

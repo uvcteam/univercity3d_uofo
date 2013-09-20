@@ -22,5 +22,6 @@ public class PageButton : MonoBehaviour {
         }
 
         Page.SetActive(true);
+
     }
 }

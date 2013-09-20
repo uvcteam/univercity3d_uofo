@@ -10,6 +10,7 @@ public class AdManager : MonoBehaviour
     public int BusinessID = -1;
     public AdData AdInfo = new AdData();
     public static string MediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
+    public bool adReady = false;
 
     // Use this for initialization
     void Start()
@@ -23,6 +24,7 @@ public class AdManager : MonoBehaviour
 
     public IEnumerator GetAd(int id)
     {
+        adReady = false;
         BusinessID = id;
         string adURL = "http://www.univercity3d.com/univercity/getAd?b=" + id;
         Debug.Log("Getting Ad From: " + adURL);
@@ -31,11 +33,13 @@ public class AdManager : MonoBehaviour
 
         // Get the ad as a Dictionary object.
         Dictionary<string, object> ad = Json.Deserialize(page.text) as Dictionary<string, object>;
-        PopulateAdData(ref AdInfo, ad);
+        PopulateAdData(AdInfo, ad);
+        adReady = true;
     }
 
-    private void PopulateAdData(ref AdData data, Dictionary<string, object> ad)
+    private void PopulateAdData(AdData data, Dictionary<string, object> ad)
     {
+        Debug.Log("Populating.");
         AdInfo.Background.PopulateFromJSON(ad["background"] as Dictionary<string, object>);
         AdInfo.Expert.PopulateFromJSON(ad["expert"] as Dictionary<string, object>);
         AdInfo.Font = ad["font"] as string;
@@ -200,7 +204,8 @@ public class AdMedia
     {
         WWW page = new WWW(url);
         while (!page.isDone) ;
-        mediaAudio = page.audioClip;
+        //mediaAudio = page.GetAudioClip(false, false, AudioType.MPEG);
+        //Debug.Log(mediaAudio.length);
     }
     public MediaContentType ContentTypeFromString(string str)
     {
@@ -419,6 +424,7 @@ public class AdPage
         switch (str)
         {
             case "one":
+            case "old":
                 return AdPageType.One;
             case "two":
                 return AdPageType.Two;
