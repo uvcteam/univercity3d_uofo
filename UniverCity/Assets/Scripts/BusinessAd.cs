@@ -8,6 +8,7 @@ public class BusinessAd : MonoBehaviour
     public AdManager adManager;
     public GameObject background;
     public GameObject detailsBtn;
+    public GameObject[] pageBtns;
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
     private int numPateBtn = 4;
 
@@ -56,6 +57,11 @@ public class BusinessAd : MonoBehaviour
         adInfo = adManager.AdInfo;
         narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
 
+        foreach (GameObject btn in pageBtns)
+        {
+            btn.SetActive(true);
+        }
+
         foreach (AdPage adPage in adInfo.Pages)
         {
             pageObject = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.Type], typeof(GameObject)));
@@ -70,7 +76,6 @@ public class BusinessAd : MonoBehaviour
             }
 
             pageBtn = GameObject.Find("pageBtn" + pageCount);
-            Debug.Log("pageBtn" + pageCount);
             pageBtn.SetActive(true);
             pageBtn.GetComponent<PageButton>().Page = pageObject;
             pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;

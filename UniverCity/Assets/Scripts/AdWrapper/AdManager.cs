@@ -33,6 +33,7 @@ public class AdManager : MonoBehaviour
 
         // Get the ad as a Dictionary object.
         Dictionary<string, object> ad = Json.Deserialize(page.text) as Dictionary<string, object>;
+        AdInfo = new AdData();
         PopulateAdData(AdInfo, ad);
         adReady = true;
     }

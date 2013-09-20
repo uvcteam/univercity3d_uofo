@@ -31107,6 +31107,11 @@ MonoBehaviour:
   adManager: {fileID: 0}
   background: {fileID: 530834922}
   detailsBtn: {fileID: 1893440885}
+  pageBtns:
+  - {fileID: 649196284}
+  - {fileID: 1406394106}
+  - {fileID: 46916901}
+  - {fileID: 2109039179}
 --- !u!1001 &1576171625
 Prefab:
   m_ObjectHideFlags: 0
