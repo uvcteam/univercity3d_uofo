@@ -83,10 +83,6 @@ public class AdBackground
     {
         topColor = ColorFromHex(data["color"] as string);
         bottomColor = ColorFromHex(data["color2"] as string);
-        if (Convert.ToInt32(data["mediaId"]) == 0)
-            image = null;
-        else
-            AssignImageFromURL(AdManager.MediaURL + data["mediaId"]);
         type = TypeFromString(data["type"] as string);
     }
 

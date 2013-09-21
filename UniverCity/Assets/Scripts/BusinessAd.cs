@@ -38,12 +38,9 @@ public class BusinessAd : MonoBehaviour
         gameObject.SetActive(false);
 	}
 
-    public IEnumerator SetUpPage(int businessID = 16)
+    public IEnumerator SetUpAd(int businessID = 16)
     {
         AdData adInfo;
-        Page page;
-        GameObject pageObject;
-        GameObject pageBtn;
         GameObject narrator = GameObject.Find("Narrator");
         int pageCount = 1;
         background.transform.localPosition = new Vector3(0, 0, -700);
@@ -64,39 +61,7 @@ public class BusinessAd : MonoBehaviour
 
         foreach (AdPage adPage in adInfo.Pages)
         {
-            pageObject = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.Type], typeof(GameObject)));
-            Debug.Log(pageObject.name);
-            page = pageObject.GetComponent<Page>();
-            page.transform.parent = gameObject.transform;
-
-
-            for (int i = 0; i < adPage.Parts.Count && i < page.images.Length; ++i)
-            {
-                page.images[i].mainTexture = adPage.Parts[i].Image;
-            }
-
-            pageBtn = GameObject.Find("pageBtn" + pageCount);
-            pageBtn.SetActive(true);
-            pageBtn.GetComponent<PageButton>().Page = pageObject;
-            pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
-            page.title = adPage.Title;
-
-            if (adPage.More != null)
-            {
-                page.detailsPage = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.More.Type], typeof(GameObject)));
-                page.detailsPage.transform.parent = gameObject.transform;
-                page.detailsPage.GetComponent<Page>().title = adPage.More.Title;
-                for (int i = 0; i < adPage.More.Parts.Count && i < page.images.Length; ++i)
-                {
-                    page.detailsPage.GetComponent<Page>().images[i].mainTexture = adPage.More.Parts[i].Image;
-                }
-            }
-            page.narratorTexture = adPage.Expert.Image;
-            page.speechBubbleText = adPage.Narrative;
-
-
-            if (pageCount > 1)
-                pageObject.SetActive(false);
+            SetUpPage(adPage, pageCount);
             ++pageCount;
         }
 
@@ -114,9 +79,63 @@ public class BusinessAd : MonoBehaviour
         else
             GameObject.Find("DetailsBtn").SetActive(false);
 
-        narrator.GetComponentInChildren<UITexture>().mainTexture = adInfo.Pages[0].Expert.Image;
+        //narrator.GetComponentInChildren<UITexture>().mainTexture = adInfo.Pages[0].Expert.Image;
+        ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
         narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
         narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
 
+    }
+    private void SetUpPage(AdPage adPage, int pageCount)
+    {
+        GameObject pageBtn;
+        Page page;
+        GameObject pageObject = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.Type], typeof(GameObject)));
+        Debug.Log(pageObject.name);
+        page = pageObject.GetComponent<Page>();
+        page.transform.parent = gameObject.transform;
+
+
+        for (int i = 0; i < adPage.Parts.Count && i < page.images.Length; ++i)
+        {
+            //page.images[i].mainTexture = adPage.Parts[i].Image;
+            ScaleImage(page.images[i], adPage.Parts[i].Image);
+        }
+
+        pageBtn = GameObject.Find("pageBtn" + pageCount);
+        pageBtn.SetActive(true);
+        pageBtn.GetComponent<PageButton>().Page = pageObject;
+        pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
+        page.title = adPage.Title;
+
+        if (adPage.More != null)
+        {
+            page.detailsPage = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.More.Type], typeof(GameObject)));
+            page.detailsPage.transform.parent = gameObject.transform;
+            page.detailsPage.GetComponent<Page>().title = adPage.More.Title;
+
+            for (int i = 0; i < adPage.More.Parts.Count && i < page.images.Length; ++i)
+            {
+                //page.detailsPage.GetComponent<Page>().images[i].mainTexture = adPage.More.Parts[i].Image;
+                ScaleImage(page.detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
+            }
+        }
+        page.narratorTexture = adPage.Expert.Image;
+        page.speechBubbleText = adPage.Narrative;
+
+        if (pageCount > 1)
+            pageObject.SetActive(false);
+    }
+
+    public void ScaleImage(GameObject destination, Texture2D source)
+    {
+        float aspectRatioHeight = (float)source.width / (float)source.height;
+        float aspectRatioWidth = (float)source.height / (float)source.width;
+
+        if (source.width < source.height)
+            destination.transform.localScale = new Vector3(destination.transform.localScale.x * aspectRatioHeight, destination.transform.localScale.y, destination.transform.localScale.z);
+        else
+            destination.transform.localScale = new Vector3(destination.transform.localScale.x, destination.transform.localScale.y * aspectRatioWidth, destination.transform.localScale.z);
+
+        destination.GetComponent<UITexture>().mainTexture = source;
     }
 }

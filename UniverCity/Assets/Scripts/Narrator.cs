@@ -4,7 +4,7 @@ using System.Collections;
 public class Narrator : MonoBehaviour 
 {
     public GameObject speechBubbleObject;
-    public Texture2D texture;
+    public GameObject texture;
     public SpeechBubble speechBubble;
     private bool _toggle = true;
 

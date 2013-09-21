@@ -4,7 +4,7 @@ using System.Collections;
 public class Page : MonoBehaviour 
 {
     public Vector2 maxSize = new Vector2(2048.0f, 1636.0f);
-    public UITexture[] images;
+    public GameObject[] images;
     public Texture2D narratorTexture;
     public string speechBubbleText = "";
     public GameObject detailsPage;
@@ -20,6 +20,7 @@ public class Page : MonoBehaviour
     void OnEnable()
     {
         GameObject detailsBtn;
+        GameObject narrator = GameObject.Find("Narrator");
         detailsBtn = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn;
 
         if (detailsPage != null)
@@ -31,9 +32,13 @@ public class Page : MonoBehaviour
         else
             detailsBtn.SetActive(false);
 
-        GameObject.Find("Narrator").GetComponentInChildren<UITexture>().mainTexture = narratorTexture;
-        GameObject.Find("Narrator").GetComponent<Narrator>().speechBubbleObject.SetActive(true);
-        GameObject.Find("Narrator").GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = speechBubbleText;
+        if(narratorTexture == null)
+            narrator.GetComponentInChildren<UITexture>().mainTexture = narratorTexture;
+        else
+            GameObject.Find("BusinessAd").GetComponent<BusinessAd>().ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
+
+        narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+        narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = speechBubbleText;
         //GameObject.Find("SpeechBubble").GetComponentInChildren<UILabel>().text = speechBubbleText;
 
         if (speechBubbleText == "")

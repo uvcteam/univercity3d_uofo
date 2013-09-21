@@ -256,10 +256,14 @@ MonoBehaviour:
   m_Name: 
   maxSize: {x: 2048, y: 1636}
   images:
-  - {fileID: 11400004}
-  - {fileID: 11400002}
-  - {fileID: 11400006}
-  - {fileID: 11400008}
+  - {fileID: 100006}
+  - {fileID: 100004}
+  - {fileID: 100002}
+  - {fileID: 100000}
+  narratorTexture: {fileID: 0}
+  speechBubbleText: 
+  detailsPage: {fileID: 0}
+  title: 
 --- !u!114 &11400038
 MonoBehaviour:
   m_ObjectHideFlags: 1
