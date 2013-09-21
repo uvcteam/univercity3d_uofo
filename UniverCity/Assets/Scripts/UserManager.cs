@@ -8,6 +8,7 @@ using MiniJSON;
 public class UserManager : MonoBehaviour
 {
     public User CurrentUser;
+    public GameObject signingInDialog;
     public GameObject PageToDisable;
 
     void Start()
@@ -35,11 +36,15 @@ public class UserManager : MonoBehaviour
 
     public IEnumerator SignIn(string email, string password)
     {
+        signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
         string loginURL = "http://www.univercity3d.com/univercity/DeviceLogin?";
 
-        loginURL += "email=" + email;
-        loginURL += "&password=" + password;
+        loginURL += "email=" + WWW.EscapeURL(email);
+        loginURL += "&password=" + WWW.EscapeURL(password);
 
+        signingInDialog.SetActive(true);
+
+        Debug.Log(loginURL);
         WWW page = new WWW(loginURL);
         yield return page;
 
@@ -47,22 +52,33 @@ public class UserManager : MonoBehaviour
         if (Convert.ToBoolean(login["s"]) == false)
             CurrentUser = null;
         else
+        {
             CurrentUser = new User(login, email);
 
-        if (PageToDisable != null)
-            PageToDisable.SetActive(false);
+            PlayerPrefs.SetInt("loggedIn", 1);
+            PlayerPrefs.SetString("token", CurrentUser.Token);
+            PlayerPrefs.SetString("name", CurrentUser.Name);
+            PlayerPrefs.SetString("email", CurrentUser.Email);
+            PlayerPrefs.SetString("university", CurrentUser.University);
 
-        PlayerPrefs.SetInt("loggedIn", 1);
-        PlayerPrefs.SetString("token", CurrentUser.Token);
-        PlayerPrefs.SetString("name", CurrentUser.Name);
-        PlayerPrefs.SetString("email", CurrentUser.Email);
-        PlayerPrefs.SetString("university", CurrentUser.University);
+            if (PageToDisable != null)
+                PageToDisable.SetActive(false);
+        }
+
+        
+        signingInDialog.SetActive(false);
     }
 
     public void SignOut()
     {
         PlayerPrefs.SetInt("loggedIn", 0);
         CurrentUser = null;
+        PageToDisable.SetActive(true);
+    }
+
+    public bool IsSignedIn()
+    {
+        return (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1);
     }
 }
 
@@ -108,6 +124,8 @@ public class User
         name = user["name"] as string;
         email = e;
         university = user["university"] as string;
+
+        Debug.Log("Logged in as: " + name);
     }
 
     public User(string t, string n, string e, string u)

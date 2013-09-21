@@ -164,7 +164,7 @@ public class BusinessManager : MonoBehaviour
             businesses[i].logo.Apply();
         }
 
-        loginPanel.SendMessage("LoadingFinished");
+        //loginPanel.SendMessage("LoadingFinished");
         loader.SetActive(false);
     }
 }

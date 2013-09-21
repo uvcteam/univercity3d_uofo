@@ -6,13 +6,15 @@ public class MemoryBank : MonoBehaviour
     public GameObject JournalPanel = null;
     public GameObject NotificationPanel = null;
     public GameObject EntriesPanel = null;
+    public UILabel UserName = null;
 
     public TopBarManager topBar = null;
 
     void OnEnable()
     {
-        if (!PlayerPrefs.HasKey("SignedIn") || PlayerPrefs.GetInt("SignedIn") == 0)
+        if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
             Application.LoadLevel(0);
+        UserName.text = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Name;
         topBar.gameObject.SetActiveRecursively(false);
     }
 
@@ -63,7 +65,7 @@ public class MemoryBank : MonoBehaviour
 
     void OnSignOutClicked()
     {
-        PlayerPrefs.SetInt("SignedIn", 0);
+        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().SignOut();
         Application.LoadLevel(0);
     }
 }
