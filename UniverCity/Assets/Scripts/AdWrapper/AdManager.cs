@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using MiniJSON;
 public class AdManager : MonoBehaviour
 {
     public int BusinessID = -1;
-    public AdData AdInfo = new AdData();
+    public AdData AdInfo = null;
     public static string MediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
     public bool adReady = false;
 
@@ -33,21 +34,9 @@ public class AdManager : MonoBehaviour
 
         // Get the ad as a Dictionary object.
         Dictionary<string, object> ad = Json.Deserialize(page.text) as Dictionary<string, object>;
-        AdInfo = new AdData();
         AdImages(ad);
-        PopulateAdData(AdInfo, ad);
+        AdInfo = new AdData(ad);
         adReady = true;
-    }
-
-    private void PopulateAdData(AdData data, Dictionary<string, object> ad)
-    {
-        Debug.Log("Populating.");
-        AdInfo.Background.PopulateFromJSON(ad["background"] as Dictionary<string, object>);
-        AdInfo.Expert.PopulateFromJSON(ad["expert"] as Dictionary<string, object>);
-        AdInfo.Font = ad["font"] as string;
-        AdInfo.Version = Convert.ToInt32(ad["version"]);
-        //Debug.Log(ad["pages"]);
-        AdInfo.PopulatePagesFromJSON(ad["pages"] as List<object>);
     }
 
     private void AdImages(Dictionary<string, object> json)
@@ -91,7 +80,6 @@ public class AdManager : MonoBehaviour
             }
         }
     }
-
     private IEnumerator GetImage(string url, Texture2D img)
     {
         WWW page = new WWW(url);
@@ -130,14 +118,14 @@ public class AdBackground : MonoBehaviour
         set { image = value; }
     }
 
-    public void PopulateFromJSON(Dictionary<string, object> data)
+    public AdBackground(Dictionary<string, object> data)
     {
         topColor = ColorFromHex(data["color"] as string);
         bottomColor = ColorFromHex(data["color2"] as string);
         type = TypeFromString(data["type"] as string);
     }
 
-    public Color ColorFromHex(string hex)
+    private Color ColorFromHex(string hex)
     {
         string red = hex.Substring(0, 2);
         string green = hex.Substring(2, 2);
@@ -149,13 +137,13 @@ public class AdBackground : MonoBehaviour
 
         return new Color(redI / 255.0f, greenI / 255.0f, blueI / 255.0f);
     }
-    public void AssignImageFromURL(string url)
+    private void AssignImageFromURL(string url)
     {
         WWW page = new WWW(url);
         while (!page.isDone) ;
         image = page.texture;
     }
-    public BackgroundType TypeFromString(string str)
+    private BackgroundType TypeFromString(string str)
     {
         switch (str)
         {
@@ -227,7 +215,7 @@ public class AdMedia
         set { mediaAudio = value; }
     }
 
-    public void PopulateFromJSON(Dictionary<string, object> data)
+    public AdMedia(Dictionary<string, object> data)
     {
         contentType = ContentTypeFromString(data["contentType"] as string);
         height = Convert.ToInt32(data["height"]);
@@ -251,21 +239,21 @@ public class AdMedia
         }
     }
 
-    public void AssignImageFromURL(string url)
+    private void AssignImageFromURL(string url)
     {
         WWW page = new WWW(url);
         while (!page.isDone) ;
         image = page.texture;
         image.wrapMode = TextureWrapMode.Clamp;
     }
-    public void AssignAudioFromURL(string url)
+    private void AssignAudioFromURL(string url)
     {
         WWW page = new WWW(url);
         while (!page.isDone) ;
         //mediaAudio = page.GetAudioClip(false, false, AudioType.MPEG);
         //Debug.Log(mediaAudio.length);
     }
-    public MediaContentType ContentTypeFromString(string str)
+    private MediaContentType ContentTypeFromString(string str)
     {
         switch (str)
         {
@@ -307,7 +295,7 @@ public class AdMedia
                 return MediaContentType.VideoWebm;
         }
     }
-    public MediaPlayTime PlayTimeFromString(string str)
+    private MediaPlayTime PlayTimeFromString(string str)
     {
         switch (str)
         {
@@ -319,7 +307,7 @@ public class AdMedia
                 return MediaPlayTime.During;
         }
     }
-    public MediaType MediaTypeFromString(string str)
+    private MediaType MediaTypeFromString(string str)
     {
         switch (str)
         {
@@ -335,11 +323,11 @@ public class AdMedia
 [Serializable]
 public class AdData
 {
-    private AdBackground background = new AdBackground();
-    private AdMedia expert = new AdMedia();
+    private AdBackground background = null;
+    private AdMedia expert = null;
     private string font;
     private int version;
-    private List<AdPage> pages = new List<AdPage>();
+    private List<AdPage> pages = null;
 
     public AdBackground Background
     {
@@ -367,18 +355,21 @@ public class AdData
         set { pages = value; }
     }
 
-    public void PopulatePagesFromJSON(List<object> data)
+    public AdData(Dictionary<string, object> ad)
     {
-        foreach (Dictionary<string, object> page in data)
+        background = new AdBackground(ad["background"] as Dictionary<string, object>);
+        expert = new AdMedia(ad["expert"] as Dictionary<string, object>);
+        font = ad["font"] as string;
+        version = Convert.ToInt32(ad["version"]);
+        pages = new List<AdPage>();
+        foreach (Dictionary<string, object> page in ad["pages"] as List<object>)
         {
             if ((page["title"] as string) != "")
             {
-                AdPage curPage = new AdPage();
-                curPage.PopulateFromJSON(page);
+                AdPage curPage = new AdPage(page);
                 pages.Add(curPage);
             }
         }
-        Debug.Log(pages.Count);
     }
 }
 [Serializable]
@@ -386,13 +377,13 @@ public class AdPage
 {
     private AdPageType type;
     private string title;
-    private AdMedia audio = new AdMedia();
+    private AdMedia audio = null;
     private List<AdMedia> parts = new List<AdMedia>();
     private List<AdMarkup> text = new List<AdMarkup>();
     private string narrative;
-    private AdPage more;
-    private AdMedia expert = new AdMedia();
-    private AdBackground background = new AdBackground();
+    private AdPage more = null;
+    private AdMedia expert = null;
+    private AdBackground background = null;
     private string font;
 
     public AdPageType Type
@@ -446,38 +437,37 @@ public class AdPage
         set { font = value; }
     }
 
-    public void PopulateFromJSON(Dictionary<string, object> data)
+    public AdPage(Dictionary<string, object> data)
     {
         type = PageTypeFromString(data["type"] as string);
         title = data["title"] as string;
         if (data.ContainsKey("audio"))
-            audio.PopulateFromJSON(data["audio"] as Dictionary<string, object>);
+            audio = new AdMedia(data["audio"] as Dictionary<string, object>);
         else
             audio = null;
         foreach (Dictionary<string, object> part in data["parts"] as List<object>)
         {
-            AdMedia med = new AdMedia();
-            med.PopulateFromJSON(part);
+            AdMedia med = new AdMedia(part);
             parts.Add(med);
         }
         foreach (Dictionary<string, object> part in data["text"] as List<object>)
         {
-            AdMarkup mar = new AdMarkup();
-            mar.PopulateFromJSON(part);
+            AdMarkup mar = new AdMarkup(part);
             text.Add(mar);
         }
         narrative = data["narrative"] as string;
-        more = new AdPage();
+        more = null;
         if (data.ContainsKey("more") && ((data["more"] as Dictionary<string, object>)["title"] as string) != "")
-            more.PopulateFromJSON(data["more"] as Dictionary<string, object>);
+            more = new AdPage(data["more"] as Dictionary<string, object>);
         else
             more = null;
-        expert.PopulateFromJSON(data["expert"] as Dictionary<string, object>);
-        background.PopulateFromJSON(data["background"] as Dictionary<string, object>);
+
+        expert = new AdMedia(data["expert"] as Dictionary<string, object>);
+        background = new AdBackground(data["background"] as Dictionary<string, object>);
         font = data["font"] as string;
     }
 
-    public AdPageType PageTypeFromString(string str)
+    private AdPageType PageTypeFromString(string str)
     {
         switch (str)
         {
@@ -516,13 +506,13 @@ public class AdMarkup
         set { text = value; }
     }
 
-    public void PopulateFromJSON(Dictionary<string, object> data)
+    public AdMarkup(Dictionary<string, object> data)
     {
         type = MarkupTypeFromString(data["type"] as string);
         start = Convert.ToBoolean(data["start"]);
         text = data["text"] as string;
     }
-    public AdMarkupType MarkupTypeFromString(string str)
+    private AdMarkupType MarkupTypeFromString(string str)
     {
         switch (str)
         {
@@ -545,6 +535,57 @@ public class AdMarkup
             default:
                 return AdMarkupType.Item;
         }
+    }
+}
+[Serializable]
+public class AdMegaDeal
+{
+    private int businessId;
+    private string description;
+    private string end;
+    private float list;
+    private float price;
+    private string title;
+
+    public int BusinessId
+    {
+        get { return businessId; }
+        set { businessId = value; }
+    }
+    public string Description
+    {
+        get { return description; }
+        set { description = value; }
+    }
+    public string End
+    {
+        get { return end; }
+        set { end = value; }
+    }
+    public float List
+    {
+        get { return list; }
+        set { list = value; }
+    }
+    public float Price
+    {
+        get { return price; }
+        set { price = value; }
+    }
+    public string Title
+    {
+        get { return title; }
+        set { title = value; }
+    }
+
+    public AdMegaDeal(Dictionary<string, object> deal)
+    {
+        businessId = Convert.ToInt32(deal["businessId"]);
+        description = deal["description"] as string;
+        end = deal["end"] as string;
+        list = float.Parse(deal["list"] as string, CultureInfo.InvariantCulture);
+        price = float.Parse(deal["price"] as string, CultureInfo.InvariantCulture);
+        title = deal["title"] as string;
     }
 }
 
