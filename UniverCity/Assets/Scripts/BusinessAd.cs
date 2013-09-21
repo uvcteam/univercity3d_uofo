@@ -8,6 +8,7 @@ public class BusinessAd : MonoBehaviour
     public AdManager adManager;
     public GameObject background;
     public GameObject detailsBtn;
+    public GameObject loadingDialog;
     public GameObject[] pageBtns;
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
     private int numPateBtn = 4;
@@ -43,14 +44,16 @@ public class BusinessAd : MonoBehaviour
         AdData adInfo;
         GameObject narrator = GameObject.Find("Narrator");
         int pageCount = 1;
-        background.transform.localPosition = new Vector3(0, 0, -700);
+        //background.transform.localPosition = new Vector3(0, 0, -700);
+        loadingDialog.SetActive(true);
         narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
 
         StartCoroutine(adManager.GetAd(16)); //16 for test reasons
         while (!adManager.adReady)
             yield return new WaitForSeconds(0.1f);
 
-        background.transform.localPosition = new Vector3(0, 0, 0);
+        //background.transform.localPosition = new Vector3(0, 0, 0);
+        loadingDialog.SetActive(false);
         adInfo = adManager.AdInfo;
         narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
 
@@ -128,13 +131,19 @@ public class BusinessAd : MonoBehaviour
 
     public void ScaleImage(GameObject destination, Texture2D source)
     {
-        float aspectRatioHeight = (float)source.width / (float)source.height;
-        float aspectRatioWidth = (float)source.height / (float)source.width;
+        float newWidth = (destination.transform.localScale.y / source.height) * source.width;
+        float newHeight = (destination.transform.localScale.x / source.width) * source.height;
 
-        if (source.width < source.height)
-            destination.transform.localScale = new Vector3(destination.transform.localScale.x * aspectRatioHeight, destination.transform.localScale.y, destination.transform.localScale.z);
+        if (source.width > source.height)
+            destination.transform.localScale = new Vector3(
+                destination.transform.localScale.x,
+                newHeight,
+                0.0f);
         else
-            destination.transform.localScale = new Vector3(destination.transform.localScale.x, destination.transform.localScale.y * aspectRatioWidth, destination.transform.localScale.z);
+            destination.transform.localScale = new Vector3(
+                newWidth,
+                destination.transform.localScale.y,
+                0.0f);
 
         destination.GetComponent<UITexture>().mainTexture = source;
     }

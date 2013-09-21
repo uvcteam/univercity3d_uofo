@@ -34,6 +34,7 @@ public class AdManager : MonoBehaviour
         // Get the ad as a Dictionary object.
         Dictionary<string, object> ad = Json.Deserialize(page.text) as Dictionary<string, object>;
         AdInfo = new AdData();
+        AdImages(ad);
         PopulateAdData(AdInfo, ad);
         adReady = true;
     }
@@ -48,10 +49,60 @@ public class AdManager : MonoBehaviour
         //Debug.Log(ad["pages"]);
         AdInfo.PopulatePagesFromJSON(ad["pages"] as List<object>);
     }
+
+    private void AdImages(Dictionary<string, object> json)
+    {
+        Dictionary<string, object> currentMedia;
+        Texture2D image;
+
+        currentMedia = json["expert"] as Dictionary<string, object>;
+        image = new Texture2D(Convert.ToInt32(currentMedia["width"]),
+                              Convert.ToInt32(currentMedia["height"]),
+                              TextureFormat.ARGB32, false);
+        StartCoroutine(GetImage(AdManager.MediaURL + currentMedia["id"], image));
+        currentMedia.Add("texture", image);
+
+        foreach (Dictionary<string, object> page in json["pages"] as List<object>)
+        {
+            currentMedia = page["expert"] as Dictionary<string, object>;
+            image = new Texture2D(Convert.ToInt32(currentMedia["width"]),
+                                  Convert.ToInt32(currentMedia["height"]),
+                              TextureFormat.ARGB32, false);
+            StartCoroutine(GetImage(AdManager.MediaURL + currentMedia["id"], image));
+            currentMedia.Add("texture", image);
+
+            foreach (Dictionary<string, object> part in page["parts"] as List<object>)
+            {
+                image = new Texture2D(Convert.ToInt32(part["width"]),
+                                      Convert.ToInt32(part["height"]),
+                              TextureFormat.ARGB32, false);
+                StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
+                part.Add("texture", image);
+            }
+
+            foreach (Dictionary<string, object> part in (page["more"] as Dictionary<string, object>)
+                ["parts"] as List<object>)
+            {
+                image = new Texture2D(Convert.ToInt32(part["width"]),
+                                      Convert.ToInt32(part["height"]),
+                              TextureFormat.ARGB32, false);
+                StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
+                part.Add("texture", image);
+            }
+        }
+    }
+
+    private IEnumerator GetImage(string url, Texture2D img)
+    {
+        WWW page = new WWW(url);
+        yield return page;
+        img.SetPixels(page.texture.GetPixels());
+        img.Apply();
+    }
 }
 
 [Serializable]
-public class AdBackground
+public class AdBackground : MonoBehaviour
 {
     private BackgroundType type = BackgroundType.Solid;
     private Color topColor = Color.white;
@@ -188,14 +239,24 @@ public class AdMedia
         if (type == MediaType.Audio)
             AssignAudioFromURL(AdManager.MediaURL + id);
         else if (type == MediaType.Image)
-            AssignImageFromURL(AdManager.MediaURL + id);
+        {
+            //AssignImageFromURL(AdManager.MediaURL + id);
+            foreach (string key in data.Keys)
+            {
+                if (key == "texture")
+                {
+                    image = data[key] as Texture2D;
+                }
+            }
+        }
     }
 
     public void AssignImageFromURL(string url)
     {
         WWW page = new WWW(url);
-        while (!page.isDone);
+        while (!page.isDone) ;
         image = page.texture;
+        image.wrapMode = TextureWrapMode.Clamp;
     }
     public void AssignAudioFromURL(string url)
     {
