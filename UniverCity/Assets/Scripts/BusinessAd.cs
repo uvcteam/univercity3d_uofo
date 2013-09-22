@@ -12,6 +12,8 @@ public class BusinessAd : MonoBehaviour
     public GameObject MegaDealPage;
     public GameObject MegaDealBtn;
     public GameObject[] pageBtns;
+
+    private List<GameObject> _pages = new List<GameObject>();
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
     private int numPateBtn = 4;
 
@@ -24,6 +26,8 @@ public class BusinessAd : MonoBehaviour
         pageDictionary.Add(AdPageType.Many, "ScrollableGridPage");
     }
 
+ 
+
     void Awake()
     {
         transform.parent = GameObject.Find("Anchor").transform;
@@ -32,12 +36,22 @@ public class BusinessAd : MonoBehaviour
         transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 270));
         adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
         SetUpDictionary();
-        DontDestroyOnLoad(gameObject);
+
     }
 
 	void OnExitClicked()
 	{
-	    //Destroy(gameObject);
+        foreach (GameObject page in _pages)
+        {
+            Destroy(page);
+        }
+
+        foreach (GameObject page in GameObject.FindGameObjectsWithTag("Page"))
+        {
+            page.SetActive(false);
+        }
+
+        MegaDealPage.SetActive(false);
         gameObject.SetActive(false);
 	}
 
@@ -134,12 +148,16 @@ public class BusinessAd : MonoBehaviour
                 //page.detailsPage.GetComponent<Page>().images[i].mainTexture = adPage.More.Parts[i].Image;
                 ScaleImage(page.detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
             }
+            page.detailsPage.SetActive(false);
+            _pages.Add(page.detailsPage);
         }
         page.narratorTexture = adPage.Expert.Image;
         page.speechBubbleText = adPage.Narrative;
 
         if (pageCount > 1)
             pageObject.SetActive(false);
+
+        _pages.Add(pageObject);
     }
 
     public void ScaleImage(GameObject destination, Texture2D source)
