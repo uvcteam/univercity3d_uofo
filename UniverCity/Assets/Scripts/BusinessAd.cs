@@ -13,6 +13,7 @@ public class BusinessAd : MonoBehaviour
     public GameObject MegaDealBtn;
     public GameObject BusinessCard;
     public GameObject[] pageBtns;
+    public GameObject[] objectsToHide;
 
     private List<GameObject> _pages = new List<GameObject>();
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
@@ -31,7 +32,9 @@ public class BusinessAd : MonoBehaviour
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-        Handheld.PlayFullScreenMovie("http://www.univercity3d.com/univercity/admedia?id=211", Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
+        foreach (GameObject obj in objectsToHide)
+            obj.SetActive(false);
+
     }
 
  
@@ -42,7 +45,8 @@ public class BusinessAd : MonoBehaviour
         transform.parent = GameObject.Find("Anchor").transform;
         transform.localScale = new Vector3(1, 1, 1);
         transform.localPosition = new Vector3(0, 0, -500);
-        transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 270));
+        if (Application.loadedLevel != 1)
+            transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 270));
         adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
         SetUpDictionary();
 
@@ -54,6 +58,9 @@ public class BusinessAd : MonoBehaviour
 
 	void OnExitClicked()
 	{
+        foreach (GameObject obj in objectsToHide)
+            obj.SetActive(true);
+
         foreach (GameObject page in _pages)
         {
             Destroy(page);
@@ -159,8 +166,8 @@ public class BusinessAd : MonoBehaviour
 
         for (int i = 0; i < adPage.Parts.Count && i < page.images.Length; ++i)
         {
-            //page.images[i].mainTexture = adPage.Parts[i].Image;
-            ScaleImage(page.images[i], adPage.Parts[i].Image);
+            if (adPage.Parts[i].Type == MediaType.Image)
+                ScaleImage(page.images[i], adPage.Parts[i].Image);
         }
 
         pageBtn = GameObject.Find("pageBtn" + pageCount);
@@ -169,6 +176,15 @@ public class BusinessAd : MonoBehaviour
         pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
         page.title = adPage.Title;
 
+        foreach (AdMedia media in adPage.Parts)
+        {
+            if (media.Type == MediaType.Video)
+            {
+                pageObject.GetComponent<VideoHandler>().playButton.SetActive(true);
+                pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
+                pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
+            }
+        }
         if (adPage.More != null)
         {
             page.detailsPage = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.More.Type], typeof(GameObject)));
@@ -177,7 +193,8 @@ public class BusinessAd : MonoBehaviour
 
             for (int i = 0; i < adPage.More.Parts.Count && i < page.images.Length; ++i)
             {
-                ScaleImage(page.detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
+                if (adPage.Parts[i].Type == MediaType.Image)
+                    ScaleImage(page.detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
             }
 
             page.detailsPage.SetActive(false);

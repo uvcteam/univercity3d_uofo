@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ScrollableGridPage
   m_TagString: Page
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ScrollPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,6 +195,10 @@ MonoBehaviour:
   m_Name: 
   maxSize: {x: 2048, y: 1636}
   images: []
+  narratorTexture: {fileID: 0}
+  speechBubbleText: 
+  detailsPage: {fileID: 0}
+  title: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
