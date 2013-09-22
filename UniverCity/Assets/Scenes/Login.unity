@@ -5068,6 +5068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9277aed54bb06d24694a46156ebf755a, type: 3}
   m_Name: 
   BusinessID: -1
+  BusinessCard: {fileID: 0}
   adReady: 0
 --- !u!1 &1956921185
 GameObject:

@@ -11,6 +11,7 @@ public class BusinessAd : MonoBehaviour
     public GameObject loadingDialog;
     public GameObject MegaDealPage;
     public GameObject MegaDealBtn;
+    public GameObject BusinessCard;
     public GameObject[] pageBtns;
 
     private List<GameObject> _pages = new List<GameObject>();
@@ -37,6 +38,10 @@ public class BusinessAd : MonoBehaviour
         adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
         SetUpDictionary();
 
+        foreach (GameObject btn in pageBtns)
+            btn.SetActive(true);
+        detailsBtn.SetActive(true);
+
     }
 
 	void OnExitClicked()
@@ -60,59 +65,73 @@ public class BusinessAd : MonoBehaviour
         AdData adInfo;
         GameObject narrator = GameObject.Find("Narrator");
         int pageCount = 1;
-        //background.transform.localPosition = new Vector3(0, 0, -700);
         loadingDialog.SetActive(true);
         narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
 
         StartCoroutine(adManager.GetAd(16)); //16 for test reasons
+
         while (!adManager.adReady)
             yield return new WaitForSeconds(0.1f);
 
-        //background.transform.localPosition = new Vector3(0, 0, 0);
         loadingDialog.SetActive(false);
-        adInfo = adManager.AdInfo;
-        narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
 
-        foreach (GameObject btn in pageBtns)
+
+        if (adManager.AdInfo == null)
         {
-            btn.SetActive(true);
-        }
+            BusinessCard.GetComponent<UITexture>().mainTexture = adManager.BusinessCard;
 
-        foreach (AdPage adPage in adInfo.Pages)
-        {
-            SetUpPage(adPage, pageCount);
-            ++pageCount;
-        }
-
-        if (adInfo.Mega != null)
-        {
-            MegaDealBtn.SetActive(true);
-            MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
-            megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
-            megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
-            megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
-            megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
-            megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
-        }
-
-        //Make first page the defualt
-        for (int i = pageCount; i <= numPateBtn; ++i) //disable unused buttons
-            GameObject.Find("pageBtn" + i).SetActive(false);
-
-        if (GameObject.Find("pageBtn1").GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage != null)
-        {
-            detailsBtn.SetActive(true);
-            detailsBtn.GetComponent<PageButton>().Page =
-                GameObject.Find("pageBtn1").GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage;
-            detailsBtn.gameObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].More.Title;
+            foreach (GameObject btn in pageBtns)
+                btn.SetActive(false);
+            detailsBtn.SetActive(false);
         }
         else
-            GameObject.Find("DetailsBtn").SetActive(false);
+        {
+            adInfo = adManager.AdInfo;
+            narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
 
-        //narrator.GetComponentInChildren<UITexture>().mainTexture = adInfo.Pages[0].Expert.Image;
-        ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
-        narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
-        narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
+            foreach (GameObject btn in pageBtns)
+            {
+                btn.SetActive(true);
+            }
+
+            foreach (AdPage adPage in adInfo.Pages)
+            {
+                SetUpPage(adPage, pageCount);
+                ++pageCount;
+            }
+
+            if (adInfo.Mega != null)
+            {
+                MegaDealBtn.SetActive(true);
+                MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
+                megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
+                megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
+                megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
+                megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
+                megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
+            }
+
+            //Make first page the defualt
+            for (int i = pageCount; i <= numPateBtn; ++i) //disable unused buttons
+                GameObject.Find("pageBtn" + i).SetActive(false);
+
+            if (GameObject.Find("pageBtn1").GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage != null)
+            {
+                detailsBtn.SetActive(true);
+                detailsBtn.GetComponent<PageButton>().Page =
+                    GameObject.Find("pageBtn1").GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage;
+                detailsBtn.gameObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].More.Title;
+            }
+            else
+                GameObject.Find("DetailsBtn").SetActive(false);
+
+            //narrator.GetComponentInChildren<UITexture>().mainTexture = adInfo.Pages[0].Expert.Image;
+            ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
+            narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+            narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
+        }
+
+       
 
     }
     private void SetUpPage(AdPage adPage, int pageCount)
@@ -145,14 +164,17 @@ public class BusinessAd : MonoBehaviour
 
             for (int i = 0; i < adPage.More.Parts.Count && i < page.images.Length; ++i)
             {
-                //page.detailsPage.GetComponent<Page>().images[i].mainTexture = adPage.More.Parts[i].Image;
                 ScaleImage(page.detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
             }
+
             page.detailsPage.SetActive(false);
+
+            SetUpNarratorForPage(page.detailsPage.GetComponent<Page>(), adPage.More);
+
             _pages.Add(page.detailsPage);
         }
-        page.narratorTexture = adPage.Expert.Image;
-        page.speechBubbleText = adPage.Narrative;
+
+        SetUpNarratorForPage(page, adPage);
 
         if (pageCount > 1)
             pageObject.SetActive(false);
@@ -177,5 +199,11 @@ public class BusinessAd : MonoBehaviour
                 0.0f);
 
         destination.GetComponent<UITexture>().mainTexture = source;
+    }
+
+    private void SetUpNarratorForPage(Page page, AdPage adPage)
+    {
+        page.narratorTexture = adPage.Expert.Image;
+        page.speechBubbleText = adPage.Narrative;
     }
 }

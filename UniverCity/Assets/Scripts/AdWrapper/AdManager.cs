@@ -37,6 +37,7 @@ public class AdManager : MonoBehaviour
                               Convert.ToInt32(card.texture.height),
                               TextureFormat.ARGB32, false);
         BusinessCard.SetPixels(card.texture.GetPixels());
+        BusinessCard.Apply();
         WWW page = new WWW(adURL);
         yield return page;
 
@@ -76,6 +77,13 @@ public class AdManager : MonoBehaviour
                 StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
                 part.Add("texture", image);
             }
+
+            currentMedia = (page["more"] as Dictionary<string, object>)["expert"] as Dictionary<string, object>;
+            image = new Texture2D(Convert.ToInt32(currentMedia["width"]),
+                                  Convert.ToInt32(currentMedia["height"]),
+                              TextureFormat.ARGB32, false);
+            StartCoroutine(GetImage(AdManager.MediaURL + currentMedia["id"], image));
+            currentMedia.Add("texture", image);
 
             foreach (Dictionary<string, object> part in (page["more"] as Dictionary<string, object>)
                 ["parts"] as List<object>)
