@@ -30,7 +30,7 @@ public class BusinessAd : MonoBehaviour
 
     void OnEnable()
     {
-        Screen.orientation = ScreenOrientation.Landscape;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
 
         foreach (GameObject obj in objectsToHide)
             obj.SetActive(false);
@@ -41,7 +41,7 @@ public class BusinessAd : MonoBehaviour
 
     void Awake()
     {
-        Screen.orientation = ScreenOrientation.Landscape;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         transform.parent = GameObject.Find("Anchor").transform;
         transform.localScale = new Vector3(1, 1, 1);
         transform.localPosition = new Vector3(0, 0, -500);

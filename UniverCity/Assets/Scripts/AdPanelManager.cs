@@ -16,7 +16,7 @@ public class AdPanelManager : MonoBehaviour
 	
 	public GameObject leftStick;
 	public GameObject rightStick;
-    private List<GameObject> ads;
+    public GameObject businessAd;
 
     void Awake()
     {
@@ -59,8 +59,8 @@ public class AdPanelManager : MonoBehaviour
     void OnDisable()
     {
         if (tableForAds != null)
-            foreach (GameObject go in ads)
-                DestroyImmediate(go);
+            foreach (Transform child in tableForAds.transform)
+                DestroyImmediate(child.gameObject);
     }
 
     void OnEnable()
@@ -85,7 +85,6 @@ public class AdPanelManager : MonoBehaviour
             newAd.transform.localRotation = businessTransform.localRotation;
             newAd.GetComponent<NGUIAd>().SetBusiness(bus);
             newAd.GetComponent<UIButtonMessage>().target = gameObject;
-            ads.Add(newAd);
         }
 
         tableForAds.GetComponent<UIGrid>().Reposition();
@@ -101,7 +100,9 @@ public class AdPanelManager : MonoBehaviour
             {
                 if (bus.name == busName.text)
                 {
-                    Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + bus.id.ToString());
+                    //Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + bus.id.ToString());
+                    businessAd.SetActive(true);
+                    StartCoroutine(businessAd.GetComponent<BusinessAd>().SetUpAd(bus.id));
                     break;
                 }
             }

@@ -28,7 +28,7 @@ GameObject:
   - 114: {fileID: 11400012}
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400010}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: VideoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
