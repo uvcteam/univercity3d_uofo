@@ -9,6 +9,8 @@ public class BusinessAd : MonoBehaviour
     public GameObject background;
     public GameObject detailsBtn;
     public GameObject loadingDialog;
+    public GameObject MegaDealPage;
+    public GameObject MegaDealBtn;
     public GameObject[] pageBtns;
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
     private int numPateBtn = 4;
@@ -66,6 +68,17 @@ public class BusinessAd : MonoBehaviour
         {
             SetUpPage(adPage, pageCount);
             ++pageCount;
+        }
+
+        if (adInfo.Mega != null)
+        {
+            MegaDealBtn.SetActive(true);
+            MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
+            megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
+            megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
+            megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
+            megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
+            megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
         }
 
         //Make first page the defualt

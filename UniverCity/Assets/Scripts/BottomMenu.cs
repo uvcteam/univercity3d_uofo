@@ -28,11 +28,21 @@ public class BottomMenu : MonoBehaviour
 
     void OnMemoryBankClicked()
     {
+        if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
+        {
+            Application.LoadLevel(0);
+            return;
+        }
         Application.LoadLevel(4);
     }
 
     void OnUnionHallClicked()
     {
+        if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
+        {
+            Application.LoadLevel(0);
+            return;
+        }
         Application.LoadLevel(3);
     }
 

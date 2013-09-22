@@ -328,6 +328,7 @@ public class AdData
     private string font;
     private int version;
     private List<AdPage> pages = null;
+    private AdMegaDeal mega = null;
 
     public AdBackground Background
     {
@@ -354,6 +355,11 @@ public class AdData
         get { return pages; }
         set { pages = value; }
     }
+    public AdMegaDeal Mega
+    {
+        get { return mega; }
+        set { mega = value; }
+    }
 
     public AdData(Dictionary<string, object> ad)
     {
@@ -362,6 +368,7 @@ public class AdData
         font = ad["font"] as string;
         version = Convert.ToInt32(ad["version"]);
         pages = new List<AdPage>();
+        mega = new AdMegaDeal(ad["megadeal"] as Dictionary<string, object>);
         foreach (Dictionary<string, object> page in ad["pages"] as List<object>)
         {
             if ((page["title"] as string) != "")
@@ -586,6 +593,7 @@ public class AdMegaDeal
         list = float.Parse(deal["list"] as string, CultureInfo.InvariantCulture);
         price = float.Parse(deal["price"] as string, CultureInfo.InvariantCulture);
         title = deal["title"] as string;
+        Debug.Log("Price? - " + list + " " + price);
     }
 }
 

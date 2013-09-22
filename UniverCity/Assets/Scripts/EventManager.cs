@@ -46,6 +46,8 @@ public class EventManager : MonoBehaviour
         string loc = "";
         string email = "";
 
+        eURL += "?token=" + GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+
         WWW page = new WWW(eURL);
         yield return page;
 
@@ -54,9 +56,10 @@ public class EventManager : MonoBehaviour
         //sw.Close();
 
         // Create an IList of all of the businesses returned to me.
-        IList eventInfo = Json.Deserialize(page.text) as IList;
+        Dictionary <string, object> eventInfo = Json.Deserialize(page.text) as Dictionary<string, object>;
+        IList events = eventInfo["events"] as IList;
         // Iterate through each of the dictionaries in the list.
-        foreach (Dictionary<string, object> uhEvent in eventInfo)
+        foreach (Dictionary<string, object> uhEvent in events)
         {
             // Retrieve the ID, Name, and Description of each business.
             id = Convert.ToInt32(uhEvent["id"]);

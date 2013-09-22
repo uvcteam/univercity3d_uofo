@@ -17,6 +17,8 @@ public class MainMenuManager : MonoBehaviour
     void Awake()
     {
         UserManager = GameObject.FindGameObjectWithTag("UserManager");
+        if (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1)
+            gameObject.SetActive(false);
     }
 
     void OnEnable()
