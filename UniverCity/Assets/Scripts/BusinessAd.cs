@@ -27,6 +27,11 @@ public class BusinessAd : MonoBehaviour
         pageDictionary.Add(AdPageType.Many, "ScrollableGridPage");
     }
 
+    void OnEnable()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
+
  
 
     void Awake()
