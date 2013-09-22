@@ -30,6 +30,8 @@ public class BusinessAd : MonoBehaviour
     void OnEnable()
     {
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        Handheld.PlayFullScreenMovie("http://www.univercity3d.com/univercity/admedia?id=211", Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
     }
 
  
