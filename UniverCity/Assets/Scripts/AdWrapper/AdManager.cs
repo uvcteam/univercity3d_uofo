@@ -80,7 +80,7 @@ public class AdManager : MonoBehaviour
 
             foreach (Dictionary<string, object> part in page["parts"] as List<object>)
             {
-                if (part["type"] == "image")
+                if (part["type"] as string == "image")
                 {
                     image = new Texture2D(Convert.ToInt32(part["width"]),
                                           Convert.ToInt32(part["height"]),
@@ -88,7 +88,7 @@ public class AdManager : MonoBehaviour
                     StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
                     part.Add("texture", image);
                 }
-                else if (part["type"] == "audio")
+                else if (part["type"] as string == "audio")
                 {
                     audio = new AudioClip();
                     StartCoroutine(GetAudio(AdManager.MediaURL + part["id"], audio));
@@ -106,7 +106,7 @@ public class AdManager : MonoBehaviour
             foreach (Dictionary<string, object> part in (page["more"] as Dictionary<string, object>)
                 ["parts"] as List<object>)
             {
-                if (part["type"] == "image")
+                if (part["type"] as string == "image")
                 {
                     image = new Texture2D(Convert.ToInt32(part["width"]),
                                           Convert.ToInt32(part["height"]),
@@ -114,7 +114,7 @@ public class AdManager : MonoBehaviour
                     StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
                     part.Add("texture", image);
                 }
-                else if (part["type"] == "audio")
+                else if (part["type"] as string == "audio")
                 {
                     audio = new AudioClip();
                     StartCoroutine(GetAudio(AdManager.MediaURL + part["id"], audio));
