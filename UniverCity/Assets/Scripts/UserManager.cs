@@ -10,6 +10,7 @@ public class UserManager : MonoBehaviour
     public User CurrentUser;
     public GameObject signingInDialog;
     public GameObject PageToDisable;
+    public GameObject exitBtn;
 
     void Start()
     {
@@ -43,14 +44,19 @@ public class UserManager : MonoBehaviour
         loginURL += "&password=" + WWW.EscapeURL(password);
 
         signingInDialog.SetActive(true);
-
+        signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
         Debug.Log(loginURL);
         WWW page = new WWW(loginURL);
         yield return page;
 
         Dictionary<string, object> login = Json.Deserialize(page.text) as Dictionary<string, object>;
+
         if (Convert.ToBoolean(login["s"]) == false)
+        {
             CurrentUser = null;
+            signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
+            exitBtn.SetActive(true);
+        }
         else
         {
             CurrentUser = new User(login, email);
@@ -63,10 +69,11 @@ public class UserManager : MonoBehaviour
 
             if (PageToDisable != null)
                 PageToDisable.SetActive(false);
+            signingInDialog.SetActive(false);
+            //GameObject.Find("ExitButton").SetActive(false);
         }
 
         
-        signingInDialog.SetActive(false);
     }
 
     public void SignOut()
@@ -79,6 +86,13 @@ public class UserManager : MonoBehaviour
     public bool IsSignedIn()
     {
         return (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1);
+    }
+
+    public void ToggleErrorMessage()
+    {
+        signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+        signingInDialog.SetActive(false);
+        exitBtn.SetActive(false);
     }
 }
 

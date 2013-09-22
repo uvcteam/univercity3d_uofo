@@ -11,7 +11,6 @@ public class MainMenuManager : MonoBehaviour
     public GameObject usernameInput;
     public GameObject UserManager;
     public GameObject signingInDialog;
-    public GameObject errorMessage;
     public float tweenTime = 0.33f;
 
     void Awake()
@@ -19,11 +18,6 @@ public class MainMenuManager : MonoBehaviour
         UserManager = GameObject.FindGameObjectWithTag("UserManager");
         if (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1)
             gameObject.SetActive(false);
-    }
-
-    void OnEnable()
-    {
-        errorMessage.SetActive(false);
     }
 
     public void EnableTween()
@@ -47,7 +41,6 @@ public class MainMenuManager : MonoBehaviour
         string userName = usernameInput.GetComponentInChildren<UILabel>().text;
         string passWord = passwordInput.GetComponentInChildren<UILabel>().text;
 
-        errorMessage.SetActive(true);
 
         StartCoroutine(userManager.SignIn(userName, passWord));
 
