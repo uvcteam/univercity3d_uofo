@@ -12,6 +12,7 @@ public class AdManager : MonoBehaviour
     public AdData AdInfo = null;
     public Texture2D BusinessCard = null;
     public static string MediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
+    public bool hasAd = false;
     public bool adReady = false;
 
     // Use this for initialization
@@ -27,6 +28,7 @@ public class AdManager : MonoBehaviour
     public IEnumerator GetAd(int id)
     {
         adReady = false;
+        hasAd = false;
         BusinessID = id;
         string adURL = "http://www.univercity3d.com/univercity/getAd?b=" + id;
         string bcURL = "http://www.univercity3d.com/univercity/bizcard?id=" + id;
@@ -38,13 +40,19 @@ public class AdManager : MonoBehaviour
                               TextureFormat.ARGB32, false);
         BusinessCard.SetPixels(card.texture.GetPixels());
         BusinessCard.Apply();
+
         WWW page = new WWW(adURL);
         yield return page;
+        if (page.error == null && page.text[0] == '{')
+        {
+            Debug.Log(page.text);
+            // Get the ad as a Dictionary object.
+            hasAd = true;
+            Dictionary<string, object> ad = Json.Deserialize(page.text) as Dictionary<string, object>;
+            AdImages(ad);
+            AdInfo = new AdData(ad);
+        }
 
-        // Get the ad as a Dictionary object.
-        Dictionary<string, object> ad = Json.Deserialize(page.text) as Dictionary<string, object>;
-        AdImages(ad);
-        AdInfo = new AdData(ad);
         adReady = true;
     }
 

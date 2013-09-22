@@ -5069,6 +5069,7 @@ MonoBehaviour:
   m_Name: 
   BusinessID: -1
   BusinessCard: {fileID: 0}
+  hasAd: 0
   adReady: 0
 --- !u!1 &1956921185
 GameObject:

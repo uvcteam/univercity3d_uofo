@@ -58,6 +58,7 @@ public class BusinessAd : MonoBehaviour
 
         MegaDealPage.SetActive(false);
         gameObject.SetActive(false);
+        BusinessCard.SetActive(false);
 	}
 
     public IEnumerator SetUpAd(int businessID = 16)
@@ -68,7 +69,7 @@ public class BusinessAd : MonoBehaviour
         loadingDialog.SetActive(true);
         narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
 
-        StartCoroutine(adManager.GetAd(16)); //16 for test reasons
+        StartCoroutine(adManager.GetAd(businessID)); //16 for test reasons
 
         while (!adManager.adReady)
             yield return new WaitForSeconds(0.1f);
@@ -76,13 +77,16 @@ public class BusinessAd : MonoBehaviour
         loadingDialog.SetActive(false);
 
 
-        if (adManager.AdInfo == null)
+        if (adManager.hasAd == false)
         {
             BusinessCard.GetComponent<UITexture>().mainTexture = adManager.BusinessCard;
+            BusinessCard.SetActive(true);
 
             foreach (GameObject btn in pageBtns)
                 btn.SetActive(false);
             detailsBtn.SetActive(false);
+            MegaDealBtn.SetActive(false);
+            narrator.GetComponentInChildren<UITexture>().mainTexture = null;
         }
         else
         {
