@@ -10,6 +10,7 @@ public class AdManager : MonoBehaviour
 {
     public int BusinessID = -1;
     public AdData AdInfo = null;
+    public Texture2D BusinessCard = null;
     public static string MediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
     public bool adReady = false;
 
@@ -28,7 +29,14 @@ public class AdManager : MonoBehaviour
         adReady = false;
         BusinessID = id;
         string adURL = "http://www.univercity3d.com/univercity/getAd?b=" + id;
-        Debug.Log("Getting Ad From: " + adURL);
+        string bcURL = "http://www.univercity3d.com/univercity/bizcard?id=" + id;
+
+        WWW card = new WWW(bcURL);
+        yield return card;
+        BusinessCard = new Texture2D(Convert.ToInt32(card.texture.width),
+                              Convert.ToInt32(card.texture.height),
+                              TextureFormat.ARGB32, false);
+        BusinessCard.SetPixels(card.texture.GetPixels());
         WWW page = new WWW(adURL);
         yield return page;
 
