@@ -60,6 +60,7 @@ public class AdManager : MonoBehaviour
     {
         Dictionary<string, object> currentMedia;
         Texture2D image;
+        AudioClip audio;
 
         currentMedia = json["expert"] as Dictionary<string, object>;
         image = new Texture2D(Convert.ToInt32(currentMedia["width"]),
@@ -79,11 +80,20 @@ public class AdManager : MonoBehaviour
 
             foreach (Dictionary<string, object> part in page["parts"] as List<object>)
             {
-                image = new Texture2D(Convert.ToInt32(part["width"]),
-                                      Convert.ToInt32(part["height"]),
-                              TextureFormat.ARGB32, false);
-                StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
-                part.Add("texture", image);
+                if (part["type"] == "image")
+                {
+                    image = new Texture2D(Convert.ToInt32(part["width"]),
+                                          Convert.ToInt32(part["height"]),
+                                          TextureFormat.ARGB32, false);
+                    StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
+                    part.Add("texture", image);
+                }
+                else if (part["type"] == "audio")
+                {
+                    audio = new AudioClip();
+                    StartCoroutine(GetAudio(AdManager.MediaURL + part["id"], audio));
+                    part.Add("audio", audio);
+                }
             }
 
             currentMedia = (page["more"] as Dictionary<string, object>)["expert"] as Dictionary<string, object>;
@@ -96,11 +106,20 @@ public class AdManager : MonoBehaviour
             foreach (Dictionary<string, object> part in (page["more"] as Dictionary<string, object>)
                 ["parts"] as List<object>)
             {
-                image = new Texture2D(Convert.ToInt32(part["width"]),
-                                      Convert.ToInt32(part["height"]),
-                              TextureFormat.ARGB32, false);
-                StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
-                part.Add("texture", image);
+                if (part["type"] == "image")
+                {
+                    image = new Texture2D(Convert.ToInt32(part["width"]),
+                                          Convert.ToInt32(part["height"]),
+                                          TextureFormat.ARGB32, false);
+                    StartCoroutine(GetImage(AdManager.MediaURL + part["id"], image));
+                    part.Add("texture", image);
+                }
+                else if (part["type"] == "audio")
+                {
+                    audio = new AudioClip();
+                    StartCoroutine(GetAudio(AdManager.MediaURL + part["id"], audio));
+                    part.Add("audio", audio);
+                }
             }
         }
     }
@@ -110,6 +129,12 @@ public class AdManager : MonoBehaviour
         yield return page;
         img.SetPixels(page.texture.GetPixels());
         img.Apply();
+    }
+    private IEnumerator GetAudio(string url, AudioClip audio)
+    {
+        WWW page = new WWW(url);
+        yield return page;
+        audio = page.GetAudioClip(false, true);
     }
 }
 
@@ -192,6 +217,7 @@ public class AdMedia
     private MediaType type;
     private Texture2D image;
     private AudioClip mediaAudio;
+    private string videoURL;
 
     public int Id
     {
@@ -238,6 +264,11 @@ public class AdMedia
         get { return mediaAudio; }
         set { mediaAudio = value; }
     }
+    public string VideoURL
+    {
+        get { return videoURL; }
+        set { videoURL = value; }
+    }
 
     public AdMedia(Dictionary<string, object> data)
     {
@@ -261,6 +292,8 @@ public class AdMedia
                 }
             }
         }
+        else if (type == MediaType.Video)
+            videoURL = AdManager.MediaURL + id;
     }
 
     private void AssignImageFromURL(string url)
