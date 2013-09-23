@@ -425,7 +425,8 @@ public class AdData
         font = ad["font"] as string;
         version = Convert.ToInt32(ad["version"]);
         pages = new List<AdPage>();
-        mega = new AdMegaDeal(ad["megadeal"] as Dictionary<string, object>);
+        if (((ad["megadeal"] as Dictionary<string, object>)["title"] as string) != "")
+            mega = new AdMegaDeal(ad["megadeal"] as Dictionary<string, object>);
         foreach (Dictionary<string, object> page in ad["pages"] as List<object>)
         {
             if ((page["title"] as string) != "")
