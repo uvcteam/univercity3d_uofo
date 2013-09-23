@@ -18,6 +18,8 @@ public class AdPanelManager : MonoBehaviour
 	public GameObject rightStick;
     public GameObject businessAd;
 
+    private List<GameObject> ads = new List<GameObject>(); 
+
     void Awake()
     {
         ObjectToTween = GameObject.Find("CameraBase");
@@ -44,6 +46,13 @@ public class AdPanelManager : MonoBehaviour
             child.gameObject.SetActive(false);
 		leftStick.SetActive(true);
 		rightStick.SetActive(true);
+
+        if (tableForAds != null)
+        {
+            foreach (GameObject ad in ads)
+                DestroyImmediate(ad);
+            ads.Clear();
+        }
 	}
 
     void OnTweenFinished(UITweener tweener)
@@ -53,20 +62,8 @@ public class AdPanelManager : MonoBehaviour
         bubble.SetActiveRecursively(true);
    //     GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = true;
         gameObject.SetActiveRecursively(false);
+        FloatingBubble.HasAdUp = false;
         //myTween.Toggle();
-    }
-
-    void OnDisable()
-    {
-        if (tableForAds != null)
-            foreach (Transform child in tableForAds.transform)
-                DestroyImmediate(child.gameObject);
-    }
-
-    void OnEnable()
-    {
-        foreach (Transform child in tableForAds.transform)
-            DestroyImmediate(child.gameObject);
     }
 
     public void SetPosition(Transform trans, GameObject myBubble)
@@ -85,6 +82,7 @@ public class AdPanelManager : MonoBehaviour
             newAd.transform.localRotation = businessTransform.localRotation;
             newAd.GetComponent<NGUIAd>().SetBusiness(bus);
             newAd.GetComponent<UIButtonMessage>().target = gameObject;
+            ads.Add(newAd);
         }
 
         tableForAds.GetComponent<UIGrid>().Reposition();

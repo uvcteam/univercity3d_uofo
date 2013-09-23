@@ -11,6 +11,7 @@ public class FloatingBubble : MonoBehaviour
     public Transform tweenTo = null;
     public TweenTransform myTween = null;
 	public GameObject ObjectToTween = null;
+    public static bool HasAdUp = false;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class FloatingBubble : MonoBehaviour
     {
         transform.Rotate(Vector3.up*rotateSpeed*Time.deltaTime);
 
+        if (FloatingBubble.HasAdUp) return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -62,6 +64,7 @@ public class FloatingBubble : MonoBehaviour
         adPanel.SetActiveRecursively(true);
         adPanel.GetComponent<AdPanelManager>().SetPosition(transform, gameObject);
         adPanel.GetComponent<AdPanelManager>().SetReturnPosition();
+        FloatingBubble.HasAdUp = true;
     }
 
     void OnTweenFinished(UITweener tweener)
