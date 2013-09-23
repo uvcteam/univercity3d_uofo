@@ -11,6 +11,7 @@ public class UserManager : MonoBehaviour
     public GameObject signingInDialog;
     public GameObject PageToDisable;
     public GameObject exitBtn;
+    public GameObject loginPanel;
 
     void Start()
     {
@@ -93,6 +94,20 @@ public class UserManager : MonoBehaviour
         signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
         signingInDialog.SetActive(false);
         exitBtn.SetActive(false);
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        if (level != 0)
+        {
+            loginPanel.SetActive(false);
+        }
+        else if (CurrentUser != null && CurrentUser.LoggedIn)
+        {
+            loginPanel.SetActive(false);
+        }
+        else
+            loginPanel.SetActive(true);
     }
 }
 

@@ -1324,6 +1324,10 @@ Prefab:
       propertyPath: exitBtn
       value: 
       objectReference: {fileID: 127536600}
+    - target: {fileID: 11400000, guid: 3f9a288529fdb3640b59e8171eb16b3d, type: 2}
+      propertyPath: loginPanel
+      value: 
+      objectReference: {fileID: 829445372}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f9a288529fdb3640b59e8171eb16b3d, type: 2}
   m_RootGameObject: {fileID: 1825491846}
@@ -4842,6 +4846,7 @@ MonoBehaviour:
   signingInDialog: {fileID: 1310702973}
   PageToDisable: {fileID: 829445372}
   exitBtn: {fileID: 127536600}
+  loginPanel: {fileID: 829445372}
 --- !u!4 &1825491848
 Transform:
   m_ObjectHideFlags: 0
