@@ -16,6 +16,7 @@ public class AdPanelManager : MonoBehaviour
 	
 	public GameObject leftStick;
 	public GameObject rightStick;
+    private List<GameObject> ads;
 
     void Awake()
     {
@@ -58,8 +59,8 @@ public class AdPanelManager : MonoBehaviour
     void OnDisable()
     {
         if (tableForAds != null)
-            foreach (Transform child in tableForAds.transform)
-                DestroyImmediate(child.gameObject);
+            foreach (GameObject go in ads)
+                DestroyImmediate(go);
     }
 
     void OnEnable()
@@ -84,6 +85,7 @@ public class AdPanelManager : MonoBehaviour
             newAd.transform.localRotation = businessTransform.localRotation;
             newAd.GetComponent<NGUIAd>().SetBusiness(bus);
             newAd.GetComponent<UIButtonMessage>().target = gameObject;
+            ads.Add(newAd);
         }
 
         tableForAds.GetComponent<UIGrid>().Reposition();
