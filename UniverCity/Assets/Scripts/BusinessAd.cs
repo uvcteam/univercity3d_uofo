@@ -143,7 +143,7 @@ public class BusinessAd : MonoBehaviour
                 detailsBtn.gameObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].More.Title;
             }
             else
-                GameObject.Find("DetailsBtn").SetActive(false);
+                detailsBtn.SetActive(false);
 
             //narrator.GetComponentInChildren<UITexture>().mainTexture = adInfo.Pages[0].Expert.Image;
             ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
@@ -193,7 +193,7 @@ public class BusinessAd : MonoBehaviour
 
             for (int i = 0; i < adPage.More.Parts.Count && i < page.images.Length; ++i)
             {
-                if (adPage.Parts[i].Type == MediaType.Image)
+                if (adPage.More.Parts[i].Type == MediaType.Image)
                     ScaleImage(page.detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
             }
 
@@ -218,15 +218,39 @@ public class BusinessAd : MonoBehaviour
         float newHeight = (destination.transform.localScale.x / source.width) * source.height;
 
         if (source.width > source.height)
-            destination.transform.localScale = new Vector3(
-                destination.transform.localScale.x,
-                newHeight,
-                0.0f);
+        {
+            if (newHeight > destination.transform.localScale.y)
+            {
+                destination.transform.localScale = new Vector3(
+                    newWidth,
+                    destination.transform.localScale.y,
+                    0.0f);
+            }
+            else
+            {
+                destination.transform.localScale = new Vector3(
+                    destination.transform.localScale.x,
+                    newHeight,
+                    0.0f);
+            }
+        }
         else
-            destination.transform.localScale = new Vector3(
-                newWidth,
-                destination.transform.localScale.y,
-                0.0f);
+        {
+            if (newWidth > destination.transform.localScale.x)
+            {
+                destination.transform.localScale = new Vector3(
+                    destination.transform.localScale.x,
+                    newHeight,
+                    0.0f);
+            }
+            else
+            {
+                destination.transform.localScale = new Vector3(
+                    newWidth,
+                    destination.transform.localScale.y,
+                    0.0f);
+            }
+        }
 
         destination.GetComponent<UITexture>().mainTexture = source;
     }
