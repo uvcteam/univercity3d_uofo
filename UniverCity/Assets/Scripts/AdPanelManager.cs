@@ -53,6 +53,8 @@ public class AdPanelManager : MonoBehaviour
                 DestroyImmediate(ad);
             ads.Clear();
         }
+		
+		Resources.UnloadUnusedAssets();
 	}
 
     void OnTweenFinished(UITweener tweener)

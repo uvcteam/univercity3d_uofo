@@ -16,6 +16,7 @@ public class BusinessAd : MonoBehaviour
 	public GameObject MoviePlayer;
     public GameObject[] pageBtns;
     public GameObject[] objectsToHide;
+	public UITexture[] texturesToPurge;
     public bool hasMegaDeal = false;
     public bool hasMembersOnly = false;
 
@@ -38,7 +39,6 @@ public class BusinessAd : MonoBehaviour
 
         foreach (GameObject obj in objectsToHide)
             obj.SetActive(false);
-
     }
 
  
@@ -66,19 +66,27 @@ public class BusinessAd : MonoBehaviour
             obj.SetActive(true);
 
         foreach (GameObject page in _pages)
-        {
-            Destroy(page);
-        }
-
+		{
+			page.GetComponent<Page>().Purge();
+            DestroyImmediate(page);
+		}
+		_pages.Clear();
+		
         foreach (GameObject page in GameObject.FindGameObjectsWithTag("Page"))
         {
             page.SetActive(false);
         }
+		
+		foreach (UITexture tex in texturesToPurge)
+		{
+			DestroyImmediate(tex.mainTexture, true);
+		}
 
         MegaDealPage.SetActive(false);
         //MegaDealBtn.SetActive(false);
         gameObject.SetActive(false);
         BusinessCard.SetActive(false);
+		Resources.UnloadUnusedAssets();
         Screen.orientation = ScreenOrientation.AutoRotation;
 	}
 
@@ -88,12 +96,12 @@ public class BusinessAd : MonoBehaviour
         GameObject narrator = GameObject.Find("Narrator");
         int pageCount = 1;
         loadingDialog.SetActive(true);
-        narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
-
+		
         StartCoroutine(adManager.GetAd(businessID)); //16 for test reasons
 
         while (!adManager.adReady)
             yield return new WaitForSeconds(0.1f);
+		Debug.Log ("Getting business.");
 
         loadingDialog.SetActive(false);
 
@@ -108,11 +116,14 @@ public class BusinessAd : MonoBehaviour
             foreach (GameObject btn in pageBtns)
                 btn.SetActive(false);
             detailsBtn.SetActive(false);
-            //MegaDealBtn.SetActive(false);
-            narrator.GetComponentInChildren<UITexture>().mainTexture = null;
+			narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
+			narrator.SetActive(false);
         }
         else
         {
+			if(narrator != null)
+				narrator.SetActive(true);
+			
             MembersOnlyBtn.SetActive(true);
             MembersOnlyBtn.GetComponent<UIButton>().isEnabled = false;
 
@@ -162,7 +173,6 @@ public class BusinessAd : MonoBehaviour
             else
                 detailsBtn.SetActive(false);
 
-            //narrator.GetComponentInChildren<UITexture>().mainTexture = adInfo.Pages[0].Expert.Image;
             ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
             narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
@@ -194,18 +204,14 @@ public class BusinessAd : MonoBehaviour
         pageBtn.GetComponent<PageButton>().Page = pageObject;
         pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
         page.title = adPage.Title;
-        //page.GetComponentInChildren<UITexture>().gameObject.SetActive(true);
 
         foreach (AdMedia media in adPage.Parts)
         {
             if (media.Type == MediaType.Video)
             {
-                //page.GetComponentInChildren<UITexture>().gameObject.SetActive(true);
 				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
-                //pageObject.GetComponent<VideoHandler>().MoviePlayer.SetActive(true);
                 pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
                 pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
-				//MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(media.VideoURL);
             }
         }
         if (adPage.More != null)

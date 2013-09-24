@@ -47,5 +47,10 @@ public class Page : MonoBehaviour
             GameObject.Find("Narrator").GetComponent<Narrator>().speechBubbleObject.SetActive(true);
     }
 	
-
+	public void Purge()
+	{
+		DestroyImmediate(narratorTexture, true);
+		foreach (GameObject go in images)
+			DestroyImmediate(go.GetComponent<UITexture>().mainTexture, true);
+	}
 }

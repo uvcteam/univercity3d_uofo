@@ -114,4 +114,9 @@ public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 			pauseIndictator.text="";
 		}
 	}
+	
+	void OnDisable()
+	{
+		Resources.UnloadUnusedAssets();
+	}
 }

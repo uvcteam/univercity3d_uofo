@@ -42,33 +42,16 @@ MonoBehaviour:
   - name: preferences
     outer:
       serializedVersion: 2
-      x: 3074
+      x: 0
       y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 3074
+      x: 0
       y: 3584
       width: 512
       height: 512
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: memory_bank
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 2496
-      width: 2560
-      height: 1600
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 2496
-      width: 2560
-      height: 1600
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -76,14 +59,14 @@ MonoBehaviour:
   - name: journal_vault
     outer:
       serializedVersion: 2
-      x: 2561
-      y: 3071
+      x: 513
+      y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
-      y: 3071
+      x: 513
+      y: 3584
       width: 512
       height: 512
     paddingLeft: 0
@@ -93,14 +76,14 @@ MonoBehaviour:
   - name: private_journal
     outer:
       serializedVersion: 2
-      x: 2561
-      y: 2558
+      x: 1026
+      y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
-      y: 2558
+      x: 1026
+      y: 3584
       width: 512
       height: 512
     paddingLeft: 0
@@ -110,13 +93,13 @@ MonoBehaviour:
   - name: invite
     outer:
       serializedVersion: 2
-      x: 3074
+      x: 0
       y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 3074
+      x: 0
       y: 3071
       width: 512
       height: 512
@@ -127,14 +110,14 @@ MonoBehaviour:
   - name: notifications_new
     outer:
       serializedVersion: 2
-      x: 3074
-      y: 2558
+      x: 513
+      y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 3074
-      y: 2558
+      x: 513
+      y: 3071
       width: 512
       height: 512
     paddingLeft: 0
@@ -144,14 +127,14 @@ MonoBehaviour:
   - name: notifications
     outer:
       serializedVersion: 2
-      x: 0
-      y: 1983
+      x: 1026
+      y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 1983
+      x: 1026
+      y: 3071
       width: 512
       height: 512
     paddingLeft: 0
@@ -162,13 +145,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1470
+      y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 0
-      y: 1470
+      y: 2558
       width: 512
       height: 512
     paddingLeft: 0
@@ -178,14 +161,14 @@ MonoBehaviour:
   - name: vaults
     outer:
       serializedVersion: 2
-      x: 0
-      y: 957
+      x: 513
+      y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 957
+      x: 513
+      y: 2558
       width: 512
       height: 512
     paddingLeft: 0
@@ -195,14 +178,14 @@ MonoBehaviour:
   - name: photo_vault
     outer:
       serializedVersion: 2
-      x: 0
-      y: 444
+      x: 1026
+      y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 444
+      x: 1026
+      y: 2558
       width: 512
       height: 512
     paddingLeft: 0
@@ -212,14 +195,14 @@ MonoBehaviour:
   - name: video_vault
     outer:
       serializedVersion: 2
-      x: 513
-      y: 1983
+      x: 0
+      y: 2045
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 513
-      y: 1983
+      x: 0
+      y: 2045
       width: 512
       height: 512
     paddingLeft: 0
@@ -230,13 +213,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 1470
+      y: 2045
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 513
-      y: 1470
+      y: 2045
       width: 512
       height: 512
     paddingLeft: 0
@@ -246,13 +229,13 @@ MonoBehaviour:
   - name: square
     outer:
       serializedVersion: 2
-      x: 3587
+      x: 1539
       y: 4036
       width: 60
       height: 60
     inner:
       serializedVersion: 2
-      x: 3592
+      x: 1544
       y: 4041
       width: 50
       height: 50
@@ -263,14 +246,14 @@ MonoBehaviour:
   - name: sign_out
     outer:
       serializedVersion: 2
-      x: 513
-      y: 957
+      x: 1026
+      y: 2045
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 513
-      y: 957
+      x: 1026
+      y: 2045
       width: 512
       height: 512
     paddingLeft: 0
@@ -280,14 +263,14 @@ MonoBehaviour:
   - name: new_entry
     outer:
       serializedVersion: 2
-      x: 2561
-      y: 3584
+      x: 0
+      y: 1532
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
-      y: 3584
+      x: 0
+      y: 1532
       width: 512
       height: 512
     paddingLeft: 0

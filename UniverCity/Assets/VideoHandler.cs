@@ -9,6 +9,7 @@ public class VideoHandler : MonoBehaviour
     public GameObject PauseButton;
     public string URL;
     private bool _playVideo = false;
+	private bool _videoPaused = false;
 	
 	
 	public void OnEnable()
@@ -25,10 +26,14 @@ public class VideoHandler : MonoBehaviour
 	{
         if (MoviePlayer != null)
         {
+			if (MoviePlayer.GetComponentInChildren<PlayStreamingMovie>() != null)
+			{
+            	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().StopMovie();
+				_videoPaused = false;
+			}
+			
             MoviePlayer.SetActive(false);
             VideoButton.SetActive(false);
-			if (MoviePlayer.GetComponentInChildren<PlayStreamingMovie>() != null)
-            	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().StopMovie();
             _playVideo = false;
         }
 	}
@@ -38,13 +43,18 @@ public class VideoHandler : MonoBehaviour
         _playVideo = !_playVideo;
         if (_playVideo)
         {
-            MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(URL);
+			if (!_videoPaused)
+            	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(URL);
+			else
+				MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().ResumeMovie();
+			_videoPaused = false;
             PauseButton.SetActive(true);
             PlayButton.SetActive(false);
         }
         else
         {
             MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PauseMovie();
+			_videoPaused = true;
             PlayButton.SetActive(true);
             PauseButton.SetActive(false);
         }

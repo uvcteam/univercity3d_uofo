@@ -37,13 +37,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
+  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
   mUVRect:
     serializedVersion: 2
-    x: .404296875
-    y: -.0126953134
-    width: .0625
-    height: .0625
+    x: .642578125
+    y: -.0507812537
+    width: .25
+    height: .25
   mFont:
     mGlyphs: []
     mSize: 30
@@ -919,7 +919,7 @@ MonoBehaviour:
     mSymbols: []
   mSpacingX: 0
   mSpacingY: 0
-  mAtlas: {fileID: 11400000, guid: 64b76f4e4a5e8e741a086bd9479d85d5, type: 2}
+  mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
   mReplacement: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

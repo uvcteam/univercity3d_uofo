@@ -4,23 +4,21 @@ using System.Collections;
 public class PageButton : MonoBehaviour {
 
     public GameObject Page;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void GoToPage()
     {
         GameObject businessAd = GameObject.Find("BusinessAd");
+		if(businessAd == null)
+		{
+			Debug.Log("BusinessAd not found");
+			return;
+		}
         foreach(GameObject page in GameObject.FindGameObjectsWithTag("Page"))
         {
             page.SetActive(false);
         }
+		
+		Debug.Log(businessAd.name);
 
         foreach (GameObject btn in GameObject.Find("BusinessAd").GetComponent<BusinessAd>().pageBtns)
         {

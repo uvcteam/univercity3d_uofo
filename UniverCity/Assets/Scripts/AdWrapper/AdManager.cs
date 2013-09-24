@@ -27,6 +27,7 @@ public class AdManager : MonoBehaviour
 
     public IEnumerator GetAd(int id)
     {
+		BusinessCard = null;
         adReady = false;
         hasAd = false;
         BusinessID = id;
@@ -127,8 +128,11 @@ public class AdManager : MonoBehaviour
     {
         WWW page = new WWW(url);
         yield return page;
-        img.SetPixels(page.texture.GetPixels());
-        img.Apply();
+		if (img != null)
+		{
+        	img.SetPixels(page.texture.GetPixels());
+        	img.Apply();
+		}
     }
     private IEnumerator GetAudio(string url, AudioClip audio)
     {

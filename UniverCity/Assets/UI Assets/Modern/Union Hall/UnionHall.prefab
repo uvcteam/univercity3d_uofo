@@ -42,14 +42,14 @@ MonoBehaviour:
   - name: browse-search
     outer:
       serializedVersion: 2
-      x: 3074
-      y: 3584
+      x: 0
+      y: 2045
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 3074
-      y: 3584
+      x: 0
+      y: 2045
       width: 512
       height: 512
     paddingLeft: 0
@@ -59,33 +59,16 @@ MonoBehaviour:
   - name: edit
     outer:
       serializedVersion: 2
-      x: 2561
-      y: 3071
+      x: 1026
+      y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
-      y: 3071
+      x: 1026
+      y: 2558
       width: 512
       height: 512
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: union_hall
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 2496
-      width: 2560
-      height: 1600
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 2496
-      width: 2560
-      height: 1600
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -93,13 +76,13 @@ MonoBehaviour:
   - name: invitation_inbox
     outer:
       serializedVersion: 2
-      x: 2561
+      x: 513
       y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
+      x: 513
       y: 2558
       width: 512
       height: 512
@@ -110,14 +93,14 @@ MonoBehaviour:
   - name: cancel-withdraw
     outer:
       serializedVersion: 2
-      x: 3074
-      y: 3071
+      x: 0
+      y: 2558
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 3074
-      y: 3071
+      x: 0
+      y: 2558
       width: 512
       height: 512
     paddingLeft: 0
@@ -127,14 +110,14 @@ MonoBehaviour:
   - name: create
     outer:
       serializedVersion: 2
-      x: 3074
-      y: 2558
+      x: 1026
+      y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 3074
-      y: 2558
+      x: 1026
+      y: 3071
       width: 512
       height: 512
     paddingLeft: 0
@@ -144,14 +127,14 @@ MonoBehaviour:
   - name: helv_bold_30
     outer:
       serializedVersion: 2
-      x: 3587
-      y: 3624
+      x: 1539
+      y: 3809
       width: 255
       height: 102
     inner:
       serializedVersion: 2
-      x: 3587
-      y: 3624
+      x: 1539
+      y: 3809
       width: 255
       height: 102
     paddingLeft: 0
@@ -161,13 +144,13 @@ MonoBehaviour:
   - name: back_button
     outer:
       serializedVersion: 2
-      x: 3843
+      x: 1795
       y: 3970
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3843
+      x: 1795
       y: 3970
       width: 126
       height: 126
@@ -175,34 +158,17 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: helv_thin_44
-    outer:
-      serializedVersion: 2
-      x: 3587
-      y: 3912
-      width: 255
-      height: 184
-    inner:
-      serializedVersion: 2
-      x: 3587
-      y: 3912
-      width: 255
-      height: 184
-    paddingLeft: 0
-    paddingRight: .00392156886
-    paddingTop: 0
-    paddingBottom: .391304344
   - name: helv_thin_44_alpha
     outer:
       serializedVersion: 2
-      x: 3587
-      y: 3727
+      x: 1539
+      y: 3912
       width: 255
       height: 184
     inner:
       serializedVersion: 2
-      x: 3587
-      y: 3727
+      x: 1539
+      y: 3912
       width: 255
       height: 184
     paddingLeft: 0
@@ -212,13 +178,13 @@ MonoBehaviour:
   - name: delete_button
     outer:
       serializedVersion: 2
-      x: 3970
+      x: 1922
       y: 3996
       width: 102
       height: 100
     inner:
       serializedVersion: 2
-      x: 3970
+      x: 1922
       y: 3996
       width: 102
       height: 100
@@ -229,14 +195,14 @@ MonoBehaviour:
   - name: share_button
     outer:
       serializedVersion: 2
-      x: 3843
-      y: 3668
+      x: 1666
+      y: 3692
       width: 126
       height: 116
     inner:
       serializedVersion: 2
-      x: 3843
-      y: 3668
+      x: 1666
+      y: 3692
       width: 126
       height: 116
     paddingLeft: 0
@@ -246,14 +212,14 @@ MonoBehaviour:
   - name: join_button
     outer:
       serializedVersion: 2
-      x: 3970
-      y: 3813
+      x: 1666
+      y: 3593
       width: 100
       height: 98
     inner:
       serializedVersion: 2
-      x: 3970
-      y: 3813
+      x: 1666
+      y: 3593
       width: 100
       height: 98
     paddingLeft: .129999995
@@ -263,14 +229,14 @@ MonoBehaviour:
   - name: ok_button
     outer:
       serializedVersion: 2
-      x: 3843
-      y: 3785
+      x: 1539
+      y: 3682
       width: 126
       height: 126
     inner:
       serializedVersion: 2
-      x: 3843
-      y: 3785
+      x: 1539
+      y: 3682
       width: 126
       height: 126
     paddingLeft: 0
@@ -280,14 +246,14 @@ MonoBehaviour:
   - name: warning_icon
     outer:
       serializedVersion: 2
-      x: 3587
-      y: 3467
+      x: 1795
+      y: 3795
       width: 126
       height: 116
     inner:
       serializedVersion: 2
-      x: 3587
-      y: 3467
+      x: 1795
+      y: 3795
       width: 126
       height: 116
     paddingLeft: 0
@@ -297,14 +263,14 @@ MonoBehaviour:
   - name: withdraw
     outer:
       serializedVersion: 2
-      x: 0
-      y: 1983
+      x: 513
+      y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 1983
+      x: 513
+      y: 3071
       width: 512
       height: 512
     paddingLeft: 0
@@ -315,13 +281,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 1470
+      y: 3071
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 0
-      y: 1470
+      y: 3071
       width: 512
       height: 512
     paddingLeft: 0
@@ -331,14 +297,14 @@ MonoBehaviour:
   - name: settings
     outer:
       serializedVersion: 2
-      x: 0
-      y: 957
+      x: 1026
+      y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 957
+      x: 1026
+      y: 3584
       width: 512
       height: 512
     paddingLeft: 0
@@ -348,14 +314,14 @@ MonoBehaviour:
   - name: choose_categories
     outer:
       serializedVersion: 2
-      x: 0
-      y: 444
+      x: 513
+      y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 0
-      y: 444
+      x: 513
+      y: 3584
       width: 512
       height: 512
     paddingLeft: 0
@@ -365,13 +331,13 @@ MonoBehaviour:
   - name: save
     outer:
       serializedVersion: 2
-      x: 2561
+      x: 0
       y: 3584
       width: 512
       height: 512
     inner:
       serializedVersion: 2
-      x: 2561
+      x: 0
       y: 3584
       width: 512
       height: 512
