@@ -194,11 +194,13 @@ public class BusinessAd : MonoBehaviour
         pageBtn.GetComponent<PageButton>().Page = pageObject;
         pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
         page.title = adPage.Title;
+        //page.GetComponentInChildren<UITexture>().gameObject.SetActive(true);
 
         foreach (AdMedia media in adPage.Parts)
         {
             if (media.Type == MediaType.Video)
             {
+                //page.GetComponentInChildren<UITexture>().gameObject.SetActive(true);
 				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
                 //pageObject.GetComponent<VideoHandler>().MoviePlayer.SetActive(true);
                 pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
