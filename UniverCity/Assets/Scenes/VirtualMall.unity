@@ -1039,9 +1039,9 @@ MonoBehaviour:
   m_Name: 
   tweenTarget: {fileID: 182338698}
   hover: {r: 1, g: 1, b: 1, a: 1}
-  pressed: {r: .5, g: .5, b: .5, a: 1}
+  pressed: {r: .403921574, g: .403921574, b: .403921574, a: 1}
   duration: .200000003
-  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  disabledColor: {r: .403921574, g: .403921574, b: .403921574, a: 1}
 --- !u!65 &46916907
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3993,7 +3993,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400014, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: mSpriteName
-      value: resorts+
+      value: restaurants+
       objectReference: {fileID: 0}
     - target: {fileID: 11400018, guid: 0e3e7a10c10b93a42a0c9d7972483586, type: 2}
       propertyPath: mText
@@ -12241,12 +12241,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 0}
+  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 14
-  mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
+  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Detail Page
   mMaxLineWidth: 200
   mEncoding: 1
@@ -12374,7 +12374,7 @@ MonoBehaviour:
   m_Name: 
   tweenTarget: {fileID: 1051652351}
   hover: {r: 1, g: 1, b: 1, a: 1}
-  pressed: {r: .5, g: .5, b: .5, a: 1}
+  pressed: {r: .403921574, g: .403921574, b: .403921574, a: 1}
   duration: .200000003
   disabledColor: {r: .5, g: .5, b: .5, a: 1}
 --- !u!65 &649196290
@@ -14280,7 +14280,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 6
   mAtlas: {fileID: 11400000, guid: 64b76f4e4a5e8e741a086bd9479d85d5, type: 2}
-  mSpriteName: resorts+
+  mSpriteName: restaurants+
   mFillCenter: 1
 --- !u!4 &759852027
 Transform:
@@ -14860,7 +14860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &784806685
 Transform:
   m_ObjectHideFlags: 0
@@ -23479,7 +23479,7 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 13
   mAtlas: {fileID: 11400000, guid: 64b76f4e4a5e8e741a086bd9479d85d5, type: 2}
-  mSpriteName: ios7_button
+  mSpriteName: details_btn
   mFillCenter: 1
 --- !u!1 &1251702249
 GameObject:
@@ -24065,7 +24065,7 @@ MonoBehaviour:
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 14
-  mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
+  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Page 3
   mMaxLineWidth: 500
   mEncoding: 1
@@ -25032,7 +25032,7 @@ MonoBehaviour:
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 14
-  mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
+  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Page 2
   mMaxLineWidth: 500
   mEncoding: 1
@@ -26296,7 +26296,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353330169}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: -1.681445, y: 0, z: 0}
+  m_LocalPosition: {x: -1.67320275, y: 1.67320263, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1569362470}
@@ -27466,12 +27466,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 0}
+  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 14
-  mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
+  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Mega Deal
   mMaxLineWidth: 200
   mEncoding: 1
@@ -27639,9 +27639,9 @@ MonoBehaviour:
   m_Name: 
   tweenTarget: {fileID: 1931830811}
   hover: {r: 1, g: 1, b: 1, a: 1}
-  pressed: {r: .5, g: .5, b: .5, a: 1}
+  pressed: {r: .403921574, g: .403921574, b: .403921574, a: 1}
   duration: .200000003
-  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  disabledColor: {r: .403921574, g: .403921574, b: .403921574, a: 1}
 --- !u!65 &1406394112
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31213,6 +31213,7 @@ MonoBehaviour:
   loadingDialog: {fileID: 1341534261}
   MegaDealPage: {fileID: 619129778}
   MegaDealBtn: {fileID: 784806684}
+  MembersOnlyBtn: {fileID: 1658598252}
   BusinessCard: {fileID: 1273325104}
   pageBtns:
   - {fileID: 649196284}
@@ -31220,6 +31221,8 @@ MonoBehaviour:
   - {fileID: 46916901}
   - {fileID: 2109039179}
   objectsToHide: []
+  hasMegaDeal: 0
+  hasMembersOnly: 0
 --- !u!1001 &1576171625
 Prefab:
   m_ObjectHideFlags: 0
@@ -32730,7 +32733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1658598253
 Transform:
   m_ObjectHideFlags: 0
@@ -38344,7 +38347,7 @@ Transform:
   m_PrefabInternal: {fileID: 2070906764}
   m_GameObject: {fileID: 1903288229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.681445, y: -1022.31854, z: 0}
+  m_LocalPosition: {x: -1.67320275, y: -1022.32678, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children:
   - {fileID: 1996982536}
@@ -38689,7 +38692,7 @@ MonoBehaviour:
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 14
-  mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
+  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Page 4
   mMaxLineWidth: 500
   mEncoding: 1
@@ -41009,7 +41012,7 @@ Transform:
   m_GameObject: {fileID: 2014445948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -.5, z: 0}
-  m_LocalScale: {x: 45, y: 45, z: 1}
+  m_LocalScale: {x: 50, y: 50, z: 1}
   m_Children: []
   m_Father: {fileID: 649196285}
 --- !u!114 &2014445950
@@ -41027,7 +41030,7 @@ MonoBehaviour:
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 14
-  mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
+  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Page 1
   mMaxLineWidth: 500
   mEncoding: 1
@@ -42545,11 +42548,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.681445
+      value: -1.67320275
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1022.31854
+      value: -1022.32678
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -43047,12 +43050,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 0}
+  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 14
-  mFont: {fileID: 11400000, guid: 7e904207e022fc84fbdcb2bcb94bf790, type: 2}
+  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Members
   mMaxLineWidth: 200
   mEncoding: 1
@@ -43193,9 +43196,9 @@ MonoBehaviour:
   m_Name: 
   tweenTarget: {fileID: 1251702249}
   hover: {r: 1, g: 1, b: 1, a: 1}
-  pressed: {r: .5, g: .5, b: .5, a: 1}
+  pressed: {r: .403921574, g: .403921574, b: .403921574, a: 1}
   duration: .200000003
-  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  disabledColor: {r: .403921574, g: .403921574, b: .403921574, a: 1}
 --- !u!65 &2109039185
 BoxCollider:
   m_ObjectHideFlags: 0

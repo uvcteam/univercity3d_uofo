@@ -37,7 +37,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
   m_Name: 
-  mMat: {fileID: 0}
+  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
   mUVRect:
     serializedVersion: 2
     x: 0

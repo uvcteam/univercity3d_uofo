@@ -11,9 +11,12 @@ public class BusinessAd : MonoBehaviour
     public GameObject loadingDialog;
     public GameObject MegaDealPage;
     public GameObject MegaDealBtn;
+    public GameObject MembersOnlyBtn;
     public GameObject BusinessCard;
     public GameObject[] pageBtns;
     public GameObject[] objectsToHide;
+    public bool hasMegaDeal = false;
+    public bool hasMembersOnly = false;
 
     private List<GameObject> _pages = new List<GameObject>();
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
@@ -72,6 +75,7 @@ public class BusinessAd : MonoBehaviour
         }
 
         MegaDealPage.SetActive(false);
+        //MegaDealBtn.SetActive(false);
         gameObject.SetActive(false);
         BusinessCard.SetActive(false);
         Screen.orientation = ScreenOrientation.AutoRotation;
@@ -97,15 +101,20 @@ public class BusinessAd : MonoBehaviour
         {
             BusinessCard.GetComponent<UITexture>().mainTexture = adManager.BusinessCard;
             BusinessCard.SetActive(true);
+            MegaDealBtn.SetActive(false);
+            MembersOnlyBtn.SetActive(false);
 
             foreach (GameObject btn in pageBtns)
                 btn.SetActive(false);
             detailsBtn.SetActive(false);
-            MegaDealBtn.SetActive(false);
+            //MegaDealBtn.SetActive(false);
             narrator.GetComponentInChildren<UITexture>().mainTexture = null;
         }
         else
         {
+            MembersOnlyBtn.SetActive(true);
+            MembersOnlyBtn.GetComponent<UIButton>().isEnabled = false;
+
             adInfo = adManager.AdInfo;
             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
 
@@ -122,13 +131,20 @@ public class BusinessAd : MonoBehaviour
 
             if (adInfo.Mega != null)
             {
+                hasMegaDeal = true;
                 MegaDealBtn.SetActive(true);
+                MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
                 MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
                 megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
                 megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
                 megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
                 megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
                 megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
+            }
+            else
+            {
+                MegaDealBtn.GetComponent<UIButton>().isEnabled = false;
+                hasMegaDeal = false;
             }
 
             //Make first page the defualt
@@ -149,9 +165,11 @@ public class BusinessAd : MonoBehaviour
             ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
             narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
+
+            pageBtns[0].GetComponent<PageButton>().GoToPage();
         }
 
-       
+        
 
     }
     private void SetUpPage(AdPage adPage, int pageCount)
