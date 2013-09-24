@@ -13,6 +13,7 @@ public class BusinessAd : MonoBehaviour
     public GameObject MegaDealBtn;
     public GameObject MembersOnlyBtn;
     public GameObject BusinessCard;
+	public GameObject MoviePlayer;
     public GameObject[] pageBtns;
     public GameObject[] objectsToHide;
     public bool hasMegaDeal = false;
@@ -198,9 +199,11 @@ public class BusinessAd : MonoBehaviour
         {
             if (media.Type == MediaType.Video)
             {
-                pageObject.GetComponent<VideoHandler>().playButton.SetActive(true);
+				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
+                //pageObject.GetComponent<VideoHandler>().MoviePlayer.SetActive(true);
                 pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
-                pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
+//                pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
+				//MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(media.VideoURL);
             }
         }
         if (adPage.More != null)

@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ba99f679a15b39458253e8e7ba9285b, type: 3}
   m_Name: 
-  playButton: {fileID: 100002}
+  playButton: {fileID: 0}
   URL: 
 --- !u!114 &11400008
 MonoBehaviour:
