@@ -204,7 +204,7 @@ public class BusinessAd : MonoBehaviour
 				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
                 //pageObject.GetComponent<VideoHandler>().MoviePlayer.SetActive(true);
                 pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
-//                pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
+                pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
 				//MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(media.VideoURL);
             }
         }

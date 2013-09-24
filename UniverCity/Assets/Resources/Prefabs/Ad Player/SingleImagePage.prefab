@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba99f679a15b39458253e8e7ba9285b, type: 3}
   m_Name: 
   MoviePlayer: {fileID: 0}
-  VideoButton: {fileID: 0}
+  VideoButton: {fileID: 100002}
   PlayButton: {fileID: 100008}
   PauseButton: {fileID: 100004}
   URL: 

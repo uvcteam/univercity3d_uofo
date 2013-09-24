@@ -27,7 +27,8 @@ public class VideoHandler : MonoBehaviour
         {
             MoviePlayer.SetActive(false);
             VideoButton.SetActive(false);
-            MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().StopMovie();
+			if (MoviePlayer.GetComponentInChildren<PlayStreamingMovie>() != null)
+            	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().StopMovie();
             _playVideo = false;
         }
 	}
