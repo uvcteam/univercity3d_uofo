@@ -17,6 +17,7 @@ public class BusinessAd : MonoBehaviour
     public GameObject[] pageBtns;
     public GameObject[] objectsToHide;
 	public UITexture[] texturesToPurge;
+	public GameObject narrator;
     public bool hasMegaDeal = false;
     public bool hasMembersOnly = false;
 
@@ -45,6 +46,7 @@ public class BusinessAd : MonoBehaviour
 
     void Awake()
     {
+		narrator = GameObject.Find("Narrator");
         Screen.orientation = ScreenOrientation.Landscape;
         transform.parent = GameObject.Find("Anchor").transform;
         transform.localScale = new Vector3(1, 1, 1);
@@ -93,7 +95,6 @@ public class BusinessAd : MonoBehaviour
     public IEnumerator SetUpAd(int businessID = 16)
     {
         AdData adInfo;
-        GameObject narrator = GameObject.Find("Narrator");
         int pageCount = 1;
         loadingDialog.SetActive(true);
 		
@@ -122,13 +123,16 @@ public class BusinessAd : MonoBehaviour
         else
         {
 			if(narrator != null)
+			{
 				narrator.SetActive(true);
+				narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+			}
 			
             MembersOnlyBtn.SetActive(true);
             MembersOnlyBtn.GetComponent<UIButton>().isEnabled = false;
 
             adInfo = adManager.AdInfo;
-            narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+
 
             foreach (GameObject btn in pageBtns)
             {
@@ -152,6 +156,8 @@ public class BusinessAd : MonoBehaviour
                 megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
                 megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
                 megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
+				MegaDealPage.GetComponent<Page>().pageColor = adInfo.Background.TopColor;
+				MegaDealPage.GetComponent<Page>().narratorTexture = adInfo.Expert.Image;
             }
             else
             {
@@ -204,6 +210,7 @@ public class BusinessAd : MonoBehaviour
         pageBtn.GetComponent<PageButton>().Page = pageObject;
         pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
         page.title = adPage.Title;
+		page.pageColor = adPage.Background.TopColor;
 
         foreach (AdMedia media in adPage.Parts)
         {
@@ -211,6 +218,8 @@ public class BusinessAd : MonoBehaviour
             {
 				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
                 pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
+				pageObject.GetComponent<VideoHandler>().videoHeight = media.Height;
+				pageObject.GetComponent<VideoHandler>().videoWidth = media.Width;
                 pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
             }
         }
@@ -229,6 +238,7 @@ public class BusinessAd : MonoBehaviour
             page.detailsPage.SetActive(false);
 
             SetUpNarratorForPage(page.detailsPage.GetComponent<Page>(), adPage.More);
+			page.detailsPage.GetComponent<Page>().pageColor = adPage.More.Background.TopColor;
 
             _pages.Add(page.detailsPage);
         }
@@ -289,4 +299,46 @@ public class BusinessAd : MonoBehaviour
         page.narratorTexture = adPage.Expert.Image;
         page.speechBubbleText = adPage.Narrative;
     }
+	public void ScaleVideo(GameObject destination, int height, int width)
+    {
+        float newWidth = (destination.transform.localScale.y / height) * width;
+        float newHeight = (destination.transform.localScale.x / width) * height;
+
+        if (width > height)
+        {
+            if (newHeight > destination.transform.localScale.y)
+            {
+                destination.transform.localScale = new Vector3(
+                    newWidth,
+                    destination.transform.localScale.y,
+                    0.0f);
+            }
+            else
+            {
+                destination.transform.localScale = new Vector3(
+                    destination.transform.localScale.x,
+                    newHeight,
+                    0.0f);
+            }
+        }
+        else
+        {
+            if (newWidth > destination.transform.localScale.x)
+            {
+                destination.transform.localScale = new Vector3(
+                    destination.transform.localScale.x,
+                    newHeight,
+                    0.0f);
+            }
+            else
+            {
+                destination.transform.localScale = new Vector3(
+                    newWidth,
+                    destination.transform.localScale.y,
+                    0.0f);
+            }
+        }
+
+    }
+
 }

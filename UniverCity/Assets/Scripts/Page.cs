@@ -5,10 +5,11 @@ public class Page : MonoBehaviour
 {
     public Vector2 maxSize = new Vector2(2048.0f, 1636.0f);
     public GameObject[] images;
-    public Texture2D narratorTexture;
+    public Texture2D narratorTexture = null;
     public string speechBubbleText = "";
     public GameObject detailsPage;
     public string title = "Details";
+	public Color pageColor = Color.white;
 
 	// Use this for initialization
 	void Start () 
@@ -19,8 +20,9 @@ public class Page : MonoBehaviour
 
     void OnEnable()
     {
+		GameObject businessAd = GameObject.Find("BusinessAd");
         GameObject detailsBtn;
-        GameObject narrator = GameObject.Find("Narrator");
+        GameObject narrator = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().narrator;
         detailsBtn = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn;
 
         if (detailsPage != null)
@@ -35,16 +37,21 @@ public class Page : MonoBehaviour
         if(narratorTexture == null)
             narrator.GetComponentInChildren<UITexture>().mainTexture = narratorTexture;
         else
-            GameObject.Find("BusinessAd").GetComponent<BusinessAd>().ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
+		{
+			businessAd.GetComponent<BusinessAd>().narrator.SetActive(true);
+        	businessAd.GetComponent<BusinessAd>().ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
+		}
 
         narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
         narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = speechBubbleText;
         //GameObject.Find("SpeechBubble").GetComponentInChildren<UILabel>().text = speechBubbleText;
 
         if (speechBubbleText == "")
-             GameObject.Find("Narrator").GetComponent<Narrator>().speechBubbleObject.SetActive(false);
+             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
         else
-            GameObject.Find("Narrator").GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+            narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+		
+		businessAd.GetComponent<BusinessAd>().background.GetComponent<UISlicedSprite>().color = pageColor;
     }
 	
 	public void Purge()

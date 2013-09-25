@@ -10,6 +10,7 @@ public class MegaDeal : MonoBehaviour
     public GameObject Price;
     public GameObject PriceLabel;
     public GameObject Title;
+	public Color megaDealColor = Color.white;
 
 
     void PurchaseDeal()
