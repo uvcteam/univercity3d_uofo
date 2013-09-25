@@ -308,7 +308,7 @@ MonoBehaviour:
   useController: 1
   eventReceiverMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257
   tooltipDelay: 1
   stickyTooltip: 1
   mouseDragThreshold: 4
