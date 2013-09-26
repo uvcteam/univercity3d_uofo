@@ -17,6 +17,7 @@ public class FloatingIsland : MonoBehaviour
 
     void Update()
     {
+        if (Camera.main == null) return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -33,11 +34,24 @@ public class FloatingIsland : MonoBehaviour
                         transform.position) <= activationDistance
                     )
                 {
-                    myTween.eventReceiver = gameObject;
-                    myTween.to = transform;
-                    myTween.duration = 1.0f;
-                    myTween.Reset();
-                    myTween.Toggle();
+
+                    if (levelIndex == 3 || levelIndex == 4)
+                    {
+                        if (!GameObject.FindWithTag("UserManager").GetComponent<UserManager>().CurrentUser.LoggedIn)
+                        {
+                            GameObject modal = Instantiate(Resources.Load("Prefabs/Error Modal", typeof(GameObject))) as GameObject;
+                            modal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("CameraBase"));
+                            modal.GetComponent<Modal>().HideObjects();
+                        }
+                    }
+                    else
+                    {
+                        myTween.eventReceiver = gameObject;
+                        myTween.to = transform;
+                        myTween.duration = 1.0f;
+                        myTween.Reset();
+                        myTween.Toggle();
+                    }
                 }
             }
         }

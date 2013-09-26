@@ -94,13 +94,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 257
-      y: 4
+      y: 69
       width: 64
       height: 64
     inner:
       serializedVersion: 2
       x: 272
-      y: 19
+      y: 84
       width: 34
       height: 34
     paddingLeft: 0
@@ -111,13 +111,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 257
-      y: 69
+      y: 4
       width: 64
       height: 64
     inner:
       serializedVersion: 2
       x: 257
-      y: 69
+      y: 4
       width: 64
       height: 64
     paddingLeft: 0
@@ -192,6 +192,23 @@ MonoBehaviour:
     paddingRight: .00392156886
     paddingTop: 0
     paddingBottom: .254901975
+  - name: call_out_3
+    outer:
+      serializedVersion: 2
+      x: 658
+      y: 313
+      width: 233
+      height: 96
+    inner:
+      serializedVersion: 2
+      x: 658
+      y: 313
+      width: 233
+      height: 96
+    paddingLeft: .00858369097
+    paddingRight: .0686695278
+    paddingTop: .010416667
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

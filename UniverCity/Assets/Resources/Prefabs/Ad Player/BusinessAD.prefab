@@ -649,22 +649,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &100078
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400078}
-  - 114: {fileID: 11400114}
-  m_Layer: 0
-  m_Name: Label
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100080
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +716,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100088
 GameObject:
   m_ObjectHideFlags: 1
@@ -938,22 +922,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100112
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400112}
-  - 114: {fileID: 11400174}
-  m_Layer: 0
-  m_Name: Label
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1035,7 @@ Transform:
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 400, y: 250, z: 1}
+  m_LocalScale: {x: 500, y: 280, z: 1}
   m_Children: []
   m_Father: {fileID: 400090}
 --- !u!4 &400016
@@ -1224,7 +1192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.5, z: 0}
+  m_LocalPosition: {x: -100, y: -31, z: -131.77269}
   m_LocalScale: {x: 45, y: 45, z: 1}
   m_Children: []
   m_Father: {fileID: 400100}
@@ -1281,11 +1249,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1100, y: 500, z: -400.000244}
+  m_LocalPosition: {x: -1100, y: 100, z: -400.000244}
   m_LocalScale: {x: 1.00044775, y: 1.00044775, z: 1.00044799}
   m_Children:
   - {fileID: 400074}
-  - {fileID: 400078}
   m_Father: {fileID: 400086}
 --- !u!4 &400052
 Transform:
@@ -1360,8 +1327,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 400, y: 250, z: 1}
+  m_LocalPosition: {x: -.000488062709, y: -.000122015677, z: -169.774826}
+  m_LocalScale: {x: 628, y: 242, z: 1}
   m_Children: []
   m_Father: {fileID: 400100}
 --- !u!4 &400066
@@ -1416,7 +1383,7 @@ Transform:
   m_GameObject: {fileID: 100074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 400, y: 250, z: 1}
+  m_LocalScale: {x: 500, y: 280, z: 1}
   m_Children: []
   m_Father: {fileID: 400050}
 --- !u!4 &400076
@@ -1434,17 +1401,6 @@ Transform:
   - {fileID: 400028}
   - {fileID: 400034}
   m_Father: {fileID: 400086}
---- !u!4 &400078
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100078}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.5, z: 0}
-  m_LocalScale: {x: 45, y: 45, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400050}
 --- !u!4 &400080
 Transform:
   m_ObjectHideFlags: 1
@@ -1465,7 +1421,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -350, y: 0, z: -400}
+  m_LocalPosition: {x: -350, y: 0, z: -401}
   m_LocalScale: {x: 58.951355, y: 58.951355, z: 1}
   m_Children: []
   m_Father: {fileID: 400076}
@@ -1525,11 +1481,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1100, y: 100, z: -400.000244}
+  m_LocalPosition: {x: -1100, y: 501, z: -400.000244}
   m_LocalScale: {x: 1.00044775, y: 1.00044775, z: 1.00044799}
   m_Children:
   - {fileID: 400014}
-  - {fileID: 400112}
   m_Father: {fileID: 400086}
 --- !u!4 &400092
 Transform:
@@ -1584,7 +1539,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1100, y: -300, z: -400.000244}
+  m_LocalPosition: {x: -1000, y: -300, z: -400.000244}
   m_LocalScale: {x: 1.00044775, y: 1.00044775, z: 1.00044799}
   m_Children:
   - {fileID: 400064}
@@ -1645,17 +1600,6 @@ Transform:
   m_LocalScale: {x: 45, y: 45, z: 1}
   m_Children: []
   m_Father: {fileID: 400036}
---- !u!4 &400112
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100112}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.5, z: 0}
-  m_LocalScale: {x: 45, y: 45, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400090}
 --- !u!4 &400114
 Transform:
   m_ObjectHideFlags: 1
@@ -1934,8 +1878,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 13
@@ -2001,16 +1945,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 100014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
+  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 13
-  mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
-  mSpriteName: ios7_button
-  mFillCenter: 1
+  mDepth: 0
+  mRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
+  mTexture: {fileID: 2800000, guid: fb91c78dc76f17b4a86e710974c5b1ac, type: 3}
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2055,6 +2004,7 @@ MonoBehaviour:
   speechBubbleText: 
   detailsPage: {fileID: 0}
   title: Details
+  pageColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2219,7 +2169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
   m_Name: 
   tweenTarget: {fileID: 100060}
-  hover: {r: .600000024, g: 1, b: .200000003, a: 1}
+  hover: {r: .350746274, g: .350746274, b: .350746274, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
   disabledColor: {r: .5, g: .5, b: .5, a: 1}
@@ -2233,8 +2183,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: 7e8ad44780b95874ea177da374ed846d, type: 2}
-  mTex: {fileID: 2800000, guid: df9dc7c779458564fbddb25d73e40f60, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 1
@@ -2251,8 +2201,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 6
@@ -2297,8 +2247,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: 7e8ad44780b95874ea177da374ed846d, type: 2}
-  mTex: {fileID: 2800000, guid: df9dc7c779458564fbddb25d73e40f60, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 0
@@ -2339,6 +2289,7 @@ MonoBehaviour:
   speechBubbleText: 
   detailsPage: {fileID: 0}
   title: Details
+  pageColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &11400058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2356,6 +2307,7 @@ MonoBehaviour:
   Price: {fileID: 100038}
   PriceLabel: {fileID: 100044}
   Title: {fileID: 100012}
+  megaDealColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &11400060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2394,14 +2346,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
-  mDepth: 14
+  mDepth: 8
   mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
   mText: Detail Page
-  mMaxLineWidth: 200
+  mMaxLineWidth: 300
   mEncoding: 1
   mMaxLineCount: 2
   mPassword: 0
@@ -2504,8 +2456,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 7
@@ -2533,8 +2485,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
-  mTex: {fileID: 2800000, guid: f70ec3557719cac4bb18a01146b59c31, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 3
@@ -2593,7 +2545,7 @@ MonoBehaviour:
   hover: {r: 1, g: 1, b: 1, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
-  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: .392156869}
 --- !u!114 &11400088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2604,7 +2556,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: b8cd25dadf44f6441be4054f2a8a357f, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
@@ -2660,8 +2612,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 13
@@ -2706,8 +2658,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: b8cd25dadf44f6441be4054f2a8a357f, type: 2}
-  mTex: {fileID: 2800000, guid: 943cb7736cef57948998f6ff80801de9, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 9
@@ -2752,13 +2704,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 13
+  mDepth: 7
   mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
-  mSpriteName: details_btn
+  mSpriteName: call_out_3
   mFillCenter: 1
 --- !u!114 &11400102
 MonoBehaviour:
@@ -2770,8 +2722,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 13
@@ -2811,7 +2763,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
@@ -2839,7 +2791,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
@@ -2865,16 +2817,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 100074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
+  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 13
-  mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
-  mSpriteName: ios7_button
-  mFillCenter: 1
+  mDepth: 0
+  mRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
+  mTexture: {fileID: 2800000, guid: c4c84fe2f51f78d46892dd26804714f4, type: 3}
 --- !u!114 &11400112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2893,34 +2850,6 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 0, w: 0}
   mClipSoftness: {x: 40, y: 40}
---- !u!114 &11400114
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
-  m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
-  mTex: {fileID: 0}
-  mColor: {r: 0, g: 0, b: 0, a: 1}
-  mPivot: 4
-  mDepth: 14
-  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
-  mText: Mega Deal
-  mMaxLineWidth: 200
-  mEncoding: 1
-  mMaxLineCount: 2
-  mPassword: 0
-  mShowLastChar: 0
-  mEffectStyle: 0
-  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
-  mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
-  mLineWidth: 0
-  mMultiline: 1
 --- !u!114 &11400116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2989,7 +2918,7 @@ MonoBehaviour:
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 3
-  mDepth: 6
+  mDepth: 9
   mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
   mText: Please wait while we load the ad...
   mMaxLineWidth: 830
@@ -3059,6 +2988,7 @@ MonoBehaviour:
   texturesToPurge:
   - {fileID: 11400104}
   - {fileID: 11400130}
+  narrator: {fileID: 0}
   hasMegaDeal: 0
   hasMembersOnly: 0
 --- !u!114 &11400130
@@ -3162,10 +3092,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
   m_Name: 
   tweenTarget: {fileID: 100014}
-  hover: {r: .600000024, g: 1, b: .200000003, a: 1}
-  pressed: {r: .5, g: .5, b: .5, a: 1}
+  hover: {r: 1, g: 1, b: 1, a: 1}
+  pressed: {r: .498039216, g: .498039216, b: .498039216, a: 1}
   duration: .200000003
-  disabledColor: {r: .5, g: .5, b: .5, a: 1}
+  disabledColor: {r: 1, g: 1, b: 1, a: .392156869}
 --- !u!114 &11400144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3347,7 +3277,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
@@ -3375,8 +3305,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: faea763aec76b4ec593b5005ab2f3349, type: 2}
-  mTex: {fileID: 2800000, guid: 016509758dada43a2943e01c9b0831b0, type: 3}
+  mMat: {fileID: 0}
+  mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 13
@@ -3393,7 +3323,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: 7e8ad44780b95874ea177da374ed846d, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
@@ -3421,7 +3351,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
+  mMat: {fileID: 0}
   mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
@@ -3460,34 +3390,6 @@ MonoBehaviour:
   mMaxLineWidth: 1500
   mEncoding: 1
   mMaxLineCount: 4
-  mPassword: 0
-  mShowLastChar: 0
-  mEffectStyle: 0
-  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
-  mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
-  mLineWidth: 0
-  mMultiline: 1
---- !u!114 &11400174
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
-  m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
-  mTex: {fileID: 0}
-  mColor: {r: 0, g: 0, b: 0, a: 1}
-  mPivot: 4
-  mDepth: 14
-  mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
-  mText: Members
-  mMaxLineWidth: 200
-  mEncoding: 1
-  mMaxLineCount: 2
   mPassword: 0
   mShowLastChar: 0
   mEffectStyle: 0

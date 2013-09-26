@@ -30,7 +30,8 @@ public class BottomMenu : MonoBehaviour
     {
         if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
         {
-            Application.LoadLevel(0);
+            GameObject errorModal = (GameObject)Instantiate(Resources.Load("Prefabs/Error Modal", typeof(GameObject)));
+            errorModal.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             return;
         }
         Application.LoadLevel(4);
@@ -40,7 +41,8 @@ public class BottomMenu : MonoBehaviour
     {
         if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
         {
-            Application.LoadLevel(0);
+            GameObject errorModal = (GameObject)Instantiate(Resources.Load("Prefabs/Error Modal", typeof(GameObject)));
+            errorModal.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             return;
         }
         Application.LoadLevel(3);

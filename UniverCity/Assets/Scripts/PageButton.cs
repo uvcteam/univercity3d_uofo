@@ -32,8 +32,6 @@ public class PageButton : MonoBehaviour {
         if (businessAd.GetComponent<BusinessAd>().hasMegaDeal && businessAd.GetComponent<BusinessAd>().hasMegaDeal)
             businessAd.GetComponent<BusinessAd>().MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
 
-        if (businessAd.GetComponent<BusinessAd>().MegaDealBtn.activeSelf)
-            businessAd.GetComponent<BusinessAd>().MegaDealBtn.GetComponentInChildren<UILabel>().color = Color.black;
 
         //GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.GetComponent<UIButton>().isEnabled = true;
 

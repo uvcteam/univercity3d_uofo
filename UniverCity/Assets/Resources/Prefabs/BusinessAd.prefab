@@ -266,7 +266,21 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7de9d7a8ac2325418b109b4342994bc, type: 3}
   m_Name: 
-  businessID: 0
+  adManager: {fileID: 0}
+  background: {fileID: 0}
+  detailsBtn: {fileID: 0}
+  loadingDialog: {fileID: 0}
+  MegaDealPage: {fileID: 0}
+  MegaDealBtn: {fileID: 0}
+  MembersOnlyBtn: {fileID: 0}
+  BusinessCard: {fileID: 0}
+  MoviePlayer: {fileID: 0}
+  pageBtns: []
+  objectsToHide: []
+  texturesToPurge: []
+  narrator: {fileID: 0}
+  hasMegaDeal: 0
+  hasMembersOnly: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
   m_Name: 
   tweenTarget: {fileID: 100006}
-  hover: {r: .600000024, g: 1, b: .200000003, a: 1}
+  hover: {r: .686567187, g: .686567187, b: .686567187, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
   disabledColor: {r: .5, g: .5, b: .5, a: 1}
