@@ -92,7 +92,7 @@ extern "C" {
     // If files are not removed will continue loading where streaming finished last time.
     
     // If contents of url are expected to change need to remove files related to the url
-    // to avoid corruption/failure to reload. 
+    // to avoid corruption/failure to reload.
     // Use this function rather than simply deleting returned file as other files store url expected size.
     extern void OpenGLMovieRemoveStreamCache(NSString *url);
     
@@ -182,9 +182,15 @@ extern "C" {
     // Release, stop movie, release memory.
     extern void OpenGLMovieRelease(void);
     
+    // Release, stop movie, release memory, but reapply the existing delegate
+    extern void OpenGLMovieReleaseKeepDelegate(void);
+    
     // Is this a stream/or originally started as a stream
     extern BOOL OpenGLMovieIsStreaming(void);
-    
+  
+  // The movie default orientation  
+    extern UIImageOrientation OpenGLMovieOrientation(void);
+
     // Index > 0 only available in Pro Version
     // Equivalent functions for movies at index 0 to 3.
     extern void OpenGLMovieInitIndex(int index, NSString *file);
@@ -210,12 +216,14 @@ extern "C" {
     extern void OpenGLMovieRewindIndex(int index);
     extern void OpenGLMovieDisplayOnPauseIndex(int index,BOOL set);
     extern void OpenGLMovieReleaseIndex(int index);
+    extern void OpenGLMovieReleaseKeepDelegateIndex(int index);
 
     // returns the internal texture id that movie uses
     extern GLuint OpenGLMovieTextureID(void);
     extern GLuint OpenGLMovieTextureIDIndex(int index);
     extern BOOL OpenGLMovieIsStreamingIndex(int index);
-    
+    extern UIImageOrientation OpenGLMovieOrientationIndex(int index);
+   
     // Used by Unity3D
     // Initialise Unity Movie (of Unity3D plugin) using index (0,1,2,3) Only up to 4 movies are possible.
     // bool audio, if true play (and sync movie to) movie track. If false play movie based on time elapsed
@@ -232,6 +240,7 @@ extern "C" {
     extern void OpenGLMovieSync(int index);
     // has this movie slot already been initialized
     extern BOOL OpenGLMovieExists(int index);
+
 
 #if defined __cplusplus
 }

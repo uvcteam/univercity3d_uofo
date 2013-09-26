@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 2
   AndroidProfiler: 0
   defaultScreenOrientation: 4
-  targetDevice: 2
+  targetDevice: 1
   targetGlesGraphics: 1
   targetResolution: 0
   accelerometerFrequency: 60
@@ -66,8 +66,8 @@ PlayerSettings:
     16:10: 0
     16:9: 0
     Others: 0
-  iPhoneBundleIdentifier: com.jpthomas.uvc
-  iPhoneBundleVersion: 1.0
+  iPhoneBundleIdentifier: com.univercity3d.eugene
+  iPhoneBundleVersion: 1.1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 6
   AndroidPreferredInstallLocation: 1

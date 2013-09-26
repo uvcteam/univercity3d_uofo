@@ -50,8 +50,10 @@ public class VideoHandler : MonoBehaviour
     {
         //Handheld.PlayFullScreenMovie(URL, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
         _playVideo = !_playVideo;
+		Debug.Log ("In PlayVideoFromURL");
         if (_playVideo)
         {
+			Debug.Log ("Playing movie.");
 			if (!_videoPaused)
             	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(URL);
 			else
@@ -62,6 +64,7 @@ public class VideoHandler : MonoBehaviour
         }
         else
         {
+			Debug.Log ("Pausing movie.");
             MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PauseMovie();
 			_videoPaused = true;
             PlayButton.SetActive(true);
