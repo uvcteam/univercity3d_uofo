@@ -45,12 +45,20 @@ public class BusinessManager : MonoBehaviour
         string bDesc = "";
         int id = 0;
         Vector2 busPos;
+        WWW page = null;
+        bool goodDownload = false;
 
         // This string will be populated with a list of all business IDs.
         string businessIDs = "";
-        
-        WWW page = new WWW(bURL);
-        yield return page;
+
+        while (!goodDownload)
+        {
+            page = new WWW(bURL);
+            yield return page;
+
+            if (page.error == null && page.text != null)
+                goodDownload = true;
+        }
 
         //StreamWriter sw = File.CreateText("businesses.dat");
         //sw.Write(page.text);
@@ -147,8 +155,15 @@ public class BusinessManager : MonoBehaviour
         Debug.Log(bLURL);
 
         // Get the list of images...
-        page = new WWW(bLURL);
-        yield return page;
+        goodDownload = false;
+        while (!goodDownload)
+        {
+            page = new WWW(bURL);
+            yield return page;
+
+            if (page.error == null && page.texture != null)
+                goodDownload = true;
+        }
 
         // Put the resulting image in a Texture2D to work with...
         Texture2D allLogos = page.texture;

@@ -22,12 +22,6 @@ public class EventManager : MonoBehaviour
         DontDestroyOnLoad(this);
         StartCoroutine(GetEventInformation());
 	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
-	}
 
     // ***************************************************
     // Initial pull from the UniverCity server for the 
@@ -45,11 +39,19 @@ public class EventManager : MonoBehaviour
         string who = "";
         string loc = "";
         string email = "";
+        bool goodDownload = false;
+        WWW page = null;
 
         eURL += "?token=" + GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
 
-        WWW page = new WWW(eURL);
-        yield return page;
+        while (!goodDownload)
+        {
+            page = new WWW(eURL);
+            yield return page;
+
+            if (page.error == null && page.text != null)
+                goodDownload = true;
+        }
 
         //StreamWriter sw = File.CreateText("businesses.dat");
         //sw.Write(page.text);
@@ -107,38 +109,3 @@ public class EventManager : MonoBehaviour
         StartCoroutine(GetEventInformation());
     }
 }
-
-//public class Business
-//{
-//    public int id;
-//    public string desc;
-//    public string name;
-//    public bool hasMegaDeal = false;
-//    public bool hasDiscount = false;
-//    public string dealName;
-//    public string dealDesc;
-//    public string discountName;
-//    public string discountDesc;
-//    public Texture2D logo;
-
-//    public Business(int id, string desc, string name)
-//    {
-//        this.id = id;
-//        this.desc = desc;
-//        this.name = name;
-//    }
-
-//    public void AddDeal(string name, string desc)
-//    {
-//        hasMegaDeal = true;
-//        dealName = name;
-//        dealDesc = desc;
-//    }
-
-//    public void AddDiscount(string name, string desc)
-//    {
-//        hasDiscount = true;
-//        discountName = name;
-//        discountDesc = desc;
-//    }
-//}
