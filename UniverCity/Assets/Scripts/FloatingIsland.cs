@@ -13,6 +13,13 @@ public class FloatingIsland : MonoBehaviour
     {
         ObjectToTween = GameObject.Find("CameraBase");
         myTween = ObjectToTween.GetComponent<TweenTransform>();
+		
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+		Screen.orientation = ScreenOrientation.AutoRotation;
     }
 
     void Update()
@@ -72,5 +79,11 @@ public class FloatingIsland : MonoBehaviour
     void OnTweenFinished(UITweener tweener)
     {
         Application.LoadLevel(levelIndex);
+
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+		Screen.orientation = ScreenOrientation.AutoRotation;
     }
 }

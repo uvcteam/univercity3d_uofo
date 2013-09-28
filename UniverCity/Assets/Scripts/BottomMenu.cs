@@ -32,6 +32,11 @@ public class BottomMenu : MonoBehaviour
         {
             GameObject errorModal = (GameObject)Instantiate(Resources.Load("Prefabs/Error Modal", typeof(GameObject)));
             errorModal.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+			errorModal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("Anchor"));
+			errorModal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("BottomBar"));
+			if(GameObject.Find("TopBar") != null)
+				errorModal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("TopBar"));
+			errorModal.GetComponent<Modal>().HideObjects();
             return;
         }
         Application.LoadLevel(4);
@@ -43,6 +48,11 @@ public class BottomMenu : MonoBehaviour
         {
             GameObject errorModal = (GameObject)Instantiate(Resources.Load("Prefabs/Error Modal", typeof(GameObject)));
             errorModal.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+			errorModal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("Anchor"));
+			errorModal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("BottomBar"));
+			if(GameObject.Find("TopBar") != null)
+				errorModal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("TopBar"));
+			errorModal.GetComponent<Modal>().HideObjects();
             return;
         }
         Application.LoadLevel(3);

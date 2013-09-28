@@ -201,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 13055271}
   m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
-  m_LocalPosition: {x: -2.13333344, y: 2.13333344, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 409045125}
@@ -582,11 +582,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127536600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: -1}
-  m_LocalPosition: {x: -1199.46265, y: 899.596741, z: -699.686768}
+  m_LocalPosition: {x: -550, y: 285, z: -699.686768}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1513080164}
-  - {fileID: 1396838770}
   m_Father: {fileID: 1310702974}
 --- !u!114 &127536602
 MonoBehaviour:
@@ -630,7 +629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
   m_Name: 
   tweenTarget: {fileID: 1513080163}
-  hover: {r: .600000024, g: 1, b: .200000003, a: 1}
+  hover: {r: .501960814, g: .501960814, b: .501960814, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
   disabledColor: {r: .5, g: .5, b: .5, a: 1}
@@ -2116,11 +2115,11 @@ MonoBehaviour:
     e00: 1024.00024
     e01: .000244140683
     e02: -0
-    e03: 1.12613773
+    e03: -1.00719571
     e10: -.000244140683
     e11: 1024.00024
     e12: 0
-    e13: 158.104034
+    e13: 160.237366
     e20: 0
     e21: 0
     e22: 1024
@@ -4467,62 +4466,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 300, y: 300, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1396838769
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100004, guid: 4679f6aaeae9ce6448924befd242c03f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1396838770}
-  - 114: {fileID: 1396838771}
-  m_Layer: 0
-  m_Name: Label
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1396838770
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400004, guid: 4679f6aaeae9ce6448924befd242c03f, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1396838769}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: -.5, z: 0}
-  m_LocalScale: {x: 45, y: 45, z: 1}
-  m_Children: []
-  m_Father: {fileID: 127536601}
---- !u!114 &1396838771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400010, guid: 4679f6aaeae9ce6448924befd242c03f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1396838769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
-  m_Name: 
-  mColor: {r: 0, g: 0, b: 0, a: 1}
-  mPivot: 4
-  mDepth: 10
-  mFont: {fileID: 11400000, guid: 7e904207e022fc84fbdcb2bcb94bf790, type: 2}
-  mText: 
-  mMaxLineWidth: 0
-  mMaxLineHeight: 0
-  mEncoding: 1
-  mMaxLineCount: 0
-  mPassword: 0
-  mShowLastChar: 0
-  mEffectStyle: 0
-  mEffectColor: {r: 0, g: 0, b: 0, a: 1}
-  mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
-  mShrinkToFit: 0
-  mLineWidth: 0
-  mMultiline: 1
 --- !u!1 &1421234928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5201,7 +5144,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622973634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13333344, y: -1021.86664, z: -107.12854}
+  m_LocalPosition: {x: 0, y: -1024, z: -107.12854}
   m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children:
   - {fileID: 1965992039}
@@ -5227,11 +5170,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: 1.70666683
+    e03: 0
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 817.493347
+    e13: 819.200012
     e20: 0
     e21: 0
     e22: 0
@@ -5512,18 +5455,18 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 1
+    e00: 1024
     e01: 0
     e02: 0
     e03: 0
     e10: 0
-    e11: 1
+    e11: 1024
     e12: 0
     e13: 0
     e20: 0
     e21: 0
-    e22: 1
-    e23: 0
+    e22: 1024
+    e23: 500
     e30: 0
     e31: 0
     e32: 0
@@ -6472,11 +6415,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: 1.70666683
+    e03: 0
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 817.493347
+    e13: 819.200012
     e20: 0
     e21: 0
     e22: 0

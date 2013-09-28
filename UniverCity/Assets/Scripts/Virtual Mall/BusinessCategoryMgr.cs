@@ -13,6 +13,7 @@ public class BusinessCategoryMgr : MonoBehaviour
     private BusinessManager _businessManager;
     private Vector3 startPos;
     private Vector4 clipPos;
+	private eMallSubcategory _currentCategory;
 
     void Awake()
     {
@@ -24,9 +25,10 @@ public class BusinessCategoryMgr : MonoBehaviour
     void OnEnable()
     {
         //preferredBusinesses.SetActive(false);
-        preferredBusinesses.transform.localPosition = new Vector3(400.0f, -1100.0f, -60.0f);
-        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, -1100.0f, -60.0f);
-        hidePanel.transform.localPosition = new Vector3(700.0f, 4.5f, -40.0f);
+        preferredBusinesses.transform.localPosition = new Vector3(400.0f, -1100.0f, -600.0f);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, -1100.0f, -600.0f);
+        hidePanel.transform.localPosition = new Vector3(700.0f, 4.5f, -600.0f);
+		Populate(_currentCategory);
     }
 
     void OnDisable()
@@ -35,15 +37,15 @@ public class BusinessCategoryMgr : MonoBehaviour
         GetComponent<UIPanel>().clipRange = clipPos;
         Destroy(GetComponent<SpringPanel>());//.enabled = true;
         //preferredBusinesses.SetActive(true);
-        preferredBusinesses.transform.localPosition = new Vector3(600.0f, -1100.0f, -60.0f);
-        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(600.0f, -1100.0f, -60.0f);
-        hidePanel.transform.localPosition = new Vector3(900.0f, 4.5f, -40.0f);
+        preferredBusinesses.transform.localPosition = new Vector3(600.0f, -1100.0f, -600.0f);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(600.0f, -1100.0f, -600.0f);
+        hidePanel.transform.localPosition = new Vector3(900.0f, 4.5f, -600.0f);
         //Application.LoadLevel(5);
     }
 
     public void Populate(eMallSubcategory cat)
     {
-        Debug.Log(cat);
+        _currentCategory = cat;
         _MallCateGories.GetSubCategories(cat);
         Transform grid = transform.Find("Grid");
         GameObject business;
