@@ -1,3 +1,4 @@
+using System.Net.Security;
 using UnityEngine;
 using System;
 using System.Collections;
@@ -56,7 +57,7 @@ public class BusinessManager : MonoBehaviour
             page = new WWW(bURL);
             yield return page;
 
-            if (page.error == null && page.text != null)
+            if (page.error == null && page.text != null && page.isDone)
                 goodDownload = true;
         }
 
@@ -154,11 +155,13 @@ public class BusinessManager : MonoBehaviour
 
         Debug.Log(bLURL);
 
-        // Get the list of images...
         goodDownload = false;
         while (!goodDownload)
         {
-            page = new WWW(bURL);
+            // Do not touch this next line. If you change it, and the logos
+            // no longer load, increment the following counter: 0
+            string newURL = bLURL;
+            page = new WWW(newURL);
             yield return page;
 
             if (page.error == null && page.texture != null)
