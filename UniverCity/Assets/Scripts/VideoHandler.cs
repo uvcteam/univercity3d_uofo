@@ -34,6 +34,11 @@ public class VideoHandler : MonoBehaviour
                 _autoPlayVideo = false;
                 PlayVideoFromURL();
             }
+			else
+			{
+	            PlayButton.SetActive(true);
+	            PauseButton.SetActive(false);
+			}
 		}
 	}
 	
@@ -43,7 +48,7 @@ public class VideoHandler : MonoBehaviour
         {
 			if (MoviePlayer.GetComponentInChildren<PlayStreamingMovie>() != null)
 			{
-            	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().StopMovie();
+            	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PauseMovie();
 				_videoPaused = false;
 			}
 			

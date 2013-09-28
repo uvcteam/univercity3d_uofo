@@ -37,8 +37,12 @@ public class BusinessAd : MonoBehaviour
     void OnEnable()
     {
         //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = false;
-        Screen.orientation = ScreenOrientation.Landscape;
-
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+		Screen.orientation = ScreenOrientation.AutoRotation;
     }
 
  
@@ -47,10 +51,6 @@ public class BusinessAd : MonoBehaviour
     {
         //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = false;
 		narrator = GameObject.Find("Narrator");
-        Screen.autorotateToPortrait = false;
-        Screen.autorotateToPortraitUpsideDown = false;
-        Screen.autorotateToLandscapeLeft = true;
-        Screen.autorotateToLandscapeRight = true;
         transform.parent = GameObject.Find("Anchor").transform;
         transform.localScale = new Vector3(1, 1, 1);
         if (Application.loadedLevel != 1)
@@ -99,6 +99,7 @@ public class BusinessAd : MonoBehaviour
         Screen.autorotateToPortraitUpsideDown = true;
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
+		Screen.orientation = ScreenOrientation.AutoRotation;
 	}
 
     public IEnumerator SetUpAd(int businessID = 16)
