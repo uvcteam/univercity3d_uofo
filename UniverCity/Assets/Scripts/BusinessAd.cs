@@ -36,23 +36,28 @@ public class BusinessAd : MonoBehaviour
 
     void OnEnable()
     {
+        //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = false;
         Screen.orientation = ScreenOrientation.Landscape;
 
-        foreach (GameObject obj in objectsToHide)
-            obj.SetActive(false);
     }
 
  
 
     void Awake()
     {
+        //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = false;
 		narrator = GameObject.Find("Narrator");
-        Screen.orientation = ScreenOrientation.Landscape;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
         transform.parent = GameObject.Find("Anchor").transform;
         transform.localScale = new Vector3(1, 1, 1);
-        transform.localPosition = new Vector3(0, -1386, -500);
         if (Application.loadedLevel != 1)
+        {
+            transform.localPosition = new Vector3(0, -1386, -500);
             transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 270));
+        }
         adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
         SetUpDictionary();
 
@@ -63,8 +68,9 @@ public class BusinessAd : MonoBehaviour
 
 	void OnExitClicked()
 	{
-        foreach (GameObject obj in objectsToHide)
-            obj.SetActive(true);
+        //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = true;
+
+        ShowObjects();
 
         foreach (GameObject page in _pages)
 		{
@@ -88,7 +94,11 @@ public class BusinessAd : MonoBehaviour
         gameObject.SetActive(false);
         BusinessCard.SetActive(false);
 		Resources.UnloadUnusedAssets();
-        Screen.orientation = ScreenOrientation.AutoRotation;
+
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
 	}
 
     public IEnumerator SetUpAd(int businessID = 16)
@@ -185,7 +195,7 @@ public class BusinessAd : MonoBehaviour
             pageBtns[0].GetComponent<PageButton>().GoToPage();
         }
 
-        
+        HideObjects();
 
     }
     private void SetUpPage(AdPage adPage, int pageCount)
@@ -338,6 +348,18 @@ public class BusinessAd : MonoBehaviour
             }
         }
 
+    }
+
+    public void HideObjects()
+    {
+        foreach (GameObject obj in objectsToHide)
+            obj.SetActive(false);
+    }
+
+    public void ShowObjects()
+    {
+        foreach (GameObject obj in objectsToHide)
+            obj.SetActive(true);
     }
 
 }

@@ -10,6 +10,7 @@ public class VideoHandler : MonoBehaviour
     public string URL;
     private bool _playVideo = false;
 	private bool _videoPaused = false;
+    private bool _autoPlayVideo = true;
 	public int videoHeight = 0;
 	public int videoWidth = 0;
 	
@@ -24,10 +25,15 @@ public class VideoHandler : MonoBehaviour
 			AdManager adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
 			video.transform.localScale = new Vector3(1000.0f, 550.0f, 0.0f);
 		
-		if(video.GetComponent<PlayStreamingMovie>().renderer.material.mainTexture != null)
+		    if(video.GetComponent<PlayStreamingMovie>().renderer.material.mainTexture != null)
 				GameObject.Find("BusinessAd").GetComponent<BusinessAd>().ScaleVideo(video,
 					videoHeight, videoWidth);
-			PlayVideoFromURL();
+
+            if (_autoPlayVideo)
+            {
+                _autoPlayVideo = false;
+                PlayVideoFromURL();
+            }
 		}
 	}
 	
