@@ -1,6 +1,6 @@
-﻿//----------------------------------------------
+//----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright © 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEditor;
@@ -20,6 +20,7 @@ public class SpriteSelector : ScriptableWizard
 	string mName;
 	Vector2 mPos = Vector2.zero;
 	Callback mCallback;
+	float mClickTime = 0f;
 
 	/// <summary>
 	/// Name of the selected sprite.
@@ -66,6 +67,7 @@ public class SpriteSelector : ScriptableWizard
 		}
 		else
 		{
+			bool close = false;
 			GUILayout.Label(mAtlas.name + " Sprites", "LODLevelNotifyText");
 			NGUIEditorTools.DrawSeparator();
 
@@ -84,9 +86,16 @@ public class SpriteSelector : ScriptableWizard
 			GUILayout.Space(84f);
 			GUILayout.EndHorizontal();
 
-			BetterList<string> sprites = mAtlas.GetListOfSprites(NGUISettings.partialSprite);
 			Texture2D tex = mAtlas.texture as Texture2D;
 
+			if (tex == null)
+			{
+				GUILayout.Label("The atlas doesn't have a texture to work with");
+				return;
+			}
+
+			BetterList<string> sprites = mAtlas.GetListOfSprites(NGUISettings.partialSprite);
+			
 			float size = 80f;
 			float padded = size + 10f;
 			int columns = Mathf.FloorToInt(Screen.width / padded);
@@ -111,20 +120,28 @@ public class SpriteSelector : ScriptableWizard
 						if (sprite == null) continue;
 
 						// Button comes first
-						if (GUI.Button(rect, "") && spriteName != sprite.name)
+						if (GUI.Button(rect, ""))
 						{
-							if (mSprite != null)
+							float delta = Time.realtimeSinceStartup - mClickTime;
+							mClickTime = Time.realtimeSinceStartup;
+
+							if (spriteName != sprite.name)
 							{
-								NGUIEditorTools.RegisterUndo("Atlas Selection", mSprite);
-								mSprite.spriteName = sprite.name;
-								mSprite.MakePixelPerfect();
-								EditorUtility.SetDirty(mSprite.gameObject);
+								if (mSprite != null)
+								{
+									NGUIEditorTools.RegisterUndo("Atlas Selection", mSprite);
+									mSprite.spriteName = sprite.name;
+									mSprite.MakePixelPerfect();
+									EditorUtility.SetDirty(mSprite.gameObject);
+								}
+								
+								if (mCallback != null)
+								{
+									mName = sprite.name;
+									mCallback(sprite.name);
+								}
 							}
-							else if (mCallback != null)
-							{
-								mName = sprite.name;
-								mCallback(sprite.name);
-							}
+							else if (delta < 0.5f) close = true;
 						}
 						
 						if (Event.current.type == EventType.Repaint)
@@ -141,10 +158,7 @@ public class SpriteSelector : ScriptableWizard
 							float scaleY = rect.height / uv.height;
 	
 							// Stretch the sprite so that it will appear proper
-							float aspect = scaleY / scaleX;
-							if (aspect < 1f) scaleX *= aspect;
-							else scaleY /= aspect;
-	
+							float aspect = (scaleY / scaleX) / ((float)tex.height / tex.width);
 							Rect clipRect = rect;
 	
 							if (aspect != 1f)
@@ -187,6 +201,7 @@ public class SpriteSelector : ScriptableWizard
 				rect.y += padded;
 			}
 			GUILayout.EndScrollView();
+			if (close) Close();
 		}
 	}
 }

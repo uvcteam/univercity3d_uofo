@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400008}
   - {fileID: 400000}
@@ -134,8 +134,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.145813, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: -60.145813, y: 0, z: -400}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
   m_Father: {fileID: 400002}
@@ -168,8 +168,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 210.724121, y: -832.297913, z: 0}
-  m_LocalScale: {x: 128, y: 4048, z: 1}
+  m_LocalPosition: {x: 267, y: -832.297913, z: 0}
+  m_LocalScale: {x: 2, y: 4048, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
 --- !u!65 &6500000
@@ -182,8 +182,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 250, y: 4048, z: 1}
-  m_Center: {x: 275, y: -780, z: 0}
+  m_Size: {x: 501.660004, y: 4048, z: 1}
+  m_Center: {x: 10.6000004, y: -780, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,14 +194,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
-  mTex: {fileID: 0}
   mColor: {r: .588235319, g: .588235319, b: .588235319, a: 1}
   mPivot: 3
   mDepth: 7
-  mFont: {fileID: 11400000, guid: faf47fc355794874aa76474d61e76cca, type: 2}
+  mFont: {fileID: 11400000, guid: 7e904207e022fc84fbdcb2bcb94bf790, type: 2}
   mText: There are currently no businesses in this category.
   mMaxLineWidth: 0
+  mMaxLineHeight: 0
   mEncoding: 1
   mMaxLineCount: 0
   mPassword: 0
@@ -210,6 +209,7 @@ MonoBehaviour:
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
+  mShrinkToFit: 0
   mLineWidth: 0
   mMultiline: 1
 --- !u!114 &11400002
@@ -234,10 +234,30 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
   m_Name: 
+  sortByDepth: 0
   showInPanelTool: 1
   generateNormals: 0
   depthPass: 0
   widgetsAreStatic: 0
+  cullWhileDragging: 0
+  worldToLocal:
+    e00: -.000122070312
+    e01: 1024.00012
+    e02: 0
+    e03: -45.8990479
+    e10: -1024.00012
+    e11: -.000122070312
+    e12: 0
+    e13: -1151.36731
+    e20: 0
+    e21: 0
+    e22: 1024
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  mAlpha: 1
   mDebugInfo: 1
   mClipping: 0
   mClipRange: {x: -50, y: -831.820007, z: 500, w: 6048}
@@ -255,11 +275,13 @@ MonoBehaviour:
   restrictWithinPanel: 1
   disableDragIfFits: 0
   dragEffect: 1
+  smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
   scrollWheelFactor: 0
   momentumAmount: 35
   relativePositionOnReset: {x: 0, y: 0}
   repositionClipping: 0
+  iOSDragEmulation: 1
   horizontalScrollBar: {fileID: 0}
   verticalScrollBar: {fileID: 0}
   showScrollBars: 1
@@ -273,10 +295,30 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
   m_Name: 
+  sortByDepth: 0
   showInPanelTool: 1
   generateNormals: 0
   depthPass: 0
   widgetsAreStatic: 1
+  cullWhileDragging: 0
+  worldToLocal:
+    e00: -.000122070312
+    e01: 1024.00012
+    e02: 0
+    e03: 14.2467651
+    e10: -1024.00012
+    e11: -.000122070312
+    e12: 0
+    e13: -1151.36731
+    e20: 0
+    e21: 0
+    e22: 1024
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  mAlpha: 1
   mDebugInfo: 1
   mClipping: 1
   mClipRange: {x: 0, y: -600, z: 256, w: 1450}
@@ -330,14 +372,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
-  mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 3
   mDepth: 7
-  mFont: {fileID: 11400000, guid: faf47fc355794874aa76474d61e76cca, type: 2}
+  mFont: {fileID: 11400000, guid: 7e904207e022fc84fbdcb2bcb94bf790, type: 2}
   mText: Art Galleries
   mMaxLineWidth: 0
+  mMaxLineHeight: 0
   mEncoding: 1
   mMaxLineCount: 0
   mPassword: 0
@@ -346,6 +387,7 @@ MonoBehaviour:
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
+  mShrinkToFit: 0
   mLineWidth: 0
   mMultiline: 1
 --- !u!114 &11400018
@@ -358,13 +400,16 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: eb67afa2200357d4886ff917c90b726f, type: 2}
-  mTex: {fileID: 2800000, guid: f70ec3557719cac4bb18a01146b59c31, type: 3}
-  mColor: {r: .941176474, g: .941176474, b: .941176474, a: 1}
+  mColor: {r: .850746274, g: .850746274, b: .850746274, a: 1}
   mPivot: 4
   mDepth: -4
   mAtlas: {fileID: 11400000, guid: 64b76f4e4a5e8e741a086bd9479d85d5, type: 2}
   mSpriteName: square
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

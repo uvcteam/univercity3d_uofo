@@ -1,6 +1,6 @@
-﻿//----------------------------------------------
+//----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright © 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEditor;
@@ -251,7 +251,7 @@ public class NGUIEditorTools
 	/// Draw a checkered background for the specified texture.
 	/// </summary>
 
-	static Rect DrawBackground (Texture2D tex, float ratio)
+	static public Rect DrawBackground (Texture2D tex, float ratio)
 	{
 		Rect rect = GUILayoutUtility.GetRect(0f, 0f);
 		rect.width = Screen.width - rect.xMin;
@@ -271,88 +271,6 @@ public class NGUIEditorTools
 
 			// Checker background
 			DrawTiledTexture(rect, check);
-		}
-		return rect;
-	}
-
-	/// <summary>
-	/// Draw a texture atlas, complete with a background texture and an outline.
-	/// </summary>
-
-	static public Rect DrawAtlas (Texture2D tex, Material mat)
-	{
-		Rect rect = DrawBackground(tex, (float)tex.height / tex.width);
-
-		if (Event.current.type == EventType.Repaint)
-		{
-			if (mat == null)
-			{
-				GUI.DrawTexture(rect, tex);
-			}
-			else
-			{
-				UnityEditor.EditorGUI.DrawPreviewTexture(rect, tex, mat);
-			}
-		}
-		return rect;
-	}
-
-	/// <summary>
-	/// Draw an enlarged sprite within the specified texture atlas.
-	/// </summary>
-
-	static public Rect DrawSprite (Texture2D tex, Rect sprite, Material mat) { return DrawSprite(tex, sprite, mat, true, 0); }
-
-	/// <summary>
-	/// Draw an enlarged sprite within the specified texture atlas.
-	/// </summary>
-
-	static public Rect DrawSprite (Texture2D tex, Rect sprite, Material mat, bool addPadding)
-	{
-		return DrawSprite(tex, sprite, mat, addPadding, 0);
-	}
-
-	/// <summary>
-	/// Draw an enlarged sprite within the specified texture atlas.
-	/// </summary>
-
-	static public Rect DrawSprite (Texture2D tex, Rect sprite, Material mat, bool addPadding, int maxSize)
-	{
-		float paddingX = addPadding ? 4f / tex.width : 0f;
-		float paddingY = addPadding ? 4f / tex.height : 0f;
-		float ratio = (sprite.height + paddingY) / (sprite.width + paddingX);
-
-		ratio *= (float)tex.height / tex.width;
-
-		// Draw the checkered background
-		Color c = GUI.color;
-		Rect rect = DrawBackground(tex, ratio);
-		GUI.color = c;
-
-		if (maxSize > 0)
-		{
-			float dim = maxSize / Mathf.Max(rect.width, rect.height);
-			rect.width *= dim;
-			rect.height *= dim;
-		}
-
-		// We only want to draw into this rectangle
-		if (Event.current.type == EventType.Repaint)
-		{
-			if (mat == null)
-			{
-				GUI.DrawTextureWithTexCoords(rect, tex, sprite);
-			}
-			else
-			{
-				// NOTE: DrawPreviewTexture doesn't seem to support BeginGroup-based clipping
-				// when a custom material is specified. It seems to be a bug in Unity.
-				// Passing 'null' for the material or omitting the parameter clips as expected.
-				UnityEditor.EditorGUI.DrawPreviewTexture(sprite, tex, mat);
-				//UnityEditor.EditorGUI.DrawPreviewTexture(drawRect, tex);
-				//GUI.DrawTexture(drawRect, tex);
-			}
-			rect = new Rect(sprite.x + rect.x, sprite.y + rect.y, sprite.width, sprite.height);
 		}
 		return rect;
 	}
@@ -381,46 +299,26 @@ public class NGUIEditorTools
 	/// Draw a distinctly different looking header label
 	/// </summary>
 
-	static public Rect DrawHeader (string text)
-	{
-		GUILayout.Space(28f);
-		Rect rect = GUILayoutUtility.GetLastRect();
-		rect.yMin += 5f;
-		rect.yMax -= 4f;
-		rect.width = Screen.width;
+	//static public Rect DrawHeader (string text)
+	//{
+	//    GUILayout.Space(28f);
+	//    Rect rect = GUILayoutUtility.GetLastRect();
+	//    rect.yMin += 5f;
+	//    rect.yMax -= 4f;
+	//    rect.width = Screen.width;
 
-		if (Event.current.type == EventType.Repaint)
-		{
-			GUI.color = Color.black;
-			GUI.DrawTexture(new Rect(0f, rect.yMin, Screen.width, rect.yMax - rect.yMin), gradientTexture);
-			GUI.color = new Color(0f, 0f, 0f, 0.25f);
-			GUI.DrawTexture(new Rect(0f, rect.yMin, Screen.width, 1f), blankTexture);
-			GUI.DrawTexture(new Rect(0f, rect.yMax - 1, Screen.width, 1f), blankTexture);
-			GUI.color = Color.white;
-			GUI.Label(new Rect(rect.x + 4f, rect.y, rect.width - 4, rect.height), text, EditorStyles.boldLabel);
-		}
-		return rect;
-	}
-
-	/// <summary>
-	/// Draw a simple box outline for the entire line.
-	/// </summary>
-
-	static public void HighlightLine (Color c)
-	{
-		Rect rect = GUILayoutUtility.GetRect(Screen.width - 16f, 22f);
-		GUILayout.Space(-23f);
-		c.a *= 0.3f;
-		GUI.color = c;
-		GUI.DrawTexture(rect, gradientTexture);
-		c.r *= 0.5f;
-		c.g *= 0.5f;
-		c.b *= 0.5f;
-		GUI.color = c;
-		GUI.DrawTexture(new Rect(rect.x, rect.y + 1f, rect.width, 1f), blankTexture);
-		GUI.DrawTexture(new Rect(rect.x, rect.y + rect.height - 1f, rect.width, 1f), blankTexture);
-		GUI.color = Color.white;
-	}
+	//    if (Event.current.type == EventType.Repaint)
+	//    {
+	//        GUI.color = Color.black;
+	//        GUI.DrawTexture(new Rect(0f, rect.yMin, Screen.width, rect.yMax - rect.yMin), gradientTexture);
+	//        GUI.color = new Color(0f, 0f, 0f, 0.25f);
+	//        GUI.DrawTexture(new Rect(0f, rect.yMin, Screen.width, 1f), blankTexture);
+	//        GUI.DrawTexture(new Rect(0f, rect.yMax - 1, Screen.width, 1f), blankTexture);
+	//        GUI.color = Color.white;
+	//        GUI.Label(new Rect(rect.x + 4f, rect.y, rect.width - 4, rect.height), text, EditorStyles.boldLabel);
+	//    }
+	//    return rect;
+	//}
 
 	/// <summary>
 	/// Convenience function that displays a list of sprites and returns the selected value.
@@ -494,7 +392,13 @@ public class NGUIEditorTools
 	/// Helper function that returns the selected root object.
 	/// </summary>
 
-	static public GameObject SelectedRoot ()
+	static public GameObject SelectedRoot () { return SelectedRoot(false); }
+
+	/// <summary>
+	/// Helper function that returns the selected root object.
+	/// </summary>
+
+	static public GameObject SelectedRoot (bool createIfMissing)
 	{
 		GameObject go = Selection.activeGameObject;
 
@@ -507,7 +411,7 @@ public class NGUIEditorTools
 		// No selection? Try to find the root automatically
 		if (p == null)
 		{
-			UIPanel[] panels = GameObject.FindSceneObjectsOfType(typeof(UIPanel)) as UIPanel[];
+			UIPanel[] panels = NGUITools.FindActive<UIPanel>();
 			if (panels.Length > 0) go = panels[0].gameObject;
 		}
 
@@ -525,6 +429,19 @@ public class NGUIEditorTools
 				else go = t.gameObject;
 			}
 		}
+
+		if (createIfMissing && go == null)
+		{
+			// No object specified -- find the first panel
+			if (go == null)
+			{
+				UIPanel panel = GameObject.FindObjectOfType(typeof(UIPanel)) as UIPanel;
+				if (panel != null) go = panel.gameObject;
+			}
+
+			// No UI present -- create a new one
+			if (go == null) go = UICreateNewUIWizard.CreateNewUI();
+		}
 		return go;
 	}
 
@@ -539,11 +456,8 @@ public class NGUIEditorTools
 		if (root.transform != null)
 		{
 			// Check if the selected object is a prefab instance and display a warning
-#if UNITY_3_4
-			PrefabType type = EditorUtility.GetPrefabType(root);
-#else
 			PrefabType type = PrefabUtility.GetPrefabType(root);
-#endif
+
 			if (type == PrefabType.PrefabInstance)
 			{
 				return EditorUtility.DisplayDialog("Losing prefab",
@@ -584,7 +498,7 @@ public class NGUIEditorTools
 			settings.npotScale = TextureImporterNPOTScale.None;
 
 			ti.SetTextureSettings(settings);
-			AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+			AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
 		}
 		return true;
 	}
@@ -618,7 +532,7 @@ public class NGUIEditorTools
 			settings.npotScale = TextureImporterNPOTScale.ToNearest;
 
 			ti.SetTextureSettings(settings);
-			AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+			AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
 		}
 		return true;
 	}
@@ -633,7 +547,11 @@ public class NGUIEditorTools
 		{
 			if (forInput) { if (!MakeTextureReadable(path, force)) return null; }
 			else if (!MakeTextureAnAtlas(path, force)) return null;
-			return AssetDatabase.LoadAssetAtPath(path, typeof(Texture2D)) as Texture2D;
+			//return AssetDatabase.LoadAssetAtPath(path, typeof(Texture2D)) as Texture2D;
+
+			Texture2D tex = AssetDatabase.LoadAssetAtPath(path, typeof(Texture2D)) as Texture2D;
+			AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
+			return tex;
 		}
 		return null;
 	}
@@ -774,7 +692,6 @@ public class NGUIEditorTools
 
 	/// <summary>
 	/// Create an undo point for the specified objects.
-	/// This action also marks the object as dirty so prefabs work correctly in 3.5.0 (work-around for a bug in Unity).
 	/// </summary>
 
 	static public void RegisterUndo (string name, params Object[] objects)
@@ -821,8 +738,17 @@ public class NGUIEditorTools
 
 	public static void DrawSprite (Texture2D tex, Rect rect, Rect outer, Rect inner, Rect uv, Color color)
 	{
+		DrawSprite(tex, rect, outer, inner, uv, color, null);
+	}
+
+	/// <summary>
+	/// Draw the specified sprite.
+	/// </summary>
+
+	public static void DrawSprite (Texture2D tex, Rect rect, Rect outer, Rect inner, Rect uv, Color color, Material mat)
+	{
 		// Create the texture rectangle that is centered inside rect.
-		Rect outerRect = new Rect(rect);
+		Rect outerRect = rect;
 		outerRect.width = outer.width;
 		outerRect.height = outer.height;
 
@@ -851,7 +777,17 @@ public class NGUIEditorTools
 
 		// Draw the sprite
 		GUI.color = color;
-		GUI.DrawTextureWithTexCoords(outerRect, tex, uv, true);
+		
+		if (mat == null)
+		{
+			GUI.DrawTextureWithTexCoords(outerRect, tex, uv, true);
+		}
+		else
+		{
+			// NOTE: There is an issue in Unity that prevents it from clipping the drawn preview
+			// using BeginGroup/EndGroup, and there is no way to specify a UV rect... le'suq.
+			UnityEditor.EditorGUI.DrawPreviewTexture(outerRect, tex, mat);
+		}
 
 		// Draw the border indicator lines
 		GUI.BeginGroup(outerRect);
@@ -934,6 +870,9 @@ public class NGUIEditorTools
 		GUILayout.BeginHorizontal();
 		GUILayout.Label(fieldName, GUILayout.Width(76f));
 
+		if (atlas.GetSprite(spriteName) == null)
+			spriteName = "";
+
 		if (GUILayout.Button(spriteName, "MiniPullDown", GUILayout.Width(120f)))
 		{
 			SpriteSelector.Show(atlas, spriteName, callback);
@@ -945,6 +884,23 @@ public class NGUIEditorTools
 			GUILayout.Label(caption);
 		}
 		GUILayout.EndHorizontal();
+	}
+
+	/// <summary>
+	/// Draw a simple sprite selection button.
+	/// </summary>
+
+	static public bool SimpleSpriteField (UIAtlas atlas, string spriteName, SpriteSelector.Callback callback, params GUILayoutOption[] options)
+	{
+		if (atlas.GetSprite(spriteName) == null)
+			spriteName = "";
+
+		if (GUILayout.Button(spriteName, "DropDown", options))
+		{
+			SpriteSelector.Show(atlas, spriteName, callback);
+			return true;
+		}
+		return false;
 	}
 
 	/// <summary>
@@ -987,12 +943,14 @@ public class NGUIEditorTools
 			}
 			else
 			{
-				string[] list = new string[] { spriteName, "...Edit" };
-				int selection = EditorGUILayout.Popup(0, list, "DropDownButton");
+				GUILayout.BeginHorizontal();
+				GUILayout.Label(spriteName, "HelpBox", GUILayout.Height(18f));
+				GUILayout.Space(18f);
+				GUILayout.EndHorizontal();
 
-				if (selection == 1)
+				if (GUILayout.Button("Edit", GUILayout.Width(40f)))
 				{
-					EditorPrefs.SetString("NGUI Selected Sprite", spriteName);
+					NGUISettings.selectedSprite = spriteName;
 					Select(atlas.gameObject);
 				}
 			}
@@ -1028,4 +986,110 @@ public class NGUIEditorTools
 	/// </summary>
 
 	static public GameObject previousSelection { get { return mPrevious; } }
+
+	/// <summary>
+	/// Helper function that checks to see if the scale is uniform.
+	/// </summary>
+
+	static public bool IsUniform (Vector3 scale)
+	{
+		return Mathf.Approximately(scale.x, scale.y) && Mathf.Approximately(scale.x, scale.z);
+	}
+
+	/// <summary>
+	/// Check to see if the specified game object has a uniform scale.
+	/// </summary>
+
+	static public bool IsUniform (GameObject go)
+	{
+		if (go == null) return true;
+
+		if (go.GetComponent<UIWidget>() != null)
+		{
+			Transform parent = go.transform.parent;
+			return parent == null || IsUniform(parent.gameObject);
+		}
+		return IsUniform(go.transform.lossyScale);
+	}
+
+	/// <summary>
+	/// Fix uniform scaling of the specified object.
+	/// </summary>
+
+	static public void FixUniform (GameObject go)
+	{
+		Transform t = go.transform;
+
+		while (t != null && t.gameObject.GetComponent<UIRoot>() == null)
+		{
+			if (!NGUIEditorTools.IsUniform(t.localScale))
+			{
+				Undo.RegisterUndo(t, "Uniform scaling fix");
+				t.localScale = Vector3.one;
+				EditorUtility.SetDirty(t);
+			}
+			t = t.parent;
+		}
+	}
+
+	/// <summary>
+	/// Draw a distinctly different looking header label
+	/// </summary>
+
+	static public bool DrawHeader (string text, bool forceOn = false) { return DrawHeader(text, text, forceOn); }
+
+	/// <summary>
+	/// Draw a distinctly different looking header label
+	/// </summary>
+
+	static public bool DrawHeader (string text, string key, bool forceOn = false)
+	{
+		bool state = EditorPrefs.GetBool(key, true);
+
+		GUILayout.Space(3f);
+		if (!forceOn && !state) GUI.backgroundColor = new Color(0.8f, 0.8f, 0.8f);
+		GUILayout.BeginHorizontal();
+		GUILayout.Space(3f);
+
+		GUI.changed = false;
+#if UNITY_3_5
+		if (!GUILayout.Toggle(true, text, "dragtab")) state = !state;
+#else
+		if (!GUILayout.Toggle(true, "<b><size=11>" + text + "</size></b>", "dragtab")) state = !state;
+#endif
+		if (GUI.changed) EditorPrefs.SetBool(key, state);
+
+		GUILayout.Space(2f);
+		GUILayout.EndHorizontal();
+		GUI.backgroundColor = Color.white;
+		if (!forceOn && !state) GUILayout.Space(3f);
+		return state;
+	}
+
+	/// <summary>
+	/// Begin drawing the content area.
+	/// </summary>
+
+	static public void BeginContents ()
+	{
+		GUILayout.BeginHorizontal();
+		GUILayout.Space(4f);
+		EditorGUILayout.BeginHorizontal("AS TextArea", GUILayout.MinHeight(10f));
+		GUILayout.BeginVertical();
+		GUILayout.Space(2f);
+	}
+
+	/// <summary>
+	/// End drawing the content area.
+	/// </summary>
+
+	static public void EndContents ()
+	{
+		GUILayout.Space(3f);
+		GUILayout.EndVertical();
+		EditorGUILayout.EndHorizontal();
+		GUILayout.Space(3f);
+		GUILayout.EndHorizontal();
+		GUILayout.Space(3f);
+	}
 }

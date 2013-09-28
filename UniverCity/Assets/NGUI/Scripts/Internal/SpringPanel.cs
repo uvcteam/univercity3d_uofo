@@ -1,6 +1,6 @@
-﻿//----------------------------------------------
+//----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright © 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -15,6 +15,9 @@ public class SpringPanel : IgnoreTimeScale
 {
 	public Vector3 target = Vector3.zero;
 	public float strength = 10f;
+
+	public delegate void OnFinished ();
+	public OnFinished onFinished;
 
 	UIPanel mPanel;
 	Transform mTrans;
@@ -40,8 +43,13 @@ public class SpringPanel : IgnoreTimeScale
 	{
 		float delta = UpdateRealTimeDelta();
 
-		if (mThreshold == 0f) mThreshold = (target - mTrans.localPosition).magnitude * 0.005f;
+		if (mThreshold == 0f)
+		{
+			mThreshold = (target - mTrans.localPosition).magnitude * 0.005f;
+			mThreshold = Mathf.Max(mThreshold, 0.00001f);
+		}
 
+		bool trigger = false;
 		Vector3 before = mTrans.localPosition;
 		Vector3 after = NGUIMath.SpringLerp(mTrans.localPosition, target, strength, delta);
 
@@ -49,6 +57,7 @@ public class SpringPanel : IgnoreTimeScale
 		{
 			after = target;
 			enabled = false;
+			trigger = true;
 		}
 		mTrans.localPosition = after;
 
@@ -59,6 +68,7 @@ public class SpringPanel : IgnoreTimeScale
 		mPanel.clipRange = cr;
 
 		if (mDrag != null) mDrag.UpdateScrollbars(false);
+		if (trigger && onFinished != null) onFinished();
 	}
 
 	/// <summary>
@@ -71,12 +81,9 @@ public class SpringPanel : IgnoreTimeScale
 		if (sp == null) sp = go.AddComponent<SpringPanel>();
 		sp.target = pos;
 		sp.strength = strength;
-
-		if (!sp.enabled)
-		{
-			sp.mThreshold = 0f;
-			sp.enabled = true;
-		}
+		sp.onFinished = null;
+		sp.mThreshold = 0f;
+		sp.enabled = true;
 		return sp;
 	}
 }

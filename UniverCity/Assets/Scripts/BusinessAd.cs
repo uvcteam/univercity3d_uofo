@@ -50,7 +50,7 @@ public class BusinessAd : MonoBehaviour
         Screen.orientation = ScreenOrientation.Landscape;
         transform.parent = GameObject.Find("Anchor").transform;
         transform.localScale = new Vector3(1, 1, 1);
-        transform.localPosition = new Vector3(0, 0, -500);
+        transform.localPosition = new Vector3(0, -1386, -500);
         if (Application.loadedLevel != 1)
             transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 270));
         adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -59,7 +59,6 @@ public class BusinessAd : MonoBehaviour
         foreach (GameObject btn in pageBtns)
             btn.SetActive(true);
         detailsBtn.SetActive(true);
-
     }
 
 	void OnExitClicked()

@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright Â© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -259,7 +259,8 @@ static public class NGUIMath
 
 		if (platform == RuntimePlatform.WindowsPlayer ||
 			platform == RuntimePlatform.WindowsWebPlayer ||
-			platform == RuntimePlatform.WindowsEditor)
+			platform == RuntimePlatform.WindowsEditor ||
+			platform == RuntimePlatform.XBOX360)
 		{
 			pos.x = pos.x - 0.5f;
 			pos.y = pos.y + 0.5f;
@@ -279,7 +280,8 @@ static public class NGUIMath
 
 		if (platform == RuntimePlatform.WindowsPlayer ||
 			platform == RuntimePlatform.WindowsWebPlayer ||
-			platform == RuntimePlatform.WindowsEditor)
+			platform == RuntimePlatform.WindowsEditor ||
+			platform == RuntimePlatform.XBOX360)
 		{
 			if (Mathf.RoundToInt(scale.x) == (Mathf.RoundToInt(scale.x * 0.5f) * 2)) pos.x = pos.x - 0.5f;
 			if (Mathf.RoundToInt(scale.y) == (Mathf.RoundToInt(scale.y * 0.5f) * 2)) pos.y = pos.y + 0.5f;
@@ -325,6 +327,33 @@ static public class NGUIMath
 	}
 
 	/// <summary>
+	/// Calculate the 4 corners of a widget taking padding into consideration.
+	/// </summary>
+
+	static public Vector3[] CalculateWidgetCorners (UIWidget w)
+	{
+		Vector2 size = w.relativeSize;
+		Vector2 offset = w.pivotOffset;
+		Vector4 padding = w.relativePadding;
+
+		float x0 = offset.x * size.x - padding.x;
+		float y0 = offset.y * size.y + padding.y;
+
+		float x1 = x0 + size.x + padding.x + padding.z;
+		float y1 = y0 - size.y - padding.y - padding.w;
+
+		Transform wt = w.cachedTransform;
+
+		return new Vector3[]
+		{
+			wt.TransformPoint(x0, y0, 0f),
+			wt.TransformPoint(x0, y1, 0f),
+			wt.TransformPoint(x1, y1, 0f),
+			wt.TransformPoint(x1, y0, 0f)
+		};
+	}
+
+	/// <summary>
 	/// Calculate the combined bounds of all widgets attached to the specified game object or its children (in world space).
 	/// </summary>
 
@@ -340,6 +369,8 @@ static public class NGUIMath
 		for (int i = 0, imax = widgets.Length; i < imax; ++i)
 		{
 			UIWidget w = widgets[i];
+			if (!w.enabled) continue;
+
 			Vector2 size = w.relativeSize;
 			Vector2 offset = w.pivotOffset;
 			float x = (offset.x + 0.5f) * size.x;
@@ -377,126 +408,72 @@ static public class NGUIMath
 	static public Bounds CalculateRelativeWidgetBounds (Transform root, Transform child)
 	{
 		UIWidget[] widgets = child.GetComponentsInChildren<UIWidget>() as UIWidget[];
-		if (widgets.Length == 0) return new Bounds(Vector3.zero, Vector3.zero);
 
-		Vector3 vMin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
-		Vector3 vMax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
-
-		Matrix4x4 toLocal = root.worldToLocalMatrix;
-
-		for (int i = 0, imax = widgets.Length; i < imax; ++i)
+		if (widgets.Length > 0)
 		{
-			UIWidget w = widgets[i];
-			Vector2 size = w.relativeSize;
-			Vector2 offset = w.pivotOffset;
-			Transform toWorld = w.cachedTransform;
+			Vector3 vMin = new Vector3(float.MaxValue, float.MaxValue, float.MaxValue);
+			Vector3 vMax = new Vector3(float.MinValue, float.MinValue, float.MinValue);
 
-			float x = (offset.x + 0.5f) * size.x;
-			float y = (offset.y - 0.5f) * size.y;
-			size *= 0.5f;
-			
-			// Start with the corner of the widget
-			Vector3 v = new Vector3(x - size.x, y - size.y, 0f);
-			
-			// Transform the coordinate from relative-to-widget to world space
-			v = toWorld.TransformPoint(v);
-			
-			// Now transform from world space to relative-to-parent space
-			v = toLocal.MultiplyPoint3x4(v);
+			Matrix4x4 toLocal = root.worldToLocalMatrix;
+			bool isSet = false;
 
-			vMax = Vector3.Max(v, vMax);
-			vMin = Vector3.Min(v, vMin);
+			for (int i = 0, imax = widgets.Length; i < imax; ++i)
+			{
+				UIWidget w = widgets[i];
+				if (!w.enabled) continue;
 
-			// Repeat for the other 3 corners
-			v = new Vector3(x - size.x, y + size.y, 0f);
-			v = toWorld.TransformPoint(v);
-			v = toLocal.MultiplyPoint3x4(v);
+				Vector2 size = w.relativeSize;
+				Vector2 offset = w.pivotOffset;
+				Transform toWorld = w.cachedTransform;
 
-			vMax = Vector3.Max(v, vMax);
-			vMin = Vector3.Min(v, vMin);
+				float x = (offset.x + 0.5f) * size.x;
+				float y = (offset.y - 0.5f) * size.y;
+				size *= 0.5f;
 
-			v = new Vector3(x + size.x, y - size.y, 0f);
-			v = toWorld.TransformPoint(v);
-			v = toLocal.MultiplyPoint3x4(v);
+				// Start with the corner of the widget
+				Vector3 v = new Vector3(x - size.x, y - size.y, 0f);
 
-			vMax = Vector3.Max(v, vMax);
-			vMin = Vector3.Min(v, vMin);
+				// Transform the coordinate from relative-to-widget to world space
+				v = toWorld.TransformPoint(v);
 
-			v = new Vector3(x + size.x, y + size.y, 0f);
-			v = toWorld.TransformPoint(v);
-			v = toLocal.MultiplyPoint3x4(v);
+				// Now transform from world space to relative-to-parent space
+				v = toLocal.MultiplyPoint3x4(v);
 
-			vMax = Vector3.Max(v, vMax);
-			vMin = Vector3.Min(v, vMin);
+				vMax = Vector3.Max(v, vMax);
+				vMin = Vector3.Min(v, vMin);
+
+				// Repeat for the other 3 corners
+				v = new Vector3(x - size.x, y + size.y, 0f);
+				v = toWorld.TransformPoint(v);
+				v = toLocal.MultiplyPoint3x4(v);
+
+				vMax = Vector3.Max(v, vMax);
+				vMin = Vector3.Min(v, vMin);
+
+				v = new Vector3(x + size.x, y - size.y, 0f);
+				v = toWorld.TransformPoint(v);
+				v = toLocal.MultiplyPoint3x4(v);
+
+				vMax = Vector3.Max(v, vMax);
+				vMin = Vector3.Min(v, vMin);
+
+				v = new Vector3(x + size.x, y + size.y, 0f);
+				v = toWorld.TransformPoint(v);
+				v = toLocal.MultiplyPoint3x4(v);
+
+				vMax = Vector3.Max(v, vMax);
+				vMin = Vector3.Min(v, vMin);
+				isSet = true;
+			}
+
+			if (isSet)
+			{
+				Bounds b = new Bounds(vMin, Vector3.zero);
+				b.Encapsulate(vMax);
+				return b;
+			}
 		}
-
-		Bounds b = new Bounds(vMin, Vector3.zero);
-		b.Encapsulate(vMax);
-		return b;
-	}
-
-	/// <summary>
-	/// Calculate the specified sprite's inner bounds relative to the specified root.
-	/// </summary>
-
-	static public Bounds CalculateRelativeInnerBounds (Transform root, UISlicedSprite sprite)
-	{
-		Matrix4x4 toLocal = root.worldToLocalMatrix;
-		Vector2 size = sprite.relativeSize;
-		Vector2 offset = sprite.pivotOffset;
-		Transform toWorld = sprite.cachedTransform;
-
-		float x = (offset.x + 0.5f) * size.x;
-		float y = (offset.y - 0.5f) * size.y;
-		size *= 0.5f;
-
-		float sx = toWorld.localScale.x;
-		float sy = toWorld.localScale.y;
-
-		// Get the border in pixels
-		Vector4 border = sprite.border;
-
-		// Convert pixels to relative coordinates
-		if (sx != 0f)
-		{
-			border.x /= sx;
-			border.z /= sx;
-		}
-
-		if (sy != 0f)
-		{
-			border.y /= sy;
-			border.w /= sy;
-		}
-
-		// Calculate the relative dimensions
-		float left	 = x - size.x + border.x;
-		float right  = x + size.x - border.z;
-		float top	 = y - size.y + border.y;
-		float bottom = y + size.y - border.w;
-
-		// Start with the corner of the widget
-		Vector3 v = new Vector3(left, top, 0f);
-		v = toWorld.TransformPoint(v);
-		v = toLocal.MultiplyPoint3x4(v);
-		Bounds b = new Bounds(v, Vector3.zero);
-
-		// Repeat for the other 3 corners
-		v = new Vector3(left, bottom, 0f);
-		v = toWorld.TransformPoint(v);
-		v = toLocal.MultiplyPoint3x4(v);
-		b.Encapsulate(v);
-
-		v = new Vector3(right, bottom, 0f);
-		v = toWorld.TransformPoint(v);
-		v = toLocal.MultiplyPoint3x4(v);
-		b.Encapsulate(v);
-
-		v = new Vector3(right, top, 0f);
-		v = toWorld.TransformPoint(v);
-		v = toLocal.MultiplyPoint3x4(v);
-		b.Encapsulate(v);
-		return b;
+		return new Bounds(Vector3.zero, Vector3.zero);
 	}
 
 	/// <summary>
@@ -505,9 +482,64 @@ static public class NGUIMath
 
 	static public Bounds CalculateRelativeInnerBounds (Transform root, UISprite sprite)
 	{
-		if (sprite is UISlicedSprite)
+		if (sprite.type == UISprite.Type.Sliced)
 		{
-			return CalculateRelativeInnerBounds(root, sprite as UISlicedSprite);
+			Matrix4x4 toLocal = root.worldToLocalMatrix;
+			Vector2 size = sprite.relativeSize;
+			Vector2 offset = sprite.pivotOffset;
+			Transform toWorld = sprite.cachedTransform;
+
+			float x = (offset.x + 0.5f) * size.x;
+			float y = (offset.y - 0.5f) * size.y;
+			size *= 0.5f;
+
+			float sx = toWorld.localScale.x;
+			float sy = toWorld.localScale.y;
+
+			// Get the border in pixels
+			Vector4 border = sprite.border;
+
+			// Convert pixels to relative coordinates
+			if (sx != 0f)
+			{
+				border.x /= sx;
+				border.z /= sx;
+			}
+
+			if (sy != 0f)
+			{
+				border.y /= sy;
+				border.w /= sy;
+			}
+
+			// Calculate the relative dimensions
+			float left = x - size.x + border.x;
+			float right = x + size.x - border.z;
+			float top = y - size.y + border.y;
+			float bottom = y + size.y - border.w;
+
+			// Start with the corner of the widget
+			Vector3 v = new Vector3(left, top, 0f);
+			v = toWorld.TransformPoint(v);
+			v = toLocal.MultiplyPoint3x4(v);
+			Bounds b = new Bounds(v, Vector3.zero);
+
+			// Repeat for the other 3 corners
+			v = new Vector3(left, bottom, 0f);
+			v = toWorld.TransformPoint(v);
+			v = toLocal.MultiplyPoint3x4(v);
+			b.Encapsulate(v);
+
+			v = new Vector3(right, bottom, 0f);
+			v = toWorld.TransformPoint(v);
+			v = toLocal.MultiplyPoint3x4(v);
+			b.Encapsulate(v);
+
+			v = new Vector3(right, top, 0f);
+			v = toWorld.TransformPoint(v);
+			v = toLocal.MultiplyPoint3x4(v);
+			b.Encapsulate(v);
+			return b;
 		}
 		return CalculateRelativeWidgetBounds(root, sprite.cachedTransform);
 	}
@@ -534,19 +566,13 @@ static public class NGUIMath
 
 	static public Vector3 SpringDampen (ref Vector3 velocity, float strength, float deltaTime)
 	{
-		// Dampening factor applied each millisecond
+		if (deltaTime > 1f) deltaTime = 1f;
 		float dampeningFactor = 1f - strength * 0.001f;
 		int ms = Mathf.RoundToInt(deltaTime * 1000f);
-		Vector3 offset = Vector3.zero;
-
-		// Apply the offset for each millisecond
-		for (int i = 0; i < ms; ++i)
-		{
-			// Mimic 60 FPS the editor runs at
-			offset += velocity * 0.06f;
-			velocity *= dampeningFactor;
-		}
-		return offset;
+		float totalDampening = Mathf.Pow(dampeningFactor, ms);
+		Vector3 vTotal = velocity * ((totalDampening - 1f) / Mathf.Log(dampeningFactor));
+		velocity = velocity * totalDampening;
+		return vTotal * 0.06f;
 	}
 
 	/// <summary>
@@ -555,19 +581,13 @@ static public class NGUIMath
 
 	static public Vector2 SpringDampen (ref Vector2 velocity, float strength, float deltaTime)
 	{
-		// Dampening factor applied each millisecond
+		if (deltaTime > 1f) deltaTime = 1f;
 		float dampeningFactor = 1f - strength * 0.001f;
 		int ms = Mathf.RoundToInt(deltaTime * 1000f);
-		Vector2 offset = Vector2.zero;
-
-		// Apply the offset for each millisecond
-		for (int i = 0; i < ms; ++i)
-		{
-			// Mimic 60 FPS the editor runs at
-			offset += velocity * 0.06f;
-			velocity *= dampeningFactor;
-		}
-		return offset;
+		float totalDampening = Mathf.Pow(dampeningFactor, ms);
+		Vector2 vTotal = velocity * ((totalDampening - 1f) / Mathf.Log(dampeningFactor));
+		velocity = velocity * totalDampening;
+		return vTotal * 0.06f;
 	}
 
 	/// <summary>
@@ -576,6 +596,7 @@ static public class NGUIMath
 
 	static public float SpringLerp (float strength, float deltaTime)
 	{
+		if (deltaTime > 1f) deltaTime = 1f;
 		int ms = Mathf.RoundToInt(deltaTime * 1000f);
 		deltaTime = 0.001f * strength;
 		float cumulative = 0f;
@@ -589,6 +610,7 @@ static public class NGUIMath
 
 	static public float SpringLerp (float from, float to, float strength, float deltaTime)
 	{
+		if (deltaTime > 1f) deltaTime = 1f;
 		int ms = Mathf.RoundToInt(deltaTime * 1000f);
 		deltaTime = 0.001f * strength;
 		for (int i = 0; i < ms; ++i) from = Mathf.Lerp(from, to, deltaTime);
@@ -631,5 +653,74 @@ static public class NGUIMath
 		float diff = WrapAngle(to - from);
 		if (Mathf.Abs(diff) > maxAngle) diff = maxAngle * Mathf.Sign(diff);
 		return from + diff;
+	}
+
+	/// <summary>
+	/// Determine the distance from the specified point to the line segment.
+	/// </summary>
+
+	static float DistancePointToLineSegment (Vector2 point, Vector2 a, Vector2 b)
+	{
+		float l2 = (b - a).sqrMagnitude;
+		if (l2 == 0f) return (point - a).magnitude;
+		float t = Vector2.Dot(point - a, b - a) / l2;
+		if (t < 0f) return (point - a).magnitude;
+		else if (t > 1f) return (point - b).magnitude;
+		Vector2 projection = a + t * (b - a);
+		return (point - projection).magnitude;
+	}
+
+	/// <summary>
+	/// Determine the distance from the mouse position to the screen space rectangle specified by the 4 points.
+	/// </summary>
+
+	static public float DistanceToRectangle (Vector2[] screenPoints, Vector2 mousePos)
+	{
+		bool oddNodes = false;
+		int j = 4;
+
+		for (int i = 0; i < 5; i++)
+		{
+			Vector3 v0 = screenPoints[NGUIMath.RepeatIndex(i, 4)];
+			Vector3 v1 = screenPoints[NGUIMath.RepeatIndex(j, 4)];
+
+			if ((v0.y > mousePos.y) != (v1.y > mousePos.y))
+			{
+				if (mousePos.x < (v1.x - v0.x) * (mousePos.y - v0.y) / (v1.y - v0.y) + v0.x)
+				{
+					oddNodes = !oddNodes;
+				}
+			}
+			j = i;
+		}
+
+		if (!oddNodes)
+		{
+			float dist, closestDist = -1f;
+
+			for (int i = 0; i < 4; i++)
+			{
+				Vector3 v0 = screenPoints[i];
+				Vector3 v1 = screenPoints[NGUIMath.RepeatIndex(i + 1, 4)];
+
+				dist = DistancePointToLineSegment(mousePos, v0, v1);
+
+				if (dist < closestDist || closestDist < 0f) closestDist = dist;
+			}
+			return closestDist;
+		}
+		else return 0f;
+	}
+
+	/// <summary>
+	/// Determine the distance from the mouse position to the world rectangle specified by the 4 points.
+	/// </summary>
+
+	static public float DistanceToRectangle (Vector3[] worldPoints, Vector2 mousePos, Camera cam)
+	{
+		Vector2[] screenPoints = new Vector2[4];
+		for (int i = 0; i < 4; ++i)
+			screenPoints[i] = cam.WorldToScreenPoint(worldPoints[i]);
+		return DistanceToRectangle(screenPoints, mousePos);
 	}
 }

@@ -14,8 +14,8 @@ PlayerSettings:
   productName: UniverCity
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  defaultScreenWidth: 2048
-  defaultScreenHeight: 1536
+  defaultScreenWidth: 1536
+  defaultScreenHeight: 2048
   defaultScreenWidthWeb: 1600
   defaultScreenHeightWeb: 900
   m_RenderingPath: 1

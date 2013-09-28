@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright Â© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -49,6 +49,12 @@ public class UIDraggablePanel : IgnoreTimeScale
 	public DragEffect dragEffect = DragEffect.MomentumAndSpring;
 
 	/// <summary>
+	/// Whether the drag operation will be started smoothly, or if if it will be precise (but will have a noticeable "jump").
+	/// </summary>
+
+	public bool smoothDragStart = true;
+
+	/// <summary>
 	/// Scale value applied to the drag delta. Set X or Y to 0 to disallow dragging in that direction.
 	/// </summary>
 
@@ -77,7 +83,13 @@ public class UIDraggablePanel : IgnoreTimeScale
 	/// </summary>
 
 	public bool repositionClipping = false;
-
+	
+	/// <summary>
+	/// Whether to use iOS drag emulation, where the content only drags at half the speed of the touch/mouse movement when the content edge is within the clipping area.
+	/// </summary>	
+	
+	public bool iOSDragEmulation = true;
+	
 	/// <summary>
 	/// Horizontal scrollbar used for visualization.
 	/// </summary>
@@ -114,6 +126,8 @@ public class UIDraggablePanel : IgnoreTimeScale
 	bool mShouldMove = false;
 	bool mIgnoreCallbacks = false;
 	int mDragID = -10;
+	Vector2 mDragStartOffset = Vector2.zero;
+	bool mDragStarted = false;
 
 	/// <summary>
 	/// Panel that's being dragged.
@@ -212,7 +226,16 @@ public class UIDraggablePanel : IgnoreTimeScale
 	{
 		mTrans = transform;
 		mPanel = GetComponent<UIPanel>();
+		mPanel.onChange += OnPanelChange;
 	}
+
+	void OnDestroy ()
+	{
+		if (mPanel != null)
+			mPanel.onChange -= OnPanelChange;
+	}
+
+	void OnPanelChange () { UpdateScrollbars(true); }
 
 	/// <summary>
 	/// Set the initial drag value and register the listener delegates.
@@ -351,7 +374,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		DisableSpring();
 
 		Bounds b = bounds;
-		if (b.min.x == b.max.x || b.min.y == b.max.x) return;
+		if (b.min.x == b.max.x || b.min.y == b.max.y) return;
 		Vector4 cr = mPanel.clipRange;
 
 		float hx = cr.z * 0.5f;
@@ -468,6 +491,12 @@ public class UIDraggablePanel : IgnoreTimeScale
 
 	public void Press (bool pressed)
 	{
+		if (smoothDragStart && pressed)
+		{
+			mDragStarted = false;
+			mDragStartOffset = Vector2.zero;
+		}
+
 		if (enabled && NGUITools.GetActive(gameObject))
 		{
 			if (!pressed && mDragID == UICamera.currentTouchID) mDragID = -10;
@@ -507,14 +536,24 @@ public class UIDraggablePanel : IgnoreTimeScale
 	/// Drag the object along the plane.
 	/// </summary>
 
-	public void Drag (Vector2 delta)
+	public void Drag ()
 	{
 		if (enabled && NGUITools.GetActive(gameObject) && mShouldMove)
 		{
 			if (mDragID == -10) mDragID = UICamera.currentTouchID;
 			UICamera.currentTouch.clickNotification = UICamera.ClickNotification.BasedOnDelta;
 
-			Ray ray = UICamera.currentCamera.ScreenPointToRay(UICamera.currentTouch.pos);
+			// Prevents the drag "jump". Contributed by 'mixd' from the Tasharen forums.
+			if (smoothDragStart && !mDragStarted)
+			{
+				mDragStarted = true;
+				mDragStartOffset = UICamera.currentTouch.totalDelta;
+			}
+
+			Ray ray = smoothDragStart ?
+				UICamera.currentCamera.ScreenPointToRay(UICamera.currentTouch.pos - mDragStartOffset) :
+				UICamera.currentCamera.ScreenPointToRay(UICamera.currentTouch.pos);
+
 			float dist = 0f;
 
 			if (mPlane.Raycast(ray, out dist))
@@ -534,7 +573,24 @@ public class UIDraggablePanel : IgnoreTimeScale
 				mMomentum = Vector3.Lerp(mMomentum, mMomentum + offset * (0.01f * momentumAmount), 0.67f);
 
 				// Move the panel
-				MoveAbsolute(offset);
+				if (!iOSDragEmulation)
+				{
+					MoveAbsolute(offset);	
+				}
+				else
+				{
+					Vector3 constraint = mPanel.CalculateConstrainOffset(bounds.min, bounds.max);
+
+					if (constraint.magnitude > 0.001f)
+					{
+						MoveAbsolute(offset * 0.5f);
+						mMomentum *= 0.5f;
+					}
+					else
+					{
+						MoveAbsolute(offset);
+					}
+				}
 
 				// We want to constrain the UI to be within bounds
 				if (restrictWithinPanel &&
@@ -553,7 +609,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 
 	public void Scroll (float delta)
 	{
-		if (enabled && NGUITools.GetActive(gameObject))
+		if (enabled && NGUITools.GetActive(gameObject) && scrollWheelFactor != 0f)
 		{
 			DisableSpring();
 			mShouldMove = shouldMove;
@@ -568,9 +624,6 @@ public class UIDraggablePanel : IgnoreTimeScale
 
 	void LateUpdate ()
 	{
-		// If the panel's geometry changed, recalculate the bounds
-		if (mPanel.changedLastFrame) UpdateScrollbars(true);
-
 		// Inspector functionality
 		if (repositionClipping)
 		{
@@ -588,7 +641,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 			bool vertical = false;
 			bool horizontal = false;
 
-			if (showScrollBars != ShowCondition.WhenDragging || mDragID != -10)
+			if (showScrollBars != ShowCondition.WhenDragging || mDragID != -10 || mMomentum.magnitude > 0.01f)
 			{
 				vertical = shouldMoveVertically;
 				horizontal = shouldMoveHorizontally;
@@ -626,6 +679,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 
 				// Restrict the contents to be within the panel's bounds
 				if (restrictWithinPanel && mPanel.clipping != UIDrawCall.Clipping.None) RestrictWithinBounds(false);
+				if (mMomentum.magnitude < 0.0001f && onDragFinished != null) onDragFinished();
 				return;
 			}
 			else

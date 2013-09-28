@@ -1,12 +1,13 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright Â© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 /// <summary>
 /// Helper class containing generic functions used throughout the UI library.
@@ -20,7 +21,7 @@ static public class NGUITools
 	static float mGlobalVolume = 1f;
 
 	/// <summary>
-	/// Globally accessible volume affecting all music.
+	/// Globally accessible volume affecting all sounds played via NGUITools.PlaySound().
 	/// </summary>
 
 	static public float soundVolume
@@ -92,7 +93,7 @@ static public class NGUITools
 				}
 			}
 
-			if (mListener != null)
+			if (mListener != null && mListener.enabled && NGUITools.GetActive(mListener.gameObject))
 			{
 				AudioSource source = mListener.audio;
 				if (source == null) source = mListener.gameObject.AddComponent<AudioSource>();
@@ -190,11 +191,13 @@ static public class NGUITools
 		return NGUIMath.DecimalToHex(i);
 	}
 
+	static Color mInvisible = new Color(0f, 0f, 0f, 0f);
+
 	/// <summary>
 	/// Parse an embedded symbol, such as [FFAA00] (set color) or [-] (undo color change)
 	/// </summary>
 
-	static public int ParseSymbol (string text, int index, List<Color> colors)
+	static public int ParseSymbol (string text, int index, List<Color> colors, bool premultiply)
 	{
 		int length = text.Length;
 
@@ -220,6 +223,9 @@ static public class NGUITools
 							return 0;
 
 						c.a = colors[colors.Count - 1].a;
+						if (premultiply && c.a != 1f)
+							c = Color.Lerp(mInvisible, c, c.a);
+
 						colors.Add(c);
 					}
 					return 8;
@@ -237,15 +243,13 @@ static public class NGUITools
 	{
 		if (text != null)
 		{
-			text = text.Replace("\\n", "\n");
-
 			for (int i = 0, imax = text.Length; i < imax; )
 			{
 				char c = text[i];
 
 				if (c == '[')
 				{
-					int retVal = ParseSymbol(text, i, null);
+					int retVal = ParseSymbol(text, i, null, false);
 
 					if (retVal > 0)
 					{
@@ -266,7 +270,11 @@ static public class NGUITools
 
 	static public T[] FindActive<T> () where T : Component
 	{
+#if UNITY_3_5 || UNITY_4_0
 		return GameObject.FindSceneObjectsOfType(typeof(T)) as T[];
+#else
+		return GameObject.FindObjectsOfType(typeof(T)) as T[];
+#endif
 	}
 
 	/// <summary>
@@ -421,16 +429,34 @@ static public class NGUITools
 
 	/// <summary>
 	/// Add a sprite appropriate for the specified atlas sprite.
-	/// It will be a UISlicedSprite if the sprite has an inner rect, and a regular sprite otherwise.
+	/// It will be sliced if the sprite has an inner rect, and a regular sprite otherwise.
 	/// </summary>
 
 	static public UISprite AddSprite (GameObject go, UIAtlas atlas, string spriteName)
 	{
 		UIAtlas.Sprite sp = (atlas != null) ? atlas.GetSprite(spriteName) : null;
-		UISprite sprite = (sp == null || sp.inner == sp.outer) ? AddWidget<UISprite>(go) : (UISprite)AddWidget<UISlicedSprite>(go);
+		UISprite sprite = AddWidget<UISprite>(go);
+		sprite.type = (sp == null || sp.inner == sp.outer) ? UISprite.Type.Simple : UISprite.Type.Sliced;
 		sprite.atlas = atlas;
 		sprite.spriteName = spriteName;
 		return sprite;
+	}
+
+	/// <summary>
+	/// Get the rootmost object of the specified game object.
+	/// </summary>
+
+	static public GameObject GetRoot (GameObject go)
+	{
+		Transform t = go.transform;
+
+		for (; ; )
+		{
+			Transform parent = t.parent;
+			if (parent == null) break;
+			t = parent;
+		}
+		return t.gameObject;
 	}
 
 	/// <summary>
@@ -534,11 +560,29 @@ static public class NGUITools
 	{
 		SetActiveSelf(t.gameObject, true);
 
+		// Prior to Unity 4, active state was not nested. It was possible to have an enabled child of a disabled object.
+		// Unity 4 onwards made it so that the state is nested, and a disabled parent results in a disabled child.
+#if UNITY_3_5
 		for (int i = 0, imax = t.GetChildCount(); i < imax; ++i)
 		{
 			Transform child = t.GetChild(i);
 			Activate(child);
 		}
+#else
+		// If there is even a single enabled child, then we're using a Unity 4.0-based nested active state scheme.
+		for (int i = 0, imax = t.childCount; i < imax; ++i)
+		{
+			Transform child = t.GetChild(i);
+			if (child.gameObject.activeSelf) return;
+		}
+
+		// If this point is reached, then all the children are disabled, so we must be using a Unity 3.5-based active state scheme.
+		for (int i = 0, imax = t.childCount; i < imax; ++i)
+		{
+			Transform child = t.GetChild(i);
+			Activate(child);
+		}
+#endif
 	}
 
 	/// <summary>
@@ -547,11 +591,13 @@ static public class NGUITools
 
 	static void Deactivate (Transform t)
 	{
+#if UNITY_3_5
 		for (int i = 0, imax = t.GetChildCount(); i < imax; ++i)
 		{
 			Transform child = t.GetChild(i);
 			Deactivate(child);
 		}
+#endif
 		SetActiveSelf(t.gameObject, false);
 	}
 
@@ -582,7 +628,7 @@ static public class NGUITools
 
 		if (state)
 		{
-			for (int i = 0, imax = t.GetChildCount(); i < imax; ++i)
+			for (int i = 0, imax = t.childCount; i < imax; ++i)
 			{
 				Transform child = t.GetChild(i);
 				Activate(child);
@@ -590,7 +636,7 @@ static public class NGUITools
 		}
 		else
 		{
-			for (int i = 0, imax = t.GetChildCount(); i < imax; ++i)
+			for (int i = 0, imax = t.childCount; i < imax; ++i)
 			{
 				Transform child = t.GetChild(i);
 				Deactivate(child);
@@ -634,7 +680,7 @@ static public class NGUITools
 
 		Transform t = go.transform;
 		
-		for (int i = 0, imax = t.GetChildCount(); i < imax; ++i)
+		for (int i = 0, imax = t.childCount; i < imax; ++i)
 		{
 			Transform child = t.GetChild(i);
 			SetLayer(child.gameObject, layer);
@@ -683,7 +729,7 @@ static public class NGUITools
 
 	static public bool Save (string fileName, byte[] bytes)
 	{
-#if UNITY_WEBPLAYER || UNITY_FLASH
+#if UNITY_WEBPLAYER || UNITY_FLASH || UNITY_METRO
 		return false;
 #else
 		if (!NGUITools.fileAccess) return false;
@@ -720,7 +766,7 @@ static public class NGUITools
 
 	static public byte[] Load (string fileName)
 	{
-#if UNITY_WEBPLAYER || UNITY_FLASH
+#if UNITY_WEBPLAYER || UNITY_FLASH || UNITY_METRO
 		return null;
 #else
 		if (!NGUITools.fileAccess) return null;
@@ -734,4 +780,76 @@ static public class NGUITools
 		return null;
 #endif
 	}
+
+	/// <summary>
+	/// Pre-multiply shaders result in a black outline if this operation is done in the shader. It's better to do it outside.
+	/// </summary>
+
+	static public Color ApplyPMA (Color c)
+	{
+		if (c.a != 1f)
+		{
+			c.r *= c.a;
+			c.g *= c.a;
+			c.b *= c.a;
+		}
+		return c;
+	}
+
+	/// <summary>
+	/// Inform all widgets underneath the specified object that the parent has changed.
+	/// </summary>
+
+	static public void MarkParentAsChanged (GameObject go)
+	{
+		UIWidget[] widgets = go.GetComponentsInChildren<UIWidget>();
+		for (int i = 0, imax = widgets.Length; i < imax; ++i)
+			widgets[i].ParentHasChanged();
+	}
+
+	/// <summary>
+	/// Clipboard access via reflection.
+	/// http://answers.unity3d.com/questions/266244/how-can-i-add-copypaste-clipboard-support-to-my-ga.html
+	/// </summary>
+
+#if UNITY_WEBPLAYER || UNITY_FLASH || UNITY_METRO
+	/// <summary>
+	/// Access to the clipboard is not supported on this platform.
+	/// </summary>
+
+	public static string clipboard
+	{
+		get { return null; }
+		set { }
+	}
+#else
+	static PropertyInfo mSystemCopyBuffer = null;
+	static PropertyInfo GetSystemCopyBufferProperty ()
+	{
+		if (mSystemCopyBuffer == null)
+		{
+			Type gui = typeof(GUIUtility);
+			mSystemCopyBuffer = gui.GetProperty("systemCopyBuffer", BindingFlags.Static | BindingFlags.NonPublic);
+		}
+		return mSystemCopyBuffer;
+	}
+
+	/// <summary>
+	/// Access to the clipboard via a hacky method of accessing Unity's internals. Won't work in the web player.
+	/// </summary>
+
+	public static string clipboard
+	{
+		get
+		{
+			PropertyInfo copyBuffer = GetSystemCopyBufferProperty();
+			return (copyBuffer != null) ? (string)copyBuffer.GetValue(null, null) : null;
+		}
+		set
+		{
+			PropertyInfo copyBuffer = GetSystemCopyBufferProperty();
+			if (copyBuffer != null) copyBuffer.SetValue(null, value, null);
+		}
+	}
+#endif
 }

@@ -81,7 +81,11 @@ public class NGUIJson
 
 			// Get rid of the extension if the sprite doesn't exist
 			// The extension is kept for backwards compatibility so it's still possible to update older atlases.
-			if (!exists) newSprite.name = newSprite.name.Replace(".png", "");
+			if (!exists)
+			{
+				newSprite.name = newSprite.name.Replace(".png", "");
+				newSprite.name = newSprite.name.Replace(".tga", "");
+			}
 
 			// Extract the info we need from the TexturePacker json file, mainly uvRect and size
 			Hashtable table = (Hashtable)item.Value;
@@ -93,10 +97,10 @@ public class NGUIJson
 			int frameH = int.Parse(frame["h"].ToString());
 
 			// Read the rotation value
-			bool rotated = (bool)table["rotated"];
+			newSprite.rotated = (bool)table["rotated"];
 
 			// Fill in the proper values
-			if (rotated)
+			if (newSprite.rotated)
 			{
 				newSprite.outer = new Rect(frameX, frameY, frameH, frameW);
 				newSprite.inner = new Rect(frameX, frameY, frameH, frameW);
