@@ -14,7 +14,8 @@ public class BusinessSubCatMgr : MonoBehaviour
 
     void OnDisable()
     {
-        Destroy(gameObject);
+		if(gameObject.transform.parent.transform.parent.gameObject.activeSelf == false)
+        	Destroy(gameObject);
     }
 
     public void Populate(string category)

@@ -82,4 +82,10 @@ public class VideoHandler : MonoBehaviour
             PauseButton.SetActive(false);
         }
     }
+	
+	public void OnDestroy()
+	{
+		if (MoviePlayer != null && MoviePlayer.GetComponentInChildren<PlayStreamingMovie>() != null)
+			MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().StopMovie();
+	}
 }

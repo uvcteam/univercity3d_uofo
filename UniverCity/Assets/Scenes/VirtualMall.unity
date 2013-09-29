@@ -31186,7 +31186,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11400128, guid: cb8c374fc9ddd411f9e24acbbb526cfb, type: 2}
       propertyPath: objectsToHide.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400086, guid: cb8c374fc9ddd411f9e24acbbb526cfb, type: 2}
       propertyPath: m_LocalPosition.x
@@ -31236,6 +31236,10 @@ Prefab:
       propertyPath: objectsToHide.Array.data[1]
       value: 
       objectReference: {fileID: 1903288229}
+    - target: {fileID: 11400128, guid: cb8c374fc9ddd411f9e24acbbb526cfb, type: 2}
+      propertyPath: objectsToHide.Array.data[2]
+      value: 
+      objectReference: {fileID: 1724226052}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb8c374fc9ddd411f9e24acbbb526cfb, type: 2}
   m_RootGameObject: {fileID: 1569362469}
@@ -33829,6 +33833,7 @@ MonoBehaviour:
   objectsToHide:
   - {fileID: 2027787659}
   - {fileID: 1903288229}
+  - {fileID: 1724226052}
   texturesToPurge:
   - {fileID: 1273325106}
   - {fileID: 1591166741}

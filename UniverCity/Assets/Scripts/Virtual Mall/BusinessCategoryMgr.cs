@@ -28,7 +28,7 @@ public class BusinessCategoryMgr : MonoBehaviour
         preferredBusinesses.transform.localPosition = new Vector3(400.0f, -1100.0f, -600.0f);
         preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, -1100.0f, -600.0f);
         hidePanel.transform.localPosition = new Vector3(700.0f, 4.5f, -600.0f);
-		Populate(_currentCategory);
+		//Populate(_currentCategory);
     }
 
     void OnDisable()
