@@ -22,7 +22,7 @@ public class VideoHandler : MonoBehaviour
 			MoviePlayer.SetActive(true);
             VideoButton.SetActive(true);
 			GameObject video = GameObject.Find("TheMovie");
-			AdManager adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
+			//AdManager adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
 			video.transform.localScale = new Vector3(1000.0f, 550.0f, 0.0f);
 		
 		    if(video.GetComponent<PlayStreamingMovie>().renderer.material.mainTexture != null)

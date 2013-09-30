@@ -71,16 +71,16 @@ public class UnionHallBrowseSearch : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnSearchClicked()
     {
         GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = gameObject;
         GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = search;
-        search.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        search.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEventClicked()
@@ -99,9 +99,9 @@ public class UnionHallBrowseSearch : MonoBehaviour
             }
 
             eventDetail.GetComponent<UnionHallEventDetail>().returnTo = gameObject;
-            eventDetail.SetActiveRecursively(true);
+            eventDetail.SetActive(true);
             eventDetail.GetComponent<UnionHallEventDetail>().UpdateEvent();
-            gameObject.SetActiveRecursively(false);
+            gameObject.SetActive(false);
         }
     }
 

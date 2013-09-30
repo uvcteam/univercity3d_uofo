@@ -35,8 +35,8 @@ public class UnionHallEngagementSettings : MonoBehaviour
 
     void OnChooseCategoriesClicked()
     {
-        chooseCategories.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        chooseCategories.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnResponseSaveClicked()
@@ -66,12 +66,12 @@ public class UnionHallEngagementSettings : MonoBehaviour
             else
                 newEvent.Max = Convert.ToInt32(max.text);
             createPanel.GetComponent<UnionHallCreateEngagement>().SettingsSet();
-            createPanel.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            createPanel.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {
-            errorPanel.SetActiveRecursively(true);
+            errorPanel.SetActive(true);
             errorPanel.GetComponent<UnionHallErrorWindow>().SetErrorText(errorMessage);
             errorMessage = "";
         }

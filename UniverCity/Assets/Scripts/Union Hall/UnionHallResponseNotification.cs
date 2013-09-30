@@ -7,7 +7,7 @@ public class UnionHallResponseNotification : MonoBehaviour
 
     void OnBackClicked()
     {
-        //unionHall.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        //unionHall.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

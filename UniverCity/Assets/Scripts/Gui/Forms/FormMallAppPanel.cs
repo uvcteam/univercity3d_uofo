@@ -47,7 +47,7 @@ public class FormMallAppPanel : MonoBehaviour
     static public bool GetVisible()
     {
         if (mInstance)
-            return mInstance.gameObject.active;
+            return mInstance.gameObject.activeInHierarchy;
         return false;
     }
 
@@ -55,7 +55,7 @@ public class FormMallAppPanel : MonoBehaviour
     {
         if (mInstance)
         {
-            mInstance.gameObject.SetActiveRecursively(true);
+            mInstance.gameObject.SetActive(true);
             mInstance.DoShow(category, inOffsetX);
         }
     }
@@ -64,7 +64,7 @@ public class FormMallAppPanel : MonoBehaviour
     {
         if (mInstance)
         {
-            mInstance.gameObject.SetActiveRecursively(false);
+            mInstance.gameObject.SetActive(false);
             mInstance.DoHide();
         }
     }
@@ -106,7 +106,7 @@ public class FormMallAppPanel : MonoBehaviour
                     // Show that there is no discount...
                     //currentAd.RootMembersOnly.transform.Find("lbHeadline").GetComponent<TextMesh>().text = "Discounts";
                     //currentAd.RootMembersOnly.transform.Find("lbDescription").GetComponent<TextMesh>().text = "There are currently no discounts.";
-                    theButton.transform.FindChild("RootInfo").transform.FindChild("bnMembersOnly").gameObject.SetActiveRecursively(false);
+                    theButton.transform.FindChild("RootInfo").transform.FindChild("bnMembersOnly").gameObject.SetActive(false);
                 }
 
                 if (business.hasMegaDeal)
@@ -120,7 +120,7 @@ public class FormMallAppPanel : MonoBehaviour
                     // Show that there is no deal...
                     //currentAd.RootMegaDeal.transform.Find("lbHeadline").GetComponent<TextMesh>().text = "Mega Deal";
                     //currentAd.RootMegaDeal.transform.Find("lbDescription").GetComponent<TextMesh>().text = "There are currently no mega deals.";
-                    theButton.transform.FindChild("RootInfo").transform.FindChild("bnMegaDeal").gameObject.SetActiveRecursively(false);
+                    theButton.transform.FindChild("RootInfo").transform.FindChild("bnMegaDeal").gameObject.SetActive(false);
                 }
 
                 theButton.transform.parent = Pivot;

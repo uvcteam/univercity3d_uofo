@@ -48,8 +48,8 @@ public class UnionHallCancel : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEventClicked()
@@ -67,8 +67,8 @@ public class UnionHallCancel : MonoBehaviour
                 }
             }
 
-            cancelDetail.SetActiveRecursively(true);
-            //gameObject.SetActiveRecursively(false);
+            cancelDetail.SetActive(true);
+            //gameObject.SetActive(false);
         }
     }
 }

@@ -400,7 +400,7 @@ public class NGUIEditorTools
 
 	static public GameObject SelectedRoot (bool createIfMissing)
 	{
-		GameObject go = Selection.activeGameObject;
+		GameObject go = Selection.activeObject as GameObject;
 
 		// Only use active objects
 		if (go != null && !NGUITools.GetActive(go)) go = null;

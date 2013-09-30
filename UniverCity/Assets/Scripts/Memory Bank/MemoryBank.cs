@@ -6,6 +6,7 @@ public class MemoryBank : MonoBehaviour
     public GameObject JournalPanel = null;
     public GameObject NotificationPanel = null;
     public GameObject EntriesPanel = null;
+    public GameObject PreferencesPanel = null;
     public UILabel UserName = null;
 
     public TopBarManager topBar = null;
@@ -15,27 +16,27 @@ public class MemoryBank : MonoBehaviour
         if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
             Application.LoadLevel(0);
         UserName.text = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Name;
-        topBar.gameObject.SetActiveRecursively(false);
+        topBar.gameObject.SetActive(false);
     }
 
     void OnJournalClicked()
     {
         topBar.prevPanel = gameObject;
         topBar.currentPanel = EntriesPanel;
-        topBar.gameObject.SetActiveRecursively(true);
+        topBar.gameObject.SetActive(true);
 
-        EntriesPanel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        EntriesPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnNotificationsClicked()
     {
         topBar.prevPanel = gameObject;
         topBar.currentPanel = NotificationPanel;
-        topBar.gameObject.SetActiveRecursively(true);
+        topBar.gameObject.SetActive(true);
 
-        NotificationPanel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        NotificationPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnPhotoVaultClicked()
@@ -50,7 +51,12 @@ public class MemoryBank : MonoBehaviour
 
     void OnPreferencesClicked()
     {
-        Debug.Log("Open Preferences");
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = PreferencesPanel;
+        topBar.gameObject.SetActive(true);
+
+        PreferencesPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnInviteClicked()

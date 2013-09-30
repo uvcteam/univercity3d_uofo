@@ -34,7 +34,6 @@ public class EventManager : MonoBehaviour
         string phone = "";
         string title = "";
         string desc = "";
-        int confirmed = 0;
         DateTime start;
         string who = "";
         string loc = "";

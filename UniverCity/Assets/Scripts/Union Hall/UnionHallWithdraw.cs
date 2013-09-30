@@ -14,13 +14,13 @@ public class UnionHallWithdraw : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEventClicked()
     {
-        withdrawDetail.SetActiveRecursively(true);
-        //gameObject.SetActiveRecursively(false);
+        withdrawDetail.SetActive(true);
+        //gameObject.SetActive(false);
     }
 }

@@ -284,7 +284,7 @@ public class UIInput : MonoBehaviour
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
 				if (mKeyboard != null)
 				{
-					mKeyboard.active = false;
+					mKeyboard.activeInHierarchy = false;
 				}
 #endif
 				if (string.IsNullOrEmpty(mText))

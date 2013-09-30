@@ -645,26 +645,26 @@ static public class NGUITools
 	}
 
 	/// <summary>
-	/// Unity4 has changed GameObject.active to GameObject.activeself.
+	/// Unity4 has changed GameObject.activeInHierarchy to GameObject.activeInHierarchyself.
 	/// </summary>
 
 	static public bool GetActive(GameObject go)
 	{
 #if UNITY_3_5
-		return go && go.active;
+		return go && go.activeInHierarchy;
 #else
 		return go && go.activeInHierarchy;
 #endif
 	}
 
 	/// <summary>
-	/// Unity4 has changed GameObject.active to GameObject.SetActive.
+	/// Unity4 has changed GameObject.activeInHierarchy to GameObject.SetActive.
 	/// </summary>
 
 	static public void SetActiveSelf(GameObject go, bool state)
 	{
 #if UNITY_3_5
-		go.active = state;
+		go.activeInHierarchy = state;
 #else
 		go.SetActive(state);
 #endif

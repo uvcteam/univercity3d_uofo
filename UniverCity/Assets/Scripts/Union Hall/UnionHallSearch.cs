@@ -11,38 +11,15 @@ public class UnionHallSearch : MonoBehaviour
     public Transform catButton = null;
     public Transform scrollPanel = null;
     public GameObject browseSearch = null;
-
-    private List<SocialInterest> categories = new List<SocialInterest>();
  
     void Awake()
     {
-        StartCoroutine(GetCategories());
+        GetCategories();
     }
 
-    IEnumerator GetCategories()
+    void GetCategories()
     {
-        string cURL = "http://www.univercity3d.com/univercity/ListSocialInterests";
-        int catId = 0;
-        string catName = "";
-
-        WWW page = new WWW(cURL);
-        yield return page;
-
-        //StreamWriter sw = File.CreateText("businesses.dat");
-        //sw.Write(page.text);
-        //sw.Close();
-
-        // Create an IList of all of the businesses returned to me.
-        IList catInfo = Json.Deserialize(page.text) as IList;
-
-        foreach (Dictionary<string, object> cat in catInfo)
-        {
-            catId = Convert.ToInt32(cat["id"]);
-            catName = cat["int"] as string;
-            categories.Add(new SocialInterest(catId, catName));
-        }
-
-        foreach (SocialInterest cat in categories)
+        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
         {
             Transform newCat = Instantiate(catButton, buttonTransform.position, buttonTransform.rotation) as Transform;
             newCat.Find("CategoryName").GetComponent<UILabel>().text = cat.Name;
@@ -57,8 +34,8 @@ public class UnionHallSearch : MonoBehaviour
 
     void OnBackClicked()
     {
-        browseAll.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        browseAll.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnCategoryClicked()
@@ -67,8 +44,8 @@ public class UnionHallSearch : MonoBehaviour
         {
             UILabel categoryName = UICamera.lastHit.collider.gameObject.transform.Find("CategoryName").GetComponent<UILabel>();
             browseSearch.GetComponent<UnionHallBrowseSearch>().currentCategory = categoryName.text;
-            browseSearch.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            browseSearch.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

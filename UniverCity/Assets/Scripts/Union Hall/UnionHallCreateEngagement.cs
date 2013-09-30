@@ -31,18 +31,18 @@ public class UnionHallCreateEngagement : MonoBehaviour
 
     void OnEngagementSettingsClicked()
     {
-        engagementSettings.SetActiveRecursively(true);
+        engagementSettings.SetActive(true);
         if ( newEvent )
             engagementSettings.GetComponent<UnionHallEngagementSettings>().NewSettings();
         newEvent = false;
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
     }
 
     void OnCancelClicked()
     {
         DestroyImmediate(GameObject.Find("NewEvent"));
-        mainMenu.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        mainMenu.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnCreateClicked()
@@ -59,12 +59,12 @@ public class UnionHallCreateEngagement : MonoBehaviour
                 start.text = "00:00";
 
             eventScript.Start = DateTime.Parse(date.text + " " + start.text);
-            legalSettings.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            legalSettings.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {
-            errorPanel.SetActiveRecursively(true);
+            errorPanel.SetActive(true);
             errorPanel.GetComponent<UnionHallErrorWindow>().SetErrorText(errorMessage);
             errorMessage = "";
         }

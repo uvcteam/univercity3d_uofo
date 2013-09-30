@@ -14,8 +14,8 @@ public class UnionHallEditEngagements : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEventClicked()

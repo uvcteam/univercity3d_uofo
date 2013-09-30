@@ -40,7 +40,7 @@ public class CFX_SpawnSystem : MonoBehaviour
 		GameObject returnObj = instance.instantiatedObjects[uniqueId][cursor];
 		if(activateObject)
 			#if UNITY_3_5
-					returnObj.SetActiveRecursively(true);
+					returnObj.SetActive(true);
 			#else
 					returnObj.SetActive(true);
 			#endif
@@ -116,7 +116,7 @@ public class CFX_SpawnSystem : MonoBehaviour
 		{
 			newObj = (GameObject)Instantiate(sourceObject);
 			#if UNITY_3_5
-				newObj.SetActiveRecursively(false);
+				newObj.SetActive(false);
 			#else
 				newObj.SetActive(false);
 			#endif

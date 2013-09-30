@@ -21,8 +21,8 @@ public class UnionHallEventDetail : MonoBehaviour
 
     void OnBackClicked()
     {
-        //returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        //returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnShareClicked()
@@ -37,8 +37,8 @@ public class UnionHallEventDetail : MonoBehaviour
 
     void OnJoinNowClicked()
     {
-        responseNotification.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        responseNotification.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void UpdateEvent()

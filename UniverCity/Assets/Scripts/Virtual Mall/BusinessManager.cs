@@ -111,9 +111,8 @@ public class BusinessManager : MonoBehaviour
                         busPos.x = bus.xPos;
                         busPos.y = bus.zPos;
                     }
-                    catch (KeyNotFoundException e)
+                    catch (KeyNotFoundException)
                     {
-                        Debug.Log(e);
                         busPos.x = -1;
                         busPos.y = -1;
                     }
@@ -152,8 +151,6 @@ public class BusinessManager : MonoBehaviour
             businessIDs += businesses[i].id + ",";
         // Trim the trailing comma.
         bLURL += businessIDs.Trim(","[0]);
-
-        Debug.Log(bLURL);
 
         goodDownload = false;
         while (!goodDownload)

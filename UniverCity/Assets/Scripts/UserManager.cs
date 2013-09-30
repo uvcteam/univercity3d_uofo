@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.Collections;
 using MiniJSON;
@@ -13,6 +14,8 @@ public class UserManager : MonoBehaviour
     public GameObject exitBtn;
     public GameObject loginPanel;
 
+    public List<SocialInterest> Categories = new List<SocialInterest>();
+
     void Start()
     {
         DontDestroyOnLoad(this);
@@ -24,6 +27,8 @@ public class UserManager : MonoBehaviour
 
     void Awake()
     {
+        StartCoroutine(GetCategories());
+
         if (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1)
         {
             CurrentUser = new User(
@@ -31,11 +36,43 @@ public class UserManager : MonoBehaviour
                 PlayerPrefs.GetString("name"),
                 PlayerPrefs.GetString("email"),
                 PlayerPrefs.GetString("university"));
+            Debug.Log(CurrentUser.Token);
+            StartCoroutine(GetUserCategories());
         }
         else
             CurrentUser = null;
     }
 
+    IEnumerator GetCategories()
+    {
+        string cURL = "http://www.univercity3d.com/univercity/GetAllSocialInterests";
+        int catId = 0;
+        string catName = "";
+        WWW page = null;
+        bool goodDownload = false;
+
+        while (!goodDownload)
+        {
+            page = new WWW(cURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+
+        Dictionary<string, object> results = Json.Deserialize(page.text) as Dictionary<string, object>;
+
+        if (Convert.ToBoolean(results["s"]))
+        {
+            Dictionary<string, object> tree = results["tree"] as Dictionary<string, object>;
+            foreach (Dictionary<string, object> cat in tree["children"] as List<object>)
+            {
+                catId = Convert.ToInt32(cat["id"]);
+                catName = cat["name"] as string;
+                Categories.Add(new SocialInterest(catId, catName));
+            }
+        }
+    }
     public IEnumerator SignIn(string email, string password)
     {
         signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
@@ -71,10 +108,42 @@ public class UserManager : MonoBehaviour
             if (PageToDisable != null)
                 PageToDisable.SetActive(false);
             signingInDialog.SetActive(false);
+            StartCoroutine(GetUserCategories());
             //GameObject.Find("ExitButton").SetActive(false);
         }
 
         
+    }
+    public IEnumerator GetUserCategories()
+    {
+        string cURL = "http://www.univercity3d.com/univercity/GetSocialInterests?token=" +
+            CurrentUser.Token;
+        int catId = 0;
+        string catName = "";
+        WWW page = null;
+        bool goodDownload = false;
+
+        while (!goodDownload)
+        {
+            page = new WWW(cURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+
+        Debug.Log(page.text);
+
+        Dictionary<string, object> results = Json.Deserialize(page.text) as Dictionary<string, object>;
+        if (Convert.ToBoolean(results["s"]))
+        {
+            foreach (object id in results["interests"] as List<object>)
+            {
+                catId = Convert.ToInt32(id);
+                catName = CategoryNameForId(catId);
+                CurrentUser.AddInterest(catName, catId);
+            }
+        }
     }
 
     public void SignOut()
@@ -83,19 +152,16 @@ public class UserManager : MonoBehaviour
         CurrentUser = null;
         PageToDisable.SetActive(true);
     }
-
     public bool IsSignedIn()
     {
         return (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1);
     }
-
     public void ToggleErrorMessage()
     {
         signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
         signingInDialog.SetActive(false);
         exitBtn.SetActive(false);
     }
-
     void OnLevelWasLoaded(int level)
     {
         if (level != 0)
@@ -109,6 +175,14 @@ public class UserManager : MonoBehaviour
         else
             loginPanel.SetActive(true);
     }
+
+    private string CategoryNameForId(int id)
+    {
+        for (int i = 0; i < Categories.Count; ++i)
+            if (Categories[i].Id == id) return Categories[i].Name;
+
+        return "";
+    }
 }
 
 [Serializable]
@@ -119,6 +193,7 @@ public class User
     private string name = "";
     private string email = "";
     private string university = "";
+    private List<SocialInterest> categories; 
 
     public bool LoggedIn
     {
@@ -145,6 +220,11 @@ public class User
         get { return university; }
         set { university = value; }
     }
+    public List<SocialInterest> Categories
+    {
+        get { return categories; }
+        set { categories = value; }
+    }
 
     public User(Dictionary<string, object> user, string e)
     {
@@ -153,10 +233,8 @@ public class User
         name = user["name"] as string;
         email = e;
         university = user["university"] as string;
-
-        Debug.Log("Logged in as: " + name);
+        categories = new List<SocialInterest>();
     }
-
     public User(string t, string n, string e, string u)
     {
         loggedIn = true;
@@ -164,5 +242,43 @@ public class User
         name = n;
         email = e;
         university = u;
+        categories = new List<SocialInterest>();
+    }
+
+    public void SetCategories(List<SocialInterest> categories)
+    {
+        categories.Clear();
+        foreach (SocialInterest interest in categories)
+            Categories.Add(new SocialInterest(interest));
+    }
+
+    public bool HasInterest(string name)
+    {
+        foreach (SocialInterest interest in categories)
+            if (interest.Name == name) return true;
+        return false;
+    }
+
+    public bool HasInterest(int id)
+    {
+        foreach (SocialInterest interest in categories)
+            if (interest.Id == id) return true;
+        return false;
+    }
+
+    public void AddInterest(string name, int id)
+    {
+        if (!HasInterest(id))
+            categories.Add(new SocialInterest(id, name));
+    }
+
+    public void RemoveInterest(string name)
+    {
+        foreach (SocialInterest interest in categories)
+            if (interest.Name == name)
+            {
+                categories.Remove(interest);
+                return;
+            }
     }
 }

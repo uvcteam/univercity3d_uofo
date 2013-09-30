@@ -35,7 +35,7 @@ public class PageButton : MonoBehaviour {
 
         //GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.GetComponent<UIButton>().isEnabled = true;
 
-        //if (GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.activeSelf)
+        //if (GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.activeInHierarchySelf)
         //    GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.GetComponentInChildren<UILabel>().color = Color.black;
 
 

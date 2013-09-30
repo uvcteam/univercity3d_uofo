@@ -61,9 +61,9 @@ public class AdPanelManager : MonoBehaviour
     {
 		ObjectToTween.rigidbody.isKinematic = false;
         Destroy(oldPos);
-        bubble.SetActiveRecursively(true);
+        bubble.SetActive(true);
    //     GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = true;
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
         FloatingBubble.HasAdUp = false;
         //myTween.Toggle();
     }

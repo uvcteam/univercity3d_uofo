@@ -12,6 +12,6 @@ public class UnionHallErrorWindow : MonoBehaviour
 
     void OnOKClicked()
     {
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
     }
 }

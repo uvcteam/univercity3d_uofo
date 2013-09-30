@@ -37,7 +37,7 @@ public class Notification : MonoBehaviour
 
     void OnBackClicked()
     {
-        gameObject.SetActiveRecursively(false);
-        PreviousPanel.SetActiveRecursively(true);
+        gameObject.SetActive(false);
+        PreviousPanel.SetActive(true);
     }
 }

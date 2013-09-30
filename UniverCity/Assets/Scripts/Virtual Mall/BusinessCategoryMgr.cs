@@ -6,7 +6,7 @@ public class BusinessCategoryMgr : MonoBehaviour
 {
     public GameObject preferredBusinesses;
     public GameObject businessCategory;
-    public Camera camera;
+    public Camera myCamera;
     public UISlicedSprite hidePanel;
 
     private FormMallDetailedCategories _MallCateGories = new FormMallDetailedCategories();

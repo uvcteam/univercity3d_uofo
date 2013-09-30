@@ -49,7 +49,7 @@ public class FormMallDetailedCategories : MonoBehaviour
     static public bool GetVisible()
     {
         if (mInstance)
-            return mInstance.gameObject.active;
+            return mInstance.gameObject.activeInHierarchy;
         return false;
     }
 
@@ -57,7 +57,7 @@ public class FormMallDetailedCategories : MonoBehaviour
     {
         if (mInstance)
         {
-            mInstance.gameObject.SetActiveRecursively(true);
+            mInstance.gameObject.SetActive(true);
             mInstance.DoShow(inSubcategory, inOffsetX);
         }
     }
@@ -66,7 +66,7 @@ public class FormMallDetailedCategories : MonoBehaviour
     {
         if (mInstance)
         {
-            mInstance.gameObject.SetActiveRecursively(false);
+            mInstance.gameObject.SetActive(false);
             mInstance.DoHide();
         }
     }

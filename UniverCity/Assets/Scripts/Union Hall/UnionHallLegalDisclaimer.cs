@@ -57,9 +57,9 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
         {
             Debug.Log("Success!");
             StopAllCoroutines();
-            successPage.SetActiveRecursively(true);
-            createEngagement.SetActiveRecursively(false);
-            gameObject.SetActiveRecursively(false);
+            successPage.SetActive(true);
+            createEngagement.SetActive(false);
+            gameObject.SetActive(false);
         }
         else
         {
@@ -69,7 +69,7 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
 
     void OnCancelClicked()
     {
-        //createEngagement.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        //createEngagement.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

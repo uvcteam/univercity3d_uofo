@@ -129,7 +129,7 @@ public class CFX3_Demo : MonoBehaviour
 		GameObject particles = (GameObject)Instantiate(ParticleExamples[exampleIndex]);
 		particles.transform.position = new Vector3(0,particles.transform.position.y,0);
 		#if UNITY_3_5
-			particles.SetActiveRecursively(true);
+			particles.SetActive(true);
 		#else
 			particles.SetActive(true);
 			for(int i = 0; i < particles.transform.childCount; i++)

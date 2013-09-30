@@ -10,8 +10,8 @@ public class TopBarManager : MonoBehaviour
     void OnBackClicked()
     {
         if (prevPanel == homePanel)
-            gameObject.SetActiveRecursively(false);
-        currentPanel.SetActiveRecursively(false);
-        prevPanel.SetActiveRecursively(true);
+            gameObject.SetActive(false);
+        currentPanel.SetActive(false);
+        prevPanel.SetActive(true);
     }
 }

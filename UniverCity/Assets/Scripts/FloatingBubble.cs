@@ -20,7 +20,7 @@ public class FloatingBubble : MonoBehaviour
 		if (ObjectToTween == null)
 			Debug.LogError("CameraBase could not be located!");
         manager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
-        gameObject.SetActiveRecursively(
+        gameObject.SetActive(
             manager.busByCoord.ContainsKey(new Vector2(transform.localPosition.x, transform.localPosition.z)));
     }
 
@@ -62,7 +62,7 @@ public class FloatingBubble : MonoBehaviour
         ObjectToTween.rigidbody.isKinematic = true;
 		myTween.Reset();
         myTween.Toggle();
-        adPanel.SetActiveRecursively(true);
+        adPanel.SetActive(true);
         adPanel.GetComponent<AdPanelManager>().SetPosition(transform, gameObject);
         adPanel.GetComponent<AdPanelManager>().SetReturnPosition();
         FloatingBubble.HasAdUp = true;
@@ -70,6 +70,6 @@ public class FloatingBubble : MonoBehaviour
 
     void OnTweenFinished(UITweener tweener)
     {
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
     }
 }

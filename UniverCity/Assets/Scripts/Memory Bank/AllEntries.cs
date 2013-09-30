@@ -18,8 +18,8 @@ public class AllEntries : MonoBehaviour
 
     void OnNewEntryClicked()
     {
-        entryPanel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        entryPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEntryClicked()
@@ -31,7 +31,7 @@ public class AllEntries : MonoBehaviour
 
     void OnBackClicked()
     {
-        gameObject.SetActiveRecursively(false);
-        PreviousPanel.SetActiveRecursively(true);
+        gameObject.SetActive(false);
+        PreviousPanel.SetActive(true);
     }
 }

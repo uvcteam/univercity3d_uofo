@@ -9,15 +9,15 @@ public class UnionHallInvitationInbox : MonoBehaviour
 
     void OnBackClicked()
     {
-        mainMenu.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        mainMenu.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnBrowseAllClicked()
     {
-        browseAll.SetActiveRecursively(true);
+        browseAll.SetActive(true);
         browseAll.GetComponent<UnionHallBrowseSearch>().returnTo = gameObject;
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
     }
 
     void OnRemoveClicked()
@@ -33,8 +33,8 @@ public class UnionHallInvitationInbox : MonoBehaviour
             Debug.Log(eventName.text);
 
             eventDetail.GetComponent<UnionHallEventDetail>().returnTo = gameObject;
-            eventDetail.SetActiveRecursively(true);
-            //gameObject.SetActiveRecursively(false);
+            eventDetail.SetActive(true);
+            //gameObject.SetActive(false);
         }
     }
 }

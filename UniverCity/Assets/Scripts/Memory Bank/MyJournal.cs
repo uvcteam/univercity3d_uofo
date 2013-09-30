@@ -15,8 +15,8 @@ public class MyJournal : MonoBehaviour
 
     void OnAllEntriesClicked()
     {
-        AllEntries.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        AllEntries.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnNewEntryClicked()
@@ -46,7 +46,7 @@ public class MyJournal : MonoBehaviour
 
     void OnBackClicked()
     {
-        gameObject.SetActiveRecursively(false);
-        PreviousPanel.SetActiveRecursively(true);
+        gameObject.SetActive(false);
+        PreviousPanel.SetActive(true);
     }
 }

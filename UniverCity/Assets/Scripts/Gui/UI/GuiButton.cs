@@ -207,17 +207,17 @@ public class GuiButton : MonoBehaviour
         eButtonState = inState;
 
         if (TransOver)
-            TransOver.gameObject.active = (eButtonState == eState.Over);
+            TransOver.gameObject.SetActive((eButtonState == eState.Over));
         if (TransNormal)
-            TransNormal.gameObject.active = (eButtonState == eState.Normal);
+            TransNormal.gameObject.SetActive((eButtonState == eState.Normal));
         if (TransPressed)
-            TransPressed.gameObject.active = (eButtonState == eState.Pressed);
+            TransPressed.gameObject.SetActive((eButtonState == eState.Pressed));
         if (TransDisabled)
-            TransDisabled.gameObject.active = (eButtonState == eState.Disabled);
+            TransDisabled.gameObject.SetActive((eButtonState == eState.Disabled));
         if (TransDisabledButActive)
-            TransDisabledButActive.gameObject.active = (eButtonState == eState.DisabledButActive);
+            TransDisabledButActive.gameObject.SetActive((eButtonState == eState.DisabledButActive));
         if (TransCustom)
-            TransCustom.gameObject.active = (eButtonState == eState.Custom);
+            TransCustom.gameObject.SetActive((eButtonState == eState.Custom));
     }
 
     // ***********************************************
