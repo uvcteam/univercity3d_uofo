@@ -29,12 +29,20 @@ public class UnionHallInvitationInbox : MonoBehaviour
     {
         if (UICamera.lastHit.collider.gameObject.name == "Event")
         {
-            UILabel eventName = UICamera.lastHit.collider.gameObject.transform.Find("EventName").GetComponent<UILabel>();
-            Debug.Log(eventName.text);
+            //UILabel eventName = UICamera.lastHit.collider.gameObject.transform.Find("Name").GetComponent<UILabel>();
+            EventData eventData = UICamera.lastHit.collider.gameObject.GetComponent<EventData>();
+           
+            //Debug.Log(eventName.text);
 
             eventDetail.GetComponent<UnionHallEventDetail>().returnTo = gameObject;
             eventDetail.SetActive(true);
+            GameObject.Find("EventAddress").GetComponent<UILabel>().text = eventData.eventAddress;
+            GameObject.Find("EventDateTime").GetComponent<UILabel>().text = eventData.eventDateTime;
+            GameObject.Find("EventDesc").GetComponent<UILabel>().text = eventData.eventDesc;
+            GameObject.Find("EventTitle").GetComponent<UILabel>().text = eventData.eventName;
+            GameObject.Find("EventWho").GetComponent<UILabel>().text = eventData.eventWho;
             //gameObject.SetActive(false);
         }
     }
+
 }
