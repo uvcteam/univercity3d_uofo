@@ -66,7 +66,10 @@ public class VideoHandler : MonoBehaviour
         {
 			Debug.Log ("Playing movie.");
 			if (!_videoPaused)
+			{
             	MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(URL);
+				//MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().FinishedMovie("PlayVideoFromURL");
+			}
 			else
 				MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().ResumeMovie();
 			_videoPaused = false;

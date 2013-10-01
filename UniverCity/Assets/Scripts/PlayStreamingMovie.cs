@@ -22,9 +22,10 @@ public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 	
 	public override void FinishedMovie(string str)
 	{
-		OpenGLMovieRewindIndex(movieIndex);
-		Debug.Log("Half volume");
-		OpenGLMovieVolumeIndex(movieIndex,0.5f); // half volume;
+		StopMovie();
+//		OpenGLMovieRewindIndex(movieIndex);
+//		Debug.Log("Half volume");
+//		OpenGLMovieVolumeIndex(movieIndex,0.5f); // half volume;
 	}
 	
 	[DllImport("__Internal")]
