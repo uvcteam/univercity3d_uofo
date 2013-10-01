@@ -138,7 +138,7 @@ public class UITextbox : GuiButton
         if (mKeyboard != null)
         {
             // hide mobile keyboard when control is disabled (from hiding form its on)
-            mKeyboard.activeInHierarchy = false;
+            mKeyboard.active = false;
             mKeyboard = null;
         }
 #endif
