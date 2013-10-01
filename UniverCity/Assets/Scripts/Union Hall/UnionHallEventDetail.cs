@@ -5,7 +5,6 @@ public class UnionHallEventDetail : MonoBehaviour
 {
     public GameObject returnTo = null;
     public GameObject responseNotification = null;
-    public UIButton detailsButton = null;
 
     public UILabel eventTitle = null;
     public UILabel eventWho = null;
@@ -30,11 +29,6 @@ public class UnionHallEventDetail : MonoBehaviour
         Debug.Log("Share clicked!");
     }
 
-    void OnDetailsClicked()
-    {
-        Debug.Log("Details clicked!");
-    }
-
     void OnJoinNowClicked()
     {
         responseNotification.SetActive(true);
@@ -50,7 +44,5 @@ public class UnionHallEventDetail : MonoBehaviour
         eventDesc.text = manager.currentEvent.Desc;
         eventTime.text = manager.currentEvent.GetEventDateTime();
         eventLoc.text = manager.currentEvent.Loc;
-
-        detailsButton.isEnabled = false;
     }
 }

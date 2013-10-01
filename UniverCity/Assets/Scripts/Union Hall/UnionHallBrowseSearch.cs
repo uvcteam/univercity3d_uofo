@@ -12,13 +12,14 @@ public class UnionHallBrowseSearch : MonoBehaviour
     public Transform scrollPanel = null;
     public Transform buttonTransform = null;
     private EventManager manager;
+    public GameObject Grid = null;
 
     public string currentCategory = "";
     public UILabel pageLabel = null;
 
     void OnDisable()
     {
-        foreach (Transform child in scrollPanel)
+        foreach (Transform child in Grid.transform)
             DestroyImmediate(child.gameObject);
     }
 
@@ -27,7 +28,7 @@ public class UnionHallBrowseSearch : MonoBehaviour
         GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = returnTo;
         GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = gameObject;
 
-        foreach (Transform child in scrollPanel)
+        foreach (Transform child in Grid.transform)
                 DestroyImmediate(child.gameObject);
 
         manager = GameObject.Find("EventManager").GetComponent<EventManager>();
@@ -39,12 +40,12 @@ public class UnionHallBrowseSearch : MonoBehaviour
                 Transform newEvent = Instantiate(eventButton, buttonTransform.position, buttonTransform.rotation) as Transform;
                 newEvent.Find("EventName").GetComponent<UILabel>().text = ev.Title;
                 newEvent.Find("EventDateTime").GetComponent<UILabel>().text = ev.GetEventDateTime();
-                newEvent.parent = scrollPanel.Find("Grid");
+                newEvent.parent = Grid.transform;
                 newEvent.localScale = buttonTransform.localScale;
                 newEvent.GetComponent<UIDragPanelContents>().draggablePanel = scrollPanel.GetComponent<UIDraggablePanel>();
                 newEvent.GetComponent<UIButtonMessage>().target = gameObject;
                 newEvent.gameObject.name = "Event";
-                scrollPanel.Find("Grid").GetComponent<UIGrid>().Reposition();
+                Grid.GetComponent<UIGrid>().Reposition();
             }
         }
         else if (manager.eventsByCategory.ContainsKey(currentCategory))
@@ -66,7 +67,7 @@ public class UnionHallBrowseSearch : MonoBehaviour
         else
             GameObject.Find("PageName").GetComponent<UILabel>().text = currentCategory;
 
-        scrollPanel.GetComponent<UIGrid>().Reposition();
+        Grid.GetComponent<UIGrid>().Reposition();
     }
 
     void OnBackClicked()
