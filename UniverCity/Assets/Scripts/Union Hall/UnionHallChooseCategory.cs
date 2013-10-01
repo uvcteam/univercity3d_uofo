@@ -41,9 +41,9 @@ public class UnionHallChooseCategory : MonoBehaviour
             newCat.gameObject.name = "btn Category";
             scrollPanel.Find("Grid").GetComponent<UIGrid>().Reposition();
             
-            if (newEvent.interests.Contains(cat.Id))
-                newCat.Find("Background").GetComponent<UISlicedSprite>().color = Color.red;
-            else
+            //if (newEvent.interests.Contains(cat.Id))
+            //    newCat.Find("Background").GetComponent<UISlicedSprite>().color = Color.red;
+            //else
                 newCat.Find("Background").GetComponent<UISlicedSprite>().color = Color.white;
         }
     }

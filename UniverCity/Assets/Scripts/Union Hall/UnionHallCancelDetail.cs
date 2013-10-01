@@ -35,7 +35,7 @@ public class UnionHallCancelDetail : MonoBehaviour
     {
         string webString = "http://www.univercity3d.com/univercity/CancelEvent?";
         webString += "id=" + manager.currentEvent.Id + "&";
-        webString += "email=" + WWW.EscapeURL(manager.currentEvent.Email);
+        webString += "token=" + GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
         Debug.Log(webString);
         WWW page = new WWW(webString);
         yield return page;

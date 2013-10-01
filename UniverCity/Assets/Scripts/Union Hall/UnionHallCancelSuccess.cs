@@ -4,6 +4,7 @@ using System.Collections;
 public class UnionHallCancelSuccess : MonoBehaviour 
 {
     public GameObject returnTo = null;
+    public GameObject CancelPanel = null;
 
     public UILabel eventName = null;
     public UILabel eventDate = null;
@@ -16,6 +17,8 @@ public class UnionHallCancelSuccess : MonoBehaviour
         eventName.text = manager.currentEvent.Title;
         eventDate.text = manager.currentEvent.GetEventDateTime();
         manager.RepopulateEvents();
+        CancelPanel.SetActive(false);
+        CancelPanel.SetActive(true);
     }
 
     void OnBackClicked()

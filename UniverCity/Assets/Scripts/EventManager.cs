@@ -43,6 +43,7 @@ public class EventManager : MonoBehaviour
 
         eURL += "?token=" + GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
 
+        Debug.Log(eURL);
         while (!goodDownload)
         {
             page = new WWW(eURL);
@@ -58,47 +59,50 @@ public class EventManager : MonoBehaviour
 
         // Create an IList of all of the businesses returned to me.
         Dictionary <string, object> eventInfo = Json.Deserialize(page.text) as Dictionary<string, object>;
-        IList events = eventInfo["events"] as IList;
-        // Iterate through each of the dictionaries in the list.
-        foreach (Dictionary<string, object> uhEvent in events)
+        if (Convert.ToBoolean(eventInfo["s"]))
         {
-            // Retrieve the ID, Name, and Description of each business.
-            id = Convert.ToInt32(uhEvent["id"]);
-            title = uhEvent["title"] as string;
-            desc = uhEvent["desc"] as string;
-            who = uhEvent["who"] as string;
-            email = uhEvent["email"] as string;
-            loc = uhEvent["location"] as string;
-            phone = uhEvent["phone"] as string;
-            start = DateTime.Parse(uhEvent["start"] as string);
-
-            //Debug.Log(
-            //    "Title: " + title +
-            //    "Who:" + who +
-            //    "Desc: " + desc +
-            //    "Email: " + email +
-            //    "Loc: " + loc +
-            //    "Start: " + start.ToString("MMM dd '-' h':'mm tt", CultureInfo.InvariantCulture));
-
-            UnionHallEvent ev = new UnionHallEvent(id, title, desc, who, email, phone, loc, start);
-            events.Add(ev);
-
-            // All arrays in JSON come in as List<object>.
-            foreach (string category in uhEvent["interests"] as List<object>)
+            List<object> eventIt = eventInfo["events"] as List<object>;
+            // Iterate through each of the dictionaries in the list.
+            foreach (Dictionary<string, object> uhEvent in eventIt)
             {
-                // If the category does not exist, we need to create it...
-                if (!eventsByCategory.ContainsKey(category))
-                    eventsByCategory.Add(category, new List<UnionHallEvent>());
-                // Add the business to the category it belongs to.
-                eventsByCategory[category].Add(ev);
-            }
-        }
+                // Retrieve the ID, Name, and Description of each business.
+                id = Convert.ToInt32(uhEvent["id"]);
+                title = uhEvent["title"] as string;
+                desc = uhEvent["desc"] as string;
+                who = uhEvent["who"] as string;
+                email = uhEvent["email"] as string;
+                loc = uhEvent["location"] as string;
+                phone = uhEvent["phone"] as string;
+                start = DateTime.Parse(uhEvent["start"] as string);
 
-        // Debug to make sure the categories were all created properly.
-        //foreach (KeyValuePair<string, List<Business>> pair in businesses)
-        //{
-        //    Debug.Log(pair.Key);
-        //}
+                Debug.Log(
+                    "Title: " + title +
+                    "Who:" + who +
+                    "Desc: " + desc +
+                    "Email: " + email +
+                    "Loc: " + loc +
+                    "Start: " + start.ToString("MMM dd '-' h':'mm tt", CultureInfo.InvariantCulture));
+
+                UnionHallEvent ev = new UnionHallEvent(id, title, desc, who, email, phone, loc, start);
+                events.Add(ev);
+
+                // All arrays in JSON come in as List<object>.
+                foreach (string category in uhEvent["interests"] as List<object>)
+                {
+                    // If the category does not exist, we need to create it...
+                    if (!eventsByCategory.ContainsKey(category))
+                        eventsByCategory.Add(category, new List<UnionHallEvent>());
+                    // Add the business to the category it belongs to.
+                    eventsByCategory[category].Add(ev);
+                }
+            }
+
+            // Debug to make sure the categories were all created properly.
+            //foreach (KeyValuePair<string, List<Business>> pair in businesses)
+            //{
+            //    Debug.Log(pair.Key);
+            //}
+        }
     }
 
     public void RepopulateEvents()
