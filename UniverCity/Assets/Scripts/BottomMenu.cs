@@ -12,7 +12,14 @@ public class BottomMenu : MonoBehaviour
         //    NGUITools.AddWidgetCollider(button);
         activeScene = Application.loadedLevel - 1;
         if (activeScene != -1)
-            buttons[activeScene].SendMessage("DeActivate");
+        {
+            foreach (UIButton btn in buttons[activeScene].GetComponentsInChildren<UIButton>())
+            {
+                btn.defaultColor = new Color(0.2f, 0.83f, 1.0f);
+                btn.UpdateColor(true, true);
+            }
+        }
+
     }
 
     void OnArcadeClicked()
