@@ -2006,8 +2006,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 122801521}
   m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
-  m_LocalPosition: {x: 1100, y: 0, z: 0}
-  m_LocalScale: {x: 1344, y: 1300, z: 1}
+  m_LocalPosition: {x: 1007, y: 0, z: 0}
+  m_LocalScale: {x: 1344, y: 1486, z: 1}
   m_Children: []
   m_Father: {fileID: 1135247483}
 --- !u!114 &122801523
@@ -12345,7 +12345,6 @@ MonoBehaviour:
   m_Name: 
   returnTo: {fileID: 0}
   responseNotification: {fileID: 2080026711}
-  detailsButton: {fileID: 0}
   eventTitle: {fileID: 476106066}
   eventWho: {fileID: 941412467}
   eventDesc: {fileID: 732156255}
@@ -14381,11 +14380,11 @@ MonoBehaviour:
     e00: .0006998725
     e01: -1024.00012
     e02: 0
-    e03: 1026.13342
+    e03: 1025.67065
     e10: 1024.00012
     e11: .0006998725
     e12: 0
-    e13: 2.13263249
+    e13: -.000701014302
     e20: 0
     e21: 0
     e22: 1024
@@ -14694,18 +14693,18 @@ MonoBehaviour:
   widgetsAreStatic: 0
   cullWhileDragging: 0
   worldToLocal:
-    e00: 1
-    e01: 0
+    e00: .0006998725
+    e01: -1024.00012
     e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
+    e03: 1026.13342
+    e10: 1024.00012
+    e11: .0006998725
     e12: 0
-    e13: 0
+    e13: 2.13263249
     e20: 0
     e21: 0
-    e22: 1
-    e23: 0
+    e22: 1024
+    e23: 415
     e30: 0
     e31: 0
     e32: 0
@@ -14841,7 +14840,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1145814501}
   m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
-  m_LocalPosition: {x: 317.346771, y: 0, z: -400}
+  m_LocalPosition: {x: 375.080231, y: 2.13329458, z: -400}
   m_LocalScale: {x: 67.2298126, y: 67.2298126, z: 1}
   m_Children: []
   m_Father: {fileID: 1135247483}
@@ -20612,8 +20611,8 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 4
-  mAtlas: {fileID: 11400000, guid: 64b76f4e4a5e8e741a086bd9479d85d5, type: 2}
-  mSpriteName: pts_resorts
+  mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
+  mSpriteName: ios7_button_gray
   mFillCenter: 1
   mType: 0
   mFillDirection: 4

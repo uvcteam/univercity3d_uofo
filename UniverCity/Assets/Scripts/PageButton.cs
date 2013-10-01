@@ -7,12 +7,27 @@ public class PageButton : MonoBehaviour {
 
     public void GoToPage()
     {
+        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
         GameObject businessAd = GameObject.Find("BusinessAd");
-		if(businessAd == null)
-		{
-			Debug.Log("BusinessAd not found");
-			return;
-		}
+
+        if (businessAd == null)
+        {
+            Debug.Log("BusinessAd not found");
+            return;
+        }
+
+        trackURL += businessAd.GetComponent<BusinessAd>().adManager.BusinessID;
+        trackURL += "&title=" + transform.Find("Label").GetComponent<UILabel>().text;
+        trackURL += "&event=click";
+        trackURL += "&play_id=" + businessAd.GetComponent<BusinessAd>().sessionId;
+
+        if (PlayerPrefs.GetInt("loggedIn") == 1)
+            trackURL += "&token=" +
+                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+		
+        Debug.Log("Sending: " + trackURL);
+        WWW track = new WWW(trackURL);
+
         foreach(GameObject page in GameObject.FindGameObjectsWithTag("Page"))
         {
             page.SetActive(false);

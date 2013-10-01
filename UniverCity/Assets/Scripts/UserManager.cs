@@ -36,6 +36,7 @@ public class UserManager : MonoBehaviour
                 PlayerPrefs.GetString("name"),
                 PlayerPrefs.GetString("email"),
                 PlayerPrefs.GetString("university"));
+            StartCoroutine(SignIn(PlayerPrefs.GetString("email"), PlayerPrefs.GetString("password")));
             Debug.Log(CurrentUser.Token);
             StartCoroutine(GetUserCategories());
         }
@@ -103,6 +104,7 @@ public class UserManager : MonoBehaviour
             PlayerPrefs.SetString("token", CurrentUser.Token);
             PlayerPrefs.SetString("name", CurrentUser.Name);
             PlayerPrefs.SetString("email", CurrentUser.Email);
+            PlayerPrefs.SetString("password", password);
             PlayerPrefs.SetString("university", CurrentUser.University);
 
             if (PageToDisable != null)

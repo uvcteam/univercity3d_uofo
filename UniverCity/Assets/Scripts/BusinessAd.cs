@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ public class BusinessAd : MonoBehaviour
 	public GameObject narrator;
     public bool hasMegaDeal = false;
     public bool hasMembersOnly = false;
+    public long sessionId = 0;
 
     private List<GameObject> _pages = new List<GameObject>();
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
@@ -43,9 +45,8 @@ public class BusinessAd : MonoBehaviour
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
 		Screen.orientation = ScreenOrientation.AutoRotation;
+        sessionId = DateTime.Now.Ticks;
     }
-
- 
 
     void Awake()
     {
