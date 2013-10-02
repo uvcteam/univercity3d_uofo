@@ -38,7 +38,6 @@ public class UserManager : MonoBehaviour
                 PlayerPrefs.GetString("university"));
             StartCoroutine(SignIn(PlayerPrefs.GetString("email"), PlayerPrefs.GetString("password")));
             Debug.Log(CurrentUser.Token);
-            StartCoroutine(GetUserCategories());
         }
         else
             CurrentUser = null;
@@ -76,14 +75,17 @@ public class UserManager : MonoBehaviour
     }
     public IEnumerator SignIn(string email, string password)
     {
-        signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
+        if (PlayerPrefs.GetInt("loggedIn") == 0)
+        {
+            signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
+            signingInDialog.SetActive(true);
+            signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+        }
+
         string loginURL = "http://www.univercity3d.com/univercity/DeviceLogin?";
 
         loginURL += "email=" + WWW.EscapeURL(email);
         loginURL += "&password=" + WWW.EscapeURL(password);
-
-        signingInDialog.SetActive(true);
-        signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
         Debug.Log(loginURL);
         WWW page = new WWW(loginURL);
         yield return page;
@@ -109,7 +111,8 @@ public class UserManager : MonoBehaviour
 
             if (PageToDisable != null)
                 PageToDisable.SetActive(false);
-            signingInDialog.SetActive(false);
+            if (PlayerPrefs.GetInt("loggedIn") == 0)
+                signingInDialog.SetActive(false);
             StartCoroutine(GetUserCategories());
             //GameObject.Find("ExitButton").SetActive(false);
         }

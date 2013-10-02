@@ -61,7 +61,7 @@ public class VideoHandler : MonoBehaviour
     {
         //Handheld.PlayFullScreenMovie(URL, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
         _playVideo = !_playVideo;
-		Debug.Log ("In PlayVideoFromURL");
+		//Debug.Log ("In PlayVideoFromURL");
         if (_playVideo)
         {
 			Debug.Log ("Playing movie.");

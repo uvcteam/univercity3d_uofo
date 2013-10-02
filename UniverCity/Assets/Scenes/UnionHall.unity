@@ -1028,7 +1028,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 67356347}
   m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
-  m_LocalPosition: {x: -2.13333344, y: 1026.1333, z: 0}
+  m_LocalPosition: {x: -3.62638354, y: 1025.81238, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1914930530}
@@ -4296,11 +4296,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.13333344
+      value: -3.62638354
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1021.86664
+      value: -1022.18762
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6389,11 +6389,11 @@ MonoBehaviour:
     e00: -.000366210938
     e01: 1024.00012
     e02: 0
-    e03: -1026.13342
+    e03: -1025.8125
     e10: -1024.00012
     e11: -.000366210938
     e12: 0
-    e13: -2.13296676
+    e13: -3.62601709
     e20: 0
     e21: 0
     e22: 1024
@@ -7163,13 +7163,11 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 5
   mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
-  mText: 'Edgar Allen Poe
-
-    Study Group'
-  mMaxLineWidth: 0
+  mText: Edgar Allen Poe Study Group
+  mMaxLineWidth: 575
   mMaxLineHeight: 0
   mEncoding: 1
-  mMaxLineCount: 0
+  mMaxLineCount: 3
   mPassword: 0
   mShowLastChar: 0
   mEffectStyle: 0
@@ -7315,7 +7313,7 @@ Transform:
   m_PrefabInternal: {fileID: 848654477}
   m_GameObject: {fileID: 478497306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13333344, y: 1026.1333, z: 0}
+  m_LocalPosition: {x: -3.62638354, y: 1025.81238, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 774605950}
@@ -7355,11 +7353,11 @@ MonoBehaviour:
     e00: 1024
     e01: 0
     e02: 0
-    e03: 2.13333344
+    e03: 3.62638354
     e10: 0
     e11: 1024
     e12: 0
-    e13: -1026.1333
+    e13: -1025.81238
     e20: 0
     e21: 0
     e22: 1024
@@ -9661,11 +9659,11 @@ MonoBehaviour:
     e00: .0006998725
     e01: -1024.00012
     e02: 0
-    e03: 1025.67334
+    e03: 1027.71033
     e10: 1024.00012
     e11: .0006998725
     e12: 0
-    e13: -.000701016106
+    e13: 3.70944285
     e20: 0
     e21: 0
     e22: 1024
@@ -10573,7 +10571,7 @@ MonoBehaviour:
   mPivot: 3
   mDepth: 7
   mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
-  mText: Chess Club Meetup
+  mText: Live Theater Auditions
   mMaxLineWidth: 0
   mMaxLineHeight: 0
   mEncoding: 1
@@ -10733,11 +10731,11 @@ MonoBehaviour:
     e00: 1024
     e01: 0
     e02: 0
-    e03: 2.13333344
+    e03: 3.62638354
     e10: 0
     e11: 1024
     e12: 0
-    e13: -1026.1333
+    e13: -1025.81238
     e20: 0
     e21: 0
     e22: 1024
@@ -11567,7 +11565,7 @@ MonoBehaviour:
   mPivot: 3
   mDepth: 7
   mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
-  mText: January 12th - 9:00pm
+  mText: November 12th - 9:00pm
   mMaxLineWidth: 0
   mMaxLineHeight: 0
   mEncoding: 1
@@ -11638,11 +11636,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400008, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.13333344
+      value: -3.62638354
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1026.1333
+      value: 1025.81238
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11882,11 +11880,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: b430d98b29118054eb43d6390e1c2e72, type: 2}
       propertyPath: mText
-      value: Chess Club Meetup
+      value: Live Theater Auditions
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: b430d98b29118054eb43d6390e1c2e72, type: 2}
       propertyPath: mText
-      value: January 12th - 9:00pm
+      value: November 12th - 9:00pm
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: b430d98b29118054eb43d6390e1c2e72, type: 2}
       propertyPath: m_Name
@@ -12370,11 +12368,11 @@ MonoBehaviour:
     e00: .0006998725
     e01: -1024.00012
     e02: 0
-    e03: 1025.67334
+    e03: 1025.8125
     e10: 1024.00012
     e11: .0006998725
     e12: 0
-    e13: -.000701016106
+    e13: 3.62568283
     e20: 0
     e21: 0
     e22: 1024
@@ -15540,7 +15538,7 @@ Transform:
   m_PrefabInternal: {fileID: 299432704}
   m_GameObject: {fileID: 1204121898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.13333344, y: -1021.86664, z: 0}
+  m_LocalPosition: {x: -3.62638354, y: -1022.18762, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children:
   - {fileID: 1701788312}
@@ -15603,11 +15601,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: 1.70666683
+    e03: 2.90110683
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 817.493347
+    e13: 817.750122
     e20: 0
     e21: 0
     e22: 0
@@ -19770,11 +19768,11 @@ MonoBehaviour:
     e00: .0006998725
     e01: -1024.00012
     e02: 0
-    e03: 700.67334
+    e03: 702.710327
     e10: 1024.00012
     e11: .0006998725
     e12: 0
-    e13: -.000701016106
+    e13: 3.70944285
     e20: 0
     e21: 0
     e22: 1024
@@ -21046,11 +21044,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: 1.70666683
+    e03: 2.90110683
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 817.493347
+    e13: 817.750122
     e20: 0
     e21: 0
     e22: 0
@@ -23188,8 +23186,8 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 6
   mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
-  mText: "122 Campus Ln, \nEugene OR"
-  mMaxLineWidth: 1011
+  mText: 122 Campus Ln,  Eugene OR
+  mMaxLineWidth: 800
   mMaxLineHeight: 0
   mEncoding: 1
   mMaxLineCount: 0
@@ -24420,11 +24418,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 198acb68703fcc3418e78067f93f574e, type: 3}
   m_Name: 
-  eventAddress: Purvine Hall
-  eventDateTime: January 12th - 9:00pm
-  eventDesc: We have some topics we need to discuss.
-  eventName: Chess Club Meetup
-  eventWho: Chess Club members.
+  eventAddress: "122 Campus Ln, \nEugene OR"
+  eventDateTime: November 12th - 9:00pm
+  eventDesc: Come and audition for your spot in an upcoming show!
+  eventName: Live Theater Auditions
+  eventWho: Aspiring Stars
 --- !u!1001 &1975716002
 Prefab:
   m_ObjectHideFlags: 0

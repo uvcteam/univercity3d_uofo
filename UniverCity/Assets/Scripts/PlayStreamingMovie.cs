@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 // See base class for pause/resumer etc .....
 public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 	public GUIText pauseIndictator; // need to display something if movie pauses with stalled stream
+    public GameObject messageReceiver = null;
 	bool doneReady; //check done textures
 	bool streamEarly; // if streamReady before movieReady -- stream most probaly was already a file (or short stream)
 	
@@ -22,6 +23,7 @@ public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 	
 	public override void FinishedMovie(string str)
 	{
+        messageReceiver.SendMessage("MovieFinished");
 		StopMovie();
 //		OpenGLMovieRewindIndex(movieIndex);
 //		Debug.Log("Half volume");

@@ -45,7 +45,6 @@ public class BusinessAd : MonoBehaviour
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
 		Screen.orientation = ScreenOrientation.AutoRotation;
-        sessionId = DateTime.Now.Ticks;
     }
 
     void Awake()
@@ -101,6 +100,20 @@ public class BusinessAd : MonoBehaviour
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
 		Screen.orientation = ScreenOrientation.AutoRotation;
+
+        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
+
+        trackURL += adManager.BusinessID;
+        trackURL += "&title=";
+        trackURL += "&event=close";
+        trackURL += "&play_id=" + sessionId;
+
+        if (PlayerPrefs.GetInt("loggedIn") == 1)
+            trackURL += "&token=" +
+                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+
+        Debug.Log("Sending: " + trackURL);
+        WWW track = new WWW(trackURL);
 	}
 
     public IEnumerator SetUpAd(int businessID = 16)
@@ -198,7 +211,20 @@ public class BusinessAd : MonoBehaviour
         }
 
         HideObjects();
+        sessionId = DateTime.Now.Ticks;
+        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
 
+        trackURL += adManager.BusinessID;
+        trackURL += "&title=";
+        trackURL += "&event=start";
+        trackURL += "&play_id=" + sessionId;
+
+        if (PlayerPrefs.GetInt("loggedIn") == 1)
+            trackURL += "&token=" +
+                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+
+        Debug.Log("Sending: " + trackURL);
+        WWW track = new WWW(trackURL);
     }
     private void SetUpPage(AdPage adPage, int pageCount)
     {
@@ -350,6 +376,23 @@ public class BusinessAd : MonoBehaviour
             }
         }
 
+    }
+
+    public void MovieFinished()
+    {
+        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
+
+        trackURL += adManager.BusinessID;
+        trackURL += "&title=";
+        trackURL += "&event=media";
+        trackURL += "&play_id=" + sessionId;
+
+        if (PlayerPrefs.GetInt("loggedIn") == 1)
+            trackURL += "&token=" +
+                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+
+        Debug.Log("Sending: " + trackURL);
+        WWW track = new WWW(trackURL);
     }
 
     public void HideObjects()

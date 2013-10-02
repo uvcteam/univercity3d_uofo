@@ -17,8 +17,21 @@ public class PageButton : MonoBehaviour {
         }
 
         trackURL += businessAd.GetComponent<BusinessAd>().adManager.BusinessID;
-        trackURL += "&title=" + transform.Find("Label").GetComponent<UILabel>().text;
-        trackURL += "&event=click";
+        if (Page.name == "Mega Deal")
+        {
+            trackURL += "&title=";
+            trackURL += "&event=deal";
+        }
+        else if (Page.name == "Members Only")
+        {
+            trackURL += "&title=";
+            trackURL += "&event=discount"; 
+        }
+        else
+        {
+            trackURL += "&title=" + transform.Find("Label").GetComponent<UILabel>().text;
+            trackURL += "&event=click";
+        }
         trackURL += "&play_id=" + businessAd.GetComponent<BusinessAd>().sessionId;
 
         if (PlayerPrefs.GetInt("loggedIn") == 1)
@@ -33,7 +46,7 @@ public class PageButton : MonoBehaviour {
             page.SetActive(false);
         }
 		
-		Debug.Log(businessAd.name);
+		//Debug.Log(businessAd.name);
 
         foreach (GameObject btn in GameObject.Find("BusinessAd").GetComponent<BusinessAd>().pageBtns)
         {
