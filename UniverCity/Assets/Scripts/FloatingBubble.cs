@@ -45,7 +45,7 @@ public class FloatingBubble : MonoBehaviour
 
         myTween.from = ObjectToTween.transform;
         myTween.to = tweenTo;
-        myTween.duration = 2.0f;
+        myTween.duration = 1.0f;
 
         GameObject placeHolder = new GameObject("Placeholder");
         placeHolder.transform.position =
@@ -62,14 +62,15 @@ public class FloatingBubble : MonoBehaviour
         ObjectToTween.rigidbody.isKinematic = true;
 		myTween.Reset();
         myTween.Toggle();
-        adPanel.SetActive(true);
-        adPanel.GetComponent<AdPanelManager>().SetPosition(transform, gameObject);
-        adPanel.GetComponent<AdPanelManager>().SetReturnPosition();
         FloatingBubble.HasAdUp = true;
     }
 
     void OnTweenFinished(UITweener tweener)
     {
+        Debug.Log("Activating: " + adPanel.name);
+        adPanel.SetActive(true);
+        adPanel.GetComponent<AdPanelManager>().SetPosition(transform, gameObject);
+        adPanel.GetComponent<AdPanelManager>().SetReturnPosition();
         gameObject.SetActive(false);
     }
 }

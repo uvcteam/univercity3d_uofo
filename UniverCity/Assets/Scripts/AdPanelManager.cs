@@ -42,8 +42,8 @@ public class AdPanelManager : MonoBehaviour
         myTween.duration = 1.0f;
         myTween.Reset();
         myTween.Toggle();
-        foreach (Transform child in transform)
-            child.gameObject.SetActive(false);
+        //foreach (Transform child in transform)
+        //    child.gameObject.SetActive(false);
 		leftStick.SetActive(true);
 		rightStick.SetActive(true);
 
