@@ -153,7 +153,7 @@ public class BusinessAd : MonoBehaviour
 			}
 			
             MembersOnlyBtn.SetActive(true);
-            MembersOnlyBtn.GetComponent<UIButton>().isEnabled = false;
+            MembersOnlyBtn.GetComponent<UIImageButton>().isEnabled = false;
 
             adInfo = adManager.AdInfo;
 
@@ -173,7 +173,7 @@ public class BusinessAd : MonoBehaviour
             {
                 hasMegaDeal = true;
                 MegaDealBtn.SetActive(true);
-                MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
+                MegaDealBtn.GetComponent<UIImageButton>().isEnabled = true;
                 MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
                 megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
                 megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
@@ -185,7 +185,7 @@ public class BusinessAd : MonoBehaviour
             }
             else
             {
-                MegaDealBtn.GetComponent<UIButton>().isEnabled = false;
+                MegaDealBtn.GetComponent<UIImageButton>().isEnabled = false;
                 hasMegaDeal = false;
             }
 

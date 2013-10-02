@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pageBtn3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Members Only
   m_TagString: Page
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 114: {fileID: 11400012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpeechBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400008}
   - 114: {fileID: 11400014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400012}
   - 114: {fileID: 11400018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400014}
   - 114: {fileID: 11400020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 114: {fileID: 11400022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - 4: {fileID: 400018}
   - 114: {fileID: 11400026}
   - 114: {fileID: 11400024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ThumbnailDetailsPage
   m_TagString: Page
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400020}
   - 114: {fileID: 11400028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400022}
   - 114: {fileID: 11400030}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - 114: {fileID: 11400034}
   - 114: {fileID: 11400032}
   - 114: {fileID: 11400038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Narrator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - 114: {fileID: 11400044}
   - 114: {fileID: 11400042}
   - 114: {fileID: 11400040}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400028}
   - 114: {fileID: 11400046}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlicedSprite (Light)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - 4: {fileID: 400030}
   - 114: {fileID: 11400048}
   - 65: {fileID: 6500006}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400032}
   - 114: {fileID: 11400050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ListLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - 4: {fileID: 400034}
   - 114: {fileID: 11400052}
   - 65: {fileID: 6500008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SlicedSprite (Light)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - 114: {fileID: 11400054}
   - 114: {fileID: 11400056}
   - 114: {fileID: 11400058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mega Deal
   m_TagString: Page
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400038}
   - 114: {fileID: 11400060}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400040}
   - 114: {fileID: 11400062}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - 114: {fileID: 11400064}
   - 114: {fileID: 11400068}
   - 114: {fileID: 11400070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pageBtn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400044}
   - 114: {fileID: 11400072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PriceLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +397,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400046}
   - 114: {fileID: 11400074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - 4: {fileID: 400048}
   - 114: {fileID: 11400078}
   - 114: {fileID: 11400076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprite (loading)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,11 +430,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400050}
   - 65: {fileID: 6500012}
-  - 114: {fileID: 11400086}
   - 114: {fileID: 11400084}
   - 114: {fileID: 11400082}
   - 114: {fileID: 11400080}
-  m_Layer: 0
+  - 114: {fileID: 11400114}
+  m_Layer: 8
   m_Name: megaDealBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400052}
   - 114: {fileID: 11400088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400054}
   - 114: {fileID: 11400090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400056}
   - 114: {fileID: 11400092}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400058}
   - 114: {fileID: 11400094}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400060}
   - 114: {fileID: 11400096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400062}
   - 114: {fileID: 11400098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400064}
   - 114: {fileID: 11400100}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400066}
   - 114: {fileID: 11400102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400068}
   - 114: {fileID: 11400104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BusinessCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400070}
   - 114: {fileID: 11400106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400072}
   - 114: {fileID: 11400108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400074}
   - 114: {fileID: 11400110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400076}
   - 114: {fileID: 11400112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   - 114: {fileID: 11400116}
   - 114: {fileID: 11400120}
   - 114: {fileID: 11400122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pageBtn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400082}
   - 114: {fileID: 11400124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400084}
   - 114: {fileID: 11400126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400086}
   - 114: {fileID: 11400128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BusinessAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400088}
   - 114: {fileID: 11400130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,13 +742,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400090}
   - 65: {fileID: 6500016}
-  - 114: {fileID: 11400142}
-  - 114: {fileID: 11400140}
-  - 114: {fileID: 11400138}
   - 114: {fileID: 11400136}
   - 114: {fileID: 11400134}
   - 114: {fileID: 11400132}
-  m_Layer: 0
+  - 114: {fileID: 11400086}
+  m_Layer: 8
   m_Name: membersOnlyBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +765,7 @@ GameObject:
   - 114: {fileID: 11400148}
   - 114: {fileID: 11400146}
   - 114: {fileID: 11400144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PurchaseBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -783,7 +781,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400094}
   - 114: {fileID: 11400150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +797,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400096}
   - 114: {fileID: 11400152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +813,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400098}
   - 114: {fileID: 11400154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +833,7 @@ GameObject:
   - 114: {fileID: 11400160}
   - 114: {fileID: 11400158}
   - 114: {fileID: 11400156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DetailslBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -851,7 +849,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400102}
   - 114: {fileID: 11400164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,7 +865,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400104}
   - 114: {fileID: 11400166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +881,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400106}
   - 114: {fileID: 11400168}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +897,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400108}
   - 114: {fileID: 11400170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -915,7 +913,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400110}
   - 114: {fileID: 11400172}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Disclaimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -935,7 +933,7 @@ GameObject:
   - 114: {fileID: 11400176}
   - 114: {fileID: 11400180}
   - 114: {fileID: 11400182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pageBtn4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,8 +1032,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 280, z: 1}
+  m_LocalPosition: {x: 0, y: .5, z: 0}
+  m_LocalScale: {x: 900, y: 497, z: 1}
   m_Children: []
   m_Father: {fileID: 400090}
 --- !u!4 &400016
@@ -1250,7 +1248,7 @@ Transform:
   m_GameObject: {fileID: 100050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1100, y: 100, z: -400.000244}
-  m_LocalScale: {x: 1.00044775, y: 1.00044775, z: 1.00044799}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 400074}
   m_Father: {fileID: 400086}
@@ -1383,7 +1381,7 @@ Transform:
   m_GameObject: {fileID: 100074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 500, y: 280, z: 1}
+  m_LocalScale: {x: 877, y: 436, z: 1}
   m_Children: []
   m_Father: {fileID: 400050}
 --- !u!4 &400076
@@ -1443,7 +1441,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100086}
   m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
-  m_LocalPosition: {x: 0, y: -1356, z: -300}
+  m_LocalPosition: {x: 6.4028427e-10, y: -1356.00024, z: -654.047424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400030}
@@ -1482,7 +1480,7 @@ Transform:
   m_GameObject: {fileID: 100090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1100, y: 501, z: -400.000244}
-  m_LocalScale: {x: 1.00044775, y: 1.00044775, z: 1.00044799}
+  m_LocalScale: {x: .5, y: .5, z: 1.00044799}
   m_Children:
   - {fileID: 400014}
   m_Father: {fileID: 400086}
@@ -1695,8 +1693,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 400, y: 250, z: 0}
-  m_Center: {x: 0, y: -.5, z: -3.75}
+  m_Size: {x: 877.000366, y: 436.000244, z: 0}
+  m_Center: {x: -3.50009155, y: -4.99995422, z: -.249911085}
 --- !u!65 &6500014
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1719,8 +1717,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 400, y: 250, z: 0}
-  m_Center: {x: 0, y: -.5, z: -3.75}
+  m_Size: {x: 900.000366, y: 497.000305, z: 0}
+  m_Center: {x: -3.05175781e-05, y: .500289917, z: -.249911085}
 --- !u!65 &6500018
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1966,20 +1964,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 100014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mTexture: {fileID: 2800000, guid: fb91c78dc76f17b4a86e710974c5b1ac, type: 3}
-  mMat: {fileID: 0}
+  mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
+  mSpriteName: mem_only_active 1
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!114 &11400022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2244,7 +2240,7 @@ MonoBehaviour:
   m_Name: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mDepth: 6
+  mDepth: -1
   mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
   mSpriteName: square
   mFillCenter: 1
@@ -2606,16 +2602,16 @@ MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100050}
+  m_GameObject: {fileID: 100090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4271d0dec29cc9845a75627e88f762af, type: 3}
   m_Name: 
-  tweenTarget: {fileID: 100074}
-  hover: {r: 1, g: 1, b: 1, a: 1}
-  pressed: {r: .5, g: .5, b: .5, a: 1}
-  duration: .200000003
-  disabledColor: {r: 1, g: 1, b: 1, a: .392156869}
+  target: {fileID: 11400020}
+  normalSprite: mem_only_active 1
+  hoverSprite: mem_only_active 1
+  pressedSprite: mem_only_active 1
+  disabledSprite: mem_only_inactive
 --- !u!114 &11400088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2894,20 +2890,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 100074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
-  mTexture: {fileID: 2800000, guid: c4c84fe2f51f78d46892dd26804714f4, type: 3}
-  mMat: {fileID: 0}
+  mAtlas: {fileID: 11400000, guid: abde5773bcced4e7e9948ad7bc175fce, type: 2}
+  mSpriteName: mega_deal_active
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
 --- !u!114 &11400112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2946,6 +2940,21 @@ MonoBehaviour:
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 0, w: 0}
   mClipSoftness: {x: 40, y: 40}
+--- !u!114 &11400114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4271d0dec29cc9845a75627e88f762af, type: 3}
+  m_Name: 
+  target: {fileID: 11400110}
+  normalSprite: mega_deal_active
+  hoverSprite: mega_deal_active
+  pressedSprite: mega_deal_active
+  disabledSprite: mega_deal_inactive
 --- !u!114 &11400116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3082,6 +3091,8 @@ MonoBehaviour:
   - {fileID: 100114}
   objectsToHide:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   texturesToPurge:
   - {fileID: 11400104}
   - {fileID: 11400130}
@@ -3149,49 +3160,6 @@ MonoBehaviour:
   trigger: 0
   volume: 1
   pitch: 1
---- !u!114 &11400138
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10616d4ce51c5994086c006a7c1189e3, type: 3}
-  m_Name: 
-  tweenTarget: {fileID: 0}
-  hover: {x: 0, y: 0, z: 0}
-  pressed: {x: 2, y: -2, z: 0}
-  duration: .200000003
---- !u!114 &11400140
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c041f61e4a9fbf4e830210f5d933ece, type: 3}
-  m_Name: 
-  tweenTarget: {fileID: 0}
-  hover: {x: 1.10000002, y: 1.10000002, z: 1.10000002}
-  pressed: {x: 1.04999995, y: 1.04999995, z: 1.04999995}
-  duration: .200000003
---- !u!114 &11400142
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
-  m_Name: 
-  tweenTarget: {fileID: 100014}
-  hover: {r: 1, g: 1, b: 1, a: 1}
-  pressed: {r: .498039216, g: .498039216, b: .498039216, a: 1}
-  duration: .200000003
-  disabledColor: {r: 1, g: 1, b: 1, a: .392156869}
 --- !u!114 &11400144
 MonoBehaviour:
   m_ObjectHideFlags: 1

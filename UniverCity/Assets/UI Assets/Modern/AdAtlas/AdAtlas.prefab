@@ -43,15 +43,16 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 262
+      y: 426
       width: 400
       height: 250
     inner:
       serializedVersion: 2
       x: 0
-      y: 262
+      y: 426
       width: 400
       height: 250
+    rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -59,16 +60,17 @@ MonoBehaviour:
   - name: square
     outer:
       serializedVersion: 2
-      x: 322
-      y: 73
+      x: 1930
+      y: 1826
       width: 60
       height: 60
     inner:
       serializedVersion: 2
-      x: 322
-      y: 73
+      x: 1930
+      y: 1826
       width: 60
       height: 60
+    rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -76,16 +78,17 @@ MonoBehaviour:
   - name: speech_bubble
     outer:
       serializedVersion: 2
-      x: 257
-      y: 134
+      x: 1802
+      y: 1824
       width: 127
       height: 127
     inner:
       serializedVersion: 2
-      x: 337
-      y: 214
+      x: 1882
+      y: 1904
       width: -33
       height: -33
+    rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -93,16 +96,17 @@ MonoBehaviour:
   - name: ios7_button
     outer:
       serializedVersion: 2
-      x: 257
-      y: 69
+      x: 1930
+      y: 1887
       width: 64
       height: 64
     inner:
       serializedVersion: 2
-      x: 272
-      y: 84
+      x: 1945
+      y: 1902
       width: 34
       height: 34
+    rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -110,16 +114,17 @@ MonoBehaviour:
   - name: ios7_button_gray
     outer:
       serializedVersion: 2
-      x: 257
-      y: 4
+      x: 1802
+      y: 1759
       width: 64
       height: 64
     inner:
       serializedVersion: 2
-      x: 257
-      y: 4
+      x: 1802
+      y: 1759
       width: 64
       height: 64
+    rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -128,15 +133,16 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 5
+      y: 169
       width: 256
       height: 256
     inner:
       serializedVersion: 2
       x: 0
-      y: 5
+      y: 169
       width: 256
       height: 256
+    rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -145,15 +151,16 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 401
-      y: 256
+      y: 420
       width: 256
       height: 256
     inner:
       serializedVersion: 2
       x: 401
-      y: 256
+      y: 420
       width: 256
       height: 256
+    rotated: 0
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0
@@ -162,15 +169,16 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 401
-      y: 71
+      y: 235
       width: 255
       height: 184
     inner:
       serializedVersion: 2
       x: 401
-      y: 71
+      y: 235
       width: 255
       height: 184
+    rotated: 0
     paddingLeft: 0
     paddingRight: .00392156886
     paddingTop: 0
@@ -178,16 +186,17 @@ MonoBehaviour:
   - name: helv_bold_30
     outer:
       serializedVersion: 2
-      x: 658
-      y: 410
+      x: 0
+      y: 66
       width: 255
       height: 102
     inner:
       serializedVersion: 2
-      x: 658
-      y: 410
+      x: 0
+      y: 66
       width: 255
       height: 102
+    rotated: 0
     paddingLeft: 0
     paddingRight: .00392156886
     paddingTop: 0
@@ -195,20 +204,93 @@ MonoBehaviour:
   - name: call_out_3
     outer:
       serializedVersion: 2
-      x: 658
-      y: 313
+      x: 1802
+      y: 1952
       width: 233
       height: 96
     inner:
       serializedVersion: 2
-      x: 658
-      y: 313
+      x: 1802
+      y: 1952
       width: 233
       height: 96
+    rotated: 0
     paddingLeft: .00858369097
     paddingRight: .0686695278
     paddingTop: .010416667
     paddingBottom: 0
+  - name: mem_only_active 1
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1551
+      width: 900
+      height: 497
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1551
+      width: 900
+      height: 497
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mem_only_inactive
+    outer:
+      serializedVersion: 2
+      x: 901
+      y: 1551
+      width: 900
+      height: 497
+    inner:
+      serializedVersion: 2
+      x: 901
+      y: 1551
+      width: 900
+      height: 497
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: mega_deal_inactive
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 1114
+      width: 877
+      height: 436
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 1114
+      width: 877
+      height: 436
+    rotated: 0
+    paddingLeft: .0091220066
+    paddingRight: .0171037633
+    paddingTop: .0848623887
+    paddingBottom: .061926607
+  - name: mega_deal_active
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 677
+      width: 877
+      height: 436
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 677
+      width: 877
+      height: 436
+    rotated: 0
+    paddingLeft: .0091220066
+    paddingRight: .0171037633
+    paddingTop: .0848623887
+    paddingBottom: .061926607
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

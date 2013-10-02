@@ -58,7 +58,7 @@ public class PageButton : MonoBehaviour {
         }
 
         if (businessAd.GetComponent<BusinessAd>().hasMegaDeal && businessAd.GetComponent<BusinessAd>().hasMegaDeal)
-            businessAd.GetComponent<BusinessAd>().MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
+            businessAd.GetComponent<BusinessAd>().MegaDealBtn.GetComponent<UIImageButton>().isEnabled = true;
 
 
         //GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.GetComponent<UIButton>().isEnabled = true;
