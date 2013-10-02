@@ -12,7 +12,6 @@ public class UnionHallChooseCategory : MonoBehaviour
     public Transform scrollPanel = null;
     public UIButton chooseButton = null;
 
-    private List<SocialInterest> categories = new List<SocialInterest>();
     public UnionHallEvent newEvent = null;
  
     void OnEnable()
@@ -26,55 +25,34 @@ public class UnionHallChooseCategory : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(GetCategories());
+        GetCategories();
     }
 
-    IEnumerator GetCategories()
+    void GetCategories()
     {
-        string cURL = "http://www.univercity3d.com/univercity/ListSocialInterests";
-        int catId = 0;
-        string catName = "";
-
-        WWW page = new WWW(cURL);
-        yield return page;
-
-        //StreamWriter sw = File.CreateText("businesses.dat");
-        //sw.Write(page.text);
-        //sw.Close();
-
-        // Create an IList of all of the businesses returned to me.
-        IList catInfo = Json.Deserialize(page.text) as IList;
-
-        foreach (Dictionary<string, object> cat in catInfo)
-        {
-            catId = Convert.ToInt32(cat["id"]);
-            catName = cat["int"] as string;
-            categories.Add(new SocialInterest(catId, catName));
-        }
-
-        foreach (SocialInterest cat in categories)
+        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
         {
             Transform newCat = Instantiate(catButton, buttonTransform.position, buttonTransform.rotation) as Transform;
             newCat.Find("CategoryName").GetComponent<UILabel>().text = cat.Name;
-            newCat.parent = scrollPanel;
+            newCat.parent = scrollPanel.Find("Grid");
             newCat.localScale = buttonTransform.localScale;
             newCat.GetComponent<UIDragPanelContents>().draggablePanel = scrollPanel.GetComponent<UIDraggablePanel>();
             newCat.GetComponent<UIButtonMessage>().target = gameObject;
             newCat.gameObject.name = "btn Category";
-            scrollPanel.GetComponent<UIGrid>().Reposition();
+            scrollPanel.Find("Grid").GetComponent<UIGrid>().Reposition();
             
-            if (newEvent.interests.Contains(cat.Id))
-                newCat.Find("Background").GetComponent<UISlicedSprite>().color = Color.red;
-            else
+            //if (newEvent.interests.Contains(cat.Id))
+            //    newCat.Find("Background").GetComponent<UISlicedSprite>().color = Color.red;
+            //else
                 newCat.Find("Background").GetComponent<UISlicedSprite>().color = Color.white;
         }
     }
 
     void OnChooseClicked()
     {
-        browseAll.SetActiveRecursively(true); 
+        browseAll.SetActive(true); 
         browseAll.GetComponent<UnionHallEngagementSettings>().responseSave.isEnabled = true;
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
     }
 
     void OnCategoryClicked()
@@ -85,14 +63,14 @@ public class UnionHallChooseCategory : MonoBehaviour
             UISlicedSprite background =
                 UICamera.lastHit.collider.gameObject.transform.Find("Background").GetComponent<UISlicedSprite>();
 
-            foreach (SocialInterest cat in categories)
+            foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
             {
                 if (cat.Name == categoryName.text)
                 {
                     if (!newEvent.interests.Contains(cat.Id))
                     {
                         newEvent.interests.Add(cat.Id);
-                        background.color = Color.red;
+                        background.color = new Color(0.49f, 0.78f, 0.20f, 1.0f);
                     }
                     else
                     {

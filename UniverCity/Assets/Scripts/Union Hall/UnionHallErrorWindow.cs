@@ -7,11 +7,11 @@ public class UnionHallErrorWindow : MonoBehaviour
 
     public void SetErrorText(string error)
     {
-        errorMessage.text = "[FF0000]Error:\n[FFFFFF]Fix the following errors:\n" + error;
+        errorMessage.text = "Error\nFix the following errors:\n" + error;
     }
 
     void OnOKClicked()
     {
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
     }
 }

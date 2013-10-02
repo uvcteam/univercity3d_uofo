@@ -12,10 +12,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Univercity_Hunt.unity
   - enabled: 1
-    path: Assets/Scenes/Univercity_UnionHall.unity
+    path: Assets/Scenes/UnionHall.unity
   - enabled: 1
-    path: Assets/Scenes/Univercity_MemoryBank.unity
+    path: Assets/Scenes/MemoryBank.unity
   - enabled: 1
+    path: Assets/Scenes/VirtualMall.unity
+  - enabled: 0
     path: Assets/Scenes/Univercity_VirtualMall.unity
   - enabled: 0
     path: Assets/Scenes/Web_VirtualMall.unity

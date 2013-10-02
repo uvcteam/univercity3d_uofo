@@ -5,7 +5,6 @@ public class UnionHallEventDetail : MonoBehaviour
 {
     public GameObject returnTo = null;
     public GameObject responseNotification = null;
-    public UIButton detailsButton = null;
 
     public UILabel eventTitle = null;
     public UILabel eventWho = null;
@@ -21,8 +20,8 @@ public class UnionHallEventDetail : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        //returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnShareClicked()
@@ -30,15 +29,10 @@ public class UnionHallEventDetail : MonoBehaviour
         Debug.Log("Share clicked!");
     }
 
-    void OnDetailsClicked()
-    {
-        Debug.Log("Details clicked!");
-    }
-
     void OnJoinNowClicked()
     {
-        responseNotification.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        responseNotification.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void UpdateEvent()
@@ -50,7 +44,5 @@ public class UnionHallEventDetail : MonoBehaviour
         eventDesc.text = manager.currentEvent.Desc;
         eventTime.text = manager.currentEvent.GetEventDateTime();
         eventLoc.text = manager.currentEvent.Loc;
-
-        detailsButton.isEnabled = false;
     }
 }

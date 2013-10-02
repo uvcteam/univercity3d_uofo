@@ -37,8 +37,8 @@ public class FormMainMenu : MonoBehaviour
 
         TextUsername.SetText("Username");
         TextPassword.SetText("Password", true);
-        BnCheckOff.SetActiveRecursively(true);
-        BnCheckOn.SetActiveRecursively(false);
+        BnCheckOff.SetActive(true);
+        BnCheckOn.SetActive(false);
 
 #if STICKY_LOGIN
         string theStickyUser = PlayerPrefs.GetString("StickUser", "");
@@ -48,8 +48,8 @@ public class FormMainMenu : MonoBehaviour
         {
             TextUsername.SetText(theStickyUser);
             TextPassword.SetText(theStickyPass);
-            BnCheckOff.SetActiveRecursively(theStickyRemember == 0);
-            BnCheckOn.SetActiveRecursively(theStickyRemember == 1);
+            BnCheckOff.SetActive(theStickyRemember == 0);
+            BnCheckOn.SetActive(theStickyRemember == 1);
         }
 #endif
 
@@ -68,7 +68,7 @@ public class FormMainMenu : MonoBehaviour
     static public bool GetVisible()
     {
         if (mInstance)
-            return mInstance.gameObject.active;
+            return mInstance.gameObject.activeInHierarchy;
         return false;
     }
 
@@ -76,7 +76,7 @@ public class FormMainMenu : MonoBehaviour
     {
         if (mInstance)
         {
-            mInstance.gameObject.SetActiveRecursively(true);
+            mInstance.gameObject.SetActive(true);
             mInstance.DoShow(inOffsetX);
         }
     }
@@ -85,7 +85,7 @@ public class FormMainMenu : MonoBehaviour
     {
         if (mInstance)
         {
-            mInstance.gameObject.SetActiveRecursively(false);
+            mInstance.gameObject.SetActive(false);
             mInstance.DoHide();
         }
     }
@@ -115,8 +115,8 @@ public class FormMainMenu : MonoBehaviour
 
     void GuiCheckToggle()
     {
-        BnCheckOff.SetActiveRecursively(!BnCheckOff.active);
-        BnCheckOn.SetActiveRecursively(!BnCheckOn.active);
+        BnCheckOff.SetActive(!BnCheckOff.activeInHierarchy);
+        BnCheckOn.SetActive(!BnCheckOn.activeInHierarchy);
     }
 
     void GuiLogin()

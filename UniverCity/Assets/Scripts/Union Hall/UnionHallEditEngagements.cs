@@ -5,10 +5,17 @@ public class UnionHallEditEngagements : MonoBehaviour
 {
     public GameObject returnTo = null;
 
+    void OnEnable()
+    {
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = returnTo;
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = gameObject;
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Edit Engagements";
+    }
+
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEventClicked()

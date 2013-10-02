@@ -7,29 +7,18 @@ public class MainMenuManager : MonoBehaviour
     public UIPanel menuPanel;
     public UIPanel loginPanel;
     public UIPanel signedInPanel;
+    public GameObject passwordInput;
+    public GameObject usernameInput;
+    public GameObject UserManager;
+    public GameObject signingInDialog;
     public float tweenTime = 0.33f;
 
     void Awake()
     {
-        if (PlayerPrefs.HasKey("SignedIn") == true && PlayerPrefs.GetInt("SignedIn") == 1)
-        {
-            if (loginPanel != null)
-                loginPanel.GetComponent<TweenPosition>().Play(false);
-            if (adUpdatePanel != null)
-                adUpdatePanel.GetComponent<TweenPosition>().Play(true);
-            if (signedInPanel != null)
-                signedInPanel.GetComponent<TweenPosition>().Play(true);
-            Debug.Log("Signed In");
-        }
-        else
-        {
-            if (signedInPanel != null)
-                signedInPanel.GetComponent<TweenPosition>().Play(false);
-            if (adUpdatePanel != null)
-                adUpdatePanel.GetComponent<TweenPosition>().Play(false);
-        }
+        UserManager = GameObject.FindGameObjectWithTag("UserManager");
+        if (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1)
+            gameObject.SetActive(false);
     }
-
 
     public void EnableTween()
     {
@@ -47,30 +36,15 @@ public class MainMenuManager : MonoBehaviour
 
     void OnSignInClicked()
     {
-        foreach (UIInput input in gameObject.GetComponentsInChildren<UIInput>())
-        {
-            if (input != null)
-            {
-                input.text = "";
-            }
-        }
-
-        PlayerPrefs.SetInt("SignedIn", 1);
+        UserManager = GameObject.FindGameObjectWithTag("UserManager");
+        UserManager userManager = UserManager.GetComponent<UserManager>();
+        string userName = usernameInput.GetComponentInChildren<UILabel>().text;
+        string passWord = passwordInput.GetComponentInChildren<UILabel>().text;
 
 
-        signedInPanel.GetComponent<TweenPosition>().Play(true);
-        loginPanel.GetComponent<TweenPosition>().Play(false);
-        adUpdatePanel.GetComponent<TweenPosition>().Play(true);
+        StartCoroutine(userManager.SignIn(userName, passWord));
 
+        passwordInput.GetComponentInChildren<UILabel>().text = "";
     }
 
-    void OnSignOutClicked()
-    {
-        PlayerPrefs.SetInt("SignedIn", 0);
-        loginPanel.gameObject.SetActive(true);
-        loginPanel.GetComponent<TweenPosition>().Play(true);
-        signedInPanel.GetComponent<TweenPosition>().Play(false);
-        adUpdatePanel.GetComponent<TweenPosition>().Play(false);
-
-    }
 }

@@ -22,12 +22,6 @@ public class EventManager : MonoBehaviour
         DontDestroyOnLoad(this);
         StartCoroutine(GetEventInformation());
 	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
-	}
 
     // ***************************************************
     // Initial pull from the UniverCity server for the 
@@ -40,61 +34,75 @@ public class EventManager : MonoBehaviour
         string phone = "";
         string title = "";
         string desc = "";
-        int confirmed = 0;
         DateTime start;
         string who = "";
         string loc = "";
         string email = "";
+        bool goodDownload = false;
+        WWW page = null;
 
-        WWW page = new WWW(eURL);
-        yield return page;
+        eURL += "?token=" + GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+
+        Debug.Log(eURL);
+        while (!goodDownload)
+        {
+            page = new WWW(eURL);
+            yield return page;
+
+            if (page.error == null && page.text != null)
+                goodDownload = true;
+        }
 
         //StreamWriter sw = File.CreateText("businesses.dat");
         //sw.Write(page.text);
         //sw.Close();
 
         // Create an IList of all of the businesses returned to me.
-        IList eventInfo = Json.Deserialize(page.text) as IList;
-        // Iterate through each of the dictionaries in the list.
-        foreach (Dictionary<string, object> uhEvent in eventInfo)
+        Dictionary <string, object> eventInfo = Json.Deserialize(page.text) as Dictionary<string, object>;
+        if (Convert.ToBoolean(eventInfo["s"]))
         {
-            // Retrieve the ID, Name, and Description of each business.
-            id = Convert.ToInt32(uhEvent["id"]);
-            title = uhEvent["title"] as string;
-            desc = uhEvent["desc"] as string;
-            who = uhEvent["who"] as string;
-            email = uhEvent["email"] as string;
-            loc = uhEvent["location"] as string;
-            phone = uhEvent["phone"] as string;
-            start = DateTime.Parse(uhEvent["start"] as string);
-
-            //Debug.Log(
-            //    "Title: " + title +
-            //    "Who:" + who +
-            //    "Desc: " + desc +
-            //    "Email: " + email +
-            //    "Loc: " + loc +
-            //    "Start: " + start.ToString("MMM dd '-' h':'mm tt", CultureInfo.InvariantCulture));
-
-            UnionHallEvent ev = new UnionHallEvent(id, title, desc, who, email, phone, loc, start);
-            events.Add(ev);
-
-            // All arrays in JSON come in as List<object>.
-            foreach (string category in uhEvent["interests"] as List<object>)
+            List<object> eventIt = eventInfo["events"] as List<object>;
+            // Iterate through each of the dictionaries in the list.
+            foreach (Dictionary<string, object> uhEvent in eventIt)
             {
-                // If the category does not exist, we need to create it...
-                if (!eventsByCategory.ContainsKey(category))
-                    eventsByCategory.Add(category, new List<UnionHallEvent>());
-                // Add the business to the category it belongs to.
-                eventsByCategory[category].Add(ev);
-            }
-        }
+                // Retrieve the ID, Name, and Description of each business.
+                id = Convert.ToInt32(uhEvent["id"]);
+                title = uhEvent["title"] as string;
+                desc = uhEvent["desc"] as string;
+                who = uhEvent["who"] as string;
+                email = uhEvent["email"] as string;
+                loc = uhEvent["location"] as string;
+                phone = uhEvent["phone"] as string;
+                start = DateTime.Parse(uhEvent["start"] as string);
 
-        // Debug to make sure the categories were all created properly.
-        //foreach (KeyValuePair<string, List<Business>> pair in businesses)
-        //{
-        //    Debug.Log(pair.Key);
-        //}
+                Debug.Log(
+                    "Title: " + title +
+                    "Who:" + who +
+                    "Desc: " + desc +
+                    "Email: " + email +
+                    "Loc: " + loc +
+                    "Start: " + start.ToString("MMM dd '-' h':'mm tt", CultureInfo.InvariantCulture));
+
+                UnionHallEvent ev = new UnionHallEvent(id, title, desc, who, email, phone, loc, start);
+                events.Add(ev);
+
+                // All arrays in JSON come in as List<object>.
+                foreach (string category in uhEvent["interests"] as List<object>)
+                {
+                    // If the category does not exist, we need to create it...
+                    if (!eventsByCategory.ContainsKey(category))
+                        eventsByCategory.Add(category, new List<UnionHallEvent>());
+                    // Add the business to the category it belongs to.
+                    eventsByCategory[category].Add(ev);
+                }
+            }
+
+            // Debug to make sure the categories were all created properly.
+            //foreach (KeyValuePair<string, List<Business>> pair in businesses)
+            //{
+            //    Debug.Log(pair.Key);
+            //}
+        }
     }
 
     public void RepopulateEvents()
@@ -104,38 +112,3 @@ public class EventManager : MonoBehaviour
         StartCoroutine(GetEventInformation());
     }
 }
-
-//public class Business
-//{
-//    public int id;
-//    public string desc;
-//    public string name;
-//    public bool hasMegaDeal = false;
-//    public bool hasDiscount = false;
-//    public string dealName;
-//    public string dealDesc;
-//    public string discountName;
-//    public string discountDesc;
-//    public Texture2D logo;
-
-//    public Business(int id, string desc, string name)
-//    {
-//        this.id = id;
-//        this.desc = desc;
-//        this.name = name;
-//    }
-
-//    public void AddDeal(string name, string desc)
-//    {
-//        hasMegaDeal = true;
-//        dealName = name;
-//        dealDesc = desc;
-//    }
-
-//    public void AddDiscount(string name, string desc)
-//    {
-//        hasDiscount = true;
-//        discountName = name;
-//        discountDesc = desc;
-//    }
-//}

@@ -21,7 +21,7 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 				if(OnlyDeactivate)
 				{
 					#if UNITY_3_5
-						this.gameObject.SetActiveRecursively(false);
+						this.gameObject.SetActive(false);
 					#else
 						this.gameObject.SetActive(false);
 					#endif

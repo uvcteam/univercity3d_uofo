@@ -13,36 +13,76 @@ public class UnionHallMainMenu : MonoBehaviour
     public GameObject editEvent = null;
     public GameObject cancelWithdraw = null;
 
+    public TopBarManager topBar = null;
+
+    void Start()
+    {
+        if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
+            Application.LoadLevel(0);
+        //topBar = GameObject.Find("TopAnchor").GetComponent<TopBarManager>();
+        topBar.gameObject.SetActive(false);
+    }
+
     void OnInvitationInboxClicked()
     {
-        invitationInbox.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = invitationInbox;
+        topBar.gameObject.SetActive(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Invitation Inbox";
+
+        invitationInbox.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnBrowseSearchClicked()
     {
-        browseSearch.GetComponent<UnionHallBrowseSearch>().returnTo = gameObject;
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = browseSearch;
+        topBar.gameObject.SetActive(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Browse/Search";
+
         browseSearch.GetComponent<UnionHallBrowseSearch>().currentCategory = "";
-        browseSearch.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        browseSearch.GetComponent<UnionHallBrowseSearch>().returnTo = gameObject;
+        browseSearch.SetActive(true);
+        gameObject.SetActive(false);
     }
     void OnCreateClicked()
     {
-        createEvent.SetActiveRecursively(true);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = createEvent;
+        topBar.gameObject.SetActive(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Create Event";
+
+        createEvent.SetActive(true);
         createEvent.GetComponent<UnionHallCreateEngagement>().NewEvent();
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
     }
 
     void OnEditClicked()
     {
-        editEvent.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = editEvent;
+        topBar.gameObject.SetActive(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Edit";
+
+        editEvent.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnCancelWithdrawClicked()
     {
-        cancelWithdraw.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = cancelWithdraw;
+        topBar.gameObject.SetActive(true);
+
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Cancel/Withdraw";
+
+        cancelWithdraw.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnBackClicked()

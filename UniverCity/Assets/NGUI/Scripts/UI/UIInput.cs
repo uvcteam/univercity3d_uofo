@@ -1,6 +1,6 @@
-﻿//----------------------------------------------
+//----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright © 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -71,10 +71,31 @@ public class UIInput : MonoBehaviour
 	public bool isPassword = false;
 
 	/// <summary>
+	/// Whether to use auto-correction on mobile devices.
+	/// </summary>
+
+	public bool autoCorrect = false;
+
+	/// <summary>
+	/// Whether the label's text value will be used as the input's text value on start.
+	/// By default the label is just a tooltip of sorts, letting you choose helpful
+	/// half-transparent text such as "Press Enter to start typing", while the actual
+	/// value of the input field will remain empty.
+	/// </summary>
+
+	public bool useLabelTextAtStart = false;
+
+	/// <summary>
 	/// Color of the label when the input field has focus.
 	/// </summary>
 
 	public Color activeColor = Color.white;
+
+	/// <summary>
+	/// Object to select when Tab key gets pressed.
+	/// </summary>
+
+	public GameObject selectOnTab;
 
 	/// <summary>
 	/// Event receiver that will be notified when the input field submits its data (enter gets pressed).
@@ -100,12 +121,8 @@ public class UIInput : MonoBehaviour
 	UIWidget.Pivot mPivot = UIWidget.Pivot.Left;
 	float mPosition = 0f;
 
-#if UNITY_IPHONE || UNITY_ANDROID
-#if UNITY_3_4
-	iPhoneKeyboard mKeyboard;
-#else
+#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
 	TouchScreenKeyboard mKeyboard;
-#endif
 #else
 	string mLastIME = "";
 #endif
@@ -114,10 +131,11 @@ public class UIInput : MonoBehaviour
 	/// Input field's current text value.
 	/// </summary>
 
-	public string text
+	public virtual string text
 	{
 		get
 		{
+			if (mDoInit) Init();
 			return mText;
 		}
 		set
@@ -125,6 +143,9 @@ public class UIInput : MonoBehaviour
 			if (mDoInit) Init();
 			mText = value;
 
+#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
+			if (mKeyboard != null) mKeyboard.text = text;
+#endif
 			if (label != null)
 			{
 				if (string.IsNullOrEmpty(value)) value = mDefaultText;
@@ -155,6 +176,23 @@ public class UIInput : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Set the default text of an input.
+	/// </summary>
+
+	public string defaultText
+	{
+		get
+		{
+			return mDefaultText;
+		}
+		set
+		{
+			if (label.text == mDefaultText) label.text = value;
+			mDefaultText = value;
+		}
+	}
+
+	/// <summary>
 	/// Labels used for input shouldn't support color encoding.
 	/// </summary>
 
@@ -167,9 +205,11 @@ public class UIInput : MonoBehaviour
 
 			if (label != null)
 			{
+				if (useLabelTextAtStart) mText = label.text;
 				mDefaultText = label.text;
 				mDefaultColor = label.color;
 				label.supportEncoding = false;
+				label.password = isPassword;
 				mPivot = label.pivot;
 				mPosition = label.cachedTransform.localPosition.x;
 			}
@@ -203,26 +243,29 @@ public class UIInput : MonoBehaviour
 		{
 			if (isSelected)
 			{
-				mText = (label.text == mDefaultText) ? "" : label.text;
+				mText = (!useLabelTextAtStart && label.text == mDefaultText) ? "" : label.text;
 				label.color = activeColor;
 				if (isPassword) label.password = true;
 
-#if UNITY_IPHONE || UNITY_ANDROID
+#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
 				if (Application.platform == RuntimePlatform.IPhonePlayer ||
-					Application.platform == RuntimePlatform.Android)
+					Application.platform == RuntimePlatform.Android
+#if UNITY_WP8 
+					|| Application.platform == RuntimePlatform.WP8Player
+#endif
+#if UNITY_BLACKBERRY
+					|| Application.platform == RuntimePlatform.BB10Player
+#endif
+)
 				{
-#if UNITY_3_4
-					mKeyboard = iPhoneKeyboard.Open(mText, (iPhoneKeyboardType)((int)type));
-#else
 					if (isPassword)
 					{
 						mKeyboard = TouchScreenKeyboard.Open(mText, TouchScreenKeyboardType.Default, false, false, true);
 					}
 					else
 					{
-						mKeyboard = TouchScreenKeyboard.Open(mText, (TouchScreenKeyboardType)((int)type));
+						mKeyboard = TouchScreenKeyboard.Open(mText, (TouchScreenKeyboardType)((int)type), autoCorrect);
 					}
-#endif
 				}
 				else
 #endif
@@ -238,7 +281,7 @@ public class UIInput : MonoBehaviour
 			}
 			else
 			{
-#if UNITY_IPHONE || UNITY_ANDROID
+#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
 				if (mKeyboard != null)
 				{
 					mKeyboard.active = false;
@@ -259,7 +302,7 @@ public class UIInput : MonoBehaviour
 		}
 	}
 
-#if UNITY_IPHONE || UNITY_ANDROID
+#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_BLACKBERRY
 	/// <summary>
 	/// Update the text and the label by grabbing it from the iOS/Android keyboard.
 	/// </summary>
@@ -281,8 +324,10 @@ public class UIInput : MonoBehaviour
 					if (ch != 0) mText += ch;
 				}
 
-				if (mText != text) mKeyboard.text = mText;
+				if (maxChars > 0 && mText.Length > maxChars) mText = mText.Substring(0, maxChars);
 				UpdateLabel();
+				if (mText != text) mKeyboard.text = mText;
+				SendMessage("OnInputChanged", this, SendMessageOptions.DontRequireReceiver);
 			}
 
 			if (mKeyboard.done)
@@ -300,10 +345,29 @@ public class UIInput : MonoBehaviour
 #else
 	void Update ()
 	{
-		if (selected && mLastIME != Input.compositionString)
+		if (selected)
 		{
-			mLastIME = Input.compositionString;
-			UpdateLabel();
+			if (selectOnTab != null && Input.GetKeyDown(KeyCode.Tab))
+			{
+				UICamera.selectedObject = selectOnTab;
+			}
+
+			// Note: this won't work in the editor. Only in the actual published app. Unity blocks control-keys in the editor.
+			if (Input.GetKeyDown(KeyCode.V) &&
+#if UNITY_STANDALONE_OSX
+				(Input.GetKey(KeyCode.LeftApple) || Input.GetKey(KeyCode.LeftApple)))
+#else
+				(Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
+#endif
+			{
+				Append(NGUITools.clipboard);
+			}
+			
+			if (mLastIME != Input.compositionString)
+			{
+				mLastIME = Input.compositionString;
+				UpdateLabel();
+			}
 		}
 	}
 #endif
@@ -321,71 +385,79 @@ public class UIInput : MonoBehaviour
 			// Mobile devices handle input in Update()
 			if (Application.platform == RuntimePlatform.Android) return;
 			if (Application.platform == RuntimePlatform.IPhonePlayer) return;
+			Append(input);
+		}
+	}
 
-			for (int i = 0, imax = input.Length; i < imax; ++i)
+	/// <summary>
+	/// Append the specified text to the end of the current.
+	/// </summary>
+
+	void Append (string input)
+	{
+		for (int i = 0, imax = input.Length; i < imax; ++i)
+		{
+			char c = input[i];
+
+			if (c == '\b')
 			{
-				char c = input[i];
-
-				if (c == '\b')
+				// Backspace
+				if (mText.Length > 0)
 				{
-					// Backspace
-					if (mText.Length > 0)
-					{
-						mText = mText.Substring(0, mText.Length - 1);
-						SendMessage("OnInputChanged", this, SendMessageOptions.DontRequireReceiver);
-					}
-				}
-				else if (c == '\r' || c == '\n')
-				{
-					if (UICamera.current.submitKey0 == KeyCode.Return || UICamera.current.submitKey1 == KeyCode.Return)
-					{
-						// Not multi-line input, or control isn't held
-						if (!label.multiLine || (!Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.RightControl)))
-						{
-							// Enter
-							current = this;
-							if (onSubmit != null) onSubmit(mText);
-							if (eventReceiver == null) eventReceiver = gameObject;
-							eventReceiver.SendMessage(functionName, mText, SendMessageOptions.DontRequireReceiver);
-							current = null;
-							selected = false;
-							return;
-						}
-					}
-
-					// If we have an input validator, validate the input first
-					if (validator != null) c = validator(mText, c);
-
-					// If the input is invalid, skip it
-					if (c == 0) continue;
-
-					// Append the character
-					if (c == '\n' || c == '\r')
-					{
-						if (label.multiLine) mText += "\n";
-					}
-					else mText += c;
-
-					// Notify the listeners
-					SendMessage("OnInputChanged", this, SendMessageOptions.DontRequireReceiver);
-				}
-				else if (c >= ' ')
-				{
-					// If we have an input validator, validate the input first
-					if (validator != null) c = validator(mText, c);
-
-					// If the input is invalid, skip it
-					if (c == 0) continue;
-
-					// Append the character and notify the "input changed" listeners.
-					mText += c;
+					mText = mText.Substring(0, mText.Length - 1);
 					SendMessage("OnInputChanged", this, SendMessageOptions.DontRequireReceiver);
 				}
 			}
+			else if (c == '\r' || c == '\n')
+			{
+				if (UICamera.current.submitKey0 == KeyCode.Return || UICamera.current.submitKey1 == KeyCode.Return)
+				{
+					// Not multi-line input, or control isn't held
+					if (!label.multiLine || (!Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.RightControl)))
+					{
+						// Enter
+						current = this;
+						if (onSubmit != null) onSubmit(mText);
+						if (eventReceiver == null) eventReceiver = gameObject;
+						eventReceiver.SendMessage(functionName, mText, SendMessageOptions.DontRequireReceiver);
+						current = null;
+						selected = false;
+						return;
+					}
+				}
 
-			// Ensure that we don't exceed the maximum length
-			UpdateLabel();
+				// If we have an input validator, validate the input first
+				if (validator != null) c = validator(mText, c);
+
+				// If the input is invalid, skip it
+				if (c == 0) continue;
+
+				// Append the character
+				if (c == '\n' || c == '\r')
+				{
+					if (label.multiLine) mText += "\n";
+				}
+				else mText += c;
+
+				// Notify the listeners
+				SendMessage("OnInputChanged", this, SendMessageOptions.DontRequireReceiver);
+			}
+			else if (c >= ' ')
+			{
+				// If we have an input validator, validate the input first
+				if (validator != null) c = validator(mText, c);
+
+				// If the input is invalid, skip it
+				if (c == 0) continue;
+
+				// Append the character and notify the "input changed" listeners.
+				mText += c;
+				SendMessage("OnInputChanged", this, SendMessageOptions.DontRequireReceiver);
+			}
 		}
+
+		// Ensure that we don't exceed the maximum length
+		UpdateLabel();
 	}
 
 	/// <summary>
@@ -400,31 +472,45 @@ public class UIInput : MonoBehaviour
 		if (label.font != null)
 		{
 			// Start with the text and append the IME composition and carat chars
-			string processed = selected ? (mText + Input.compositionString + caratChar) : mText;
+			string processed;
+
+			if (isPassword && selected)
+			{
+				processed = "";
+				for (int i = 0, imax = mText.Length; i < imax; ++i) processed += "*";
+				processed += Input.compositionString + caratChar;
+			}
+			else processed = selected ? (mText + Input.compositionString + caratChar) : mText;
 
 			// Now wrap this text using the specified line width
 			label.supportEncoding = false;
 
-			if (label.multiLine)
+			if (!label.shrinkToFit)
 			{
-				processed = label.font.WrapText(processed, label.lineWidth / label.cachedTransform.localScale.x, 0, false, UIFont.SymbolStyle.None);
-			}
-			else
-			{
-				string fit = label.font.GetEndOfLineThatFits(processed, label.lineWidth / label.cachedTransform.localScale.x, false, UIFont.SymbolStyle.None);
+				Vector3 scale = label.cachedTransform.localScale;
 
-				if (fit != processed)
+				if (label.multiLine)
 				{
-					processed = fit;
-					Vector3 pos = label.cachedTransform.localPosition;
-					pos.x = mPosition + label.lineWidth;
-					label.cachedTransform.localPosition = pos;
-
-					if (mPivot == UIWidget.Pivot.Left) label.pivot = UIWidget.Pivot.Right;
-					else if (mPivot == UIWidget.Pivot.TopLeft) label.pivot = UIWidget.Pivot.TopRight;
-					else if (mPivot == UIWidget.Pivot.BottomLeft) label.pivot = UIWidget.Pivot.BottomLeft;
+					label.font.WrapText(processed, out processed, label.lineWidth / scale.x, label.lineHeight / scale.y, 0, false, UIFont.SymbolStyle.None);
 				}
-				else RestoreLabel();
+				else
+				{
+					string fit = label.font.GetEndOfLineThatFits(processed, label.lineWidth / scale.x, false, UIFont.SymbolStyle.None);
+
+					if (fit != processed)
+					{
+						processed = fit;
+						Vector3 pos = label.cachedTransform.localPosition;
+						pos.x = mPosition + label.lineWidth;
+
+						if (mPivot == UIWidget.Pivot.Left) label.pivot = UIWidget.Pivot.Right;
+						else if (mPivot == UIWidget.Pivot.TopLeft) label.pivot = UIWidget.Pivot.TopRight;
+						else if (mPivot == UIWidget.Pivot.BottomLeft) label.pivot = UIWidget.Pivot.BottomRight;
+
+						label.cachedTransform.localPosition = pos;
+					}
+					else RestoreLabel();
+				}
 			}
 
 			// Update the label's visible text

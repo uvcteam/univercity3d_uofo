@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright Â© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -21,6 +21,8 @@ public class UIStretch : MonoBehaviour
 		Vertical,
 		Both,
 		BasedOnHeight,
+		FillKeepingRatio, // Fits the image so that it entirely fills the specified container keeping its ratio
+		FitInternalKeepingRatio // Fits the image/item inside of the specified container keeping its ratio
 	}
 
 	/// <summary>
@@ -40,19 +42,50 @@ public class UIStretch : MonoBehaviour
 	/// </summary>
 
 	public UIPanel panelContainer = null;
+
+	/// <summary>
+	/// Stretching style.
+	/// </summary>
+
 	public Style style = Style.None;
+
+	/// <summary>
+	/// Whether the operation will occur only once and the script will then be disabled.
+	/// </summary>
+
+	public bool runOnlyOnce = false;
+
+	/// <summary>
+	/// Relative-to-target size.
+	/// </summary>
+
 	public Vector2 relativeSize = Vector2.one;
+
+	/// <summary>
+	/// The size that the item/image should start out initially.
+	/// Used for FillKeepingRatio, and FitInternalKeepingRatio.
+	/// Contributed by Dylan Ryan.
+	/// </summary>
+
+	public Vector2 initialSize = Vector2.one;
 
 	Transform mTrans;
 	UIRoot mRoot;
 	Animation mAnim;
+	Rect mRect;
 
-	void Awake () { mAnim = animation; }
+	void Awake ()
+	{
+		mAnim = animation;
+		mRect = new Rect();
+		mTrans = transform;
+	}
 
 	void Start ()
 	{
 		if (uiCamera == null) uiCamera = NGUITools.FindCameraForLayer(gameObject.layer);
 		mRoot = NGUITools.FindInParents<UIRoot>(gameObject);
+		Update();
 	}
 
 	void Update ()
@@ -61,28 +94,26 @@ public class UIStretch : MonoBehaviour
 
 		if (style != Style.None)
 		{
-			if (mTrans == null) mTrans = transform;
-
-			Rect rect = new Rect();
+			float adjustment = 1f;
 
 			if (panelContainer != null)
 			{
 				if (panelContainer.clipping == UIDrawCall.Clipping.None)
 				{
 					// Panel has no clipping -- just use the screen's dimensions
-					rect.xMin = -Screen.width * 0.5f;
-					rect.yMin = -Screen.height * 0.5f;
-					rect.xMax = -rect.xMin;
-					rect.yMax = -rect.yMin;
+					mRect.xMin = -Screen.width * 0.5f;
+					mRect.yMin = -Screen.height * 0.5f;
+					mRect.xMax = -mRect.xMin;
+					mRect.yMax = -mRect.yMin;
 				}
 				else
 				{
 					// Panel has clipping -- use it as the rect
 					Vector4 pos = panelContainer.clipRange;
-					rect.x = pos.x - (pos.z * 0.5f);
-					rect.y = pos.y - (pos.w * 0.5f);
-					rect.width = pos.z;
-					rect.height = pos.w;
+					mRect.x = pos.x - (pos.z * 0.5f);
+					mRect.y = pos.y - (pos.w * 0.5f);
+					mRect.width = pos.z;
+					mRect.height = pos.w;
 				}
 			}
 			else if (widgetContainer != null)
@@ -99,24 +130,23 @@ public class UIStretch : MonoBehaviour
 				offset.x *= (widgetContainer.relativeSize.x * ls.x);
 				offset.y *= (widgetContainer.relativeSize.y * ls.y);
 
-				rect.x = lp.x + offset.x;
-				rect.y = lp.y + offset.y;
+				mRect.x = lp.x + offset.x;
+				mRect.y = lp.y + offset.y;
 
-				rect.width = size.x * ls.x;
-				rect.height = size.y * ls.y;
+				mRect.width = size.x * ls.x;
+				mRect.height = size.y * ls.y;
 			}
 			else if (uiCamera != null)
 			{
-				rect = uiCamera.pixelRect;
+				mRect = uiCamera.pixelRect;
+				if (mRoot != null) adjustment = mRoot.pixelSizeAdjustment;
 			}
 			else return;
-			
-			
-			float rectWidth  = rect.width;
-			float rectHeight = rect.height;
-			float adj = (mRoot != null) ? mRoot.pixelSizeAdjustment : 1f;
 
-			if (adj != 1f && rectHeight > 1f)
+			float rectWidth = mRect.width;
+			float rectHeight = mRect.height;
+
+			if (adjustment != 1f && rectHeight > 1f)
 			{
 				float scale = mRoot.activeHeight / rectHeight;
 				rectWidth *= scale;
@@ -130,13 +160,56 @@ public class UIStretch : MonoBehaviour
 				localScale.x = relativeSize.x * rectHeight;
 				localScale.y = relativeSize.y * rectHeight;
 			}
+			else if (style == Style.FillKeepingRatio)
+			{
+				// Contributed by Dylan Ryan
+				float screenRatio = rectWidth / rectHeight;
+				float imageRatio = initialSize.x / initialSize.y;
+
+				if (imageRatio < screenRatio)
+				{
+					// Fit horizontally
+					float scale = rectWidth / initialSize.x;
+					localScale.x = rectWidth;
+					localScale.y = initialSize.y * scale;
+				}
+				else
+				{
+					// Fit vertically
+					float scale = rectHeight / initialSize.y;
+					localScale.x = initialSize.x * scale;
+					localScale.y = rectHeight;
+				}
+			}
+			else if (style == Style.FitInternalKeepingRatio)
+			{
+				// Contributed by Dylan Ryan
+				float screenRatio = rectWidth / rectHeight;
+				float imageRatio = initialSize.x / initialSize.y;
+
+				if (imageRatio > screenRatio)
+				{
+					// Fit horizontally
+					float scale = rectWidth / initialSize.x;
+					localScale.x = rectWidth;
+					localScale.y = initialSize.y * scale;
+				}
+				else
+				{
+					// Fit vertically
+					float scale = rectHeight / initialSize.y;
+					localScale.x = initialSize.x * scale;
+					localScale.y = rectHeight;
+				}
+			}
 			else
 			{
-				if (style == Style.Both || style == Style.Horizontal)	localScale.x = relativeSize.x * rectWidth;
-				if (style == Style.Both || style == Style.Vertical)		localScale.y = relativeSize.y * rectHeight;
+				if (style == Style.Both || style == Style.Horizontal) localScale.x = relativeSize.x * rectWidth;
+				if (style == Style.Both || style == Style.Vertical) localScale.y = relativeSize.y * rectHeight;
 			}
 
 			if (mTrans.localScale != localScale) mTrans.localScale = localScale;
+			if (runOnlyOnce && Application.isPlaying) Destroy(this);
 		}
 	}
 }

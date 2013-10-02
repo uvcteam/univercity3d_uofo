@@ -61,7 +61,7 @@ public class UITextbox : GuiButton
         Carot.transform.localPosition = mCarotInitPos;
         
         if (Carot)
-            Carot.SetActiveRecursively(true);
+            Carot.SetActive(true);
 
         mFocused = true;
         SelectAll();
@@ -121,9 +121,9 @@ public class UITextbox : GuiButton
     void OnEnable()
     {
         if (Carot)
-            Carot.SetActiveRecursively(false);
+            Carot.SetActive(false);
         if (Select)
-            Select.SetActiveRecursively(false);
+            Select.SetActive(false);
     }
 
     // ***********************************************
@@ -201,9 +201,9 @@ public class UITextbox : GuiButton
             {
                 mFocused = false;
                 if (Carot)
-                    Carot.SetActiveRecursively(false);
+                    Carot.SetActive(false);
                 if (Select)
-                    Select.SetActiveRecursively(false);
+                    Select.SetActive(false);
             }
         }
 
@@ -387,13 +387,13 @@ public class UITextbox : GuiButton
                 thePos.x += (theWidthSel[0] + theWidthSel[1]) * 0.5f;
                 theScale.x = (theWidthSel[1] - theWidthSel[0]);
 
-                Select.SetActiveRecursively(true);
+                Select.SetActive(true);
                 Select.transform.localPosition = thePos;
                 Select.transform.localScale = theScale;
             }
             else
             {
-                Select.SetActiveRecursively(false);
+                Select.SetActive(false);
             }
         }
     }

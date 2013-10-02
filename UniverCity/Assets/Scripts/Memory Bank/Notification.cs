@@ -5,6 +5,11 @@ public class Notification : MonoBehaviour
 {
     public GameObject PreviousPanel;
 
+    void OnEnable()
+    {
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Notifications";
+    }
+
     void OnSaveClicked()
     {
         Debug.Log("Save.");
@@ -32,7 +37,7 @@ public class Notification : MonoBehaviour
 
     void OnBackClicked()
     {
-        gameObject.SetActiveRecursively(false);
-        PreviousPanel.SetActiveRecursively(true);
+        gameObject.SetActive(false);
+        PreviousPanel.SetActive(true);
     }
 }

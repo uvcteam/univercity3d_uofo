@@ -23,24 +23,24 @@ public class MallAd : MonoBehaviour
 	void Start()
     {
         businessManager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
-	    RootMembersOnly.SetActiveRecursively(false);
-        RootMegaDeal.SetActiveRecursively(false);
-        RootCard.SetActiveRecursively(false);
+	    RootMembersOnly.SetActive(false);
+        RootMegaDeal.SetActive(false);
+        RootCard.SetActive(false);
 	}
 
     void GuiToggleCard()
     {
         // toggle off other
-        if (RootMegaDeal.active)
+        if (RootMegaDeal.activeInHierarchy)
             GuiMegaDeal();
 
         // toggle off other
-        if (RootMembersOnly.active)
+        if (RootMembersOnly.activeInHierarchy)
             GuiMembersOnly();
 
-        if (!Card.gameObject.active)
+        if (!Card.gameObject.activeInHierarchy)
         {
-            RootCard.SetActiveRecursively(true);
+            RootCard.SetActive(true);
 
             Renderer[] theRenderers = RootCard.GetComponentsInChildren<Renderer>();
             for (int i = 0; i < theRenderers.Length; i++)
@@ -55,7 +55,7 @@ public class MallAd : MonoBehaviour
         }
         else
         {
-            RootInfo.SetActiveRecursively(true);
+            RootInfo.SetActive(true);
 
             Renderer[] theRenderers = RootInfo.GetComponentsInChildren<Renderer>();
             for (int i = 0; i < theRenderers.Length; i++)
@@ -71,12 +71,12 @@ public class MallAd : MonoBehaviour
     {
         
         // toggle off other
-        //if (RootMegaDeal.active)
+        //if (RootMegaDeal.activeInHierarchy)
         //    GuiMegaDeal();
 
-        //if (!RootMembersOnly.active)
+        //if (!RootMembersOnly.activeInHierarchy)
         //{
-        //    RootMembersOnly.SetActiveRecursively(true);
+        //    RootMembersOnly.SetActive(true);
         //    RootMembersOnly.transform.localScale = new Vector3(1, 0, 1);
         //    iTween.ScaleTo(RootMembersOnly, Vector3.one, 0.5f);
         //}
@@ -93,12 +93,12 @@ public class MallAd : MonoBehaviour
     {
        
         // toggle off other
-        //if (RootMembersOnly.active)
+        //if (RootMembersOnly.activeInHierarchy)
         //    GuiMembersOnly();
 
-        //if (!RootMegaDeal.active)
+        //if (!RootMegaDeal.activeInHierarchy)
         //{
-        //    RootMegaDeal.SetActiveRecursively(true);
+        //    RootMegaDeal.SetActive(true);
         //    RootMegaDeal.transform.localScale = new Vector3(1, 0, 1);
         //    iTween.ScaleTo(RootMegaDeal, Vector3.one, 0.5f);
         //}
@@ -112,6 +112,6 @@ public class MallAd : MonoBehaviour
 
     void DeactivateGO(GameObject inGameObject)
     {
-        inGameObject.SetActiveRecursively(false);
+        inGameObject.SetActive(false);
     }
 }

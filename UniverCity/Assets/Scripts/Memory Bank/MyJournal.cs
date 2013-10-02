@@ -6,10 +6,17 @@ public class MyJournal : MonoBehaviour
     public GameObject AllEntries = null;
     public GameObject PreviousPanel;
 
+    void OnEnable()
+    {
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "New Entry";
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = PreviousPanel;
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = gameObject;
+    }
+
     void OnAllEntriesClicked()
     {
-        AllEntries.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        AllEntries.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnNewEntryClicked()
@@ -39,7 +46,7 @@ public class MyJournal : MonoBehaviour
 
     void OnBackClicked()
     {
-        gameObject.SetActiveRecursively(false);
-        PreviousPanel.SetActiveRecursively(true);
+        gameObject.SetActive(false);
+        PreviousPanel.SetActive(true);
     }
 }

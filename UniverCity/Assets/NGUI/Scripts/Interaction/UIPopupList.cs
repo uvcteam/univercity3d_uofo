@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
+// Copyright Â© 2011-2013 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -160,18 +160,25 @@ public class UIPopupList : MonoBehaviour
 		}
 		set
 		{
+			bool trigger = false;
+
 			if (mSelectedItem != value)
 			{
 				mSelectedItem = value;
+				if (mSelectedItem == null) return;
 				
 				if (textLabel != null)
 				{
-					textLabel.text = (isLocalized && Localization.instance != null) ? Localization.instance.Get(value) : value;
+					textLabel.text = (isLocalized) ? Localization.Localize(value) : value;
 #if UNITY_EDITOR
 					UnityEditor.EditorUtility.SetDirty(textLabel.gameObject);
 #endif
 				}
+				trigger = true;
+			}
 
+			if (mSelectedItem != null && (trigger || textLabel == null))
+			{
 				current = this;
 				if (onSelectionChange != null) onSelectionChange(mSelectedItem);
 
@@ -247,11 +254,14 @@ public class UIPopupList : MonoBehaviour
 
 			mHighlightedLabel = lbl;
 
-			UIAtlas.Sprite sp = mHighlight.sprite;
-			float offsetX = sp.inner.xMin - sp.outer.xMin;
-			float offsetY = sp.inner.yMin - sp.outer.yMin;
+			UIAtlas.Sprite sp = mHighlight.GetAtlasSprite();
+			if (sp == null) return;
 
-			Vector3 pos = lbl.cachedTransform.localPosition + new Vector3(-offsetX, offsetY, 0f);
+			float scaleFactor = atlas.pixelSize;
+			float offsetX = (sp.inner.xMin - sp.outer.xMin) * scaleFactor;
+			float offsetY = (sp.inner.yMin - sp.outer.yMin) * scaleFactor;
+
+			Vector3 pos = lbl.cachedTransform.localPosition + new Vector3(-offsetX, offsetY, 1f);
 
 			if (instant || !isAnimated)
 			{
@@ -363,7 +373,7 @@ public class UIPopupList : MonoBehaviour
 
 				Collider[] cols = mChild.GetComponentsInChildren<Collider>();
 				for (int i = 0, imax = cols.Length; i < imax; ++i) cols[i].enabled = false;
-				UpdateManager.AddDestroy(mChild, animSpeed);
+				Destroy(mChild, animSpeed);
 			}
 			else
 			{
@@ -440,7 +450,7 @@ public class UIPopupList : MonoBehaviour
 
 	void OnClick()
 	{
-		if (mChild == null && atlas != null && font != null && items.Count > 1)
+		if (enabled && NGUITools.GetActive(gameObject) && mChild == null && atlas != null && font != null && items.Count > 0)
 		{
 			mLabelList.Clear();
 
@@ -481,9 +491,11 @@ public class UIPopupList : MonoBehaviour
 			mHighlight.pivot = UIWidget.Pivot.TopLeft;
 			mHighlight.color = highlightColor;
 
-			UIAtlas.Sprite hlsp = mHighlight.sprite;
+			UIAtlas.Sprite hlsp = mHighlight.GetAtlasSprite();
+			if (hlsp == null) return;
+
 			float hlspHeight = hlsp.inner.yMin - hlsp.outer.yMin;
-			float fontScale = font.size * textScale;
+			float fontScale = font.size * font.pixelSize * textScale;
 			float x = 0f, y = -padding.y;
 			List<UILabel> labels = new List<UILabel>();
 
@@ -497,7 +509,7 @@ public class UIPopupList : MonoBehaviour
 				lbl.font = font;
 				lbl.text = (isLocalized && Localization.instance != null) ? Localization.instance.Get(s) : s;
 				lbl.color = textColor;
-				lbl.cachedTransform.localPosition = new Vector3(bgPadding.x + padding.x, y, 0f);
+				lbl.cachedTransform.localPosition = new Vector3(bgPadding.x + padding.x, y, -1f);
 				lbl.MakePixelPerfect();
 
 				if (textScale != 1f)
@@ -547,9 +559,10 @@ public class UIPopupList : MonoBehaviour
 			mBackground.cachedTransform.localScale = new Vector3(x, -y + bgPadding.y, 1f);
 
 			// Scale the highlight sprite to envelop a single item
+			float scaleFactor = 2f * atlas.pixelSize;
 			mHighlight.cachedTransform.localScale = new Vector3(
-				x - (bgPadding.x + padding.x) * 2f + (hlsp.inner.xMin - hlsp.outer.xMin) * 2f,
-				fontScale + hlspHeight * 2f, 1f);
+				   x - (bgPadding.x + padding.x) * 2f + (hlsp.inner.xMin - hlsp.outer.xMin) * scaleFactor,
+				   fontScale + hlspHeight * scaleFactor, 1f);
 
 			bool placeAbove = (position == Position.Above);
 

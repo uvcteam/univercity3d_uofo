@@ -20,25 +20,22 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
     void OnAcceptClicked()
     {
         string format = "yyyy-MM-dd HH:mm";
-        webString = "http://www.univercity3d.com/univercity/CreateEvent?token=&";
-        webString += "title=" + WWW.EscapeURL(newEvent.Title) + "&";
-        webString += "desc=" + WWW.EscapeURL(newEvent.Desc) + "&";
-        webString += "who=" + WWW.EscapeURL(newEvent.Who) + "&";
-        webString += "email=" + WWW.EscapeURL(newEvent.Email) + "&";
-        webString += "location=" + WWW.EscapeURL(newEvent.Loc) + "&";
-        webString += "phone=" + WWW.EscapeURL(newEvent.Phone) + "&";
-        webString += "min=" + newEvent.Min + "&";
-        webString += "max=" + newEvent.Max + "&";
-        webString += "start=" + WWW.EscapeURL(
-            newEvent.Start.ToString(format)) + "&";
-        webString += "end=" + WWW.EscapeURL(
-            newEvent.Start.AddHours(1).ToString(format)) + "&";
+        webString = "http://www.univercity3d.com/univercity/CreateEvent?token=";
+        webString += GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+        webString += "&title=" + WWW.EscapeURL(newEvent.Title);
+        webString += "&desc=" + WWW.EscapeURL(newEvent.Desc);
+        webString += "&who=" + WWW.EscapeURL(newEvent.Who);
+        webString += "&email=" + WWW.EscapeURL(newEvent.Email);
+        webString += "&location=" + WWW.EscapeURL(newEvent.Loc);
+        webString += "&phone=" + WWW.EscapeURL(newEvent.Phone);
+        webString += "&min=" + newEvent.Min;
+        webString += "&max=" + newEvent.Max;
+        webString += "&start=" + WWW.EscapeURL(
+            newEvent.Start.ToString(format));
+        webString += "&end=" + WWW.EscapeURL(
+            newEvent.Start.AddHours(1).ToString(format));
         for (int i = 0; i < newEvent.interests.Count; i++)
-        {
-            webString += "interests=" + newEvent.interests[i];
-            if (i < newEvent.interests.Count - 1)
-                webString += "&";
-        }
+            webString += "&interests=" + newEvent.interests[i];
 
         Debug.Log(webString);
 
@@ -57,8 +54,9 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
         {
             Debug.Log("Success!");
             StopAllCoroutines();
-            successPage.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            successPage.SetActive(true);
+            createEngagement.SetActive(false);
+            gameObject.SetActive(false);
         }
         else
         {
@@ -68,7 +66,7 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
 
     void OnCancelClicked()
     {
-        createEngagement.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        //createEngagement.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

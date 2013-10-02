@@ -13,6 +13,12 @@ public class AdPanelManager : MonoBehaviour
     public GameObject ObjectToTween = null;
     public TweenTransform myTween;
 	private GameObject oldPos = null;
+	
+	public GameObject leftStick;
+	public GameObject rightStick;
+    public GameObject businessAd;
+
+    private List<GameObject> ads = new List<GameObject>(); 
 
     void Awake()
     {
@@ -36,36 +42,37 @@ public class AdPanelManager : MonoBehaviour
         myTween.duration = 1.0f;
         myTween.Reset();
         myTween.Toggle();
-        foreach (Transform child in transform)
-            child.gameObject.SetActive(false);
+        //foreach (Transform child in transform)
+        //    child.gameObject.SetActive(false);
+		leftStick.SetActive(true);
+		rightStick.SetActive(true);
+
+        if (tableForAds != null)
+        {
+            foreach (GameObject ad in ads)
+                DestroyImmediate(ad);
+            ads.Clear();
+        }
+		
+		Resources.UnloadUnusedAssets();
 	}
 
     void OnTweenFinished(UITweener tweener)
     {
 		ObjectToTween.rigidbody.isKinematic = false;
         Destroy(oldPos);
-        bubble.SetActiveRecursively(true);
+        bubble.SetActive(true);
    //     GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = true;
-        gameObject.SetActiveRecursively(false);
+        gameObject.SetActive(false);
+        FloatingBubble.HasAdUp = false;
         //myTween.Toggle();
-    }
-
-    void OnDisable()
-    {
-        if (tableForAds != null)
-            foreach (Transform child in tableForAds.transform)
-                DestroyImmediate(child.gameObject);
-    }
-
-    void OnEnable()
-    {
-        foreach (Transform child in tableForAds.transform)
-            DestroyImmediate(child.gameObject);
     }
 
     public void SetPosition(Transform trans, GameObject myBubble)
     {
         bubble = myBubble;
+		leftStick.SetActive(false);
+		rightStick.SetActive(false);
         // Add all of the new businesses.
         foreach (Business bus in manager.busByCoord[new Vector2(trans.localPosition.x, trans.localPosition.z)])
         {
@@ -77,6 +84,7 @@ public class AdPanelManager : MonoBehaviour
             newAd.transform.localRotation = businessTransform.localRotation;
             newAd.GetComponent<NGUIAd>().SetBusiness(bus);
             newAd.GetComponent<UIButtonMessage>().target = gameObject;
+            ads.Add(newAd);
         }
 
         tableForAds.GetComponent<UIGrid>().Reposition();
@@ -92,7 +100,9 @@ public class AdPanelManager : MonoBehaviour
             {
                 if (bus.name == busName.text)
                 {
-                    Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + bus.id.ToString());
+                    //Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + bus.id.ToString());
+                    businessAd.SetActive(true);
+                    StartCoroutine(businessAd.GetComponent<BusinessAd>().SetUpAd(bus.id));
                     break;
                 }
             }

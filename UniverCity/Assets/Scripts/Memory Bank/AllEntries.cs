@@ -4,6 +4,12 @@ using System.Collections;
 public class AllEntries : MonoBehaviour 
 {
     public GameObject PreviousPanel;
+    public GameObject entryPanel;
+
+    void OnEnable()
+    {
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Private Journal";
+    }
 
     void OnAllEntriesClicked()
     {
@@ -12,27 +18,8 @@ public class AllEntries : MonoBehaviour
 
     void OnNewEntryClicked()
     {
-        Debug.Log("New entry.");
-    }
-
-    void OnAddPhotoClicked()
-    {
-        Debug.Log("Add photo.");
-    }
-
-    void OnAddVideoClicked()
-    {
-        Debug.Log("Add video.");
-    }
-
-    void OnSaveEntryClicked()
-    {
-        Debug.Log("Save entry.");
-    }
-
-    void OnLastEntryClicked()
-    {
-        Debug.Log("Last entry.");
+        entryPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEntryClicked()
@@ -40,9 +27,11 @@ public class AllEntries : MonoBehaviour
         Debug.Log("Load this entry.");
     }
 
+
+
     void OnBackClicked()
     {
-        gameObject.SetActiveRecursively(false);
-        PreviousPanel.SetActiveRecursively(true);
+        gameObject.SetActive(false);
+        PreviousPanel.SetActive(true);
     }
 }

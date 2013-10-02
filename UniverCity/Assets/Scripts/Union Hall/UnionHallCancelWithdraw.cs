@@ -7,21 +7,32 @@ public class UnionHallCancelWithdraw : MonoBehaviour
     public GameObject withdraw = null;
     public GameObject cancel = null;
 
+    void OnEnable()
+    {
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().prevPanel = returnTo;
+        GameObject.Find("TopAnchor").GetComponent<TopBarManager>().currentPanel = gameObject;
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Cancel/Withdraw";
+    }
+
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        returnTo.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnWithdrawClicked()
     {
-        withdraw.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Withdraw";
+
+        withdraw.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnCancelClicked()
     {
-        cancel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Cancel";
+
+        cancel.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

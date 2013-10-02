@@ -6,17 +6,37 @@ public class MemoryBank : MonoBehaviour
     public GameObject JournalPanel = null;
     public GameObject NotificationPanel = null;
     public GameObject EntriesPanel = null;
+    public GameObject PreferencesPanel = null;
+    public UILabel UserName = null;
+
+    public TopBarManager topBar = null;
+
+    void OnEnable()
+    {
+        if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
+            Application.LoadLevel(0);
+        UserName.text = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Name;
+        topBar.gameObject.SetActive(false);
+    }
 
     void OnJournalClicked()
     {
-        JournalPanel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = EntriesPanel;
+        topBar.gameObject.SetActive(true);
+
+        EntriesPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnNotificationsClicked()
     {
-        NotificationPanel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = NotificationPanel;
+        topBar.gameObject.SetActive(true);
+
+        NotificationPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnPhotoVaultClicked()
@@ -29,15 +49,14 @@ public class MemoryBank : MonoBehaviour
         Debug.Log("Open Video Vault");
     }
 
-    void OnJournalVaultClicked()
-    {
-        EntriesPanel.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
-    }
-
     void OnPreferencesClicked()
     {
-        Debug.Log("Open Preferences");
+        topBar.prevPanel = gameObject;
+        topBar.currentPanel = PreferencesPanel;
+        topBar.gameObject.SetActive(true);
+
+        PreferencesPanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnInviteClicked()
@@ -50,9 +69,9 @@ public class MemoryBank : MonoBehaviour
         Debug.Log("Open Help");
     }
 
-    void OnBackClicked()
+    void OnSignOutClicked()
     {
-        gameObject.SetActiveRecursively(false);
+        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().SignOut();
         Application.LoadLevel(0);
     }
 }

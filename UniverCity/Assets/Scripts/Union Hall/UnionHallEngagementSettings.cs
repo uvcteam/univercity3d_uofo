@@ -22,6 +22,7 @@ public class UnionHallEngagementSettings : MonoBehaviour
 
     void OnEnable()
     {
+        GameObject.Find("PageName").GetComponent<UILabel>().text = "Create Engagement";
         newEvent = GameObject.Find("NewEvent").GetComponent<UnionHallEvent>();
     }
 
@@ -34,8 +35,8 @@ public class UnionHallEngagementSettings : MonoBehaviour
 
     void OnChooseCategoriesClicked()
     {
-        chooseCategories.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        chooseCategories.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnResponseSaveClicked()
@@ -65,12 +66,12 @@ public class UnionHallEngagementSettings : MonoBehaviour
             else
                 newEvent.Max = Convert.ToInt32(max.text);
             createPanel.GetComponent<UnionHallCreateEngagement>().SettingsSet();
-            createPanel.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            createPanel.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {
-            errorPanel.SetActiveRecursively(true);
+            errorPanel.SetActive(true);
             errorPanel.GetComponent<UnionHallErrorWindow>().SetErrorText(errorMessage);
             errorMessage = "";
         }
@@ -104,10 +105,10 @@ public class UnionHallEngagementSettings : MonoBehaviour
             errorMessage += "Max attendees is 99.\n";
         }
 
-        if (max.text != "" && Convert.ToInt32(min.text) < Convert.ToInt32(max.text))
+        if (max.text != "" && Convert.ToInt32(min.text) > Convert.ToInt32(max.text))
         {
             errors = true;
-            errorMessage += "Min attendees is less than max.\n";
+            errorMessage += "Min attendees is more than max.\n";
         }
 
         return errors;

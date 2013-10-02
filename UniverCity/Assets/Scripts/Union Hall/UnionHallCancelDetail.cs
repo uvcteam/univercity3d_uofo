@@ -22,8 +22,8 @@ public class UnionHallCancelDetail : MonoBehaviour
 
     void OnBackClicked()
     {
-        returnTo.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        returnTo.SetActive(true);
+        //gameObject.SetActive(false);
     }
 
     void OnContinueClicked()
@@ -35,7 +35,7 @@ public class UnionHallCancelDetail : MonoBehaviour
     {
         string webString = "http://www.univercity3d.com/univercity/CancelEvent?";
         webString += "id=" + manager.currentEvent.Id + "&";
-        webString += "email=" + WWW.EscapeURL(manager.currentEvent.Email);
+        webString += "token=" + GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
         Debug.Log(webString);
         WWW page = new WWW(webString);
         yield return page;
@@ -47,8 +47,8 @@ public class UnionHallCancelDetail : MonoBehaviour
         {
             Debug.Log("Success!");
             StopAllCoroutines();
-            cancelSuccess.SetActiveRecursively(true);
-            gameObject.SetActiveRecursively(false);
+            cancelSuccess.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {

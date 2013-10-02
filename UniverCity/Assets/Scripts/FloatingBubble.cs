@@ -11,6 +11,7 @@ public class FloatingBubble : MonoBehaviour
     public Transform tweenTo = null;
     public TweenTransform myTween = null;
 	public GameObject ObjectToTween = null;
+    public static bool HasAdUp = false;
 
     void Awake()
     {
@@ -19,7 +20,7 @@ public class FloatingBubble : MonoBehaviour
 		if (ObjectToTween == null)
 			Debug.LogError("CameraBase could not be located!");
         manager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
-        gameObject.SetActiveRecursively(
+        gameObject.SetActive(
             manager.busByCoord.ContainsKey(new Vector2(transform.localPosition.x, transform.localPosition.z)));
     }
 
@@ -28,6 +29,8 @@ public class FloatingBubble : MonoBehaviour
     {
         transform.Rotate(Vector3.up*rotateSpeed*Time.deltaTime);
 
+        if (FloatingBubble.HasAdUp) return;
+        if (Camera.main == null) return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -42,7 +45,7 @@ public class FloatingBubble : MonoBehaviour
 
         myTween.from = ObjectToTween.transform;
         myTween.to = tweenTo;
-        myTween.duration = 2.0f;
+        myTween.duration = 1.0f;
 
         GameObject placeHolder = new GameObject("Placeholder");
         placeHolder.transform.position =
@@ -55,17 +58,19 @@ public class FloatingBubble : MonoBehaviour
                                                         ObjectToTween.transform.rotation.w);
 
         myTween.eventReceiver = gameObject;
-        GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = false;
+        //GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = false;
         ObjectToTween.rigidbody.isKinematic = true;
 		myTween.Reset();
         myTween.Toggle();
-        adPanel.SetActiveRecursively(true);
-        adPanel.GetComponent<AdPanelManager>().SetPosition(transform, gameObject);
-        adPanel.GetComponent<AdPanelManager>().SetReturnPosition();
+        FloatingBubble.HasAdUp = true;
     }
 
     void OnTweenFinished(UITweener tweener)
     {
-        gameObject.SetActiveRecursively(false);
+        Debug.Log("Activating: " + adPanel.name);
+        adPanel.SetActive(true);
+        adPanel.GetComponent<AdPanelManager>().SetPosition(transform, gameObject);
+        adPanel.GetComponent<AdPanelManager>().SetReturnPosition();
+        gameObject.SetActive(false);
     }
 }

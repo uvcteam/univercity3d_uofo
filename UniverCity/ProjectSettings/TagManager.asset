@@ -8,6 +8,13 @@ TagManager:
   - FloatingIsland
   - FloatingSphere
   - FloatingAd
+  - TopAnchor
+  - BusinessManager
+  - Delete
+  - Page
+  - AdManager
+  - UserManager
+  - Category
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

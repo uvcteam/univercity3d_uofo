@@ -11,13 +11,13 @@ public class GoBack : MonoBehaviour
     {
 	    if (Input.GetKeyDown(KeyCode.Escape))
 	    {
-	        if (MemoryBank.active == true)
+	        if (MemoryBank.activeInHierarchy == true)
 	            Application.LoadLevel(0);
 	        else
 	        {
 	            foreach (GameObject go in Panels)
-	                go.SetActiveRecursively(false);
-	            MemoryBank.SetActiveRecursively(true);
+	                go.SetActive(false);
+	            MemoryBank.SetActive(true);
 	        }
 	    }
 	}

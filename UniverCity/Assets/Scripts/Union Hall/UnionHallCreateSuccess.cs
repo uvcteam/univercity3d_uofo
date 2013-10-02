@@ -27,8 +27,8 @@ public class UnionHallCreateSuccess : MonoBehaviour
     void OnBackClicked()
     {
         DestroyImmediate(newEvent.gameObject);
-        mainMenu.SetActiveRecursively(true);
-        gameObject.SetActiveRecursively(false);
+        mainMenu.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     void OnEditClicked()

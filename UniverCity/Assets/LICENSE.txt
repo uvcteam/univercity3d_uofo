@@ -1,0 +1,12 @@
+This project remains the property of Predictions Software Ltd Copyright 2012
+
+This project is for evaluation purposes only. You do NOT have permission to distribute or make copies of this project, except as is reasonable for backup purposes only.
+
+You may not sell or give this projected to anyone else. You are not
+permitted to decompile or reverse engineer any of the the binary
+elements of this project.
+
+If you have been given this project by other than Predictions Software Ltd please contact us. contact@predictions-software.com
+
+
+ 
