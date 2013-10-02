@@ -111,7 +111,7 @@ public class UserManager : MonoBehaviour
 
             if (PageToDisable != null)
                 PageToDisable.SetActive(false);
-            if (PlayerPrefs.GetInt("loggedIn") == 0)
+            if (signingInDialog != null)
                 signingInDialog.SetActive(false);
             StartCoroutine(GetUserCategories());
             //GameObject.Find("ExitButton").SetActive(false);
