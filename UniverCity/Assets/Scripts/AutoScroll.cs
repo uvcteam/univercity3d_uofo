@@ -6,7 +6,7 @@ public class AutoScroll : MonoBehaviour
     private bool _pressed = false;
     private float _lastTimeTouched = 0.0f;
 
-    public Vector3 start = new Vector3(500.0f, -7.5f, 0.0f);
+    public Vector3 start = new Vector3(0.0f, 0.0f, 0.0f);
     public float waitTime = 5.0f;
 	
 	// Update is called once per frame
@@ -15,6 +15,7 @@ public class AutoScroll : MonoBehaviour
         if (Camera.current != null && transform.localPosition.y > 4000.0f)
         {
             transform.localPosition = start;
+            Debug.Log(transform.localPosition);
         }
 
         if ((Time.time - _lastTimeTouched > waitTime) && !_pressed)

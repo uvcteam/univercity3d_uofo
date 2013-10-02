@@ -24,23 +24,21 @@ public class BusinessCategoryMgr : MonoBehaviour
 
     void OnEnable()
     {
-        //preferredBusinesses.SetActive(false);
-        preferredBusinesses.transform.localPosition = new Vector3(400.0f, -1100.0f, -600.0f);
-        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, -1100.0f, -600.0f);
+        float zStart = preferredBusinesses.GetComponent<AutoScroll>().start.z;
+        preferredBusinesses.transform.localPosition = new Vector3(400.0f, -1100.0f, zStart);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, -1100.0f, zStart);
         hidePanel.transform.localPosition = new Vector3(700.0f, 4.5f, -600.0f);
-		//Populate(_currentCategory);
     }
 
     void OnDisable()
     {
+        float zStart = preferredBusinesses.GetComponent<AutoScroll>().start.z;
         transform.localPosition = startPos;
         GetComponent<UIPanel>().clipRange = clipPos;
-        Destroy(GetComponent<SpringPanel>());//.enabled = true;
-        //preferredBusinesses.SetActive(true);
-        preferredBusinesses.transform.localPosition = new Vector3(600.0f, -1100.0f, -600.0f);
-        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(600.0f, -1100.0f, -600.0f);
+        Destroy(GetComponent<SpringPanel>());
+        preferredBusinesses.transform.localPosition = new Vector3(600.0f, -1100.0f, zStart);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(600.0f, -1100.0f, zStart);
         hidePanel.transform.localPosition = new Vector3(900.0f, 4.5f, -600.0f);
-        //Application.LoadLevel(5);
     }
 
     public void Populate(eMallSubcategory cat)
