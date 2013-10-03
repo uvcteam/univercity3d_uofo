@@ -25,8 +25,9 @@ public class BusinessCategoryMgr : MonoBehaviour
     void OnEnable()
     {
         float zStart = preferredBusinesses.GetComponent<AutoScroll>().start.z;
-        preferredBusinesses.transform.localPosition = new Vector3(400.0f, -1100.0f, zStart);
-        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, -1100.0f, zStart);
+        float yStart = preferredBusinesses.GetComponent<AutoScroll>().start.y;
+        preferredBusinesses.transform.localPosition = new Vector3(400.0f, yStart, zStart);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(400.0f, yStart, zStart);
         hidePanel.transform.localPosition = new Vector3(700.0f, 4.5f, -600.0f);
     }
 
