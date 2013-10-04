@@ -24,6 +24,8 @@ public class UnionHallCreateEngagement : MonoBehaviour
     private bool newEvent = true;
     private string errorMessage = "";
 
+    private string dateTime = "";
+
     void OnEnable()
     {
         GameObject.Find("PageName").GetComponent<UILabel>().text = "Create Engagement";
@@ -80,7 +82,8 @@ public class UnionHallCreateEngagement : MonoBehaviour
         desc.text = "";
         loc.text = "";
         start.text = "";
-        date.text = "";
+        //date.text = "";
+        dateTime = DateTime.Now.ToString("yyyy-MM-dd");
 
         settingsSet = false;
         newEvent = true;
@@ -140,5 +143,28 @@ public class UnionHallCreateEngagement : MonoBehaviour
         }
 
         return errors;
+    }
+
+    void OnDateClicked()
+    {
+        float width = Screen.width / 2;
+        float height = Screen.width / 10;
+        Rect drawRect = new Rect((Screen.width - width) / 2, height, width, height);
+
+        NativePicker.Instance.ShowDatePicker(toScreenRect(drawRect), DateTime.Now, (long val) =>
+        {
+            dateTime = NativePicker.ConvertToDateTime(val).ToString("yyyy-MM-dd");
+        });
+    }
+
+    Rect toScreenRect(Rect rect)
+    {
+        Vector2 lt = new Vector2(rect.x, rect.y);
+        Vector2 br = lt + new Vector2(rect.width, rect.height);
+
+        lt = GUIUtility.GUIToScreenPoint(lt);
+        br = GUIUtility.GUIToScreenPoint(br);
+
+        return new Rect(lt.x, lt.y, br.x - lt.x, br.y - lt.y);
     }
 }

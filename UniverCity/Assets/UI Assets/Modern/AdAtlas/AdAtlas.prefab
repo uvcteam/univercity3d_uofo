@@ -120,10 +120,10 @@ MonoBehaviour:
       height: 64
     inner:
       serializedVersion: 2
-      x: 1802
-      y: 1759
-      width: 64
-      height: 64
+      x: 1810
+      y: 1767
+      width: 48
+      height: 48
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

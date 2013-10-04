@@ -1,40 +1,106 @@
-This project remains the property of Predictions Software Ltd Copyright 2012
+NativePicker is iOS/Android plugin that can display native date/time/custom item list pickers
 
-This project is for evaluation purposes only. You do NOT have permission to distribute or make copies of this project, except as is reasonable for backup purposes only.
+To start working with NativePicker, put NativePicker prefab to the scene. Then you can access plugin functionality
+using NativePicker.Instance object.
+If script links are broken after loading test project, attach Plugins\NativePicker\NativePicker.cs to NativePicker object, and TestScene\TestScene.cs to Main Camera object
 
-You may not sell or give this projected to anyone else. You are not
-permitted to decompile or reverse engineer any of the the binary
-elements of this project.
+There are several methods:
 
-If you have been given this project by other than Predictions Software Ltd please contact us. contact@predictions-software.com
+/**
+ * Show date picker
+ * position - popover pointing rect (required by iPad platform)	 
+ * 
+ * long parameter of onValueSelectedAction will be set to selected date in unix timestamp format. 
+ * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ */
+public void ShowDatePicker(Rect position, Action<long> onValueSelectedAction)
 
-Project requires iOS5 and Unity 3.5 (may work on other version as well).
 
-Use the MovieTest scenes. The MovieController gameObject has a script which controls the demos. The demos give a range of projects which run well on various hardware up to 4 simultaneous movies on ipad3. You may need to modify the controller if you are using other hardware to reduce the number of movie files that are played. 
+/**
+ * Show date picker
+ * position - popover pointing rect (required by iPad platform)
+ * date - date to select in the picker	 
+ * 
+ * long parameter of onValueSelectedAction will be set to selected date in unix timestamp format. 
+ * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ */
+public void ShowDatePicker(Rect position, DateTime date, Action<long> onValueSelectedAction)
 
-Movie planes are in MovieObjects (max 4 movies can be played at any one time). Inside each object is a TheMovie with a PlayFileBasedMovie.cs (derived PlayHardwareMovieClassPro.cs) attached. This class controls play/pause/resume etc. See the base class as well.
 
-Communication between the  PlayFileBasedMovie.cs  and xcode is via the iOS gameObject. There are two callbacks related to file based movies. ReadyMovie when movie is ready to play and FinishedMovie when the movie is finished. See attached UnityXcodeMovieTexture.png for details of the interactions between Unity and Xcode
+  /**
+ * Show time picker
+ * position - popover pointing rect (required by iPad platform)	 
+ * 
+ * long parameter of onValueSelectedAction will be set to selected time in unix timestamp format. 
+ * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ */
+public void ShowTimePicker(Rect position, Action<long> onValueSelectedAction)
 
-I have included a number of movie files to allow you to test. 
 
-The project does very little if run in the editor. It must be built and run  for iOS to show anything interesting. 
+/**
+ * Show time picker
+ * position - popover pointing rect (required by iPad platform)
+ * time - time to select in the picker	 
+ * 
+ * long parameter of onValueSelectedAction will be set to selected time in unix timestamp format. 
+ * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ */
+public void ShowTimePicker(Rect position, DateTime time, Action<long> onValueSelectedAction)
 
-See the OpenGLMovie.h and UnityMovieLibInterface.m in the Plugins/IOS director for some internal details on the link with the OpenGLMovieLib.
 
-Progressive streaming,
-Note, in general you can only use progressive streaming with wifi. Unless the movie is small. See apples latest policy before submitting a app to the app store.
+/**
+ * Show picker with custom item list
+ * position - popover pointing rect (required by iPad platform)	 
+ * items - custom item list
+ * 
+ * long parameter of onValueSelectedAction will be set to selected item index. 	 
+ */
+public void ShowCustomPicker(Rect position, string[] items, Action<long> onValueSelectedAction)
 
-Example
-See the MovieTestStreaming scene. Streaming is Beta, more features will be added.
 
-The movie plane is in MovieObject0. Only one streaming movie can be played at a time, but file based movies can be played alongside streaming movies. Inside MovieObject0 object is a TheMovie with a PlayStreamingMovie.cs (derived PlayHardwareMovieClassPro.cs) attached. This class controls play/pause/resume etc. See the base class as well.
+/**
+ * Show picker with custom item list
+ * position - popover pointing rect (required by iPad platform)	 
+ * items - custom item list
+ * selectedItem - item to select
+ * 
+ * long parameter of onValueSelectedAction will be set to selected item index. 	 
+ */
+public void ShowCustomPicker(Rect position, string[] items, int selectedItem, Action<long> onValueSelectedAction)
 
-Movies must be "faststart", if not already, movies can be converted to faststart (google is your friend here). 
 
-Streaming movies are likely to fail, or not be available, so you will need to have a recovery strategy is streaming is unavailable. Also streaming movies may pause/resume if data flow does not keep up. 
+/**
+ * Convert unix timestamp to DateTime object
+ * val - unix timestamp value	 
+ */
+public static DateTime ConvertToDateTime(long val)
 
-As with file based movies communication between iOS and Xcode is done iOS gameObject.  See also the UnityXcodeStreamMovieTexture.png which gives the basic flow of control.
- 
-Any Questions please contact me.  Gerard.Allan@predictions-software.com
 
+/**
+ * Convert DateTime object to unix timestamp
+ * dateTime - DateTime object to convert
+ */
+public static long ConvertToUnixTimestamp(DateTime dateTime)
+
+
+/**
+ * Create DateTime object from provided date	 
+ */
+public static DateTime DateTimeForDate(int year, int month, int day)
+
+
+/**
+ * Create DateTime object from provided time
+ */
+public static DateTime DateTimeForTime(int hour, int minute, int second)
+
+
+/**
+ * Hide picker, used for iPhone platform
+ */
+public void HidePicker()
+  
+  
+According to Apple UI guidelines picker should be displayed at botton of the screen on iPhone device, and only inside popover controller on iPad device, that's why Show* functions has position parameter.
+  
+You can fing example of usage of these methods in TestSceneScript.cs file.
