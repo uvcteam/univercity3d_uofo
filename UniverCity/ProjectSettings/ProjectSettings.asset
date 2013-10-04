@@ -67,7 +67,7 @@ PlayerSettings:
     16:9: 0
     Others: 0
   iPhoneBundleIdentifier: com.univercity3d.eugene
-  iPhoneBundleVersion: 1.1
+  iPhoneBundleVersion: 1.6
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 6
   AndroidPreferredInstallLocation: 1
@@ -92,8 +92,10 @@ PlayerSettings:
   iPhoneTallHighResSplashScreen: {fileID: 0}
   iPadPortraitSplashScreen: {fileID: 0}
   iPadHighResPortraitSplashScreen: {fileID: 0}
-  iPadLandscapeSplashScreen: {fileID: 0}
-  iPadHighResLandscapeSplashScreen: {fileID: 0}
+  iPadLandscapeSplashScreen: {fileID: 2800000, guid: 55f77a116cee14debb1311b106769b3c,
+    type: 3}
+  iPadHighResLandscapeSplashScreen: {fileID: 2800000, guid: df99951b32c2b4207902d527b128a226,
+    type: 3}
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: 
@@ -106,13 +108,13 @@ PlayerSettings:
       m_Size: 128
   - m_BuildTarget: iPhone
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: 219648979fcd941b48470598a62108f1, type: 3}
       m_Size: 144
-    - m_Icon: {fileID: 2800000, guid: d31dda25a3ace45ee9a48fdff40e3478, type: 3}
+    - m_Icon: {fileID: 2800000, guid: 1cf4a8c1e301c43d98dfbe6285ad0b64, type: 3}
       m_Size: 114
-    - m_Icon: {fileID: 2800000, guid: a5ec84da2f8eb4fad92dca093130da58, type: 3}
+    - m_Icon: {fileID: 2800000, guid: 59e4310fd6dc14d45b764a984861ec54, type: 3}
       m_Size: 72
-    - m_Icon: {fileID: 2800000, guid: ac681ef23a4c24f7ba663c9ca616e19a, type: 3}
+    - m_Icon: {fileID: 2800000, guid: 1e1c82adec36b414a8e1d59b1d668ca5, type: 3}
       m_Size: 57
   m_BuildTargetBatching:
   - m_BuildTarget: iPhone
@@ -156,6 +158,9 @@ PlayerSettings:
   scriptingDefineSymbols:
     data:
       first: 1
+      second: 
+    data:
+      first: 2
       second: 
     data:
       first: 4
