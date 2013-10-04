@@ -11,6 +11,7 @@ public class UnionHallCreateEngagement : MonoBehaviour
     public UIInput loc = null;
     public UIInput start = null;
     public UIInput date = null;
+	public UILabel startDateTime = null;
 
     public UIButton create = null;
 
@@ -24,7 +25,8 @@ public class UnionHallCreateEngagement : MonoBehaviour
     private bool newEvent = true;
     private string errorMessage = "";
 
-    private string dateTime = "";
+    private string eventDate = "";
+	private string eventTime = "";
 
     void OnEnable()
     {
@@ -57,10 +59,10 @@ public class UnionHallCreateEngagement : MonoBehaviour
             eventScript.Who = who.text;
             eventScript.Desc = desc.text;
             eventScript.Loc = loc.text;
-            if (start.text == "24:00")
-                start.text = "00:00";
+            if (eventTime == "24:00")
+                eventTime = "00:00";
 
-            eventScript.Start = DateTime.Parse(date.text + " " + start.text);
+            eventScript.Start = DateTime.Parse(eventDate + " " + eventTime);
             legalSettings.SetActive(true);
             gameObject.SetActive(false);
         }
@@ -83,7 +85,12 @@ public class UnionHallCreateEngagement : MonoBehaviour
         loc.text = "";
         start.text = "";
         //date.text = "";
-        dateTime = DateTime.Now.ToString("yyyy-MM-dd");
+        eventDate = DateTime.Now.ToString("yyyy-MM-dd");
+		eventTime = DateTime.Now.ToString ("HH:mm");
+		
+		startDateTime.text = "Event is scheduled to start on " +
+			DateTime.Parse(eventDate).ToString("MMMM dd, yyyy") + " at " +
+				DateTime.Parse(eventTime).ToString("h:mm tt");
 
         settingsSet = false;
         newEvent = true;
@@ -124,13 +131,13 @@ public class UnionHallCreateEngagement : MonoBehaviour
             errorMessage += "Must enter a location.\n";
         }
 
-        if (start.text == "")
+        if (eventTime == "")
         {
             errors = true;
             errorMessage += "Must enter a start time.\n";
         }
 
-        if (date.text == "")
+        if (eventDate == "")
         {
             errors = true;
             errorMessage += "Must enter a date.\n";
@@ -147,24 +154,41 @@ public class UnionHallCreateEngagement : MonoBehaviour
 
     void OnDateClicked()
     {
-        float width = Screen.width / 2;
-        float height = Screen.width / 10;
-        Rect drawRect = new Rect((Screen.width - width) / 2, height, width, height);
-
-        NativePicker.Instance.ShowDatePicker(toScreenRect(drawRect), DateTime.Now, (long val) =>
+        Rect drawRect = new Rect((Screen.width / 2 + 50), (Screen.height * 0.72f), Screen.height / 3, Screen.width / 4);
+        NativePicker.Instance.ShowDatePicker(drawRect, DateTime.Parse(eventDate), (long val) =>
         {
-            dateTime = NativePicker.ConvertToDateTime(val).ToString("yyyy-MM-dd");
+            eventDate = NativePicker.ConvertToDateTime(val).ToString("yyyy-MM-dd");
+			
+			startDateTime.text = "Event is scheduled to start on " +
+				DateTime.Parse(eventDate).ToString("MMMM dd, yyyy") + " at " +
+					DateTime.Parse(eventTime).ToString("h:mm tt");
         });
     }
+	
+	void OnTimeClicked()
+	{
+		Rect drawRect = new Rect((Screen.width / 2 - (50 + Screen.height / 3)), (Screen.height * 0.72f), Screen.height / 3, Screen.width / 4);
+        NativePicker.Instance.ShowTimePicker(drawRect, DateTime.Parse(eventTime), (long val) =>
+        {
+            eventTime = NativePicker.ConvertToDateTime(val).ToString("HH:mm");
+			
+			startDateTime.text = "Event is scheduled to start on " +
+				DateTime.Parse(eventDate).ToString("MMMM dd, yyyy") + " at " +
+					DateTime.Parse(eventTime).ToString("h:mm tt");
+        });
+	}
 
     Rect toScreenRect(Rect rect)
     {
         Vector2 lt = new Vector2(rect.x, rect.y);
         Vector2 br = lt + new Vector2(rect.width, rect.height);
-
+		
         lt = GUIUtility.GUIToScreenPoint(lt);
         br = GUIUtility.GUIToScreenPoint(br);
-
+		
+		Debug.Log ("LT: " + lt);
+		Debug.Log ("BR: " + br);
+		
         return new Rect(lt.x, lt.y, br.x - lt.x, br.y - lt.y);
     }
 }
