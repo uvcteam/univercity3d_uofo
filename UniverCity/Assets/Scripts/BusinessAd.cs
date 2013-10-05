@@ -153,7 +153,7 @@ public class BusinessAd : MonoBehaviour
 			}
 			
             MembersOnlyBtn.SetActive(true);
-            MembersOnlyBtn.GetComponent<UIImageButton>().isEnabled = false;
+            MembersOnlyBtn.GetComponent<UIButton>().isEnabled = false;
 
             adInfo = adManager.AdInfo;
 
