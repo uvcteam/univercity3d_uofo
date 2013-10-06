@@ -19,7 +19,8 @@ public class VideoHandler : MonoBehaviour
 	{
 		if(MoviePlayer != null)
 		{
-			MoviePlayer.SetActive(true);
+			//MoviePlayer.SetActive(true);
+			MoviePlayer.transform.FindChild("TheMovie").GetComponent<MeshRenderer>().enabled = true;
             VideoButton.SetActive(true);
 			GameObject video = GameObject.Find("TheMovie");
 			//AdManager adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -52,7 +53,8 @@ public class VideoHandler : MonoBehaviour
 				_videoPaused = false;
 			}
 			
-            MoviePlayer.SetActive(false);
+            //MoviePlayer.SetActive(false);
+			MoviePlayer.transform.FindChild("TheMovie").GetComponent<MeshRenderer>().enabled = false;
             VideoButton.SetActive(false);
             _playVideo = false;
         }
