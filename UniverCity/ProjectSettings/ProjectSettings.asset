@@ -67,7 +67,7 @@ PlayerSettings:
     16:9: 0
     Others: 0
   iPhoneBundleIdentifier: com.univercity3d.eugene
-  iPhoneBundleVersion: 1.0.8
+  iPhoneBundleVersion: 1.0.9
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 6
   AndroidPreferredInstallLocation: 1
