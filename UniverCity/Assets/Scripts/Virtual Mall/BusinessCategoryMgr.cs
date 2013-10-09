@@ -34,11 +34,12 @@ public class BusinessCategoryMgr : MonoBehaviour
     void OnDisable()
     {
         float zStart = preferredBusinesses.GetComponent<AutoScroll>().start.z;
+        float yStart = preferredBusinesses.GetComponent<AutoScroll>().start.y;
         transform.localPosition = startPos;
         GetComponent<UIPanel>().clipRange = clipPos;
         Destroy(GetComponent<SpringPanel>());
-        preferredBusinesses.transform.localPosition = new Vector3(600.0f, -1100.0f, zStart);
-        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(600.0f, -1100.0f, zStart);
+        preferredBusinesses.transform.localPosition = new Vector3(600.0f, yStart, zStart);
+        preferredBusinesses.GetComponent<AutoScroll>().start = new Vector3(600.0f, yStart, zStart);
         hidePanel.transform.localPosition = new Vector3(900.0f, 4.5f, -600.0f);
     }
 
