@@ -131,7 +131,12 @@ public class BusinessAd : MonoBehaviour
     {
         AdData adInfo;
         int pageCount = 1;
-        loadingDialog.SetActive(true);
+		
+		bool isWebPlayer = Application.platform == RuntimePlatform.WindowsWebPlayer || 
+			Application.platform == RuntimePlatform.OSXWebPlayer;
+		
+		if(Screen.orientation == ScreenOrientation.Landscape || isWebPlayer)
+        	loadingDialog.SetActive(true);
 		
         StartCoroutine(adManager.GetAd(businessID)); //16 for test reasons
 
