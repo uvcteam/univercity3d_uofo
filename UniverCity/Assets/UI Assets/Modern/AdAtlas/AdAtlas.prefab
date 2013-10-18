@@ -42,14 +42,14 @@ MonoBehaviour:
   - name: details_btn
     outer:
       serializedVersion: 2
-      x: 0
-      y: 426
+      x: 878
+      y: 1300
       width: 400
       height: 250
     inner:
       serializedVersion: 2
-      x: 0
-      y: 426
+      x: 878
+      y: 1300
       width: 400
       height: 250
     rotated: 0
@@ -132,14 +132,14 @@ MonoBehaviour:
   - name: play_btn
     outer:
       serializedVersion: 2
-      x: 0
-      y: 169
+      x: 513
+      y: 420
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 0
-      y: 169
+      x: 513
+      y: 420
       width: 256
       height: 256
     rotated: 0
@@ -150,14 +150,14 @@ MonoBehaviour:
   - name: pause_btn
     outer:
       serializedVersion: 2
-      x: 401
-      y: 420
+      x: 513
+      y: 163
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 401
-      y: 420
+      x: 513
+      y: 163
       width: 256
       height: 256
     rotated: 0
@@ -168,14 +168,14 @@ MonoBehaviour:
   - name: helv_thin_44
     outer:
       serializedVersion: 2
-      x: 401
-      y: 235
+      x: 1279
+      y: 1366
       width: 255
       height: 184
     inner:
       serializedVersion: 2
-      x: 401
-      y: 235
+      x: 1279
+      y: 1366
       width: 255
       height: 184
     rotated: 0
@@ -187,13 +187,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 0
-      y: 66
+      y: 61
       width: 255
       height: 102
     inner:
       serializedVersion: 2
       x: 0
-      y: 66
+      y: 61
       width: 255
       height: 102
     rotated: 0
@@ -291,6 +291,24 @@ MonoBehaviour:
     paddingRight: .0171037633
     paddingTop: .0848623887
     paddingBottom: .061926607
+  - name: rotate_ipad
+    outer:
+      serializedVersion: 2
+      x: 0
+      y: 164
+      width: 512
+      height: 512
+    inner:
+      serializedVersion: 2
+      x: 0
+      y: 164
+      width: 512
+      height: 512
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

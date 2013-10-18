@@ -19,6 +19,7 @@ public class BusinessAd : MonoBehaviour
     public GameObject[] objectsToHide;
 	public UITexture[] texturesToPurge;
 	public GameObject narrator;
+    public GameObject RotateIconPanel;
     public bool hasMegaDeal = false;
     public bool hasMembersOnly = false;
     public long sessionId = 0;
@@ -64,6 +65,16 @@ public class BusinessAd : MonoBehaviour
         foreach (GameObject btn in pageBtns)
             btn.SetActive(true);
         detailsBtn.SetActive(true);
+    }
+
+    public void Update()
+    {
+
+        if ((Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android) 
+            && (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown))
+            RotateIconPanel.SetActive(true);
+        else
+            RotateIconPanel.SetActive(false);
     }
 
 	void OnExitClicked()
