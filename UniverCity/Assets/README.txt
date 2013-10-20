@@ -1,106 +1,119 @@
-NativePicker is iOS/Android plugin that can display native date/time/custom item list pickers
+NatiiveDialogs is iOS/Android plugin that can display native Alert dialogs:
+- standart alert dialog with caption, message and buttons
+- login/password dialog
+- prompt dialog, so you can get some data from user
+- secure prompt dialog, user input is masked by asterisk character
+- progress dialog with spinning progress indicator
 
-To start working with NativePicker, put NativePicker prefab to the scene. Then you can access plugin functionality
-using NativePicker.Instance object.
-If script links are broken after loading test project, attach Plugins\NativePicker\NativePicker.cs to NativePicker object, and TestScene\TestScene.cs to Main Camera object
+To start working with native dialogs, put the NativeDialogs prefab to the scene. Then you can access plugin functionality
+using NativeDialogs.Instance object.
 
 There are several methods:
 
 /**
- * Show date picker
- * position - popover pointing rect (required by iPad platform)	 
+ * Show alert dialog.
+ * caption - alert title
+ * message - alert message
+ * buttons - list of buttons
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
  * 
- * long parameter of onValueSelectedAction will be set to selected date in unix timestamp format. 
- * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ * string parameter of onClickAction will be set to text of button clicked
  */
-public void ShowDatePicker(Rect position, Action<long> onValueSelectedAction)
-
+public void ShowMessageBox(string caption, string message, string[] buttons, bool cancellable, Action<string> onClickAction)
 
 /**
- * Show date picker
- * position - popover pointing rect (required by iPad platform)
- * date - date to select in the picker	 
+ * Show login/password dialog.
+ * caption - dialog title
+ * message - dialog message
+ * buttons - list of buttons
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
  * 
- * long parameter of onValueSelectedAction will be set to selected date in unix timestamp format. 
- * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ * first string parameter of onClickAction will be set to login entered
+ * second string parameter of onClickAction will be set to password entered
+ * third string parameter of onClickAction will be set to text of button clicked
  */
-public void ShowDatePicker(Rect position, DateTime date, Action<long> onValueSelectedAction)
+public void ShowLoginPasswordMessageBox(string caption, string message, string[] buttons, bool cancellable, Action<string, string, string> onClickAction)
 
-
-  /**
- * Show time picker
- * position - popover pointing rect (required by iPad platform)	 
+/**
+ * Show login/password dialog.
+ * caption - dialog title
+ * message - dialog message
+ * login - string to put into login field
+ * password - string to put into password field
+ * buttons - list of buttons
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
  * 
- * long parameter of onValueSelectedAction will be set to selected time in unix timestamp format. 
- * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ * first string parameter of onClickAction will be set to login entered
+ * second string parameter of onClickAction will be set to password entered
+ * third string parameter of onClickAction will be set to text of button clicked
  */
-public void ShowTimePicker(Rect position, Action<long> onValueSelectedAction)
-
+public void ShowLoginPasswordMessageBox(string caption, string message, string login, string password, string[] buttons, bool cancellable, Action<string, string, string> onClickAction)
 
 /**
- * Show time picker
- * position - popover pointing rect (required by iPad platform)
- * time - time to select in the picker	 
+ * Show prompt dialog.
+ * caption - dialog title
+ * message - dialog message
+ * buttons - list of buttons
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
  * 
- * long parameter of onValueSelectedAction will be set to selected time in unix timestamp format. 
- * You can convert it to DateTime object using NativePicker.ConvertToDateTime function
+ * first string parameter of onClickAction will be set to data entered
+ * second string parameter of onClickAction will be set to text of button clicked
  */
-public void ShowTimePicker(Rect position, DateTime time, Action<long> onValueSelectedAction)
-
+public void ShowPromptMessageBox(string caption, string message, string[] buttons, bool cancellable, Action<string, string> onClickAction)
 
 /**
- * Show picker with custom item list
- * position - popover pointing rect (required by iPad platform)	 
- * items - custom item list
+ * Show prompt dialog.
+ * caption - dialog title
+ * message - dialog message
+ * prompt - string to put into text field
+ * buttons - list of buttons
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
  * 
- * long parameter of onValueSelectedAction will be set to selected item index. 	 
+ * first string parameter of onClickAction will be set to data entered
+ * second string parameter of onClickAction will be set to text of button clicked
  */
-public void ShowCustomPicker(Rect position, string[] items, Action<long> onValueSelectedAction)
-
+public void ShowPromptMessageBox(string caption, string message, string prompt, string[] buttons, bool cancellable, Action<string, string> onClickAction)
 
 /**
- * Show picker with custom item list
- * position - popover pointing rect (required by iPad platform)	 
- * items - custom item list
- * selectedItem - item to select
+ * Show secure prompt dialog. User input is masked by asterisk character
+ * caption - dialog title
+ * message - dialog message	 
+ * buttons - list of buttons
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
  * 
- * long parameter of onValueSelectedAction will be set to selected item index. 	 
+ * first string parameter of onClickAction will be set to data entered
+ * second string parameter of onClickAction will be set to text of button clicked
  */
-public void ShowCustomPicker(Rect position, string[] items, int selectedItem, Action<long> onValueSelectedAction)
-
+public void ShowSecurePromptMessageBox(string caption, string message, string[] buttons, bool cancellable, Action<string, string> onClickAction)
 
 /**
- * Convert unix timestamp to DateTime object
- * val - unix timestamp value	 
+ * Show secure prompt dialog. User input is masked by asterisk character
+ * caption - dialog title
+ * message - dialog message
+ * prompt - string to put into text field
+ * buttons - list of buttons
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
+ * 
+ * first string parameter of onClickAction will be set to data entered
+ * second string parameter of onClickAction will be set to text of button clicked
  */
-public static DateTime ConvertToDateTime(long val)
-
+public void ShowSecurePromptMessageBox(string caption, string message, string prompt, string[] buttons, bool cancellable, Action<string, string> onClickAction)
 
 /**
- * Convert DateTime object to unix timestamp
- * dateTime - DateTime object to convert
+ * Show window with spinning progress indicator. It will dismiss previously shown progress window if needed.
+ * caption - window title
+ * message - window message
+ * cancellable - Sets whether this dialog could be canceled on tap outside the dialog or back button. (ignored for iOS)
+ * mbProgress - (iOS only) set to true if you want to use MBProgressHUD (https://github.com/jdg/MBProgressHUD)
+ * instead of standard blue progress indicator.
+ * On iOS 7 MBProgressHUD is only progress indicator, so this parameter is ignored for iOS 7
  */
-public static long ConvertToUnixTimestamp(DateTime dateTime)
-
+public void ShowProgressDialog(string caption, string message, bool cancellable, bool mbProgress)
 
 /**
- * Create DateTime object from provided date	 
+ * Hide window with spinning progress indicator
  */
-public static DateTime DateTimeForDate(int year, int month, int day)
+public void HideProgressDialog()
 
 
-/**
- * Create DateTime object from provided time
- */
-public static DateTime DateTimeForTime(int hour, int minute, int second)
-
-
-/**
- * Hide picker, used for iPhone platform
- */
-public void HidePicker()
-  
-  
-According to Apple UI guidelines picker should be displayed at botton of the screen on iPhone device, and only inside popover controller on iPad device, that's why Show* functions has position parameter.
-  
 You can fing example of usage of these methods in TestSceneScript.cs file.
