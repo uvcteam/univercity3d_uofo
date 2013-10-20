@@ -66,7 +66,7 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
 
     void OnCancelClicked()
     {
-        //createEngagement.SetActive(true);
+        createEngagement.SetActive(true);
         gameObject.SetActive(false);
     }
 }
