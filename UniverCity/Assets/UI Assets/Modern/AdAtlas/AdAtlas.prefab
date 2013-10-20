@@ -42,14 +42,14 @@ MonoBehaviour:
   - name: details_btn
     outer:
       serializedVersion: 2
-      x: 878
-      y: 1300
+      x: 513
+      y: 774
       width: 400
       height: 250
     inner:
       serializedVersion: 2
-      x: 878
-      y: 1300
+      x: 513
+      y: 774
       width: 400
       height: 250
     rotated: 0
@@ -60,14 +60,14 @@ MonoBehaviour:
   - name: square
     outer:
       serializedVersion: 2
-      x: 1930
-      y: 1826
+      x: 914
+      y: 834
       width: 60
       height: 60
     inner:
       serializedVersion: 2
-      x: 1930
-      y: 1826
+      x: 914
+      y: 834
       width: 60
       height: 60
     rotated: 0
@@ -78,14 +78,14 @@ MonoBehaviour:
   - name: speech_bubble
     outer:
       serializedVersion: 2
-      x: 1802
-      y: 1824
+      x: 257
+      y: 199
       width: 127
       height: 127
     inner:
       serializedVersion: 2
-      x: 1882
-      y: 1904
+      x: 337
+      y: 279
       width: -33
       height: -33
     rotated: 0
@@ -96,14 +96,14 @@ MonoBehaviour:
   - name: ios7_button
     outer:
       serializedVersion: 2
-      x: 1930
-      y: 1887
+      x: 914
+      y: 960
       width: 64
       height: 64
     inner:
       serializedVersion: 2
-      x: 1945
-      y: 1902
+      x: 929
+      y: 975
       width: 34
       height: 34
     rotated: 0
@@ -114,14 +114,14 @@ MonoBehaviour:
   - name: ios7_button_gray
     outer:
       serializedVersion: 2
-      x: 1802
-      y: 1759
+      x: 914
+      y: 895
       width: 64
       height: 64
     inner:
       serializedVersion: 2
-      x: 1810
-      y: 1767
+      x: 922
+      y: 903
       width: 48
       height: 48
     rotated: 0
@@ -133,13 +133,13 @@ MonoBehaviour:
     outer:
       serializedVersion: 2
       x: 513
-      y: 420
+      y: 517
       width: 256
       height: 256
     inner:
       serializedVersion: 2
       x: 513
-      y: 420
+      y: 517
       width: 256
       height: 256
     rotated: 0
@@ -150,14 +150,14 @@ MonoBehaviour:
   - name: pause_btn
     outer:
       serializedVersion: 2
-      x: 513
-      y: 163
+      x: 0
+      y: 255
       width: 256
       height: 256
     inner:
       serializedVersion: 2
-      x: 513
-      y: 163
+      x: 0
+      y: 255
       width: 256
       height: 256
     rotated: 0
@@ -168,14 +168,14 @@ MonoBehaviour:
   - name: helv_thin_44
     outer:
       serializedVersion: 2
-      x: 1279
-      y: 1366
+      x: 0
+      y: 70
       width: 255
       height: 184
     inner:
       serializedVersion: 2
-      x: 1279
-      y: 1366
+      x: 0
+      y: 70
       width: 255
       height: 184
     rotated: 0
@@ -186,14 +186,14 @@ MonoBehaviour:
   - name: helv_bold_30
     outer:
       serializedVersion: 2
-      x: 0
-      y: 61
+      x: 473
+      y: 409
       width: 255
       height: 102
     inner:
       serializedVersion: 2
-      x: 0
-      y: 61
+      x: 473
+      y: 409
       width: 255
       height: 102
     rotated: 0
@@ -204,14 +204,14 @@ MonoBehaviour:
   - name: call_out_3
     outer:
       serializedVersion: 2
-      x: 1802
-      y: 1952
+      x: 729
+      y: 415
       width: 233
       height: 96
     inner:
       serializedVersion: 2
-      x: 1802
-      y: 1952
+      x: 729
+      y: 415
       width: 233
       height: 96
     rotated: 0
@@ -219,89 +219,17 @@ MonoBehaviour:
     paddingRight: .0686695278
     paddingTop: .010416667
     paddingBottom: 0
-  - name: mem_only_active 1
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 1551
-      width: 900
-      height: 497
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 1551
-      width: 900
-      height: 497
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: mem_only_inactive
-    outer:
-      serializedVersion: 2
-      x: 901
-      y: 1551
-      width: 900
-      height: 497
-    inner:
-      serializedVersion: 2
-      x: 901
-      y: 1551
-      width: 900
-      height: 497
-    rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: mega_deal_inactive
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 1114
-      width: 877
-      height: 436
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 1114
-      width: 877
-      height: 436
-    rotated: 0
-    paddingLeft: .0091220066
-    paddingRight: .0171037633
-    paddingTop: .0848623887
-    paddingBottom: .061926607
-  - name: mega_deal_active
-    outer:
-      serializedVersion: 2
-      x: 0
-      y: 677
-      width: 877
-      height: 436
-    inner:
-      serializedVersion: 2
-      x: 0
-      y: 677
-      width: 877
-      height: 436
-    rotated: 0
-    paddingLeft: .0091220066
-    paddingRight: .0171037633
-    paddingTop: .0848623887
-    paddingBottom: .061926607
   - name: rotate_ipad
     outer:
       serializedVersion: 2
       x: 0
-      y: 164
+      y: 512
       width: 512
       height: 512
     inner:
       serializedVersion: 2
       x: 0
-      y: 164
+      y: 512
       width: 512
       height: 512
     rotated: 0
@@ -309,6 +237,42 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: mega_deal
+    outer:
+      serializedVersion: 2
+      x: 770
+      y: 589
+      width: 215
+      height: 184
+    inner:
+      serializedVersion: 2
+      x: 770
+      y: 589
+      width: 215
+      height: 184
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: .00543478271
+  - name: members_only
+    outer:
+      serializedVersion: 2
+      x: 257
+      y: 327
+      width: 215
+      height: 184
+    inner:
+      serializedVersion: 2
+      x: 257
+      y: 327
+      width: 215
+      height: 184
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: .00543478271
   mCoordinates: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}

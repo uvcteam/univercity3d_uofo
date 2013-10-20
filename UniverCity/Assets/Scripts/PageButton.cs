@@ -4,11 +4,16 @@ using System.Collections;
 public class PageButton : MonoBehaviour {
 
     public GameObject Page;
+    GameObject businessAd;
+
+    public void Awake()
+    {
+        businessAd = GameObject.Find("BusinessAd");
+    }
 
     public void GoToPage()
     {
         string trackURL = "http://www.univercity3d.com/univercity/track?id=";
-        GameObject businessAd = GameObject.Find("BusinessAd");
 
         if (businessAd == null)
         {
@@ -41,14 +46,15 @@ public class PageButton : MonoBehaviour {
         Debug.Log("Sending: " + trackURL);
         WWW track = new WWW(trackURL);
 
-        foreach(GameObject page in GameObject.FindGameObjectsWithTag("Page"))
-        {
-            page.SetActive(false);
-        }
-		
-		//Debug.Log(businessAd.name);
 
-        foreach (GameObject btn in GameObject.Find("BusinessAd").GetComponent<BusinessAd>().pageBtns)
+        SelectButton();
+        businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().Recenter(Page);
+
+    }
+
+    public void SelectButton()
+    {
+        foreach (GameObject btn in businessAd.GetComponent<BusinessAd>().pageBtns)
         {
             if (btn.GetComponentInChildren<UILabel>() != null)
             {
@@ -58,23 +64,52 @@ public class PageButton : MonoBehaviour {
         }
 
         if (businessAd.GetComponent<BusinessAd>().hasMegaDeal && businessAd.GetComponent<BusinessAd>().hasMegaDeal)
-            businessAd.GetComponent<BusinessAd>().MegaDealBtn.GetComponent<UIImageButton>().isEnabled = true;
-
-
-        //GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.GetComponent<UIButton>().isEnabled = true;
-
-        //if (GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.activeInHierarchySelf)
-        //    GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn.GetComponentInChildren<UILabel>().color = Color.black;
+            businessAd.GetComponent<BusinessAd>().MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
 
 
         Page.SetActive(true);
+
         if (gameObject.GetComponentInChildren<UILabel>() != null && gameObject != businessAd.GetComponent<BusinessAd>().detailsBtn)
         {
             gameObject.GetComponentInChildren<UILabel>().color = Color.white;
             gameObject.GetComponent<UIButton>().isEnabled = false;
+            businessAd.GetComponent<BusinessAd>().pageGrid.SetActive(true);
+
+            GameObject[] pageBtns = businessAd.GetComponent<BusinessAd>().pageBtns;
+
+            for (int i = 0; i < pageBtns.Length; ++i)
+            {
+                if (pageBtns[i].GetComponent<PageButton>().Page != null && 
+                    pageBtns[i].GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage != null)
+                    pageBtns[i].GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage.SetActive(false);
+            }
         }
 
-        
+        else if (gameObject == businessAd.GetComponent<BusinessAd>().detailsBtn)
+        {
+            businessAd.GetComponent<BusinessAd>().pageGrid.SetActive(false);
+            gameObject.SetActive(true);
+        }
 
+        if (Page.name == "Mega Deal")
+        {
+            businessAd.GetComponent<BusinessAd>().pageGrid.SetActive(false);
+            GameObject[] pageBtns = businessAd.GetComponent<BusinessAd>().pageBtns;
+
+            for (int i = 0; i < pageBtns.Length; ++i)
+            {
+                if (pageBtns[i].GetComponent<PageButton>().Page != null &&
+                    pageBtns[i].GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage != null)
+                    pageBtns[i].GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage.SetActive(false);
+            }
+        }
+        else
+        {
+            businessAd.GetComponent<BusinessAd>().MegaDealPage.SetActive(false);
+        }
+
+        Page.GetComponent<Page>().OnPageSwitch();
     }
+
+
 }

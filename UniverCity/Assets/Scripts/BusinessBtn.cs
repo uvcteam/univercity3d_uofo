@@ -13,6 +13,6 @@ public class BusinessBtn : MonoBehaviour
 
         GameObject businessAd = GameObject.Find("Virtual Mall").GetComponent<VirtualMallManager>().businessAd;
         businessAd.SetActive(true);
-        StartCoroutine(businessAd.GetComponent<BusinessAd>().SetUpAd(businessId));
+        StartCoroutine(businessAd.GetComponent<BusinessAd>().SetUpAd(businessId, transform.Find("Name").GetComponent<UILabel>().text));
     }
 }

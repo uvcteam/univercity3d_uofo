@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class Page : MonoBehaviour 
 {
@@ -10,48 +11,61 @@ public class Page : MonoBehaviour
     public GameObject detailsPage;
     public string title = "Details";
 	public Color pageColor = Color.white;
+    public GameObject pageBtn;
 
 	// Use this for initialization
 	void Start () 
     {
         transform.localScale = new Vector3(1, 1, 1);
-        transform.localPosition = new Vector3(0, 0, -300);
+        if(gameObject.name == "Mega Deal")
+            transform.localPosition = new Vector3(0, 0, -300);
+        else
+            transform.localPosition = new Vector3(150, 0, -300);
+
+        GameObject.Find("BusinessAd").GetComponent<BusinessAd>().background.GetComponent<UISlicedSprite>().color = pageColor;
 	}
 
-    void OnEnable()
+    public void OnPageSwitch()
     {
-		GameObject businessAd = GameObject.Find("BusinessAd");
-        GameObject detailsBtn;
-        GameObject narrator = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().narrator;
-        detailsBtn = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn;
-
-        if (detailsPage != null)
+        try
         {
-            detailsBtn.SetActive(true);
-            detailsBtn.GetComponent<PageButton>().Page = detailsPage;
-            detailsBtn.gameObject.GetComponentInChildren<UILabel>().text = detailsPage.GetComponent<Page>().title;
+            GameObject businessAd = GameObject.Find("BusinessAd");
+            GameObject detailsBtn;
+            GameObject narrator = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().narrator;
+            detailsBtn = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn;
+
+            if (detailsPage != null)
+            {
+                detailsBtn.SetActive(true);
+                detailsBtn.GetComponent<PageButton>().Page = detailsPage;
+                detailsBtn.gameObject.GetComponentInChildren<UILabel>().text = detailsPage.GetComponent<Page>().title;
+            }
+            else
+                detailsBtn.SetActive(false);
+
+            if (narratorTexture == null)
+                narrator.GetComponentInChildren<UITexture>().mainTexture = narratorTexture;
+            else
+            {
+                businessAd.GetComponent<BusinessAd>().narrator.SetActive(true);
+                businessAd.GetComponent<BusinessAd>().ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
+            }
+
+            //narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+            narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = speechBubbleText;
+
+            if (speechBubbleText == "")
+                narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
+            else
+                narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
+
+           
         }
-        else
-            detailsBtn.SetActive(false);
 
-        if(narratorTexture == null)
-            narrator.GetComponentInChildren<UITexture>().mainTexture = narratorTexture;
-        else
-		{
-			businessAd.GetComponent<BusinessAd>().narrator.SetActive(true);
-        	businessAd.GetComponent<BusinessAd>().ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
-		}
-
-        narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
-        narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = speechBubbleText;
-        //GameObject.Find("SpeechBubble").GetComponentInChildren<UILabel>().text = speechBubbleText;
-
-        if (speechBubbleText == "")
-             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(false);
-        else
-            narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
-		
-		businessAd.GetComponent<BusinessAd>().background.GetComponent<UISlicedSprite>().color = pageColor;
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 	
 	public void Purge()
@@ -60,4 +74,26 @@ public class Page : MonoBehaviour
 		foreach (GameObject go in images)
 			DestroyImmediate(go.GetComponent<UITexture>().mainTexture, true);
 	}
+
+    public void LateUpdate()
+    {
+        bool touchEnded = false;
+
+        for (int i = 0; i < Input.touchCount; ++i)
+        {
+            if(Input.touches[i].phase == TouchPhase.Ended)
+                touchEnded = true;
+            else
+                touchEnded = false;
+        }
+
+        if (touchEnded || Input.GetMouseButtonUp(0))
+        {
+            GameObject businessAd = GameObject.Find("BusinessAd");
+            if (businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().centeredObject == gameObject)
+                if (pageBtn != null)
+                pageBtn.GetComponent<PageButton>().GoToPage();
+        }
+    }
+
 }

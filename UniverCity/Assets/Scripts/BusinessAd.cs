@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class BusinessAd : MonoBehaviour
 {
-    //public int businessID = 0;
+    public GameObject pageGrid;
     public AdManager adManager;
     public GameObject background;
     public GameObject detailsBtn;
@@ -20,6 +20,7 @@ public class BusinessAd : MonoBehaviour
 	public UITexture[] texturesToPurge;
 	public GameObject narrator;
     public GameObject RotateIconPanel;
+    public UILabel businessName;
     public bool hasMegaDeal = false;
     public bool hasMembersOnly = false;
     public long sessionId = 0;
@@ -27,6 +28,7 @@ public class BusinessAd : MonoBehaviour
     private List<GameObject> _pages = new List<GameObject>();
     private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
     private int numPateBtn = 4;
+    private UIAnchor.Side side = UIAnchor.Side.Left;
 
 
     void SetUpDictionary()
@@ -46,6 +48,11 @@ public class BusinessAd : MonoBehaviour
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
 		Screen.orientation = ScreenOrientation.AutoRotation;
+
+        transform.localPosition = Vector3.zero;
+        side = GameObject.Find("Anchor").GetComponent<UIAnchor>().side;
+        GameObject.Find("Anchor").GetComponent<UIAnchor>().side = UIAnchor.Side.Center;
+        GameObject.Find("TheMovie").transform.localScale = new Vector3(2256.0f, 1256.0f, 0);
     }
 
     void Awake()
@@ -65,10 +72,12 @@ public class BusinessAd : MonoBehaviour
         foreach (GameObject btn in pageBtns)
             btn.SetActive(true);
         detailsBtn.SetActive(true);
+
     }
 
     public void Update()
     {
+        GameObject.Find("TheMovie").transform.localScale = new Vector3(2256.0f, 1256.0f, 0);
 
         if ((Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android) 
             && (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown))
@@ -79,7 +88,6 @@ public class BusinessAd : MonoBehaviour
 
 	void OnExitClicked()
 	{
-        //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = true;
 
         ShowObjects();
 
@@ -125,20 +133,25 @@ public class BusinessAd : MonoBehaviour
 
         Debug.Log("Sending: " + trackURL);
         WWW track = new WWW(trackURL);
+
+        GameObject.Find("Anchor").GetComponent<UIAnchor>().side = side;
 	}
 
-    public IEnumerator SetUpAd(int businessID = 16)
+    public IEnumerator SetUpAd(int businessID = 16, string businessName = "")
     {
+
         AdData adInfo;
         int pageCount = 1;
+        this.businessName.text = businessName;
 		
-		bool isWebPlayer = Application.platform == RuntimePlatform.WindowsWebPlayer || 
-			Application.platform == RuntimePlatform.OSXWebPlayer;
+		bool isDesktop = Application.platform == RuntimePlatform.WindowsWebPlayer || 
+			Application.platform == RuntimePlatform.OSXWebPlayer || Application.platform == RuntimePlatform.WindowsEditor ||
+            Application.platform == RuntimePlatform.OSXEditor;
 		
-		if(Screen.orientation == ScreenOrientation.Landscape || isWebPlayer)
+		if (isDesktop || Screen.orientation == ScreenOrientation.Landscape)
         	loadingDialog.SetActive(true);
 		
-        StartCoroutine(adManager.GetAd(businessID)); //16 for test reasons
+        StartCoroutine(adManager.GetAd(businessID));
 
         while (!adManager.adReady)
             yield return new WaitForSeconds(0.1f);
@@ -187,24 +200,13 @@ public class BusinessAd : MonoBehaviour
 
             if (adInfo.Mega != null)
             {
-                hasMegaDeal = true;
-                MegaDealBtn.SetActive(true);
-                MegaDealBtn.GetComponent<UIImageButton>().isEnabled = true;
-                MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
-                megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
-                megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
-                megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
-                megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
-                megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
-				MegaDealPage.GetComponent<Page>().pageColor = adInfo.Background.TopColor;
-				MegaDealPage.GetComponent<Page>().narratorTexture = adInfo.Expert.Image;
+                SetUpMegaDeal(adInfo);
             }
             else
             {
-                MegaDealBtn.GetComponent<UIImageButton>().isEnabled = false;
+                MegaDealBtn.GetComponent<UIButton>().isEnabled = false;
                 hasMegaDeal = false;
             }
-
             //Make first page the defualt
             for (int i = pageCount; i <= numPateBtn; ++i) //disable unused buttons
                 GameObject.Find("pageBtn" + i).SetActive(false);
@@ -223,7 +225,9 @@ public class BusinessAd : MonoBehaviour
             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
             narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
 
-            pageBtns[0].GetComponent<PageButton>().GoToPage();
+            pageBtns[0].GetComponent<PageButton>().SelectButton();
+            pageGrid.GetComponent<UIGrid>().repositionNow = true;
+            pageGrid.GetComponent<UIGrid>().Reposition();
         }
 
         HideObjects();
@@ -247,9 +251,8 @@ public class BusinessAd : MonoBehaviour
         GameObject pageBtn;
         Page page;
         GameObject pageObject = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.Type], typeof(GameObject)));
-        Debug.Log(pageObject.name);
         page = pageObject.GetComponent<Page>();
-        page.transform.parent = gameObject.transform;
+        pageObject.transform.parent = pageGrid.transform;
 
 
         for (int i = 0; i < adPage.Parts.Count && i < page.images.Length; ++i)
@@ -261,13 +264,16 @@ public class BusinessAd : MonoBehaviour
         pageBtn = GameObject.Find("pageBtn" + pageCount);
         pageBtn.SetActive(true);
         pageBtn.GetComponent<PageButton>().Page = pageObject;
+        page.pageBtn = pageBtn;
         pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
         page.title = adPage.Title;
 		page.pageColor = adPage.Background.TopColor;
+        Debug.Log(page.pageColor);
 
         foreach (AdMedia media in adPage.Parts)
         {
-            if (media.Type == MediaType.Video)
+            if (media.Type == MediaType.Video && 
+                (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android))
             {
 				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
                 pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
@@ -298,10 +304,25 @@ public class BusinessAd : MonoBehaviour
 
         SetUpNarratorForPage(page, adPage);
 
-        if (pageCount > 1)
-            pageObject.SetActive(false);
+        //if (pageCount > 1)
+        //    pageObject.SetActive(false);
 
         _pages.Add(pageObject);
+    }
+
+    private void SetUpMegaDeal(AdData adInfo)
+    {
+        hasMegaDeal = true;
+        MegaDealBtn.SetActive(true);
+        MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
+        MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
+        megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
+        megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
+        megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
+        megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
+        megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
+        MegaDealPage.GetComponent<Page>().pageColor = adInfo.Background.TopColor;
+        MegaDealPage.GetComponent<Page>().narratorTexture = adInfo.Expert.Image;
     }
 
     public void ScaleImage(GameObject destination, Texture2D source)

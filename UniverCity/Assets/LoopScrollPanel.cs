@@ -13,7 +13,6 @@ public class LoopScrollPanel : MonoBehaviour
     {
         if (grid.transform.parent.GetComponent<UIPanel>().IsVisible(transform.position) == true)
         {
-            Debug.Log(transform.parent.name + "," + name);
 			if(grid.transform.localPosition != transform.parent.transform.localPosition + rePos)
             	grid.transform.localPosition = transform.parent.transform.localPosition + rePos;
         }

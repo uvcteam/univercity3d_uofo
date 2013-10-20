@@ -41,8 +41,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: .199999571, y: .299999923, z: -1}
-  m_LocalScale: {x: .0009765625, y: .0009765625, z: .0009765625}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: .000500000024, y: .000500000024, z: .0009765625}
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -53,8 +53,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1000, y: 600, z: 0}
+  m_LocalPosition: {x: -400, y: 300, z: -1.00006306}
+  m_LocalScale: {x: 2256, y: 1256, z: 0}
   m_Children: []
   m_Father: {fileID: 400000}
 --- !u!23 &2300000
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   movieIndex: 0
   pauseIndictator: {fileID: 0}
+  messageReceiver: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
