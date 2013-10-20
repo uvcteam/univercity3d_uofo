@@ -109,6 +109,9 @@ public class PageButton : MonoBehaviour {
         }
 
         Page.GetComponent<Page>().OnPageSwitch();
+
+        if ( Page.GetComponent<VideoHandler>())
+            Page.GetComponent<VideoHandler>().OnPageSwitch();
     }
 
 

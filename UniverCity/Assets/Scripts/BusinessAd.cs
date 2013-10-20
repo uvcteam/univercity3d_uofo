@@ -84,6 +84,8 @@ public class BusinessAd : MonoBehaviour
             RotateIconPanel.SetActive(true);
         else
             RotateIconPanel.SetActive(false);
+        if (Input.GetKeyDown(KeyCode.Escape))
+            OnExitClicked();
     }
 
 	void OnExitClicked()

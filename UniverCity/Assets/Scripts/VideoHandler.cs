@@ -13,9 +13,9 @@ public class VideoHandler : MonoBehaviour
     private bool _autoPlayVideo = true;
 	public int videoHeight = 0;
 	public int videoWidth = 0;
-	
-	
-	public void OnEnable()
+
+
+    public void OnPageSwitch()
 	{
 		if(MoviePlayer != null)
 		{
@@ -45,8 +45,8 @@ public class VideoHandler : MonoBehaviour
 
 		}
 	}
-	
-	public void OnDisable()
+
+    public void OnPageLeave()
 	{
         if (MoviePlayer != null)
         {
