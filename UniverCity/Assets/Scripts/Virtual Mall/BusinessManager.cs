@@ -39,7 +39,11 @@ public class BusinessManager : MonoBehaviour
     // ---------------------------------------------------
     public IEnumerator GetBusinessInformation()
     {
-        loader.SetActive(true);
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+            loader.SetActive(true);
+        else if (Application.platform == RuntimePlatform.Android ||
+                 Application.platform == RuntimePlatform.IPhonePlayer)
+            NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Businesses", false, false);  
         string bURL = "http://www.univercity3d.com/univercity/BusinessInfo?u=UofO";
         string bLURL = "http://www.univercity3d.com/univercity/BusinessLogos?b=";
         string bName = "";
@@ -180,7 +184,12 @@ public class BusinessManager : MonoBehaviour
         }
 
         //loginPanel.SendMessage("LoadingFinished");
-        loader.SetActive(false);
+
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+            loader.SetActive(false);
+        else if (Application.platform == RuntimePlatform.Android ||
+                 Application.platform == RuntimePlatform.IPhonePlayer) loader.SetActive(false);
+            NativeDialogs.Instance.HideProgressDialog();
     }
 }
 

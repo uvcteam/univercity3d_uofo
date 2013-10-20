@@ -1404,7 +1404,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 67356347}
   m_LocalRotation: {x: 0, y: 0, z: .707106888, w: .707106769}
-  m_LocalPosition: {x: -1.61616158, y: 1025.61768, z: 0}
+  m_LocalPosition: {x: -2.13333344, y: 1026.1333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1914930530}
@@ -6019,11 +6019,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.61616158
+      value: -2.13333344
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1022.38232
+      value: -1021.86664
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8302,11 +8302,11 @@ MonoBehaviour:
     e00: -.000366210938
     e01: 1024.00012
     e02: 0
-    e03: -1025.6178
+    e03: -1026.13342
     e10: -1024.00012
     e11: -.000366210938
     e12: 0
-    e13: -1.61579502
+    e13: -2.13296676
     e20: 0
     e21: 0
     e22: 1024
@@ -9511,7 +9511,7 @@ Transform:
   m_PrefabInternal: {fileID: 848654477}
   m_GameObject: {fileID: 478497306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.61616158, y: 1025.61768, z: 0}
+  m_LocalPosition: {x: -2.13333344, y: 1026.1333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 774605950}
@@ -9551,11 +9551,11 @@ MonoBehaviour:
     e00: 1024
     e01: 0
     e02: 0
-    e03: 1.61616158
+    e03: 2.13333344
     e10: 0
     e11: 1024
     e12: 0
-    e13: -1025.61768
+    e13: -1026.1333
     e20: 0
     e21: 0
     e22: 1024
@@ -14517,11 +14517,11 @@ MonoBehaviour:
     e00: 1024
     e01: 0
     e02: 0
-    e03: 1.61616158
+    e03: 2.13333344
     e10: 0
     e11: 1024
     e12: 0
-    e13: -1025.61768
+    e13: -1026.1333
     e20: 0
     e21: 0
     e22: 1024
@@ -14857,6 +14857,46 @@ MonoBehaviour:
   functionName: OnIncrementClicked
   trigger: 0
   includeChildren: 0
+--- !u!1001 &809489514
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+  m_RootGameObject: {fileID: 1155035942}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &810931777
 GameObject:
   m_ObjectHideFlags: 0
@@ -15582,11 +15622,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400008, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.61616158
+      value: -2.13333344
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1025.61768
+      value: 1026.1333
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d422793e9914646e4901898e4efffd40, type: 2}
       propertyPath: m_LocalPosition.z
@@ -20228,6 +20268,44 @@ MonoBehaviour:
   functionName: OnNextClicked
   trigger: 0
   includeChildren: 0
+--- !u!1 &1155035942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+  m_PrefabInternal: {fileID: 809489514}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1155035944}
+  - 114: {fileID: 1155035943}
+  m_Layer: 0
+  m_Name: NativeDialogs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1155035943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 6e3b5f64ca42eb5429c842807c8061a7,
+    type: 2}
+  m_PrefabInternal: {fileID: 809489514}
+  m_GameObject: {fileID: 1155035942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a568a49b4a4f540a9dc7b25d12e251, type: 3}
+  m_Name: 
+--- !u!4 &1155035944
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 6e3b5f64ca42eb5429c842807c8061a7, type: 2}
+  m_PrefabInternal: {fileID: 809489514}
+  m_GameObject: {fileID: 1155035942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
 --- !u!1 &1167944538
 GameObject:
   m_ObjectHideFlags: 0
@@ -21156,7 +21234,7 @@ Transform:
   m_PrefabInternal: {fileID: 299432704}
   m_GameObject: {fileID: 1204121898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.61616158, y: -1022.38232, z: 0}
+  m_LocalPosition: {x: -2.13333344, y: -1021.86664, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children:
   - {fileID: 1701788312}
@@ -21219,11 +21297,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: 1.29292929
+    e03: 1.70666683
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 817.905884
+    e13: 817.493347
     e20: 0
     e21: 0
     e22: 0
@@ -28167,11 +28245,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: 1.29292929
+    e03: 1.70666683
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 817.905884
+    e13: 817.493347
     e20: 0
     e21: 0
     e22: 0

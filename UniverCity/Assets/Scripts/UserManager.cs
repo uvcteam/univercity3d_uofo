@@ -77,9 +77,15 @@ public class UserManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("loggedIn") == 0)
         {
-            signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
-            signingInDialog.SetActive(true);
-            signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+            if (Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
+                signingInDialog.SetActive(true);
+                signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+            }
+            else if (Application.platform == RuntimePlatform.Android ||
+                     Application.platform == RuntimePlatform.IPhonePlayer)
+                NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Signing In", false, false); 
         }
 
         string loginURL = "http://www.univercity3d.com/univercity/DeviceLogin?";
@@ -95,8 +101,18 @@ public class UserManager : MonoBehaviour
         if (Convert.ToBoolean(login["s"]) == false)
         {
             CurrentUser = null;
-            signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
-            exitBtn.SetActive(true);
+
+            if (Application.platform == RuntimePlatform.WindowsEditor)
+            {
+                signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
+                exitBtn.SetActive(true);
+            }
+            else if (Application.platform == RuntimePlatform.Android ||
+                     Application.platform == RuntimePlatform.IPhonePlayer)
+            {
+                NativeDialogs.Instance.HideProgressDialog();
+                NativeDialogs.Instance.ShowMessageBox("Error", "Invalid username/password.", new string[] {"OK"}, false, (string button) => NativeDialogs.Instance.HideProgressDialog());
+            }
         }
         else
         {
@@ -112,7 +128,13 @@ public class UserManager : MonoBehaviour
             if (PageToDisable != null)
                 PageToDisable.SetActive(false);
             if (signingInDialog != null)
-                signingInDialog.SetActive(false);
+            {
+                if (Application.platform == RuntimePlatform.WindowsEditor)
+                    signingInDialog.SetActive(false);
+                else if (Application.platform == RuntimePlatform.Android ||
+                     Application.platform == RuntimePlatform.IPhonePlayer)
+                    NativeDialogs.Instance.HideProgressDialog();
+            }
             StartCoroutine(GetUserCategories());
             //GameObject.Find("ExitButton").SetActive(false);
         }

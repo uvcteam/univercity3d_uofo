@@ -157,6 +157,7 @@ void createPluginIfNeeded();
 
 static NativePickerPlugin* g_plugin = nil;
 
+/*
 // Converts C style string to NSString
 NSString* createNSString (const char* string)
 {
@@ -183,7 +184,7 @@ void createPluginIfNeeded()
     if (g_plugin == nil)
         g_plugin = [[NativePickerPlugin alloc] init];
 }
-
+*/
 
 void showPicker(int type, const char** items, int numItems, int64_t selectedItem, int x, int y, int w, int h, const char* gameObject)
 {
