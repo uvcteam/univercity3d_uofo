@@ -24,12 +24,17 @@ public class MemoryBank : MonoBehaviour
 
     void OnJournalClicked()
     {
-        NativeDialogs.Instance.ShowSecurePromptMessageBox("PIN", "", new string[] {"Cancel, OK"}, false, (string prompt,
+        NativeDialogs.Instance.ShowSecurePromptMessageBox("PIN", "", new string[] {"Cancel", "OK"}, false, (string prompt,
                                                                                                    string button) =>
             {
                 if (button == "Cancel") return;
-                else StartCoroutine(CheckPIN(prompt));
+                else
+                {
+                    StartCoroutine(CheckPIN(prompt));
+                }
             });
+        if (Application.platform == RuntimePlatform.WindowsEditor)
+            StartCoroutine(CheckPIN("34911337"));
     }
 
     IEnumerator CheckPIN(string pin)
@@ -55,11 +60,9 @@ public class MemoryBank : MonoBehaviour
         }
         else
         {
-            NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Journals", false, false);
             manager.GetComponent<UserManager>().CurrentUser.PIN = pin;
             manager.GetComponent<UserManager>().CurrentUser.PopulateJournal(
                 result["entries"] as List<object>);
-            NativeDialogs.Instance.HideProgressDialog();
             topBar.prevPanel = gameObject;
             topBar.currentPanel = EntriesPanel;
             topBar.gameObject.SetActive(true);

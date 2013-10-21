@@ -282,6 +282,7 @@ public class User
         email = e;
         university = user["university"] as string;
         categories = new List<SocialInterest>();
+        journals = new List<JournalEntry>();
     }
     public User(string t, string n, string e, string u)
     {
@@ -291,6 +292,7 @@ public class User
         email = e;
         university = u;
         categories = new List<SocialInterest>();
+        journals = new List<JournalEntry>();
     }
 
     public void SetCategories(List<SocialInterest> categories)
@@ -301,12 +303,13 @@ public class User
     }
     public void PopulateJournal(List<object> json)
     {
+        journals.Clear();
         foreach (Dictionary<string, object> entry in json)
         {
-            journals.Clear();
             journals.Add(new JournalEntry(entry["title"] as string,
                                           entry["entry"] as string,
                                           entry["ts"] as string));
+            NativeDialogs.Instance.HideProgressDialog();
         }
     }
     public bool HasInterest(string name)

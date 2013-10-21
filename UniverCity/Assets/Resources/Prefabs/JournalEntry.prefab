@@ -29,6 +29,7 @@ GameObject:
   - 114: {fileID: 11400014}
   - 114: {fileID: 11400016}
   - 114: {fileID: 11400018}
+  - 114: {fileID: 11400002}
   m_Layer: 0
   m_Name: JournalEntry
   m_TagString: Untagged
@@ -46,7 +47,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400020}
   m_Layer: 0
-  m_Name: JournalName
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,8 +98,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1700, y: 300, z: 0}
-  m_Center: {x: -150, y: 0, z: -2}
+  m_Size: {x: 300, y: 300, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,13 +110,27 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b3dc54f924693f41b5cbecb267e647a, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: f7da0c88c1f74d842a052101c6b53b1c, type: 2}
-  mTex: {fileID: 2800000, guid: 2cf16da757e07414bb56a37684ee8f34, type: 3}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 8
   mAtlas: {fileID: 11400000, guid: ca649e784c4f3314b92df7fb5b26c764, type: 2}
   mSpriteName: private_journal
+  mFillCenter: 1
+  mType: 0
+  mFillDirection: 4
+  mFillAmount: 1
+  mInvert: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305aaf812bab4604f81dc84308985894, type: 3}
+  m_Name: 
+  index: 0
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,9 +141,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
   m_Name: 
-  tweenTarget: {fileID: 0}
-  hover: {r: .941176474, g: .941176474, b: .941176474, a: 1}
-  pressed: {r: .937254906, g: .937254906, b: .937254906, a: 1}
+  tweenTarget: {fileID: 100000}
+  hover: {r: .498039216, g: .498039216, b: .498039216, a: 1}
+  pressed: {r: .498039216, g: .498039216, b: .498039216, a: 1}
   duration: .200000003
   disabledColor: {r: .5, g: .5, b: .5, a: 1}
 --- !u!114 &11400014
@@ -156,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
   m_Name: 
   target: {fileID: 0}
-  functionName: OnEventClicked
+  functionName: OnEntryClicked
   trigger: 0
   includeChildren: 0
 --- !u!114 &11400018
@@ -181,14 +196,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
-  mMat: {fileID: 2100000, guid: b8cd25dadf44f6441be4054f2a8a357f, type: 2}
-  mTex: {fileID: 0}
   mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mDepth: 7
   mFont: {fileID: 11400000, guid: 07a6b3b597172344da8352a81082f9e4, type: 2}
   mText: Example Journal
   mMaxLineWidth: 300
+  mMaxLineHeight: 0
   mEncoding: 1
   mMaxLineCount: 2
   mPassword: 0
@@ -197,6 +211,7 @@ MonoBehaviour:
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 1}
+  mShrinkToFit: 0
   mLineWidth: 0
   mMultiline: 1
 --- !u!1001 &100100000
