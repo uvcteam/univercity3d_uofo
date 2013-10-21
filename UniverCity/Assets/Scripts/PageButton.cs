@@ -73,7 +73,7 @@ public class PageButton : MonoBehaviour {
         {
             gameObject.GetComponentInChildren<UILabel>().color = Color.white;
             gameObject.GetComponent<UIButton>().isEnabled = false;
-            businessAd.GetComponent<BusinessAd>().pageGrid.SetActive(true);
+            businessAd.GetComponent<BusinessAd>().pageGrid.transform.parent.gameObject.SetActive(true);
 
             GameObject[] pageBtns = businessAd.GetComponent<BusinessAd>().pageBtns;
 
@@ -87,14 +87,16 @@ public class PageButton : MonoBehaviour {
 
         else if (gameObject == businessAd.GetComponent<BusinessAd>().detailsBtn)
         {
-            businessAd.GetComponent<BusinessAd>().pageGrid.SetActive(false);
+            businessAd.GetComponent<BusinessAd>().pageGrid.transform.parent.gameObject.SetActive(false);
             gameObject.SetActive(true);
+            GameObject.Find("BackButton").GetComponent<BackButton>().CacheCurrentPage();
         }
 
         if (Page.name == "Mega Deal")
         {
-            businessAd.GetComponent<BusinessAd>().pageGrid.SetActive(false);
+            businessAd.GetComponent<BusinessAd>().pageGrid.transform.parent.gameObject.SetActive(false);
             GameObject[] pageBtns = businessAd.GetComponent<BusinessAd>().pageBtns;
+            GameObject.Find("BackButton").GetComponent<BackButton>().CacheCurrentPage();
 
             for (int i = 0; i < pageBtns.Length; ++i)
             {
@@ -102,6 +104,7 @@ public class PageButton : MonoBehaviour {
                     pageBtns[i].GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage != null)
                     pageBtns[i].GetComponent<PageButton>().Page.GetComponent<Page>().detailsPage.SetActive(false);
             }
+
         }
         else
         {
@@ -110,8 +113,9 @@ public class PageButton : MonoBehaviour {
 
         Page.GetComponent<Page>().OnPageSwitch();
 
-        if ( Page.GetComponent<VideoHandler>())
+        if (Page.GetComponent<VideoHandler>())
             Page.GetComponent<VideoHandler>().OnPageSwitch();
+
     }
 
 

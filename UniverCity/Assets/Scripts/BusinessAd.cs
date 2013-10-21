@@ -84,11 +84,9 @@ public class BusinessAd : MonoBehaviour
             RotateIconPanel.SetActive(true);
         else
             RotateIconPanel.SetActive(false);
-        if (Input.GetKeyDown(KeyCode.Escape))
-            OnExitClicked();
     }
 
-	void OnExitClicked()
+	public void OnExitClicked()
 	{
 
         ShowObjects();
@@ -111,7 +109,7 @@ public class BusinessAd : MonoBehaviour
 		}
 
         MegaDealPage.SetActive(false);
-        //MegaDealBtn.SetActive(false);
+        pageGrid.transform.parent.gameObject.SetActive(true);
         gameObject.SetActive(false);
         BusinessCard.SetActive(false);
 		Resources.UnloadUnusedAssets();
@@ -194,9 +192,9 @@ public class BusinessAd : MonoBehaviour
                 btn.SetActive(true);
             }
 
-            foreach (AdPage adPage in adInfo.Pages)
+            for (int i = 0; i < adInfo.Pages.Count; ++i)
             {
-                SetUpPage(adPage, pageCount);
+                SetUpPage(adInfo.Pages[i], pageCount);
                 ++pageCount;
             }
 
@@ -226,10 +224,9 @@ public class BusinessAd : MonoBehaviour
             ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
             narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
-
-            pageBtns[0].GetComponent<PageButton>().SelectButton();
             pageGrid.GetComponent<UIGrid>().repositionNow = true;
             pageGrid.GetComponent<UIGrid>().Reposition();
+            pageBtns[0].GetComponent<PageButton>().GoToPage();
         }
 
         HideObjects();
@@ -270,18 +267,20 @@ public class BusinessAd : MonoBehaviour
         pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
         page.title = adPage.Title;
 		page.pageColor = adPage.Background.TopColor;
-        Debug.Log(page.pageColor);
 
         foreach (AdMedia media in adPage.Parts)
         {
-            if (media.Type == MediaType.Video && 
-                (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android))
+            if (media.Type == MediaType.Video)
+                //&& (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android))
             {
 				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
                 pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
 				pageObject.GetComponent<VideoHandler>().videoHeight = media.Height;
 				pageObject.GetComponent<VideoHandler>().videoWidth = media.Width;
-                pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
+                pageObject.GetComponent<VideoHandler>().VideoButton.SetActive(true);
+
+                if (pageObject.GetComponentInChildren<UITexture>() != null)
+                    pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
             }
         }
         if (adPage.More != null)

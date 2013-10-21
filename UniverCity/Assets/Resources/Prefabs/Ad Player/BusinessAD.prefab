@@ -229,8 +229,9 @@ GameObject:
   - 114: {fileID: 11400044}
   - 114: {fileID: 11400042}
   - 114: {fileID: 11400040}
+  - 114: {fileID: 11400192}
   m_Layer: 8
-  m_Name: ExitButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1767,7 +1768,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100120}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: 150, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400122}
@@ -2372,8 +2373,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4c4ff40739c7904ca26c14ffbdc4176, type: 3}
   m_Name: 
-  target: {fileID: 100086}
-  functionName: OnExitClicked
+  target: {fileID: 100026}
+  functionName: GoBack
   trigger: 0
   includeChildren: 0
 --- !u!114 &11400042
@@ -3920,6 +3921,16 @@ MonoBehaviour:
   mClipping: 1
   mClipRange: {x: 150, y: 0, z: 2128, w: 1500}
   mClipSoftness: {x: 1, y: 1}
+--- !u!114 &11400192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2632c93971d754b85b368bd56a4a9d, type: 3}
+  m_Name: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
