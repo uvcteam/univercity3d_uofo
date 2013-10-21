@@ -73,11 +73,13 @@ public class UserManager : MonoBehaviour
             }
         }
     }
-    public IEnumerator SignIn(string email, string password)
+    public IEnumerator SignIn(string email, string password, int index = -1)
     {
         if (PlayerPrefs.GetInt("loggedIn") == 0)
         {
-            if (Application.platform == RuntimePlatform.WindowsEditor)
+            if (Application.platform == RuntimePlatform.WindowsEditor ||
+			Application.platform == RuntimePlatform.WindowsWebPlayer ||
+			Application.platform == RuntimePlatform.OSXWebPlayer)
             {
                 signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
                 signingInDialog.SetActive(true);
@@ -102,7 +104,9 @@ public class UserManager : MonoBehaviour
         {
             CurrentUser = null;
 
-            if (Application.platform == RuntimePlatform.WindowsEditor)
+            if (Application.platform == RuntimePlatform.WindowsEditor ||
+			Application.platform == RuntimePlatform.WindowsWebPlayer ||
+			Application.platform == RuntimePlatform.OSXWebPlayer)
             {
                 signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
                 exitBtn.SetActive(true);
@@ -129,13 +133,17 @@ public class UserManager : MonoBehaviour
                 PageToDisable.SetActive(false);
             if (signingInDialog != null)
             {
-                if (Application.platform == RuntimePlatform.WindowsEditor)
+                if (Application.platform == RuntimePlatform.WindowsEditor ||
+			Application.platform == RuntimePlatform.WindowsWebPlayer ||
+			Application.platform == RuntimePlatform.OSXWebPlayer)
                     signingInDialog.SetActive(false);
                 else if (Application.platform == RuntimePlatform.Android ||
                      Application.platform == RuntimePlatform.IPhonePlayer)
                     NativeDialogs.Instance.HideProgressDialog();
             }
             StartCoroutine(GetUserCategories());
+			if (index != -1)
+				Application.LoadLevel(index);
             //GameObject.Find("ExitButton").SetActive(false);
         }
 

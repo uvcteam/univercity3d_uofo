@@ -35,7 +35,9 @@ public class BottomMenu : MonoBehaviour
 
     void OnMemoryBankClicked()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor ||
+			Application.platform == RuntimePlatform.WindowsWebPlayer ||
+			Application.platform == RuntimePlatform.OSXWebPlayer)
         {
             if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
             {
@@ -52,14 +54,19 @@ public class BottomMenu : MonoBehaviour
         }
         else if (Application.platform == RuntimePlatform.Android ||
                  Application.platform == RuntimePlatform.IPhonePlayer)
-            if (!CheckLogin()) return;
+		{
+			CheckLogin(4);
+			return;
+		}
 
         Application.LoadLevel(4);
     }
 
     void OnUnionHallClicked()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor ||
+			Application.platform == RuntimePlatform.WindowsWebPlayer ||
+			Application.platform == RuntimePlatform.OSXWebPlayer)
         {
             if (!GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().IsSignedIn())
             {
@@ -75,7 +82,10 @@ public class BottomMenu : MonoBehaviour
         }
         else if (Application.platform == RuntimePlatform.Android ||
                  Application.platform == RuntimePlatform.IPhonePlayer)
-            if (!CheckLogin()) return;
+		{
+			CheckLogin(3);
+			return;
+		}
         Application.LoadLevel(3);
     }
 
@@ -84,25 +94,21 @@ public class BottomMenu : MonoBehaviour
         Application.LoadLevel(5);
     }
 
-    bool CheckLogin()
+    void CheckLogin(int index)
     {
-        UserManager manager = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>();
-        bool cancelled = false;
-        if (manager.IsSignedIn()) return true;
-
-        while (!manager.IsSignedIn() && !cancelled)
-        {
-            NativeDialogs.Instance.ShowLoginPasswordMessageBox("Login Required", "", new string[] { "OK", "Cancel" },
-                                                               false,
-                (string login, string password, string button) =>
-                {
-                    if (button == "OK")
-                        manager.SignIn(login, password);
-                    else
-                        cancelled = true;
-                });
-        }
-
-        return manager.IsSignedIn();
+        GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
+        if (manager.GetComponent<UserManager>().IsSignedIn())
+		{
+			Application.LoadLevel(index);
+			return;
+		}
+		
+        NativeDialogs.Instance.ShowLoginPasswordMessageBox("Login Required", "", new string[] { "Cancel", "OK" },
+                                                           false,
+            (string login, string password, string button) =>
+            {
+                if (button == "OK")
+                    StartCoroutine(manager.GetComponent<UserManager>().SignIn(login, password, index));
+            });
     }
 }

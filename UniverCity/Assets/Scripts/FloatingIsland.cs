@@ -45,23 +45,34 @@ public class FloatingIsland : MonoBehaviour
                         transform.position) <= activationDistance
                     )
                 {
-                    Debug.Log("Clicked.");
                     if (levelIndex == 3 || levelIndex == 4)
                     {
-                        if (!GameObject.FindWithTag("UserManager").GetComponent<UserManager>().CurrentUser.LoggedIn)
-                        {
-                            GameObject modal = Instantiate(Resources.Load("Prefabs/Error Modal", typeof(GameObject))) as GameObject;
-                            modal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("CameraBase"));
-                            modal.GetComponent<Modal>().HideObjects();
-                        }
-                        else
-                        {
-                            myTween.eventReceiver = gameObject;
-                            myTween.to = transform;
-                            myTween.duration = 1.0f;
-                            myTween.Reset();
-                            myTween.Toggle();
-                        }
+				        if (Application.platform == RuntimePlatform.WindowsEditor ||
+							Application.platform == RuntimePlatform.WindowsWebPlayer ||
+							Application.platform == RuntimePlatform.OSXWebPlayer)
+				        {
+	                        if (!GameObject.FindWithTag("UserManager").GetComponent<UserManager>().CurrentUser.LoggedIn)
+	                        {
+	                            GameObject modal = Instantiate(Resources.Load("Prefabs/Error Modal", typeof(GameObject))) as GameObject;
+	                            modal.GetComponent<Modal>().objectsToHide.Add(GameObject.Find("CameraBase"));
+	                            modal.GetComponent<Modal>().HideObjects();
+	                        }
+	                        else
+	                        {
+	                            myTween.eventReceiver = gameObject;
+	                            myTween.to = transform;
+	                            myTween.duration = 1.0f;
+	                            myTween.Reset();
+	                            myTween.Toggle();
+	                        }
+						}
+						
+        				else if (Application.platform == RuntimePlatform.Android ||
+                 		Application.platform == RuntimePlatform.IPhonePlayer)
+						{
+							CheckLogin(levelIndex);
+							return;
+						}
                     }
                     else
                     {
@@ -74,6 +85,24 @@ public class FloatingIsland : MonoBehaviour
                 }
             }
         }
+    }
+
+    void CheckLogin(int index)
+    {
+        GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
+        if (manager.GetComponent<UserManager>().IsSignedIn())
+		{
+			Application.LoadLevel(index);
+			return;
+		}
+		
+        NativeDialogs.Instance.ShowLoginPasswordMessageBox("Login Required", "", new string[] { "Cancel", "OK" },
+                                                           false,
+            (string login, string password, string button) =>
+            {
+                if (button == "OK")
+                    StartCoroutine(manager.GetComponent<UserManager>().SignIn(login, password, index));
+            });
     }
 
     void OnTweenFinished(UITweener tweener)
