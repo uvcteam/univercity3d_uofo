@@ -52,6 +52,7 @@ public class BusinessAd : MonoBehaviour
         transform.localPosition = Vector3.zero;
         side = GameObject.Find("Anchor").GetComponent<UIAnchor>().side;
         GameObject.Find("Anchor").GetComponent<UIAnchor>().side = UIAnchor.Side.Center;
+        MoviePlayer.SetActive(true);
         GameObject.Find("TheMovie").transform.localScale = new Vector3(2256.0f, 1256.0f, 0);
     }
 
@@ -75,9 +76,12 @@ public class BusinessAd : MonoBehaviour
 
     }
 
-    public void Update()
+    public void LateUpdate()
     {
-        GameObject.Find("TheMovie").transform.localScale = new Vector3(2256.0f, 1256.0f, 0);
+        GameObject movie = GameObject.Find("TheMovie");
+
+        if(movie != null)
+            GameObject.Find("TheMovie").transform.localScale = new Vector3(2256.0f, 1256.0f, 0);
 
         if ((Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android) 
             && (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown))

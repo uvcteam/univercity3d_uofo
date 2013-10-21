@@ -69,27 +69,6 @@ public class Page : MonoBehaviour
 			DestroyImmediate(go.GetComponent<UITexture>().mainTexture, true);
 	}
 
-    //public void LateUpdate()
-    //{
-    //    bool touchEnded = false;
-
-    //    for (int i = 0; i < Input.touchCount; ++i)
-    //    {
-    //        if(Input.touches[i].phase == TouchPhase.Ended)
-    //            touchEnded = true;
-    //        else
-    //            touchEnded = false;
-    //    }
-
-    //    if (touchEnded || Input.GetMouseButtonUp(0))
-    //    {
-    //        GameObject businessAd = GameObject.Find("BusinessAd");
-    //        GameObject centerPage = businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().centeredObject;
-    //        if (centerPage == gameObject)
-    //            pageBtn.GetComponent<PageButton>().GoToPage();
-    //    }
-    //}
-
     public void OnPress(bool pressed)
     {
         if (pressed == false)
