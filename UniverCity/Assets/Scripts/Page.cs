@@ -100,6 +100,8 @@ public class Page : MonoBehaviour
 
             if (centerPage != gameObject)
             {
+                if ( GetComponent<VideoHandler>() != null)
+                    GetComponent<VideoHandler>().OnPageLeave();
                 centerPage.GetComponent<Page>().pageBtn.GetComponent<PageButton>().GoToPage();
             }
         }

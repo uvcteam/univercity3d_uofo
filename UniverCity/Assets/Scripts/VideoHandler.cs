@@ -42,7 +42,8 @@ public class VideoHandler : MonoBehaviour
                 PauseButton.SetActive(false);
             }
 
-
+            if (Application.platform == RuntimePlatform.WindowsEditor)
+                transform.FindChild("Texture").gameObject.SetActive(true);
 		}
 	}
 
@@ -102,4 +103,18 @@ public class VideoHandler : MonoBehaviour
 		if (MoviePlayer != null && MoviePlayer.GetComponentInChildren<PlayStreamingMovie>() != null)
 			MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().StopMovie();
 	}
+
+    public void Update()
+    {
+        if (MoviePlayer != null)
+        {
+            GameObject businessAd = GameObject.Find("BusinessAd");
+            GameObject centerPage = businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().centeredObject;
+
+            if (centerPage == gameObject)
+            {
+                MoviePlayer.transform.position = transform.position;
+            }
+        }
+    }
 }
