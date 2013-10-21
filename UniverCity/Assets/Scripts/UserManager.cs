@@ -228,7 +228,10 @@ public class User
     private string name = "";
     private string email = "";
     private string university = "";
-    private List<SocialInterest> categories; 
+    private string pin = "";
+
+    private List<SocialInterest> categories;
+    private List<JournalEntry> journals;
 
     public bool LoggedIn
     {
@@ -260,6 +263,16 @@ public class User
         get { return categories; }
         set { categories = value; }
     }
+    public string PIN
+    {
+        get { return pin; }
+        set { pin = value; }
+    }
+    public List<JournalEntry> Journals
+    {
+        get { return journals; }
+        set { journals = value; }
+    }
 
     public User(Dictionary<string, object> user, string e)
     {
@@ -286,27 +299,33 @@ public class User
         foreach (SocialInterest interest in categories)
             Categories.Add(new SocialInterest(interest));
     }
-
+    public void PopulateJournal(List<object> json)
+    {
+        foreach (Dictionary<string, object> entry in json)
+        {
+            journals.Clear();
+            journals.Add(new JournalEntry(entry["title"] as string,
+                                          entry["entry"] as string,
+                                          entry["ts"] as string));
+        }
+    }
     public bool HasInterest(string name)
     {
         foreach (SocialInterest interest in categories)
             if (interest.Name == name) return true;
         return false;
     }
-
     public bool HasInterest(int id)
     {
         foreach (SocialInterest interest in categories)
             if (interest.Id == id) return true;
         return false;
     }
-
     public void AddInterest(string name, int id)
     {
         if (!HasInterest(id))
             categories.Add(new SocialInterest(id, name));
     }
-
     public void RemoveInterest(string name)
     {
         foreach (SocialInterest interest in categories)
@@ -315,5 +334,36 @@ public class User
                 categories.Remove(interest);
                 return;
             }
+    }
+}
+
+[Serializable]
+public class JournalEntry
+{
+    private string title;
+    private string entry;
+    private DateTime timeStamp;
+
+    public string Title
+    {
+        get { return title; }
+        set { title = value; }
+    }
+    public string Entry
+    {
+        get { return entry; }
+        set { entry = value; }
+    }
+    public DateTime TimeStamp
+    {
+        get { return timeStamp; }
+        set { timeStamp = value; }
+    }
+
+    public JournalEntry(string t, string e, string ts)
+    {
+        title = t;
+        entry = e;
+        timeStamp = DateTime.Parse(ts);
     }
 }
