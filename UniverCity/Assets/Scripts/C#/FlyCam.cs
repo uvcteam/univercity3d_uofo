@@ -106,6 +106,11 @@ public class FlyCam : MonoBehaviour
         transform.position = new Vector3(transform.position.x,
                                          Mathf.Clamp(transform.position.y, minHeight, maxHeight),
                                          transform.position.z);
+	    if (!rigidbody.isKinematic)
+	    {
+	        rigidbody.velocity = Vector3.zero;
+	        rigidbody.angularVelocity = Vector3.zero;
+	    }
 	}
 	
 	Vector3 GetBaseInput()
