@@ -62,7 +62,10 @@ public class PageButton : MonoBehaviour {
                 btn.GetComponent<UIButton>().isEnabled = true;
             }
         }
-
+		GameObject centerPage = businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().centeredObject;
+		if (centerPage != null && centerPage.GetComponent<VideoHandler>() != null)
+			centerPage.GetComponent<VideoHandler>().OnPageLeave();
+		
         if (businessAd.GetComponent<BusinessAd>().hasMegaDeal && businessAd.GetComponent<BusinessAd>().hasMegaDeal)
             businessAd.GetComponent<BusinessAd>().MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
 
@@ -97,7 +100,6 @@ public class PageButton : MonoBehaviour {
             businessAd.GetComponent<BusinessAd>().pageGrid.transform.parent.gameObject.SetActive(false);
             GameObject[] pageBtns = businessAd.GetComponent<BusinessAd>().pageBtns;
             GameObject.Find("BackButton").GetComponent<BackButton>().CacheCurrentPage();
-
             for (int i = 0; i < pageBtns.Length; ++i)
             {
                 if (pageBtns[i].GetComponent<PageButton>().Page != null &&

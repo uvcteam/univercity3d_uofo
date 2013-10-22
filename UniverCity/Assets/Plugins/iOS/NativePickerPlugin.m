@@ -152,10 +152,10 @@ extern void UnitySendMessage(const char *, const char *, const char *);
 
 NSString* createNSString (const char* string);
 NSArray* createArray(const char** array, int num);
-void createPluginIfNeeded();
+void createPickerPluginIfNeeded();
 
 
-static NativePickerPlugin* g_plugin = nil;
+static NativePickerPlugin* p_plugin = nil;
 
 /*
 // Converts C style string to NSString
@@ -177,35 +177,35 @@ NSArray* createArray(const char** array, int num)
     }
     
     return retval;
-}
+ }
+ */
 
-void createPluginIfNeeded()
+void createPickerPluginIfNeeded()
 {
-    if (g_plugin == nil)
-        g_plugin = [[NativePickerPlugin alloc] init];
+    if (p_plugin == nil)
+        p_plugin = [[NativePickerPlugin alloc] init];
 }
-*/
 
 void showPicker(int type, const char** items, int numItems, int64_t selectedItem, int x, int y, int w, int h, const char* gameObject)
 {
-    createPluginIfNeeded();
+    createPickerPluginIfNeeded();
     
     NSLog(@"selected item: %lli", selectedItem);
     
     float scale = [[UIScreen mainScreen] scale];
     CGRect rect = CGRectMake(x/scale, y/scale, w/scale, h/scale);
-    [g_plugin showPicker:type withArray:createArray(items, numItems) andSelectedItem:selectedItem atRect:rect andGameObject:createNSString(gameObject)];
+    [p_plugin showPicker:type withArray:createArray(items, numItems) andSelectedItem:selectedItem atRect:rect andGameObject:createNSString(gameObject)];
 }
 
 void hidePicker()
 {
-    createPluginIfNeeded();
+    createPickerPluginIfNeeded();
     
-    [g_plugin hidePicker];
+    [p_plugin hidePicker];
 }
 
 bool isIphone() {
-    createPluginIfNeeded();
+    createPickerPluginIfNeeded();
     
-    return [g_plugin isIphone];
+    return [p_plugin isIphone];
 }

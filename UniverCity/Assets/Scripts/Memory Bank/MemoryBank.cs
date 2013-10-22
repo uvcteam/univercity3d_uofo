@@ -60,13 +60,15 @@ public class MemoryBank : MonoBehaviour
         }
         else
         {
+			if (Application.platform == RuntimePlatform.IPhonePlayer)
+				NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading journal entries.", false, false);
             manager.GetComponent<UserManager>().CurrentUser.PIN = pin;
             manager.GetComponent<UserManager>().CurrentUser.PopulateJournal(
                 result["entries"] as List<object>);
             topBar.prevPanel = gameObject;
             topBar.currentPanel = EntriesPanel;
             topBar.gameObject.SetActive(true);
-
+			NativeDialogs.Instance.HideProgressDialog();
             EntriesPanel.SetActive(true);
             gameObject.SetActive(false);
         }

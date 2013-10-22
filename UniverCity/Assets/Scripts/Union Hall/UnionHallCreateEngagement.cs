@@ -189,7 +189,11 @@ public class UnionHallCreateEngagement : MonoBehaviour
 
     void OnDateClicked()
     {
-        Rect drawRect = new Rect((Screen.width / 2 + 50), (Screen.height * 0.72f), Screen.height / 3, Screen.width / 4);
+        Rect drawRect;
+		if (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown) 
+			drawRect = new Rect((Screen.width / 2) - (Screen.width * 0.23f), (Screen.height / 2) - (Screen.height * 0.05f), Screen.height / 3, Screen.width / 4);
+		else
+			drawRect = new Rect((Screen.width / 2) - (Screen.width * 0.135f), (Screen.height / 2) - (Screen.height * 0.05f), Screen.height / 3, Screen.width / 4);
         UnionHallEvent eventScript = GameObject.Find("NewEvent").GetComponent<UnionHallEvent>();
         NativePicker.Instance.ShowDatePicker(drawRect, DateTime.Parse(eventDate), (long val) =>
         {
@@ -201,7 +205,11 @@ public class UnionHallCreateEngagement : MonoBehaviour
 	
 	void OnTimeClicked()
 	{
-        Rect drawRect = new Rect((Screen.width / 2 - (50 + Screen.height / 3)), (Screen.height * 0.72f), Screen.height / 3, Screen.width / 4);
+        Rect drawRect;
+		if (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown) 
+			drawRect = new Rect((Screen.width / 2) - (Screen.width * 0.23f), (Screen.height / 2) - (Screen.height * 0.05f), Screen.height / 3, Screen.width / 4);
+		else
+			drawRect = new Rect((Screen.width / 2) - (Screen.width * 0.135f), (Screen.height / 2) - (Screen.height * 0.05f), Screen.height / 3, Screen.width / 4);
         UnionHallEvent eventScript = GameObject.Find("NewEvent").GetComponent<UnionHallEvent>();
         NativePicker.Instance.ShowTimePicker(drawRect, DateTime.Parse(eventTime), (long val) =>
         {

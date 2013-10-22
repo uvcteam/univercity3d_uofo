@@ -20,18 +20,16 @@ public class VideoHandler : MonoBehaviour
 		if(MoviePlayer != null)
 		{
 
-            //MoviePlayer.SetActive(true);
-            MoviePlayer.transform.FindChild("TheMovie").GetComponent<MeshRenderer>().enabled = true;
+            GameObject video = MoviePlayer.transform.FindChild("TheMovie").gameObject;
+			video.transform.localScale = new Vector3(2256.0f, 1256.0f, 0);
+            //GameObject video = GameObject.Find("TheMovie");
+			video.GetComponent<MeshRenderer>().enabled = true;
             VideoButton.SetActive(true);
-            GameObject video = GameObject.Find("TheMovie");
-            //AdManager adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
-            if (video != null)
-                video.transform.localScale = new Vector3(1000.0f, 550.0f, 0.0f);
-
-            if (video.GetComponent<PlayStreamingMovie>().renderer.material.mainTexture != null)
-                GameObject.Find("BusinessAd").GetComponent<BusinessAd>().ScaleVideo(video,
-                    videoHeight, videoWidth);
-
+			
+            
+            GameObject.Find("BusinessAd").GetComponent<BusinessAd>().ScaleVideo(video,
+                videoHeight, videoWidth);
+			
             if (_autoPlayVideo)
             {
                 _autoPlayVideo = false;
@@ -58,10 +56,9 @@ public class VideoHandler : MonoBehaviour
 				_videoPaused = false;
 			}
 			
-            //MoviePlayer.SetActive(false);
-			MoviePlayer.transform.FindChild("TheMovie").GetComponent<MeshRenderer>().enabled = false;
-            VideoButton.SetActive(false);
+			Debug.Log("Moved");
             _playVideo = false;
+			MoviePlayer.transform.position = new Vector3(100.0f, transform.position.y, MoviePlayer.transform.position.z);
         }
 	}
     public void PlayVideoFromURL()
@@ -73,14 +70,12 @@ public class VideoHandler : MonoBehaviour
         {
             if(Application.platform == RuntimePlatform.Android)
                 Handheld.PlayFullScreenMovie(URL, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
-
             else if (Application.platform == RuntimePlatform.IPhonePlayer)
             {
                 Debug.Log("Playing movie.");
                 if (!_videoPaused)
                 {
                     MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().PlayMovie(URL);
-                    //MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().FinishedMovie("PlayVideoFromURL");
                 }
                 else
                     MoviePlayer.GetComponentInChildren<PlayStreamingMovie>().ResumeMovie();
@@ -122,12 +117,24 @@ public class VideoHandler : MonoBehaviour
     void OnEnable()
     {
         if (MoviePlayer != null)
-            MoviePlayer.SetActive(true);
+		{
+            MoviePlayer.transform.FindChild("TheMovie").GetComponent<MeshRenderer>().enabled = true;
+		}
     }
 
     void OnDisable()
     {
         if (MoviePlayer != null)
-            MoviePlayer.SetActive(false);
+		{
+			MoviePlayer.transform.FindChild("TheMovie").GetComponent<MeshRenderer>().enabled = false;
+		}
     }
+	
+	void Awake()
+	{
+		if (MoviePlayer != null)
+		{
+            MoviePlayer.transform.FindChild("TheMovie").GetComponent<MeshRenderer>().enabled = true;
+		}
+	}
 }
