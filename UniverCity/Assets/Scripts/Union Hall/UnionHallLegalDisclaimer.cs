@@ -60,7 +60,7 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
         }
         else
         {
-            Debug.Log("There was an error.");
+            Debug.Log("There was an error: " + createSuccess["reason"].ToString());
         }
     }
 

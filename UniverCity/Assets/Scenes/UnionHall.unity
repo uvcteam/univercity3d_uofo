@@ -16155,8 +16155,8 @@ MonoBehaviour:
   mText: 'You are about to create an engagement in the UniverCity system!
 
 
-    To get started, swipe from right to left. Continue swiping to advance through
-    the creation process.'
+    To get started, please touch the arrow below. Use the arrows to navigate through
+    the process.'
   mMaxLineWidth: 1184
   mMaxLineHeight: 0
   mEncoding: 1

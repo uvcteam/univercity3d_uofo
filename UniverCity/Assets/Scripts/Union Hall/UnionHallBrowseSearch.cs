@@ -102,7 +102,7 @@ public class UnionHallBrowseSearch : MonoBehaviour
             eventDetail.GetComponent<UnionHallEventDetail>().returnTo = gameObject;
             eventDetail.SetActive(true);
             eventDetail.GetComponent<UnionHallEventDetail>().UpdateEvent();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 

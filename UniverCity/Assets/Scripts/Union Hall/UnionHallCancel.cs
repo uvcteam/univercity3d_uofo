@@ -30,7 +30,8 @@ public class UnionHallCancel : MonoBehaviour
 
         foreach (UnionHallEvent ev in manager.events)
         {
-            if (ev.Email == GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Email)
+			Debug.Log (ev.Email);
+            if (ev.Email.ToLower() == GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Email.ToLower())
             {
                 Transform newEvent =
                     Instantiate(eventButton, buttonTransform.position, buttonTransform.rotation) as Transform;
