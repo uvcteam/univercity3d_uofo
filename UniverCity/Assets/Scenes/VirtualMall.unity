@@ -673,7 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -705,11 +705,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 16668.9238
+    e03: 16665.6797
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -2994,7 +2994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -3026,11 +3026,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 3177.5
+    e03: 3174.25391
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -3822,7 +3822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -3854,11 +3854,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 10168.8984
+    e03: 10165.6543
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -4182,11 +4182,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 6677.49902
+    e03: 6674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -4804,11 +4804,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 18168.9102
+    e03: 18165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -4918,7 +4918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -4950,11 +4950,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 6177.50635
+    e03: 6174.26025
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -5380,11 +5380,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 16668.9102
+    e03: 16665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -7017,11 +7017,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 18668.9102
+    e03: 18665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -7358,11 +7358,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 9177.49902
+    e03: 9174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -9549,11 +9549,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 8177.49902
+    e03: 8174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -9607,7 +9607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -9639,11 +9639,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 8677.5127
+    e03: 8674.2666
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33374
+    e13: -1186.95728
     e20: 0
     e21: 0
     e22: 1024
@@ -10618,7 +10618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -10650,11 +10650,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 17168.9238
+    e03: 17165.6797
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -11228,7 +11228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 2
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -11272,11 +11272,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: -825.766479
+    e03: -829.012085
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: 1714.6665
+    e13: 1713.04297
     e20: 0
     e21: 0
     e22: 0
@@ -11758,7 +11758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -11790,11 +11790,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 7677.5127
+    e03: 7674.2666
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -12499,7 +12499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -12531,11 +12531,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 4677.5
+    e03: 4674.25391
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -13392,7 +13392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -13424,11 +13424,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 8177.5127
+    e03: 8174.2666
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -13980,8 +13980,8 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
-  restrictWithinPanel: 0
-  disableDragIfFits: 0
+  restrictWithinPanel: 1
+  disableDragIfFits: 1
   dragEffect: 2
   smoothDragStart: 1
   scale: {x: 1, y: 0, z: 0}
@@ -14013,11 +14013,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 9177.49902
+    e03: 9174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -14607,11 +14607,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 17668.9102
+    e03: 17665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -17116,11 +17116,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 177.499023
+    e03: 174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -17805,11 +17805,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 10668.9102
+    e03: 10665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -18807,7 +18807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -18839,11 +18839,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 14668.9111
+    e03: 14665.667
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -19413,7 +19413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -19445,11 +19445,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 10668.8984
+    e03: 10665.6543
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -20930,11 +20930,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 12168.9102
+    e03: 12165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -20988,7 +20988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -21020,11 +21020,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 9177.5127
+    e03: 9174.2666
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -22086,7 +22086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -22118,11 +22118,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 3677.5
+    e03: 3674.25391
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -22605,7 +22605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -22637,11 +22637,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 11168.8984
+    e03: 11165.6543
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -23535,7 +23535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -23567,11 +23567,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 17668.9238
+    e03: 17665.6797
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -24773,7 +24773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -24805,11 +24805,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 12668.9043
+    e03: 12665.6602
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -25982,7 +25982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -26014,11 +26014,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 2677.49365
+    e03: 2674.24756
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -28509,11 +28509,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: -322.500977
+    e03: -325.74707
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -31123,11 +31123,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 17168.9102
+    e03: 17165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -31708,7 +31708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -31740,11 +31740,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 16168.918
+    e03: 16165.6738
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -31834,11 +31834,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 5177.49902
+    e03: 5174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -31928,11 +31928,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 12668.9102
+    e03: 12665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -34613,11 +34613,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 3177.49902
+    e03: 3174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -34703,11 +34703,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 12168.9043
+    e03: 12165.6602
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -37373,7 +37373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -37405,11 +37405,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 177.487305
+    e03: 174.241211
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -37710,11 +37710,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 7677.49902
+    e03: 7674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -38011,11 +38011,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 11668.9102
+    e03: 11665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -38874,7 +38874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -38906,11 +38906,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 1677.49365
+    e03: 1674.24756
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -39782,11 +39782,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 2677.49902
+    e03: 2674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -40129,11 +40129,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 3677.49902
+    e03: 3674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -43399,11 +43399,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 14168.9102
+    e03: 14165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -43597,11 +43597,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 4177.49902
+    e03: 4174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -43830,7 +43830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -43862,11 +43862,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 677.487305
+    e03: 674.241211
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -44384,7 +44384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -44416,11 +44416,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 5177.5
+    e03: 5174.25391
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -44946,7 +44946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -44978,11 +44978,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 18668.9238
+    e03: 18665.6797
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80115
+    e13: -1186.42395
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -45409,7 +45409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -45441,11 +45441,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 19168.9238
+    e03: 19165.6797
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -45640,11 +45640,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 10168.9102
+    e03: 10165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -45910,7 +45910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -45942,11 +45942,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 15668.9111
+    e03: 15665.667
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -46574,11 +46574,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 15168.9102
+    e03: 15165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -49270,7 +49270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -49302,11 +49302,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 4177.5
+    e03: 4174.25391
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -49434,7 +49434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -49478,11 +49478,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: -322.512695
+    e03: -325.758789
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -52079,7 +52079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -52111,11 +52111,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 15168.9111
+    e03: 15165.667
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -53723,7 +53723,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353330169}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106829}
-  m_LocalPosition: {x: -1365.33337, y: 0, z: 0}
+  m_LocalPosition: {x: -1366.95691, y: 3.24564195, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1569362470}
@@ -54914,11 +54914,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 13668.9102
+    e03: 13665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -55986,11 +55986,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 1677.49902
+    e03: 1674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -56388,7 +56388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -56420,11 +56420,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 9668.89844
+    e03: 9665.6543
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -57526,7 +57526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -57558,11 +57558,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 7177.5127
+    e03: 7174.2666
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -58275,7 +58275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -58307,11 +58307,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 14168.9111
+    e03: 14165.667
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -59806,11 +59806,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 8677.49902
+    e03: 8674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -60569,11 +60569,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 1177.49902
+    e03: 1174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -62344,7 +62344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -62376,11 +62376,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 13168.9111
+    e03: 13165.667
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -62517,11 +62517,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 11168.9102
+    e03: 11165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -65825,7 +65825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -65857,11 +65857,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 11668.9043
+    e03: 11665.6602
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -66778,7 +66778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -66810,11 +66810,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 18168.9238
+    e03: 18165.6797
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -67772,11 +67772,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 2177.49902
+    e03: 2174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -68238,11 +68238,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: -225.765717
+    e03: -229.011353
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -585.333496
+    e13: -586.957031
     e20: 0
     e21: 0
     e22: 1024
@@ -69521,11 +69521,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 4677.49902
+    e03: 4674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -71062,11 +71062,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 9668.91016
+    e03: 9665.66602
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -73189,7 +73189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -73221,11 +73221,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 13668.9111
+    e03: 13665.667
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -73672,7 +73672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -73704,11 +73704,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 1177.4873
+    e03: 1174.24121
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -76128,11 +76128,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 15668.9102
+    e03: 15665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -76171,7 +76171,7 @@ Transform:
   m_PrefabInternal: {fileID: 2070906764}
   m_GameObject: {fileID: 1903288229}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.14339209, y: -1024, z: -754.890747}
+  m_LocalPosition: {x: 0, y: -1022.3772, z: -754.890747}
   m_LocalScale: {x: 1.25, y: 1.25, z: 0}
   m_Children:
   - {fileID: 1996982536}
@@ -76198,11 +76198,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: -1.71471369
+    e03: 0
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 819.200012
+    e13: 817.901794
     e20: 0
     e21: 0
     e22: 0
@@ -76412,7 +76412,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02842fa4878db54f9587ff4de7d9f2d, type: 3}
   m_Name: 
-  draggablePanel: {fileID: 1006060662}
+  draggablePanel: {fileID: 0}
   panel: {fileID: 0}
 --- !u!114 &1906010849
 MonoBehaviour:
@@ -78009,11 +78009,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 6177.49902
+    e03: 6174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -78483,11 +78483,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 13168.9102
+    e03: 13165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -79025,11 +79025,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 677.499023
+    e03: 674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -80049,11 +80049,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 2177.49365
+    e03: 2174.24756
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -80409,11 +80409,11 @@ MonoBehaviour:
     e00: 819.200012
     e01: 0
     e02: 0
-    e03: -1.71471369
+    e03: 0
     e10: 0
     e11: 819.200012
     e12: 0
-    e13: 819.200012
+    e13: 817.901794
     e20: 0
     e21: 0
     e22: 0
@@ -80920,11 +80920,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 19168.9102
+    e03: 19165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -81026,11 +81026,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 5677.49902
+    e03: 5674.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -81408,7 +81408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -81440,11 +81440,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 5677.5
+    e03: 5674.25391
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -82298,11 +82298,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 16168.9102
+    e03: 16165.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -83869,7 +83869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
@@ -83901,11 +83901,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 6677.5127
+    e03: 6674.2666
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33521
+    e13: -1186.95874
     e20: 0
     e21: 0
     e22: 1024
@@ -84096,11 +84096,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.14339209
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1024
+      value: -1022.3772
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: becfac7b91aafce4982870cda3e0c65f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -84319,11 +84319,11 @@ MonoBehaviour:
     e00: -.000122070312
     e01: 1024.00012
     e02: 0
-    e03: 7177.49902
+    e03: 7174.25293
     e10: -1024.00012
     e11: -.000122070312
     e12: 0
-    e13: -1185.33533
+    e13: -1186.95886
     e20: 0
     e21: 0
     e22: 1024
@@ -85578,11 +85578,11 @@ MonoBehaviour:
     e00: -.000122015648
     e01: 1023.54156
     e02: 0
-    e03: 14668.9102
+    e03: 14665.666
     e10: -1023.54156
     e11: -.000122015648
     e12: 0
-    e13: -1184.80273
+    e13: -1186.42554
     e20: 0
     e21: 0
     e22: 1023.54144

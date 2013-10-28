@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81807633ea807d4c8e3fff7e10c6000, type: 3}
   m_Name: 
   restrictWithinPanel: 1
-  disableDragIfFits: 0
+  disableDragIfFits: 1
   dragEffect: 1
   smoothDragStart: 1
   scale: {x: 0, y: 1, z: 0}
