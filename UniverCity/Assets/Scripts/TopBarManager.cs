@@ -9,8 +9,10 @@ public class TopBarManager : MonoBehaviour
 
     void OnBackClicked()
     {
+        transform.Find("Panel").Find("Back").GetComponentInChildren<UILabel>().text = "Go Back";
         if (prevPanel == homePanel)
             gameObject.SetActive(false);
+        
         currentPanel.SetActive(false);
         prevPanel.SetActive(true);
     }

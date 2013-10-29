@@ -53,6 +53,7 @@ public class UnionHallMainMenu : MonoBehaviour
         topBar.prevPanel = gameObject;
         topBar.currentPanel = createEvent;
         topBar.gameObject.SetActive(true);
+        topBar.transform.Find("Panel").Find("Back").GetComponentInChildren<UILabel>().text = "Cancel";
 
         GameObject.Find("PageName").GetComponent<UILabel>().text = "Create Event";
 
