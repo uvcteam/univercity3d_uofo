@@ -117,19 +117,7 @@ public class BusinessAd : MonoBehaviour
         Screen.autorotateToLandscapeRight = true;
 		Screen.orientation = ScreenOrientation.AutoRotation;
 
-        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
-
-        trackURL += adManager.BusinessID;
-        trackURL += "&title=";
-        trackURL += "&event=close";
-        trackURL += "&play_id=" + sessionId;
-
-        if (PlayerPrefs.GetInt("loggedIn") == 1)
-            trackURL += "&token=" +
-                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
-
-        Debug.Log("Sending: " + trackURL);
-        WWW track = new WWW(trackURL);
+        UnivercityTools.TrackUserAction(adManager.BusinessID, "", "close", sessionId.ToString());
 
         GameObject.Find("Anchor").GetComponent<UIAnchor>().side = side;
 	}
@@ -228,19 +216,8 @@ public class BusinessAd : MonoBehaviour
 
         HideObjects();
         sessionId = DateTime.Now.Ticks;
-        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
 
-        trackURL += adManager.BusinessID;
-        trackURL += "&title=";
-        trackURL += "&event=start";
-        trackURL += "&play_id=" + sessionId;
-
-        if (PlayerPrefs.GetInt("loggedIn") == 1)
-            trackURL += "&token=" +
-                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
-
-        Debug.Log("Sending: " + trackURL);
-        WWW track = new WWW(trackURL);
+        UnivercityTools.TrackUserAction(adManager.BusinessID, "", "start", sessionId.ToString());
     }
     private void SetUpPage(AdPage adPage, int pageCount)
     {

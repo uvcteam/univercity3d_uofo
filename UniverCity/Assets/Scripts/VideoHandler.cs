@@ -22,7 +22,6 @@ public class VideoHandler : MonoBehaviour
 
             GameObject video = MoviePlayer.transform.FindChild("TheMovie").gameObject;
 			video.transform.localScale = new Vector3(2256.0f, 1256.0f, 0);
-            //GameObject video = GameObject.Find("TheMovie");
 			video.GetComponent<MeshRenderer>().enabled = true;
             VideoButton.SetActive(true);
 

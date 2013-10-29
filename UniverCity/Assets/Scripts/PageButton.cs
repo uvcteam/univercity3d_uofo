@@ -4,11 +4,14 @@ using System.Collections;
 public class PageButton : MonoBehaviour {
 
     public GameObject Page;
-    GameObject businessAd;
+    private GameObject businessAd;
+    private BackButton backBtn;
+    public bool cachePage = true;
 
     public void Awake()
     {
         businessAd = GameObject.Find("BusinessAd");
+        backBtn = GameObject.Find("BackButton").GetComponent<BackButton>();
     }
 
     public void GoToPage()
@@ -24,28 +27,17 @@ public class PageButton : MonoBehaviour {
         trackURL += businessAd.GetComponent<BusinessAd>().adManager.BusinessID;
         if (Page.name == "Mega Deal")
         {
-            trackURL += "&title=";
-            trackURL += "&event=deal";
+            UnivercityTools.TrackUserAction(null, "", "deal", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
         }
         else if (Page.name == "Members Only")
         {
-            trackURL += "&title=";
-            trackURL += "&event=discount"; 
+            UnivercityTools.TrackUserAction(null, "", "discount", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
         }
         else
         {
-            trackURL += "&title=" + transform.Find("Label").GetComponent<UILabel>().text;
-            trackURL += "&event=click";
+            UnivercityTools.TrackUserAction(null, transform.Find("Label").GetComponent<UILabel>().text,
+                "click", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
         }
-        trackURL += "&play_id=" + businessAd.GetComponent<BusinessAd>().sessionId;
-
-        if (PlayerPrefs.GetInt("loggedIn") == 1)
-            trackURL += "&token=" +
-                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
-		
-        Debug.Log("Sending: " + trackURL);
-        WWW track = new WWW(trackURL);
-
 
         SelectButton();
         businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().Recenter(Page);
@@ -54,6 +46,11 @@ public class PageButton : MonoBehaviour {
 
     public void SelectButton()
     {
+        if (cachePage == true)
+        {
+            backBtn.CacheCurrentPage();
+        }
+
         foreach (GameObject btn in businessAd.GetComponent<BusinessAd>().pageBtns)
         {
             if (btn.GetComponentInChildren<UILabel>() != null)
@@ -62,7 +59,9 @@ public class PageButton : MonoBehaviour {
                 btn.GetComponent<UIButton>().isEnabled = true;
             }
         }
+
 		GameObject centerPage = businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().centeredObject;
+
 		if (centerPage != null && centerPage.GetComponent<VideoHandler>() != null)
 			centerPage.GetComponent<VideoHandler>().OnPageLeave();
 		
@@ -92,14 +91,12 @@ public class PageButton : MonoBehaviour {
         {
             businessAd.GetComponent<BusinessAd>().pageGrid.transform.parent.gameObject.SetActive(false);
             gameObject.SetActive(true);
-            GameObject.Find("BackButton").GetComponent<BackButton>().CacheCurrentPage();
         }
 
         if (Page.name == "Mega Deal")
         {
             businessAd.GetComponent<BusinessAd>().pageGrid.transform.parent.gameObject.SetActive(false);
             GameObject[] pageBtns = businessAd.GetComponent<BusinessAd>().pageBtns;
-            GameObject.Find("BackButton").GetComponent<BackButton>().CacheCurrentPage();
             for (int i = 0; i < pageBtns.Length; ++i)
             {
                 if (pageBtns[i].GetComponent<PageButton>().Page != null &&
@@ -113,10 +110,14 @@ public class PageButton : MonoBehaviour {
             businessAd.GetComponent<BusinessAd>().MegaDealPage.SetActive(false);
         }
 
+
         Page.GetComponent<Page>().OnPageSwitch();
 
         if (Page.GetComponent<VideoHandler>())
             Page.GetComponent<VideoHandler>().OnPageSwitch();
+
+       
+
 
     }
 
