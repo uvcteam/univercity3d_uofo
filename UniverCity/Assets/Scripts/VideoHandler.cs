@@ -25,9 +25,9 @@ public class VideoHandler : MonoBehaviour
             //GameObject video = GameObject.Find("TheMovie");
 			video.GetComponent<MeshRenderer>().enabled = true;
             VideoButton.SetActive(true);
-			
-            
-            GameObject.Find("BusinessAd").GetComponent<BusinessAd>().ScaleVideo(video,
+
+
+            UnivercityTools.ScaleVideo(video,
                 videoHeight, videoWidth);
 			
             if (_autoPlayVideo)

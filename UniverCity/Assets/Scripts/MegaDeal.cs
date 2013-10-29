@@ -21,4 +21,15 @@ public class MegaDeal : MonoBehaviour
 
         Application.OpenURL(url);
     }
+
+    public void InitComponents(AdData adInfo)
+    {
+        Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
+        End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
+        List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
+        Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
+        Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
+        GetComponent<Page>().narratorTexture = adInfo.Expert.Image;
+        megaDealColor = adInfo.Background.TopColor;
+    }
 }

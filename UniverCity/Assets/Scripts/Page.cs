@@ -9,9 +9,9 @@ public class Page : MonoBehaviour
     public Texture2D narratorTexture = null;
     public string speechBubbleText = "";
     public GameObject detailsPage;
-    public string title = "Details";
-	public Color pageColor = Color.white;
     public GameObject pageBtn;
+    public BusinessAd businessAd;
+    public AdPage adPage;
 
 	// Use this for initialization
 	void Start () 
@@ -23,22 +23,29 @@ public class Page : MonoBehaviour
         else
             transform.localPosition = new Vector3(150, 0, -300);
 
-        GameObject.Find("BusinessAd").GetComponent<BusinessAd>().background.GetComponent<UISlicedSprite>().color = pageColor;
+        if (gameObject != businessAd.MegaDealPage)
+            businessAd.background.GetComponent<UISlicedSprite>().color = adPage.Background.TopColor;
+        else
+            businessAd.background.GetComponent<UISlicedSprite>().color = businessAd.MegaDealPage.GetComponent<MegaDeal>().megaDealColor;
 	}
 
     public void OnPageSwitch()
     {
 
-        GameObject businessAd = GameObject.Find("BusinessAd");
         GameObject detailsBtn;
-        GameObject narrator = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().narrator;
-        detailsBtn = GameObject.Find("BusinessAd").GetComponent<BusinessAd>().detailsBtn;
+        GameObject narrator = businessAd.narrator;
+        detailsBtn = businessAd.detailsBtn;
+
+        if (gameObject != businessAd.MegaDealPage)
+            businessAd.background.GetComponent<UISlicedSprite>().color = adPage.Background.TopColor;
+        else
+            businessAd.background.GetComponent<UISlicedSprite>().color = businessAd.MegaDealPage.GetComponent<MegaDeal>().megaDealColor;
 
         if (detailsPage != null)
         {
             detailsBtn.SetActive(true);
             detailsBtn.GetComponent<PageButton>().Page = detailsPage;
-            detailsBtn.gameObject.GetComponentInChildren<UILabel>().text = detailsPage.GetComponent<Page>().title;
+            detailsBtn.gameObject.GetComponentInChildren<UILabel>().text = detailsPage.GetComponent<Page>().adPage.Title;
         }
         else
             detailsBtn.SetActive(false);
@@ -47,8 +54,8 @@ public class Page : MonoBehaviour
             narrator.GetComponentInChildren<UITexture>().mainTexture = narratorTexture;
         else
         {
-            businessAd.GetComponent<BusinessAd>().narrator.SetActive(true);
-            businessAd.GetComponent<BusinessAd>().ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
+            businessAd.narrator.SetActive(true);
+            UnivercityTools.ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
         }
 
         if (speechBubbleText == "")
@@ -73,8 +80,7 @@ public class Page : MonoBehaviour
     {
         if (pressed == false)
         {
-            GameObject businessAd = GameObject.Find("BusinessAd");
-            businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().Recenter();
+            businessAd.pageGrid.GetComponent<UICenterOnChild>().Recenter();
             GameObject centerPage = businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().centeredObject;
 
             if (centerPage != gameObject)
@@ -83,6 +89,56 @@ public class Page : MonoBehaviour
                     GetComponent<VideoHandler>().OnPageLeave();
                 centerPage.GetComponent<Page>().pageBtn.GetComponent<PageButton>().GoToPage();
             }
+        }
+    }
+
+    public void InitComponents(AdPage adPage, BusinessAd businessAd, int pageCount)
+    {
+        this.adPage = adPage;
+        this.businessAd = businessAd;
+        pageBtn = GameObject.Find("pageBtn" + pageCount);
+        pageBtn.SetActive(true);
+        pageBtn.GetComponent<PageButton>().Page = gameObject;
+        pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
+
+        for (int i = 0; i < adPage.Parts.Count && i < images.Length; ++i)
+        {
+            if (adPage.Parts[i].Type == MediaType.Image)
+                UnivercityTools.ScaleImage(images[i], adPage.Parts[i].Image);
+        }   
+
+        foreach (AdMedia media in adPage.Parts)
+        {
+            if (media.Type == MediaType.Video)
+            {
+                GetComponent<VideoHandler>().MoviePlayer = businessAd.MoviePlayer;
+                GetComponent<VideoHandler>().URL = media.VideoURL;
+                GetComponent<VideoHandler>().videoHeight = media.Height;
+                GetComponent<VideoHandler>().videoWidth = media.Width;
+                GetComponent<VideoHandler>().VideoButton.SetActive(true);
+
+                if (GetComponentInChildren<UITexture>() != null)
+                    GetComponentInChildren<UITexture>().gameObject.SetActive(false);
+            }
+        }
+        if (adPage.More != null)
+        {
+            detailsPage = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + businessAd.pageDictionary[adPage.More.Type], typeof(GameObject)));
+            detailsPage.transform.parent = businessAd.gameObject.transform;
+            detailsPage.GetComponent<Page>().businessAd = businessAd;
+            detailsPage.GetComponent<Page>().adPage = adPage.More;
+
+            for (int i = 0; i < adPage.More.Parts.Count && i < images.Length; ++i)
+            {
+                if (adPage.More.Parts[i].Type == MediaType.Image)
+                    UnivercityTools.ScaleImage(detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
+            }
+
+            detailsPage.SetActive(false);
+
+            businessAd.SetUpNarratorForPage(detailsPage.GetComponent<Page>(), adPage.More);
+
+            businessAd.Pages.Add(detailsPage);
         }
     }
 

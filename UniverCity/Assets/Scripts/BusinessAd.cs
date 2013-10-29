@@ -24,9 +24,10 @@ public class BusinessAd : MonoBehaviour
     public bool hasMegaDeal = false;
     public bool hasMembersOnly = false;
     public long sessionId = 0;
+    public IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
 
-    private List<GameObject> _pages = new List<GameObject>();
-    private IDictionary<AdPageType, string> pageDictionary = new Dictionary<AdPageType, string>();
+    public List<GameObject> Pages = new List<GameObject>();
+
     private int numPateBtn = 4;
     private UIAnchor.Side side = UIAnchor.Side.Left;
 
@@ -41,7 +42,6 @@ public class BusinessAd : MonoBehaviour
 
     void OnEnable()
     {
-        //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = false;
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
@@ -57,7 +57,6 @@ public class BusinessAd : MonoBehaviour
 
     void Awake()
     {
-        //GameObject.Find("Camera").GetComponent<UICamera>().stickyPress = false;
 		narrator = GameObject.Find("Narrator");
         transform.parent = GameObject.Find("Anchor").transform;
         transform.localScale = new Vector3(1, 1, 1);
@@ -89,12 +88,12 @@ public class BusinessAd : MonoBehaviour
 
         ShowObjects();
 
-        foreach (GameObject page in _pages)
+        foreach (GameObject page in Pages)
 		{
 			page.GetComponent<Page>().Purge();
             DestroyImmediate(page);
 		}
-		_pages.Clear();
+		Pages.Clear();
 		
         foreach (GameObject page in GameObject.FindGameObjectsWithTag("Page"))
         {
@@ -219,7 +218,7 @@ public class BusinessAd : MonoBehaviour
             else
                 detailsBtn.SetActive(false);
 
-            ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
+            UnivercityTools.ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
             narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
             pageGrid.GetComponent<UIGrid>().repositionNow = true;
@@ -245,174 +244,35 @@ public class BusinessAd : MonoBehaviour
     }
     private void SetUpPage(AdPage adPage, int pageCount)
     {
-        GameObject pageBtn;
-        Page page;
         GameObject pageObject = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.Type], typeof(GameObject)));
-        page = pageObject.GetComponent<Page>();
+
         pageObject.transform.parent = pageGrid.transform;
 
+        Page page = pageObject.GetComponent<Page>();
 
-        for (int i = 0; i < adPage.Parts.Count && i < page.images.Length; ++i)
-        {
-            if (adPage.Parts[i].Type == MediaType.Image)
-                ScaleImage(page.images[i], adPage.Parts[i].Image);
-        }
-
-        pageBtn = GameObject.Find("pageBtn" + pageCount);
-        pageBtn.SetActive(true);
-        pageBtn.GetComponent<PageButton>().Page = pageObject;
-        page.pageBtn = pageBtn;
-        pageBtn.gameObject.GetComponentInChildren<UILabel>().text = adPage.Title;
-        page.title = adPage.Title;
-		page.pageColor = adPage.Background.TopColor;
-
-        foreach (AdMedia media in adPage.Parts)
-        {
-            if (media.Type == MediaType.Video)
-                //&& (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android))
-            {
-				pageObject.GetComponent<VideoHandler>().MoviePlayer = MoviePlayer;
-                pageObject.GetComponent<VideoHandler>().URL = media.VideoURL;
-				pageObject.GetComponent<VideoHandler>().videoHeight = media.Height;
-				pageObject.GetComponent<VideoHandler>().videoWidth = media.Width;
-                pageObject.GetComponent<VideoHandler>().VideoButton.SetActive(true);
-
-                if (pageObject.GetComponentInChildren<UITexture>() != null)
-                    pageObject.GetComponentInChildren<UITexture>().gameObject.SetActive(false);
-            }
-        }
-        if (adPage.More != null)
-        {
-            page.detailsPage = (GameObject)Instantiate(Resources.Load("Prefabs/Ad Player/" + pageDictionary[adPage.More.Type], typeof(GameObject)));
-            page.detailsPage.transform.parent = gameObject.transform;
-            page.detailsPage.GetComponent<Page>().title = adPage.More.Title;
-
-            for (int i = 0; i < adPage.More.Parts.Count && i < page.images.Length; ++i)
-            {
-                if (adPage.More.Parts[i].Type == MediaType.Image)
-                    ScaleImage(page.detailsPage.GetComponent<Page>().images[i], adPage.More.Parts[i].Image);
-            }
-
-            page.detailsPage.SetActive(false);
-
-            SetUpNarratorForPage(page.detailsPage.GetComponent<Page>(), adPage.More);
-			page.detailsPage.GetComponent<Page>().pageColor = adPage.More.Background.TopColor;
-
-            _pages.Add(page.detailsPage);
-        }
+        page.InitComponents(adPage, this, pageCount);
 
         SetUpNarratorForPage(page, adPage);
 
-        //if (pageCount > 1)
-        //    pageObject.SetActive(false);
-
-        _pages.Add(pageObject);
+        Pages.Add(pageObject);
     }
 
     private void SetUpMegaDeal(AdData adInfo)
     {
+        MegaDealPage.GetComponent<Page>().businessAd = this;
         hasMegaDeal = true;
         MegaDealBtn.SetActive(true);
         MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
         MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
-        megaDeal.Description.GetComponent<UILabel>().text = adInfo.Mega.Description;
-        megaDeal.End.GetComponent<UILabel>().text = "Hurry! Deal ends " + adInfo.Mega.End;
-        megaDeal.List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
-        megaDeal.Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
-        megaDeal.Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
-        MegaDealPage.GetComponent<Page>().pageColor = adInfo.Background.TopColor;
-        MegaDealPage.GetComponent<Page>().narratorTexture = adInfo.Expert.Image;
+        megaDeal.InitComponents(adInfo);
     }
 
-    public void ScaleImage(GameObject destination, Texture2D source)
-    {
-        float newWidth = (destination.transform.localScale.y / source.height) * source.width;
-        float newHeight = (destination.transform.localScale.x / source.width) * source.height;
-
-        if (source.width > source.height)
-        {
-            if (newHeight > destination.transform.localScale.y)
-            {
-                destination.transform.localScale = new Vector3(
-                    newWidth,
-                    destination.transform.localScale.y,
-                    0.0f);
-            }
-            else
-            {
-                destination.transform.localScale = new Vector3(
-                    destination.transform.localScale.x,
-                    newHeight,
-                    0.0f);
-            }
-        }
-        else
-        {
-            if (newWidth > destination.transform.localScale.x)
-            {
-                destination.transform.localScale = new Vector3(
-                    destination.transform.localScale.x,
-                    newHeight,
-                    0.0f);
-            }
-            else
-            {
-                destination.transform.localScale = new Vector3(
-                    newWidth,
-                    destination.transform.localScale.y,
-                    0.0f);
-            }
-        }
-
-        destination.GetComponent<UITexture>().mainTexture = source;
-    }
-
-    private void SetUpNarratorForPage(Page page, AdPage adPage)
+    public void SetUpNarratorForPage(Page page, AdPage adPage)
     {
         page.narratorTexture = adPage.Expert.Image;
         page.speechBubbleText = adPage.Narrative;
     }
-	public void ScaleVideo(GameObject destination, int height, int width)
-    {
-        float newWidth = (destination.transform.localScale.y / height) * width;
-        float newHeight = (destination.transform.localScale.x / width) * height;
-
-        if (width > height)
-        {
-            if (newHeight > destination.transform.localScale.y)
-            {
-                destination.transform.localScale = new Vector3(
-                    newWidth,
-                    destination.transform.localScale.y,
-                    0.0f);
-            }
-            else
-            {
-                destination.transform.localScale = new Vector3(
-                    destination.transform.localScale.x,
-                    newHeight,
-                    0.0f);
-            }
-        }
-        else
-        {
-            if (newWidth > destination.transform.localScale.x)
-            {
-                destination.transform.localScale = new Vector3(
-                    destination.transform.localScale.x,
-                    newHeight,
-                    0.0f);
-            }
-            else
-            {
-                destination.transform.localScale = new Vector3(
-                    newWidth,
-                    destination.transform.localScale.y,
-                    0.0f);
-            }
-        }
-
-    }
+	
 
     public void MovieFinished()
     {
