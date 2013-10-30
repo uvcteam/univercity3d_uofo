@@ -133,10 +133,10 @@ public class BusinessAd : MonoBehaviour
 		bool isDesktop = Application.platform == RuntimePlatform.WindowsWebPlayer || 
 			Application.platform == RuntimePlatform.OSXWebPlayer || Application.platform == RuntimePlatform.WindowsEditor ||
             Application.platform == RuntimePlatform.OSXEditor;
-		
-		if (isDesktop || Screen.orientation == ScreenOrientation.Landscape)
-        	loadingDialog.SetActive(true);
-		
+
+        if (isDesktop || Screen.orientation == ScreenOrientation.Landscape)
+            loadingDialog.SetActive(true);
+
         StartCoroutine(adManager.GetAd(businessID));
 
         while (!adManager.adReady)
@@ -194,6 +194,7 @@ public class BusinessAd : MonoBehaviour
                 MegaDealBtn.GetComponent<UIButton>().isEnabled = false;
                 hasMegaDeal = false;
             }
+
             //Make first page the defualt
             for (int i = pageCount; i <= numPateBtn; ++i) //disable unused buttons
                 GameObject.Find("pageBtn" + i).SetActive(false);
@@ -214,8 +215,8 @@ public class BusinessAd : MonoBehaviour
             pageGrid.GetComponent<UIGrid>().repositionNow = true;
             pageGrid.GetComponent<UIGrid>().Reposition();
             pageBtns[0].GetComponent<PageButton>().GoToPage();
-        }
 
+        }
         HideObjects();
         sessionId = DateTime.Now.Ticks;
 

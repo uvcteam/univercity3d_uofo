@@ -107,6 +107,7 @@ public class PageButton : MonoBehaviour {
             }
 
         }
+
         else
         {
             businessAd.GetComponent<BusinessAd>().MegaDealPage.SetActive(false);
@@ -116,10 +117,7 @@ public class PageButton : MonoBehaviour {
         Page.GetComponent<Page>().OnPageSwitch();
 
         if (Page.GetComponent<VideoHandler>())
-            Page.GetComponent<VideoHandler>().OnPageSwitch();
-
-       
-
+            StartCoroutine(Page.GetComponent<VideoHandler>().OnPageSwitch());
 
     }
 

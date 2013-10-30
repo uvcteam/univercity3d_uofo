@@ -21,6 +21,8 @@ public class VirtualMallCreature : MonoBehaviour
 
     public IEnumerator Present()
     {
+        yield return new WaitForSeconds(1.0f); //Wait for ad to render images to prevent lag.
+
         IsDone = false;
         transform.position = startPosition;
         transform.rotation = Quaternion.Euler(0.0f, 270.0f, 0.0f);

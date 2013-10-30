@@ -15,7 +15,7 @@ public class VideoHandler : MonoBehaviour
 	public int videoWidth = 0;
 
 
-    public void OnPageSwitch()
+    public IEnumerator OnPageSwitch()
 	{
 		if(MoviePlayer != null)
 		{
@@ -32,6 +32,12 @@ public class VideoHandler : MonoBehaviour
             if (_autoPlayVideo)
             {
                 _autoPlayVideo = false;
+
+                VirtualMallCreature creature = GameObject.Find("Creature").GetComponent<VirtualMallCreature>();
+
+                while(creature.IsDone == false)
+                    yield return null;
+
                 PlayVideoFromURL();
             }
             else
