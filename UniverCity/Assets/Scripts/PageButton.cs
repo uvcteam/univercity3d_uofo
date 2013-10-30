@@ -5,7 +5,7 @@ public class PageButton : MonoBehaviour {
 
     public GameObject Page;
     private GameObject businessAd;
-    private BackButton backBtn;
+    public BackButton backBtn;
     public bool cachePage = true;
 
     public void Awake()
@@ -96,7 +96,9 @@ public class PageButton : MonoBehaviour {
         if (Page.name == "Mega Deal")
         {
             businessAd.GetComponent<BusinessAd>().pageGrid.transform.parent.gameObject.SetActive(false);
+
             GameObject[] pageBtns = businessAd.GetComponent<BusinessAd>().pageBtns;
+
             for (int i = 0; i < pageBtns.Length; ++i)
             {
                 if (pageBtns[i].GetComponent<PageButton>().Page != null &&

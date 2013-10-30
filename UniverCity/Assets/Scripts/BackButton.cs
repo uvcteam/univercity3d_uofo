@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,9 +33,13 @@ public class BackButton : MonoBehaviour {
         {
             Debug.Log("Poped " + prevPages.Peek().adPage.Title);
             Page prevPage = prevPages.Pop();
-            prevPage.pageBtn.GetComponent<PageButton>().cachePage = false;
-            prevPage.pageBtn.GetComponent<PageButton>().GoToPage();
-            prevPage.pageBtn.GetComponent<PageButton>().cachePage = true;
+
+            if (prevPage.pageBtn != null)
+            {
+                prevPage.pageBtn.GetComponent<PageButton>().cachePage = false;
+                prevPage.pageBtn.GetComponent<PageButton>().GoToPage();
+                prevPage.pageBtn.GetComponent<PageButton>().cachePage = true;
+            }
         }
 
     }
@@ -43,8 +48,13 @@ public class BackButton : MonoBehaviour {
     {
         if (businessAd.pageGrid.GetComponent<UICenterOnChild>().centeredObject != null)
         {
-            Debug.Log("Cached");
+            Debug.Log("Cached " + businessAd.pageGrid.GetComponent<UICenterOnChild>().centeredObject.GetComponent<Page>().adPage.Title);
             prevPages.Push(businessAd.pageGrid.GetComponent<UICenterOnChild>().centeredObject.GetComponent<Page>());
         }
+    }
+
+    public void CachePage(Page page)
+    {
+        prevPages.Push((page));
     }
 }

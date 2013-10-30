@@ -83,12 +83,15 @@ public class Page : MonoBehaviour
             businessAd.pageGrid.GetComponent<UICenterOnChild>().Recenter();
             GameObject centerPage = businessAd.GetComponent<BusinessAd>().pageGrid.GetComponent<UICenterOnChild>().centeredObject;
 
-            if (centerPage != gameObject)
-            {
-                if ( GetComponent<VideoHandler>() != null)
-                    GetComponent<VideoHandler>().OnPageLeave();
-                centerPage.GetComponent<Page>().pageBtn.GetComponent<PageButton>().GoToPage();
-            }
+
+            if ( GetComponent<VideoHandler>() != null)
+                GetComponent<VideoHandler>().OnPageLeave();
+
+            //When scrolling, the page needs to cache itself so caching is disabled in GoToPage
+            pageBtn.GetComponent<PageButton>().backBtn.CachePage(this);
+            centerPage.GetComponent<Page>().pageBtn.GetComponent<PageButton>().cachePage = false;
+            centerPage.GetComponent<Page>().pageBtn.GetComponent<PageButton>().GoToPage();
+            centerPage.GetComponent<Page>().pageBtn.GetComponent<PageButton>().cachePage = true;
         }
     }
 
@@ -127,6 +130,7 @@ public class Page : MonoBehaviour
             detailsPage.transform.parent = businessAd.gameObject.transform;
             detailsPage.GetComponent<Page>().businessAd = businessAd;
             detailsPage.GetComponent<Page>().adPage = adPage.More;
+            detailsPage.GetComponent<Page>().pageBtn = businessAd.detailsBtn;
 
             for (int i = 0; i < adPage.More.Parts.Count && i < images.Length; ++i)
             {

@@ -45,6 +45,8 @@ public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 		if (Application.platform == RuntimePlatform.OSXEditor) {
 			playMovie=true;
 		}
+
+        NativeDialogs.Instance.ShowProgressDialog("Please wait.", "Loading Video", false, false);
 	}
 	
 	[DllImport("__Internal")]
@@ -105,6 +107,7 @@ public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 			streamEarly=true;
 		} else {
 			playMovie = true; // only play once stream is ready.
+            NativeDialogs.Instance.HideProgressDialog();
 		}
 	}
 	

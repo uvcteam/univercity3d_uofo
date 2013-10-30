@@ -93,6 +93,7 @@ public class BusinessAd : MonoBehaviour
 			page.GetComponent<Page>().Purge();
             DestroyImmediate(page);
 		}
+
 		Pages.Clear();
 		
         foreach (GameObject page in GameObject.FindGameObjectsWithTag("Page"))
@@ -186,6 +187,7 @@ public class BusinessAd : MonoBehaviour
             if (adInfo.Mega != null)
             {
                 SetUpMegaDeal(adInfo);
+                StartCoroutine(GameObject.Find("Creature").GetComponent<VirtualMallCreature>().Present());
             }
             else
             {
@@ -218,7 +220,6 @@ public class BusinessAd : MonoBehaviour
         sessionId = DateTime.Now.Ticks;
 
         UnivercityTools.TrackUserAction(adManager.BusinessID, "", "start", sessionId.ToString());
-        StartCoroutine(GameObject.Find("Creature").GetComponent<VirtualMallCreature>().Present());
     }
     private void SetUpPage(AdPage adPage, int pageCount)
     {
@@ -243,6 +244,7 @@ public class BusinessAd : MonoBehaviour
         MegaDealBtn.GetComponent<UIButton>().isEnabled = true;
         MegaDeal megaDeal = MegaDealPage.GetComponent<MegaDeal>();
         megaDeal.InitComponents(adInfo);
+        MegaDealPage.GetComponent<Page>().pageBtn = MegaDealBtn;
     }
 
     public void SetUpNarratorForPage(Page page, AdPage adPage)

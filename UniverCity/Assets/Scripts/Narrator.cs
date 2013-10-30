@@ -13,7 +13,6 @@ public class Narrator : MonoBehaviour
         _toggle = !_toggle;
 
         speechBubbleObject.SetActive(_toggle);
-		Debug.Log("Herp");
 
     }
 }
