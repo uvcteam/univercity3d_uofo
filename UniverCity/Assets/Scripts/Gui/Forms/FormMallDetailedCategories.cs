@@ -101,6 +101,10 @@ public class FormMallDetailedCategories : MonoBehaviour
                 theCategories[6] = "Ticket Sales";
                 theCategories[7] = "Wineries";
                 break;
+            case eMallSubcategory.AAE_Samples:
+                theCategories = new string[1];
+                theCategories[0] = "Advertising Samples";
+                break;
             case eMallSubcategory.FDD_Restaurants:
                 theCategories = new string[15];
                 theCategories[0] = "American";

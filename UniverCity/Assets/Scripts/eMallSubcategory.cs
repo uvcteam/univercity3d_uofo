@@ -6,6 +6,7 @@ public enum eMallSubcategory
     AAE_FunStuff,
     AAE_Howlin,
     AAE_Upscale,
+    AAE_Samples,
     FDD_CoffeeTeaJuice,
     FDD_NowFood,
     FDD_Restaurants,
