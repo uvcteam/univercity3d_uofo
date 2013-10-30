@@ -5160,7 +5160,8 @@ MonoBehaviour:
   - {fileID: 100090}
   - {fileID: 100050}
   MyUiLabel: {fileID: 11400088}
-  MyString: It looks like they have a mega deal and a member's only discount!
+  MyString: It looks like they have a mega deal!
+  IsDone: 0
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

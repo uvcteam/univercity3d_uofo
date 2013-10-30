@@ -65,4 +65,10 @@ public class VirtualMallCreature : MonoBehaviour
         IsDone = true;
         yield return null;
     }
+	
+	void OnDisable()
+	{
+        transform.position = startPosition;
+        transform.rotation = Quaternion.Euler(0.0f, 270.0f, 0.0f);
+	}
 }
