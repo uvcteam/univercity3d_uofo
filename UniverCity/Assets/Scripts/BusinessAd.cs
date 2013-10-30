@@ -218,6 +218,7 @@ public class BusinessAd : MonoBehaviour
         sessionId = DateTime.Now.Ticks;
 
         UnivercityTools.TrackUserAction(adManager.BusinessID, "", "start", sessionId.ToString());
+        StartCoroutine(GameObject.Find("Creature").GetComponent<VirtualMallCreature>().Present());
     }
     private void SetUpPage(AdPage adPage, int pageCount)
     {
