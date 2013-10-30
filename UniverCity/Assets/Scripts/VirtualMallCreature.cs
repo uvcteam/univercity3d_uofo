@@ -10,6 +10,7 @@ public class VirtualMallCreature : MonoBehaviour
     public List<GameObject> objectsToShow;
     public UILabel MyUiLabel = null;
     public string MyString = "";
+    public bool IsDone = false;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +21,7 @@ public class VirtualMallCreature : MonoBehaviour
 
     public IEnumerator Present()
     {
+        IsDone = false;
         transform.position = startPosition;
         transform.rotation = Quaternion.Euler(0.0f, 270.0f, 0.0f);
         string backup = MyUiLabel.text;
@@ -59,7 +61,7 @@ public class VirtualMallCreature : MonoBehaviour
             transform.Translate(Vector3.forward * Time.deltaTime * velocity);
             yield return new WaitForEndOfFrame();
         }
-
+        IsDone = true;
         yield return null;
     }
 }
