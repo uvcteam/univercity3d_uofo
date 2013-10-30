@@ -86,6 +86,7 @@ public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 				MakeTextures(textureWidth,textureHeight);
 				print("Textures " + textureWidth + " " + textureHeight);
 				setTiling(1.0f);
+			    NativeDialogs.Instance.HideProgressDialog();
 			}
 		}
 		if(streamEarly) {
@@ -107,7 +108,6 @@ public class PlayStreamingMovie : PlayHardwareMovieClassPro {
 			streamEarly=true;
 		} else {
 			playMovie = true; // only play once stream is ready.
-            NativeDialogs.Instance.HideProgressDialog();
 		}
 	}
 	
