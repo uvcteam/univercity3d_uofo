@@ -187,11 +187,13 @@ public class BusinessAd : MonoBehaviour
             if (adInfo.Mega != null)
             {
                 SetUpMegaDeal(adInfo);
+                MegaDealBtn.SetActive(false);
                 StartCoroutine(GameObject.Find("Creature").GetComponent<VirtualMallCreature>().Present());
             }
             else
             {
-                MegaDealBtn.GetComponent<UIButton>().isEnabled = false;
+                GameObject.Find("Creature").GetComponent<VirtualMallCreature>().IsDone = true;
+                MegaDealBtn.SetActive(false);
                 hasMegaDeal = false;
             }
 
