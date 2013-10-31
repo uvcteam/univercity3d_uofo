@@ -55,6 +55,7 @@ public class Page : MonoBehaviour
         else
         {
             businessAd.narrator.SetActive(true);
+            narrator.GetComponent<Narrator>().texture.transform.localScale = new Vector3(400.0f,400.0f,0.0f);
             UnivercityTools.ScaleImage(narrator.GetComponent<Narrator>().texture, narratorTexture);
         }
 
