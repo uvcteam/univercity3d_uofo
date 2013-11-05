@@ -1,0 +1,30 @@
+#!/bin/bash
+
+function check_udev {
+	ldconfig -p | grep libudev.so.0 > /dev/null
+	return $?
+}
+
+
+HOST_DIR=`dirname "$0"`
+if [ -n "$LD_LIBRARY_PATH" ]
+then
+	export LD_LIBRARY_PATH="$HOST_DIR":$LD_LIBRARY_PATH
+else
+	export LD_LIBRARY_PATH="$HOST_DIR"
+fi
+
+if ! (check_udev || [ -e "$HOST_DIR/libudev.so.0" ] )
+then
+	UDEV_SO=`ldconfig -p | grep libudev | sed -e 's/.*=>\s*//'`
+	if [ -e "$UDEV_SO" ]
+	then
+		ln -s "$UDEV_SO" "$HOST_DIR/libudev.so.0"
+	else
+		echo "Could not find libudev."
+	fi
+fi
+
+exec -a "$0" "$HOST_DIR/CoherentUI_Host.bin" "$@"
+
+
