@@ -147,7 +147,7 @@ html, button, input, select, textarea {
 body { margin: 0; font-size: 13px; line-height: 1.6; overflow: hidden;}
 
 .container {
-  overflow: hidden;
+  overflow-y: scroll;
   height: 70%;
   position: absolute;
   top: 20%;
