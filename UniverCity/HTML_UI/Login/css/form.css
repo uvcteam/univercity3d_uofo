@@ -1,0 +1,266 @@
+/*----------------------------
+	The Form
+-----------------------------*/
+#main{
+	width:50%;
+	position:relative;
+	text-align:center;
+}
+
+#main form{
+	width:100%;
+	height:250px;
+	padding-top: 25px;
+}
+
+#main form .row{
+	position:relative;
+}
+
+#main form .row.error:after,
+#main form .row.success:after{
+	content:'';
+	
+	position:absolute;
+	right: 60px;
+    top: 8px;
+	width:32px;
+	height:32px;
+	background:url('http://i38.tinypic.com/33c4s9c.png') no-repeat;
+}
+
+#main form .row.error:after{
+	background-position: 0 -79px;
+}
+
+#main form input[type=email],
+#main form input[type=password]{
+
+	border:none;
+	background:url('../images/form_back.png') no-repeat top left;
+	font:14px 'Segoe UI','Arial',sans-serif;
+	color:#888;
+	
+	outline:none;
+	
+    height: 48px;
+    margin: 0 auto 22px;
+    padding: 0 10px 0 50px;
+    width: 350px;
+}
+
+#main form input[disabled]{
+	opacity: 0.5;
+}
+
+#main form .email input{
+	background-position:0 0;
+}
+
+#main form .email input:focus{
+	background-position:0 -48px;
+}
+
+#main form .pass input{
+	background-position:0 -96px;
+}
+
+#main form .pass input:focus{
+	background-position:0 -144px;
+}
+
+
+/*----------------------------
+	The Submit Button
+-----------------------------*/
+#main form input[type=submit]{
+	
+	border: 1px solid #004C9B;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 1px rgba(0, 0, 0, 0.3);
+    color: #D3EBFF;
+    cursor: pointer;
+    display: block;
+    font: bold 24px Cambria,"Hoefler Text",serif;
+    margin: auto;
+    padding: 10px;
+    text-shadow: 0 -1px 0 #444444;
+    width: 50%;
+    
+	background-color:#0496DA;
+	
+	background-image: linear-gradient(top, #0496DA 0%, #0067CD 100%);
+	background-image: -o-linear-gradient(top, #0496DA 0%, #0067CD 100%);
+	background-image: -moz-linear-gradient(top, #0496DA 0%, #0067CD 100%);
+	background-image: -webkit-linear-gradient(top, #0496DA 0%, #0067CD 100%);
+	background-image: -ms-linear-gradient(top, #0496DA 0%, #0067CD 100%);
+}
+
+#main form input[type=submit]:hover{
+	
+	background-color:#0383d3;
+	
+	background-image: linear-gradient(top, #0383d3 0%, #004c9b 100%);
+	background-image: -o-linear-gradient(top, #0383d3 0%, #004c9b 100%);
+	background-image: -moz-linear-gradient(top, #0383d3 0%, #004c9b 100%);
+	background-image: -webkit-linear-gradient(top, #0383d3 0%, #004c9b 100%);
+	background-image: -ms-linear-gradient(top, #0383d3 0%, #004c9b 100%);
+}
+
+#main form input[type=submit]:active{
+	
+	background-color:#026fcb;
+	
+	background-image: linear-gradient(top, #026fcb 0%, #004c9b 100%);
+	background-image: -o-linear-gradient(top, #026fcb 0%, #004c9b 100%);
+	background-image: -moz-linear-gradient(top, #026fcb 0%, #004c9b 100%);
+	background-image: -webkit-linear-gradient(top, #026fcb 0%, #004c9b 100%);
+	background-image: -ms-linear-gradient(top, #026fcb 0%, #004c9b 100%);
+}
+
+/* -------------------------------------------------------------
+======	CUSTOM CLASSES
+------------------------------------------------------------- */
+.description  {
+	padding-left: 2em;
+	padding-right: 2em;
+	text-align: justify;
+}
+
+.desc_title {
+	font-size: 1.25em;
+}
+
+/* -------------------------------------------------------------
+====== GRID  https://github.com/mattberridge/Proportional-Grids/
+------------------------------------------------------------- */
+html, button, input, select, textarea {
+	font-family: "Open sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+	font-weight: 400; /* normal */
+	color: #555; 
+	font-smooth:always;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	}
+
+body { margin: 0; font-size: 13px; line-height: 1.6; overflow: hidden;}
+
+.container {
+  overflow: hidden;
+  height: 70%;
+  position: absolute;
+  top: 20%;
+  color: #fff;
+  width: 100%; 
+  margin: auto;
+  background-color: #333;}
+ 
+.grid-wrap {
+  margin-left: -0.5em; /* the same as your gutter */
+  overflow: hidden;
+  *zoom:1;}
+  .grid-wrap:before, .grid-wrap:after{content:""; display:table}
+  .grid-wrap:after{clear:both}
+  
+.grid {
+  float: left;
+  padding-left: 0.5em; /* this is your gutter between columns */
+  margin-top: 1em;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(/js/boxsizing.htc); }
+  
+.half-gutter {margin-left: -0.25em; }
+  .half-gutter .grid-col {padding-left: 0.25em; }
+  
+.col-full {width: 100%;}
+.col-one-half {width: 50%; }
+.col-one-third {width: 33.333%; }
+.col-two-thirds {width: 66.666%; }
+.col-one-quarter {width: 25%; }
+.col-three-quarters {width: 75%; }
+
+.divide-top{border-top: 1px solid #ccc;padding-top: 2em;margin-top: 1.5em; }
+
+.mright{ margin-right: 3em;}
+.mleft{ margin-left: 3em;}
+.mtop{ margin-top: 3em;}
+.mbottom{ margin-bottom: 3em;}
+.halfmright{ margin-right: 1.5em;}
+.halfmleft{ margin-left: 1.5em;}
+.halfmtop{ margin-top: 1.5em;}
+.halfmbottom{ margin-bottom: 1.5em;}
+
+.fright, .fleft{display:block; overflow:hidden}
+.fright{float:right}
+.fleft{float:left}
+
+.alignleft{float: left;clear: left;margin: 0.38em 1.62em 0.38em 0;}
+.alignright {float: right;clear: right;margin: 0.38em 0 0.38em 1.62em;}
+.aligncenter {margin: 0 auto 1.62em;display: block;}
+
+
+/* -------------------------------------------------------------
+======	MEDIA QUERIES
+------------------------------------------------------------- */
+
+/* -- Media query 1 (mq1)
+------------------------------------------------------------- */
+@media only screen and (max-width: 60em) { /* 13 / 780 */
+	.mq1-col-full {width: 100%; }
+	.mq1-col-one-half {width: 50%; }
+	.mq1-col-one-third {width: 33.333%; }
+	.mq1-col-two-thirds {width: 66.666%; }
+	.mq1-col-one-quarter {width: 25%; }
+	.mq1-col-three-quarters {width: 75%; }
+	
+	#main form input[type=submit]{
+		width: 50%;
+	}
+	#main { width: 100%; }
+	.container { overflow-y: scroll; }
+	
+	/**/
+	h1{font-size: 3.1em;}
+}
+    
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 48em) { /* 13 / 624 */
+	.mq2-col-full {width: 100%;}
+	.mq2-col-one-half {width: 50%; }
+	.mq2-col-one-third { width: 33.333%; }
+	.mq2-col-two-thirds {width: 66.666%; }
+	.mq2-col-one-quarter {width: 25%; }
+	.mq2-col-three-quarters {width: 75%; }
+	
+	#main form input[type=submit]{
+		width: 50%;
+	}
+	#main { width: 100%; }
+	.container { overflow-y: scroll; }
+}
+    
+/* -- Media query 3 (mq3)
+------------------------------------------------------------- */
+@media only screen and (max-width: 30em) { /* 13 / 390 */
+	.mq3-col-full { width: 100%; }
+	.mq3-col-one-half { width: 50%; }
+	.mq3-col-one-third { width: 33.333%; }
+	.mq3-col-two-thirds { width: 66.666%; }
+	.mq3-col-one-quarter { width: 25%; }
+	.mq3-col-three-quarters { width: 75%; } 
+	.mq3-none {display: none;}
+	
+	#main form input[type=submit]{
+		width: 50%;
+		margin: auto;
+	}
+	
+	#main { width: 100%; }
+	.container { overflow-y: scroll; }
+}

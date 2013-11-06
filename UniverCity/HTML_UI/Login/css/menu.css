@@ -1,0 +1,235 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class*="icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cart:before {
+	content: "\e600";
+}
+.icon-pacman:before {
+	content: "\e601";
+}
+.icon-menu:before {
+	content: "\e602";
+}
+.icon-bubbles:before {
+	content: "\e603";
+}
+.icon-books:before {
+	content: "\e604";
+}
+.icon-compass:before {
+	content: "\e605";
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800);
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #fff;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header {
+  max-height: 190px;
+  display: block;
+  margin-bottom: 3em;
+}
+
+.header img {
+  max-height: 100%;
+  height: auto;
+  width: auto;
+}
+
+.header-top {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-size: 72px;
+  margin: 0;
+}
+
+.subheader-top {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0;
+}
+
+#menu {
+	position: absolute;
+	bottom: 0%;
+	left: 0%;
+	right: 0%;
+	height: 10%;
+	background-color: #333;
+}
+
+.nav ul {
+	max-width: 1240px;
+	margin: auto;
+	padding: 0;
+	list-style: none;
+	font-size: 1em;
+	font-weight: 300;
+}
+
+.nav li span {
+	display: block;
+}
+
+.nav a {
+	display: block;
+	color: rgba(249, 249, 249, 0.9);
+	text-decoration: none;
+	transition: color .5s, background .5s, height .5s;
+}
+
+.nav i {
+	transform: translate3d(0, 0, 0);
+}
+
+a, button {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.no-touch .nav ul:hover a {
+	color: rgba(249, 249, 249, 0.5);
+}
+
+.no-touch .nav ul:hover a:hover {
+	color: rgba(249, 249, 249, 0.99);
+}
+
+.nav li:nth-child(6n+1) {
+	background: rgb(169, 214, 167);
+}
+.nav li:nth-child(6n+2) {
+	background: rgb(120, 189, 154);
+}
+.nav li:nth-child(6n+3) {
+	background: rgb(59, 134, 133);
+}
+.nav li:nth-child(6n+4) {
+	background: rgb(7, 72, 107);
+}
+.nav li:nth-child(6n+5) {
+	background: rgb(85, 98, 112);
+}
+
+@media (min-width: 1em) {
+	.nav li {
+		float: left;
+		width: 20%;
+		text-align: center;
+		transition: border .5s;
+	}
+	
+	.nav a {
+		display: block;
+		width: auto;
+	}
+
+	.no-touch .nav li:nth-child(6n+1) a:hover,
+	.no-touch .nav li:nth-child(6n+1) a:active,
+	.no-touch .nav li:nth-child(6n+1) a:focus {
+		border-bottom: 4px solid rgb(150, 195, 150);
+	}
+	 
+	.no-touch .nav li:nth-child(6n+2) a:hover,
+	.no-touch .nav li:nth-child(6n+2) a:active,
+	.no-touch .nav li:nth-child(6n+2) a:focus {
+		border-bottom: 4px solid rgb(108, 169, 136);
+	}
+	 
+	.no-touch .nav li:nth-child(6n+3) a:hover,
+	.no-touch .nav li:nth-child(6n+3) a:active,
+	.no-touch .nav li:nth-child(6n+3) a:focus {
+		border-bottom: 4px solid rgb(53, 119, 119);
+	}
+	 
+	.no-touch .nav li:nth-child(6n+4) a:hover,
+	.no-touch .nav li:nth-child(6n+4) a:active,
+	.no-touch .nav li:nth-child(6n+4) a:focus {
+		border-bottom: 4px solid rgb(7, 64, 95);
+	}
+	 
+	.no-touch .nav li:nth-child(6n+5) a:hover,
+	.no-touch .nav li:nth-child(6n+5) a:active,
+	.no-touch .nav li:nth-child(6n+5) a:focus {
+		border-bottom: 4px solid rgb(76, 87, 100);
+	}
+
+	.icon {
+		padding-top: .75em;
+	}
+
+	.icon + span {
+		margin-top: 2px;
+		transition: margin .5s;
+	}
+
+	.nav a {
+		height: 7em;
+	}
+
+	.no-touch .nav a:hover,
+	.no-touch .nav a:active,
+	.no-touch .nav a:focus {
+		height: 7em;
+	}
+
+	.nav i {
+		position: relative;
+		display: inline-block;
+		margin: 0 auto;
+		padding: 0.4em;
+		border-radius: 50%;
+		font-size: 1.8em;
+		box-shadow: 0 0 0 0.8em transparent;
+		background: rgba(255,255,255,0.1);
+		transform: translate3d(0, 0, 0);
+		transition: box-shadow .6s ease-in-out;
+	}   
+
+	.no-touch .nav a:hover i,
+	.no-touch .nav a:active i,
+	.no-touch .nav a:focus i {      
+		box-shadow: 0 0 0px 0px rgba(255,255,255,0.2);
+		transition: box-shadow .4s ease-in-out;
+	}
+}
