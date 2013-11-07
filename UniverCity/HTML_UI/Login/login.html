@@ -15,6 +15,8 @@
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
     <script src="../libs/js/jquery-1.10.0.js"></script>
     <script src="../libs/js/jquery-ui.min.js"></script>
+    <script src="../libs/js/classie.js"></script>
+	<script src="js/login.js"></script>
     
     <!-- Style CSS -->
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet">
@@ -33,7 +35,7 @@
 		<section class="grid-wrap" >
 			<div id="main" class="grid col-one-half mq1-col-full">
 				<h2>Student Login</h2>
-				<form class="" method="post" action="">
+				<form>
 					<div class="row email">
 						<input type="email" id="email" name="email" placeholder="Email" />
 					</div>
@@ -42,8 +44,11 @@
 						<input type="password" id="password1" name="password1" placeholder="Password" />
 					</div>
 					
-					<input type="submit" value="Sign In" />
+					<input type="button" value="Sign In" onclick="SignInClicked()"/>
 				</form>
+				<div id="error" class="error-hidden">
+					<span>Invalid email or password!</span>
+				</div>
 			</div>
 			
 			<div class="grid col-one-half mq1-col-full">

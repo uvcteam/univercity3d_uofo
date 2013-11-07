@@ -73,7 +73,7 @@
 /*----------------------------
 	The Submit Button
 -----------------------------*/
-#main form input[type=submit]{
+#main form input[type=button]{
 	
 	border: 1px solid #004C9B;
     border-radius: 3px 3px 3px 3px;
@@ -96,7 +96,7 @@
 	background-image: -ms-linear-gradient(top, #0496DA 0%, #0067CD 100%);
 }
 
-#main form input[type=submit]:hover{
+#main form input[type=button]:hover{
 	
 	background-color:#0383d3;
 	
@@ -107,7 +107,7 @@
 	background-image: -ms-linear-gradient(top, #0383d3 0%, #004c9b 100%);
 }
 
-#main form input[type=submit]:active{
+#main form input[type=button]:active{
 	
 	background-color:#026fcb;
 	
@@ -129,6 +129,19 @@
 
 .desc_title {
 	font-size: 1.25em;
+}
+
+#error {
+	color: #F00;
+	font-size: 1.2em;
+}
+
+.error-visible {
+	visibility: visible;
+}
+
+.error-hidden {
+	visibility: hidden;
 }
 
 /* -------------------------------------------------------------
