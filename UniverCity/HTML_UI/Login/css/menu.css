@@ -56,10 +56,17 @@
 html,
 body {
   height: 100%;
-  background-color: #fff;
+  width: 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  color: #333;
+  position: relative;
+  margin: 0; 
+  font-size: 13px; 
+  line-height: 1.6; 
+  overflow: hidden; 
+  position: relative;
 }
 
 .header {
@@ -93,10 +100,11 @@ body {
 #menu {
 	position: absolute;
 	bottom: 0%;
-	left: 0%;
-	right: 0%;
-	height: 10%;
-	background-color: #333;
+	right: -1%;
+	width: 102%;
+	clear: both;
+	margin: auto;
+	z-index: 1;
 }
 
 .nav ul {
@@ -151,7 +159,42 @@ a, button {
 	background: rgb(85, 98, 112);
 }
 
-@media (min-width: 1em) {
+
+/* -------------------------------------------------------------
+======	MEDIA QUERIES
+------------------------------------------------------------- */
+    
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 48em) { /* 13 / 624 */
+	.mq2-col-full {width: 100%;}
+	.mq2-col-one-half {width: 50%; }
+	.mq2-col-one-third { width: 33.333%; }
+	.mq2-col-two-thirds {width: 66.666%; }
+	.mq2-col-one-quarter {width: 25%; }
+	.mq2-col-three-quarters {width: 75%; }
+	
+	#main form input[type=submit]{
+		width: 50%;
+	}
+	#main { width: 100%; }
+	.container { overflow-y: scroll; }
+}
+    
+/* -- Media query 3 (mq3)
+------------------------------------------------------------- */
+@media only screen and (max-width: 30em) { /* 13 / 390 */
+	#menu {
+		position: relative;
+		left: -5px;
+	}
+	
+	.nav a {
+		line-height: 1em;
+	}
+}
+
+@media (min-width: 0em) {
 	.nav li {
 		float: left;
 		width: 20%;
@@ -200,6 +243,7 @@ a, button {
 
 	.icon + span {
 		margin-top: 2px;
+		padding: 3px;
 		transition: margin .5s;
 	}
 

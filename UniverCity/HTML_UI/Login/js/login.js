@@ -5,6 +5,6 @@ function SignInClicked() {
 	}
 	else {
 		classie.add(document.getElementById('error'), 'error-hidden');
-		document.getElementById("main").innerHTML = "Welcome back <strong><em>Jacob Foster</em></strong>";
+		document.getElementById("main").innerHTML = "<img src=\"images/logo.png\" /><br /><span>Welcome back <strong><em>Jacob Foster</em></strong></span>";
 	}
 }
