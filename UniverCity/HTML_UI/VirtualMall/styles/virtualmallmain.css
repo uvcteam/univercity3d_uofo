@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800);
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
+
+body { font-family: "Open Sans"; font-weight: 400; }
+
+.category {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+}
+
+.category h4 {
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.sub-category {
+    text-align: center;
+    display: inline-block;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.sub-category:hover {
+    cursor: pointer;
+}
+
+.sub-category img {
+    background-color: #F1F1F1;
+    border-radius: 15px;
+    width: 100px;
+    height: 100px;
+}
+
+.sub-category figcaption {
+    font-size: 1.2em;
+    line-height: 1em;
+    padding-top: 0.5em;
+}
