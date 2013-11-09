@@ -1,5 +1,49 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
 
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class*="icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cart:before {
+	content: "\e600";
+}
+.icon-pacman:before {
+	content: "\e601";
+}
+.icon-menu:before {
+	content: "\e602";
+}
+.icon-bubbles:before {
+	content: "\e603";
+}
+.icon-books:before {
+	content: "\e604";
+}
+.icon-compass:before {
+	content: "\e605";
+}
+
 /*----------------------------
 	The Form
 -----------------------------*/
@@ -134,7 +178,17 @@
 /* -------------------------------------------------------------
 ====== GRID  https://github.com/mattberridge/Proportional-Grids/
 ------------------------------------------------------------- */
-html, button, input, select, textarea {
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative
+}
+
+button, input, select, textarea {
 	font-family: "Open sans", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 	font-weight: 400; /* normal */
 	color: #555; 
@@ -143,6 +197,23 @@ html, button, input, select, textarea {
 	font-smoothing: antialiased;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 	}
+	
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #333;
+  position: relative;
+  margin: 0; 
+  font-size: 13px; 
+  line-height: 1.6; 
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 	
 .home-page {
 	z-index: 2;
@@ -229,7 +300,7 @@ html, button, input, select, textarea {
 	
 	.home-page {
 		z-index: 0;
-		padding: 10px;
+		padding: 10px 10px 0px 10px;
 	}
     
 
