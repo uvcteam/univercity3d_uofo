@@ -30,25 +30,25 @@
 		<div class="home-page main">
 			<section class="grid-wrap">
 				<div id="main" class="grid col-one-half mq1-col-full">
-					<img src="images/logo.png" />
-					<h2 class="primary-header">Student Login</h2>
-					<form>
-						<div class="input-group shrinker">
-							<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-							<input type="email" class="form-control" name="email" placeholder="email">
-						</div>
-						
-						<div class="input-group shrinker">
-							<span class="input-group-addon"><i class="fa fa-key"></i></span>
-							<input type="password" class="form-control" name="password" placeholder="password">
-						</div>
-						
-						<input type="button" value="Sign In" onclick="SignInClicked()"/>
-					</form>
-					<div id="error" class="error-hidden">
-						<span>Invalid email or password!</span>
-					</div>
+                    <img src="images/logo.png" />
+                    <h2 class="primary-header">Student Login</h2>
+                    <form>
+                        <div class="input-group shrinker">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input type="email" class="form-control" name="email" placeholder="email">
+                        </div>
+
+                        <div class="input-group shrinker">
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                            <input type="password" class="form-control" name="password" placeholder="password">
+                        </div>
+
+                        <input type="button" value="Sign In" onclick="SignInClicked()" />
+                    </form>
 				</div>
+                <div id="logged-in" class="grid col-one-half mq1-col-full hidden">
+
+                </div>
 				
 				<div class="grid col-one-half mq1-col-full welcome-content">
 					<h1 class="primary-header">Welcome</h1>
@@ -66,7 +66,7 @@
 
                         <div class="location location-mb" onclick="GoToMemoryBank()">
                             <li class="desc_title"><i class="icon-books"></i>&nbsp<strong><em>Memory Bank</strong> - must be logged in</em></li>
-                            <p class="description">Memory bank is another student exclusive place where you can manage things like your personal journals as well as different deals from businesses that correlate to the categories that the you are interested in.</p>
+                            <p class="description">Memory bank is another student exclusive place where you can manage things like your personal journals as well as different deals from businesses that correlate to the categories that you are interested in.</p>
                         </div>
 
                         <div class="location location-e" onclick="GoToExplorer()">

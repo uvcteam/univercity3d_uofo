@@ -1,9 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using System.Collections;
 using MiniJSON;
+using Object = UnityEngine.Object;
+#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM
+using Coherent.UI;
+using Coherent.UI.Binding;
+#elif UNITY_IPHONE || UNITY_ANDROID
+using Coherent.UI.Mobile;
+using Coherent.UI.MobileBinding;
+#endif
 
 [Serializable]
 public class UserManager : MonoBehaviour
@@ -16,6 +23,9 @@ public class UserManager : MonoBehaviour
 
     public List<SocialInterest> Categories = new List<SocialInterest>();
 
+    public CoherentUIView _view = null;
+    private bool _viewReady = false;
+
     void Start()
     {
         DontDestroyOnLoad(this);
@@ -23,6 +33,14 @@ public class UserManager : MonoBehaviour
             gameObject.tag = "UserManager";
         else
             Destroy(gameObject);
+
+        _view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
+        _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
+    }
+
+    void OnViewReady(View view)
+    {
+        _viewReady = true;
     }
 
     void Awake()
@@ -140,6 +158,10 @@ public class UserManager : MonoBehaviour
                      Application.platform == RuntimePlatform.IPhonePlayer)
                     NativeDialogs.Instance.HideProgressDialog();
             }
+
+            while (!_viewReady || _view == null || _view.View == null) yield return new WaitForSeconds(1.0f);
+            _view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
+
             StartCoroutine(GetUserCategories());
 			if (index != -1)
 				Application.LoadLevel(index);
