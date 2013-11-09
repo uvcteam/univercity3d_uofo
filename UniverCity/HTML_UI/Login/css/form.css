@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
+
 /*----------------------------
 	The Form
 -----------------------------*/
@@ -7,6 +9,7 @@
 	position:relative;
 	text-align:center;
 	background-color: #fff;
+    padding-top: 10em;
 	z-index: 2;
 }
 
@@ -32,25 +35,27 @@
 #main form input[type=button]{
 	
 	border: 1px solid #fff;
-    border-radius: 3px 3px 3px 3px;    color: #D3EBFF;
+    border-radius: 3px 3px 3px 3px; color: #D3EBFF;
     cursor: pointer;
     display: block;
-    font: bold 24px Cambria,"Hoefler Text",serif;
-    margin: auto;
-    padding: 15px 10px 10px 10px;
-    width: 50%;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    margin: 1em auto auto auto;
+    color: #FFF;
+    padding: 10px 10px 10px 10px;
+    width: 35%;
     
-	background-color:#0496DA;
+	background-color: #96CDE1;
 }
 
 #main form input[type=button]:hover{
-	
-	background-color:#0383d3;
+	background-color: rgb(134, 183, 201);
 }
 
 #main form input[type=button]:active{
-	
-	background-color:#026fcb;
+	background-color: rgb(134, 183, 201);
 }
 
 /* -------------------------------------------------------------
@@ -69,7 +74,7 @@
 #error {
 	color: #F00;
 	font-size: 1.2em;
-	margin-top: 3em;
+	margin-top: 1em;
 }
 
 .error-visible {
@@ -84,6 +89,47 @@
 	margin: auto;
 	margin-bottom: 5px;
 	width: 75%;
+}
+
+.primary-header {
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.welcome-content {
+    padding-top: 5em;
+    padding-right: 2em;
+}
+
+.location:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.location-vm {
+    border-left: 0.5em solid rgb(169, 214, 167);
+    padding-left: 1em;
+}
+
+.location-uh {
+    border-left: 0.5em solid rgb(120, 189, 154);
+    padding-left: 1em;
+}
+
+.location-mb {
+    border-left: 0.5em solid rgb(59, 134, 133);
+    padding-left: 1em;
+}
+
+.location-e {
+    border-left: 0.5em solid rgb(7, 72, 107);
+    padding-left: 1em;
+}
+
+.location-a {
+    border-left: 0.5em solid rgb(85, 98, 112);
+    padding-left: 1em;
 }
 /* -------------------------------------------------------------
 ====== GRID  https://github.com/mattberridge/Proportional-Grids/
@@ -101,8 +147,6 @@ html, button, input, select, textarea {
 .home-page {
 	z-index: 2;
 	background-color: #fff;
-	overflow-y: scroll;
-	overflow-x: hidden;
 }
 
 .container {
@@ -117,7 +161,6 @@ html, button, input, select, textarea {
  
 .grid-wrap {
   margin-left: -0.5em; /* the same as your gutter */
-  overflow: hidden;
   *zoom:1;}
   .grid-wrap:before, .grid-wrap:after{content:""; display:table}
   .grid-wrap:after{clear:both}
@@ -125,7 +168,6 @@ html, button, input, select, textarea {
 .grid {
   float: left;
   padding-left: 0.5em; /* this is your gutter between columns */
-  margin-top: 1em;
   width: 100%;
   height: 88%;
   -webkit-box-sizing: border-box;
@@ -178,10 +220,9 @@ html, button, input, select, textarea {
 	.mq1-col-three-quarters {width: 75%; }
 	
 	#main form input[type=submit]{
-		width: 50%;
+		width: 100%;
 	}
-	#main { width: 100%; }
-	.container { overflow-y: scroll; }
+	#main { width: 100%; padding-top: 2em; }
 	
 	/**/
 	h1{font-size: 3.1em;}
@@ -189,8 +230,13 @@ html, button, input, select, textarea {
 	.home-page {
 		z-index: 0;
 		padding: 10px;
-		height: 88%;
 	}
+    
+
+    .welcome-content {
+        padding-top: 0;
+        padding-right: 2em;
+    }
 }
     
 /* -- Media query 2 (mq2)
@@ -204,7 +250,7 @@ html, button, input, select, textarea {
 	.mq2-col-three-quarters {width: 75%; }
 	
 	#main form input[type=submit]{
-		width: 50%;
+		width: 100%;
 	}
 	#main { width: 100%; }
 	.container { overflow-y: scroll; }
@@ -234,7 +280,7 @@ html, button, input, select, textarea {
 	}
 	
 	#main form input[type=submit]{
-		width: 50%;
+		width: 100%;
 		margin: auto;
 	}
 	
