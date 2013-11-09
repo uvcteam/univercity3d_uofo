@@ -39,8 +39,8 @@ public class BusinessManager : MonoBehaviour
     // ---------------------------------------------------
     public IEnumerator GetBusinessInformation()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor)
-            loader.SetActive(true);
+        if (Application.platform == RuntimePlatform.WindowsEditor) ;
+            //loader.SetActive(true);
         else if (Application.platform == RuntimePlatform.Android ||
                  Application.platform == RuntimePlatform.IPhonePlayer)
             NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Businesses", false, false);  
@@ -185,8 +185,8 @@ public class BusinessManager : MonoBehaviour
 
         //loginPanel.SendMessage("LoadingFinished");
 
-        if (Application.platform == RuntimePlatform.WindowsEditor)
-            loader.SetActive(false);
+        if (Application.platform == RuntimePlatform.WindowsEditor) ;
+            //loader.SetActive(false);
         else if (Application.platform == RuntimePlatform.Android ||
                  Application.platform == RuntimePlatform.IPhonePlayer) loader.SetActive(false);
             NativeDialogs.Instance.HideProgressDialog();
