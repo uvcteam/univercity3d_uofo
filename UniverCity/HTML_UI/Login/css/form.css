@@ -152,27 +152,27 @@
 }
 
 .location-vm {
-    border-left: 0.5em solid rgb(169, 214, 167);
+    border-left: 0.5em solid rgb(102, 147, 124);
     padding-left: 1em;
 }
 
 .location-uh {
-    border-left: 0.5em solid rgb(120, 189, 154);
+    border-left: 0.5em solid rgb(62, 129, 112);
     padding-left: 1em;
 }
 
 .location-mb {
-    border-left: 0.5em solid rgb(59, 134, 133);
+    border-left: 0.5em solid rgb(0, 117, 111);
     padding-left: 1em;
 }
 
 .location-e {
-    border-left: 0.5em solid rgb(7, 72, 107);
+    border-left: 0.5em solid rgb(255, 165, 58);
     padding-left: 1em;
 }
 
 .location-a {
-    border-left: 0.5em solid rgb(85, 98, 112);
+    border-left: 0.5em solid rgb(238, 123, 43);
     padding-left: 1em;
 }
 

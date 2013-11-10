@@ -19,11 +19,7 @@ public class HTMLMainMenu : MonoBehaviour
 
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
-            _view.View.BindCall("GoToVirtualMall", (System.Action)GoToVirtualMall);
-            _view.View.BindCall("GoToUnionHall", (System.Action)GoToUnionHall);
-            _view.View.BindCall("GoToMemoryBank", (System.Action)GoToMemoryBank);
-            _view.View.BindCall("GoToExplorer", (System.Action)GoToExplorer);
-            _view.View.BindCall("GoToArcade", (System.Action)GoToArcade);
+            _view.View.BindCall("GoToDestination", (System.Action<string>) GoToDestination);
             _view.View.BindCall("CheckLoginInformation", (System.Action<string, string>) CheckLoginInformation);
             _view.View.BindCall("SignOut", (System.Action) SignOut);
         };
@@ -44,30 +40,28 @@ public class HTMLMainMenu : MonoBehaviour
         StartCoroutine(_userManager.SignIn(email, password));
     }
 
-    public void GoToVirtualMall()
+    public void GoToDestination(string destination)
     {
-        Debug.Log("Going to Virtual Mall!");
-        Application.LoadLevel(5);
-    }
-
-    public void GoToUnionHall()
-    {
-        Application.LoadLevel(3);
-    }
-
-    public void GoToMemoryBank()
-    {
-        Application.LoadLevel(4);
-    }
-
-    public void GoToExplorer()
-    {
-        Application.LoadLevel(1);
-    }
-
-    public void GoToArcade()
-    {
-        Application.LoadLevel(2);
+        switch (destination)
+        {
+            case "virtual_mall":
+                Application.LoadLevel(5);
+                break;
+            case "union_hall":
+                Application.LoadLevel(3);
+                break;
+            case "memory_bank":
+                Application.LoadLevel(4);
+                break;
+            case "explorer":
+                Application.LoadLevel(1);
+                break;
+            case "arcade":
+                Application.LoadLevel(2);
+                break;
+            default:
+                break;
+        }
     }
 
     public void SignOut()

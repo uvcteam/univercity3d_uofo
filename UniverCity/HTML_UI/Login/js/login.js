@@ -1,4 +1,9 @@
 // Web Functions.
+$(function () {
+    $(".location").click(function() {
+        GoToDestination(this.getAttribute('destination'));
+    });
+});
 
 function SignInClicked() {
 	var values = $(":input").serializeArray();
@@ -17,25 +22,9 @@ function SignOut() {
 
 // Unity3D Functions.
 
-function GoToVirtualMall() {
-    console.log("Calling 'GoToVirtualMall' in Unity3D");
-    engine.call('GoToVirtualMall');
-}
-
-function GoToUnionHall() {
-    engine.call('GoToUnionHall');
-}
-
-function GoToMemoryBank() {
-    engine.call('GoToMemoryBank');
-}
-
-function GoToExplorer() {
-    engine.call('GoToExplorer');
-}
-
-function GoToArcade() {
-    engine.call('GoToArcade');
+function GoToDestination(destination) {
+    console.log('Calling GoToDestination("' + destination + '") in Unity3D!');
+    engine.call('GoToDestination', destination);
 }
 
 function UnitySignOut() {
