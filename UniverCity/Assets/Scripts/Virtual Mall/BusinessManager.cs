@@ -26,7 +26,9 @@ public class BusinessManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("BusinessManager") == null)
         {
             gameObject.tag = "BusinessManager";
+
             StartCoroutine(GetBusinessInformation());
+
         }
         else
             Destroy(gameObject);
@@ -65,12 +67,9 @@ public class BusinessManager : MonoBehaviour
                 goodDownload = true;
         }
 
-        //StreamWriter sw = File.CreateText("businesses.dat");
-        //sw.Write(page.text);
-        //sw.Close();
 
         // Create an IList of all of the businesses returned to me.
-        IList businessInfo = Json.Deserialize(page.text) as IList;
+        List<object> businessInfo = Json.Deserialize(page.text) as List<object>;
         // Iterate through each of the dictionaries in the list.
         foreach (Dictionary<string, object> business in businessInfo)
         {
@@ -78,7 +77,6 @@ public class BusinessManager : MonoBehaviour
             id = Convert.ToInt32(business["id"]);
             bName = business["name"] as string;
             bDesc = business["desc"] as string;
-
             Business bus = new Business(id, bName, bDesc);
             businesses.Add(bus);
             // Check to see if the business has a discount...
@@ -87,9 +85,6 @@ public class BusinessManager : MonoBehaviour
                 Dictionary<string, object> discount = business["discount"] as Dictionary<string, object>;
                 bus.AddDiscount(discount["title"] as string, discount["desc"] as string);
 
-                // Debug to check out the discount...
-                //Debug.Log("Found a discount!");
-                //Debug.Log(bus.name + " - " + bus.discountName + " - " + bus.discountDesc);
             }
 
             // Check to see if the business has a deal...
@@ -97,10 +92,6 @@ public class BusinessManager : MonoBehaviour
             {
                 Dictionary<string, object> deal = business["megadeal"] as Dictionary<string, object>;
                 bus.AddDeal(deal["title"] as string, deal["desc"] as string);
-
-                // Debug to check out the deal...
-                //Debug.Log("Found a discount!");
-                //Debug.Log(bus.name + " - " + bus.dealName + " - " + bus.dealDesc);
             }
 
             // Get the X, Z coordinates.
@@ -130,8 +121,6 @@ public class BusinessManager : MonoBehaviour
                 }
             }
 
-            // Debug to see if the companies acually read in properly.
-            //Debug.Log(id + " - " + bName + " - " + bDesc);
 
             // All arrays in JSON come in as List<object>.
             foreach (string category in business["cats"] as List<object>)
@@ -143,12 +132,6 @@ public class BusinessManager : MonoBehaviour
                 businessesByCategory[category].Add(bus);
             }
         }
-
-        // Debug to make sure the categories were all created properly.
-        //foreach (KeyValuePair<string, List<Business>> pair in businesses)
-        //{
-        //    Debug.Log(pair.Key);
-        //}
 
         // Create the list of business IDs.
         for (int i = 0; i < businesses.Count; ++i)
@@ -168,7 +151,7 @@ public class BusinessManager : MonoBehaviour
             if (page.error == null && page.texture != null)
                 goodDownload = true;
         }
-
+        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! before");
         // Put the resulting image in a Texture2D to work with...
         Texture2D allLogos = page.texture;
         int imageWidthHeight = allLogos.width;
@@ -183,12 +166,10 @@ public class BusinessManager : MonoBehaviour
             businesses[i].logo.Apply();
         }
 
-        //loginPanel.SendMessage("LoadingFinished");
-
         if (Application.platform == RuntimePlatform.WindowsEditor) ;
             //loader.SetActive(false);
         else if (Application.platform == RuntimePlatform.Android ||
-                 Application.platform == RuntimePlatform.IPhonePlayer) loader.SetActive(false);
+                 Application.platform == RuntimePlatform.IPhonePlayer)
             NativeDialogs.Instance.HideProgressDialog();
     }
 }

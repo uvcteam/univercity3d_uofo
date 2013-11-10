@@ -74,21 +74,21 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
---- !u!1 &35511526
+--- !u!1 &1450284610
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 35511527}
-  - 20: {fileID: 35511528}
-  - 92: {fileID: 35511530}
-  - 124: {fileID: 35511531}
-  - 81: {fileID: 35511529}
-  - 114: {fileID: 35511532}
-  - 114: {fileID: 35511533}
-  - 114: {fileID: 35511534}
+  - 4: {fileID: 1450284618}
+  - 20: {fileID: 1450284617}
+  - 124: {fileID: 1450284616}
+  - 92: {fileID: 1450284615}
+  - 81: {fileID: 1450284614}
+  - 114: {fileID: 1450284613}
+  - 114: {fileID: 1450284612}
+  - 114: {fileID: 1450284611}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -96,23 +96,91 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &35511527
-Transform:
+--- !u!114 &1450284611
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
---- !u!20 &35511528
+  m_GameObject: {fileID: 1450284610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8939702a2ea474498a149ef001d658f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1450284612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450284610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a032bbb6c5729cb44a4e126d02158881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1450284613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450284610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b15780473129e394db2b927dd8e5e960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Page: coui://HTML_UI/virtualmall/virtualmallmain.html
+  m_Width: 1024
+  m_Height: 512
+  m_XPos: 0
+  m_YPos: 0
+  m_ScaleToFit: 1
+  m_InitialScript: 
+  m_ViewInputState: 2
+  m_IsTransparent: 1
+  m_SupportClickThrough: 1
+  m_ClickThroughAlphaThreshold: 0
+  m_ClickToFocus: 1
+  m_IsOnDemand: 0
+  m_ControlTimeOnDemand: 0
+  m_TargetFramerate: 60
+  m_DrawAfterPostEffects: 0
+  m_FlipY: 0
+  m_ReceivesInput: 0
+  m_InterceptAllEvents: 0
+  m_EnableBindingAttribute: 0
+  m_IsIndependentOfZBuffer: 0
+  m_ShowJavaScriptDialogs: 1
+  m_ForceSoftwareRendering: 0
+  m_UseCameraDimensions: 1
+  m_CorrectGamma: 0
+--- !u!81 &1450284614
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450284610}
+  m_Enabled: 1
+--- !u!92 &1450284615
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450284610}
+  m_Enabled: 1
+--- !u!124 &1450284616
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1450284610}
+  m_Enabled: 1
+--- !u!20 &1450284617
 Camera:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
+  m_GameObject: {fileID: 1450284610}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -128,89 +196,21 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 100
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
---- !u!81 &35511529
-AudioListener:
+--- !u!4 &1450284618
+Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
-  m_Enabled: 1
---- !u!92 &35511530
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
-  m_Enabled: 1
---- !u!124 &35511531
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
-  m_Enabled: 1
---- !u!114 &35511532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15780473129e394db2b927dd8e5e960, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Page: coui://UIResources/mainmenu/menu.html
-  m_Width: 1024
-  m_Height: 512
-  m_XPos: 0
-  m_YPos: 0
-  m_ScaleToFit: 0
-  m_InitialScript: 
-  m_ViewInputState: 2
-  m_IsTransparent: 0
-  m_SupportClickThrough: 0
-  m_ClickThroughAlphaThreshold: 0
-  m_ClickToFocus: 0
-  m_IsOnDemand: 0
-  m_ControlTimeOnDemand: 0
-  m_TargetFramerate: 60
-  m_DrawAfterPostEffects: 0
-  m_FlipY: 0
-  m_ReceivesInput: 0
-  m_InterceptAllEvents: 0
-  m_EnableBindingAttribute: 0
-  m_IsIndependentOfZBuffer: 0
-  m_ShowJavaScriptDialogs: 1
-  m_ForceSoftwareRendering: 0
-  m_UseCameraDimensions: 1
-  m_CorrectGamma: 0
---- !u!114 &35511533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5691c79d3f6493a4093529ea8e24bfae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &35511534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 35511526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c00b30287cb5b4b813448b15829fbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_GameObject: {fileID: 1450284610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}

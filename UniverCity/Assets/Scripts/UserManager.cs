@@ -9,7 +9,7 @@ using Coherent.UI;
 using Coherent.UI.Binding;
 #elif UNITY_IPHONE || UNITY_ANDROID
 using Coherent.UI.Mobile;
-using Coherent.UI.MobileBinding;
+using Coherent.UI.Mobile.Binding;
 #endif
 
 [Serializable]
@@ -98,9 +98,10 @@ public class UserManager : MonoBehaviour
 			Application.platform == RuntimePlatform.WindowsWebPlayer ||
 			Application.platform == RuntimePlatform.OSXWebPlayer)
             {
-                signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
-                signingInDialog.SetActive(true);
-                signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+                //signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
+                //signingInDialog.SetActive(true);
+                //signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+                ;
             }
             else if (Application.platform == RuntimePlatform.Android ||
                      Application.platform == RuntimePlatform.IPhonePlayer)
@@ -217,19 +218,6 @@ public class UserManager : MonoBehaviour
         signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
         signingInDialog.SetActive(false);
         exitBtn.SetActive(false);
-    }
-    void OnLevelWasLoaded(int level)
-    {
-        if (level != 0)
-        {
-            loginPanel.SetActive(false);
-        }
-        else if (CurrentUser != null && CurrentUser.LoggedIn)
-        {
-            loginPanel.SetActive(false);
-        }
-        else
-            loginPanel.SetActive(true);
     }
 
     private string CategoryNameForId(int id)

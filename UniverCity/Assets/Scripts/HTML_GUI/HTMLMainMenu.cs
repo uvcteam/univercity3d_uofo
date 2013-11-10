@@ -46,6 +46,7 @@ public class HTMLMainMenu : MonoBehaviour
 
     public void GoToVirtualMall()
     {
+        Debug.Log("Going to Virtual Mall!");
         Application.LoadLevel(5);
     }
 

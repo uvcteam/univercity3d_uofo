@@ -6,6 +6,7 @@
 #define COHERENT_UNITY_UNSUPPORTED_PLATFORM
 #endif
 
+using System;
 using UnityEngine;
 using System.Collections;
 using Coherent.UI;
@@ -502,6 +503,7 @@ namespace Coherent.UI.Mobile
 			eventData.KeyCode = s_KeyCodeMapping [(int)evt.keyCode];
 			eventData.IsNumPad = evt.numeric;
 			eventData.IsAutoRepeat = false; // Indeterminate
+            Debug.Log(Convert.ToChar(eventData.KeyCode));
 			return eventData;
 		}
 	
@@ -513,6 +515,7 @@ namespace Coherent.UI.Mobile
 			eventData.IsNumPad = evt.numeric;
 			eventData.IsAutoRepeat = false; // Indeterminate
 			eventData.Type = KeyEventData.EventType.Char;
+            Debug.Log(Convert.ToChar(eventData.KeyCode));
 			return eventData;
 		}
 	}
