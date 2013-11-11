@@ -1,3 +1,6 @@
+.st-container {
+    color: rgb(0, 117, 111);
+}
 #profile-pic {
     position: relative;
     width: 50%;
@@ -20,6 +23,89 @@
     padding-top: 0.1em;
 }
 
+.pin-div {
+    position: absolute;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    margin-top: 25%;
+    width: 50%;
+    left: 25%;
+}
+
+.pin-div h1 {
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.journals {
+    position: relative;
+    height: 100%;
+    visibility: hidden;
+}
+
+.journal {
+    border-bottom: 0.1em solid rgb(0, 117, 111);
+    color: #000;
+    text-align: justify;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.journal h1 {
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    color: rgb(0, 117, 111);
+}
+
+.journal h6 {
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 700;
+}
+
+.input-group {
+    margin-top: 2em;
+}
+
+.input-group textarea {
+    resize: none;
+    width: 5px;
+    height: 10em;
+}
+
+/*----------------------------
+	The Submit Button
+-----------------------------*/
+.pin-div form input[type=button]{
+	
+	border: 1px solid #fff;
+    border-radius: 3px 3px 3px 3px; color: #D3EBFF;
+    cursor: pointer;
+    display: block;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 1.25em;
+    letter-spacing: 0.07em;
+    margin: 1em auto auto auto;
+    color: #FFF;
+    padding: 10px 10px 10px 10px;
+    width: 50%;
+    background: rgb(0, 117, 111);
+}
+
+.pin-div form input[type=button]:hover{
+    background: rgb(0, 104, 99);
+}
+
+.pin-div form input[type=button]:active{
+    background: rgb(0, 104, 99);
+}
+
+.general-button {
+    visibility: hidden;
+}
 /* -------------------------------------------------------------
 ======	MEDIA QUERIES
 ------------------------------------------------------------- */
@@ -30,6 +116,11 @@
     #user-name {
         border-top: 0.1em solid rgb(0, 117, 111);
     }
+	
+	.pin-div input[type=button]{
+	    margin-top: 3em;
+		width: 100%;
+	}
 }
     
 /* -- Media query 2 (mq2)
@@ -39,6 +130,15 @@
         font-size: 3em;
         border-top: 0.2em solid rgb(0, 117, 111);
     }
+
+    .pin-div h1 {
+        font-size: 2em !important;    
+    }
+	
+	.pin-div input[type=button]{
+	    margin-top: 3em;
+		width: 100%;
+	}
 }
     
 /* -- Media query 3 (mq3)
@@ -49,4 +149,9 @@
         font-size: 2em;
         border-top: 0.3em solid rgb(0, 117, 111);
     }
+
+	.pin-div form input[type=button]{
+		width: 100%;
+		margin-top: 0.5em;
+	}
 }

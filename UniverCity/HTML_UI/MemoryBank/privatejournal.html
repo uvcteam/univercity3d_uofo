@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>UniverCity3D Memory Bank</title>
+    <title>UniverCity3D Memory Bank - Private Journal</title>
 
     <!-- main JS libs -->
     <script src="../libs/js/coherent.js"></script>
@@ -20,7 +20,8 @@
     <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
-    <script src="js/memorybank.js"></script>
+
+    <script src="js/privatejournal.js"></script>
 
     <!-- Style CSS -->
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet">
@@ -33,11 +34,11 @@
         <nav class="st-menu st-effect-1" id="menu-1">
             <h2><i class="icon-books"></i>&nbsp;Memory Bank</h2>
             <ul>
-                <li destination="internal"><a href="privatejournal.html">Private Journal</a></li>
-                <li destination="internal"><a href="#">My Notifications</a></li>
-                <li destination="internal"><a href="#">Photos &amp; Videos</a></li>
-                <li destination="internal"><a href="#">Preferences</a></li>
-                <li destination="internal"><a href="#">Help</a></li>
+                <li destination="internal" class="selected"><a>Private Journal</a></li>
+                <li destination="internal"><a>My Notifications</a></li>
+                <li destination="internal"><a>Photos &amp; Videos</a></li>
+                <li destination="internal"><a>Preferences</a></li>
+                <li destination="internal"><a>Help</a></li>
             </ul>
             <ul>
                 <li destination="virtual_mall"><a class="icon-cart" href="#">&nbsp;Virtual Mall</a></li>
@@ -49,12 +50,23 @@
         <div class="st-pusher">
             <div class="st-content">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
+                <button type="button" class="back_button" onclick="window.location.href='memorybank.html'"><i class="fa fa-arrow-left"></i></button>
+                <a href="createjournal.html" class="general-button">New Entry</a>
                 <div class="st-content-inner">
-                    <img src="images/profile.svg" id="profile-pic" />
-                    <h1 id="user-name">Loading Name</h1>
+                    <div class="pin-div">
+                        <h1>Enter Your Pin</h1>
+                        <form>
+                            <div class="input-group shrinker">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input type="password" class="form-control" name="pin" placeholder="pin">
+                            </div>
+                            <input type="button" value="View Journal" onclick="OnPinSubmitted()" />
+                        </form>
+                    </div>
+                    <div class="journals">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 </html>
