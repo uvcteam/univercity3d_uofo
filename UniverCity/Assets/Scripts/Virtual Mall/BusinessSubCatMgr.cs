@@ -6,7 +6,6 @@ public class BusinessSubCatMgr : MonoBehaviour
 {
     private BusinessManager _businessManager;
     public GameObject businessBtn;
-
     void Awake()
     {
         _businessManager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();

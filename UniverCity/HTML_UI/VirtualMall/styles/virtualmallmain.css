@@ -1,22 +1,30 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
 
-body { font-family: "Open Sans"; font-weight: 400; overflow: hidden;}
+body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 
-#container {
-    overflow-y: scroll;
+.st-content-inner div {
+    margin-left: 1.0em;
+    width: 90%;
 }
-
 .category {
     border-bottom: 1px solid #ccc;
+    color: #000;
     padding: 10px;
     width: 100%;
+    background-color:white;
 }
 
 .category h4 {
     font-family: "Oswald";
     font-weight: 400;
     text-transform: uppercase;
+}
+
+.category p {
+    font-family: "Open Sans";
+    font-weight: 400;
+    width: 100%;
 }
 
 .sub-category {
@@ -41,4 +49,37 @@ body { font-family: "Open Sans"; font-weight: 400; overflow: hidden;}
     font-size: 1.2em;
     line-height: 1em;
     padding-top: 0.5em;
+}
+
+.business {
+    text-align: center;
+    display: inline-block;
+    width: 25em;
+    margin: 0.25em;
+}
+
+.business:hover {
+    cursor: pointer;
+}
+
+.business img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.business header {
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align:left;
+    color: rgb(102, 147, 124);
+}
+
+.business figcaption {
+    color: #000;
+    padding-left: 1em;
+    text-align: left;
+    height: 7em;
+    overflow: hidden;
 }
