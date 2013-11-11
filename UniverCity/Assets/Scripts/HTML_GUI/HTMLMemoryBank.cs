@@ -18,13 +18,13 @@ public class HTMLMemoryBank : MonoBehaviour
     {
         _view = this.GetComponent<CoherentUIView>();
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
+        _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
 
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
-            _view.View.BindCall("GoToDestination", (System.Action<string>)GoToDestination);
+            _view.View.BindCall("RequestUsername", (System.Action)RequestUsername);
         };
 
-        _view.View.TriggerEvent("UpdateUsername", _userManager.CurrentUser.Name);
         _viewReady = false;
     }
 
@@ -32,47 +32,12 @@ public class HTMLMemoryBank : MonoBehaviour
     {
         _viewReady = true;
     }
-    void CheckLogin(int index)
-    {
-        GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
-        if (manager.GetComponent<UserManager>().IsSignedIn())
-        {
-            Application.LoadLevel(index);
-            return;
-        }
-
-        NativeDialogs.Instance.ShowLoginPasswordMessageBox("Login Required", "", new string[] { "Cancel", "OK" },
-                                                           false,
-            (string login, string password, string button) =>
-            {
-                if (button == "OK")
-                    StartCoroutine(manager.GetComponent<UserManager>().SignIn(login, password, index));
-            });
-    }
 
     #region CoherentUI Bindings
-    public void GoToDestination(string destination)
+    public void RequestUsername()
     {
-        switch (destination)
-        {
-            case "virtual_mall":
-                Application.LoadLevel(5);
-                break;
-            case "union_hall":
-                CheckLogin(3);
-                break;
-            case "memory_bank":
-                CheckLogin(4);
-                break;
-            case "explorer":
-                Application.LoadLevel(1);
-                break;
-            case "arcade":
-                Application.LoadLevel(2);
-                break;
-            default:
-                break;
-        }
+        Debug.Log("Updating username.");
+        _view.View.TriggerEvent("UpdateUsername", _userManager.CurrentUser.Name);
     }
 
     #endregion
