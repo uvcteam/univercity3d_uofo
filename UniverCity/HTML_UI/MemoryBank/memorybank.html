@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
@@ -31,16 +31,25 @@
         <nav class="st-menu st-effect-1" id="menu-1">
             <h2><i class="icon-books"></i>&nbsp;Memory Bank</h2>
             <ul>
-                <li><a class="icon-cart" href="#">&nbsp;Virtual Mall</a></li>
-                <li><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
-                <li><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
-                <li><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
+                <li destination="internal"><a>Private Journal</a></li>
+                <li destination="internal"><a>My Notifications</a></li>
+                <li destination="internal"><a>Photos &amp; Videos</a></li>
+                <li destination="internal"><a>Preferences</a></li>
+                <li destination="internal"><a>Help</a></li>
+            </ul>
+            <ul>
+                <li destination="virtual_mall"><a class="icon-cart" href="#">&nbsp;Virtual Mall</a></li>
+                <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
+                <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
+                <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
             </ul>
         </nav>            <!-- content push wrapper -->
         <div class="st-pusher">
             <div class="st-content">
+                <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
                 <div class="st-content-inner">
-                    <button type="button" id="menu_btn"><span class="icon-menu">&nbsp;Menu</span></button>
+                    <img src="images/profile.svg" id="profile-pic" />
+                    <h1 id="user-name">Sylvester Stallonster</h1>
                 </div>
             </div>
         </div>

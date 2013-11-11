@@ -76,11 +76,11 @@ a {
 a:hover, a:focus {
     color: #2c774b;
     outline: none;
+    text-decoration: none;
 }
 
 #menu_btn {
     border: none;
-    padding: 0.6em 1.2em;
     background: rgb(0, 117, 111);
     color: #fff;
     font-family: 'Oswald';
@@ -89,12 +89,40 @@ a:hover, a:focus {
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;
-    margin: 50px;
-    border-radius: 2px;
+    margin: 2em;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+}
+
+#menu_btn:focus {
+    outline: none;
 }
 
 #menu_btn:hover {
-    background: rgb(0, 0, 0);
+    background: rgb(0, 104, 99);
+}
+
+#profile-pic {
+    position: relative;
+    width: 50%;
+    left: 25%;
+    margin: 0 auto;
+}
+
+#user-name {
+    position: relative;
+    border-top: 0.1em solid rgb(0, 117, 111);
+    color: #000;
+    font-family: 'Oswald';
+    font-weight: 700;
+    font-size: 5em;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+    padding-top: 0.1em;
 }
 
 .st-content {
@@ -199,7 +227,7 @@ a:hover, a:focus {
     padding: 1em 1em 1em 1.2em;
     outline: none;
     box-shadow: inset 0 -1px rgba(0, 0, 0, 0.2);
-    color: #f3efe0;
+    color: #FFFFFF;
     text-transform: uppercase;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
     letter-spacing: 1px;
@@ -249,4 +277,36 @@ a:hover, a:focus {
 
 .st-effect-1.st-menu::after {
 	display: none;	
+}
+
+
+/* -------------------------------------------------------------
+======	MEDIA QUERIES
+------------------------------------------------------------- */
+
+/* -- Media query 1 (mq1)
+------------------------------------------------------------- */
+@media only screen and (max-width: 60em) { /* 13 / 780 */
+    #user-name {
+        border-top: 0.1em solid rgb(0, 117, 111);
+    }
+}
+    
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 48em) { /* 13 / 624 */
+    #user-name {
+        font-size: 3em;
+        border-top: 0.2em solid rgb(0, 117, 111);
+    }
+}
+    
+/* -- Media query 3 (mq3)
+------------------------------------------------------------- */
+@media only screen and (max-width: 30em) { /* 13 / 390 */
+    #user-name {
+        width: 75%;
+        font-size: 2em;
+        border-top: 0.3em solid rgb(0, 117, 111);
+    }
 }

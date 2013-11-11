@@ -32,6 +32,23 @@ public class HTMLMainMenu : MonoBehaviour
     {
         _viewReady = true;
     }
+    void CheckLogin(int index)
+    {
+        GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
+        if (manager.GetComponent<UserManager>().IsSignedIn())
+        {
+            Application.LoadLevel(index);
+            return;
+        }
+
+        NativeDialogs.Instance.ShowLoginPasswordMessageBox("Login Required", "", new string[] { "Cancel", "OK" },
+                                                           false,
+            (string login, string password, string button) =>
+            {
+                if (button == "OK")
+                    StartCoroutine(manager.GetComponent<UserManager>().SignIn(login, password, index));
+            });
+    }
 
     #region CoherentUI Bindings
 
@@ -48,10 +65,10 @@ public class HTMLMainMenu : MonoBehaviour
                 Application.LoadLevel(5);
                 break;
             case "union_hall":
-                Application.LoadLevel(3);
+                CheckLogin(3);
                 break;
             case "memory_bank":
-                Application.LoadLevel(4);
+                CheckLogin(4);
                 break;
             case "explorer":
                 Application.LoadLevel(1);
