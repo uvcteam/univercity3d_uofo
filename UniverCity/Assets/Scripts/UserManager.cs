@@ -162,6 +162,7 @@ public class UserManager : MonoBehaviour
 
             while (!_viewReady || _view == null || _view.View == null) yield return new WaitForSeconds(1.0f);
             _view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
+            NativeDialogs.Instance.HideProgressDialog();
 
             StartCoroutine(GetUserCategories());
 			if (index != -1)

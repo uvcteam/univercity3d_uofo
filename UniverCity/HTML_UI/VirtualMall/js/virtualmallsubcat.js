@@ -9,7 +9,7 @@ engine.on('CreateCategory', function (cat) {
 })
 
 engine.on('PopulateCategory', function (name, desc, id, image, index) {
-    document.getElementsByClassName('category')[index].innerHTML += '<div class="business" busid="' + id + '"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image + '" /><figcaption>' + desc + '</figcaption></figure></div>'
+    document.getElementsByClassName('category')[index].innerHTML += '<div class="business" busid="' + id + '"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" class="btn btn-see-more">See More</button></div>';
 })
 
 engine.on('CreateEmptyCategory', function(index) {

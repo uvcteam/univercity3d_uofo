@@ -53,7 +53,7 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 .business {
     text-align: center;
     display: inline-block;
-    width: 25em;
+    width: 100%;
     margin: 0.25em;
 }
 
@@ -62,8 +62,8 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 }
 
 .business img {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     float: left;
 }
 
@@ -81,4 +81,45 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
     text-align: left;
     height: 7em;
     overflow: hidden;
+}
+.btn-see-more{
+    background-color: rgb(102, 147, 124);
+    border-color: rgb(102, 147, 124);
+    color: white;
+    float: left;
+}
+/* -- Media query 1 (mq1)
+------------------------------------------------------------- */
+@media only screen and (max-width: 60em) { /* 13 / 780 */
+    .category {
+        width: 100%;
+    }
+}
+
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 48em){
+    .category{
+        width: 100%;
+    }
+    .sub-category{width: 100%;}
+    .business figcaption {
+        width: 80%;
+    }
+}
+
+/* -- Media query 3 (mq3)
+------------------------------------------------------------- */
+@media only screen and (max-width: 30em){
+    .category{
+        width: 100%;
+    }
+    .sub-category{width: 100%;}
+    .business img{
+        width: 50px;
+        height: 50px;
+    }
+    .business figcaption {
+        width: 80%;
+    }
 }
