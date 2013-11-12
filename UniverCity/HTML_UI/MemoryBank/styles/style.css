@@ -28,7 +28,7 @@
     margin: 0 auto;
     height: 100%;
     text-align: center;
-    margin-top: 25%;
+    margin-top: 15%;
     width: 50%;
     left: 25%;
 }
@@ -51,6 +51,7 @@
     text-align: justify;
     width: 75%;
     margin: 0 auto;
+    padding-bottom: 10px;
 }
 
 .journal h1 {

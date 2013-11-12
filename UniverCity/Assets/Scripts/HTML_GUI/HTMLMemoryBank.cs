@@ -29,6 +29,7 @@ public class HTMLMemoryBank : MonoBehaviour
             _view.View.BindCall("RequestUsername", (System.Action)RequestUsername);
             _view.View.BindCall("CheckPin", (System.Action<string>)OnJournalClicked);
             _view.View.BindCall("OnSaveEntryClicked", (System.Action<string, string>) OnSaveEntryClicked);
+			_view.View.BindCall("DeleteEntry", (System.Action<string>)DeleteEntry);
         };
 
         _viewReady = false;
@@ -66,10 +67,11 @@ public class HTMLMemoryBank : MonoBehaviour
 
             foreach (JournalEntry entry in _userManager.CurrentUser.Journals)
             {
-                Debug.Log("Adding entry " + entry.Title + " " + entry.TimeStamp.ToString("MMMM dd, yyyy") + " " + entry.Entry);
-                _view.View.TriggerEvent("AddJournal", entry.Title, entry.TimeStamp.ToString("MMMM dd, yyyy"), entry.Entry);
+                Debug.Log("Adding entry " + entry.Id + " " + entry.Title + " " + entry.TimeStamp.ToString("MMMM dd, yyyy") + " " + entry.Entry);
+                _view.View.TriggerEvent("AddJournal", entry.Id, entry.Title, entry.TimeStamp.ToString("MMMM dd, yyyy"), entry.Entry);
             }
-
+			
+			_view.View.TriggerEvent("JournalsFinished");
             NativeDialogs.Instance.HideProgressDialog();
         }
     }
@@ -104,6 +106,35 @@ public class HTMLMemoryBank : MonoBehaviour
                 new string[] { "OK" }, false, (string button) => { });
         }
     }
+	
+	IEnumerator DeleteJournal(int id)
+	{
+		Debug.Log("Deleting journal " + id);
+		string deleteURL = "http://www.univercity3d.com/univercity/DeleteJournalEntry?";
+		deleteURL += "token=" + _userManager.CurrentUser.Token;
+		deleteURL += "&pin=" + _userManager.CurrentUser.PIN;
+		deleteURL += "&id=" + id;
+		
+		WWW page = new WWW(deleteURL);
+		yield return page;
+
+        Dictionary<string, object> result = Json.Deserialize(page.text) as Dictionary<string, object>;
+
+        if (Convert.ToBoolean(result["s"]))
+        {
+            NativeDialogs.Instance.ShowMessageBox("Success!", "Entry deleted successfully.\nRe-enter the journal to see it.",
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+			Debug.Log("Journal deleted.");
+            _view.View.TriggerEvent("DeleteSuccess", id);
+        }
+        else
+        {
+            NativeDialogs.Instance.ShowMessageBox("Could not delete!", "Reason: " + (result["reason"] as string),
+                new string[] { "OK" }, false, (string button) => { });
+        }
+	}
 
     void OnViewReady(View view)
     {
@@ -128,6 +159,12 @@ public class HTMLMemoryBank : MonoBehaviour
         NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Saving entry.", false, false);
         StartCoroutine(SaveEntry(title, content));
     }
+	
+	public void DeleteEntry(string id)
+	{
+		Debug.Log("Trying to delete: " + Convert.ToInt32(id));
+		StartCoroutine(DeleteJournal(Convert.ToInt32(id)));
+	}
 
     #endregion
 }

@@ -90,6 +90,7 @@ public class UserManager : MonoBehaviour
             }
         }
     }
+	
     public IEnumerator SignIn(string email, string password, int index = -1)
     {
         if (PlayerPrefs.GetInt("loggedIn") == 0)
@@ -160,7 +161,6 @@ public class UserManager : MonoBehaviour
                     NativeDialogs.Instance.HideProgressDialog();
             }
 
-            while (!_viewReady || _view == null || _view.View == null) yield return new WaitForSeconds(1.0f);
             _view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
             NativeDialogs.Instance.HideProgressDialog();
 
@@ -208,7 +208,8 @@ public class UserManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("loggedIn", 0);
         CurrentUser = null;
-        PageToDisable.SetActive(true);
+		if (PageToDisable != null)
+        	PageToDisable.SetActive(true);
     }
     public bool IsSignedIn()
     {
@@ -316,7 +317,8 @@ public class User
         journals.Clear();
         foreach (Dictionary<string, object> entry in json)
         {
-            journals.Add(new JournalEntry(entry["title"] as string,
+            journals.Add(new JournalEntry(Convert.ToInt32(entry["id"]),
+										  entry["title"] as string,
                                           entry["entry"] as string,
                                           entry["ts"] as string));
             NativeDialogs.Instance.HideProgressDialog();
@@ -353,10 +355,16 @@ public class User
 [Serializable]
 public class JournalEntry
 {
+	private int id;
     private string title;
     private string entry;
     private DateTime timeStamp;
-
+	
+	public int Id
+	{
+		get { return id; }
+		set { id = value; }
+	}
     public string Title
     {
         get { return title; }
@@ -373,8 +381,9 @@ public class JournalEntry
         set { timeStamp = value; }
     }
 
-    public JournalEntry(string t, string e, string ts)
+    public JournalEntry(int i, string t, string e, string ts)
     {
+		id = i;
         title = t;
         entry = e;
         timeStamp = DateTime.Parse(ts);

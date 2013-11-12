@@ -3,6 +3,8 @@ $(function () {
     $(".location").click(function() {
         GoToDestination(this.getAttribute('destination'));
     });
+    
+    engine.call('CheckLoginInformation', '', '');
 });
 
 function SignInClicked() {

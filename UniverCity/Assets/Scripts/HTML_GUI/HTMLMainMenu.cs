@@ -32,6 +32,7 @@ public class HTMLMainMenu : MonoBehaviour
     {
         _viewReady = true;
     }
+	
     void CheckLogin(int index)
     {
         GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
@@ -54,7 +55,12 @@ public class HTMLMainMenu : MonoBehaviour
 
     public void CheckLoginInformation(string email, string password)
     {
-        StartCoroutine(_userManager.SignIn(email, password));
+		if (email == "" && password == "" &&
+			PlayerPrefs.HasKey("email") && PlayerPrefs.HasKey("password"))
+        	StartCoroutine(_userManager.SignIn(PlayerPrefs.GetString("email"), 
+											   PlayerPrefs.GetString("password")));
+		else
+			StartCoroutine(_userManager.SignIn(email, password));
     }
 
     public void GoToDestination(string destination)
