@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using MiniJSON;
 using UnityEngine;
 using System.Collections;
@@ -28,8 +29,10 @@ public class HTMLMemoryBank : MonoBehaviour
         {
             _view.View.BindCall("RequestUsername", (System.Action)RequestUsername);
             _view.View.BindCall("CheckPin", (System.Action<string>)OnJournalClicked);
-            _view.View.BindCall("OnSaveEntryClicked", (System.Action<string, string>) OnSaveEntryClicked);
+            _view.View.BindCall("OnSaveEntryClicked", (System.Action<string, string>)OnSaveEntryClicked);
 			_view.View.BindCall("DeleteEntry", (System.Action<string>)DeleteEntry);
+            _view.View.BindCall("GetCategories", (System.Action)GetCategories);
+            _view.View.BindCall("UpdateCategories", (System.Action<string>)UpdateCategories);
         };
 
         _viewReady = false;
@@ -166,5 +169,38 @@ public class HTMLMemoryBank : MonoBehaviour
 		StartCoroutine(DeleteJournal(Convert.ToInt32(id)));
 	}
 
+    public void GetCategories()
+    {
+        Debug.Log("Getting the categories");
+        foreach (SocialInterest interest in _userManager.Categories)
+        {
+            Debug.Log("Adding interest " + interest.Id);
+            _view.View.TriggerEvent("AddCategory", interest.Id, interest.Name, _userManager.CurrentUser.HasInterest(interest.Id));
+        }
+        _view.View.TriggerEvent("CategoriesFinished");
+    }
+
+    public void UpdateCategories(string newCats)
+    {
+        string setURL = "http://www.univercity3d.com/univercity/SetSocialInterests?token=";
+        setURL += _userManager.CurrentUser.Token;
+        setURL += newCats;
+
+        Debug.Log("Updating categories " + newCats);
+
+        string[] splitCategories = Regex.Split(newCats, "&i=");
+        List<SocialInterest> newInterests = new List<SocialInterest>();
+
+        foreach (string split in splitCategories)
+        {
+            if (split == "") continue;
+            if (_userManager.GetCategoryById(Convert.ToInt32(split)) != null)
+                newInterests.Add(_userManager.GetCategoryById(Convert.ToInt32(split)));
+        }
+
+        _userManager.CurrentUser.SetCategories(newInterests);
+
+        WWW page = new WWW(setURL);
+    }
     #endregion
 }
