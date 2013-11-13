@@ -62,7 +62,7 @@ public class BusinessAd : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
         if (Application.loadedLevel != 1)
         {
-            transform.localPosition = new Vector3(0, 200, -500);
+            transform.localPosition = new Vector3(0, -1386, -500);
             transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 270));
         }
         adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -76,17 +76,11 @@ public class BusinessAd : MonoBehaviour
 
     public void LateUpdate()
     {
-        if ((Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android) 
+        if ((Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
             && (Screen.orientation == ScreenOrientation.Portrait || Screen.orientation == ScreenOrientation.PortraitUpsideDown))
             RotateIconPanel.SetActive(true);
         else
             RotateIconPanel.SetActive(false);
-//TODO: Bad hack, fix later
-    if (Application.loadedLevel != 1)
-        transform.localPosition = new Vector3(0, 200, 0);
-    else
-        transform.localPosition = new Vector3(-200, 0, 0);
-
     }
 
 	public void OnExitClicked()

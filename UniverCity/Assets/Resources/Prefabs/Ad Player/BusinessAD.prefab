@@ -1914,7 +1914,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1650, y: 900, z: -349.999939}
+  m_LocalPosition: {x: 1200, y: 900, z: -349.999939}
   m_LocalScale: {x: 200, y: 200, z: 1.00044799}
   m_Children: []
   m_Father: {fileID: 400086}
@@ -1989,7 +1989,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1595.70105, y: -775.700012, z: -99.9995728}
+  m_LocalPosition: {x: 1000, y: 900, z: -99.9995728}
   m_LocalScale: {x: 1.00044775, y: 1.00044775, z: 1.00044799}
   m_Children:
   - {fileID: 400056}
@@ -2070,7 +2070,7 @@ Transform:
   m_GameObject: {fileID: 100056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 400, y: 150, z: 1}
+  m_LocalScale: {x: 160, y: 160, z: 1}
   m_Children: []
   m_Father: {fileID: 400042}
 --- !u!4 &400058
@@ -2240,7 +2240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100086}
   m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: -654.047424}
+  m_LocalPosition: {x: 0, y: -1386, z: -654.047424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400198}
@@ -2949,7 +2949,7 @@ Transform:
   m_GameObject: {fileID: 100202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 400, y: 150, z: 1}
+  m_LocalScale: {x: 160, y: 160, z: 1}
   m_Children: []
   m_Father: {fileID: 400204}
 --- !u!4 &400204
@@ -2959,7 +2959,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1595.69995, y: -940, z: -99.9995728}
+  m_LocalPosition: {x: 800, y: 900, z: -99.9995728}
   m_LocalScale: {x: 1.00044775, y: 1.00044775, z: 1.00044799}
   m_Children:
   - {fileID: 400202}
@@ -3120,7 +3120,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 250, z: 0}
+  m_Size: {x: 160, y: 160, z: 0}
   m_Center: {x: 0, y: -.5, z: -3.75}
 --- !u!65 &6500012
 BoxCollider:
@@ -3240,7 +3240,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 250, z: 0}
+  m_Size: {x: 160, y: 160, z: 0}
   m_Center: {x: 0, y: -.5, z: -3.75}
 --- !u!65 &6500032
 BoxCollider:
@@ -4874,8 +4874,8 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 14
   mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
-  mText: Flag As Inappropriate
-  mMaxLineWidth: 500
+  mText: Flag
+  mMaxLineWidth: 250
   mMaxLineHeight: 0
   mEncoding: 1
   mMaxLineCount: 2
@@ -5385,11 +5385,11 @@ MonoBehaviour:
     e00: 1023.54193
     e01: 0
     e02: 0
-    e03: 1839.80286
+    e03: -18.8029823
     e10: 0
     e11: 1023.54193
     e12: 0
-    e13: -2.22506714
+    e13: -1.85440791
     e20: 0
     e21: 0
     e22: 1023.54144
@@ -5413,6 +5413,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e2632c93971d754b85b368bd56a4a9d, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
@@ -5588,8 +5591,8 @@ MonoBehaviour:
   mPivot: 4
   mDepth: 14
   mFont: {fileID: 11400000, guid: c633ba8f6bd6c0340b1798435c6a633c, type: 2}
-  mText: Rate This Ad
-  mMaxLineWidth: 500
+  mText: Rate
+  mMaxLineWidth: 250
   mMaxLineHeight: 0
   mEncoding: 1
   mMaxLineCount: 2
