@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1450284610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81a76de1927af73409150f72f7bf98de, type: 3}
+  m_Script: {fileID: 11500000, guid: b8939702a2ea474498a149ef001d658f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1450284612
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15780473129e394db2b927dd8e5e960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Page: coui://HTML_UI/virtualmall/virtualmallmain.html
+  m_Page: coui://HTML_UI/VirtualMall/virtualmall.html
   m_Width: 1024
   m_Height: 512
   m_XPos: 0
