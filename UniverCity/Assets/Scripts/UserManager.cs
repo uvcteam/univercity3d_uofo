@@ -37,7 +37,11 @@ public class UserManager : MonoBehaviour
         _view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
     }
-
+    void OnLevelWasLoaded(int level)
+    {
+        if (level != 0)
+            loginPanel.SetActive(false);
+    }
     void OnViewReady(View view)
     {
         _viewReady = true;
@@ -99,10 +103,9 @@ public class UserManager : MonoBehaviour
 			Application.platform == RuntimePlatform.WindowsWebPlayer ||
 			Application.platform == RuntimePlatform.OSXWebPlayer)
             {
-                //signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
-                //signingInDialog.SetActive(true);
-                //signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
-                ;
+                signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
+                signingInDialog.SetActive(true);
+                signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
             }
             else if (Application.platform == RuntimePlatform.Android ||
                      Application.platform == RuntimePlatform.IPhonePlayer)
