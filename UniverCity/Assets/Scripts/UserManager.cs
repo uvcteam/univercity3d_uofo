@@ -54,7 +54,7 @@ public class UserManager : MonoBehaviour
                 PlayerPrefs.GetString("name"),
                 PlayerPrefs.GetString("email"),
                 PlayerPrefs.GetString("university"));
-            StartCoroutine(SignIn(PlayerPrefs.GetString("email"), PlayerPrefs.GetString("password")));
+            //StartCoroutine(SignIn(PlayerPrefs.GetString("email"), PlayerPrefs.GetString("password")));
         }
         else
             CurrentUser = null;
@@ -161,6 +161,7 @@ public class UserManager : MonoBehaviour
                     NativeDialogs.Instance.HideProgressDialog();
             }
 
+            Debug.Log("Triggering event on the JavaScript!");
             _view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
             NativeDialogs.Instance.HideProgressDialog();
 
@@ -189,9 +190,7 @@ public class UserManager : MonoBehaviour
             if (page.error == null && page.text != null && page.isDone)
                 goodDownload = true;
         }
-
-        Debug.Log(page.text);
-
+        
         Dictionary<string, object> results = Json.Deserialize(page.text) as Dictionary<string, object>;
         if (Convert.ToBoolean(results["s"]))
         {
@@ -224,10 +223,18 @@ public class UserManager : MonoBehaviour
 
     private string CategoryNameForId(int id)
     {
-        for (int i = 0; i < Categories.Count; ++i)
-            if (Categories[i].Id == id) return Categories[i].Name;
+        foreach (SocialInterest t in Categories)
+            if (t.Id == id) return t.Name;
 
         return "";
+    }
+
+    public SocialInterest GetCategoryById(int id)
+    {
+        foreach (SocialInterest t in Categories)
+            if (t.Id == id) return t;
+
+        return null;
     }
 }
 
@@ -308,9 +315,8 @@ public class User
 
     public void SetCategories(List<SocialInterest> categories)
     {
-        categories.Clear();
-        foreach (SocialInterest interest in categories)
-            Categories.Add(new SocialInterest(interest));
+        this.categories.Clear();
+        this.categories.AddRange(categories);
     }
     public void PopulateJournal(List<object> json)
     {

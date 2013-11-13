@@ -3,14 +3,15 @@ $(function () {
     $(".location").click(function() {
         GoToDestination(this.getAttribute('destination'));
     });
-    
-    engine.call('CheckLoginInformation', '', '');
+
+    console.log('Trying to log in with default values.');
+    engine.call('CheckLoginInformation', '', '', true);
 });
 
 function SignInClicked() {
 	var values = $(":input").serializeArray();
 
-    engine.call('CheckLoginInformation', values[0]["value"], values[1]["value"]).then(function() {
+    engine.call('CheckLoginInformation', values[0]["value"], values[1]["value"], false).then(function() {
         console.log("Calling 'CheckLoginInformation' in Unity3D!");
     });
 }
@@ -35,7 +36,8 @@ function UnitySignOut() {
 
 // Invoked by Unity3D.
 
-engine.on('LoggedIn', function(name) {
+engine.on('LoggedIn', function (name) {
+    console.log('Logged in as ' + name);
     document.getElementById("logged-in").innerHTML = '<img src="images/logo.png" /><br /><span>Welcome back <strong><em>' + name + '</em></strong>!</span><br /><span>Not you? <a href="#" onclick="SignOut()">Sign out</a>.';
     classie.add(document.getElementById("main"), "hidden");
     classie.remove(document.getElementById("logged-in"), "hidden");

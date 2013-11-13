@@ -20,7 +20,7 @@ public class HTMLMainMenu : MonoBehaviour
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
             _view.View.BindCall("GoToDestination", (System.Action<string>) GoToDestination);
-            _view.View.BindCall("CheckLoginInformation", (System.Action<string, string>) CheckLoginInformation);
+            _view.View.BindCall("CheckLoginInformation", (System.Action<string, string, bool>) CheckLoginInformation);
             _view.View.BindCall("SignOut", (System.Action) SignOut);
         };
 
@@ -53,14 +53,17 @@ public class HTMLMainMenu : MonoBehaviour
 
     #region CoherentUI Bindings
 
-    public void CheckLoginInformation(string email, string password)
+    public void CheckLoginInformation(string email, string password, bool first)
     {
-		if (email == "" && password == "" &&
-			PlayerPrefs.HasKey("email") && PlayerPrefs.HasKey("password"))
-        	StartCoroutine(_userManager.SignIn(PlayerPrefs.GetString("email"), 
-											   PlayerPrefs.GetString("password")));
-		else
-			StartCoroutine(_userManager.SignIn(email, password));
+        if (first && email == "" && password == "" &&
+            PlayerPrefs.HasKey("email") && PlayerPrefs.HasKey("password"))
+        {
+            Debug.Log("Logging in with default values.");
+            StartCoroutine(_userManager.SignIn(PlayerPrefs.GetString("email"),
+                PlayerPrefs.GetString("password")));
+        }
+        else
+            StartCoroutine(_userManager.SignIn(email, password));
     }
 
     public void GoToDestination(string destination)

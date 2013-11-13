@@ -151,7 +151,7 @@ public class BusinessManager : MonoBehaviour
             if (page.error == null && page.texture != null)
                 goodDownload = true;
         }
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! before");
+
         // Put the resulting image in a Texture2D to work with...
         Texture2D allLogos = page.texture;
         int imageWidthHeight = allLogos.width;

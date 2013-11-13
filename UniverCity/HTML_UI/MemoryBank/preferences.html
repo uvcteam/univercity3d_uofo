@@ -11,9 +11,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>UniverCity3D Memory Bank</title>
-
-
+    <title>UniverCity3D Memory Bank - Create Journal</title>
 
     <!-- Style CSS -->
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet">
@@ -29,7 +27,7 @@
                 <li destination="internal"><a href="privatejournal.html">Private Journal</a></li>
                 <li destination="internal"><a href="#">My Notifications</a></li>
                 <li destination="internal"><a href="#">Photos &amp; Videos</a></li>
-                <li destination="internal"><a href="preferences.html">Preferences</a></li>
+                <li destination="internal" class="selected"><a href="#">Preferences</a></li>
                 <li destination="internal"><a href="#">Help</a></li>
             </ul>
             <ul>
@@ -42,13 +40,21 @@
         <div class="st-pusher">
             <div class="st-content">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
+                <button type="button" class="back_button" onclick="SavePreferences()"><i class="fa fa-arrow-left"></i></button>
                 <div class="st-content-inner">
-                    <img src="images/profile.svg" id="profile-pic" />
-                    <h1 id="user-name">Loading Name</h1>
+                    <div class="preferences">
+                        <h1>Preferences</h1>
+                        <p>Please select the categories that you are interested in.</p>
+                        <form class="ac-custom ac-checkbox ac-boxfill">
+                            <ul class="preferences-list">
+                            </ul>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
+    
     <!-- main JS libs -->
     <script src="../libs/js/coherent.js"></script>
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
@@ -56,6 +62,8 @@
     <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
-    <script src="js/memorybank.js"></script>
+
+    <script src="js/svgcheckbx.js"></script>
+    <script src="js/preferences.js"></script>
 </body>
 </html>
