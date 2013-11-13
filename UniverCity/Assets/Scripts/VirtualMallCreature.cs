@@ -11,7 +11,7 @@ public class VirtualMallCreature : MonoBehaviour
     public UILabel MyUiLabel = null;
     public string MyString = "";
     public bool IsDone = false;
-
+    public GameObject Turtle;
 	// Use this for initialization
 	void Start ()
 	{

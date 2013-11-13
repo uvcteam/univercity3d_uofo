@@ -24,3 +24,11 @@ $(function () {
         classie.remove(document.getElementById('st-container'), 'st-menu-open');
     });
 });
+$(function () {
+    $('#demo4').scrollbox({
+        direction: 'h',
+        switchItems: 1,
+        distance: 250
+    });
+});
+

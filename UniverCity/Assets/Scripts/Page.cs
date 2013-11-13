@@ -19,9 +19,9 @@ public class Page : MonoBehaviour
         transform.localScale = new Vector3(1, 1, 1);
 
         if (gameObject.name == "Mega Deal")
-            transform.localPosition = new Vector3(0, 0, -300);
+            transform.localPosition = new Vector3(0, 0, -400);
         else
-            transform.localPosition = new Vector3(150, 0, -300);
+            transform.localPosition = new Vector3(150, 0, -400);
 
         if (gameObject != businessAd.MegaDealPage)
             businessAd.background.GetComponent<UISlicedSprite>().color = adPage.Background.TopColor;

@@ -10,15 +10,19 @@
     <meta charset="utf-8">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <title>Virtual Mall Main</title>
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet" />
     <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
 
-    <link href="styles/virtualmallmain.css" media="screen" rel="stylesheet" />
-    <link href="styles/style.css" media="screen" rel="stylesheet" />
+    <link href="styles/virtualmallmain.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="styles/adsliderstyle.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="styles/jquery.jscrollpane.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="styles/reset.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="styles/adscroll.css" media="screen" rel="stylesheet" />
+    <link href="styles/style.css" media="screen" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -35,6 +39,17 @@
         <div class="st-pusher">
             <div class="st-content">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
+                <div id="demo4" class="scroll-img">
+                    <ul>
+                        <li><img src="images/bikes.png" /></li>
+                        <li><img src="images/dentist.png" /></li>
+                        <li><img src="images/hair.png"></li>
+                        <li><img src="images/oil_change.png"></li>
+                        <li><img src="images/oil_change.png"></li>
+                        <li><img src="images/oil_change.png"></li>
+                        <li><img src="images/oil_change.png"></li>
+                    </ul>
+                </div>
                 <div class="st-content-inner">
                     <div id="container">
                         <div class="category">
@@ -631,12 +646,14 @@
         </div>
     </div>
     <!-- main JS libs -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="../libs/js/coherent.js"></script>
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
     <script src="../libs/js/jquery-1.10.0.js"></script>
     <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
+    <script src="../libs/js/jquery.scrollbox.js"></script>
     <script src="js/virtualmall.js"></script>
 </body>
 </html>

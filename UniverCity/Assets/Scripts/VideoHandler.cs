@@ -35,9 +35,10 @@ public class VideoHandler : MonoBehaviour
 
                 VirtualMallCreature creature = GameObject.Find("Creature").GetComponent<VirtualMallCreature>();
 
+                creature.Turtle.SetActive(true);
                 while(creature.IsDone == false)
                     yield return null;
-
+                creature.Turtle.SetActive(false);
                 PlayVideoFromURL();
             }
             else
