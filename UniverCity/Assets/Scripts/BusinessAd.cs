@@ -296,4 +296,52 @@ public class BusinessAd : MonoBehaviour
             obj.SetActive(true);
     }
 
+    public void RateAd()
+    {
+        int rating = 0;
+        string comment = "";
+        bool offensive = false;
+        string rateURL = "http://www.univercity3d.com/univercity/RateAd?token=";
+        UserManager manager = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>();
+        rateURL += manager.CurrentUser.Token;
+        rateURL += "&id=" + adManager.BusinessID;
+        rateURL += "&email=" + manager.CurrentUser.Email;
+        rateURL += "&name=" + manager.CurrentUser.Name;
+
+        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a number between 1 and 5.", new string[] { "Cancel", "NEXT" }, false, (string prompt,
+                                                                                                   string button) =>
+        {
+            if (button == "Cancel") return;
+            else
+            {
+                if (Convert.ToInt32(prompt) < 1) rating = 1;
+                else if (Convert.ToInt32(prompt) > 5) rating = 5;
+                else rating = Convert.ToInt32(prompt);
+
+                NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a comment.", new string[] { "Cancel", "NEXT" }, false, (string prompt2,
+                                                                                                           string button2) =>
+                {
+                    if (button2 == "Cancel") return;
+                    else
+                    {
+                        comment = prompt2;
+
+                        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (string prompt3,
+                                                                                                                   string button3) =>
+                        {
+                            if (button3 == "Cancel") return;
+                            else if (button3 == "YES") offensive = true;
+                            else offensive = false;
+
+                            rateURL += "&rating=" + rating;
+                            rateURL += "&comment=" + comment;
+                            rateURL += "&q=" + offensive.ToString();
+
+                            WWW page = new WWW(rateURL);
+                        });
+                    }
+                });
+            }
+        });
+    }
 }
