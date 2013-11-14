@@ -20,6 +20,9 @@ public class BusinessAd : MonoBehaviour
 	public UITexture[] texturesToPurge;
 	public GameObject narrator;
     public GameObject RotateIconPanel;
+    public GameObject backBtn;
+    public GameObject rateBtn;
+    public GameObject facebookBtn;
     public UILabel businessName;
     public bool hasMegaDeal = false;
     public bool hasMembersOnly = false;
@@ -152,6 +155,9 @@ public class BusinessAd : MonoBehaviour
             BusinessCard.SetActive(true);
             MegaDealBtn.SetActive(false);
             MembersOnlyBtn.SetActive(false);
+            backBtn.SetActive(false);
+            rateBtn.SetActive(false);
+            facebookBtn.SetActive(false);
 
             foreach (GameObject btn in pageBtns)
                 btn.SetActive(false);
@@ -161,6 +167,10 @@ public class BusinessAd : MonoBehaviour
         }
         else
         {
+            backBtn.SetActive(true);
+            rateBtn.SetActive(true);
+            facebookBtn.SetActive(true);
+
 			if(narrator != null)
 			{
 				narrator.SetActive(true);
