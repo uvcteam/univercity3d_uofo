@@ -74,6 +74,7 @@ public class BusinessAd : MonoBehaviour
         foreach (GameObject btn in pageBtns)
             btn.SetActive(true);
         detailsBtn.SetActive(true);
+		Resources.UnloadUnusedAssets();
 
     }
 
@@ -298,50 +299,112 @@ public class BusinessAd : MonoBehaviour
 
     public void RateAd()
     {
+		Debug.Log("Rating ad!");
         int rating = 0;
         string comment = "";
+		string name = "";
+		string email = "";
         bool offensive = false;
-        string rateURL = "http://www.univercity3d.com/univercity/RateAd?token=";
+        string rateURL = "http://www.univercity3d.com/univercity/RateAd?id=" + adManager.BusinessID;
         UserManager manager = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>();
-        rateURL += manager.CurrentUser.Token;
-        rateURL += "&id=" + adManager.BusinessID;
-        rateURL += "&email=" + manager.CurrentUser.Email;
-        rateURL += "&name=" + manager.CurrentUser.Name;
+		if (manager.IsSignedIn())
+		{
+	        rateURL += "&token=" + manager.CurrentUser.Token;
+	        rateURL += "&email=" + manager.CurrentUser.Email;
+	        rateURL += "&name=" + manager.CurrentUser.Name;
 
-        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a number between 1 and 5.", new string[] { "Cancel", "NEXT" }, false, (string prompt,
-                                                                                                   string button) =>
-        {
-            if (button == "Cancel") return;
-            else
-            {
-                if (Convert.ToInt32(prompt) < 1) rating = 1;
-                else if (Convert.ToInt32(prompt) > 5) rating = 5;
-                else rating = Convert.ToInt32(prompt);
-
-                NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a comment.", new string[] { "Cancel", "NEXT" }, false, (string prompt2,
-                                                                                                           string button2) =>
-                {
-                    if (button2 == "Cancel") return;
-                    else
-                    {
-                        comment = prompt2;
-
-                        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (string prompt3,
-                                                                                                                   string button3) =>
-                        {
-                            if (button3 == "Cancel") return;
-                            else if (button3 == "YES") offensive = true;
-                            else offensive = false;
-
-                            rateURL += "&rating=" + rating;
-                            rateURL += "&comment=" + comment;
-                            rateURL += "&q=" + offensive.ToString();
-
-                            WWW page = new WWW(rateURL);
-                        });
-                    }
-                });
-            }
-        });
+	        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a number between 1 and 5.", new string[] { "Cancel", "NEXT" }, false, (string prompt,
+	                                                                                                   string button) =>
+	        {
+	            if (button == "Cancel") return;
+	            else
+	            {
+	                if (Convert.ToInt32(prompt) < 1) rating = 1;
+	                else if (Convert.ToInt32(prompt) > 5) rating = 5;
+	                else rating = Convert.ToInt32(prompt);
+			
+			        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a comment.", new string[] { "Cancel", "NEXT" }, false, (string prompt2,
+			                                                                                                   string button2) =>
+			        {
+			            if (button2 == "Cancel") return;
+			            else
+			            {
+			                comment = prompt2;
+			
+					        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (string prompt3,
+					                                                                                                   string button3) =>
+					        {
+					            if (button3 == "Cancel") return;
+					            else if (button3 == "YES") offensive = true;
+					            else offensive = false;
+					
+					            rateURL += "&rating=" + rating;
+					            rateURL += "&comment=" + comment;
+					            rateURL += "&q=" + offensive.ToString();
+								
+								Debug.Log (rateURL);
+					            //WWW page = new WWW(rateURL);
+					        });
+			            }
+			        });
+	            }
+	        });
+		}
+		else
+		{
+	        NativeDialogs.Instance.ShowPromptMessageBox("Not Logged In", "Please enter your name.", new string[] { "Cancel", "NEXT" }, false, (string prompta,
+	                                                                                                   string buttona) =>
+	        {
+				if (buttona == "Cancel") return;
+				name = prompta;
+				
+		        NativeDialogs.Instance.ShowPromptMessageBox("Not Logged In", "Please enter your email.", new string[] { "Cancel", "NEXT" }, false, (string promptb,
+		                                                                                                   string buttonb) =>
+		        {
+					if (buttonb == "Cancel") return;
+					email = promptb;
+					
+			        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a number between 1 and 5.", new string[] { "Cancel", "NEXT" }, false, (string prompt,
+		                                                                                                   string button) =>
+			        {
+			            if (button == "Cancel") return;
+			            else
+			            {
+			                if (Convert.ToInt32(prompt) < 1) rating = 1;
+			                else if (Convert.ToInt32(prompt) > 5) rating = 5;
+			                else rating = Convert.ToInt32(prompt);
+					
+					        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Enter a comment.", new string[] { "Cancel", "NEXT" }, false, (string prompt2,
+					                                                                                                   string button2) =>
+					        {
+					            if (button2 == "Cancel") return;
+					            else
+					            {
+					                comment = prompt2;
+					
+							        NativeDialogs.Instance.ShowMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (string prompt3,
+							                                                                                                   string button3) =>
+							        {
+							            if (button3 == "Cancel") return;
+							            else if (button3 == "YES") offensive = true;
+							            else offensive = false;
+				
+								        rateURL += "&email=" + email;
+								        rateURL += "&name=" + name;
+							
+							            rateURL += "&rating=" + rating;
+							            rateURL += "&comment=" + comment;
+							            rateURL += "&q=" + offensive.ToString();
+										
+										Debug.Log (rateURL);
+							            WWW page = new WWW(rateURL);
+							        });
+					            }
+					        });
+			            }
+			        });
+				});
+			});
+		}
     }
 }

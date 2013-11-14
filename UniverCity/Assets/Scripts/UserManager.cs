@@ -34,8 +34,8 @@ public class UserManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        _view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
-        _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
+        //_view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
+        //_view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
     }
     void OnLevelWasLoaded(int level)
     {
@@ -165,7 +165,7 @@ public class UserManager : MonoBehaviour
             }
 
             Debug.Log("Triggering event on the JavaScript!");
-            _view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
+            //_view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
             NativeDialogs.Instance.HideProgressDialog();
 
             StartCoroutine(GetUserCategories());

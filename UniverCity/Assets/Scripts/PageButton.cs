@@ -27,15 +27,15 @@ public class PageButton : MonoBehaviour {
         trackURL += businessAd.GetComponent<BusinessAd>().adManager.BusinessID;
         if (Page.name == "Mega Deal")
         {
-            UnivercityTools.TrackUserAction(null, "", "deal", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
+            UnivercityTools.TrackUserAction(businessAd.GetComponent<BusinessAd>().adManager.BusinessID, "", "deal", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
         }
         else if (Page.name == "Members Only")
         {
-            UnivercityTools.TrackUserAction(null, "", "discount", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
+            UnivercityTools.TrackUserAction(businessAd.GetComponent<BusinessAd>().adManager.BusinessID, "", "discount", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
         }
         else
         {
-            UnivercityTools.TrackUserAction(null, transform.Find("Label").GetComponent<UILabel>().text,
+            UnivercityTools.TrackUserAction(businessAd.GetComponent<BusinessAd>().adManager.BusinessID, transform.Find("Label").GetComponent<UILabel>().text,
                 "click", businessAd.GetComponent<BusinessAd>().sessionId.ToString());
         }
 
