@@ -41,6 +41,11 @@ public class UserManager : MonoBehaviour
     {
         if (level != 0)
             loginPanel.SetActive(false);
+        if (level == 1)
+        {
+            Destroy(GameObject.Find("VirtualMall(Material)"));
+            Debug.Log("HUR");
+        }
     }
     void OnViewReady(View view)
     {

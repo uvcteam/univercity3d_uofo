@@ -138,8 +138,8 @@ public class BusinessAd : MonoBehaviour
 			Application.platform == RuntimePlatform.OSXWebPlayer || Application.platform == RuntimePlatform.WindowsEditor ||
             Application.platform == RuntimePlatform.OSXEditor;
 
-        if (isDesktop || Screen.orientation == ScreenOrientation.Landscape)
-            loadingDialog.SetActive(true);
+        //if (isDesktop || Screen.orientation == ScreenOrientation.Landscape)
+        //    loadingDialog.SetActive(true);
 
         StartCoroutine(adManager.GetAd(businessID));
 
@@ -147,7 +147,7 @@ public class BusinessAd : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 		Debug.Log ("Getting business.");
 
-        loadingDialog.SetActive(false);
+        //loadingDialog.SetActive(false);
 
 
         if (adManager.hasAd == false)
@@ -382,8 +382,7 @@ public class BusinessAd : MonoBehaviour
 					            {
 					                comment = prompt2;
 					
-							        NativeDialogs.Instance.ShowMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (string prompt3,
-							                                                                                                   string button3) =>
+							        NativeDialogs.Instance.ShowMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (string button3) =>
 							        {
 							            if (button3 == "Cancel") return;
 							            else if (button3 == "YES") offensive = true;
