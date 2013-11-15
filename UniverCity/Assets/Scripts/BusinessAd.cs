@@ -85,6 +85,12 @@ public class BusinessAd : MonoBehaviour
             RotateIconPanel.SetActive(true);
         else
             RotateIconPanel.SetActive(false);
+		
+        if (Application.loadedLevel != 1)
+        {
+            transform.localPosition = new Vector3(0, 0, -500);
+            transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 270));
+        }
     }
 
 	public void OnExitClicked()
@@ -343,7 +349,14 @@ public class BusinessAd : MonoBehaviour
 					            rateURL += "&q=" + offensive.ToString();
 								
 								Debug.Log (rateURL);
-					            //WWW page = new WWW(rateURL);
+					            WWW page = new WWW(rateURL);
+								
+								
+						        NativeDialogs.Instance.ShowMessageBox("Thank You", "Thank you for rating this ad!", new string[] { "OK" }, false, (
+						                                                                                                   string button4) =>
+						        {
+										return;
+						        });
 					        });
 			            }
 			        });
@@ -397,6 +410,13 @@ public class BusinessAd : MonoBehaviour
 										
 										Debug.Log (rateURL);
 							            WWW page = new WWW(rateURL);
+								
+								
+								        NativeDialogs.Instance.ShowMessageBox("Thank You", "Thank you for rating this ad!", new string[] { "OK" }, false, (
+								                                                                                                   string button4) =>
+								        {
+												return;
+								        });
 							        });
 					            }
 					        });
