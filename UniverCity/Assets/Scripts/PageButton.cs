@@ -116,7 +116,7 @@ public class PageButton : MonoBehaviour {
 
         Page.GetComponent<Page>().OnPageSwitch();
 
-        if (Page.GetComponent<VideoHandler>())
+        if (Page.GetComponent<VideoHandler>() && this.active == true)
             StartCoroutine(Page.GetComponent<VideoHandler>().OnPageSwitch());
 
     }

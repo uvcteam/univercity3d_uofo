@@ -337,7 +337,7 @@ public class BusinessAd : MonoBehaviour
 			            {
 			                comment = prompt2;
 			
-					        NativeDialogs.Instance.ShowPromptMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (string prompt3,
+					        NativeDialogs.Instance.ShowMessageBox("Rate", "Lastly, was this offensive?", new string[] { "Cancel", "NO", "YES" }, false, (
 					                                                                                                   string button3) =>
 					        {
 					            if (button3 == "Cancel") return;
