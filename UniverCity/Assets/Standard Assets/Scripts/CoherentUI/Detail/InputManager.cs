@@ -6,7 +6,6 @@
 #define COHERENT_UNITY_UNSUPPORTED_PLATFORM
 #endif
 
-using System;
 using UnityEngine;
 using System.Collections;
 using Coherent.UI;

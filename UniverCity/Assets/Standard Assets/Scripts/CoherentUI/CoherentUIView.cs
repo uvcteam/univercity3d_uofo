@@ -832,17 +832,14 @@ public class CoherentUIView : MonoBehaviour {
 
 	private void OnSystemReady()
 	{
-	    if (this != null)
-	    {
-	        if (this.enabled)
-	        {
-	            SendCreateView();
-	        }
-	        else
-	        {
-	            m_QueueCreateView = true;
-	        }
-	    }
+		if (this.enabled)
+		{
+			SendCreateView();
+		}
+		else
+		{
+			m_QueueCreateView = true;
+		}
 	}
 
 	void Update () {

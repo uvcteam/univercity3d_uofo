@@ -56,7 +56,7 @@ public class ObjectPicker : MonoBehaviour {
 		RaycastHit hitInfo;
 		if (Physics.Raycast(m_MainCamera.ScreenPointToRay(Input.mousePosition), out hitInfo))
 		{
-			Debug.Log ("!!!!!!!!!!!!!!!!!!!!!!!!!"+hitInfo.collider.name+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			//Debug.Log (hitInfo.collider.name);
 			
 			CoherentUIView viewComponent = hitInfo.collider.gameObject.GetComponent(typeof(CoherentUIView)) as CoherentUIView;
 			if (viewComponent == null)

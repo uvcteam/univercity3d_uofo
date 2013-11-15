@@ -54,19 +54,10 @@ namespace Coherent.UI.Mobile
 		{
 			UnityEngine.TouchScreenKeyboard kbd = null;
 
-			bool wasInvisible = !UnityEngine.TouchScreenKeyboard.visible || (CoherentUISystem.Instance.
-            TouchscreenKeyboard == null);
-
-            if (!wasInvisible && visible)
-            {
-                return;
-            }
-
-            if (wasInvisible && visible)
+			if (!UnityEngine.TouchScreenKeyboard.visible && visible)
 			{
-                string initialString = GetTouchScreenKbdInitialText();
 				UnityEngine.TouchScreenKeyboard.hideInput = true;
-				
+				string initialString = GetTouchScreenKbdInitialText();
 				kbd = UnityEngine.TouchScreenKeyboard.Open(initialString);
 				
 				if (kbd != null && kbd.text.Length != initialString.Length)
@@ -78,7 +69,7 @@ namespace Coherent.UI.Mobile
 			CoherentUISystem.Instance.TouchscreenKeyboard = kbd;
 		}
 #endif
-
-        private System.Action m_OnSystemReady;
+		
+		private System.Action m_OnSystemReady;
 	}
 }
