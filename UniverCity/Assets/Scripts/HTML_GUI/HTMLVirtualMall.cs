@@ -19,6 +19,8 @@ public class HTMLVirtualMall : MonoBehaviour
     private BusinessManager _businessManager;
     private bool _loadSubCats = false;
     private string _subCat;
+    private int _businessID;
+    byte[] foo;
 	// Use this for initialization
     void Start()
     {
@@ -28,7 +30,8 @@ public class HTMLVirtualMall : MonoBehaviour
         {
             _view.View.BindCall("ReadyForCategories", (System.Action)ReadyForCategories);
             _view.View.BindCall("GetBusinessSubCat", (System.Action<string>)GetBusinessSubCat);
-            _view.View.BindCall("LoadAdPlayer", (System.Action<int>)LoadAdPlayer);
+            _view.View.BindCall("SetBusinessID", (System.Action<string>)SetBusinessID);
+            _view.View.BindCall("StartAdPlayer", (System.Action)StartAdPlayer);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -67,7 +70,8 @@ public class HTMLVirtualMall : MonoBehaviour
             {
                 foreach (Business business in _businessManager.businessesByCategory[mallCat])
                 {
-                    _view.View.TriggerEvent("PopulateCategory", business.name, business.desc, business.id, Convert.ToBase64String(business.logo.EncodeToPNG()), i);
+                    _view.View.TriggerEvent("PopulateCategory", business.name, business.desc, business.id, 
+                        Convert.ToBase64String(business.logo.EncodeToPNG()), i);
                 }
             }
             else
@@ -77,8 +81,49 @@ public class HTMLVirtualMall : MonoBehaviour
         _view.View.TriggerEvent("AttachEventToBusinesses");
     }
 
-    void LoadAdPlayer(int busid)
+    void SetBusinessID(string businessid)
     {
-        Debug.Log(busid);
+        _businessID = Int32.Parse(businessid);
+        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html");
+    }
+
+    void StartAdPlayer()
+    {
+        StartCoroutine(LoadAd());
+    }
+
+    IEnumerator LoadAd()
+    {        
+        AdData adInfo;
+        AdManager adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
+        string MediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
+        string URL = "";
+
+        StartCoroutine(adManager.GetAd(_businessID));
+
+        while (!adManager.adReady)
+            yield return new WaitForSeconds(0.1f);
+
+        adInfo = adManager.AdInfo;
+
+        AdPage adPage = null;
+
+        for (int i = 0; i < adInfo.Pages.Count; ++i)
+        {
+            adPage = adInfo.Pages[i];
+
+            for (int j = 0; j < adPage.Parts.Count; ++j)
+            {
+                if(adPage.Parts[j].Type == MediaType.Image)
+                    URL = MediaURL + adPage.Parts[j].Id;
+                else if(adPage.Parts[j].Type == MediaType.Video)
+                    URL = adPage.Parts[j].VideoURL;
+                Debug.Log(adPage.Parts[j].Type.ToString());
+                _view.View.TriggerEvent("PopulateAdPlayer", URL, adPage.Parts[j].Type.ToString(), adPage.Narrative, adPage.More != null ? adPage.More.Title:"", i);
+            }
+        }
+        Debug.Log(MediaURL + adPage.Expert.Id);
+        _view.View.TriggerEvent("SetFirstPage", MediaURL + adPage.Expert.Id);
+        _view.View.TriggerEvent("AttachEventToPages");
     }
 }

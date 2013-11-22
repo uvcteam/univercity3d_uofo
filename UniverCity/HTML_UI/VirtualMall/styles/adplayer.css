@@ -1,0 +1,107 @@
+#narrator {
+    max-width: 20%;
+    max-height: 20%;
+    min-width: 10%;
+    min-height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 1;
+    border:none;
+}
+
+.adpage {
+
+}
+#narrator-img {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 10%;
+    min-height: 10%;
+}
+#narrator-speech {
+    z-index: 1;
+    position:absolute;
+    max-width: 33.33%;
+    max-height: 33.33%;
+    top:50%;
+}
+.bubble {
+    position: absolute;
+    background-color: white;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    padding: 10px;
+    text-align: center;
+    width: 180px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    color: rgb(102, 147, 124);
+    z-index: 2;
+    bottom: 20%;
+    border-color: rgb(102, 147, 124);
+    border: 3px;
+    border-style: solid;
+}
+.bubble p{
+    color:black;
+}
+.bubble:after {
+    position: absolute;
+    display: block;
+    content: "";
+    border-color: rgb(102, 147, 124) transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -20px;
+    left: 1em;
+}
+.details-page{
+    /*display: none;*/
+}
+.details-btn p {
+    color: white;
+}
+.details-btn {
+    position: relative;
+    background-color: red;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    color: red;
+    z-index: 10;
+    /*top: 15%;*/
+    border-color: red;
+    border: 3px;
+    border-style: solid;
+}
+.details-btn:after {
+    display: block;
+    content: "";
+    border-color: red transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -20px;
+    left: 40%;
+    z-index: 10;
+}
+
+
+
