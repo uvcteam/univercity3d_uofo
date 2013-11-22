@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>UniverCity3D Union Hall</title>
+
+    <!-- Style CSS -->
+    <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet">
+    <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="styles/calendar.css" />
+    <link rel="stylesheet" type="text/css" href="../libs/datepicker/themes/classic.css">
+    <link rel="stylesheet" type="text/css" href="../libs/datepicker/themes/classic.date.css">
+    <link rel="stylesheet" type="text/css" href="../libs/datepicker/themes/classic.time.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/createform.css" />
+    <link rel="stylesheet" type="text/css" href="styles/modal.css" />
+</head>
+<body>
+    <div id="st-container" class="st-container">
+        <nav class="st-menu st-effect-1" id="menu-1">
+            <h2><i class="icon-bubbles"></i>&nbsp;Create Event</h2>
+            <ul>
+                <li destination="internal"><a href="#">Invitation Inbox <span class="badge pull-right">0</span></a></li>
+                <li destination="internal"><a href="#">Browse/Search</a></li>
+                <li destination="internal" class="selected"><a href="#">Create Event</a></li>
+                <li destination="internal"><a href="#">Edit</a></li>
+                <li destination="internal"><a href="#">Cancel/Withdraw</a></li>
+            </ul>
+            <ul>
+                <li destination="virtual_mall"><a class="icon-cart" href="#">&nbsp;Virtual Mall</a></li>
+                <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;My Vault</a></li>
+                <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
+                <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
+            </ul>
+        </nav>            <!-- content push wrapper -->
+        <div class="st-pusher">
+            <div class="st-content">
+                <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
+                <button type="button" class="back_button" onclick="window.location.href='unionhall.html'"><i class="fa fa-arrow-left"></i></button>
+                <div class="st-content-inner">
+                    <form class="cbp-mc-form">
+                        <div class="cbp-mc-column">
+                            <label for="event_name">Event Name</label>
+                            <input type="text" id="event_name" name="event_name" placeholder="Shakespeare Practice Play">
+                            <label for="event_who">Who is the event for?</label>
+                            <textarea id="event_who" name="event_who" placeholder="All participants in the play and anyone who wants to see it."></textarea>
+                            <label for="event_what">What will the event entail?</label>
+                            <textarea id="event_what" name="event_what" placeholder="We will be practicing our performance of the play King Lear. Anyone who is not participating in the play is free to watch the practice."></textarea>
+                            <label for="event_where">Where is the event?</label>
+                            <input type="text" id="event_where" name="event_where" placeholder="University Theatre">
+                            <label for="event_date">What day is the event?</label>
+                            <input type="text" id="event_date" name="event_date">
+                            <label for="event_time">What time is the event?</label>
+                            <input type="text" id="event_time" name="event_time">
+                        </div>
+                        <div class="cbp-mc-column">
+                            <label for="event_category">Category</label>
+                            <select id="event_category" name="event_category" class="cd-select">
+                                <option>Choose a category</option>
+                                <option>Arts/Culture</option>
+                                <option>Automotive</option>
+                                <option>Career/Business</option>
+                                <option>Computers/Technology</option>
+                                <option>Dancing</option>
+                                <option>Education</option>
+                                <option>Exercise</option>
+                                <option>Fashion/Beauty</option>
+                                <option>Food & Drink</option>
+                                <option>Games & Gaming</option>
+                                <option>Gardening</option>
+                                <option>Health/Medicine</option>
+                                <option>History</option>
+                                <option>Hobbies & Crafts</option>
+                                <option>Language</option>
+                                <option>Literature</option>
+                                <option>Music</option>
+                                <option>News/Journalism</option>
+                                <option>Pets & Animals</option>
+                                <option>Philosophy/Religion</option>
+                                <option>Photography</option>
+                                <option>Politics</option>
+                                <option>Science</option>
+                                <option>Shopping</option>
+                                <option>Social Issues</option>
+                                <option>Sports</option>
+                            </select>
+                            <label for="event_email">What is your email?</label>
+                            <input type="email" id="event_email" name="event_email" placeholder="john.doe@uoregon.edu">
+                            <label for="event_phone">What is your phone number?</label>
+                            <input type="tel" id="event_phone" name="event_phone" placeholder="555-555-5555">
+                            <span class="input-note">Your phone number will only be used to send updates on the engagement. We will not distribute your phone number or use it for any solicit purposes.</span>
+                            <label for="event_min">What are the minimum number of participants?</label>
+                            <input type="number" id="event_min" name="event_min" min="4" max="20">
+                            <label for="event_max">What are the maximum number of participants?</label>
+                            <input type="number" id="event_max" name="event_max" min="4" max="20">
+                            <input type="button" value="Create Event" onclick="OnEventCreate()" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md-overlay"></div><!-- the overlay element -->
+    <!-- main JS libs -->
+    <script src="../libs/js/coherent.js"></script>
+    <script src="../libs/js/modernizr-2.6.2.min.js"></script>
+    <script src="../libs/js/jquery-1.10.0.js"></script>
+    <script src="../libs/js/jquery-ui.min.js"></script>
+    <script src="../libs/js/classie.js"></script>
+    <script src="../libs/js/menumanager.js"></script>
+    <script src="js/createevent.js"></script>
+    <script src="../libs/datepicker/picker.js"></script>
+    <script src="../libs/datepicker/picker.date.js"></script>
+    <script src="../libs/datepicker/picker.time.js"></script>
+    <script src="../libs/datepicker/legacy.js"></script>
+    <script type="text/javascript">
+        $('#event_date').pickadate({min: Date.now(), max:false});
+        $('#event_time').pickatime({interval: 15, min: [6,0], max: [21,0], formatLabel: '<b>h</b>:i <!i>a</!i>'});
+    </script>
+</body>
+</html>

@@ -7,7 +7,7 @@ $(function () {
             classie.add(container, 'st-menu-open');
         }, 25);
     });
-    $('.st-container li').click(function (event) {
+    $('.st-menu li').click(function (event) {
         event.stopPropagation();
         if (this.getAttribute('destination') != 'internal') {
             GoToDestination(this.getAttribute('destination'));

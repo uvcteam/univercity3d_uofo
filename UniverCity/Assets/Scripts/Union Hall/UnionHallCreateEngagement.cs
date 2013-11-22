@@ -235,6 +235,7 @@ public class UnionHallCreateEngagement : MonoBehaviour
 
     void OnTitleSubmit()
     {
+        Debug.Log("Title changed to " + title.text);
         UnionHallEvent eventScript = GameObject.Find("NewEvent").GetComponent<UnionHallEvent>();
         eventScript.Title = title.text;
     }

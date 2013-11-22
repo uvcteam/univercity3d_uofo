@@ -1,0 +1,203 @@
+.input-note {
+    color: #686a6e;
+    font-size: 0.75em;
+    font-style: italic;
+}
+
+.cpb-mc-form {
+    position: relative;
+    margin: 0 auto;
+}
+
+.cbp-mc-form:before,
+.cbp-mc-form:after {
+    content: " ";
+    display: table;
+}
+
+.cbp-mc-form:after {
+    clear: both;
+}
+
+.cbp-mc-column {
+    width: 50%;
+    padding: 10px 30px;
+    float: left;
+}
+
+.cbp-mc-form label {
+    display: block;
+    padding: 40px 5px 5px 2px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.cbp-mc-form input,
+.cbp-mc-form textarea,
+.cpb-mc-form select {
+    font-family: 'Open Sans';
+    line-height: 1.5;
+    font-size: 1.4em;
+    padding: 5px 10px;
+    color: #686a6e;
+    display: block;
+    width: 100%;
+    background: transparent;
+}
+
+.cbp-mc-form input,
+.cbp-mc-form textarea {
+    border: 3px solid rgb(62, 129, 112);
+}
+
+.cbp-mc-form textarea {
+    min-height: 200px;
+}
+
+.cbp-mc-form input:focus,
+.cbp-mc-form textarea:focus,
+.cbp-mc-form label:active + input,
+.cbp-mc-form label:active + textarea {
+    outline: none;
+    border: 3px solid #686a6e;
+}
+
+.cbp-mc-form select:focus {
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    color: #686a6e;
+    font-style: italic;
+}
+
+:-moz-placeholder {
+    color: #686a6e;
+    font-style: italic;
+}
+
+::-moz-placeholder {
+    color: #686a6e;
+    font-style: italic;
+}
+
+:-ms-input-placeholder {
+    color: #686a6e;
+    font-style: italic;
+}
+
+.cbp-mc-form {
+    text-align: center;
+    padding-top: 40px;
+    clear: both;
+}
+
+.cbp-mc-form input[type=button] {
+    background: rgb(62, 129, 112);
+    border: none;
+    color: #fff;
+    width: auto;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 2px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.cbp-mc-form input[type=button]:hover {
+    background: rgb(49, 102, 89);
+}
+
+@media screen and (max-width: 70em) {
+    .cbp-mc-column {
+        width: 50%;
+    }
+    .cbp-mc-column:nth-child(3) {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .cbp-mc-column {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/**
+ * The days on the calendar
+ */
+
+.picker__day--today {
+    color: rgb(62, 129, 112);
+}
+.picker__day--today:before {
+    border-top: 0.5em solid rgb(49, 102, 89);
+}
+.picker__day--selected,
+.picker__day--selected:hover {
+    border-color: rgb(62, 129, 112);
+}
+.picker__day--highlighted {
+    background: rgba(62, 129, 112, 0.5);
+}
+.picker__day--infocus:hover,
+.picker__day--outfocus:hover {
+    background: rgba(62, 129, 112, 0.5);
+}
+.picker__day--highlighted:hover,
+.picker--focused .picker__day--highlighted {
+    background: rgb(62, 129, 112);
+    color: #ffffff;
+}
+
+/**
+ * The footer containing the "today" and "clear" buttons.
+ */
+
+.picker__button--today:hover,
+.picker__button--clear:hover {
+    cursor: pointer;
+    color: #000000;
+    background: rgba(62, 129, 112, 0.5);
+    border-bottom-color: rgba(62, 129, 112, 0.5);
+}
+.picker__button--today:focus,
+.picker__button--clear:focus {
+    background: rgba(62, 129, 112, 0.5);
+    border-color: rgb(62, 129, 112);
+    outline: none;
+}
+.picker__button--today:before {
+    border-top: 0.66em solid rgb(49, 102, 89);
+}
+
+/* Hovered time */
+.picker__list-item:hover {
+    cursor: pointer;
+    color: #000000;
+    background: rgba(62, 129, 112, 0.5);
+    border-color: rgb(62, 129, 112);
+    z-index: 10;
+}
+/* Selected time */
+.picker__list-item--selected,
+.picker__list-item--selected:hover {
+    border-color: rgb(62, 129, 112);
+    z-index: 10;
+}
+/* Highlighted time */
+.picker__list-item--highlighted {
+    background: rgba(62, 129, 112, 0.5);
+}
+/* Highlighted and hovered/focused time */
+.picker__list-item--highlighted:hover,
+.picker--focused .picker__list-item--highlighted {
+    background: rgb(62, 129, 112);
+    color: #ffffff;
+}

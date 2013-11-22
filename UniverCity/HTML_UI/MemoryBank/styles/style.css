@@ -1,3 +1,23 @@
+#menu_btn {
+    background: rgb(0, 117, 111);
+}
+
+#menu_btn:hover {
+    background: rgb(0, 117, 111);
+}
+
+.back_button {
+    background: rgb(0, 117, 111);
+}
+
+.back_button:hover {
+    background: rgb(0, 117, 111);
+}
+
+.st-menu {
+    background: rgb(0, 117, 111);
+}
+
 .st-container {
     color: rgb(0, 117, 111);
 }

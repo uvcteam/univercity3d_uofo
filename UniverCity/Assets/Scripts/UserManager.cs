@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using System.Collections;
 using MiniJSON;
@@ -34,12 +35,12 @@ public class UserManager : MonoBehaviour
         else
             Destroy(gameObject);
 
-        //_view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
+        _view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
         //_view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
     }
     void OnLevelWasLoaded(int level)
     {
-        if (level != 0)
+        if (level != 0 && loginPanel != null)
             loginPanel.SetActive(false);
         if (level == 1)
         {
@@ -108,9 +109,12 @@ public class UserManager : MonoBehaviour
 			Application.platform == RuntimePlatform.WindowsWebPlayer ||
 			Application.platform == RuntimePlatform.OSXWebPlayer)
             {
-                signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
-                signingInDialog.SetActive(true);
-                signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+                if (signingInDialog != null)
+                {
+                    signingInDialog = GameObject.Find("Login Panel").GetComponent<MainMenuManager>().signingInDialog;
+                    signingInDialog.SetActive(true);
+                    signingInDialog.GetComponentInChildren<UILabel>().text = "Signing in...";
+                }
             }
             else if (Application.platform == RuntimePlatform.Android ||
                      Application.platform == RuntimePlatform.IPhonePlayer)
@@ -135,7 +139,8 @@ public class UserManager : MonoBehaviour
 			Application.platform == RuntimePlatform.WindowsWebPlayer ||
 			Application.platform == RuntimePlatform.OSXWebPlayer)
             {
-                signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
+                if (signingInDialog != null)
+                    signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
                 exitBtn.SetActive(true);
             }
             else if (Application.platform == RuntimePlatform.Android ||
@@ -169,8 +174,13 @@ public class UserManager : MonoBehaviour
                     NativeDialogs.Instance.HideProgressDialog();
             }
 
+            while (_view == null || _view.View == null)
+            {
+                Debug.Log("No view...");
+                yield return new WaitForEndOfFrame();
+            }
             Debug.Log("Triggering event on the JavaScript!");
-            //_view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
+            _view.View.TriggerEvent("LoggedIn", CurrentUser.Name);
             NativeDialogs.Instance.HideProgressDialog();
 
             StartCoroutine(GetUserCategories());
@@ -243,6 +253,13 @@ public class UserManager : MonoBehaviour
             if (t.Id == id) return t;
 
         return null;
+    }
+
+    public int GetIDForCategory(string cat)
+    {
+        foreach (SocialInterest c in Categories.Where(c => c.Name == cat))
+            return c.Id;
+        return -1;
     }
 }
 
