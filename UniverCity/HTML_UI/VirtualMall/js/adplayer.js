@@ -60,7 +60,6 @@ engine.on('AttachEventToPages', function () {
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
 
-
     })
 
     $('#details-btn').click(function () {

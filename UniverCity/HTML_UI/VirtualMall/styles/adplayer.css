@@ -68,10 +68,11 @@
 }
 .details-btn p {
     color: white;
+    vertical-align: middle;
 }
 .details-btn {
     position: relative;
-    background-color: red;
+    color: rgba(0,0,0,.8);
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -82,17 +83,15 @@
     -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
     box-shadow: 0px 0 3px rgba(0,0,0,0.25);
-    color: red;
+    background: rgba(0,0,0,.8);
     z-index: 10;
-    /*top: 15%;*/
-    border-color: red;
     border: 3px;
-    border-style: solid;
+    padding: 7px;
 }
 .details-btn:after {
     display: block;
     content: "";
-    border-color: red transparent transparent transparent;
+    border-color: rgba(0,0,0,.8) transparent transparent transparent;
     border-style: solid;
     border-width: 10px;
     height: 0;
