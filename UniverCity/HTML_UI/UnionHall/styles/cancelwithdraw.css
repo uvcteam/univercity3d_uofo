@@ -1,0 +1,57 @@
+.events {
+    visibility: visible;
+    margin-top: 0px;
+}
+
+.cw-content {
+    margin: 0 auto;
+    padding-top: 5em;
+    width: 80%;
+}
+
+.tab-content {
+    margin-top: 20px;
+}
+
+.nav li {
+    text-transform: uppercase;
+    font-family: 'Oswald';
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+.nav-pills > li.active > a {
+    background-color: rgb(62, 129, 112);
+}
+
+.nav-pills > li.active > a:hover {
+    background-color: rgb(62, 129, 112)
+}
+
+.tab-pane > p {
+    color: #686a6e;
+    font-style: italic;
+}
+
+/* -------------------------------------------------------------
+======	MEDIA QUERIES
+------------------------------------------------------------- */
+
+/* -- Media query 1 (mq1)
+------------------------------------------------------------- */
+@media only screen and (max-width: 60em) { /* 13 / 780 */
+    .cw-content {
+        width: 90%;
+    }
+}
+
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 48em) { /* 13 / 624 */
+}
+
+/* -- Media query 3 (mq3)
+------------------------------------------------------------- */
+@media only screen and (max-width: 30em) { /* 13 / 390 */
+    
+}

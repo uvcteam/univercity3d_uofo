@@ -74,8 +74,8 @@ public class VideoHandler : MonoBehaviour
 
         if (_playVideo)
         {
-            if(Application.platform == RuntimePlatform.Android)
-                Handheld.PlayFullScreenMovie(URL, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
+            if (Application.platform == RuntimePlatform.Android) ;
+                //Handheld.PlayFullScreenMovie(URL, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
             else if (Application.platform == RuntimePlatform.IPhonePlayer)
             {
                 Debug.Log("Playing movie.");
