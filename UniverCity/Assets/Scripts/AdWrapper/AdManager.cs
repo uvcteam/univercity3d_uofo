@@ -4,7 +4,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using MiniJSON;
-
+#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM
+using Coherent.UI;
+using Coherent.UI.Binding;
+#elif UNITY_IPHONE || UNITY_ANDROID
+using Coherent.UI.Mobile;
+using Coherent.UI.Mobile.Binding;
+#endif
 [Serializable]
 public class AdManager : MonoBehaviour
 {
@@ -209,6 +215,7 @@ public class AdBackground : MonoBehaviour
         }
     }
 }
+[CoherentType(PropertyBindingFlags.All)]
 [Serializable]
 public class AdMedia
 {
@@ -311,8 +318,8 @@ public class AdMedia
     {
         WWW page = new WWW(url);
         while (!page.isDone) ;
-        //mediaAudio = page.GetAudioClip(false, false, AudioType.MPEG);
-        //Debug.Log(mediaAudio.length);
+        mediaAudio = page.GetAudioClip(false, false, AudioType.MPEG);
+        Debug.Log(mediaAudio.length);
     }
     private MediaContentType ContentTypeFromString(string str)
     {
@@ -606,6 +613,7 @@ public class AdMarkup
         }
     }
 }
+[CoherentType(PropertyBindingFlags.All)]
 [Serializable]
 public class AdMegaDeal
 {

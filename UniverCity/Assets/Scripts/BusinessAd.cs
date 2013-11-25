@@ -228,7 +228,7 @@ public class BusinessAd : MonoBehaviour
             else
                 detailsBtn.SetActive(false);
 
-            UnivercityTools.ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
+            //UnivercityTools.ScaleImage(narrator.GetComponent<Narrator>().texture, adInfo.Pages[0].Expert.Image);
             narrator.GetComponent<Narrator>().speechBubbleObject.SetActive(true);
             narrator.GetComponent<Narrator>().speechBubbleObject.GetComponentInChildren<UILabel>().text = adInfo.Pages[0].Narrative;
             pageGrid.GetComponent<UIGrid>().repositionNow = true;
@@ -269,7 +269,7 @@ public class BusinessAd : MonoBehaviour
 
     public void SetUpNarratorForPage(Page page, AdPage adPage)
     {
-        page.narratorTexture = adPage.Expert.Image;
+        //page.narratorTexture = adPage.Expert.Image;
         page.speechBubbleText = adPage.Narrative;
     }
 	

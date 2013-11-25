@@ -29,7 +29,7 @@ public class MegaDeal : MonoBehaviour
         List.GetComponent<UILabel>().text = adInfo.Mega.List.ToString();
         Price.GetComponent<UILabel>().text = adInfo.Mega.Price.ToString();
         Title.GetComponent<UILabel>().text = adInfo.Mega.Title;
-        GetComponent<Page>().narratorTexture = adInfo.Expert.Image;
+        //GetComponent<Page>().narratorTexture = adInfo.Expert.Image;
         megaDealColor = adInfo.Background.TopColor;
     }
 }

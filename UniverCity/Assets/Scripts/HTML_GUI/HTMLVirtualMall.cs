@@ -32,6 +32,7 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("GetBusinessSubCat", (System.Action<string>)GetBusinessSubCat);
             _view.View.BindCall("SetBusinessID", (System.Action<string>)SetBusinessID);
             _view.View.BindCall("StartAdPlayer", (System.Action)StartAdPlayer);
+            _view.View.BindCall("ApplyAdMedia", (System.Action<AdMedia>)ApplyAdMedia);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -107,23 +108,56 @@ public class HTMLVirtualMall : MonoBehaviour
         adInfo = adManager.AdInfo;
 
         AdPage adPage = null;
+        MediaURL[] adpageMedia = null;
+        MediaURL[] detailsMedia = null;
 
         for (int i = 0; i < adInfo.Pages.Count; ++i)
         {
             adPage = adInfo.Pages[i];
 
+            adpageMedia = new MediaURL[adPage.Parts.Count];
             for (int j = 0; j < adPage.Parts.Count; ++j)
             {
-                if(adPage.Parts[j].Type == MediaType.Image)
+                if (adPage.Parts[j].Type == MediaType.Image)
                     URL = MediaURL + adPage.Parts[j].Id;
-                else if(adPage.Parts[j].Type == MediaType.Video)
+                else if (adPage.Parts[j].Type == MediaType.Video)
                     URL = adPage.Parts[j].VideoURL;
-                Debug.Log(adPage.Parts[j].Type.ToString());
-                _view.View.TriggerEvent("PopulateAdPlayer", URL, adPage.Parts[j].Type.ToString(), adPage.Narrative, adPage.More != null ? adPage.More.Title:"", i);
+
+                Debug.Log(adpageMedia.Length + "," + j);
+                adpageMedia[j] = new MediaURL();
+                adpageMedia[j].mediaURL = URL;
+                adpageMedia[j].type = adPage.Parts[j].Type.ToString();                
             }
+
+            if (adPage.More != null)
+            {
+                detailsMedia = new MediaURL[adPage.More.Parts.Count];
+                for (int j = 0; j < adPage.More.Parts.Count; ++j )
+                {
+                    detailsMedia[j] = new MediaURL();
+                    detailsMedia[j].mediaURL += adPage.More.Parts[j].Id;
+                    detailsMedia[j].type += adPage.More.Parts[j].Type.ToString();  
+                }
+            }
+            _view.View.TriggerEvent("PopulateAdPlayer", adPage.Title, adpageMedia, adPage.Narrative,
+                adPage.More != null ? adPage.More.Title:"", detailsMedia, adPage.More != null ? adPage.More.Narrative:"");
         }
-        Debug.Log(MediaURL + adPage.Expert.Id);
+
+        _view.View.TriggerEvent("SetMegaDeal", adInfo.Mega);
+
         _view.View.TriggerEvent("SetFirstPage", MediaURL + adPage.Expert.Id);
         _view.View.TriggerEvent("AttachEventToPages");
     }
+
+    public void ApplyAdMedia(AdMedia media)
+    {
+        _view.View.TriggerEvent("gameConsole:Trace", media);
+    }
+}
+
+[CoherentType(PropertyBindingFlags.All)]
+class MediaURL
+{
+    public string mediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
+    public string type;
 }

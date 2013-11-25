@@ -101,6 +101,51 @@
     left: 40%;
     z-index: 10;
 }
+#tabs{
+    display: inline-block;
+}
+.tabs{
+    width: 70%;
+    margin: 0 auto;
+}
+.nav li {
+    text-transform: uppercase;
+    font-family: 'Oswald';
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+.nav-pills > li.active > a {
+    background-color: rgb(102, 147, 124);
+}
+
+.nav-pills > li.active > a:hover {
+    background-color: rgb(102, 147, 124);
+}
+
+#mega-deal{
+    text-align: center;
+    color: #000000;
+    margin-top: 10%
+}
+#mega-deal-btn{
+    width: 50%;
+}
+#title{
+    font-size: 30px;
+}
+#disclaimer {
+    font-weight: bold;
+}
+
+#members-only {
+    text-align: center;
+    color: black;
+    margin-top: 20%;
+}
+
+
+
 
 
 

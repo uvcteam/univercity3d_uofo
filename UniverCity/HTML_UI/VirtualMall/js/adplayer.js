@@ -6,28 +6,71 @@ $(document).ready(function () {
     engine.call("StartAdPlayer");
 
 });
-engine.on('PopulateAdPlayer', function (URL, MediaType, narration, details, index) {
+engine.on('PopulateAdPlayer', function (adpageTitle, adpageMedia, adpageNarrative, detailsTitle, detailsMedia, detailsNarrative) {
 
 
-    switch(MediaType)
+    var adpage = '<li>';
+    for (var i = 0; i < adpageMedia.length; ++i)
     {
-        case "Image":
-            document.getElementById('adpages').innerHTML += '<li><div class="adpage" data-details="' + details + '" data-narration="' + narration + '"><a href="#"><img src="' + URL + '"/></a></div>'
-            + '<div style="display:none" class="details-page" data-details="' + details + '" data-narration="' + narration + '"><a href="#"><img src="images/1.jpg"/></a></div></li>';
-            break;
-        case "Video":
-            document.getElementById('adpages').innerHTML
-            += '<li class="adpage" data-details="' + details + '" data-narration="' + narration + '"><video id="video' + index + '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
-            + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
-            + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
-            + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
-            + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
-            + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
-            + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'
-            + '</video></li>';
-            break;
-        default:
-            break;
+        switch(adpageMedia[i].type)
+        {
+            case "Image":
+                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><a href="#"><img src="' + adpageMedia[i].mediaURL + '"/></a></div>';
+                break;
+            case "Video":
+                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString()+ '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
+                    + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
+                    + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
+                    + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
+                    + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
+                    + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
+                    + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'
+                    + '</video></div>';
+                break;
+        }
+    }
+
+    if(detailsMedia){
+
+        for (var i = 0; i < detailsMedia.length; ++i)
+        {
+            switch (detailsMedia[i].type)
+            {
+                case "Image":
+                    adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><a href="#"><img src="' + detailsMedia[i].mediaURL + '"/></a></div>';
+                    break;
+                case "Video":
+                    adpage += '<div style="display:none"  class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><video id="video-' + detailsTitle + i.toString() + '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
+                        + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
+                        + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
+                        + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
+                        + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
+                        + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
+                        + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'
+                        + '</video></div>';
+                    break;
+            }
+        }
+    }
+    else
+        adpage += '<div style="display:none"  class="details-page"/>';
+
+    document.getElementById('adpages').innerHTML += adpage + '</li>';
+
+})
+
+engine.on('SetMegaDeal', function(megaDeal){
+
+    if (megaDeal){
+        $('#title').text(megaDeal.Title);
+        $('#description').text(megaDeal.Description);
+        $('#price').text('Deal Price: ' + megaDeal.Price);
+        $('#list').text(megaDeal.List);
+        $('#end').text('Hurry! Deal Ends ' + megaDeal.End);
+    }
+    else {
+        $('#mega-deal').html('<p>There is currently no Mega Deal</p>');
+        $('#mega-deal').css('margin-top', '20%');
     }
 })
 
@@ -56,18 +99,26 @@ engine.on('AttachEventToPages', function () {
 
     $('.cbp-fwdots span').click(function () {
         listItemIndex = $('.cbp-fwcurrent').index();
-        console.log(listItemIndex);
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
 
     })
 
     $('#details-btn').click(function () {
-        var page = $('.adpage')[listItemIndex];
-        var details = $('.details-page')[listItemIndex];
-        $(page).toggle();
-        $(details).toggle();
 
+        var adpage = $('.adpage')[listItemIndex];
+        var pageDetails = $('.details-page')[listItemIndex];
+        console.log(listItemIndex);
+        console.log($('.details-page'));
+        $(adpage).toggle();
+        $(pageDetails).toggle();
+
+        SetPage(listItemIndex);
+
+    })
+
+    $('#home').click(function(){
+        $('#home').css('color', 'black');
     })
 
     // Once the video is ready
@@ -91,6 +142,8 @@ engine.on('AttachEventToPages', function () {
             window.onresize = resizeVideoJS; // Call the function on resize
         });
     }
+
+    $('#tabs a:first').tab('show');
 })
 
 var HideSpeechBubble = function () {
@@ -106,8 +159,20 @@ function getChildNumber(node) {
 }
 
 var SetPage = function (index) {
-    var narration = $('.adpage')[index].dataset.narration;
-    var details = $('.adpage')[index].dataset.details;
+    var adpage = $('.adpage')[index];
+    var pageDetails = $('.details-page')[index];
+
+    var narration;
+    var details;
+
+    if($(adpage).css('display') == 'none'){
+        narration = pageDetails.dataset.narration;
+        details = pageDetails.dataset.details;
+    }
+    else{
+        narration = adpage.dataset.narration;
+        details = adpage.dataset.details;
+    }
 
     if (narration === "")
         $('#narrator-bubble').hide();
