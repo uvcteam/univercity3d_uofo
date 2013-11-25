@@ -5,7 +5,7 @@ using MiniJSON;
 using UnityEngine;
 using System.Collections;
 using Object = UnityEngine.Object;
-#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM
+#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
 using Coherent.UI.Binding;
 #elif UNITY_IPHONE || UNITY_ANDROID
@@ -48,6 +48,7 @@ public class HTMLUnionHall : MonoBehaviour
 
         if ((bool)createSuccess["s"])
         {
+            _view.View.TriggerEvent("CreateSuccess");
             NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully created!",
                 new string[] { "OK" }, false, (string button) =>
                 {
@@ -56,6 +57,10 @@ public class HTMLUnionHall : MonoBehaviour
         else
         {
             Debug.Log("There was an error: " + createSuccess["reason"].ToString());
+            NativeDialogs.Instance.ShowMessageBox("Error!", createSuccess["reason"].ToString(),
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
         }
     }
 
@@ -113,6 +118,7 @@ public class HTMLUnionHall : MonoBehaviour
         createURL += "&interests=" + _userManager.GetIDForCategory(inputs[6]);
 
         Debug.Log(createURL);
+        // TODO: Add server call and check return.
     }
     #endregion
 }

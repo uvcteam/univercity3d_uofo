@@ -44,11 +44,12 @@ var ModalEffects = (function() {
 			    $('md-modal').hisResText();
 			});
 
-			close.addEventListener( 'click', function( ev ) {
-				ev.stopPropagation();
-				removeModalHandler();
-			});
-
+            if (close) {
+                close.addEventListener( 'click', function( ev ) {
+                    ev.stopPropagation();
+                    removeModalHandler();
+                });
+            }
 		} );
 
 	}
