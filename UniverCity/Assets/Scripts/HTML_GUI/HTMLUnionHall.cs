@@ -17,6 +17,7 @@ public class HTMLUnionHall : MonoBehaviour
 {
     private CoherentUIView _view;
     private UserManager _userManager;
+    private EventManager _eventManager;
     private bool _viewReady;
 
     void Start()
@@ -24,10 +25,11 @@ public class HTMLUnionHall : MonoBehaviour
         _view = this.GetComponent<CoherentUIView>();
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
         _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
-
+        _eventManager = Object.FindObjectOfType(typeof(EventManager)) as EventManager;
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
             _view.View.BindCall("CreateEvent", (System.Action<string[]>)CreateEvent);
+            _view.View.BindCall("GetEvents", (System.Action<string>)GetEvents);
         };
 
         _viewReady = false;
@@ -49,6 +51,7 @@ public class HTMLUnionHall : MonoBehaviour
         if ((bool)createSuccess["s"])
         {
             _view.View.TriggerEvent("CreateSuccess");
+            _eventManager.RepopulateEvents();
             NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully created!",
                 new string[] { "OK" }, false, (string button) =>
                 {
@@ -65,7 +68,6 @@ public class HTMLUnionHall : MonoBehaviour
     }
 
     #region CoherentUI Bindings
-
     public void CreateEvent(string[] inputs)
     {
         string emailRegEx = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
@@ -118,7 +120,39 @@ public class HTMLUnionHall : MonoBehaviour
         createURL += "&interests=" + _userManager.GetIDForCategory(inputs[6]);
 
         Debug.Log(createURL);
-        // TODO: Add server call and check return.
+        StartCoroutine(SendCreateRequest(createURL));
+    }
+
+    public void GetEvents(string cat)
+    {
+        Debug.Log("Getting events for " + cat);
+
+        if (cat == "All Categories" || cat == "")
+        {
+            foreach (UnionHallEvent ev in _eventManager.events)
+            {
+                string date = ev.Start.ToString("MMMM dd");
+                string time = ev.Start.ToString("hh:mm tt");
+                Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
+                _view.View.TriggerEvent("CreateEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+            }
+            return;
+        }
+        else if (_eventManager.eventsByCategory.ContainsKey(cat))
+        {
+            foreach (UnionHallEvent ev in _eventManager.eventsByCategory[cat])
+            {
+                string date = ev.Start.ToString("MMMM dd");
+                string time = ev.Start.ToString("hh:mm tt");
+                Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
+                _view.View.TriggerEvent("CreateEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+            }
+            return;
+        }
+
+        Debug.Log("No events!");
+        _view.View.TriggerEvent("NoEvents");
+        return;
     }
     #endregion
 }

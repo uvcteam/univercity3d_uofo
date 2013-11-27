@@ -141,7 +141,8 @@ public class UserManager : MonoBehaviour
             {
                 if (signingInDialog != null)
                     signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
-                exitBtn.SetActive(true);
+                if (exitBtn != null)
+                    exitBtn.SetActive(true);
             }
             else if (Application.platform == RuntimePlatform.Android ||
                      Application.platform == RuntimePlatform.IPhonePlayer)

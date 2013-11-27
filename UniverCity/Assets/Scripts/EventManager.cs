@@ -76,6 +76,7 @@ public class EventManager : MonoBehaviour
                 start = DateTime.Parse(uhEvent["start"] as string);
 
                 Debug.Log(
+                    "ID: " + id +
                     "Title: " + title +
                     "Who:" + who +
                     "Desc: " + desc +
@@ -89,6 +90,7 @@ public class EventManager : MonoBehaviour
                 // All arrays in JSON come in as List<object>.
                 foreach (string category in uhEvent["interests"] as List<object>)
                 {
+                    Debug.Log("Event " + title + " in " + category);
                     // If the category does not exist, we need to create it...
                     if (!eventsByCategory.ContainsKey(category))
                         eventsByCategory.Add(category, new List<UnionHallEvent>());

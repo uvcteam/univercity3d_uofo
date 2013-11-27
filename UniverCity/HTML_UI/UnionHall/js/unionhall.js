@@ -5,8 +5,4 @@ $(function() {
    }
 });
 
-function ChangeModal(name, date, time, who, desc) {
-    $('.m-event-title').html(name);
-}
-
 // Invoked by Unity3D.

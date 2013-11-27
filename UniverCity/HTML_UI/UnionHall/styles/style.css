@@ -92,16 +92,10 @@
     font-weight: 400;   
 }
 
-.event-date:after {
-    vertical-align: super;
-    font-size: 0.75em;
-    content: 'rd';
-}
-
 .event-time:before {
     font-family: 'Open Sans';
     font-weight: 400;
-    content: '@ ';
+    content: ' @ ';
 }
 
 .event-time {

@@ -1,0 +1,27 @@
+.selected-category select {
+    border: 0 !important;  /*Removes border*/
+    -webkit-appearance: none;  /*Removes default chrome and safari style*/
+    -moz-appearance: none; /* Removes Default Firefox style*/
+    width: 200px; /*Width of select dropdown to give space for arrow image*/
+    color: #495468;
+    font-family: 'Oswald';
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.dropdown-arrow {
+    color: #495468;
+    margin-left: -5px;
+}
+
+.selected-category {
+    float: right;
+}
+
+.events {
+    visibility: visible;
+    margin-top: 0px;
+}
