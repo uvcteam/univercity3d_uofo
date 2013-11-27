@@ -1,45 +1,67 @@
 
 
-
+var mediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
 $(document).ready(function () {
     console.log("Ready for Unity.");
-    engine.call("StartAdPlayer");
+
+    var URL = "http://www.univercity3d.com/univercity/getAd?b=";
+
+    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+        console.log(adPlayerData);
+        PopulateAdPlayer(adPlayerData);
+        SetMegaDeal(adPlayerData.megadeal);
+        AttachEventToPages();
+        SetNarrator(mediaURL + adPlayerData.expert.id);
+
+    }});
 
 });
-engine.on('PopulateAdPlayer', function (adpageTitle, adpageMedia, adpageNarrative, detailsTitle, detailsMedia, detailsNarrative) {
 
+var PopulateAdPlayer = function(data ) {
 
+    for (var i = 0; i < data.pages.length; ++i) {
+        if (data.pages[i].title !== "") {
+            AddPage(data.pages[i].title, data.pages[i].parts, data.pages[i].narrative,
+                data.pages[i].more.title, data.pages[i].more.parts, data.pages[i].more.narrative);
+        }
+
+    }
+
+}
+var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle, detailsParts, detailsNarrative) {
+
+    console.log(adpageTitle);
     var adpage = '<li>';
-    for (var i = 0; i < adpageMedia.length; ++i)
+    for (var i = 0; i < adpageParts.length; ++i)
     {
-        switch(adpageMedia[i].type)
+        switch(adpageParts[i].type)
         {
-            case "Image":
-                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><a href="#"><img src="' + adpageMedia[i].mediaURL + '"/></a></div>';
+            case "image":
+                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><a href="#"><img src="' + mediaURL + adpageParts[i].id + '"/></a></div>';
                 break;
-            case "Video":
+            case "video":
                 adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString()+ '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
                     + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
-                    + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
-                    + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
+                    + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
+              /*      + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
                     + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
                     + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
-                    + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'
+                    + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'*/
                     + '</video></div>';
                 break;
         }
     }
 
-    if(detailsMedia){
+    if(detailsParts.length !== 0){
 
-        for (var i = 0; i < detailsMedia.length; ++i)
+        for (var i = 0; i < detailsParts.length; ++i)
         {
-            switch (detailsMedia[i].type)
+            switch (detailsParts[i].type)
             {
-                case "Image":
-                    adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><a href="#"><img src="' + detailsMedia[i].mediaURL + '"/></a></div>';
+                case "image":
+                    adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><a href="#"><img src="' + mediaURL + detailsParts[i].id + '"/></a></div>';
                     break;
-                case "Video":
+                case "video":
                     adpage += '<div style="display:none"  class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><video id="video-' + detailsTitle + i.toString() + '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
                         + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
                         + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
@@ -52,48 +74,48 @@ engine.on('PopulateAdPlayer', function (adpageTitle, adpageMedia, adpageNarrativ
             }
         }
     }
-    else
+    else //Ad an empty details page so ul item indexing gives the correct index.
         adpage += '<div style="display:none"  class="details-page"/>';
 
     document.getElementById('adpages').innerHTML += adpage + '</li>';
 
-})
+}
 
-engine.on('SetMegaDeal', function(megaDeal){
+var SetMegaDeal = function(megaDeal){
 
     if (megaDeal){
-        $('#title').text(megaDeal.Title);
-        $('#description').text(megaDeal.Description);
-        $('#price').text('Deal Price: ' + megaDeal.Price);
-        $('#list').text(megaDeal.List);
-        $('#end').text('Hurry! Deal Ends ' + megaDeal.End);
+        $('#title').text(megaDeal.title);
+        $('#description').text(megaDeal.description);
+        $('#price').text('Deal Price: ' + megaDeal.price);
+        $('#list').text(megaDeal.list);
+        $('#end').text('Hurry! Deal Ends ' + megaDeal.end);
     }
     else {
         $('#mega-deal').html('<p>There is currently no Mega Deal</p>');
         $('#mega-deal').css('margin-top', '20%');
     }
-})
+}
 
-engine.on('SetFirstPage', function (imageURL) {
+var SetNarrator = function (imageURL) {
 
     $('#narrator-img').attr('src', imageURL);
 
     SetPage(0);
-})
+}
 
-engine.on('AttachEventToPages', function () {
+var AttachEventToPages = function () {
 
     var listItemIndex = 0;
 
     $('#cbp-fwslider').cbpFWSlider();
 
     $('#cbp-fwslider nav span.cbp-fwnext').click(function () {
-
+        console.log(listItemIndex);
         SetPage(++listItemIndex);
     })
 
     $('#cbp-fwslider nav span.cbp-fwprev').click(function () {
-
+        console.log(listItemIndex);
         SetPage(--listItemIndex);
     })
 
@@ -101,6 +123,7 @@ engine.on('AttachEventToPages', function () {
         listItemIndex = $('.cbp-fwcurrent').index();
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
+        SetPage(listItemIndex);
 
     })
 
@@ -144,18 +167,12 @@ engine.on('AttachEventToPages', function () {
     }
 
     $('#tabs a:first').tab('show');
-})
+}
 
 var HideSpeechBubble = function () {
 
         $('#narrator-bubble').toggle();
 
-}
-
-function getChildNumber(node) {
-
-    if (node.parentNode !== undefined)
-        return Array.prototype.indexOf.call(node.parentNode.getChildNumber, node);
 }
 
 var SetPage = function (index) {
