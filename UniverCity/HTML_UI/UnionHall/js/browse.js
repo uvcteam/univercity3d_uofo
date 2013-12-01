@@ -35,6 +35,11 @@ function CreateEvent(name, date, time, desc)
     ModalEffects();
 }
 
+function JoinEvent() {
+    console.log("Join event " + lastEventID);
+    engine.call("JoinEvent", lastEventID);
+}
+
 // Invoked by Unity3D.
 engine.on("CreateEvent", function(name, date, time, desc, who, where, id){
     var newEvent = '';

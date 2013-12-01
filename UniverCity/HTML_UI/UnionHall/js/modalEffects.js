@@ -8,6 +8,8 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
+var lastEventID = -1;
+
 $(function(){
    ModalEffects();
 });
@@ -21,7 +23,9 @@ function ModalEffects() {
 		[].slice.call( document.querySelectorAll( '.md-trigger' ) ).forEach( function( el, i ) {
 
 			var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
-				close = modal.querySelector( '.md-close' );
+				join = modal.querySelector( '.md-join' ),
+                cancel = modal.querySelector( '.md-cancel' );
+
 
 			function removeModal( hasPerspective ) {
 				classie.remove( modal, 'md-show' );
@@ -38,6 +42,7 @@ function ModalEffects() {
 			el.addEventListener( 'click', function( ev ) {
                 var parent = $(ev.target).parent("div");
                 console.log(parent);
+                lastEventID = parent.attr('event-id');
                 ChangeModal(parent.attr('event-name'),
                             parent.attr('event-date'),
                             parent.attr('event-time'),
@@ -56,9 +61,14 @@ function ModalEffects() {
 			    $('md-modal').hisResText();
 			});
 
-            if (close) {
-                close.addEventListener( 'click', function( ev ) {
-                    ev.stopPropagation();
+            if (join) {
+                join.addEventListener( 'click', function( ev ) {
+                    removeModalHandler();
+                });
+            }
+
+            if (cancel) {
+                 cancel.addEventListener( 'click', function( ev ) {
                     removeModalHandler();
                 });
             }

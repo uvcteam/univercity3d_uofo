@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using MiniJSON;
 using UnityEngine;
@@ -30,6 +31,11 @@ public class HTMLUnionHall : MonoBehaviour
         {
             _view.View.BindCall("CreateEvent", (System.Action<string[]>)CreateEvent);
             _view.View.BindCall("GetEvents", (System.Action<string>)GetEvents);
+            _view.View.BindCall("GetMyEvents", (System.Action)GetMyEvents);
+            _view.View.BindCall("GetOtherEvents", (System.Action)GetOtherEvents);
+            _view.View.BindCall("CancelEvent", (System.Action<string>)CancelEvent);
+            _view.View.BindCall("WithdrawEvent", (System.Action<string>)WithdrawEvent);
+            _view.View.BindCall("JoinEvent", (System.Action<string>)JoinEvent);
         };
 
         _viewReady = false;
@@ -66,13 +72,88 @@ public class HTMLUnionHall : MonoBehaviour
                 });
         }
     }
+    IEnumerator SendCancelRequest(string url)
+    {
+        WWW page = new WWW(url);
+        yield return page;
+
+        // Create an IList of all of the businesses returned to me.
+        Dictionary<string, object> createSuccess = Json.Deserialize(page.text) as Dictionary<string, object>;
+
+        if ((bool)createSuccess["s"])
+        {
+            _eventManager.RepopulateEvents();
+            _view.View.Reload(false);
+            NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully cancelled!",
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+        else
+        {
+            Debug.Log("There was an error: " + createSuccess["reason"].ToString());
+            NativeDialogs.Instance.ShowMessageBox("Error!", createSuccess["reason"].ToString(),
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+    }
+    IEnumerator SendJoinRequest(string url, int id)
+    {
+        WWW page = new WWW(url);
+        yield return page;
+
+        // Create an IList of all of the businesses returned to me.
+        Dictionary<string, object> createSuccess = Json.Deserialize(page.text) as Dictionary<string, object>;
+
+        if ((bool)createSuccess["s"])
+        {
+            _userManager.CurrentUser.AttendedEvents.Add(id);
+            _view.View.Reload(false);
+            NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully joined!",
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+        else
+        {
+            Debug.Log("There was an error: " + createSuccess["reason"].ToString());
+            NativeDialogs.Instance.ShowMessageBox("Error!", createSuccess["reason"].ToString(),
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+    }
+    IEnumerator SendWithdrawRequest(string url, int id)
+    {
+        WWW page = new WWW(url);
+        yield return page;
+
+        // Create an IList of all of the businesses returned to me.
+        Dictionary<string, object> createSuccess = Json.Deserialize(page.text) as Dictionary<string, object>;
+
+        if ((bool)createSuccess["s"])
+        {
+            _userManager.CurrentUser.AttendedEvents.Remove(id);
+            _view.View.Reload(false);
+            NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully withdrawn from!",
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+        else
+        {
+            Debug.Log("There was an error: " + createSuccess["reason"].ToString());
+            NativeDialogs.Instance.ShowMessageBox("Error!", createSuccess["reason"].ToString(),
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+    }
 
     #region CoherentUI Bindings
     public void CreateEvent(string[] inputs)
     {
-        string emailRegEx = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
-                          + "@"
-                          + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$";
         string phoneRegEx = @"^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$";
         foreach (string s in inputs)
             if (s == "")
@@ -83,15 +164,7 @@ public class HTMLUnionHall : MonoBehaviour
                     });
                 return;
             }
-        if (!Regex.IsMatch(inputs[7], emailRegEx))
-        {
-            NativeDialogs.Instance.ShowMessageBox("Error!", "Invalid email! Accepted format:\nname@domain.info",
-                new string[] { "OK" }, false, (string button) =>
-                {
-                });
-            return;
-        }
-        if (!Regex.IsMatch(inputs[8], phoneRegEx))
+        if (!Regex.IsMatch(inputs[7], phoneRegEx))
         {
             NativeDialogs.Instance.ShowMessageBox("Error!", "Invalid phone number! Accepted formats:\n(###) ###-####\n##########\n###-###-####",
                 new string[] { "OK" }, false, (string button) =>
@@ -108,11 +181,10 @@ public class HTMLUnionHall : MonoBehaviour
         createURL += "&title=" + WWW.EscapeURL(inputs[0]);
         createURL += "&desc=" + WWW.EscapeURL(inputs[2]);
         createURL += "&who=" + WWW.EscapeURL(inputs[1]);
-        createURL += "&email=" + WWW.EscapeURL(inputs[7]);
         createURL += "&location=" + WWW.EscapeURL(inputs[3]);
-        createURL += "&phone=" + WWW.EscapeURL(inputs[8]);
-        createURL += "&min=" + inputs[9];
-        createURL += "&max=" + inputs[10];
+        createURL += "&phone=" + WWW.EscapeURL(inputs[7]);
+        createURL += "&min=" + inputs[8];
+        createURL += "&max=" + inputs[9];
         createURL += "&start=" + WWW.EscapeURL(
             start.ToString("yyyy-MM-dd HH:mm"));
         createURL += "&end=" + WWW.EscapeURL(
@@ -122,30 +194,57 @@ public class HTMLUnionHall : MonoBehaviour
         Debug.Log(createURL);
         StartCoroutine(SendCreateRequest(createURL));
     }
-
     public void GetEvents(string cat)
     {
+        bool hasAddedEvent = false;
         Debug.Log("Getting events for " + cat);
 
         if (cat == "All Categories" || cat == "")
         {
             foreach (UnionHallEvent ev in _eventManager.events)
             {
+                if (ev.Email == _userManager.CurrentUser.Email) continue;
+                if (_userManager.CurrentUser.AttendingEvent(ev.Id)) continue;
                 string date = ev.Start.ToString("MMMM dd");
                 string time = ev.Start.ToString("hh:mm tt");
                 Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
                 _view.View.TriggerEvent("CreateEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+                hasAddedEvent = true;
             }
-            return;
         }
         else if (_eventManager.eventsByCategory.ContainsKey(cat))
         {
             foreach (UnionHallEvent ev in _eventManager.eventsByCategory[cat])
             {
+                if (ev.Email == _userManager.CurrentUser.Email) continue;
+                if (_userManager.CurrentUser.AttendingEvent(ev.Id)) continue;
                 string date = ev.Start.ToString("MMMM dd");
                 string time = ev.Start.ToString("hh:mm tt");
                 Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
                 _view.View.TriggerEvent("CreateEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+                hasAddedEvent = true;
+            }
+        }
+
+        if (!hasAddedEvent)
+        {
+            Debug.Log("No events!");
+            _view.View.TriggerEvent("NoEvents");
+        }
+        return;
+    }
+    public void GetMyEvents()
+    {
+        Debug.Log("Getting my events.");
+
+        if (_userManager.CurrentUser.LoggedIn)
+        {
+            foreach (UnionHallEvent ev in _eventManager.events.Where(x => x.Email == _userManager.CurrentUser.Email))
+            {
+                string date = ev.Start.ToString("MMMM dd");
+                string time = ev.Start.ToString("hh:mm tt");
+                Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
+                _view.View.TriggerEvent("CreateMyEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
             }
             return;
         }
@@ -153,6 +252,53 @@ public class HTMLUnionHall : MonoBehaviour
         Debug.Log("No events!");
         _view.View.TriggerEvent("NoEvents");
         return;
+    }
+    public void GetOtherEvents()
+    {
+        Debug.Log("Getting other events.");
+
+        if (_userManager.CurrentUser.LoggedIn)
+        {
+            foreach (UnionHallEvent ev in _eventManager.events.Where(x => _userManager.CurrentUser.AttendingEvent(x.Id)))
+            {
+                string date = ev.Start.ToString("MMMM dd");
+                string time = ev.Start.ToString("hh:mm tt");
+                Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
+                _view.View.TriggerEvent("CreateOtherEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+            }
+            return;
+        }
+
+        Debug.Log("No events!");
+        _view.View.TriggerEvent("NoEvents");
+        return;
+    }
+    public void CancelEvent(string id)
+    {
+        Debug.Log("Cancel event " + id);
+        string cancelURL = "http://www.univercity3d.com/univercity/CancelEvent?token=";
+        cancelURL += _userManager.CurrentUser.Token;
+        cancelURL += "&id=" + id;
+
+        StartCoroutine(SendCancelRequest(cancelURL));
+    }
+    public void WithdrawEvent(string id)
+    {
+        Debug.Log("Withdraw from event " + id);
+        string withdrawURL = "http://www.univercity3d.com/univercity/WithdrawFromEvent?token=";
+        withdrawURL += _userManager.CurrentUser.Token;
+        withdrawURL += "&id=" + id;
+
+        StartCoroutine(SendWithdrawRequest(withdrawURL, Convert.ToInt32(id)));
+    }
+    public void JoinEvent(string id)
+    {
+        Debug.Log("Join event " + id);
+        string joinURL = "http://www.univercity3d.com/univercity/AttendEvent?token=";
+        joinURL += _userManager.CurrentUser.Token;
+        joinURL += "&id=" + id;
+
+        StartCoroutine(SendJoinRequest(joinURL, Convert.ToInt32(id)));
     }
     #endregion
 }

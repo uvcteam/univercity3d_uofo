@@ -14,8 +14,7 @@ function OnEventCreate() {
     inputs[6]  = values[6]['value'];
     inputs[7]  = values[7]['value'];
     inputs[8]  = values[8]['value'];
-    inputs[9]  = values[9]['value'];
-    inputs[10] = values[10]['value'];
+    inputs[9] = values[9]['value'];
 
     engine.call('CreateEvent', inputs);
 }

@@ -171,6 +171,25 @@ perspective effects (not including the modals and the overlay).
 	background: rgb(57, 118, 103);
 }
 
+.md-join {
+    border: none;
+    padding: 0.6em 1.2em;
+    background: rgb(62, 129, 112);
+    color: #fff;
+    font-family: 'Open Sans';
+    font-size: 1em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-block;
+    margin: 3px 2px;
+    border-radius: 2px;
+}
+
+.md-join:hover {
+    background: rgb(57, 118, 103);
+}
+
 .md-cancel {
     border: none;
     padding: 0.6em 1.2em;

@@ -196,7 +196,10 @@ public class UserManager : MonoBehaviour
     {
         string cURL = "http://www.univercity3d.com/univercity/GetSocialInterests?token=" +
             CurrentUser.Token;
+        string aURL = "http://www.univercity3d.com/univercity/ListMyEvents?token=" +
+            CurrentUser.Token;
         int catId = 0;
+        int aeId = 0;
         string catName = "";
         WWW page = null;
         bool goodDownload = false;
@@ -218,6 +221,28 @@ public class UserManager : MonoBehaviour
                 catId = Convert.ToInt32(id);
                 catName = CategoryNameForId(catId);
                 CurrentUser.AddInterest(catName, catId);
+            }
+        }
+
+        goodDownload = false;
+
+        while (!goodDownload)
+        {
+            page = new WWW(aURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+
+        results = Json.Deserialize(page.text) as Dictionary<string, object>;
+        if (Convert.ToBoolean(results["s"]))
+        {
+            foreach (object id in results["events"] as List<object>)
+            {
+                aeId = Convert.ToInt32(id);
+                CurrentUser.AttendedEvents.Add(aeId);
+                Debug.Log("Attending event: " + aeId);
             }
         }
     }
@@ -276,6 +301,7 @@ public class User
 
     private List<SocialInterest> categories;
     private List<JournalEntry> journals;
+    private List<int> attendedEvents;
 
     public bool LoggedIn
     {
@@ -317,6 +343,11 @@ public class User
         get { return journals; }
         set { journals = value; }
     }
+    public List<int> AttendedEvents
+    {
+        get { return attendedEvents; }
+        set { attendedEvents = value; }
+    }
 
     public User(Dictionary<string, object> user, string e)
     {
@@ -327,6 +358,7 @@ public class User
         university = user["university"] as string;
         categories = new List<SocialInterest>();
         journals = new List<JournalEntry>();
+        attendedEvents = new List<int>();
     }
     public User(string t, string n, string e, string u)
     {
@@ -337,6 +369,7 @@ public class User
         university = u;
         categories = new List<SocialInterest>();
         journals = new List<JournalEntry>();
+        attendedEvents = new List<int>();
     }
 
     public void SetCategories(List<SocialInterest> categories)
@@ -364,10 +397,9 @@ public class User
     }
     public bool HasInterest(int id)
     {
-        foreach (SocialInterest interest in categories)
-            if (interest.Id == id) return true;
-        return false;
+        return categories.Any(interest => interest.Id == id);
     }
+
     public void AddInterest(string name, int id)
     {
         if (!HasInterest(id))
@@ -381,6 +413,11 @@ public class User
                 categories.Remove(interest);
                 return;
             }
+    }
+
+    public bool AttendingEvent(int id)
+    {
+        return AttendedEvents.Any(aid => id == aid);
     }
 }
 

@@ -29,7 +29,18 @@
             <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
             <p class="m-event-when">February 13th - 7:30PM</p>
             <p class="m-event-note">To change your mind, tap off of this dialog box.</p>
-            <button class="md-cancel">Yes!</button>
+            <button class="md-cancel" onclick="CancelEvent()">Yes!</button>
+        </div>
+    </div>
+</div>
+<div class="md-modal md-effect-5" id="modal-6">
+    <div class="md-content">
+        <h3>Do you want to withdraw from</h3>
+        <div>
+            <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
+            <p class="m-event-when">February 13th - 7:30PM</p>
+            <p class="m-event-note">To change your mind, tap off of this dialog box.</p>
+            <button class="md-cancel" onclick="WithdrawEvent()">Yes!</button>
         </div>
     </div>
 </div>
@@ -66,83 +77,11 @@
                         <div class="tab-pane active" id="my-events">
                             <p>To cancel an event that you have scheduled, simply tap on one of the events below!</p>
                             <div class="events">
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
                             </div>
                         </div>
                         <div class="tab-pane" id="other-events">
                             <p>To withdraw for an event that you have signed up for, simply tap on one of the events below!</p>
                             <div class="events">
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">OTRA EVENTOS</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
-                                <div class="event md-trigger" data-modal="modal-5">
-                                    <span class="event-name">Event Title</span>
-                                    <span class="event-date">November 3</span>
-                                    <span class="event-time">3:30 PM</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dictum urna ante, quis eleifend urna condimentum ac. Aenean et orci mi. Pellentesque luctus ante et.</p>
-                                </div>
                             </div>
                         </div>
                     </div>
