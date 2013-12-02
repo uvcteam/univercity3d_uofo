@@ -24,6 +24,7 @@ function ModalEffects() {
 
 			var modal = document.querySelector( '#' + el.getAttribute( 'data-modal' ) ),
 				join = modal.querySelector( '.md-join' ),
+                close = modal.querySelector( '.md-close' ),
                 cancel = modal.querySelector( '.md-cancel' );
 
 
@@ -63,6 +64,13 @@ function ModalEffects() {
 
             if (join) {
                 join.addEventListener( 'click', function( ev ) {
+                    removeModalHandler();
+                });
+            }
+
+            if (close) {
+                close.addEventListener( 'click', function( ev ) {
+                    ev.stopPropagation();
                     removeModalHandler();
                 });
             }

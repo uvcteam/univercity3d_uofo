@@ -98,6 +98,8 @@ public class UserManager : MonoBehaviour
                 catName = cat["name"] as string;
                 Categories.Add(new SocialInterest(catId, catName));
             }
+
+            Categories = Categories.OrderBy(o => o.Name).ToList();
         }
     }
 	
@@ -225,6 +227,7 @@ public class UserManager : MonoBehaviour
         }
 
         goodDownload = false;
+        Debug.Log(aURL);
 
         while (!goodDownload)
         {
@@ -272,7 +275,6 @@ public class UserManager : MonoBehaviour
 
         return "";
     }
-
     public SocialInterest GetCategoryById(int id)
     {
         foreach (SocialInterest t in Categories)
@@ -280,7 +282,6 @@ public class UserManager : MonoBehaviour
 
         return null;
     }
-
     public int GetIDForCategory(string cat)
     {
         foreach (SocialInterest c in Categories.Where(c => c.Name == cat))

@@ -29,7 +29,7 @@ public class EventManager : MonoBehaviour
     // ---------------------------------------------------
     public IEnumerator GetEventInformation()
     {
-        string eURL = "http://wwww.univercity3d.com/univercity/ListEvents";
+        string eURL = "http://www.univercity3d.com/univercity/ListEvents";
         int id = 0;
         string phone = "";
         string title = "";

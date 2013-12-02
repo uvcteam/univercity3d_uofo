@@ -3,6 +3,8 @@
  */
 // Web Functions.
 $(function () {
+    engine.call("GetCategories");
+
     var category = "";
     if (urlParam('category')) {
         category = decodeURIComponent(urlParam('category'));
@@ -64,4 +66,18 @@ engine.on("CreateEvent", function(name, date, time, desc, who, where, id){
 engine.on("NoEvents", function(){
     $('.no-events').css('visibility', 'visible');
     $('.events').css('visibility', 'hidden');
+});
+
+engine.on("AddCategory", function(cat) {
+    $('.category-dropdown').append('<option>' + cat + '</option>');
+});
+
+engine.on("CategoriesFinished", function() {
+    if (urlParam('category')) {
+        category = decodeURIComponent(urlParam('category'));
+        $('.category-dropdown').val(category);
+        console.log(category);
+    } else {
+        $('.category-dropdown').val("All Categories");
+    }
 });
