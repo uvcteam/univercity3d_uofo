@@ -29,8 +29,11 @@ public class HTMLUnionHall : MonoBehaviour
         _eventManager = Object.FindObjectOfType(typeof(EventManager)) as EventManager;
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
+            _view.View.BindCall("GetWeekEvents", (System.Action)GetWeekEvents);
+            _view.View.BindCall("PopulateCalendar", (System.Action)PopulateCalendar);
             _view.View.BindCall("CreateEvent", (System.Action<string[]>)CreateEvent);
             _view.View.BindCall("GetEvents", (System.Action<string>)GetEvents);
+            _view.View.BindCall("GetCategories", (System.Action)GetCategories);
             _view.View.BindCall("GetMyEvents", (System.Action)GetMyEvents);
             _view.View.BindCall("GetOtherEvents", (System.Action)GetOtherEvents);
             _view.View.BindCall("CancelEvent", (System.Action<string>)CancelEvent);
@@ -152,6 +155,40 @@ public class HTMLUnionHall : MonoBehaviour
     }
 
     #region CoherentUI Bindings
+    public void GetWeekEvents()
+    {
+        DateTime today = DateTime.Today;
+        int dayOfTheWeek = (int) DateTime.Now.DayOfWeek;
+        DateTime nextSunday = DateTime.Now.AddDays(7 - dayOfTheWeek).Date;
+        bool hasEvents = false;
+
+        foreach (UnionHallEvent ev in _eventManager.events)
+        {
+            if (_userManager.CurrentUser.AttendingEvent(ev.Id))
+            {
+                if (ev.Start >= today && ev.Start < nextSunday)
+                {
+                    string date = ev.Start.ToString("MMMM dd");
+                    string time = ev.Start.ToString("hh:mm tt");
+                    _view.View.TriggerEvent("AddWeekEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+                    hasEvents = true;
+                }
+            }
+        }
+
+        if (!hasEvents)
+            _view.View.TriggerEvent("NoEvents");
+    }
+    public void PopulateCalendar()
+    {
+        Debug.Log("Adding events.");
+        foreach (UnionHallEvent ev in _eventManager.events)
+        {
+            Debug.Log(ev.Start.ToString("MM-dd-yyyy") + ": " + ev.Title);
+            _view.View.TriggerEvent("AddEvent", ev.Start.ToString("MM-dd-yyyy"), ev.Title, ev.Start.ToString("hh:mm tt"));
+        }
+        _view.View.TriggerEvent("EventsFinished");
+    }
     public void CreateEvent(string[] inputs)
     {
         string phoneRegEx = @"^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$";
@@ -197,6 +234,8 @@ public class HTMLUnionHall : MonoBehaviour
     public void GetEvents(string cat)
     {
         bool hasAddedEvent = false;
+        foreach (string key in _eventManager.eventsByCategory.Keys)
+            Debug.Log("KEY -- " + key);
         Debug.Log("Getting events for " + cat);
 
         if (cat == "All Categories" || cat == "")
@@ -232,6 +271,12 @@ public class HTMLUnionHall : MonoBehaviour
             _view.View.TriggerEvent("NoEvents");
         }
         return;
+    }
+    public void GetCategories()
+    {
+        foreach(SocialInterest si in _userManager.Categories)
+            _view.View.TriggerEvent("AddCategory", si.Name);
+        _view.View.TriggerEvent("CategoriesFinished");
     }
     public void GetMyEvents()
     {
