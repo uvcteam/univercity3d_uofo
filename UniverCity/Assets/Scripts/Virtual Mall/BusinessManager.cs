@@ -94,6 +94,9 @@ public class BusinessManager : MonoBehaviour
                 bus.AddDeal(deal["title"] as string, deal["desc"] as string);
             }
 
+            if (business.ContainsKey("hasAd"))
+                bus.hasAd = Convert.ToBoolean(business["hasAd"]);
+
             // Get the X, Z coordinates.
             if (business.ContainsKey("locs"))
             {
@@ -189,6 +192,7 @@ public class Business
     public Texture2D logo;
     public float xPos;
     public float zPos;
+    public bool hasAd = false;
 
     public Business(int id, string name, string desc)
     {
