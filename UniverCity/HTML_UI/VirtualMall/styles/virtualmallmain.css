@@ -87,6 +87,13 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
     height: 7em;
     overflow: hidden;
 }
+.business a {
+    color: rgb(102, 147, 124);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    display: block;
+}
 .btn-see-more{
     background-color: rgb(102, 147, 124);
     border-color: rgb(102, 147, 124);

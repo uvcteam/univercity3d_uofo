@@ -5,13 +5,17 @@ $(document).ready(function () {
     console.log("Ready for Unity.");
     engine.call('AddBusinesses');
 });
-engine.on('PopulateCategory', function (name, desc, id, image) {
+engine.on('PopulateCategory', function (name, desc, id, image, hasAd) {
     console.log( $('#business-list'));
     console.log(document.getElementById('business-list'));
-    //document.getElementById('business-list')
-    document.getElementById('business-list').innerHTML += '<li><div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
-        + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a href="../VirtualMall/businesscard.html?id='+ id
-        +'">Contact Info</a></div></li>';
+    if (hasAd === true)
+        document.getElementById('business-list').innerHTML += '<li><div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
+            + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a href="../VirtualMall/businesscard.html?id='+ id
+            +'">Contact Info</a></div></li>';
+    else
+        document.getElementById('business-list').innerHTML += '<li><div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
+            + '" /><figcaption>' + desc + '</figcaption></figure><a href="../VirtualMall/businesscard.html?id='+ id
+            +'">Contact Info</a></div></li>';
 })
 
 engine.on('ClearBusinessList', function(){

@@ -14,7 +14,7 @@ $(document).ready(function () {
         SetNarrator(mediaURL + adPlayerData.expert.id);
 
     }});
-
+    //document.getElementById('adplayer-style').setAttribute('href', 'styles/explorer-adplayer.css');
 });
 
 var PopulateAdPlayer = function(data ) {
@@ -204,6 +204,14 @@ var SetPage = function (index) {
 
 
 }
+
+engine.on('ChangeToExplorerStyle', function(){
+    console.log("Herp");
+    document.getElementById('adplayer-style').setAttribute('href', 'styles/explorer-adplayer.css');
+    document.getElementById('style').setAttribute('href', '../Explorer/styles/style.css');
+
+})
+
 
 var goBack = function(){
     window.history.back();

@@ -49,7 +49,7 @@ public class HTMLExplorer : MonoBehaviour
     public void AddBusiness(Business business)
     {
         _view.View.TriggerEvent("PopulateCategory", business.name, business.desc, business.id,
-                       Convert.ToBase64String(business.logo.EncodeToPNG()));
+                       Convert.ToBase64String(business.logo.EncodeToPNG()), business.hasAd);
     }
 
     public void AddClickEventsToBusinesses()
@@ -60,7 +60,8 @@ public class HTMLExplorer : MonoBehaviour
     public void LoadAdPlayer(string businessid)
     {
         Debug.Log("Loading ad");
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html?id=" + businessid);;
+        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html?id=" + businessid);
+        //_view.View.TriggerEvent("ChangeToExplorerStyle");
     }
 
     public void OnBusinessWasSelected()

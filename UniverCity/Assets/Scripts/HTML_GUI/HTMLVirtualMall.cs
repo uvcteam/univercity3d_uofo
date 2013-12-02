@@ -69,7 +69,7 @@ public class HTMLVirtualMall : MonoBehaviour
                 foreach (Business business in _businessManager.businessesByCategory[mallCat])
                 {
                     _view.View.TriggerEvent("PopulateCategory", business.name, business.desc, business.id, 
-                        Convert.ToBase64String(business.logo.EncodeToPNG()), i);
+                        Convert.ToBase64String(business.logo.EncodeToPNG()), i, business.hasAd);
                 }
             }
             else

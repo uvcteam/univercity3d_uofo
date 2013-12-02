@@ -8,10 +8,16 @@ engine.on('CreateCategory', function (cat) {
     document.getElementById('container').innerHTML += '<div class="category"><h4>' + cat + '</h4></div>';
 })
 
-engine.on('PopulateCategory', function (name, desc, id, image, index) {
-    document.getElementsByClassName('category')[index].innerHTML += '<div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
-        + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a href="businesscard.html?id='+ id
-        +'">Contact Info</a></div>';
+engine.on('PopulateCategory', function (name, desc, id, image, index, hasAd) {
+
+    if(hasAd === true)
+        document.getElementsByClassName('category')[index].innerHTML += '<div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
+            + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a href="businesscard.html?id='+ id
+            +'">Contact Info</a></div>';
+    else
+        document.getElementsByClassName('category')[index].innerHTML += '<div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
+            + '" /><figcaption>' + desc + '</figcaption></figure><a href="businesscard.html?id='+ id
+            +'">Contact Info</a></div>';
 })
 
 engine.on('CreateEmptyCategory', function(index) {
