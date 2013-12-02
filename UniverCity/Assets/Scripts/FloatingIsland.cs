@@ -11,7 +11,7 @@ public class FloatingIsland : MonoBehaviour
 
     void Awake()
     {
-        ObjectToTween = GameObject.Find("CameraBase");
+        ObjectToTween = GameObject.Find("Main Camera");
         myTween = ObjectToTween.GetComponent<TweenTransform>();
 		
 		Screen.orientation = ScreenOrientation.LandscapeLeft;

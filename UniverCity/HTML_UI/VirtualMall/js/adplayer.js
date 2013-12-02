@@ -204,3 +204,8 @@ var SetPage = function (index) {
 
 
 }
+
+var goBack = function(){
+    window.history.back();
+    engine.call('OnAdPlayerWasClosed');
+}

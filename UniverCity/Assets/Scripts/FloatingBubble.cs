@@ -15,7 +15,7 @@ public class FloatingBubble : MonoBehaviour
 
     void Awake()
     {
-		ObjectToTween = GameObject.Find("CameraBase");
+		ObjectToTween = GameObject.Find("Main Camera");
         myTween = ObjectToTween.GetComponent<TweenTransform>();
 		if (ObjectToTween == null)
 			Debug.LogError("CameraBase could not be located!");
@@ -67,10 +67,10 @@ public class FloatingBubble : MonoBehaviour
 
     void OnTweenFinished(UITweener tweener)
     {
-        Debug.Log("Activating: " + adPanel.name);
+        adPanel = GameObject.Find("Main Camera");
         adPanel.SetActive(true);
-        adPanel.GetComponent<AdPanelManager>().SetPosition(transform, gameObject);
-        adPanel.GetComponent<AdPanelManager>().SetReturnPosition();
+        adPanel.GetComponent<HTMLExplorer>().SetPosition(transform, gameObject);
+        adPanel.GetComponent<HTMLExplorer>().SetReturnPosition();
         gameObject.SetActive(false);
     }
 }

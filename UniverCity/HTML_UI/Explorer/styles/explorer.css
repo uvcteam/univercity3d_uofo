@@ -1,0 +1,74 @@
+.st-content {
+    background: transparent;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+    background-color: transparent;
+}
+
+/*#container ul li > div{
+    width: 25%;
+    height: 15%;
+    margin: 2%;
+    background-color: white;
+}*/
+/*#container { text-align: center; }
+#container ul { list-style: none; }
+#container ul li { display: inline; }*/
+
+/*#container { width: 100%; overflow: hidden; }
+#container ul { list-style: none; position: relative; float: left; display: block; left: 50%; }
+#container ul li { position: relative; float: left; display: block; right: 50%; }*/
+
+/*#container { width:600px; background: yellow; margin: 0 auto; }*/
+#container ul {
+    text-align: center;
+    list-style-type: none;
+}
+
+#container a {
+    color: rgb(255, 165, 58);
+}
+
+.business {
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+    margin: 0.25em;
+    background: white;
+    padding: 5px;
+}
+
+.business:hover {
+    cursor: pointer;
+}
+
+.business img {
+    width: 90px;
+    height: 90px;
+    float: left;
+}
+
+.business header {
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align:left;
+    color: rgb(255, 165, 58);
+}
+
+.business figcaption {
+    color: #000;
+    padding-left: 1em;
+    text-align: left;
+    height: 7em;
+    overflow: hidden;
+}
+.btn-see-more{
+    background-color: rgb(255, 165, 58);
+    border-color: rgb(255, 165, 58);
+    color: white;
+    float: left;
+}
