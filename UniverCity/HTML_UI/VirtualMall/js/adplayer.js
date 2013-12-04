@@ -8,10 +8,10 @@ $(document).ready(function () {
 
     $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
         console.log(adPlayerData);
-        PopulateAdPlayer(adPlayerData);
+        /*PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
         AttachEventToPages();
-        SetNarrator(mediaURL + adPlayerData.expert.id);
+        SetNarrator(mediaURL + adPlayerData.expert.id);*/
 
     }});
     //document.getElementById('adplayer-style').setAttribute('href', 'styles/explorer-adplayer.css');
