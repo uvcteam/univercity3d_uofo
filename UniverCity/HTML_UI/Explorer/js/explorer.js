@@ -21,6 +21,11 @@ engine.on('PopulateCategory', function (name, desc, id, image, hasAd) {
 engine.on('ClearBusinessList', function(){
     $(".st-container").unbind('click');
     document.getElementById('business-list').innerHTML = "";
+
+    $('.st-container').click(function (event) {
+        console.log("click");
+        classie.remove(document.getElementById('st-container'), 'st-menu-open');
+    });
 })
 
 engine.on('AttachEventToBusinesses', function () {
