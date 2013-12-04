@@ -82,8 +82,8 @@ public class HTMLVirtualMall : MonoBehaviour
     void SetBusinessID(string businessid)
     {
         //_view.Page = "coui://HTML_UI/VirtualMall/adplayer.html?id=" + businessid;
-        //GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html?id=" + businessid);
-        _view.View.Load("coui://HTML_UI/Login/login.html");
+        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html?id=" + 16);
+        //_view.View.Load("coui://HTML_UI/Login/login.html");
     }
 
 }
