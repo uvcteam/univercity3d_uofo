@@ -71,11 +71,9 @@ public class HTMLMenuManager : MonoBehaviour
                 Application.LoadLevel(5);
                 break;
             case "union_hall":
-                Application.LoadLevel(3);
                 CheckLogin(3);
                 break;
             case "memory_bank":
-                Application.LoadLevel(4);
                 CheckLogin(4);
                 break;
             case "explorer":
