@@ -33,6 +33,7 @@ public class HTMLMemoryBank : MonoBehaviour
 			_view.View.BindCall("DeleteEntry", (System.Action<string>)DeleteEntry);
             _view.View.BindCall("GetCategories", (System.Action)GetCategories);
             _view.View.BindCall("UpdateCategories", (System.Action<string>)UpdateCategories);
+            _view.View.BindCall("SignOut", (System.Action)SignOut);
         };
 
         _viewReady = false;
@@ -201,6 +202,11 @@ public class HTMLMemoryBank : MonoBehaviour
         _userManager.CurrentUser.SetCategories(newInterests);
 
         WWW page = new WWW(setURL);
+    }
+
+    public void SignOut()
+    {
+        _userManager.SignOut();
     }
     #endregion
 }

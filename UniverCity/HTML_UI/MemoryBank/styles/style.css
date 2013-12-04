@@ -1,3 +1,17 @@
+.sign-out {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.sign-out a {
+    color: rgb(0, 117, 111);
+}
+
+.sign-out a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 #menu_btn {
     background: rgb(0, 117, 111);
 }
