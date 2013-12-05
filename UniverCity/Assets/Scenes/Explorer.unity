@@ -43046,7 +43046,7 @@ MonoBehaviour:
   m_YPos: 0
   m_ScaleToFit: 1
   m_InitialScript: 
-  m_ViewInputState: 2
+  m_ViewInputState: 1
   m_IsTransparent: 1
   m_SupportClickThrough: 1
   m_ClickThroughAlphaThreshold: 0

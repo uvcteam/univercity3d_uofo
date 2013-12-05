@@ -58,6 +58,8 @@ public class HTMLExplorer : MonoBehaviour
 
     public void AddClickEventsToBusinesses()
     {
+        Debug.Log("takeall");
+        _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
         _view.View.TriggerEvent("AttachEventToBusinesses");
     }
 
@@ -106,6 +108,7 @@ public class HTMLExplorer : MonoBehaviour
     {
         _view.View.TriggerEvent("ClearBusinessList");
         OnCancelClicked();
+        _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
     }
 
     public void SetReturnPosition()
