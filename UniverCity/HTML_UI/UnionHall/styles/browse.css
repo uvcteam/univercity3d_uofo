@@ -29,3 +29,8 @@
 .upcoming-events {
     width: 100% !important;
 }
+
+.no-events {
+    margin-top: 10px;
+    margin-right: 25px;
+}

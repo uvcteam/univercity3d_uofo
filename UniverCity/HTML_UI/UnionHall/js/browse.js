@@ -13,10 +13,7 @@ $(function () {
 
 $('.category-dropdown').change(function() {
     currentCategory = $('.category-dropdown').val();
-    $('option').remove();
-    $('.category-dropdown').append('<option selected="selected">' + currentCategory + '</option>');
-    engine.call("GetCategories");
-    $('.category-dropdown').val(currentCategory);
+    $('.events').empty();
     engine.call("GetEvents", currentCategory);
 });
 
