@@ -4,6 +4,9 @@
 $(document).ready(function () {
     console.log("Ready for Unity.");
     engine.call('AddBusinesses');
+    $(".st-container").click(function(){
+        engine.call("MenuClosed");
+    })
 });
 engine.on('PopulateCategory', function (name, desc, id, image, hasAd) {
     console.log( $('#business-list'));
@@ -26,6 +29,9 @@ engine.on('ClearBusinessList', function(){
         console.log("click");
         classie.remove(document.getElementById('st-container'), 'st-menu-open');
     });
+    $(".st-container").click(function(){
+        engine.call("MenuClosed");
+    })
 })
 
 engine.on('AttachEventToBusinesses', function () {
@@ -43,4 +49,9 @@ engine.on('AttachEventToBusinesses', function () {
     $(".st-container").click(function(){
         engine.call("CloseBusinessList");
     })
+})
+
+engine.on('OpenMenu', function(){
+    console.log("OPenMenu");
+    $('menu_btn').trigger('click').stopPropagation();
 })

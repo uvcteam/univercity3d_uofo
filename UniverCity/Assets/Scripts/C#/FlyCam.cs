@@ -125,7 +125,7 @@ public class FlyCam : MonoBehaviour
 	        if (Camera.main.WorldToViewportPoint(ray.origin).x < 0.1 &&
 	            Camera.main.WorldToViewportPoint(ray.origin).y > 0.9)
 	        {
-	            // OPEN THE MENU HERE!
+                GetComponent<HTMLExplorer>().OpenMenu();
 	        }
 	        else if (Physics.Raycast(ray, out hit))
 	        {

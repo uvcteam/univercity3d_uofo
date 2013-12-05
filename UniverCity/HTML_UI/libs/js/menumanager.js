@@ -1,11 +1,13 @@
 $(function () {
     var container = document.getElementById('st-container');
-    $('#menu_btn').click(function () {
+    $('#menu_btn').click(function (event) {
+        event.stopPropagation();
         container.className = 'st-container';
         classie.add(container, 'st-effect-1');
         setTimeout(function () {
             classie.add(container, 'st-menu-open');
         }, 25);
+
     });
     $('.st-menu li').click(function (event) {
         event.stopPropagation();

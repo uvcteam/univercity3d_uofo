@@ -40,6 +40,7 @@ public class HTMLExplorer : MonoBehaviour
             _view.View.BindCall("LoadAdData", (System.Action)LoadAdData);
             _view.View.BindCall("SetBusinessIDForCard", (System.Action<string>)SetBusinessIDForCard);
             _view.View.BindCall("LoadBusinessCard", (System.Action)LoadBusinessCard);
+            _view.View.BindCall("MenuClosed", (System.Action)MenuClosed);
         };
        
     }
@@ -126,6 +127,18 @@ public class HTMLExplorer : MonoBehaviour
     void LoadBusinessCard()
     {
         _view.View.TriggerEvent("LoadBusinessCard", _businessID);
+    }
+
+    public void OpenMenu()
+    {
+        _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
+        _view.View.TriggerEvent("OpenMenu", _businessID);
+    }
+
+    public void MenuClosed()
+    {
+        Debug.Log("close");
+        _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
     }
 
     public void OnCancelClicked()
