@@ -17,7 +17,8 @@ public class FlyCam : MonoBehaviour
 	public float minHeight = 20.0f; // The min height the camera can go.
 	
 	//private Vector3 lastMouse = new Vector3(255, 255, 255); // So the camera doesn't jump.
-	private float totalRun = 1.0f;
+    private float totalRun = 1.0f;
+    public float activationDistance = 50.0f;
 
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
     public RotationAxes axes = RotationAxes.MouseXAndY;
@@ -103,13 +104,43 @@ public class FlyCam : MonoBehaviour
 		f = p.y + transform.position.y;
 		transform.Translate(p);
         */
+
         transform.position = new Vector3(transform.position.x,
                                          Mathf.Clamp(transform.position.y, minHeight, maxHeight),
                                          transform.position.z);
-	    if (!rigidbody.isKinematic)
+        if (!rigidbody.isKinematic)
+        {
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+        }
+        
+        if (FloatingBubble.HasAdUp) return;
+        if (Camera.main == null) return;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+	    if (Input.GetMouseButtonDown(0))
 	    {
-	        rigidbody.velocity = Vector3.zero;
-	        rigidbody.angularVelocity = Vector3.zero;
+            Debug.Log(Camera.main.WorldToViewportPoint(ray.origin));
+	        if (Camera.main.WorldToViewportPoint(ray.origin).x < 0.1 &&
+	            Camera.main.WorldToViewportPoint(ray.origin).y > 0.9)
+	        {
+	            // OPEN THE MENU HERE!
+	        }
+	        else if (Physics.Raycast(ray, out hit))
+	        {
+                
+                Debug.Log((Vector3.Distance(
+                        GameObject.FindWithTag("MainCamera").transform.position,
+                        transform.position) <= activationDistance));
+	            if (hit.collider.tag == "FloatingSphere" &&
+	                (Vector3.Distance(
+	                    GameObject.FindWithTag("MainCamera").transform.position,
+	                    transform.position) <= activationDistance))
+	            {
+	                hit.collider.gameObject.GetComponent<FloatingBubble>().BubbleClicked();
+	            }
+	        }
 	    }
 	}
 	

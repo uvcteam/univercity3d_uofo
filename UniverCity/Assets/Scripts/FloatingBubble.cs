@@ -5,7 +5,6 @@ public class FloatingBubble : MonoBehaviour
 {
     public string myLocation = "";
     public float rotateSpeed = 30.0f;
-    public float activationDistance = 50.0f;
     public GameObject adPanel;
     private BusinessManager manager;
     public Transform tweenTo = null;
@@ -28,21 +27,19 @@ public class FloatingBubble : MonoBehaviour
     private void Update()
     {
         transform.Rotate(Vector3.up*rotateSpeed*Time.deltaTime);
+    }
 
-        if (FloatingBubble.HasAdUp) return;
-        if (Camera.main == null) return;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+    void OnTweenFinished(UITweener tweener)
+    {
+        adPanel = GameObject.Find("Main Camera");
+        adPanel.SetActive(true);
+        adPanel.GetComponent<HTMLExplorer>().SetPosition(transform, gameObject);
+        adPanel.GetComponent<HTMLExplorer>().SetReturnPosition();
+        gameObject.SetActive(false);
+    }
 
-        transform.Rotate(Vector3.up*rotateSpeed*Time.deltaTime);
-
-        if (!Input.GetMouseButtonDown(0)) return;
-        if (!Physics.Raycast(ray, out hit)) return;
-        if (hit.collider.tag != "FloatingSphere" || hit.collider.gameObject.name != gameObject.name ||
-            !(Vector3.Distance(
-                GameObject.FindWithTag("MainCamera").transform.position,
-                transform.position) <= activationDistance)) return;
-
+    public void BubbleClicked()
+    {
         myTween.from = ObjectToTween.transform;
         myTween.to = tweenTo;
         myTween.duration = 1.0f;
@@ -60,17 +57,8 @@ public class FloatingBubble : MonoBehaviour
         myTween.eventReceiver = gameObject;
         //GameObject.FindWithTag("MainCamera").GetComponent<FlyCam>().enabled = false;
         ObjectToTween.rigidbody.isKinematic = true;
-		myTween.Reset();
+        myTween.Reset();
         myTween.Toggle();
         FloatingBubble.HasAdUp = true;
-    }
-
-    void OnTweenFinished(UITweener tweener)
-    {
-        adPanel = GameObject.Find("Main Camera");
-        adPanel.SetActive(true);
-        adPanel.GetComponent<HTMLExplorer>().SetPosition(transform, gameObject);
-        adPanel.GetComponent<HTMLExplorer>().SetReturnPosition();
-        gameObject.SetActive(false);
     }
 }

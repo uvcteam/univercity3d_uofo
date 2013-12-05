@@ -1188,6 +1188,7 @@ GameObject:
   - 135: {fileID: 74179349}
   - 23: {fileID: 74179347}
   - 114: {fileID: 74179350}
+  - 54: {fileID: 74179351}
   m_Layer: 11
   m_Name: Cuthbert Ampitheater
   m_TagString: FloatingSphere
@@ -1260,11 +1261,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 1001999478}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &74179351
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 74179345}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &81735905
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,6 +3868,7 @@ GameObject:
   - 135: {fileID: 189941511}
   - 23: {fileID: 189941509}
   - 114: {fileID: 189941512}
+  - 54: {fileID: 189941513}
   m_Layer: 11
   m_Name: Eugene Public Library
   m_TagString: FloatingSphere
@@ -3925,11 +3941,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 958072950}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &189941513
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189941507}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &192297818
 GameObject:
   m_ObjectHideFlags: 0
@@ -4198,6 +4228,7 @@ GameObject:
   - 135: {fileID: 205901430}
   - 23: {fileID: 205901428}
   - 114: {fileID: 205901431}
+  - 54: {fileID: 205901432}
   m_Layer: 11
   m_Name: EMX Station
   m_TagString: FloatingSphere
@@ -4270,11 +4301,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 1536022871}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &205901432
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 205901426}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &206056911
 GameObject:
   m_ObjectHideFlags: 0
@@ -8653,6 +8698,7 @@ GameObject:
   - 135: {fileID: 405198327}
   - 23: {fileID: 405198325}
   - 114: {fileID: 405198328}
+  - 54: {fileID: 405198329}
   m_Layer: 11
   m_Name: Shedd Institute
   m_TagString: FloatingSphere
@@ -8725,11 +8771,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 1659353566}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &405198329
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 405198323}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &408856702
 GameObject:
   m_ObjectHideFlags: 0
@@ -9104,6 +9164,7 @@ GameObject:
   - 135: {fileID: 421803812}
   - 23: {fileID: 421803810}
   - 114: {fileID: 421803813}
+  - 54: {fileID: 421803814}
   m_Layer: 11
   m_Name: Autzen Stadium
   m_TagString: FloatingSphere
@@ -9176,11 +9237,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 329423528}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &421803814
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421803808}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &427886177
 GameObject:
   m_ObjectHideFlags: 0
@@ -9193,6 +9268,7 @@ GameObject:
   - 135: {fileID: 427886181}
   - 23: {fileID: 427886179}
   - 114: {fileID: 427886182}
+  - 54: {fileID: 427886183}
   m_Layer: 11
   m_Name: Downtown Fire Station
   m_TagString: FloatingSphere
@@ -9265,11 +9341,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 1171615263}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &427886183
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 427886177}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &431236609
 GameObject:
   m_ObjectHideFlags: 0
@@ -9795,6 +9885,7 @@ GameObject:
   - 135: {fileID: 466129347}
   - 23: {fileID: 466129345}
   - 114: {fileID: 466129348}
+  - 54: {fileID: 466129349}
   m_Layer: 11
   m_Name: Eugene Opera
   m_TagString: FloatingSphere
@@ -9867,11 +9958,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 961868372}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &466129349
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 466129343}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &467273974
 GameObject:
   m_ObjectHideFlags: 0
@@ -21325,6 +21430,7 @@ GameObject:
   - 135: {fileID: 859079255}
   - 23: {fileID: 859079253}
   - 114: {fileID: 859079256}
+  - 54: {fileID: 859079257}
   m_Layer: 11
   m_Name: Hilton Eugene & Conference Center
   m_TagString: FloatingSphere
@@ -21397,11 +21503,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 258762809}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &859079257
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 859079251}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &869572207
 GameObject:
   m_ObjectHideFlags: 0
@@ -30302,6 +30422,7 @@ GameObject:
   - 135: {fileID: 1203903993}
   - 23: {fileID: 1203903991}
   - 114: {fileID: 1203903994}
+  - 54: {fileID: 1203903995}
   m_Layer: 11
   m_Name: Eugene City Council
   m_TagString: FloatingSphere
@@ -30374,11 +30495,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 1435857130}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &1203903995
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1203903989}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &1209230045
 GameObject:
   m_ObjectHideFlags: 0
@@ -37435,6 +37570,7 @@ GameObject:
   - 135: {fileID: 1441586503}
   - 23: {fileID: 1441586501}
   - 114: {fileID: 1441586504}
+  - 54: {fileID: 1441586505}
   m_Layer: 11
   m_Name: Gym
   m_TagString: FloatingSphere
@@ -37507,11 +37643,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 945480349}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &1441586505
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1441586499}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &1460459549
 GameObject:
   m_ObjectHideFlags: 0
@@ -41318,6 +41468,7 @@ GameObject:
   - 135: {fileID: 1618944803}
   - 23: {fileID: 1618944801}
   - 114: {fileID: 1618944804}
+  - 54: {fileID: 1618944805}
   m_Layer: 11
   m_Name: Sacred Heart Medical Center
   m_TagString: FloatingSphere
@@ -41390,11 +41541,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 731087444}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &1618944805
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1618944799}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &1625109096
 GameObject:
   m_ObjectHideFlags: 0
@@ -41407,6 +41572,7 @@ GameObject:
   - 135: {fileID: 1625109100}
   - 23: {fileID: 1625109098}
   - 114: {fileID: 1625109101}
+  - 54: {fileID: 1625109102}
   m_Layer: 11
   m_Name: Eugene Amtrak Station
   m_TagString: FloatingSphere
@@ -41479,11 +41645,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 976496326}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &1625109102
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625109096}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &1644895719
 GameObject:
   m_ObjectHideFlags: 0
@@ -42332,6 +42512,7 @@ GameObject:
   - 135: {fileID: 1695012632}
   - 23: {fileID: 1695012630}
   - 114: {fileID: 1695012633}
+  - 54: {fileID: 1695012634}
   m_Layer: 11
   m_Name: Hult Center
   m_TagString: FloatingSphere
@@ -42404,11 +42585,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 1343883960}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &1695012634
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1695012628}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &1697115931
 GameObject:
   m_ObjectHideFlags: 0
@@ -42804,7 +42999,6 @@ GameObject:
   - 92: {fileID: 1722524907}
   - 124: {fileID: 1722524908}
   - 81: {fileID: 1722524906}
-  - 114: {fileID: 1722524909}
   - 114: {fileID: 1722524910}
   - 114: {fileID: 1722524911}
   - 135: {fileID: 1722524912}
@@ -42885,23 +43079,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1722524903}
   m_Enabled: 1
---- !u!114 &1722524909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1722524903}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01d8cc8261c9e88429f9df6eb9e902e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainSpeed: 50
-  shiftAdd: 250
-  maxShift: 1000
-  camSens: .100000001
-  maxHeight: 85
-  minHeight: 20
 --- !u!114 &1722524910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42918,6 +43095,7 @@ MonoBehaviour:
   maxShift: 1000
   maxHeight: 40
   minHeight: 20
+  activationDistance: 1000
   axes: 0
   sensitivityX: 15
   sensitivityY: 15
@@ -47036,6 +47214,7 @@ GameObject:
   - 135: {fileID: 1968606168}
   - 23: {fileID: 1968606166}
   - 114: {fileID: 1968606169}
+  - 54: {fileID: 1968606170}
   m_Layer: 11
   m_Name: Matthew Knight Arena
   m_TagString: FloatingSphere
@@ -47108,11 +47287,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLocation: Autzen Stadium
   rotateSpeed: 30
-  activationDistance: 1000
   adPanel: {fileID: 0}
   tweenTo: {fileID: 1475007824}
   myTween: {fileID: 1722524911}
   ObjectToTween: {fileID: 0}
+--- !u!54 &1968606170
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968606164}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
 --- !u!1 &1972057397
 GameObject:
   m_ObjectHideFlags: 0
