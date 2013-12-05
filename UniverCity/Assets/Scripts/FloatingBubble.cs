@@ -11,6 +11,7 @@ public class FloatingBubble : MonoBehaviour
     public TweenTransform myTween = null;
 	public GameObject ObjectToTween = null;
     public static bool HasAdUp = false;
+    private Vector2 myPos;
 
     void Awake()
     {
@@ -19,8 +20,9 @@ public class FloatingBubble : MonoBehaviour
 		if (ObjectToTween == null)
 			Debug.LogError("CameraBase could not be located!");
         manager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
+        myPos = new Vector2(transform.localPosition.x, transform.localPosition.z);
         gameObject.SetActive(
-            manager.busByCoord.ContainsKey(new Vector2(transform.localPosition.x, transform.localPosition.z)));
+            manager.busByCoord.ContainsKey(myPos));
     }
 
 	// Update is called once per frame
@@ -33,7 +35,7 @@ public class FloatingBubble : MonoBehaviour
     {
         adPanel = GameObject.Find("Main Camera");
         adPanel.SetActive(true);
-        adPanel.GetComponent<HTMLExplorer>().SetPosition(transform, gameObject);
+        adPanel.GetComponent<HTMLExplorer>().SetPosition(myPos, gameObject);
         adPanel.GetComponent<HTMLExplorer>().SetReturnPosition();
         gameObject.SetActive(false);
     }

@@ -15,7 +15,7 @@ public class HTMLExplorer : MonoBehaviour
     private CoherentUIView _view;
     private AdManager _adManager;
     private bool _viewReady;
-    private Transform _trans;
+    private Vector2 _trans;
     public GameObject World;
     public TweenTransform myTween;
     private GameObject oldPos = null;
@@ -83,7 +83,7 @@ public class HTMLExplorer : MonoBehaviour
         World.SetActive(true);
     }
 
-    public void SetPosition(Transform trans, GameObject myBubble)
+    public void SetPosition(Vector2 trans, GameObject myBubble)
     {
         _trans = trans;
         _floatingBubble = myBubble;
@@ -98,7 +98,7 @@ public class HTMLExplorer : MonoBehaviour
             return;
         BusinessManager manager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
         // Add all of the new businesses.
-        foreach (Business bus in manager.busByCoord[new Vector2(_trans.localPosition.x, _trans.localPosition.z)])
+        foreach (Business bus in manager.busByCoord[_trans])
         {
             this.AddBusiness(bus);
         }
