@@ -1,0 +1,58 @@
+body {
+    background: transparent !important;
+}
+
+.st-content {
+    background: transparent !important;
+}
+
+#menu_btn {
+    background: rgb(238, 123, 43);
+}
+
+#menu_btn:hover {
+    background: rgb(238, 123, 43);
+}
+
+.back_button {
+    background: rgb(238, 123, 43);
+}
+
+.back_button:hover {
+    background: rgb(238, 123, 43);
+}
+
+.st-menu {
+    background: rgb(238, 123, 43);
+}
+
+/* -------------------------------------------------------------
+======	MEDIA QUERIES
+------------------------------------------------------------- */
+
+/* -- Media query 1 (mq1)
+------------------------------------------------------------- */
+@media only screen and (max-width: 60em) { /* 13 / 780 */
+    #user-name {
+        border-top: 0.1em solid rgb(238, 123, 43);
+    }
+}
+    
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 48em) { /* 13 / 624 */
+    #user-name {
+        font-size: 3em;
+        border-top: 0.2em solid rgb(238, 123, 43);
+    }
+}
+    
+/* -- Media query 3 (mq3)
+------------------------------------------------------------- */
+@media only screen and (max-width: 30em) { /* 13 / 390 */
+    #user-name {
+        width: 75%;
+        font-size: 2em;
+        border-top: 0.3em solid rgb(238, 123, 43);
+    }
+}
