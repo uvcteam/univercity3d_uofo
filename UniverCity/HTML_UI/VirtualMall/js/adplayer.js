@@ -55,11 +55,11 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
             case "video":
                 adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString()+ '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
                     + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
-                    + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
-              /*      + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
+                   // + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
+                    + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
                     + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
                     + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
-                    + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'*/
+                    + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'
                     + '</video></div>';
                 break;
         }
