@@ -9,7 +9,6 @@ function SignInClicked() {
 
 function SignOut() {
     engine.call('SignOut');
-    window.location.href = '../Login/login.html';
 }
 
 $(function() {
