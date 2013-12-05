@@ -57,7 +57,7 @@ public class HTMLMainMenu : MonoBehaviour
 
     public void CheckLoginInformation(string email, string password, bool first)
     {
-        if (first && email == "" && password == "" && 
+        if (first && email == "" && password == "" && PlayerPrefs.GetInt("loggedIn") != 0 &&
             PlayerPrefs.HasKey("email") && PlayerPrefs.HasKey("password"))
         {
             Debug.Log("Logging in with default values.");
