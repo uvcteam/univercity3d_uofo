@@ -6,14 +6,14 @@ $(document).ready(function () {
 
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
-/*    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
         AttachEventToPages();
         SetNarrator(mediaURL + adPlayerData.expert.id);
 
-    }});*/
+    }});
     engine.call('LoadAdData');
 });
 
@@ -53,13 +53,10 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                 adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><a href="#"><img src="' + mediaURL + adpageParts[i].id + '"/></a></div>';
                 break;
             case "video":
-                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString() + '" controls >'
-                    + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
-                    + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
-                    + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
-                    + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
-                    + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'
-                    + '</video></div>';
+                adpage += '<div class="adpage vzaar_media_player" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
+                    + '<object data="http://view.vzaar.com/1417694/flashplayer" height="324" id="vzvd-1417694" type="application/x-shockwave-flash" width="576"><param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" /><param name="movie" value="http://view.vzaar.com/1417694/flashplayer" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="border=none&amp;showplaybutton=rollover" /><video controls height="324" id="vzvid" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://view.vzaar.com/1417694/video" width="576"></video></object>'
+                    +'</div>';
+
                 break;
         }
     }
@@ -74,8 +71,9 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                     adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><a href="#"><img src="' + mediaURL + detailsParts[i].id + '"/></a></div>';
                     break;
                 case "video":
-                    adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString() + '" controls >'
-                        + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
+                    adpage += '<div style="display:none"  class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><video id="video-' + detailsTitle + i.toString() + '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
+                        + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
+                        + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
                         + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
                         + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
                         + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
@@ -169,14 +167,13 @@ var AttachEventToPages = function () {
                 var height = $('#cbp-fwslider').height();
                 // Set width to fill parent element, Set height
  
-                //myPlayer.width(width).height(height);
+                myPlayer.width(width).height(height);
             }
 
             resizeVideoJS(); // Initialize the function
             window.onresize = resizeVideoJS; // Call the function on resize
         });
     }
-
 
     $('#tabs a:first').tab('show');
 }
