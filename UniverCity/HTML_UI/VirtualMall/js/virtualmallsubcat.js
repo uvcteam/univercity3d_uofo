@@ -12,11 +12,11 @@ engine.on('PopulateCategory', function (name, desc, id, image, index, hasAd) {
 
     if(hasAd === true)
         document.getElementsByClassName('category')[index].innerHTML += '<div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
-            + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a href="businesscard.html?id='+ id
+            + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a busid="'+ id
             +'">Contact Info</a></div>';
     else
         document.getElementsByClassName('category')[index].innerHTML += '<div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
-            + '" /><figcaption>' + desc + '</figcaption></figure><a href="businesscard.html?id='+ id
+            + '" /><figcaption>' + desc + '</figcaption></figure><a busid="'+id
             +'">Contact Info</a></div>';
 })
 
@@ -30,5 +30,9 @@ engine.on('AttachEventToBusinesses', function () {
     $(".business > button").click(function () {
         console.log(this.getAttribute('busid'));
         engine.call('SetBusinessID', this.getAttribute('busid'));
+    });
+    $(".business > a").click(function () {
+        console.log(this.getAttribute('busid'));
+        engine.call('SetBusinessIDForCard', this.getAttribute('busid'));
     });
 })

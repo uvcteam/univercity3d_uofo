@@ -5,8 +5,22 @@ $(document).ready(function () {
     console.log("Ready for Unity.");
 
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
+    //Parameter passing breaks iOS so comment out hen building to iOS
+/*    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+        console.log(adPlayerData);
+        PopulateAdPlayer(adPlayerData);
+        SetMegaDeal(adPlayerData.megadeal);
+        AttachEventToPages();
+        SetNarrator(mediaURL + adPlayerData.expert.id);
 
-    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+    }});*/
+    engine.call('LoadAdData');
+});
+
+engine.on('LoadAdPlayer', function(id){
+    console.log("derp");
+    var URL = "http://www.univercity3d.com/univercity/getAd?b=";
+    $.ajax({url: URL + id, success: function(adPlayerData){
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
@@ -14,8 +28,7 @@ $(document).ready(function () {
         SetNarrator(mediaURL + adPlayerData.expert.id);
 
     }});
-    //document.getElementById('adplayer-style').setAttribute('href', 'styles/explorer-adplayer.css');
-});
+})
 
 var PopulateAdPlayer = function(data ) {
 
@@ -206,7 +219,6 @@ var SetPage = function (index) {
 }
 
 engine.on('ChangeToExplorerStyle', function(){
-    console.log("Herp");
     document.getElementById('adplayer-style').setAttribute('href', 'styles/explorer-adplayer.css');
     document.getElementById('style').setAttribute('href', '../Explorer/styles/style.css');
 

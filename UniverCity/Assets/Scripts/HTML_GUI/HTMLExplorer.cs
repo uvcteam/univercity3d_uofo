@@ -22,6 +22,7 @@ public class HTMLExplorer : MonoBehaviour
     private GameObject _floatingBubble;
     public GameObject leftStick;
     public GameObject rightStick;
+    private string _businessID;
 
     // Use this for initialization
     void Start()
@@ -36,6 +37,9 @@ public class HTMLExplorer : MonoBehaviour
             _view.View.BindCall("OnBusinessWasSelected", (System.Action)OnBusinessWasSelected);
             _view.View.BindCall("AddBusinesses", (System.Action)AddBusinesses);
             _view.View.BindCall("CloseBusinessList", (System.Action)CloseBusinessList);
+            _view.View.BindCall("LoadAdData", (System.Action)LoadAdData);
+            _view.View.BindCall("SetBusinessIDForCard", (System.Action<string>)SetBusinessIDForCard);
+            _view.View.BindCall("LoadBusinessCard", (System.Action)LoadBusinessCard);
         };
        
     }
@@ -59,9 +63,12 @@ public class HTMLExplorer : MonoBehaviour
 
     public void LoadAdPlayer(string businessid)
     {
-        Debug.Log("Loading ad");
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html?id=" + businessid);
-        //_view.View.TriggerEvent("ChangeToExplorerStyle");
+        _businessID = businessid;
+        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html");
+    }
+    void LoadAdData()
+    {
+        _view.View.TriggerEvent("LoadAdPlayer", _businessID);
     }
 
     public void OnBusinessWasSelected()
@@ -104,6 +111,18 @@ public class HTMLExplorer : MonoBehaviour
     public void SetReturnPosition()
     {
         oldPos = GameObject.Find("Placeholder");
+    }
+
+    void SetBusinessIDForCard(string businessid)
+    {
+        Debug.Log(businessid);
+        _businessID = businessid;
+        _view.View.Load("coui://HTML_UI/VirtualMall/businesscard.html");
+    }
+
+    void LoadBusinessCard()
+    {
+        _view.View.TriggerEvent("LoadBusinessCard", _businessID);
     }
 
     public void OnCancelClicked()

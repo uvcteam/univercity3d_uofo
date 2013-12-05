@@ -19,7 +19,7 @@ public class HTMLVirtualMall : MonoBehaviour
     private BusinessManager _businessManager;
     private bool _loadSubCats = false;
     private string _subCat;
-    private int _businessID;
+    private string _businessID;
     byte[] foo;
 	// Use this for initialization
     void Start()
@@ -31,6 +31,9 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("ReadyForCategories", (System.Action)ReadyForCategories);
             _view.View.BindCall("GetBusinessSubCat", (System.Action<string>)GetBusinessSubCat);
             _view.View.BindCall("SetBusinessID", (System.Action<string>)SetBusinessID);
+            _view.View.BindCall("LoadAdData", (System.Action)LoadAdData);
+            _view.View.BindCall("SetBusinessIDForCard", (System.Action<string>)SetBusinessIDForCard);
+            _view.View.BindCall("LoadBusinessCard", (System.Action)LoadBusinessCard);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -81,9 +84,23 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void SetBusinessID(string businessid)
     {
-        //_view.Page = "coui://HTML_UI/VirtualMall/adplayer.html?id=" + businessid;
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html?id=" + 16);
-        //_view.View.Load("coui://HTML_UI/Login/login.html");
+        _businessID = businessid;
+        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html");       
     }
 
+    void LoadAdData()
+    {
+        _view.View.TriggerEvent("LoadAdPlayer", _businessID);
+    }
+
+    void SetBusinessIDForCard(string businessid)
+    {
+        _businessID = businessid;
+        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/businesscard.html");
+    }
+
+    void LoadBusinessCard()
+    {
+        _view.View.TriggerEvent("LoadBusinessCard", _businessID);
+    }
 }

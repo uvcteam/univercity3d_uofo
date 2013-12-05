@@ -10,11 +10,11 @@ engine.on('PopulateCategory', function (name, desc, id, image, hasAd) {
     console.log(document.getElementById('business-list'));
     if (hasAd === true)
         document.getElementById('business-list').innerHTML += '<li><div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
-            + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a href="../VirtualMall/businesscard.html?id='+ id
+            + '" /><figcaption>' + desc + '</figcaption></figure><button type="button" busid="' + id + '"class="btn btn-see-more">See More</button><a busid="'+ id
             +'">Contact Info</a></div></li>';
     else
         document.getElementById('business-list').innerHTML += '<li><div class="business"><header>' + name + '</header><figure><img src="data:image/png;base64,' + image
-            + '" /><figcaption>' + desc + '</figcaption></figure><a href="../VirtualMall/businesscard.html?id='+ id
+            + '" /><figcaption>' + desc + '</figcaption></figure><a busid="'+ id
             +'">Contact Info</a></div></li>';
 })
 
@@ -36,6 +36,7 @@ engine.on('AttachEventToBusinesses', function () {
     });
     $(".business > a").click(function (ev) {
         ev.stopPropagation();
+        engine.call('SetBusinessIDForCard', this.getAttribute('busid'));
         engine.call('OnBusinessWasSelected');
     });
 
