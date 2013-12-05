@@ -53,9 +53,8 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                 adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><a href="#"><img src="' + mediaURL + adpageParts[i].id + '"/></a></div>';
                 break;
             case "video":
-                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString()+ '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
-                    + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
-                   // + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
+                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString() + '" controls >'
+                    + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
                     + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
                     + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
                     + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
@@ -75,9 +74,8 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                     adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><a href="#"><img src="' + mediaURL + detailsParts[i].id + '"/></a></div>';
                     break;
                 case "video":
-                    adpage += '<div style="display:none"  class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><video id="video-' + detailsTitle + i.toString() + '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
-                        + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
-                        + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
+                    adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><video id="video-' + adpageTitle + i.toString() + '" controls >'
+                        + '<source src="http://www.scherpbier.org/lovely.webm" type="video/webm" />'
                         + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
                         + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
                         + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
@@ -171,13 +169,14 @@ var AttachEventToPages = function () {
                 var height = $('#cbp-fwslider').height();
                 // Set width to fill parent element, Set height
  
-                myPlayer.width(width).height(height);
+                //myPlayer.width(width).height(height);
             }
 
             resizeVideoJS(); // Initialize the function
             window.onresize = resizeVideoJS; // Call the function on resize
         });
     }
+
 
     $('#tabs a:first').tab('show');
 }
