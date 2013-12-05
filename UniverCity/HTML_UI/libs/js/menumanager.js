@@ -2,12 +2,7 @@ $(function () {
     var container = document.getElementById('st-container');
     $('#menu_btn').click(function (event) {
         event.stopPropagation();
-        container.className = 'st-container';
-        classie.add(container, 'st-effect-1');
-        setTimeout(function () {
-            classie.add(container, 'st-menu-open');
-        }, 25);
-
+        OpenMenu();
     });
     $('.st-menu li').click(function (event) {
         event.stopPropagation();
@@ -27,6 +22,15 @@ function urlParam(name) {
     } else {
         return results[1] || 0;
     }
+}
+
+function OpenMenu() {
+    var container = document.getElementById('st-container');
+    container.className = 'st-container';
+    classie.add(container, 'st-effect-1');
+    setTimeout(function () {
+        classie.add(container, 'st-menu-open');
+    }, 25);
 }
 
 function htmlEncode(value) {

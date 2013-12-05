@@ -131,8 +131,8 @@ public class HTMLExplorer : MonoBehaviour
 
     public void OpenMenu()
     {
-        _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
         _view.View.TriggerEvent("OpenMenu", _businessID);
+        _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
     }
 
     public void MenuClosed()
