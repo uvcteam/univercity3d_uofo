@@ -1,0 +1,259 @@
+#narrator {
+    max-width: 20%;
+    max-height: 20%;
+    min-width: 10%;
+    min-height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 1;
+    border:none;
+}
+
+.adpage {
+
+}
+#narrator-img {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 10%;
+    min-height: 10%;
+}
+#narrator-speech {
+    z-index: 1;
+    position:absolute;
+    max-width: 33.33%;
+    max-height: 33.33%;
+    top:50%;
+}
+.bubble {
+    position: absolute;
+    background-color: white;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    padding: 10px;
+    text-align: center;
+    width: 180px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    color: rgb(255, 165, 58);
+    z-index: 2;
+    bottom: 20%;
+    border-color: rgb(255, 165, 58);
+    border: 3px;
+    border-style: solid;
+}
+.bubble p{
+    color:black;
+}
+.bubble:after {
+    position: absolute;
+    display: block;
+    content: "";
+    border-color: rgb(255, 165, 58) transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -20px;
+    left: 1em;
+}
+.details-page{
+    /*display: none;*/
+}
+.details-btn p {
+    color: white;
+    vertical-align: middle;
+}
+.details-btn {
+    position: relative;
+    color: rgba(0,0,0,.8);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    box-shadow: 0px 0 3px rgba(0,0,0,0.25);
+    background: rgba(0,0,0,.8);
+    z-index: 10;
+    border: 3px;
+    padding: 7px;
+}
+.details-btn:after {
+    display: block;
+    content: "";
+    border-color: rgba(0,0,0,.8) transparent transparent transparent;
+    border-style: solid;
+    border-width: 10px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    bottom: -20px;
+    left: 40%;
+    z-index: 10;
+}
+#tabs{
+    display: inline-block;
+}
+.tabs{
+    width: 70%;
+    margin: 0 auto;
+}
+.nav li {
+    text-transform: uppercase;
+    font-family: 'Oswald';
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+.nav-pills > li.active > a {
+    background-color: rgb(255, 165, 58);
+}
+
+.nav-pills > li.active > a:hover {
+    background-color: rgb(255, 165, 58);
+}
+
+#mega-deal{
+    text-align: center;
+    color: #000000;
+    margin-top: 10%
+}
+#mega-deal-btn{
+    width: 50%;
+}
+#title{
+    font-size: 30px;
+}
+#disclaimer {
+    font-weight: bold;
+}
+
+#members-only {
+    text-align: center;
+    color: black;
+    margin-top: 20%;
+}
+
+.cbp-fwslider {
+    position: relative;
+    margin: 0 0 10px;
+    overflow: hidden;
+    padding: 40px 0 60px;
+    height: 80vh;
+    z-index: 0;
+}
+
+.cbp-fwslider ul {
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    list-style-type: none;
+}
+
+.cbp-fwslider ul li {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    transform: translateZ(0);
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.cbp-fwslider ul li > a,
+.cbp-fwslider ul li > div {
+    display: block;
+    text-align: center;
+    outline: none;
+}
+
+.cbp-fwslider ul li div > a img {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.cbp-fwslider ul li div > a video {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    max-height: 70%;
+}
+
+.cbp-fwslider nav span {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    max-width:10%;
+    height: 100px;
+    background: rgb(255, 165, 58);
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    margin-top: -50px;
+    line-height: 100px;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.cbp-fwslider nav span:hover {
+    background: rgb(255, 165, 58);
+}
+
+.cbp-fwslider nav span.cbp-fwnext {
+    right: 0px;
+}
+
+.cbp-fwslider nav span.cbp-fwprev {
+    left: 0px;
+}
+
+.cbp-fwdots {
+    position: absolute;
+    bottom: 0;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+}
+
+.cbp-fwdots span {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #ddd;
+    margin: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cbp-fwdots span:hover {
+    background: #999;
+}
+
+.cbp-fwdots span.cbp-fwcurrent {
+    background: rgb(255, 165, 58);
+    box-shadow: 0 0 0 2px rgb(255, 165, 58);
+    -webkit-transition: box-shadow 0.2s ease-in-out;
+    -moz-transition: box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+
+
+
+
+
