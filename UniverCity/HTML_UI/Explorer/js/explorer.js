@@ -53,5 +53,5 @@ engine.on('AttachEventToBusinesses', function () {
 
 engine.on('OpenMenu', function(){
     console.log("OPenMenu");
-    $('menu_btn').trigger('click').stopPropagation();
+    $('menu_btn').trigger('click');
 })

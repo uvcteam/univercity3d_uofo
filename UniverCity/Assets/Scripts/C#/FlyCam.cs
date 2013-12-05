@@ -122,8 +122,8 @@ public class FlyCam : MonoBehaviour
 	    if (Input.GetMouseButtonDown(0))
 	    {
             Debug.Log(Camera.main.WorldToViewportPoint(ray.origin));
-	        if (Camera.main.WorldToViewportPoint(ray.origin).x < 0.1 &&
-	            Camera.main.WorldToViewportPoint(ray.origin).y > 0.9)
+	        if (Camera.main.WorldToViewportPoint(ray.origin).x <= 0.1 &&
+	            Camera.main.WorldToViewportPoint(ray.origin).y >= 0.9)
 	        {
                 GetComponent<HTMLExplorer>().OpenMenu();
 	        }
