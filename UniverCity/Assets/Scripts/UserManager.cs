@@ -180,6 +180,7 @@ public class UserManager : MonoBehaviour
             while (_view == null || _view.View == null)
             {
                 Debug.Log("No view...");
+                _view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
                 yield return new WaitForEndOfFrame();
             }
             Debug.Log("Triggering event on the JavaScript!");

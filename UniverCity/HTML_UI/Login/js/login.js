@@ -4,8 +4,7 @@ $(function () {
         GoToDestination(this.getAttribute('destination'));
     });
 
-    console.log('Trying to log in with default values.');
-    engine.call('CheckLoginInformation', '', '', true);
+    engine.call('RequestToLogin');
 });
 
 function SignInClicked() {
@@ -41,4 +40,9 @@ engine.on('LoggedIn', function (name) {
     document.getElementById("logged-in").innerHTML = '<img src="images/logo.png" /><br /><span>Welcome back <strong><em>' + name + '</em></strong>!</span><br /><span>Not you? <a href="#" onclick="SignOut()">Sign out</a>.';
     classie.add(document.getElementById("main"), "hidden");
     classie.remove(document.getElementById("logged-in"), "hidden");
+});
+
+engine.on('RequestApproved', function() {
+    console.log('Trying to log in with default values.');
+    engine.call('CheckLoginInformation', '', '', tryToLogin());
 });

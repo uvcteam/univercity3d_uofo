@@ -25,3 +25,7 @@
     visibility: visible;
     margin-top: 0px;
 }
+
+.upcoming-events {
+    width: 100% !important;
+}

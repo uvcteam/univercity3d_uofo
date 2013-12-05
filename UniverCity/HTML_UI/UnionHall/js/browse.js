@@ -2,25 +2,22 @@
  * Created by Jacob on 11/24/13.
  */
 // Web Functions.
+var currentCategory = 'All Categories';
 $(function () {
+    $('.category-dropdown').val('All Categories');
     engine.call("GetCategories");
 
-    var category = "";
-    if (urlParam('category')) {
-        category = decodeURIComponent(urlParam('category'));
-        $('.category-dropdown').val(category);
-        console.log(category);
-    } else {
-        $('.category-dropdown').val("All Categories");
-    }
-
-    engine.call("GetEvents", category);
-    console.log(category);
+    engine.call("GetEvents", currentCategory);
+    console.log(currentCategory);
 });
 
 $('.category-dropdown').change(function() {
-    cat = $('.category-dropdown').val();
-    window.location.href='browse.html?category=' + encodeURIComponent(cat);
+    currentCategory = $('.category-dropdown').val();
+    $('option').remove();
+    $('.category-dropdown').append('<option selected="selected">' + currentCategory + '</option>');
+    engine.call("GetCategories");
+    $('.category-dropdown').val(currentCategory);
+    engine.call("GetEvents", currentCategory);
 });
 
 function CreateEvent(name, date, time, desc)
@@ -69,15 +66,10 @@ engine.on("NoEvents", function(){
 });
 
 engine.on("AddCategory", function(cat) {
-    $('.category-dropdown').append('<option>' + cat + '</option>');
+    if (cat !== currentCategory)
+        $('.category-dropdown').append('<option>' + cat + '</option>');
 });
 
 engine.on("CategoriesFinished", function() {
-    if (urlParam('category')) {
-        category = decodeURIComponent(urlParam('category'));
-        $('.category-dropdown').val(category);
-        console.log(category);
-    } else {
-        $('.category-dropdown').val("All Categories");
-    }
+    $('.category-dropdown').val(currentCategory);
 });

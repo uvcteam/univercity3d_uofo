@@ -2,8 +2,10 @@
 using System.Collections;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
+using Coherent.UI.Binding;
 #elif UNITY_IPHONE || UNITY_ANDROID
 using Coherent.UI.Mobile;
+using Coherent.UI.Mobile.Binding;
 #endif
 
 public class HTMLMainMenu : MonoBehaviour
@@ -22,6 +24,7 @@ public class HTMLMainMenu : MonoBehaviour
             _view.View.BindCall("GoToDestination", (System.Action<string>) GoToDestination);
             _view.View.BindCall("CheckLoginInformation", (System.Action<string, string, bool>) CheckLoginInformation);
             _view.View.BindCall("SignOut", (System.Action) SignOut);
+            _view.View.BindCall("RequestToLogin", (System.Action) RequestToLogin);
         };
 
         _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
@@ -35,8 +38,7 @@ public class HTMLMainMenu : MonoBehaviour
 	
     void CheckLogin(int index)
     {
-        GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
-        if (manager.GetComponent<UserManager>().IsSignedIn())
+        if (_userManager.IsSignedIn())
         {
             Application.LoadLevel(index);
             return;
@@ -47,7 +49,7 @@ public class HTMLMainMenu : MonoBehaviour
             (string login, string password, string button) =>
             {
                 if (button == "OK")
-                    StartCoroutine(manager.GetComponent<UserManager>().SignIn(login, password, index));
+                    StartCoroutine(_userManager.SignIn(login, password, index));
             });
     }
 
@@ -55,7 +57,7 @@ public class HTMLMainMenu : MonoBehaviour
 
     public void CheckLoginInformation(string email, string password, bool first)
     {
-        if (first && email == "" && password == "" &&
+        if (first && email == "" && password == "" && 
             PlayerPrefs.HasKey("email") && PlayerPrefs.HasKey("password"))
         {
             Debug.Log("Logging in with default values.");
@@ -93,6 +95,12 @@ public class HTMLMainMenu : MonoBehaviour
     public void SignOut()
     {
         _userManager.SignOut();
+    }
+
+    public void RequestToLogin()
+    {
+        if (_userManager.IsSignedIn())
+            _view.View.TriggerEvent("RequestApproved");
     }
 
     #endregion

@@ -207,6 +207,7 @@ public class HTMLMemoryBank : MonoBehaviour
     public void SignOut()
     {
         _userManager.SignOut();
+        Application.LoadLevel(0);
     }
     #endregion
 }
