@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
@@ -51,6 +51,12 @@ public class HTMLMainMenu : MonoBehaviour
                 if (button == "OK")
                     StartCoroutine(_userManager.SignIn(login, password, index));
             });
+    }
+    
+    IEnumerator WaitForReady()
+    {
+    	yield return new WaitForSeconds(0.5f);
+    	_view.View.TriggerEvent("RequestApproved");
     }
 
     #region CoherentUI Bindings
@@ -105,10 +111,12 @@ public class HTMLMainMenu : MonoBehaviour
         if (_userManager.IsSignedIn())
         {
             Debug.Log("Granting permission");
-            _view.View.TriggerEvent("RequestApproved");
+            StartCoroutine(WaitForReady());
         }
         else
             Debug.Log("Nobody was logged in before.");
+		
+		return;
     }
 
     #endregion

@@ -44,6 +44,5 @@ engine.on('LoggedIn', function (name) {
 });
 
 engine.on('RequestApproved', function() {
-    console.log('Trying to log in with default values.');
     engine.call('CheckLoginInformation', '', '', true);
 });
