@@ -9,12 +9,12 @@ function OnEventCreate() {
     inputs[1]  = values[1]['value'];
     inputs[2]  = values[2]['value'];
     inputs[3]  = values[3]['value'];
-    inputs[4]  = values[4]['value'];
-    inputs[5]  = values[5]['value'];
-    inputs[6]  = values[6]['value'];
-    inputs[7]  = values[7]['value'];
-    inputs[8]  = values[8]['value'];
-    inputs[9] = values[9]['value'];
+    inputs[4]  = values[8]['value'];
+    inputs[5]  = values[9]['value'];
+    inputs[6]  = values[7]['value'];
+    inputs[7]  = values[4]['value'];
+    inputs[8]  = values[5]['value'];
+    inputs[9] = values[6]['value'];
 
     engine.call('CreateEvent', inputs);
 }

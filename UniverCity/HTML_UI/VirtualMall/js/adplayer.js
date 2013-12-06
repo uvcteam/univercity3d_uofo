@@ -54,9 +54,8 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                 break;
             case "video":
                 adpage += '<div class="adpage vzaar_media_player" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
-                    + '<object data="http://view.vzaar.com/1417694/flashplayer" height="324" id="vzvd-1417694" type="application/x-shockwave-flash" width="576"><param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" /><param name="movie" value="http://view.vzaar.com/1417694/flashplayer" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="border=none&amp;showplaybutton=rollover" /><video controls height="324" id="vzvid" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://andrew.scherpbier.org:8080/univercity/admedia?id=115" width="576"></video></object>'
+                    + '<object data="http://view.vzaar.com/1417694/flashplayer" height="324" id="vzvd-1417694" type="application/x-shockwave-flash" width="576"><param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" /><param name="movie" value="http://view.vzaar.com/1417694/flashplayer" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="border=none&amp;showplaybutton=rollover" /><video controls height="324" id="vzvid" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://www.univercity3d.com/univercity/admedia?id=' + adpageParts[i].id + '" width="576" ></video></object>'
                     +'</div>';
-
                 break;
         }
     }
