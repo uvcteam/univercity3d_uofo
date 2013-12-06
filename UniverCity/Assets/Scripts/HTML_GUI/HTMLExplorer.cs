@@ -98,6 +98,8 @@ public class HTMLExplorer : MonoBehaviour
             return;
         BusinessManager manager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
         // Add all of the new businesses.
+        if (!manager.busByCoord.ContainsKey(_trans)) return;
+
         foreach (Business bus in manager.busByCoord[_trans])
         {
             this.AddBusiness(bus);
