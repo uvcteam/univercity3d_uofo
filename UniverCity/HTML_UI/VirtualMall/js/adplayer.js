@@ -6,14 +6,15 @@ $(document).ready(function () {
 
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
-/*    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
-        console.log(adPlayerData);
-        PopulateAdPlayer(adPlayerData);
-        SetMegaDeal(adPlayerData.megadeal);
-        AttachEventToPages();
-        SetNarrator(mediaURL + adPlayerData.expert.id);
+//    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+//        console.log(adPlayerData);
+//        PopulateAdPlayer(adPlayerData);
+//        SetMegaDeal(adPlayerData.megadeal);
+//        AttachEventToPages();
+//        SetNarrator(mediaURL + adPlayerData.expert.id);
+//
+//    }});
 
-    }});*/
     engine.call('LoadAdData');
 });
 
@@ -21,6 +22,7 @@ engine.on('LoadAdPlayer', function(id){
     console.log("derp");
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
     $.ajax({url: URL + id, success: function(adPlayerData){
+        console.log(id);
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
@@ -35,13 +37,13 @@ var PopulateAdPlayer = function(data ) {
     for (var i = 0; i < data.pages.length; ++i) {
         if (data.pages[i].title !== "") {
             AddPage(data.pages[i].title, data.pages[i].parts, data.pages[i].narrative,
-                data.pages[i].more.title, data.pages[i].more.parts, data.pages[i].more.narrative);
+                data.pages[i].more.title, data.pages[i].more.parts, data.pages[i].more.narrative, i);
         }
 
     }
 
 }
-var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle, detailsParts, detailsNarrative) {
+var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle, detailsParts, detailsNarrative, index) {
 
     console.log(adpageTitle);
     var adpage = '<li>';
@@ -60,7 +62,7 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                     '<param name="allowScriptAccess" value="always" />' +
                     '<param name="autoStart" value="true" />' +
                     '<param name="flashvars" value="border=none&amp;showplaybutton=rollover" />' +
-                    '<video controls height="324" id="htmlvid'+ i +'" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://www.univercity3d.com/univercity/admedia?id=' + adpageParts[i].id + '" width="576" ></video></object>'
+                    '<video data-played="false" preload="metadata" controls height="324" id="htmlvid'+ index +'" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://www.univercity3d.com/univercity/admedia?id=' + adpageParts[i].id + '" width="576" ></video></object>'
                     +'</div>';
                 break;
         }
@@ -124,13 +126,27 @@ var AttachEventToPages = function () {
     $('#cbp-fwslider').cbpFWSlider();
 
     $('#cbp-fwslider nav span.cbp-fwnext').click(function () {
-        console.log(listItemIndex);
+
+        if ($('#htmlvid'+listItemIndex).length)
+            $('#htmlvid'+listItemIndex).get(0).pause();
         SetPage(++listItemIndex);
+        if ($('#htmlvid'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
+            $('#htmlvid'+listItemIndex)[0].dataset.played = "true";
+            $('#htmlvid'+listItemIndex).get(0).play();
+        }
+
     })
 
     $('#cbp-fwslider nav span.cbp-fwprev').click(function () {
-        console.log(listItemIndex);
+
+        if ($('#htmlvid'+listItemIndex).length)
+            $('#htmlvid'+listItemIndex).get(0).pause();
         SetPage(--listItemIndex);
+        if ($('#htmlvid'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
+            $('#htmlvid'+listItemIndex)[0].dataset.played = "true";
+            $('#htmlvid'+listItemIndex).get(0).play();
+        }
+
     })
 
     $('.cbp-fwdots span').click(function () {
@@ -181,8 +197,13 @@ var AttachEventToPages = function () {
     }
 
     $('#tabs a:first').tab('show');
-    document.getElementById('htmlvid0').play();
-    console.log($('#htmlvid0'));
+    if($('#htmlvid0').length){
+        $('#htmlvid0').get(0).addEventListener('canplay',function(){
+            $('#htmlvid0')[0].dataset.played = "true";
+            $('#htmlvid0').get(0).play();
+        });
+    }
+
 }
 
 var HideSpeechBubble = function () {
