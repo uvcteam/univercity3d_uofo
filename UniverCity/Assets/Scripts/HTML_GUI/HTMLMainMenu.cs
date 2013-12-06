@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
@@ -57,6 +57,7 @@ public class HTMLMainMenu : MonoBehaviour
 
     public void CheckLoginInformation(string email, string password, bool first)
     {
+        Debug.Log("TRY TO LOGIN!");
         if (first && email == "" && password == "" && PlayerPrefs.GetInt("loggedIn") != 0 &&
             PlayerPrefs.HasKey("email") && PlayerPrefs.HasKey("password"))
         {
@@ -96,19 +97,18 @@ public class HTMLMainMenu : MonoBehaviour
     {
         _userManager.SignOut();
         Debug.Log("Signed out.");
-        
-    	Debug.Log(PlayerPrefs.HasKey("loggedIn"));
-    	Debug.Log(PlayerPrefs.GetInt("loggedIn"));
-    	Debug.Log(_userManager.IsSignedIn());
     }
+
 
     public void RequestToLogin()
     {
-    	Debug.Log(PlayerPrefs.HasKey("loggedIn"));
-    	Debug.Log(PlayerPrefs.GetInt("loggedIn"));
-    	Debug.Log(_userManager.IsSignedIn());
         if (_userManager.IsSignedIn())
+        {
+            Debug.Log("Granting permission");
             _view.View.TriggerEvent("RequestApproved");
+        }
+        else
+            Debug.Log("Nobody was logged in before.");
     }
 
     #endregion
