@@ -6,14 +6,14 @@ $(document).ready(function () {
 
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
-    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+/*    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
         AttachEventToPages();
         SetNarrator(mediaURL + adPlayerData.expert.id);
 
-    }});
+    }});*/
     engine.call('LoadAdData');
 });
 
@@ -54,7 +54,13 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                 break;
             case "video":
                 adpage += '<div class="adpage vzaar_media_player" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
-                    + '<object data="http://view.vzaar.com/1417694/flashplayer" height="324" id="vzvd-1417694" type="application/x-shockwave-flash" width="576"><param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" /><param name="movie" value="http://view.vzaar.com/1417694/flashplayer" /><param name="allowScriptAccess" value="always" /><param name="flashvars" value="border=none&amp;showplaybutton=rollover" /><video controls height="324" id="vzvid" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://www.univercity3d.com/univercity/admedia?id=' + adpageParts[i].id + '" width="576" ></video></object>'
+                    + '<object data="http://view.vzaar.com/1417694/flashplayer" height="324" id="vzvid'+ i +'" type="application/x-shockwave-flash" width="576">' +
+                    '<param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" />' +
+                    '<param name="movie" value="http://view.vzaar.com/1417694/flashplayer" />' +
+                    '<param name="allowScriptAccess" value="always" />' +
+                    '<param name="autoStart" value="true" />' +
+                    '<param name="flashvars" value="border=none&amp;showplaybutton=rollover" />' +
+                    '<video controls height="324" id="htmlvid'+ i +'" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://www.univercity3d.com/univercity/admedia?id=' + adpageParts[i].id + '" width="576" ></video></object>'
                     +'</div>';
                 break;
         }
@@ -175,6 +181,8 @@ var AttachEventToPages = function () {
     }
 
     $('#tabs a:first').tab('show');
+    document.getElementById('htmlvid0').play();
+    console.log($('#htmlvid0'));
 }
 
 var HideSpeechBubble = function () {
