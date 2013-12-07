@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
@@ -74,19 +74,14 @@
                             <input type="text" id="event_name" name="event_name" placeholder="Shakespeare Practice Play">
                             <label for="event_who">Who is the event for?</label>
                             <textarea id="event_who" name="event_who" placeholder="All participants in the play and anyone who wants to see it."></textarea>
-                            <label for="event_what">What will the event entail?</label>
-                            <textarea id="event_what" name="event_what" placeholder="We will be practicing our performance of the play King Lear. Anyone who is not participating in the play is free to watch the practice."></textarea>
+                            <label for="event_date">What day is the event?</label>
+                            <input type="text" id="event_date" name="event_date">
+                            <label for="event_min">What are the minimum number of participants?</label>
+                            <input type="number" id="event_min" name="event_min" min="4" max="20">
                             <label for="event_where">Where is the event?</label>
                             <input type="text" id="event_where" name="event_where" placeholder="University Theatre">
                         </div>
                         <div class="cbp-mc-column">
-                            <label for="event_phone">What is your phone number?</label>
-                            <input type="tel" id="event_phone" name="event_phone" placeholder="555-555-5555">
-                            <span class="input-note">Your phone number will only be used to send updates on the engagement. We will not distribute your phone number or use it for any solicit purposes.</span>
-                            <label for="event_min">What are the minimum number of participants?</label>
-                            <input type="number" id="event_min" name="event_min" min="4" max="20">
-                            <label for="event_max">What are the maximum number of participants?</label>
-                            <input type="number" id="event_max" name="event_max" min="4" max="20">
                             <label for="event_category">Category</label>
                             <select id="event_category" name="event_category" class="cd-select">
                                 <option>Choose a category</option>
@@ -117,10 +112,15 @@
                                 <option>Social Issues</option>
                                 <option>Sports</option>
                             </select>
-                            <label for="event_date">What day is the event?</label>
-                            <input type="text" id="event_date" name="event_date">
+                            <label for="event_what">What will the event entail?</label>
+                            <textarea id="event_what" name="event_what" placeholder="We will be practicing our performance of the play King Lear. Anyone who is not participating in the play is free to watch the practice."></textarea>
                             <label for="event_time">What time is the event?</label>
                             <input type="text" id="event_time" name="event_time">
+                            <label for="event_max">What are the maximum number of participants?</label>
+                            <input type="number" id="event_max" name="event_max" min="4" max="20">
+                            <label for="event_phone">What is your phone number?</label>
+                            <input type="tel" id="event_phone" name="event_phone" placeholder="555-555-5555">
+                            <span class="input-note">Your phone number will only be used to send updates on the engagement. We will not distribute your phone number or use it for any solicit purposes.</span>
                             <input type="button" value="Create Event" onclick="OnEventCreate()" />
                         </div>
                     </form>

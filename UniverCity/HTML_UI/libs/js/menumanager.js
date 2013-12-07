@@ -19,9 +19,6 @@ $(function () {
     $('.st-container').click(function (event) {
         classie.remove(document.getElementById('st-container'), 'st-menu-open');
     });
-    $('input').blur(function() {
-        window.scrollTo(0, 0);
-    });
 });
 
 $(window).resize(function() {

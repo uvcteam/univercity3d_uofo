@@ -29,17 +29,21 @@ body {
 
 .cbp-mc-column {
     width: 50%;
-    padding: 10px 30px;
+    padding: 0px 30px;
     float: left;
 }
 
 .cbp-mc-form label {
     display: block;
-    padding: 40px 5px 5px 2px;
+    padding: 10px 5px 5px 2px;
     font-size: 1.1em;
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
+}
+
+.cbp-mc-form select {
+	margin-bottom: 23px;	
 }
 
 .cbp-mc-form input,
@@ -99,7 +103,7 @@ body {
 
 .cbp-mc-form {
     text-align: center;
-    padding-top: 10px;
+    padding-top: 0px;
     clear: both;
 }
 
@@ -115,7 +119,7 @@ body {
     font-size: 1.1em;
     border-radius: 2px;
     letter-spacing: 1px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .cbp-mc-form input[type=button]:hover {
