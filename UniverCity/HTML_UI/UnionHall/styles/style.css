@@ -336,7 +336,7 @@
     width: 20px;
     margin-left: -10px;
     position: absolute;
-    color: #DDD;
+    color: rgb(62, 129, 112);
     font-size: 70px;
     line-height: 20px;
     left: 50%;
@@ -361,6 +361,13 @@
     font-size: 22px;
 }
 
+.cal-legend:before {
+    content: '\00B7 ';
+    color: rgb(62, 129, 112);
+    font-size: 35px;
+    margin-top: 10px;
+}
+
 /* -------------------------------------------------------------
 ======	MEDIA QUERIES
 ------------------------------------------------------------- */
@@ -382,11 +389,18 @@
 	    overflow: hidden;
         float: none;
     }
+
+    .st-menu {
+        visibility: visible;
+    }
 }
     
 /* -- Media query 2 (mq2)
 ------------------------------------------------------------- */
 @media only screen and (max-width: 48em) { /* 13 / 624 */
+    .st-menu {
+        visibility: hidden;
+    }
 }
     
 /* -- Media query 3 (mq3)
