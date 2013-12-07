@@ -28,9 +28,10 @@
 }
 
 .upcoming-events {
-    width: 48%;
-    margin: 0 auto auto 10px;
-    float: left;
+        width: 90%;
+        margin: 0 auto;
+        height: 50%;
+        float: none;
 }
 
 .upcoming-events > h1 {
@@ -104,11 +105,11 @@
 }
 
 .custom-calendar-wrap {
-	margin: 10px 10px auto auto;
-    width: 48%;
-	position: relative;
-	overflow: hidden;
-    float: right;
+	    margin: 10px auto;
+        width: 90%;
+	    position: relative;
+	    overflow: hidden;
+        float: none;
 }
 
 .custom-inner {
@@ -375,32 +376,11 @@
 /* -- Media query 1 (mq1)
 ------------------------------------------------------------- */
 @media only screen and (max-width: 60em) { /* 13 / 780 */
-    .upcoming-events {
-        width: 90%;
-        margin: 0 auto;
-        height: 50%;
-        float: none;
-    }
-
-    .custom-calendar-wrap {
-	    margin: 10px auto;
-        width: 90%;
-	    position: relative;
-	    overflow: hidden;
-        float: none;
-    }
-
-    .st-menu {
-        visibility: visible;
-    }
 }
     
 /* -- Media query 2 (mq2)
 ------------------------------------------------------------- */
 @media only screen and (max-width: 48em) { /* 13 / 624 */
-    .st-menu {
-        visibility: hidden;
-    }
 }
     
 /* -- Media query 3 (mq3)

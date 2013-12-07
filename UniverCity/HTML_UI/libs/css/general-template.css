@@ -109,8 +109,11 @@ a {
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;
-    width: 2.5em;
-    height: 2.5em;
+    margin-left: 1em;
+    margin-right: 2em;
+    margin-top: 2%;
+    width: 3em;
+    height: 3em;
     border-radius: 50%;
 }
 

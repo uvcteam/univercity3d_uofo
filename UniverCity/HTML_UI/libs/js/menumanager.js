@@ -38,6 +38,7 @@ $(window).resize(function() {
 
 function ShowMenu() {
     var menu = document.getElementById('menu-1');
+    if (!menu) return;
     classie.add(menu, 'st-menu-open');
     classie.add(menu, 'st-no-transform');
     $('.st-pusher').css('margin-left', '300px');
@@ -46,6 +47,7 @@ function ShowMenu() {
 
 function HideMenu() {
     var menu = document.getElementById('menu-1');
+    if (!menu) return;
     classie.remove(menu, 'st-menu-open');
     classie.remove(menu, 'st-no-transform');
     $('.st-pusher').css('margin-left', '');
