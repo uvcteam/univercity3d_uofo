@@ -1,9 +1,10 @@
 var menuShown = false;
 var prevWidth = 0;
+var shouldChangeMenu = true;
 
 $(function () {
     prevWidth = $(window).width();
-    if (prevWidth > 960)
+    if (prevWidth > 960 && shouldChangeMenu)
         ShowMenu();
     var container = document.getElementById('st-container');
     $('#menu_btn').click(function (event) {
@@ -22,6 +23,7 @@ $(function () {
 });
 
 $(window).resize(function() {
+    if (!shouldChangeMenu) return;
     if ($(this).width() > 960 && prevWidth > 960) return;
     if ($(this).width() <= 960 && prevWidth <= 960) return;
 
