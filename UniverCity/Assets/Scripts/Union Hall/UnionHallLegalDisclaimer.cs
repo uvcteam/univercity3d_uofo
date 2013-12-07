@@ -5,6 +5,11 @@ using System.Collections;
 
 public class UnionHallLegalDisclaimer : MonoBehaviour 
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     public GameObject createEngagement = null;
     public GameObject successPage = null;
 
@@ -20,7 +25,7 @@ public class UnionHallLegalDisclaimer : MonoBehaviour
     void OnAcceptClicked()
     {
         string format = "yyyy-MM-dd HH:mm";
-        webString = "http://www.univercity3d.com/univercity/CreateEvent?token=";
+        webString = serverURL + "CreateEvent?token=";
         webString += GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
         webString += "&title=" + WWW.EscapeURL(newEvent.Title);
         webString += "&desc=" + WWW.EscapeURL(newEvent.Desc);

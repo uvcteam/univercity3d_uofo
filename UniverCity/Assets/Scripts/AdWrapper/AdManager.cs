@@ -14,10 +14,16 @@ using Coherent.UI.Mobile.Binding;
 [Serializable]
 public class AdManager : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
+
     public int BusinessID = -1;
     public AdData AdInfo = null;
     public Texture2D BusinessCard = null;
-    public static string MediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
+    public static string MediaURL = serverURL + "admedia?id=";
     public bool hasAd = false;
     public bool adReady = false;
 
@@ -37,8 +43,8 @@ public class AdManager : MonoBehaviour
         adReady = false;
         hasAd = false;
         BusinessID = id;
-        string adURL = "http://www.univercity3d.com/univercity/getAd?b=" + id;
-        string bcURL = "http://www.univercity3d.com/univercity/bizcard?id=" + id;
+        string adURL = serverURL + "getAd?b=" + id;
+        string bcURL = serverURL + "bizcard?id=" + id;
 
         WWW card = new WWW(bcURL);
         yield return card;

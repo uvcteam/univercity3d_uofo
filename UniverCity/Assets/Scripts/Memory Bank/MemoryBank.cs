@@ -6,6 +6,11 @@ using System.Collections;
 
 public class MemoryBank : MonoBehaviour 
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     public GameObject JournalPanel = null;
     public GameObject NotificationPanel = null;
     public GameObject EntriesPanel = null;
@@ -41,7 +46,7 @@ public class MemoryBank : MonoBehaviour
     {
         NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Checking PIN", false, false);
         GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
-        string journalURL = "http://www.univercity3d.com/univercity/ListJournal?";
+        string journalURL = serverURL + "ListJournal?";
         journalURL += "token=" + manager.GetComponent<UserManager>().CurrentUser.Token;
         journalURL += "&pin=" + pin;
         journalURL += "&start=" + 0;

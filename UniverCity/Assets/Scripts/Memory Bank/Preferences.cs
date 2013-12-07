@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Preferences : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     public GameObject PreviousPanel;
     public GameObject entryPanel;
     public Transform InterestTransform = null;
@@ -43,7 +48,7 @@ public class Preferences : MonoBehaviour
 
     void OnDisable()
     {
-        string setURL = "http://www.univercity3d.com/univercity/SetSocialInterests?token=";
+        string setURL = serverURL + "SetSocialInterests?token=";
         setURL += cUser.Token;
 
         foreach (SocialInterest interest in cUser.Categories)

@@ -3,6 +3,11 @@ using System.Collections;
 
 public class MallAd : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     public Renderer Icon;
     public Renderer Card;
     public TextMesh TextHeadline;
@@ -84,7 +89,7 @@ public class MallAd : MonoBehaviour
         //{
         //    iTween.ScaleTo(RootMembersOnly, iTween.Hash("scale", new Vector3(1, 0, 1), "time", 0.5f, "oncomplete", "DeactivateGO", "oncompletetarget", this.gameObject, "oncompleteparams", RootMembersOnly));
         //}
-        Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + adOwner.id.ToString());
+        Application.OpenURL(serverURL + "playad?b=" + adOwner.id.ToString());
         
        
     }
@@ -106,7 +111,7 @@ public class MallAd : MonoBehaviour
         //{
         //    iTween.ScaleTo(RootMegaDeal, iTween.Hash("scale", new Vector3(1, 0, 1), "time", 0.5f, "oncomplete", "DeactivateGO", "oncompletetarget", this.gameObject, "oncompleteparams", RootMegaDeal));
         //}
-        Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + adOwner.id.ToString());
+        Application.OpenURL(serverURL + "playad?b=" + adOwner.id.ToString());
        
     }
 

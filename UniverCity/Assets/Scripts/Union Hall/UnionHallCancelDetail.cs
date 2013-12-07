@@ -5,6 +5,12 @@ using System.Collections.Generic;
 
 public class UnionHallCancelDetail : MonoBehaviour 
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
+
     public GameObject returnTo = null;
     public GameObject cancelSuccess = null;
 
@@ -33,7 +39,7 @@ public class UnionHallCancelDetail : MonoBehaviour
 
     IEnumerator CancelEvent()
     {
-        string webString = "http://www.univercity3d.com/univercity/CancelEvent?";
+        string webString = serverURL + "CancelEvent?";
         webString += "id=" + manager.currentEvent.Id + "&";
         webString += "token=" + GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
         Debug.Log(webString);

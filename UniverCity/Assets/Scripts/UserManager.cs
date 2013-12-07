@@ -16,6 +16,12 @@ using Coherent.UI.Mobile.Binding;
 [Serializable]
 public class UserManager : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
+    
     public User CurrentUser;
     public GameObject signingInDialog;
     public GameObject PageToDisable;
@@ -26,6 +32,7 @@ public class UserManager : MonoBehaviour
 
     public CoherentUIView _view = null;
     private bool _viewReady = false;
+
 
     void Start()
     {
@@ -72,7 +79,7 @@ public class UserManager : MonoBehaviour
 
     IEnumerator GetCategories()
     {
-        string cURL = "http://www.univercity3d.com/univercity/GetAllSocialInterests";
+        string cURL = serverURL + "GetAllSocialInterests";
         int catId = 0;
         string catName = "";
         WWW page = null;
@@ -123,7 +130,7 @@ public class UserManager : MonoBehaviour
                 NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Signing In", false, false); 
         }
 
-        string loginURL = "http://www.univercity3d.com/univercity/DeviceLogin?";
+        string loginURL = serverURL + "DeviceLogin?";
 
         loginURL += "email=" + WWW.EscapeURL(email);
         loginURL += "&password=" + WWW.EscapeURL(password);
@@ -197,9 +204,9 @@ public class UserManager : MonoBehaviour
     }
     public IEnumerator GetUserCategories()
     {
-        string cURL = "http://www.univercity3d.com/univercity/GetSocialInterests?token=" +
+        string cURL = serverURL + "GetSocialInterests?token=" +
             CurrentUser.Token;
-        string aURL = "http://www.univercity3d.com/univercity/ListMyEvents?token=" +
+        string aURL = serverURL + "ListMyEvents?token=" +
             CurrentUser.Token;
         int catId = 0;
         int aeId = 0;

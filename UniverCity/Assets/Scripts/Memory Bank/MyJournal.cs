@@ -6,6 +6,11 @@ using System.Collections;
 
 public class MyJournal : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     public GameObject AllEntries = null;
     public GameObject PreviousPanel;
 
@@ -28,7 +33,7 @@ public class MyJournal : MonoBehaviour
     IEnumerator SaveEntry()
     {
         GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
-        string saveURL = "http://www.univercity3d.com/univercity/AddJournalEntry?";
+        string saveURL = serverURL + "AddJournalEntry?";
         saveURL += "token=" + manager.GetComponent<UserManager>().CurrentUser.Token;
         saveURL += "&pin=" + manager.GetComponent<UserManager>().CurrentUser.PIN;
         saveURL += "&title=" + WWW.EscapeURL(title.text);

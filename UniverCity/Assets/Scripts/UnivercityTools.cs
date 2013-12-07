@@ -3,7 +3,11 @@ using System.Collections;
 
 public static class UnivercityTools 
 {
-
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     static public void ScaleImage(GameObject destination, Texture2D source)
     {
         float newWidth = (destination.transform.localScale.y / source.height) * source.width;
@@ -91,7 +95,7 @@ public static class UnivercityTools
 
     static public void TrackUserAction(int businessID, string title, string eventName, string play_id)
     {
-        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
+        string trackURL = serverURL + "track?id=";
         trackURL += businessID;
         trackURL += "&title=" + title;
         trackURL += "&event=" + eventName;

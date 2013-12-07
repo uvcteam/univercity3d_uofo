@@ -16,6 +16,11 @@ using Coherent.UI.Mobile.Binding;
 
 public class HTMLUnionHall : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     private CoherentUIView _view;
     private UserManager _userManager;
     private EventManager _eventManager;
@@ -213,7 +218,7 @@ public class HTMLUnionHall : MonoBehaviour
         DateTime start = DateTime.Parse(inputs[4] + " " + inputs[5]);
         Debug.Log(start.ToString("yyyy-MM-dd HH:mm"));
 
-        string createURL = "http://www.univercity3d.com/univercity/CreateEvent?token=";
+        string createURL = serverURL + "CreateEvent?token=";
         createURL += GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
         createURL += "&title=" + WWW.EscapeURL(inputs[0]);
         createURL += "&desc=" + WWW.EscapeURL(inputs[2]);
@@ -321,7 +326,7 @@ public class HTMLUnionHall : MonoBehaviour
     public void CancelEvent(string id)
     {
         Debug.Log("Cancel event " + id);
-        string cancelURL = "http://www.univercity3d.com/univercity/CancelEvent?token=";
+        string cancelURL = serverURL + "CancelEvent?token=";
         cancelURL += _userManager.CurrentUser.Token;
         cancelURL += "&id=" + id;
 
@@ -330,7 +335,7 @@ public class HTMLUnionHall : MonoBehaviour
     public void WithdrawEvent(string id)
     {
         Debug.Log("Withdraw from event " + id);
-        string withdrawURL = "http://www.univercity3d.com/univercity/WithdrawFromEvent?token=";
+        string withdrawURL = serverURL + "WithdrawFromEvent?token=";
         withdrawURL += _userManager.CurrentUser.Token;
         withdrawURL += "&id=" + id;
 
@@ -339,7 +344,7 @@ public class HTMLUnionHall : MonoBehaviour
     public void JoinEvent(string id)
     {
         Debug.Log("Join event " + id);
-        string joinURL = "http://www.univercity3d.com/univercity/AttendEvent?token=";
+        string joinURL = serverURL + "AttendEvent?token=";
         joinURL += _userManager.CurrentUser.Token;
         joinURL += "&id=" + id;
 

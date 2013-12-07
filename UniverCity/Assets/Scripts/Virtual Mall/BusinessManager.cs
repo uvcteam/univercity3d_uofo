@@ -8,6 +8,11 @@ using System.IO;
 
 public class BusinessManager : MonoBehaviour 
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     // NOTE:: All of the businesses are being handled by reference, so there are no
     // duplicates in memory. I repeat: All businesses exist only once in memory.
     // Used to sort the businesses by categories.
@@ -20,8 +25,9 @@ public class BusinessManager : MonoBehaviour
     public Transform businessAdPrefab;
 
 	// Use this for initialization
-	void Start () 
-    {
+	void Start ()
+	{
+	    Debug.Log("USING: " + serverURL);
         DontDestroyOnLoad(this);
         if (GameObject.FindGameObjectWithTag("BusinessManager") == null)
         {
@@ -46,8 +52,8 @@ public class BusinessManager : MonoBehaviour
         else if (Application.platform == RuntimePlatform.Android ||
                  Application.platform == RuntimePlatform.IPhonePlayer)
             NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Businesses", false, false);  
-        string bURL = "http://www.univercity3d.com/univercity/BusinessInfo?u=UofO";
-        string bLURL = "http://www.univercity3d.com/univercity/BusinessLogos?b=";
+        string bURL = serverURL + "BusinessInfo?u=UofO";
+        string bLURL = serverURL + "BusinessLogos?b=";
         string bName = "";
         string bDesc = "";
         int id = 0;

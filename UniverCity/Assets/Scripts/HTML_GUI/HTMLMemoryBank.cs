@@ -15,9 +15,16 @@ using Coherent.UI.Mobile.Binding;
 
 public class HTMLMemoryBank : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
+
     private CoherentUIView _view;
     private UserManager _userManager;
     private bool _viewReady;
+
 
     void Start()
     {
@@ -43,7 +50,7 @@ public class HTMLMemoryBank : MonoBehaviour
     {
         NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Checking PIN", false, false);
         GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
-        string journalURL = "http://www.univercity3d.com/univercity/ListJournal?";
+        string journalURL = serverURL + "ListJournal?";
         journalURL += "token=" + manager.GetComponent<UserManager>().CurrentUser.Token;
         journalURL += "&pin=" + pin;
         journalURL += "&start=" + 0;
@@ -83,7 +90,7 @@ public class HTMLMemoryBank : MonoBehaviour
     IEnumerator SaveEntry(string title, string content)
     {
         GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
-        string saveURL = "http://www.univercity3d.com/univercity/AddJournalEntry?";
+        string saveURL = serverURL + "AddJournalEntry?";
         saveURL += "token=" + _userManager.CurrentUser.Token;
         saveURL += "&pin=" + _userManager.CurrentUser.PIN;
         saveURL += "&title=" + WWW.EscapeURL(title);
@@ -114,7 +121,7 @@ public class HTMLMemoryBank : MonoBehaviour
 	IEnumerator DeleteJournal(int id)
 	{
 		Debug.Log("Deleting journal " + id);
-		string deleteURL = "http://www.univercity3d.com/univercity/DeleteJournalEntry?";
+		string deleteURL = serverURL + "DeleteJournalEntry?";
 		deleteURL += "token=" + _userManager.CurrentUser.Token;
 		deleteURL += "&pin=" + _userManager.CurrentUser.PIN;
 		deleteURL += "&id=" + id;
@@ -183,7 +190,7 @@ public class HTMLMemoryBank : MonoBehaviour
 
     public void UpdateCategories(string newCats)
     {
-        string setURL = "http://www.univercity3d.com/univercity/SetSocialInterests?token=";
+        string setURL = serverURL + "SetSocialInterests?token=";
         setURL += _userManager.CurrentUser.Token;
         setURL += newCats;
 

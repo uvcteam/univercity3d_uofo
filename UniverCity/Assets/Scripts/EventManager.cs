@@ -8,6 +8,11 @@ using System.IO;
 
 public class EventManager : MonoBehaviour 
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     // NOTE:: All of the businesses are being handled by reference, so there are no
     // duplicates in memory. I repeat: All businesses exist only once in memory.
     // Used to sort the businesses by categories.
@@ -29,7 +34,7 @@ public class EventManager : MonoBehaviour
     // ---------------------------------------------------
     public IEnumerator GetEventInformation()
     {
-        string eURL = "http://www.univercity3d.com/univercity/ListEvents";
+        string eURL = serverURL + "ListEvents";
         int id = 0;
         string phone = "";
         string title = "";

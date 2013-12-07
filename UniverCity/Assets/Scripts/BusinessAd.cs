@@ -5,6 +5,12 @@ using System.Collections.Generic;
 
 public class BusinessAd : MonoBehaviour
 {
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
+
     public GameObject pageGrid;
     public AdManager adManager;
     public GameObject background;
@@ -276,7 +282,7 @@ public class BusinessAd : MonoBehaviour
 
     public void MovieFinished()
     {
-        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
+        string trackURL = serverURL + "track?id=";
 
         trackURL += adManager.BusinessID;
         trackURL += "&title=";
@@ -311,7 +317,7 @@ public class BusinessAd : MonoBehaviour
 		string name = "";
 		string email = "";
         bool offensive = false;
-        string rateURL = "http://www.univercity3d.com/univercity/RateAd?id=" + adManager.BusinessID;
+        string rateURL = serverURL + "RateAd?id=" + adManager.BusinessID;
         UserManager manager = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>();
 		if (manager.IsSignedIn())
 		{

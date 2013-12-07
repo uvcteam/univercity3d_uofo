@@ -1,7 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class PCBack : MonoBehaviour {
+public class PCBack : MonoBehaviour 
+{
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +22,6 @@ public class PCBack : MonoBehaviour {
     void OnTouched()
     {
          MallAd mallad = transform.parent.GetComponent<MallAd>();
-         Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + mallad.AdOwner.id.ToString());
+         Application.OpenURL(serverURL + "playad?b=" + mallad.AdOwner.id.ToString());
     }
 }

@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b15780473129e394db2b927dd8e5e960, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   m_Page: coui://HTML_UI/Login/login.html
   m_Width: 1024
   m_Height: 512
@@ -293,7 +294,7 @@ MonoBehaviour:
   m_IsIndependentOfZBuffer: 0
   m_ShowJavaScriptDialogs: 1
   m_ForceSoftwareRendering: 0
-  m_UseCameraDimensions: 0
+  m_UseCameraDimensions: 1
   m_CorrectGamma: 0
 --- !u!114 &614947501
 MonoBehaviour:
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a032bbb6c5729cb44a4e126d02158881, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &614947502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +317,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8939702a2ea474498a149ef001d658f, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &991194378
 Prefab:
   m_ObjectHideFlags: 0
@@ -394,6 +397,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b3a44c8025606f41a8e6098fdf4363f, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   businesses: []
   loader: {fileID: 0}
   loginPanel: {fileID: 0}
@@ -436,6 +440,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91a568a49b4a4f540a9dc7b25d12e251, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1420370985
 Transform:
   m_ObjectHideFlags: 0
@@ -515,6 +520,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc0113b83e674b3439d019710fd433d5, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   signingInDialog: {fileID: 0}
   PageToDisable: {fileID: 0}
   exitBtn: {fileID: 0}
@@ -544,6 +550,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae942c9068183dc40a9d01f648273726, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   sortByDepth: 0
   showInPanelTool: 1
   generateNormals: 0
@@ -610,6 +617,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9277aed54bb06d24694a46156ebf755a, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   BusinessID: -1
   BusinessCard: {fileID: 0}
   hasAd: 0

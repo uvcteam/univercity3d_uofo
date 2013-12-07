@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class PageButton : MonoBehaviour {
-
+public class PageButton : MonoBehaviour 
+{
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
     public GameObject Page;
     private GameObject businessAd;
     public BackButton backBtn;
@@ -16,7 +21,7 @@ public class PageButton : MonoBehaviour {
 
     public void GoToPage()
     {
-        string trackURL = "http://www.univercity3d.com/univercity/track?id=";
+        string trackURL = serverURL + "track?id=";
 
         if (businessAd == null)
         {

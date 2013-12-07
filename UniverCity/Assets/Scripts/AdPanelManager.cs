@@ -100,7 +100,6 @@ public class AdPanelManager : MonoBehaviour
             {
                 if (bus.name == busName.text)
                 {
-                    //Application.OpenURL("http://www.univercity3d.com/univercity/playad?b=" + bus.id.ToString());
                     businessAd.SetActive(true);
                     StartCoroutine(businessAd.GetComponent<BusinessAd>().SetUpAd(bus.id));
                     break;
