@@ -3,6 +3,10 @@
  */
 // Web Functions.
 function OnEventCreate() {
+    $('#myModal').modal('show');
+}
+
+function SubmitEvent() {
     var values = $(":input").serializeArray();
     var inputs = new Array();
     inputs[0]  = values[0]['value'];

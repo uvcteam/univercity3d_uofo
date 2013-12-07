@@ -1,3 +1,11 @@
+.modal-footer > .btn-primary {
+    background-color: rgb(62, 129, 112) !important;
+}
+
+.modal-body p {
+    color: #686a6e;
+}
+
 #menu_btn {
     background: rgb(62, 129, 112);
 }

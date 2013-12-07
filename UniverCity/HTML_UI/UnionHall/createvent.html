@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
@@ -27,6 +27,26 @@
     <link rel="stylesheet" type="text/css" href="styles/modal.css" />
 </head>
 <body>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Legal Disclaimer</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum aliquet augue. Maecenas dignissim dignissim augue, et pharetra nibh pellentesque ut. Maecenas odio mi, gravida ut diam et, volutpat blandit ante. In hac habitasse platea dictumst. Sed congue lacus et luctus tristique. Suspendisse potenti. Ut nec mattis enim. Sed erat felis, dictum eget quam ut, auctor tempus ligula. Praesent quis hendrerit enim. Integer ultricies sapien condimentum, facilisis enim vel, dignissim diam. In hac habitasse platea dictumst.</p>
+                    <p>Pellentesque quis augue id nisi scelerisque aliquet a et augue. Suspendisse sed dui nec risus bibendum consequat. Morbi placerat elementum dolor, at elementum dui pretium id. Curabitur sit amet eleifend mauris, luctus consequat purus. Proin a mi pellentesque justo ultrices semper. Nulla adipiscing lectus sed tortor condimentum vehicula. Duis eget purus euismod, semper ligula sed, egestas augue. Mauris at nisl et libero cursus consectetur. Integer placerat cursus convallis. Fusce accumsan sed lectus et vulputate. Duis tellus dui, pharetra ut risus eu, porta porta risus. Phasellus quis malesuada ligula. Vivamus sed nisi eget mauris consectetur pretium.</p>
+                    <p>Maecenas metus enim, commodo at sodales nec, convallis vitae lacus. Suspendisse purus nibh, interdum vitae imperdiet sed, facilisis et nibh. In at massa arcu. Aliquam ut porttitor ligula. Nunc pulvinar aliquet commodo. In tincidunt massa enim, vulputate viverra nibh sollicitudin vitae. Duis laoreet in erat in bibendum.</p>
+                    <p>Pellentesque sollicitudin eu nunc id consequat. Maecenas volutpat, lacus et pharetra ultricies, nunc quam laoreet nisl, a elementum eros mi vitae quam. Aliquam enim ligula, luctus sed ultrices quis, sagittis quis leo. Nulla pharetra sagittis iaculis. Donec interdum, ipsum a lobortis malesuada, diam mi consectetur magna, quis congue urna lectus in nibh. Fusce elementum dolor sit amet orci suscipit fermentum elementum quis sapien. Vestibulum porttitor pellentesque lacus. Duis ullamcorper magna quis rutrum pellentesque. Nam in mauris justo. Aliquam vitae dolor nulla. In quis quam sodales, ultricies diam ut, auctor libero. Cras aliquam molestie rutrum. Ut id sapien in magna semper adipiscing. Pellentesque eu dui vitae tellus hendrerit tempus. Ut vitae diam viverra, auctor nisl eu, tincidunt lorem.</p>
+                    <p>Fusce luctus ipsum vitae adipiscing ultricies. Duis consectetur, risus ac interdum condimentum, leo ante tristique massa, et interdum tortor lacus nec ante. Suspendisse vel vulputate sem, non placerat est. Integer malesuada blandit augue, quis aliquam turpis auctor sed. Ut lorem risus, sagittis vitae nunc quis, adipiscing pellentesque erat. Ut varius convallis volutpat. Phasellus dapibus porttitor mauris, eget fermentum purus laoreet vel. Etiam sit amet augue orci. In hac habitasse platea dictumst. In sem velit, bibendum a sollicitudin eu, volutpat eget ante. Maecenas justo lacus, consectetur vitae molestie ut, cursus hendrerit sapien. Ut id nibh at leo placerat accumsan nec a libero. Pellentesque pretium erat eget euismod vehicula. Sed sed magna ipsum.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="SubmitEvent()">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="st-container" class="st-container">
         <nav class="st-menu st-effect-1" id="menu-1">
             <h2><i class="icon-bubbles"></i>&nbsp;Create Event</h2>
@@ -116,6 +136,7 @@
     <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
+    <script src="../libs/js/bootstrap.min.js"></script>
     <script src="js/createevent.js"></script>
     <script src="../libs/datepicker/picker.js"></script>
     <script src="../libs/datepicker/picker.date.js"></script>
