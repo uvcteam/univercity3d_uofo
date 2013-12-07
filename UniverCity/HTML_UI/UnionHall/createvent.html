@@ -31,7 +31,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Legal Disclaimer</h4>
+                    <h4 class="modal-title" id="myModalLabel">Legal Disclaimer <em>- scroll down to accept</em></h4>
                 </div>
                 <div class="modal-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque fermentum aliquet augue. Maecenas dignissim dignissim augue, et pharetra nibh pellentesque ut. Maecenas odio mi, gravida ut diam et, volutpat blandit ante. In hac habitasse platea dictumst. Sed congue lacus et luctus tristique. Suspendisse potenti. Ut nec mattis enim. Sed erat felis, dictum eget quam ut, auctor tempus ligula. Praesent quis hendrerit enim. Integer ultricies sapien condimentum, facilisis enim vel, dignissim diam. In hac habitasse platea dictumst.</p>
@@ -78,11 +78,11 @@
                             <textarea id="event_what" name="event_what" placeholder="We will be practicing our performance of the play King Lear. Anyone who is not participating in the play is free to watch the practice."></textarea>
                             <label for="event_where">Where is the event?</label>
                             <input type="text" id="event_where" name="event_where" placeholder="University Theatre">
+                        </div>
+                        <div class="cbp-mc-column">
                             <label for="event_phone">What is your phone number?</label>
                             <input type="tel" id="event_phone" name="event_phone" placeholder="555-555-5555">
                             <span class="input-note">Your phone number will only be used to send updates on the engagement. We will not distribute your phone number or use it for any solicit purposes.</span>
-                        </div>
-                        <div class="cbp-mc-column">
                             <label for="event_min">What are the minimum number of participants?</label>
                             <input type="number" id="event_min" name="event_min" min="4" max="20">
                             <label for="event_max">What are the maximum number of participants?</label>
@@ -142,7 +142,9 @@
     <script src="../libs/datepicker/picker.date.js"></script>
     <script src="../libs/datepicker/picker.time.js"></script>
     <script src="../libs/datepicker/legacy.js"></script>
+    <script src="../libs/js/jquery.maskedinput.min.js"></script>
     <script type="text/javascript">
+        $('#event_phone').mask('(999) 999-9999');
         $('#event_date').pickadate({min: Date.now(), max:false});
         $('#event_time').pickatime({interval: 15, min: [6,0], max: [21,0], formatLabel: '<b>h</b>:i <!i>a</!i>'});
     </script>

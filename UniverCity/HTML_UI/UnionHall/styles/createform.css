@@ -61,7 +61,8 @@ body {
 }
 
 .cbp-mc-form textarea {
-    min-height: 200px;
+    min-height: 172px;
+    resize: none;
 }
 
 .cbp-mc-form input:focus,
@@ -98,7 +99,7 @@ body {
 
 .cbp-mc-form {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 10px;
     clear: both;
 }
 

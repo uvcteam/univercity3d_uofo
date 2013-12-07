@@ -1,8 +1,28 @@
+.modal-title {
+    color: rgb(62, 129, 112);
+    font-family: 'Oswald';
+    text-transform: uppercase;
+}
+
+#myModalLabel em {
+    color: #686a6e;
+    font-size: 0.75em;
+    font-family: 'Open Sans';
+    text-transform: lowercase;
+}
+
+.modal-footer button {
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+
 .modal-footer > .btn-primary {
     background-color: rgb(62, 129, 112) !important;
+    font-weight: 700;
 }
 
 .modal-body p {
+    font-family: 'Open Sans';
     color: #686a6e;
 }
 
