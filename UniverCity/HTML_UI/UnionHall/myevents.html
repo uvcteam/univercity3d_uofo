@@ -25,23 +25,21 @@
 <body>
 <div class="md-modal md-effect-5" id="modal-5">
     <div class="md-content">
-        <h3>Do you want to cancel</h3>
+        <h3>Your Event</h3>
         <div>
             <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
             <p class="m-event-when">February 13th - 7:30PM</p>
-            <p class="m-event-note">To change your mind, tap off of this dialog box.</p>
-            <button class="md-cancel" onclick="CancelEvent()">Yes!</button>
+            <button class="md-cancel">Close</button>
         </div>
     </div>
 </div>
 <div class="md-modal md-effect-5" id="modal-6">
     <div class="md-content">
-        <h3>Do you want to withdraw from</h3>
+        <h3>This Event</h3>
         <div>
             <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
             <p class="m-event-when">February 13th - 7:30PM</p>
-            <p class="m-event-note">To change your mind, tap off of this dialog box.</p>
-            <button class="md-cancel" onclick="WithdrawEvent()">Yes!</button>
+            <button class="md-cancel">Close</button>
         </div>
     </div>
 </div>
@@ -52,8 +50,8 @@
             <li destination="internal"><a href="#">Invitation Inbox <span class="badge pull-right">0</span></a></li>
             <li destination="internal"><a href="browse.html">Browse/Search</a></li>
             <li destination="internal"><a href="createvent.html">Create Event</a></li>
-            <li destination="internal"><a href="myevents.html">My Events</a></li>
-            <li destination="internal" class="selected"><a href="cancelwithdraw.html">Cancel/Withdraw</a></li>
+            <li destination="internal" class="selected"><a href="myevents.html">My Events</a></li>
+            <li destination="internal"><a href="cancelwithdraw.html">Cancel/Withdraw</a></li>
         </ul>
         <ul>
             <li destination="virtual_mall"><a class="icon-cart" href="#">&nbsp;Virtual Mall</a></li>
@@ -70,18 +68,16 @@
                 <div class="cw-content">
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills nav-justified">
-                        <li class="active"><a href="#my-events" data-toggle="tab">Cancel Events</a></li>
-                        <li><a href="#other-events" data-toggle="tab">Withdraw From Events</a></li>
+                        <li class="active"><a href="#my-events" data-toggle="tab">Events I Made</a></li>
+                        <li><a href="#other-events" data-toggle="tab">Events I'm Attending</a></li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="my-events">
-                            <p>To cancel an event that you have scheduled, simply tap on one of the events below!</p>
                             <div class="events">
                             </div>
                         </div>
                         <div class="tab-pane" id="other-events">
-                            <p>To withdraw for an event that you have signed up for, simply tap on one of the events below!</p>
                             <div class="events">
                             </div>
                         </div>

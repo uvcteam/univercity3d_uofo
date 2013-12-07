@@ -56,10 +56,10 @@
 }
 
 .upcoming-events {
-        width: 90%;
-        margin: 0 auto;
-        height: 50%;
-        float: none;
+    width: 90%;
+    margin: 0 auto;
+    height: 50%;
+    float: none;
 }
 
 .upcoming-events > h1 {
@@ -74,7 +74,10 @@
 .no-events {
     text-align: right;
     padding: 10px;
+    margin-bottom: 75px;
     visibility: hidden;
+    color: #686a6e;
+    font-style: italic;
 }
 
 .no-events h1 {

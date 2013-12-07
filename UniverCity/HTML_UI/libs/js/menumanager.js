@@ -40,7 +40,7 @@ function ShowMenu() {
     if (!menu) return;
     classie.add(menu, 'st-menu-open');
     classie.add(menu, 'st-no-transform');
-    $('.st-pusher').css('margin-left', '300px');
+    $('.st-pusher').css('margin-left', '225px');
     $('#menu_btn').css('display', 'none');
 }
 

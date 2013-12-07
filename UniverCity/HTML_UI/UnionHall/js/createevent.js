@@ -27,7 +27,7 @@ function SubmitEvent() {
 // Unity3D Functions.
 
 // Invoked by Unity3D.
-engine.on("CreateSuccess", function()
-{
+engine.on("CreateSuccess", function() {
     $(':input:not(:button)').val('');
+    window.location.href = 'myevents.html';
 });

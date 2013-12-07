@@ -158,10 +158,16 @@ public class HTMLUnionHall : MonoBehaviour
                 });
         }
     }
+    IEnumerator WaitToReport(string ev)
+    {
+        yield return new WaitForSeconds(0.5f);
+        _view.View.TriggerEvent(ev);
+    }
 
     #region CoherentUI Bindings
     public void GetWeekEvents()
     {
+        Debug.Log("Getting the week's events!");
         DateTime today = DateTime.Today;
         int dayOfTheWeek = (int) DateTime.Now.DayOfWeek;
         DateTime nextSunday = DateTime.Now.AddDays(7 - dayOfTheWeek).Date;
@@ -182,7 +188,10 @@ public class HTMLUnionHall : MonoBehaviour
         }
 
         if (!hasEvents)
-            _view.View.TriggerEvent("NoEvents");
+        {
+            Debug.Log("No events!");
+            StartCoroutine(WaitToReport("NoEvents"));
+        }
     }
     public void PopulateCalendar()
     {

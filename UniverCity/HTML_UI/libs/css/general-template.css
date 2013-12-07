@@ -219,7 +219,7 @@ a:hover, a:focus {
     left: 0;
     z-index: 100;
     visibility: hidden;
-    width: 300px;
+    width: 225px;
     height: 100%;
     background: rgb(0, 117, 111);
     -webkit-transition: all 0.5s;

@@ -2,8 +2,10 @@
 $(function() {
     console.log("Getting week's events.");
     engine.call("GetWeekEvents");
-    console.log("Populating calendar.");
-    engine.call("PopulateCalendar");
+    setTimeout(function() {
+        console.log("Populating calendar.");
+        engine.call("PopulateCalendar");
+    }, 500);
 });
 
 function InitializeCalendar() {
@@ -88,6 +90,7 @@ engine.on("AddWeekEvent", function(name, date, time, desc, who, where, id){
 });
 
 engine.on("NoEvents", function() {
+    console.log('No events');
     $('.no-events').css('visibility', 'visible');
     $('.events').css('visibility', 'hidden');
 });
