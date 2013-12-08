@@ -175,14 +175,12 @@ a:hover, a:focus {
 .st-content,
 .st-content-inner {
     position: relative;
-    overflow-y: scroll;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
 .st-container {
     position: relative;
-    overflow-y: scroll;
     overflow-x: hidden;
 }
 

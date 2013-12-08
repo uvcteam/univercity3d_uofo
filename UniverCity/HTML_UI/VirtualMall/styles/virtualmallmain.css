@@ -3,6 +3,45 @@
 
 body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 
+.flash-deal {
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    float: left;
+    width: 250px;
+    padding: 1em;
+    margin: 2em 10px 4em;
+    background: #FFF;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.flash-deal i, h1 {
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.flash-deal h1 {
+    font-family: 'Oswald';
+    font-size: 2em;
+}
+
+.flash-deal i {
+    font-size: 1.9em;
+}
+
+.flash-deal:before {
+    top: 50%;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    border-radius: 100px / 10px;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+
+
 .category ul {
     overflow: hidden;
     overflow-x: scroll;

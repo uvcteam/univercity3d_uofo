@@ -17,19 +17,54 @@ function AddFlashDeals(flashDealData) {
     for(var i = 0; i < flashDealData.deals.length; ++i) {
         $('.flash-carousel').append('<div class="flash-deal">' +
             '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
-            '<div class="flash-deal-inner">' +
             '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
             '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
             '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
-        '</div>' +
         '</div>');
+        $('.flash-carousel').append('<div class="flash-deal">' +
+            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
+            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
+            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
+            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
+            '</div>');
+        $('.flash-carousel').append('<div class="flash-deal">' +
+            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
+            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
+            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
+            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
+            '</div>');
+        $('.flash-carousel').append('<div class="flash-deal">' +
+            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
+            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
+            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
+            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
+            '</div>');
+        $('.flash-carousel').append('<div class="flash-deal">' +
+            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
+            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
+            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
+            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
+            '</div>');
+        $('.flash-carousel').append('<div class="flash-deal">' +
+            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
+            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
+            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
+            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
+            '</div>');
+        $('.flash-carousel').append('<div class="flash-deal">' +
+            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
+            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
+            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
+            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
+            '</div>');
     }
 
     $('.flash-carousel').owlCarousel({
         itemsDesktop: [1199, 3],
         itemsDesktopSmall: [979, 3],
         itemsTablet: [768, 3],
-        pagination: true
+        pagination: true,
+        autoPlay: 3000
     });
 }
 
