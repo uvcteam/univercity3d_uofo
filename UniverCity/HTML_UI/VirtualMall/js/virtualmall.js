@@ -1,12 +1,11 @@
-$(function () {
-    $('.sub-category').click(function () {
-        console.log(this.getAttribute('catid'));
-        engine.call('GetBusinessSubCat', this.getAttribute('catid'));
-    });
-    
-    var URL = "http://app2.univercity3d.com/univercity/GetFlashDeals";
-    //Parameter passing breaks iOS so comment out hen building to iOS
-    $.ajax({url: URL, success: function(flashDealData){
+$(document).ready(function(){
+    engine.call('LoadFlashDeals');
+})
+
+engine.on('LoadFlashDeals', function(URL){
+
+    console.log(URL);
+    $.ajax({url: URL + 'GetFlashDeals', success: function(flashDealData){
         console.log(flashDealData);
         AddFlashDeals(flashDealData);
 
@@ -15,6 +14,17 @@ $(function () {
             engine.call('SetFlashDealID', $(this).data('id'));
         });
     }});
+})
+
+$(function () {
+    $('.sub-category').click(function () {
+        console.log(this.getAttribute('catid'));
+        engine.call('GetBusinessSubCat', this.getAttribute('catid'));
+    });
+    
+    var URL = "http://app2.univercity3d.com/univercity/GetFlashDeals";
+    //Parameter passing breaks iOS so comment out hen building to iOS
+
 });
 
 function AddFlashDeals(flashDealData) {

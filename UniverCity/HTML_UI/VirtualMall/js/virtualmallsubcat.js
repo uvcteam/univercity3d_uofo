@@ -1,10 +1,13 @@
 $(document).ready(function () {
     console.log("Ready for Unity.");
     engine.call("ReadyForCategories");
+    engine.call('LoadFlashDeals');
 
-    var URL = "http://app2.univercity3d.com/univercity/GetFlashDeals";
-    //Parameter passing breaks iOS so comment out hen building to iOS
-    $.ajax({url: URL, success: function(flashDealData){
+});
+
+engine.on('LoadFlashDeals', function(URL){
+
+    $.ajax({url: URL + 'GetFlashDeals', success: function(flashDealData){
         console.log(flashDealData);
         AddFlashDeals(flashDealData);
 
@@ -13,7 +16,7 @@ $(document).ready(function () {
             engine.call('SetFlashDealID', $(this).data('id'));
         });
     }});
-});
+})
 
 function AddFlashDeals(flashDealData) {
 

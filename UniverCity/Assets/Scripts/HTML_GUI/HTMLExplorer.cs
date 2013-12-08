@@ -12,6 +12,12 @@ using Coherent.UI.Mobile.Binding;
 public class HTMLExplorer : MonoBehaviour
 {
 
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
+
     private CoherentUIView _view;
     private AdManager _adManager;
     private bool _viewReady;
@@ -71,7 +77,7 @@ public class HTMLExplorer : MonoBehaviour
     }
     void LoadAdData()
     {
-        _view.View.TriggerEvent("LoadAdPlayer", _businessID);
+        _view.View.TriggerEvent("LoadAdPlayer", _businessID, serverURL);
     }
 
     public void OnBusinessWasSelected()
