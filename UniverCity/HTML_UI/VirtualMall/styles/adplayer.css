@@ -4,15 +4,19 @@
     min-width: 10%;
     min-height: 10%;
     position: absolute;
-    bottom: 0;
+    top: 60%;
     left: 0;
     background-color: transparent;
     z-index: 1;
     border:none;
 }
 
+body {
+	overflow: hidden;
+}
 #container {
     height: 90%;
+    overflow: hidden;
 
 }
 #narrator-img {
@@ -44,7 +48,7 @@
     box-shadow: 0px 0 3px rgba(0,0,0,0.25);
     color: rgb(102, 147, 124);
     z-index: 10;
-    bottom: 15%;
+    top: 55%;
     border-color: rgb(102, 147, 124);
     border: 3px;
     border-style: solid;
@@ -208,7 +212,7 @@
 
 .cbp-fwdots {
     position: absolute;
-    bottom: 0px;
+    top: 60%;
     white-space: nowrap;
     text-align: center;
     width: 100%;
@@ -239,7 +243,7 @@
 #side-btns{
     list-style: none;
     position: absolute;
-    bottom: 20%;
+    top: 10%;
     z-index: 1;
     margin: 0px;
     padding: 0;
@@ -392,14 +396,12 @@
 }
 
 #side-btns li .facebook {
-    position: relative;
     border-color: #3c5a98;
     text-transform: lowercase;
-    text-indent: 34px;
-    letter-spacing: 10px;
+    text-align: center;
     font-weight: bold;
-    font-size: 75px;
-    line-height: 66px;
+    font-size: 12px;
+    /*line-height: 66px;*/
     color: #fff;
     background: #3c5a98;
     -moz-box-shadow: 0 0 4px rgba(0,0,0,0.4);

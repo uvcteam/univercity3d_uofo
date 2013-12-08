@@ -3,7 +3,7 @@ $(function () {
         console.log(this.getAttribute('catid'));
         engine.call('GetBusinessSubCat', this.getAttribute('catid'));
     });
-
+    
     var URL = "http://app2.univercity3d.com/univercity/GetFlashDeals";
     //Parameter passing breaks iOS so comment out hen building to iOS
     $.ajax({url: URL, success: function(flashDealData){
@@ -16,7 +16,7 @@ function AddFlashDeals(flashDealData) {
     if (!flashDealData.s && flashDealData.deals.length <= 0) return;
     for(var i = 0; i < flashDealData.deals.length; ++i) {
         $('.flash-carousel').append('<div class="flash-deal">' +
-            '<h1><i class="fa fa-bolt fa-lg"></i> FLASH DEAL <i class="fa fa-bolt fa-lg"></i></h1>' +
+            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
             '<div class="flash-deal-inner">' +
             '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
             '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +

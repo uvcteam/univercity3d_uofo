@@ -150,6 +150,7 @@ var AttachEventToPages = function () {
     })
 
     $('.cbp-fwdots span').click(function () {
+    	$('.st-content').css('transform', 'rotate(360deg)');
         if ($('#htmlvid'+listItemIndex).length)
             $('#htmlvid'+listItemIndex).get(0).pause();
         listItemIndex = $('.cbp-fwcurrent').index();
@@ -195,6 +196,8 @@ var AttachEventToPages = function () {
             $('#htmlvid0').get(0).play();
         });
     }
+    
+	$('.st-content').css('transform', 'rotate(360deg)');
 
 }
 
