@@ -176,6 +176,7 @@ a:hover, a:focus {
 .st-content-inner {
     position: relative;
     overflow-x: hidden;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -223,10 +224,11 @@ a:hover, a:focus {
     z-index: 100;
     visibility: hidden;
     width: 225px;
-    height: 100%;
+    height: 100vh;
     background: rgb(0, 117, 111);
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
+    overflow-y: hidden;
 }
 
 .st-menu::after {

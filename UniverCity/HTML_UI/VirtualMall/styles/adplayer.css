@@ -4,7 +4,7 @@
     min-width: 10%;
     min-height: 10%;
     position: absolute;
-    top: 60%;
+    top: 62%;
     left: 0;
     background-color: transparent;
     z-index: 1;
@@ -175,7 +175,7 @@ body {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 50%;
 }
 
 .cbp-fwslider nav {
@@ -212,7 +212,7 @@ body {
 
 .cbp-fwdots {
     position: absolute;
-    top: 60%;
+    top: 70%;
     white-space: nowrap;
     text-align: center;
     width: 100%;

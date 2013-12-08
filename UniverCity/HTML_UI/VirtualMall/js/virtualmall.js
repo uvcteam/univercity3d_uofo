@@ -21,42 +21,6 @@ function AddFlashDeals(flashDealData) {
             '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
             '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
         '</div>');
-        $('.flash-carousel').append('<div class="flash-deal">' +
-            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
-            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
-            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
-            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
-            '</div>');
-        $('.flash-carousel').append('<div class="flash-deal">' +
-            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
-            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
-            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
-            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
-            '</div>');
-        $('.flash-carousel').append('<div class="flash-deal">' +
-            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
-            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
-            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
-            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
-            '</div>');
-        $('.flash-carousel').append('<div class="flash-deal">' +
-            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
-            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
-            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
-            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
-            '</div>');
-        $('.flash-carousel').append('<div class="flash-deal">' +
-            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
-            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
-            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
-            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
-            '</div>');
-        $('.flash-carousel').append('<div class="flash-deal">' +
-            '<i class="fa fa-bolt fa-lg"></i><h1> FLASH DEAL </h1><i class="fa fa-bolt fa-lg"></i>' +
-            '<p class="line-1">' + flashDealData.deals[i].title1 + '</p>' +
-            '<p class="line-2">' + flashDealData.deals[i].title2 + '</p>' +
-            '<p class="line-3">' + flashDealData.deals[i].title3 + '</p>' +
-            '</div>');
     }
 
     $('.flash-carousel').owlCarousel({
