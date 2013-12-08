@@ -20,7 +20,9 @@ $(function () {
 });
 
 function AddFlashDeals(flashDealData) {
+
     if (!flashDealData.s && flashDealData.deals.length <= 0) return;
+    engine.call('ClearFlashDeals');
     for(var i = 0; i < flashDealData.deals.length; ++i) {
         console.log(flashDealData.deals[i].page);
         $('.flash-carousel').append('<div data-id="' + flashDealData.deals[i].id +'" class="flash-deal">' +
