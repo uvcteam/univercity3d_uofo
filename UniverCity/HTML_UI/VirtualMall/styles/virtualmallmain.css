@@ -3,6 +3,44 @@
 
 body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 
+.flash-carousel {
+    margin-left: 50px;
+}
+
+.flash-deal {
+    background-color: rgb(102, 147, 124);
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+.flash-deal h1 {
+    font-family: 'Oswald';
+    font-weight: 700;
+    font-size: 2em;
+    text-align: center;
+    color: #FFF;
+    padding: 0px;
+}
+
+.flash-deal-inner {
+    background-color: #FFF;
+    text-align: center;
+    color: rgb(102, 147, 124);
+    border-radius: 5px;
+    width: 290px;
+    height: 90px;
+    margin: 10px auto 0 auto;
+    padding: 5px;
+}
+
+.flash-deal-inner p {
+    font-family: "Open Sans";
+    padding-top: 5px;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    line-height: 1.2em;
+}
 
 .category ul {
     overflow: hidden;
@@ -18,10 +56,6 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
     height: 150px;
 }
 
-
-.st-content-inner div {
-    width: 100%;
-}
 .category {
     border-bottom: 2px solid rgb(102, 147, 124);
     color: #000;
