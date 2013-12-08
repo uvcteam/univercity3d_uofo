@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
@@ -26,7 +26,7 @@
             <h2><i class="icon-books"></i>&nbsp;My Vault</h2>
             <ul>
                 <li destination="internal"><a href="privatejournal.html">Private Journal</a></li>
-                <li destination="internal"><a href="mynotifications.html">My Notifications</a></li>
+                <li destination="internal" class="selected"><a href="#">My Notifications</a></li>
                 <li destination="internal"><a href="#">Photos &amp; Videos</a></li>
                 <li destination="internal"><a href="preferences.html">Preferences</a></li>
                 <li destination="internal"><a href="#">Help</a></li>
@@ -41,11 +41,31 @@
         <div class="st-pusher">
             <div class="st-content">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
+                <button type="button" class="back_button" onclick="window.location.href='memorybank.html'"><i class="fa fa-arrow-left"></i></button>
                 <div class="st-content-inner">
-                    <img src="images/profile.svg" id="profile-pic" />
-                    <h1 id="user-name">Loading Name</h1>
-                    <div class="sign-out">
-                        <a href="#" onclick="SignOut()">Sign out of your profile.</a>
+                    <div class="upcoming-events">
+                        <h1>Union Hall Notifications</h1>
+                        <div class="nothing-here">
+                            <h1>You have no new notifications.</h1>
+                        </div>
+                    </div>
+                    <div class="upcoming-events">
+                        <h1>Flash Deals</h1>
+                        <div class="nothing-here">
+                            <h1>You have no flash deals.</h1>
+                        </div>
+                    </div>
+                    <div class="upcoming-events">
+                        <h1>Mega Deals</h1>
+                        <div class="nothing-here">
+                        <h1>You have no mega deals.</h1>
+                        </div>
+                    </div>
+                    <div class="upcoming-events">
+                        <h1>Members Only Discounts</h1>
+                        <div class="nothing-here">
+                        <h1>You have no discounts.</h1>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,32 @@
+.upcoming-events {
+    width: 90%;
+    margin: 0 auto;
+    height: 50%;
+    float: none;
+}
+
+.upcoming-events > h1 {
+    font-family: 'Oswald';
+    font-weight: 400;
+    font-size: 1.5em;
+    color: #686a6e;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.nothing-here {
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #686a6e;
+    font-style: italic;
+}
+
+.nothing-here h1 {
+    font-size: 1.25em;
+    font-family: 'Open Sans';
+}
+
 .sign-out {
     text-align: center;
     margin: 0 auto;
