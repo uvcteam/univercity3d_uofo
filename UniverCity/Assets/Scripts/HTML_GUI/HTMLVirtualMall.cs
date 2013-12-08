@@ -46,6 +46,7 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("SetJsonString", (System.Action<string, int>)SetJsonString);
             _view.View.BindCall("SetFlashDealID", (System.Action<int>)SetFlashDealID);
             _view.View.BindCall("LoadFlashDeal", (System.Action)LoadFlashDeal);
+            _view.View.BindCall("ClearFlashDeals", (System.Action)ClearFlashDeals);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -133,5 +134,10 @@ public class HTMLVirtualMall : MonoBehaviour
     {
         Debug.Log("LoadFlashPlayer");
         _view.View.TriggerEvent("LoadFlashPlayer", _flashDeals[_flashdealID]);
+    }
+
+    void ClearFlashDeals()
+    {
+        _flashDeals.Clear();
     }
 }
