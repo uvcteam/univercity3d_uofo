@@ -3,10 +3,6 @@
 
 body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 
-.owl-carousel {
-	display: block !important;	
-}
-
 .flash-deal {
     cursor: pointer;
     text-align: center;

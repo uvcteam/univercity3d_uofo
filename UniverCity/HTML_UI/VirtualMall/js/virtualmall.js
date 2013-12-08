@@ -15,8 +15,6 @@ $(function () {
             engine.call('SetFlashDealID', $(this).data('id'));
         });
     }});
-
-
 });
 
 function AddFlashDeals(flashDealData) {
