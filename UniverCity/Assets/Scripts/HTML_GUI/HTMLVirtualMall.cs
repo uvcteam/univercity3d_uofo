@@ -9,8 +9,14 @@ using Coherent.UI.Mobile;
 using Coherent.UI.Mobile.Binding;
 #endif
 
-public class HTMLVirtualMall : MonoBehaviour 
+public class HTMLVirtualMall : MonoBehaviour
 {
+
+#if USE_STAGING_SERVER
+    private static string serverURL = "http://app2.univercity3d.com/univercity/";
+#else
+    private static string serverURL = "http://www.univercity3d.com/univercity/";
+#endif
 
     private CoherentUIView _view;
     private AdManager _adManager;
@@ -90,7 +96,7 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void LoadAdData()
     {
-        _view.View.TriggerEvent("LoadAdPlayer", _businessID);
+        _view.View.TriggerEvent("LoadAdPlayer", _businessID, serverURL);
     }
 
     void SetBusinessIDForCard(string businessid)
