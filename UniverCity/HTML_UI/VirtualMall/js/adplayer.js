@@ -6,23 +6,22 @@ $(document).ready(function () {
 
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
-//    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
-//        console.log(adPlayerData);
-//        PopulateAdPlayer(adPlayerData);
-//        SetMegaDeal(adPlayerData.megadeal);
-//        AttachEventToPages();
-//        SetNarrator(mediaURL + adPlayerData.expert.id);
-//
-//    }});
+    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+        console.log(adPlayerData);
+        PopulateAdPlayer(adPlayerData);
+        SetMegaDeal(adPlayerData.megadeal);
+        AttachEventToPages();
+        SetNarrator(mediaURL + adPlayerData.expert.id);
+
+    }});
 
     engine.call('LoadAdData');
 });
 
-engine.on('LoadAdPlayer', function(id){
-    console.log("derp");
-    var URL = "http://www.univercity3d.com/univercity/getAd?b=";
+engine.on('LoadAdPlayer', function(id, URL){
+    mediaURL = URL + "admedia?id=";
+    URL += "getAd?b=";
     $.ajax({url: URL + id, success: function(adPlayerData){
-        console.log(id);
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
@@ -45,17 +44,16 @@ var PopulateAdPlayer = function(data ) {
 }
 var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle, detailsParts, detailsNarrative, index) {
 
-    console.log(adpageTitle);
     var adpage = '<li>';
     for (var i = 0; i < adpageParts.length; ++i)
     {
         switch(adpageParts[i].type)
         {
             case "image":
-                adpage += '<div class="adpage" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><a href="#"><img src="' + mediaURL + adpageParts[i].id + '"/></a></div>';
+                adpage += '<div class="adpage" data-title="' + adpageTitle + '" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><img src="' + mediaURL + adpageParts[i].id + '"/></div>';
                 break;
             case "video":
-                adpage += '<div class="adpage vzaar_media_player" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
+                adpage += '<div class="adpage vzaar_media_player" data-title="' + adpageTitle + '" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
                     + '<object data="http://view.vzaar.com/1417694/flashplayer" height="324" id="vzvid'+ i +'" type="application/x-shockwave-flash" width="576">' +
                     '<param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" />' +
                     '<param name="movie" value="http://view.vzaar.com/1417694/flashplayer" />' +
@@ -75,7 +73,7 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
             switch (detailsParts[i].type)
             {
                 case "image":
-                    adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><a href="#"><img src="' + mediaURL + detailsParts[i].id + '"/></a></div>';
+                    adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><img src="' + mediaURL + detailsParts[i].id + '"/></div>';
                     break;
                 case "video":
                     adpage += '<div style="display:none"  class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><video id="video-' + detailsTitle + i.toString() + '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
@@ -98,8 +96,8 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
 }
 
 var SetMegaDeal = function(megaDeal){
-
     if (megaDeal){
+        $('mega-btn')[0].css('background','radial-gradient(yellow, yellowgreen, limegreen)');
         $('#title').text(megaDeal.title);
         $('#description').text(megaDeal.description);
         $('#price').text('Deal Price: ' + megaDeal.price);
@@ -107,6 +105,8 @@ var SetMegaDeal = function(megaDeal){
         $('#end').text('Hurry! Deal Ends ' + megaDeal.end);
     }
     else {
+        console.log($('.mega-btn'));
+        $('.mega-btn').attr('disabled', 'disabled');
         $('#mega-deal').html('<p>There is currently no Mega Deal</p>');
         $('#mega-deal').css('margin-top', '20%');
     }
@@ -150,12 +150,18 @@ var AttachEventToPages = function () {
     })
 
     $('.cbp-fwdots span').click(function () {
+        if ($('#htmlvid'+listItemIndex).length)
+            $('#htmlvid'+listItemIndex).get(0).pause();
         listItemIndex = $('.cbp-fwcurrent').index();
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
         SetPage(listItemIndex);
+        if ($('#htmlvid'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
+            $('#htmlvid'+listItemIndex)[0].dataset.played = "true";
+            $('#htmlvid'+listItemIndex).get(0).play();
+        }
 
-    })
+    });
 
     $('#details-btn').click(function () {
 
@@ -170,33 +176,19 @@ var AttachEventToPages = function () {
 
     })
 
+
+    $('.cbp-fwdots').children('span').each(function(i){
+        $(this).html($('.adpage')[i].dataset.title);
+    })
+
+
     $('#home').click(function(){
         $('#home').css('color', 'black');
     })
 
-    // Once the video is ready
-    var videos = Array.prototype.slice.call(document.querySelectorAll('.video-js'));
 
-    for (var i = 0; i < videos.length; ++i) {
-        _V_(videos[i].id).ready(function () {
-            var myPlayer = _V_(videos[i].id);    // Store the video object
-            _V_(videos[i].id, {}, function () { });
-            var aspectRatio = 9 / 16; // Make up an aspect ratio
-            function resizeVideoJS() {
-                // Get the parent element's actual width
-                var width = document.getElementById(myPlayer['Q']).parentElement.offsetWidth;
-                var height = $('#cbp-fwslider').height();
-                // Set width to fill parent element, Set height
- 
-                myPlayer.width(width).height(height);
-            }
+    $('#side-btns button:first').tab('show');
 
-            resizeVideoJS(); // Initialize the function
-            window.onresize = resizeVideoJS; // Call the function on resize
-        });
-    }
-
-    $('#tabs a:first').tab('show');
     if($('#htmlvid0').length){
         $('#htmlvid0').get(0).addEventListener('canplay',function(){
             $('#htmlvid0')[0].dataset.played = "true";
@@ -253,3 +245,18 @@ var goBack = function(){
     window.history.back();
     engine.call('OnAdPlayerWasClosed');
 }
+
+$('#side-btns').children('li').each(function(){
+
+    $(this).children('button').click(function(){
+
+        $('.selected').removeClass('selected');
+        $(this).addClass('selected');
+    });
+});
+
+$('.done-btn').click(function(){
+    console.log($('#cbp-fwslider'));
+    $('#side-btns button:first').tab('show');
+    $('.selected').removeClass('selected');
+});
