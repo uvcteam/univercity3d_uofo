@@ -169,6 +169,7 @@ a:hover, a:focus {
 
 .st-content {
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     background: #FFF;
 }
 
