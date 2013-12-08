@@ -180,6 +180,10 @@ a:hover, a:focus {
     -webkit-overflow-scrolling: touch;
 }
 
+.st-content-inner {
+    height: 100%;
+}
+
 .st-container {
     position: relative;
     overflow-x: hidden;
