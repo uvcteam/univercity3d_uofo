@@ -6,14 +6,14 @@ $(document).ready(function () {
 
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
-    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+/*    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
         AttachEventToPages();
         SetNarrator(mediaURL + adPlayerData.expert.id);
 
-    }});
+    }});*/
 
     engine.call('LoadAdData');
 });
