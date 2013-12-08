@@ -21,6 +21,7 @@ $(document).ready(function () {
 engine.on('LoadAdPlayer', function(id, URL){
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
+    console.log('LoadAdPlauer');
     $.ajax({url: URL + id, success: function(adPlayerData){
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
@@ -63,6 +64,9 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                     '<video data-played="false" preload="metadata" controls height="324" id="htmlvid'+ index +'" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://www.univercity3d.com/univercity/admedia?id=' + adpageParts[i].id + '" width="576" ></video></object>'
                     +'</div>';
                 break;
+            case "text":
+                adpage += '<div class="adpage" data-title="' + adpageTitle + '" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
+                    + adpageParts[i].text + '</div>';
         }
     }
 

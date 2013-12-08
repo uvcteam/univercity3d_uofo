@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
@@ -25,7 +26,9 @@ public class HTMLVirtualMall : MonoBehaviour
     private BusinessManager _businessManager;
     private bool _loadSubCats = false;
     private string _subCat;
-    private string _businessID;
+    private string _businessID = null;
+    private int _flashdealID = -1;
+    private Dictionary<int,string> _flashDeals = new Dictionary<int,string>();
     byte[] foo;
 	// Use this for initialization
     void Start()
@@ -40,6 +43,9 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("LoadAdData", (System.Action)LoadAdData);
             _view.View.BindCall("SetBusinessIDForCard", (System.Action<string>)SetBusinessIDForCard);
             _view.View.BindCall("LoadBusinessCard", (System.Action)LoadBusinessCard);
+            _view.View.BindCall("SetJsonString", (System.Action<string, int>)SetJsonString);
+            _view.View.BindCall("SetFlashDealID", (System.Action<int>)SetFlashDealID);
+            _view.View.BindCall("LoadFlashDeal", (System.Action)LoadFlashDeal);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -94,9 +100,22 @@ public class HTMLVirtualMall : MonoBehaviour
         GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html");       
     }
 
+    void SetJsonString(string json, int id)
+    {
+        Debug.Log(id);
+        _flashDeals.Add(id, json);
+    }
+
     void LoadAdData()
     {
+        Debug.Log("LoadAdPlayer");
         _view.View.TriggerEvent("LoadAdPlayer", _businessID, serverURL);
+    }
+
+    void SetFlashDealID(int flashdealID)
+    {
+        _flashdealID = flashdealID;
+        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/flashdeal.html");
     }
 
     void SetBusinessIDForCard(string businessid)
@@ -108,5 +127,11 @@ public class HTMLVirtualMall : MonoBehaviour
     void LoadBusinessCard()
     {
         _view.View.TriggerEvent("LoadBusinessCard", _businessID);
+    }
+
+    void LoadFlashDeal()
+    {
+        Debug.Log("LoadFlashPlayer");
+        _view.View.TriggerEvent("LoadFlashPlayer", _flashDeals[_flashdealID]);
     }
 }
