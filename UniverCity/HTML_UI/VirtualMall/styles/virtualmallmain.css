@@ -67,18 +67,30 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 .business {
     text-align: center;
     display: inline-block;
-    width: 100%;
+    width: 250px;
     margin: 0.25em;
+    margin-right: 1em;
 }
 
 .business:hover {
     cursor: pointer;
 }
 
+.business figure {
+    margin: 0 0 10px 0;
+    overflow: hidden;
+}
+
 .business img {
     width: 90px;
     height: 90px;
     float: left;
+}
+
+figure p {
+    height: 130px;
+    text-overflow: ellipsis;
+    padding-bottom: 10px;
 }
 
 .business header {
@@ -92,9 +104,11 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 .business figcaption {
     color: #000;
     padding-left: 1em;
+    padding-right: 1em;
     text-align: left;
     height: 7em;
-    overflow: hidden;
+    text-wrap: normal;
+    text-overflow: ellipsis;
 }
 .business a {
     color: rgb(102, 147, 124);
