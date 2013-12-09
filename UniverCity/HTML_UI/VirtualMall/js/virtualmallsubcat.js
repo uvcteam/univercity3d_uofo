@@ -59,7 +59,7 @@ engine.on('PopulateCategory', function (name, desc, id, image, index, hasAd) {
             '<img src="data:image/png;base64,' + image + '" />' +
             '<p>' + desc + '</p>' +
             '</figure>' +
-            '<button type="button" busid="' + id + '"class="btn btn-see-more">See More</button>' +
+            '<button type="button" busid="' + id + '"class="btn btn-see-more">View Ad</button>' +
             '<a busid="'+ id +'">Contact Info</a></div>';
     else
         document.getElementsByClassName('subcat-carousel')[index].innerHTML += '<div class="business">' +
