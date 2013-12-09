@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>Virtual Mall Main</title>
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet" />
@@ -27,6 +27,10 @@
             <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
             <button type="button" class="back_button" onclick="goBack()"><i class="fa fa-arrow-left"></i></button>
             <div id="container">
+            <div id="narrator-bubble" class="bubble"><p id="narrator-text"></p></div>
+              <button id="narrator" onclick="HideSpeechBubble()">
+                 <img id="narrator-img" src="" />
+               </button>
             </div>
         </div>
     </div>
@@ -39,5 +43,9 @@
 <script src="../libs/js/menumanager.js"></script>
 <script src="../libs/js/bootstrap.min.js"></script>
 <script src="js/flashdeal.js"></script>
+    <script type="text/javascript">
+        shouldChangeMenu = false;
+        HideMenu();
+    </script>
 </body>
 </html>

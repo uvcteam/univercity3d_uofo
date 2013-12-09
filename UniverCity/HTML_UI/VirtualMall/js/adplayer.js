@@ -55,13 +55,9 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                 break;
             case "video":
                 adpage += '<div class="adpage vzaar_media_player" data-title="' + adpageTitle + '" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
-                    + '<object data="http://view.vzaar.com/1417694/flashplayer" height="324" id="vzvid'+ i +'" type="application/x-shockwave-flash" width="576">' +
-                    '<param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" />' +
-                    '<param name="movie" value="http://view.vzaar.com/1417694/flashplayer" />' +
-                    '<param name="allowScriptAccess" value="always" />' +
-                    '<param name="autoStart" value="true" />' +
-                    '<param name="flashvars" value="border=none&amp;showplaybutton=rollover" />' +
-                    '<video data-played="false" preload="metadata" controls height="324" id="htmlvid'+ index +'" onclick="this.play();" poster="http://view.vzaar.com/1417694/image" preload="none" src="http://www.univercity3d.com/univercity/admedia?id=' + adpageParts[i].id + '" width="576" ></video></object>'
+                    +
+                    '<video data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpageParts[i].id +'&thumbnail=1'
+                    +'"preload="none" src="' + mediaURL + adpageParts[i].id + '"></video>'
                     +'</div>';
                 break;
             case "text":
@@ -76,27 +72,33 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
         {
             switch (detailsParts[i].type)
             {
-                case "image":
-                    adpage += '<div style="display:none" class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><img src="' + mediaURL + detailsParts[i].id + '"/></div>';
-                    break;
-                case "video":
-                    adpage += '<div style="display:none"  class="details-page" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><video id="video-' + detailsTitle + i.toString() + '" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"'
-                        + 'poster="http://video-js.zencoder.com/oceans-clip.png">'
-                        + '<source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4" />'
-                        + '<source src="http://video-js.zencoder.com/oceans-clip.webm" type="video/webm" />'
-                        + '<source src="http://video-js.zencoder.com/oceans-clip.ogv" type="video/ogg" />'
-                        + '<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>'
-                        + '<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>'
-                        + '</video></div>';
-                    break;
-            }
+            case "image":
+                adpage += '<div class="details-page" data-title="' + detailsTitle + '" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><img src="' + mediaURL + detailsParts[i].id + '"/></div>';
+                break;
+            case "video":
+                adpage += '<div class="details-page vzaar_media_player" data-title="' + detailsTitle + '" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '">'
+                    + '<object data="http://view.vzaar.com/1417694/flashplayer" id="vzvid'+ i +'" type="application/x-shockwave-flash" >' +
+                    '<param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" />' +
+                    '<param name="movie" value="http://view.vzaar.com/1417694/flashplayer" />' +
+                    '<param name="allowScriptAccess" value="always" />' +
+                    '<param name="autoStart" value="true" />' +
+                    '<param name="flashvars" value="border=none&amp;showplaybutton=rollover" />' +
+                    '<video data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + detailsParts[i].id +'&thumbnail=1'
+                    +'"preload="none" src="' + mediaURL + detailsParts[i].id + '"></video></object>'
+                    +'</div>';
+                break;
+            case "text":
+                adpage += '<div class="details-page" data-title="' + detailsTitle + '" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '">'
+                    + detailsParts[i].text + '</div>';
+        	}
         }
     }
     else //Ad an empty details page so ul item indexing gives the correct index.
         adpage += '<div style="display:none"  class="details-page"/>';
 
     document.getElementById('adpages').innerHTML += adpage + '</li>';
-
+    $('.details-page').css('display', 'none');
+	$('body').css('background-color', '#FFF');
 }
 
 var SetMegaDeal = function(megaDeal){
@@ -154,9 +156,11 @@ var AttachEventToPages = function () {
     })
 
     $('.cbp-fwdots span').click(function () {
-    	$('.st-content').css('transform', 'rotate(360deg)');
+    	
         if ($('#htmlvid'+listItemIndex).length)
             $('#htmlvid'+listItemIndex).get(0).pause();
+        $($('.details-page')[listItemIndex]).hide();
+        $($('.adpage')[listItemIndex]).show();
         listItemIndex = $('.cbp-fwcurrent').index();
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);

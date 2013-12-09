@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -134,7 +134,7 @@ public class HTMLVirtualMall : MonoBehaviour
     void LoadFlashDeal()
     {
         Debug.Log("LoadFlashPlayer");
-        _view.View.TriggerEvent("LoadFlashPlayer", _flashDeals[_flashdealID]);
+        _view.View.TriggerEvent("LoadFlashPlayer", _flashDeals[_flashdealID], serverURL);
     }
     void LoadFlashDeals()
     {
