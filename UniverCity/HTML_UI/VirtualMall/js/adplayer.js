@@ -41,6 +41,8 @@ var PopulateAdPlayer = function(data ) {
         }
 
     }
+    console.log(data.background.color);
+    $('.st-content').css('background-color', '#' + data.background.color);
 
 }
 var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle, detailsParts, detailsNarrative, index) {
@@ -77,14 +79,9 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
                 break;
             case "video":
                 adpage += '<div class="details-page vzaar_media_player" data-title="' + detailsTitle + '" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '">'
-                    + '<object data="http://view.vzaar.com/1417694/flashplayer" id="vzvid'+ i +'" type="application/x-shockwave-flash" >' +
-                    '<param name="wmode" value="transparent" /><param name="allowFullScreen" value="true" />' +
-                    '<param name="movie" value="http://view.vzaar.com/1417694/flashplayer" />' +
-                    '<param name="allowScriptAccess" value="always" />' +
-                    '<param name="autoStart" value="true" />' +
-                    '<param name="flashvars" value="border=none&amp;showplaybutton=rollover" />' +
-                    '<video data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + detailsParts[i].id +'&thumbnail=1'
-                    +'"preload="none" src="' + mediaURL + detailsParts[i].id + '"></video></object>'
+
+                    +'<video data-played="false" preload="metadata" controls id="htmlvid-details'+ index +'" onclick="this.play();" poster="'+ mediaURL + detailsParts[i].id +'&thumbnail=1'
+                    +'"preload="none" src="' + mediaURL + detailsParts[i].id + '"></video>'
                     +'</div>';
                 break;
             case "text":
@@ -98,7 +95,6 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
 
     document.getElementById('adpages').innerHTML += adpage + '</li>';
     $('.details-page').css('display', 'none');
-	$('body').css('background-color', '#FFF');
 }
 
 var SetMegaDeal = function(megaDeal){
@@ -159,6 +155,8 @@ var AttachEventToPages = function () {
     	
         if ($('#htmlvid'+listItemIndex).length)
             $('#htmlvid'+listItemIndex).get(0).pause();
+        if ($('#htmlvid-details'+listItemIndex).length)
+            $('#htmlvid-details'+listItemIndex).get(0).pause();
         $($('.details-page')[listItemIndex]).hide();
         $($('.adpage')[listItemIndex]).show();
         listItemIndex = $('.cbp-fwcurrent').index();
@@ -182,6 +180,13 @@ var AttachEventToPages = function () {
         $(pageDetails).toggle();
 
         SetPage(listItemIndex);
+
+        if ($('#htmlvid-details'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
+            $('#htmlvid-details'+listItemIndex)[0].dataset.played = "true";
+            $('#htmlvid-details'+listItemIndex).get(0).play();
+        }
+        else if($('#htmlvid-details'+listItemIndex).length)
+            $('#htmlvid-details'+listItemIndex).get(0).pause();
 
     })
 
