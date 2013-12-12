@@ -1,82 +1,109 @@
 .pace {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
+    -webkit-pointer-events: none;
+    pointer-events: none;
 
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+    -webkit-perspective: 12rem;
+    -moz-perspective: 12rem;
+    -ms-perspective: 12rem;
+    -o-perspective: 12rem;
+    perspective: 12rem;
 
-  -webkit-pointer-events: none;
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+    z-index: 2000;
+    position: fixed;
+    height: 6rem;
+    width: 6rem;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
-  z-index: 2000;
-  position: fixed;
-  margin: auto;
-  top: 12px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 200px;
-  height: 25px;
-  border: 2px solid #66937c;
-  background-color: #fff;
+.pace.pace-inactive .pace-progress {
+    display: none;
 }
 
 .pace .pace-progress {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
+    position: fixed;
+    z-index: 2000;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 6rem;
+    width: 6rem !important;
+    line-height: 6rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    background: rgba(102, 147, 124, 0.8);
+    color: #fff;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 100;
+    text-align: center;
 
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+    -webkit-animation: pace-3d-spinner linear infinite 2s;
+    -moz-animation: pace-3d-spinner linear infinite 2s;
+    -ms-animation: pace-3d-spinner linear infinite 2s;
+    -o-animation: pace-3d-spinner linear infinite 2s;
+    animation: pace-3d-spinner linear infinite 2s;
 
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
-
-  -webkit-transition: width 1s ease-in-out 1s linear;
-  -moz-transition: width 1s ease-in-out 1s linear;
-  -ms-transition: width 1s ease-in-out 1s linear;
-  -o-transition: width 1s ease-in-out 1s linear;
-  transition: width 1s ease-in-out 1s linear;
-
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-
-  max-width: 190px;
-  position: fixed;
-  z-index: 2000;
-  display: block;
-  position: absolute;
-  left: 3px;
-  top: 3px;
-  height: 15px;
-  font-size: 12px;
-  background: #66937c;
-  color: #66937c;
-  line-height: 60px;
-  font-weight: bold;
-  font-family:  Helvetica, Arial, "Lucida Grande", sans-serif;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .pace .pace-progress:after {
-  content: attr(data-progress-text);
-  display: inline-block;
+    content: attr(data-progress-text);
+    display: block;
 }
 
-.pace.pace-inactive {
-  display: none;
+@-webkit-keyframes pace-3d-spinner {
+    from {
+        -webkit-transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(360deg);
+    }
+}
+
+@-moz-keyframes pace-3d-spinner {
+    from {
+        -moz-transform: rotateY(0deg);
+    }
+    to {
+        -moz-transform: rotateY(360deg);
+    }
+}
+
+@-ms-keyframes pace-3d-spinner {
+    from {
+        -ms-transform: rotateY(0deg);
+    }
+    to {
+        -ms-transform: rotateY(360deg);
+    }
+}
+
+@-o-keyframes pace-3d-spinner {
+    from {
+        -o-transform: rotateY(0deg);
+    }
+    to {
+        -o-transform: rotateY(360deg);
+    }
+}
+
+@keyframes pace-3d-spinner {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }

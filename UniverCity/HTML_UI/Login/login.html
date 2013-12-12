@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
@@ -20,11 +20,35 @@
 	</head>
 	
 	<body>
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId   : '178630832342722',
+                status  : true,
+                cookie  : true,
+                xfbml   : true
+            });
+
+            FB.Event.subscribe('auth.authResponseChange', function(response) {
+                console.log(response.status);
+            });
+        };
+
+        (function(d) {
+          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+          if (d.getElementById(id)) {return;}
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+        }(document));
+    </script>
 		<div class="home-page main">
 			<section class="grid-wrap">
 				<div id="main" class="grid col-one-half mq1-col-full">
                     <img src="images/logo.png" />
                     <h2 class="primary-header">Student Login</h2>
+                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                     <form>
                         <div class="input-group shrinker">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
@@ -39,10 +63,7 @@
                         <input type="button" value="Sign In" onclick="SignInClicked()" />
                     </form>
 				</div>
-                <div id="logged-in" class="grid col-one-half mq1-col-full hidden">
-
-                </div>
-				
+                <div id="logged-in" class="grid col-one-half mq1-col-full hidden"></div>
 				<div class="grid col-one-half mq1-col-full welcome-content">
 					<h1 class="primary-header">Welcome</h1>
 					<p>Welcome University of Oregon students to the UniverCity3D application. Below you will find a list of what the different sections of the application can do for you. To visit any section simply tap on it!</p>
