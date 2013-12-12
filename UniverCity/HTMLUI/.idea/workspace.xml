@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="63a394ec-4a1b-403a-83bd-7bcc79bda095" name="Default" comment="">
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\.idea\misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\.idea\vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Arcade\arcade.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Arcade\styles\style.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Explorer\explorer.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Explorer\js\explorer.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Explorer\styles\explorer.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Explorer\styles\style.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login.zip" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css\fonts\icomoon.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css\fonts\icomoon.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css\fonts\icomoon.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css\fonts\icomoon.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css\form.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css\menu.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\css\menu.css.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\font-awesome-4.0.3.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\images\eugene_painted.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\images\form_back.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\images\logo.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js\login.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js\menu.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js\menu.js.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js\modernizr-2.6.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js\modernizr-2.6.2.min.js.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js\polyfills.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\js\polyfills.js.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\login.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\login.html.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Login\style.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\createjournal.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\images\profile.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\js\createjournal.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\js\memorybank.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\js\preferences.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\js\privatejournal.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\js\svgcheckbx.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\memorybank.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\mynotifications.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\preferences.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\privatejournal.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank\styles\style.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\css.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\css\coherent.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\css\coherent.css.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\javascript.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\javascript\coherent.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\javascript\coherent.js.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\javascript\jquery-2.0.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\javascript\jquery-2.0.2.min.js.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\javascript\jquery.mobile-1.3.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\javascript\jquery.mobile-1.3.1.min.js.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\mobiledemo.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MobileInput\mobiledemo.html.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\browse.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\cancelwithdraw.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\createvent.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\images\profile.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\browse.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\cancelwithdraw.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\createevent.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\data.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\hirestext.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\jquery.dropdown.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\modalEffects.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\js\unionhall.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\myevents.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\styles\browse.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\styles\calendar.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\styles\cancelwithdraw.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\styles\createform.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\styles\modal.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\styles\style.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall\unionhall.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\businesscard.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\flashdeal.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\fonts\fontawesome.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\fonts\fontawesome.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\fonts\fontawesome.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\fonts\fontawesome.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\fonts\readme.md" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\Fun Stuff.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\Howlin'.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\Now Food.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\Restaurants.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\Special Tastes.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\Upscale.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\accupuncture.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\addiction treatment.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\adv_samples.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\ambulance.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\antiques.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\athletic.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\attorneys.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\audiology.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\bed and breakfast.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\big box stores.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\body art.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\building materials.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\campgrounds.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\campus security.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\cards and gifts.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\chiropractors.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\clothing stores.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\clothing.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\coffees and teas.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\community places.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\community services.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\consumer electronics.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\cosmetics and plastic surgery.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\counseling and mental health.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\dentists.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\electrical sevices.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\emergency medical.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\finishing.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\fire.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\fitness.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\government.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\guest houses and hostels.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\hair.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\herbal medicine.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\hospital.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\hotels and motels.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\indoor sports faclilties.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\indoor sports.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\insurance.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\interior decor.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\internet services+ (2).png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\lastik surgery.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\liquor.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\mall.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\massage therapy.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\money people.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\movers and moving companies.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\moving boxes and supplies.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\nutritionists2.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\optometry.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\outdoor furniture and appliances.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\outdoor sports.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\outlet stores.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\overnight delivery services.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\petshop.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\physical therapy.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\physicians.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\pods-mobile storage.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\poison control.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\police.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\post office.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\power tools.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\professional services.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\realtors.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\religious worship.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\resorts.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\second consignment.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\self storage facilities.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\shoes.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\shop.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\speech therapy.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\taxis and limos.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\tickets.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\tours.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\travel agencies.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\tricking out your ride.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\urgent care.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\vehicle sales.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\vehicle services.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\icons\vintage.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\bikes.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\dentist.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\details.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\hair.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\images\oil_change.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\businesscard.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\flashdeal.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\jquery.cbpFWSlider.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\jquery.cbpFWSlider.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\modernizr.custom.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\video.dev.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\video.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\virtualmall.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\js\virtualmallsubcat.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\adscroll.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\adsliderstyle.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\component.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\explorer-adplayer.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\icomoon.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\icomoon.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\icomoon.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\icomoon.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\vjs.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\vjs.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\vjs.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\fonts\vjs.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\jquery.jscrollpane.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\reset.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\speechbubbles.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\style.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\video-js.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\video-js.min.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles\virtualmallmain.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\virtualmall.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\virtualmallsubcat.html" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\css.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\css\font-awesome.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\css\font-awesome.css.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\css\font-awesome.min.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\css\font-awesome.min.css.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\FontAwesome.otf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\FontAwesome.otf.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.eot.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.svg.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.ttf.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\fonts\fontawesome-webfont.woff.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\bordered-pulled.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\bordered-pulled.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\core.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\core.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\fixed-width.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\fixed-width.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\font-awesome.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\font-awesome.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\icons.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\icons.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\larger.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\larger.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\list.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\list.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\mixins.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\path.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\path.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\rotated-flipped.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\rotated-flipped.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\spinning.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\spinning.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\stacked.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\stacked.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\variables.less" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\less\variables.less.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_bordered-pulled.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_bordered-pulled.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_core.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_core.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_fixed-width.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_fixed-width.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_icons.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_icons.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_larger.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_larger.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_list.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_list.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_mixins.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_mixins.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_path.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_path.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_rotated-flipped.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_rotated-flipped.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_spinning.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_spinning.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_stacked.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_stacked.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_variables.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\_variables.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\font-awesome.scss" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\font-awesome-4.0.3\scss\font-awesome.scss.meta" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\bootstrap-theme.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\bootstrap-theme.min.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\bootstrap.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\coherent.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\fonts\icomoon.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\fonts\icomoon.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\fonts\icomoon.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\fonts\icomoon.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\general-template.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\pace_vm.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\css\preloader.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\legacy.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\picker.date.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\picker.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\picker.time.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\themes\classic.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\themes\classic.date.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\themes\classic.time.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\themes\default.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\themes\default.date.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\themes\default.time.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\themes\rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\ar.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\bg_BG.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\bs_BA.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\ca_ES.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\cs_CZ.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\da_DK.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\de_DE.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\el_GR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\es_ES.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\et_EE.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\eu_ES.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\fi_FI.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\fr_FR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\he_IL.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\hr_HR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\hu_HU.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\id_ID.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\it_IT.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\ja_JP.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\ko_KR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\nl_NL.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\no_NO.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\pl_PL.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\pt_BR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\pt_PT.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\ro_RO.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\ru_RU.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\sk_SK.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\sv_SE.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\th_TH.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\tr_TR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\uk_UA.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\compressed\translations\zh_CN.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\legacy.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\picker.date.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\picker.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\picker.time.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\themes\classic.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\themes\classic.date.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\themes\classic.time.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\themes\default.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\themes\default.date.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\themes\default.time.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\themes\rtl.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\NAMING.md" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\ar.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\bg_BG.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\bs_BA.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\ca_ES.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\cs_CZ.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\da_DK.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\de_DE.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\el_GR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\es_ES.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\et_EE.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\eu_ES.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\fi_FI.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\fr_FR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\he_IL.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\hr_HR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\hu_HU.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\id_ID.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\it_IT.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\ja_JP.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\ko_KR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\nl_NL.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\no_NO.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\pl_PL.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\pt_BR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\pt_PT.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\ro_RO.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\ru_RU.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\sk_SK.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\sv_SE.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\th_TH.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\tr_TR.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\uk_UA.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\datepicker\translations\zh_CN.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\fonts\glyphicons-halflings-regular.eot" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\fonts\glyphicons-halflings-regular.svg" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\fonts\glyphicons-halflings-regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\fonts\glyphicons-halflings-regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\bootstrap.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\bower.json" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\classie.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\coherent.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery-1.10.0.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery-ui.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery.calendario.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery.contentcarousel.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery.easing.1.3.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery.maskedinput.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery.mousewheel.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\jquery.scrollbox.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\menumanager.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\modernizr-2.6.2.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\pace.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\pace.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\js\preloader.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\owl-carousel\AjaxLoader.gif" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\owl-carousel\grabbing.png" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\owl-carousel\owl.carousel.css" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\owl-carousel\owl.carousel.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\owl-carousel\owl.carousel.min.js" afterPath="" />
+      <change type="DELETED" beforePath="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs\owl-carousel\owl.theme.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scripts/HTML_GUI/HTMLMainMenu.cs" afterPath="$PROJECT_DIR$/../Assets/Scripts/HTML_GUI/HTMLMainMenu.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scripts/HTML_GUI/HTMLMemoryBank.cs" afterPath="$PROJECT_DIR$/../Assets/Scripts/HTML_GUI/HTMLMemoryBank.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scripts/HTML_GUI/HTMLMenuManager.cs" afterPath="$PROJECT_DIR$/../Assets/Scripts/HTML_GUI/HTMLMenuManager.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scenes/HTML_Arcade.unity" afterPath="$PROJECT_DIR$/../Assets/Scenes/HTML_Arcade.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scenes/HTML_Login.unity" afterPath="$PROJECT_DIR$/../Assets/Scenes/HTML_Login.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scenes/HTML_MemoryBank.unity" afterPath="$PROJECT_DIR$/../Assets/Scenes/HTML_MemoryBank.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scenes/HTML_UnionHall.unity" afterPath="$PROJECT_DIR$/../Assets/Scenes/HTML_UnionHall.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/Scenes/HTML_VirtualMall.unity" afterPath="$PROJECT_DIR$/../Assets/Scenes/HTML_VirtualMall.unity" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Assets/MovieMaterials/Movie.mat" afterPath="$PROJECT_DIR$/../Assets/MovieMaterials/Movie.mat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../HTML_UI/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../HTML_UI/.idea/workspace.xml" />
+    </list>
+    <ignored path="HTML_UI.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="HTML_UI" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="memorybank.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MemoryBank/memorybank.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="16" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.14896215" vertical-offset="388" max-vertical-offset="1224">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mbfacebook.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MemoryBank/js/mbfacebook.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="24" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="634" max-vertical-offset="2142">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MemoryBank/styles/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="19" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7225">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/VirtualMall/styles/virtualmallmain.css" />
+        <option value="$PROJECT_DIR$/VirtualMall/virtualmallsubcat.html" />
+        <option value="$PROJECT_DIR$/VirtualMall/js/virtualmall.js" />
+        <option value="$PROJECT_DIR$/libs/css/general-template.css" />
+        <option value="$PROJECT_DIR$/VirtualMall/js/virtualmallsubcat.js" />
+        <option value="$PROJECT_DIR$/VirtualMall/styles/adplayer.css" />
+        <option value="$PROJECT_DIR$/VirtualMall/styles/businesscard.css" />
+        <option value="$PROJECT_DIR$/libs/css/pace_vm.css" />
+        <option value="$PROJECT_DIR$/libs/css/preloader.css" />
+        <option value="$PROJECT_DIR$/libs/js/preloader.js" />
+        <option value="$PROJECT_DIR$/VirtualMall/virtualmall.html" />
+        <option value="$PROJECT_DIR$/Login/login.html" />
+        <option value="$PROJECT_DIR$/MemoryBank/styles/style.css" />
+        <option value="$PROJECT_DIR$/libs/js/facebook.js" />
+        <option value="$PROJECT_DIR$/MemoryBank/js/mbfacebook.js" />
+        <option value="$PROJECT_DIR$/MemoryBank/memorybank.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="960" />
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML_UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML_UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTMLUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML_UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTMLUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MemoryBank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML_UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTMLUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MemoryBank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML_UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTMLUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTML_UI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HTMLUI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\MemoryBank" />
+      <recent name="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\libs" />
+      <recent name="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\UnionHall" />
+      <recent name="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Arcade" />
+      <recent name="E:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Explorer\styles" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\Arcade\styles" />
+      <recent name="E:\Repositories\univercity3d_uofo\UniverCity\HTML_UI\VirtualMall\styles" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="name" value="Dart" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <browser start="false" url="" with-js-debugger="false" />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="63a394ec-4a1b-403a-83bd-7bcc79bda095" name="Default" comment="" />
+      <created>1385075584706</created>
+      <updated>1385075584706</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="960" y="0" width="960" height="1040" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26927254" sideWeight="0.6703418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24622357" sideWeight="0.6703418" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/VirtualMall/js/virtualmallsubcat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="0" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1751" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualMall/styles/virtualmallmain.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3366" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualMall/styles/adplayer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="7871" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualMall/flashdeal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualMall/styles/businesscard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="19" selection-start="387" selection-end="387" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualMall/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="10" selection-start="230" selection-end="230" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/js/pace.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="348" column="59" selection-start="10299" selection-end="10299" vertical-scroll-proportion="0.0" vertical-offset="5457" max-vertical-offset="13719">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/css/preloader.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="6" selection-start="500" selection-end="500" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/css/pace_vm.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="18" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/js/preloader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="11" selection-start="400" selection-end="401" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VirtualMall/virtualmall.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="707" column="11" selection-start="33197" selection-end="33551" vertical-scroll-proportion="0.0" vertical-offset="11544" max-vertical-offset="12393">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="65" selection-start="1401" selection-end="1401" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MemoryBank/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="19" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7225">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/js/facebook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="47" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.8916084" vertical-offset="0" max-vertical-offset="1666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MemoryBank/js/mbfacebook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="24" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.0" vertical-offset="634" max-vertical-offset="2142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MemoryBank/memorybank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="16" selection-start="1387" selection-end="1387" vertical-scroll-proportion="0.14896215" vertical-offset="388" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

@@ -24,11 +24,13 @@ public class HTMLMemoryBank : MonoBehaviour
     private CoherentUIView _view;
     private UserManager _userManager;
     private bool _viewReady;
-
+    private const string FacebookAppURL = "http://www.univercity3d.com/mobileapp.html";
+    private string LocalAppURL = "";
 
     void Start()
     {
         _view = this.GetComponent<CoherentUIView>();
+        LocalAppURL = _view.Page;
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
         _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
 
@@ -43,7 +45,25 @@ public class HTMLMemoryBank : MonoBehaviour
             _view.View.BindCall("SignOut", (System.Action)SignOut);
         };
 
+        
+
+        _view.OnViewCreated += (view) => view.InterceptURLRequests(true);
+        _view.Listener.URLRequest += OnURLRequestHandler;
+
         _viewReady = false;
+    }
+
+    void OnURLRequestHandler(string url, URLResponse response)
+    {
+        if (url.StartsWith(FacebookAppURL))
+        {
+            Debug.Log("Intercepted " + url);
+            // change the url, keeping all parameters intact
+            string redirectURL = LocalAppURL + url.Substring(FacebookAppURL.Length);
+            response.RedirectRequest(redirectURL);
+            return;
+        }
+        response.AllowRequest();
     }
 
     IEnumerator CheckPIN(string pin)
@@ -216,5 +236,6 @@ public class HTMLMemoryBank : MonoBehaviour
         _userManager.SignOut();
         Application.LoadLevel(0);
     }
+
     #endregion
 }

@@ -17,38 +17,15 @@
 		<link rel="stylesheet" type="text/css" href="css/form.css" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
+        <script src="../libs/js/jquery-1.10.0.js"></script>
 	</head>
 	
 	<body>
-    <div id="fb-root"></div>
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId   : '178630832342722',
-                status  : true,
-                cookie  : true,
-                xfbml   : true
-            });
-
-            FB.Event.subscribe('auth.authResponseChange', function(response) {
-                console.log(response.status);
-            });
-        };
-
-        (function(d) {
-          var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-          if (d.getElementById(id)) {return;}
-            js = d.createElement('script'); js.id = id; js.async = true;
-            js.src = "//connect.facebook.net/en_US/all.js";
-            ref.parentNode.insertBefore(js, ref);
-        }(document));
-    </script>
 		<div class="home-page main">
 			<section class="grid-wrap">
 				<div id="main" class="grid col-one-half mq1-col-full">
                     <img src="images/logo.png" />
                     <h2 class="primary-header">Student Login</h2>
-                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                     <form>
                         <div class="input-group shrinker">
                             <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
@@ -99,7 +76,6 @@
 	    
         <!-- main JS libs -->
         <script src="../libs/js/modernizr-2.6.2.min.js"></script>
-        <script src="../libs/js/jquery-1.10.0.js"></script>
         <script src="../libs/js/jquery-ui.min.js"></script>
         <script src="../libs/js/classie.js"></script>
         <script type="text/javascript" src="../libs/js/coherent.js"></script>

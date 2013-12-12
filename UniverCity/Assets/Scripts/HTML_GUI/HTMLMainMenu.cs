@@ -13,6 +13,8 @@ public class HTMLMainMenu : MonoBehaviour
     private CoherentUIView _view;
     private UserManager _userManager;
     private bool _viewReady;
+    private const string FacebookAppURL = "http://www.univercity3d.com/login.html";
+    private const string LocalAppURL = "coui://HTML_UI/Login/login.html";
 
     void Start()
     {

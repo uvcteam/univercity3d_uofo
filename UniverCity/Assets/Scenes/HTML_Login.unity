@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15780473129e394db2b927dd8e5e960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Page: coui://HTML_UI/Login/login.html
+  m_Page: coui://HTMLUI/Login/login.html
   m_Width: 1024
   m_Height: 512
   m_XPos: 0

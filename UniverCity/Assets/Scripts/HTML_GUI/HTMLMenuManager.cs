@@ -2,8 +2,10 @@
 using System.Collections;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
+using Coherent.UI.Binding;
 #elif UNITY_IPHONE || UNITY_ANDROID
 using Coherent.UI.Mobile;
+using Coherent.UI.Mobile.Binding;
 #endif
 
 public class HTMLMenuManager : MonoBehaviour
@@ -27,6 +29,9 @@ public class HTMLMenuManager : MonoBehaviour
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
             _view.View.BindCall("GoToDestination", (System.Action<string>)GoToDestination);
+            _view.View.BindCall("IsFacebookSignedIn", (System.Action)IsFacebookSignedIn);
+            _view.View.BindCall("FacebookSignOut", (System.Action)FacebookSignOut);
+            _view.View.BindCall("StoreFacebook", (System.Action<string, string, string, string>)StoreFacebook);
         };
 
         _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
@@ -85,6 +90,48 @@ public class HTMLMenuManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void IsFacebookSignedIn()
+    {
+        Debug.Log("Is Facebook signed in?");
+        if (PlayerPrefs.HasKey("AccessToken") &&
+            PlayerPrefs.HasKey("FacebookEmail") &&
+            PlayerPrefs.GetString("FacebookEmail") == _userManager.CurrentUser.Email)
+        {
+            _view.View.TriggerEvent("FacebookAuthorized",
+                PlayerPrefs.GetString("AccessToken"),
+                PlayerPrefs.GetString("SignedRequest"),
+                PlayerPrefs.GetString("ExpiresIn"),
+                PlayerPrefs.GetString("Code"));
+        }
+        else
+        {
+            _view.View.TriggerEvent("FacebookNotAuthorized");
+        }
+    }
+
+    public void FacebookSignOut()
+    {
+        Debug.Log("Sign out of Facebook!");
+        PlayerPrefs.DeleteKey("AccessToken");
+        PlayerPrefs.DeleteKey("SignedRequest");
+        PlayerPrefs.DeleteKey("ExpiresIn");
+        PlayerPrefs.DeleteKey("Code");
+    }
+
+    public void StoreFacebook(string at, string sr, string ei, string c)
+    {
+        Debug.Log("Player signed into Facebook: ");
+        Debug.Log(at);
+        Debug.Log(sr);
+        Debug.Log(ei);
+        Debug.Log(c);
+        PlayerPrefs.SetString("FacebookEmail", _userManager.CurrentUser.Email);
+        PlayerPrefs.SetString("AccessToken", at);
+        PlayerPrefs.SetString("SignedRequest", sr);
+        PlayerPrefs.SetString("ExpiresIn", ei);
+        PlayerPrefs.SetString("Code", c);
     }
 
     #endregion
