@@ -37,7 +37,7 @@ body {
     padding: 10px;
     text-align: center;
     width: 75%;
-    height: 30px;
+    height: 60px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.25);
@@ -176,6 +176,23 @@ body {
     max-height: 50%;
 }
 
+
+/*Either this or set the height of each parent div to 100% */
+.owl-item {
+    height: 80vh;
+    padding-left: 75px;
+}
+.owl-carousel div > img {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+.owl-controls {
+    bottom: 0px;
+}
+
 video {
 	width: 100% !important;
 	height: 70vh !important;	
@@ -222,7 +239,7 @@ video {
     height: 50px;
 }
 
-.cbp-fwdots span {
+.owl-page {
     display: inline-block;
     width: 120px;
     height: 30px;
@@ -230,6 +247,7 @@ video {
     margin: 4px;
     cursor: pointer;
     color: white;
+    line-height: 30px;
 
     -webkit-box-shadow: 0px 9px 0px rgb(91, 131, 110), 0px 9px 25px rgba(0,0,0,.7);
     -moz-box-shadow: 0px 9px 0px rgb(91, 131, 110), 0px 9px 25px rgba(0,0,0,.7);
@@ -237,7 +255,7 @@ video {
     position: relative;
 }
 
-.cbp-fwdots span.cbp-fwcurrent {
+.owl-page.active {
     background: rgb(102, 147, 124);
     -webkit-box-shadow: 0px 3px 0px rgb(91, 131, 110), 0px 3px 6px rgba(0,0,0,.9);
     -moz-box-shadow: 0px 3px 0px rgb(91, 131, 110), 0px 3px 6px rgba(0,0,0,.9);

@@ -42,12 +42,13 @@ var PopulateAdPlayer = function(data ) {
 
     }
     console.log(data.background.color);
-    $('.st-content').css('background-color', '#' + data.background.color);
+    console.log(data.background.color2);
+    $('.st-content').css('background', 'linear-gradient(#' + data.background.color + ',#' + data.background.color2 + ')');
 
 }
 var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle, detailsParts, detailsNarrative, index) {
 
-    var adpage = '<li>';
+    var adpage = '<div>';
     for (var i = 0; i < adpageParts.length; ++i)
     {
         switch(adpageParts[i].type)
@@ -93,7 +94,7 @@ var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle,
     else //Ad an empty details page so ul item indexing gives the correct index.
         adpage += '<div style="display:none"  class="details-page"/>';
 
-    document.getElementById('adpages').innerHTML += adpage + '</li>';
+    document.getElementById('adpages').innerHTML += adpage + '</div>';
     $('.details-page').css('display', 'none');
 }
 
@@ -125,33 +126,19 @@ var AttachEventToPages = function () {
 
     var listItemIndex = 0;
 
-    $('#cbp-fwslider').cbpFWSlider();
-
-    $('#cbp-fwslider nav span.cbp-fwnext').click(function () {
-
-        if ($('#htmlvid'+listItemIndex).length)
-            $('#htmlvid'+listItemIndex).get(0).pause();
-        SetPage(++listItemIndex);
-        if ($('#htmlvid'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
-            $('#htmlvid'+listItemIndex)[0].dataset.played = "true";
-            $('#htmlvid'+listItemIndex).get(0).play();
+    $('.owl-carousel').owlCarousel({
+        navigation : true, // Show next and prev buttons
+        slideSpeed : 300,
+        paginationSpeed : 400,
+        singleItem: true,
+        navigation: false,
+        afterMove: function(){
+            $('.owl-page.active').trigger('click');
         }
+    });
 
-    })
 
-    $('#cbp-fwslider nav span.cbp-fwprev').click(function () {
-
-        if ($('#htmlvid'+listItemIndex).length)
-            $('#htmlvid'+listItemIndex).get(0).pause();
-        SetPage(--listItemIndex);
-        if ($('#htmlvid'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
-            $('#htmlvid'+listItemIndex)[0].dataset.played = "true";
-            $('#htmlvid'+listItemIndex).get(0).play();
-        }
-
-    })
-
-    $('.cbp-fwdots span').click(function () {
+    $('.owl-page').click(function () {
     	
         if ($('#htmlvid'+listItemIndex).length)
             $('#htmlvid'+listItemIndex).get(0).pause();
@@ -159,7 +146,7 @@ var AttachEventToPages = function () {
             $('#htmlvid-details'+listItemIndex).get(0).pause();
         $($('.details-page')[listItemIndex]).hide();
         $($('.adpage')[listItemIndex]).show();
-        listItemIndex = $('.cbp-fwcurrent').index();
+        listItemIndex = $('.owl-page.active').index();
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
         SetPage(listItemIndex);
@@ -191,7 +178,7 @@ var AttachEventToPages = function () {
     })
 
 
-    $('.cbp-fwdots').children('span').each(function(i){
+    $('.owl-page').each(function(i){
         $(this).html($('.adpage')[i].dataset.title);
     })
 

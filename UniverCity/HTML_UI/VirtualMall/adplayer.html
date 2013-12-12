@@ -12,6 +12,8 @@
     <link id="style" href="styles/style.css" media="screen" rel="stylesheet" />
     <link href="styles/video-js.css" rel="stylesheet" type="text/css">
     <link id="adplayer-style" href="styles/adplayer.css" rel="stylesheet" type="text/css">
+    <link href="../libs/owl-carousel/owl.carousel.css" media="screen" rel="stylesheet" />
+    <link href="../libs/owl-carousel/owl.theme.css" media="screen" rel="stylesheet" />
 
 </head>
 <body>
@@ -45,13 +47,6 @@
             <div class="st-content coui-inputcallback">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
                 <button type="button" class="back_button" onclick="goBack()"><i class="fa fa-arrow-left"></i></button>
-                <!--<div class="tabs">
-                    <ul class="nav nav-pills nav-justified" id="tabs">
-                        <li><a href="#cbp-fwslider" data-toggle="tab">Home</a></li>
-                        <li><a href="#mega-deal" data-toggle="tab">Mega Deal</a></li>
-                        <li><a href="#members-only" data-toggle="tab">Members Only</a></li>
-                    </ul>
-                </div>-->
                 <div id="container" class="coui-inputcallback">
                     <div class="tab-content">
                         <ul id="side-btns">
@@ -62,8 +57,11 @@
                             <li><button class="facebook" href="#non" title="Share on Facebook">facebook</button></li>
                             <button id="details-btn" class="details-btn"><img src="images/details.png"/><p id="details-text">See Details</p></button>
                         </ul>
-                        <div id="cbp-fwslider" class="cbp-fwslider tab-pane active fade ">
+<!--                        <div id="cbp-fwslider" class="cbp-fwslider tab-pane active fade ">
                             <ul id="adpages"></ul>
+                        </div>-->
+                        <div id="adpages" class="owl-carousel">
+
                         </div>
                         <div id="mega-deal" class="tab-pane fade">
                             <p id="title"></p>
@@ -101,6 +99,7 @@
     <script src="../libs/js/menumanager.js"></script>
     <script src="../libs/js/bootstrap.min.js"></script>
     <script src="js/jquery.cbpFWSlider.min.js"></script>
+    <script src="../libs/owl-carousel/owl.carousel.js"></script>
     <script src="js/adplayer.js"></script>
     <script type="text/javascript">
         shouldChangeMenu = false;
