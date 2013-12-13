@@ -6,14 +6,14 @@ $(document).ready(function () {
 
     var URL = "http://www.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
-/*    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
+    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
         AttachEventToPages();
         SetNarrator(mediaURL + adPlayerData.expert.id);
 
-    }});*/
+    }});
 
     engine.call('LoadAdData');
 });
@@ -32,69 +32,97 @@ engine.on('LoadAdPlayer', function(id, URL){
     }});
 })
 
-var PopulateAdPlayer = function(data ) {
+var PopulateAdPlayer = function(adpage ) {
 
-    for (var i = 0; i < data.pages.length; ++i) {
-        if (data.pages[i].title !== "") {
-            AddPage(data.pages[i].title, data.pages[i].parts, data.pages[i].narrative,
-                data.pages[i].more.title, data.pages[i].more.parts, data.pages[i].more.narrative, i);
+    for (var i = 0; i < adpage.pages.length; ++i) {
+        if (adpage.pages[i].title !== "") {
+
+            if (adpage.more){
+                AddPage(adpage.pages[i], adpage.more.pages[i], i);
+            }
+
+            else
+                AddPage(adpage.pages[i], null, i);
+
         }
 
     }
-    console.log(data.background.color);
-    console.log(data.background.color2);
-    $('.st-content').css('background', 'linear-gradient(#' + data.background.color + ',#' + data.background.color2 + ')');
+
+    $('.st-content').css('background', 'linear-gradient(#' + adpage.background.color + ',#' + adpage.background.color2 + ')');
 
 }
-var AddPage = function (adpageTitle, adpageParts, adpageNarrative, detailsTitle, detailsParts, detailsNarrative, index) {
+var AddPage = function (adpage, detailsPage, index) {
 
-    var adpage = '<div>';
-    for (var i = 0; i < adpageParts.length; ++i)
-    {
-        switch(adpageParts[i].type)
+
+    var style = "";
+    var  pageItem = '<div><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
+
+
+    pageItem += '<tr>';
+
+    for (var i =0; i < adpage.parts.length; ++i){
+
+        pageItem += '<td>';
+
+        switch(adpage.parts[i].type)
         {
             case "image":
-                adpage += '<div class="adpage" data-title="' + adpageTitle + '" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '"><img src="' + mediaURL + adpageParts[i].id + '"/></div>';
+                pageItem += '<img src="' + mediaURL + adpage.parts[i].id + '"/>';
                 break;
             case "video":
-                adpage += '<div class="adpage vzaar_media_player" data-title="' + adpageTitle + '" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
-                    +
-                    '<video data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpageParts[i].id +'&thumbnail=1'
-                    +'"preload="none" src="' + mediaURL + adpageParts[i].id + '"></video>'
+                pageItem += '<div class="vzaar_media_player">'
+                    +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[i].id +'&thumbnail=1'
+                    +'"preload="none" src="' + mediaURL + adpage.parts[i].id + '"></video>'
                     +'</div>';
                 break;
             case "text":
-                adpage += '<div class="adpage" data-title="' + adpageTitle + '" data-details="' + detailsTitle + '" data-narration="' + adpageNarrative + '">'
-                    + adpageParts[i].text + '</div>';
+                pageItem += '<div>'
+                    + adpage.parts[i].text + '</div>';
         }
+
+        pageItem += '</td>';
     }
+    pageItem += '</tr>';
 
-    if(detailsParts.length !== 0){
+    pageItem += '</table>';
 
-        for (var i = 0; i < detailsParts.length; ++i)
+
+    if(adpage.more.parts.length !== 0){
+
+        pageItem += '<table class="details-page" data-title="' + adpage.more.title + '" data-details="' + adpage.title + '" data-narration="' + adpage.more.narrative + '">';
+
+        pageItem += '<tr>';
+
+        for (var i = 0; i < adpage.more.parts.length; ++i)
         {
-            switch (detailsParts[i].type)
+           pageItem += '<td>';
+            switch (adpage.more.parts[i].type)
             {
-            case "image":
-                adpage += '<div class="details-page" data-title="' + detailsTitle + '" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '"><img src="' + mediaURL + detailsParts[i].id + '"/></div>';
-                break;
-            case "video":
-                adpage += '<div class="details-page vzaar_media_player" data-title="' + detailsTitle + '" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '">'
-
-                    +'<video data-played="false" preload="metadata" controls id="htmlvid-details'+ index +'" onclick="this.play();" poster="'+ mediaURL + detailsParts[i].id +'&thumbnail=1'
-                    +'"preload="none" src="' + mediaURL + detailsParts[i].id + '"></video>'
-                    +'</div>';
-                break;
-            case "text":
-                adpage += '<div class="details-page" data-title="' + detailsTitle + '" data-details="' + adpageTitle + '" data-narration="' + detailsNarrative + '">'
-                    + detailsParts[i].text + '</div>';
-        	}
+                case "image":
+                    pageItem += '<img src="' + mediaURL + adpage.more.parts[i].id + '"/></div>';
+                    break;
+                case "video":
+                    pageItem += '<div class="vzaar_media_player">'
+                        +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid-details'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.more.parts[i].id +'&thumbnail=1'
+                        +'"preload="none" src="' + mediaURL + adpage.more.parts[i].id + '"></video>'
+                        +'</div>';
+                    break;
+                case "text":
+                    pageItem += '<div>'
+                        + adpage.more.parts[i].text + '</div>';
+            }
+            pageItem += '</td>';
         }
+
+        pageItem += '</tr>';
+
+        pageItem += '</table>';
+
     }
     else //Ad an empty details page so ul item indexing gives the correct index.
-        adpage += '<div style="display:none"  class="details-page"/>';
+        pageItem += '<div style="display:none"  class="details-page"/>';
 
-    document.getElementById('adpages').innerHTML += adpage + '</div>';
+    document.getElementById('adpages').innerHTML += pageItem + '</div>';
     $('.details-page').css('display', 'none');
 }
 
@@ -161,8 +189,6 @@ var AttachEventToPages = function () {
 
         var adpage = $('.adpage')[listItemIndex];
         var pageDetails = $('.details-page')[listItemIndex];
-        console.log(listItemIndex);
-        console.log($('.details-page'));
         $(adpage).toggle();
         $(pageDetails).toggle();
 
