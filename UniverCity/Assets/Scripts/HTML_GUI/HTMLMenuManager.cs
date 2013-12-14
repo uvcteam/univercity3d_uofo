@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Object = UnityEngine.Object;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
 using Coherent.UI.Binding;
@@ -13,6 +15,8 @@ public class HTMLMenuManager : MonoBehaviour
     private CoherentUIView _view;
     private UserManager _userManager;
     private bool _viewReady;
+    private const string FacebookAppURL = "http://www.univercity3d.com/mobileapp.html";
+    private string LocalAppURL = "";
 
     void Start()
     {
@@ -34,8 +38,24 @@ public class HTMLMenuManager : MonoBehaviour
             _view.View.BindCall("StoreFacebook", (System.Action<string, string, string, string>)StoreFacebook);
         };
 
+        _view.OnViewCreated += (view) => view.InterceptURLRequests(true);
+        _view.Listener.URLRequest += OnURLRequestHandler;
+
         _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
         _viewReady = false;
+    }
+
+    void OnURLRequestHandler(string url, URLResponse response)
+    {
+        if (url.StartsWith(FacebookAppURL))
+        {
+            // change the url, keeping all parameters intact
+            //string redirectURL = LocalAppURL + url.Substring(FacebookAppURL.Length);
+            
+            response.RedirectRequest(LocalAppURL);
+            return;
+        }
+        response.AllowRequest();
     }
 
     void OnViewReady(View view)

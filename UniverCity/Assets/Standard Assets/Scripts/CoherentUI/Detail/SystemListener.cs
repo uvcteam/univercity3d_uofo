@@ -49,27 +49,34 @@ namespace Coherent.UI.Mobile
 		{
 			return new string('-', 64);
 		}
-		
+
 		public override void OnSoftwareKeyboardVisibilityChanged(bool visible)
 		{
 			UnityEngine.TouchScreenKeyboard kbd = null;
 
-			if (!UnityEngine.TouchScreenKeyboard.visible && visible)
+			bool isHidden = (!UnityEngine.TouchScreenKeyboard.visible)
+				|| (CoherentUISystem.Instance.TouchscreenKeyboard == null);
+
+			if (visible)
 			{
+				if (!isHidden)
+				{
+					return;
+				}
+
 				UnityEngine.TouchScreenKeyboard.hideInput = true;
 				string initialString = GetTouchScreenKbdInitialText();
 				kbd = UnityEngine.TouchScreenKeyboard.Open(initialString);
-				
+
 				if (kbd != null && kbd.text.Length != initialString.Length)
 				{
 					kbd.text = initialString;
 				}
 			}
-			
 			CoherentUISystem.Instance.TouchscreenKeyboard = kbd;
 		}
 #endif
-		
+
 		private System.Action m_OnSystemReady;
 	}
 }

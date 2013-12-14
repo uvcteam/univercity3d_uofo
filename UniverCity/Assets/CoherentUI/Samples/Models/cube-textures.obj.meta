@@ -4,31 +4,31 @@ ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
     100000: back_face
-    100002: bottom_face
-    100004: //RootNode
+    100002: //RootNode
+    100004: left_face
     100006: front_face
-    100008: left_face
-    100010: right_face
-    100012: top_face
+    100008: bottom_face
+    100010: top_face
+    100012: right_face
     400000: back_face
-    400002: bottom_face
-    400004: //RootNode
+    400002: //RootNode
+    400004: left_face
     400006: front_face
-    400008: left_face
-    400010: right_face
-    400012: top_face
+    400008: bottom_face
+    400010: top_face
+    400012: right_face
     2300000: back_face
-    2300002: bottom_face
+    2300002: left_face
     2300004: front_face
-    2300006: left_face
-    2300008: right_face
-    2300010: top_face
+    2300006: bottom_face
+    2300008: top_face
+    2300010: right_face
     3300000: back_face
-    3300002: bottom_face
+    3300002: left_face
     3300004: front_face
-    3300006: left_face
-    3300008: right_face
-    3300010: top_face
+    3300006: bottom_face
+    3300008: top_face
+    3300010: right_face
     4300000: back_face
     4300002: bottom_face
     4300004: front_face
