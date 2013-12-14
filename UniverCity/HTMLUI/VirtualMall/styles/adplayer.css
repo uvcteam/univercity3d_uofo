@@ -84,20 +84,7 @@ body {
 .tab-content {
     height: 100%;
 }
-.nav li {
-    text-transform: uppercase;
-    font-family: 'Oswald';
-    font-weight: 400;
-    margin-right: 5px;
-}
 
-.nav-pills > li.active > a {
-    background-color: rgb(102, 147, 124);
-}
-
-.nav-pills > li.active > a:hover {
-    background-color: rgb(102, 147, 124);
-}
 
 #mega-deal{
     text-align: center;
@@ -129,63 +116,23 @@ body {
     margin-top: 20%;
 }
 
-.cbp-fwslider {
-    position: relative;
-    margin: 0 0 10px;
-    overflow: hidden;
-    padding: 40px 0 60px;
-    height: 100%;
-    z-index: 0;
-}
-
-.cbp-fwslider ul {
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-    list-style-type: none;
-    height: 200%;
-}
-
-.cbp-fwslider ul li {
-/*    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);*/
-    transform: translateZ(0);
-    float: left;
-    display: block;
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.cbp-fwslider ul li > a,
-.cbp-fwslider ul li > div {
-    display: block;
-    text-align: center;
-    outline: none;
-    max-width: 90%;
-    margin-left: 9%;
-    margin-right: auto;
-}
-
-.cbp-fwslider ul li div > img {
-    border: none;
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    max-height: 50%;
-}
-
 
 /*Either this or set the height of each parent div to 100% */
 .owl-item {
     height: 80vh;
     padding-left: 75px;
 }
-.owl-carousel div > img {
+
+.owl-item table {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.owl-carousel td > img {
     border: none;
     display: block;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 100%;
     max-height: 100%;
 }
@@ -198,46 +145,6 @@ video {
 	height: 70vh !important;	
 }
 
-.cbp-fwslider nav {
-    display: none;
-}
-.cbp-fwslider nav span {
-    display: none;
-    position: absolute;
-    bottom: 0%;
-    width: 50px;
-    max-width:10%;
-    height: 25px;
-    background: rgb(102, 147, 124);
-    color: #fff;
-    font-size: 50px;
-    text-align: center;
-    margin-top: -50px;
-    line-height: 100px;
-    cursor: pointer;
-    font-weight: normal;
-}
-
-.cbp-fwslider nav span:hover {
-    background: rgb(102, 147, 124);
-}
-
-.cbp-fwslider nav span.cbp-fwnext {
-    right: 15%;
-}
-
-.cbp-fwslider nav span.cbp-fwprev {
-    left: 15%;
-}
-
-.cbp-fwdots {
-    position: absolute;
-    bottom: 0px;
-    white-space: nowrap;
-    text-align: center;
-    width: 100%;
-    height: 50px;
-}
 
 .owl-page {
     display: inline-block;
