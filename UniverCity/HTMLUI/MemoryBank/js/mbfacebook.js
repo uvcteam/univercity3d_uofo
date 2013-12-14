@@ -80,7 +80,7 @@ function SignedIn() {
             authResponse: auth,
             status     : true, // check login status
             cookie     : true, // enable cookies to allow the server to access the session
-            xfbml      : false  // parse XFBML
+            xfbml      : true  // parse XFBML
         });
 
         var button = $('<button id="login">Facebook Logout</button>').button().click(function () {
