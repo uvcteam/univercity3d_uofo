@@ -50,9 +50,8 @@ public class HTMLMenuManager : MonoBehaviour
         if (url.StartsWith(FacebookAppURL))
         {
             // change the url, keeping all parameters intact
-            //string redirectURL = LocalAppURL + url.Substring(FacebookAppURL.Length);
-            
-            response.RedirectRequest(LocalAppURL);
+            string redirectURL = LocalAppURL + url.Substring(FacebookAppURL.Length);
+            response.RedirectRequest(redirectURL);
             return;
         }
         response.AllowRequest();
