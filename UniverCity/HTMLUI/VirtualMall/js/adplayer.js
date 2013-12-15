@@ -71,7 +71,7 @@ var AddPage = function (adpage, detailsPage, index) {
             partType = "three";
             break;
         case 4:
-            partType = "two";
+            partType = "four";
             break;
     }
     pageItem += '<tr>';
@@ -122,7 +122,7 @@ var AddPage = function (adpage, detailsPage, index) {
                 partType = "three";
                 break;
             case 4:
-                partType = "two";
+                partType = "four";
                 break;
         }
 

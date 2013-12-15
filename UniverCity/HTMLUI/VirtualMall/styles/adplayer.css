@@ -139,6 +139,11 @@ body {
 .three {
     width: 33.33%;
 }
+.four {
+    width: 50%;
+    height: 40vh;
+    
+}
 .owl-item table {
     margin-right: auto;
     margin-left: auto;
