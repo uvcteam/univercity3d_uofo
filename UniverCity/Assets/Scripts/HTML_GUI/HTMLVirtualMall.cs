@@ -63,7 +63,7 @@ public class HTMLVirtualMall : MonoBehaviour
     void GetBusinessSubCat(string subcat)
     {
         _subCat = subcat;
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/virtualmallsubcat.html");
+        _view.View.Load("coui://HTMLUI/VirtualMall/virtualmallsubcat.html");
     }
 
     void ReadyForCategories()
@@ -99,7 +99,7 @@ public class HTMLVirtualMall : MonoBehaviour
     void SetBusinessID(string businessid)
     {
         _businessID = businessid;
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html");       
+        _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html");       
     }
 
     void SetJsonString(string json, int id)
@@ -117,13 +117,13 @@ public class HTMLVirtualMall : MonoBehaviour
     void SetFlashDealID(int flashdealID)
     {
         _flashdealID = flashdealID;
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/flashdeal.html");
+		_view.View.Load("coui://HTMLUI/VirtualMall/flashdeal.html");
     }
 
     void SetBusinessIDForCard(string businessid)
     {
         _businessID = businessid;
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/businesscard.html");
+		_view.View.Load("coui://HTMLUI/VirtualMall/businesscard.html");
     }
 
     void LoadBusinessCard()
