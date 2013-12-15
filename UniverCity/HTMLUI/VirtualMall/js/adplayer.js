@@ -1,10 +1,10 @@
 
 
-var mediaURL = "http://www.univercity3d.com/univercity/admedia?id=";
+var mediaURL = "http://app2.univercity3d.com/univercity/admedia?id=";
 $(document).ready(function () {
     console.log("Ready for Unity.");
 
-    var URL = "http://www.univercity3d.com/univercity/getAd?b=";
+    var URL = "http://app2.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
     $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
         console.log(adPlayerData);
@@ -17,6 +17,7 @@ $(document).ready(function () {
 
     engine.call('LoadAdData');
 });
+
 
 engine.on('LoadAdPlayer', function(id, URL){
     mediaURL = URL + "admedia?id=";
@@ -55,14 +56,35 @@ var AddPage = function (adpage, detailsPage, index) {
 
 
     var style = "";
-    var  pageItem = '<div><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
+    var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
+    var partType = "one";
 
-
+    switch (adpage.parts.length)
+    {
+        case 1 :
+            partType = "one";
+            break;
+        case  2:
+            partType = "two";
+            break;
+        case 3:
+            partType = "three";
+            break;
+        case 4:
+            partType = "two";
+            break;
+    }
     pageItem += '<tr>';
+
 
     for (var i =0; i < adpage.parts.length; ++i){
 
-        pageItem += '<td>';
+        if( adpage.parts.length == 4 && i == 2)
+        {
+            pageItem += '</tr><tr>';
+        }
+
+        pageItem += '<td class="'+ partType +'">';
 
         switch(adpage.parts[i].type)
         {
@@ -88,6 +110,21 @@ var AddPage = function (adpage, detailsPage, index) {
 
 
     if(adpage.more.parts.length !== 0){
+        switch (adpage.more.parts.length)
+        {
+            case 1 :
+                partType = "one";
+                break;
+            case  2:
+                partType = "two";
+                break;
+            case 3:
+                partType = "three";
+                break;
+            case 4:
+                partType = "two";
+                break;
+        }
 
         pageItem += '<table class="details-page" data-title="' + adpage.more.title + '" data-details="' + adpage.title + '" data-narration="' + adpage.more.narrative + '">';
 
@@ -95,7 +132,12 @@ var AddPage = function (adpage, detailsPage, index) {
 
         for (var i = 0; i < adpage.more.parts.length; ++i)
         {
-           pageItem += '<td>';
+            if( adpage.more.parts.length == 4 && i == 2)
+            {
+                pageItem += '</tr><tr>';
+            }
+
+            pageItem += '<td class="'+ partType +'">';
             switch (adpage.more.parts[i].type)
             {
                 case "image":

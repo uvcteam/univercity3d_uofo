@@ -123,6 +123,22 @@ body {
     padding-left: 75px;
 }
 
+.page {
+    height: 100%;
+    color: black;
+}
+
+.page table{
+    height: 80vh;
+}
+
+.two {
+    width: 50%
+}
+
+.three {
+    width: 33.33%;
+}
 .owl-item table {
     margin-right: auto;
     margin-left: auto;
@@ -137,6 +153,7 @@ body {
     max-height: 100%;
 }
 .owl-controls {
+    top: -10px;
     bottom: 0px;
 }
 
@@ -247,7 +264,6 @@ video {
 
     background: #E36E1B;
     color: white;
-    text-shadow: 0 0 0.2em white;
     -webkit-box-shadow: 0px 9px 0px #B35715, 0px 9px 25px rgba(0,0,0,.7);
     -moz-box-shadow: 0px 9px 0px #B35715, 0px 9px 25px rgba(0,0,0,.7);
     box-shadow: 0px 9px 0px #B35715, 0px 9px 25px rgba(0,0,0,.7);
@@ -276,7 +292,6 @@ video {
 
     background: #62C24F;
     color: white;
-    text-shadow: 0 0 0.2em white;
     -webkit-box-shadow: 0px 9px 0px  #4C963E, 0px 9px 25px rgba(0,0,0,.7);
     -moz-box-shadow: 0px 9px 0px  #4C963E, 0px 9px 25px rgba(0,0,0,.7);
     box-shadow: 0px 9px 0px  #4C963E 0px 9px 25px rgba(0,0,0,.7);
@@ -333,8 +348,10 @@ video {
     text-transform: lowercase;
     text-align: center;
     font-weight: bold;
-    font-size: 12px;
-    /*line-height: 66px;*/
+    font-size: 80px;
+    font: 80px Verdana, sans-serif;
+    font-weight: bold;
+    line-height: 66px;
     color: #fff;
     background: #3c5a98;
     -moz-box-shadow: 0 0 4px rgba(0,0,0,0.4);
