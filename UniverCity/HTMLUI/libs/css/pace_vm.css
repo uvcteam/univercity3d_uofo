@@ -23,8 +23,16 @@
     bottom: 0;
 }
 
+
 .pace.pace-inactive .pace-progress {
     display: none;
+}
+
+.pace-active{
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+
 }
 
 .pace .pace-progress {
@@ -32,8 +40,8 @@
     z-index: 2000;
     display: block;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     height: 6rem;
     width: 6rem !important;
     line-height: 6rem;
