@@ -2,6 +2,17 @@ body {
     background: transparent !important;
 }
 
+#container > h1 {
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    font-weight: 400;
+    color: rgb(238, 123, 43);
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+}
+
 .st-content {
     background: transparent !important;
 }

@@ -23,23 +23,24 @@
     <link rel="stylesheet" type="text/css" href="styles/cancelwithdraw.css" />
 </head>
 <body>
-<div class="md-modal md-effect-5" id="modal-5">
-    <div class="md-content">
-        <h3>Your Event</h3>
-        <div>
-            <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
-            <p class="m-event-when">February 13th - 7:30PM</p>
-            <button class="md-cancel">Close</button>
-        </div>
-    </div>
-</div>
-<div class="md-modal md-effect-5" id="modal-6">
-    <div class="md-content">
-        <h3>This Event</h3>
-        <div>
-            <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
-            <p class="m-event-when">February 13th - 7:30PM</p>
-            <button class="md-cancel">Close</button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title m-event-title" id="myModalLabel">Shakespeare Practice Play</h4>
+            </div>
+            <div class="modal-body">
+                <h6>Who</h6>
+                <p class="m-event-who">All participants in the play and anyone who wants to see it.</p>
+                <h6>What</h6>
+                <p class="m-event-what">We will be practicing our performance of the play King Lear. Anyone who is not participating in the play is free to watch the practice.</p>
+                <h6>Where</h6>
+                <span class="m-event-where">University Theatre</span><span> on </span><span class="m-event-date"></span><span> at </span><span class="m-event-when">6:00PM</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
         </div>
     </div>
 </div>

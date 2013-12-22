@@ -2,6 +2,7 @@
  * Created by Jacob on 11/24/13.
  */
 // Web Functions.
+var lastEventID = -1;
 
 $(function() {
     engine.call("GetMyEvents");
@@ -18,10 +19,58 @@ function WithdrawEvent() {
     engine.call("WithdrawEvent", lastEventID);
 }
 
+function ShowEvent(caller) {
+    var element = $(caller);
+    lastEventID = element.attr('event-id');
+    $('.m-event-title').html(element.attr('event-name'));
+    $('.m-event-who').html(element.attr('event-who'));
+    $('.m-event-what').html(element.attr('event-what'));
+    $('.m-event-where').html(element.attr('event-where'));
+    $('.m-event-date').html(element.attr('event-date'));
+    $('.m-event-when').html(element.attr('event-time'));
+    $('#myModal').modal('show');
+}
+
+function ShowCancelEvent(caller) {
+    var element = $(caller);
+    lastEventID = element.attr('event-id');
+    $('.modal-title').html('Are you sure you wish to cancel');
+    $('.m-event-title').html(element.attr('event-name'));
+    $('.m-event-who').html(element.attr('event-who'));
+    $('.m-event-what').html(element.attr('event-what'));
+    $('.m-event-where').html(element.attr('event-where'));
+    $('.m-event-date').html(element.attr('event-date'));
+    $('.m-event-when').html(element.attr('event-time'));
+    $('.btn-primary').click(function() {
+        CancelEvent();
+    });
+    $('#myModal').modal('show');
+}
+
+function ShowWithdrawEvent(caller) {
+    var element = $(caller);
+    lastEventID = element.attr('event-id');
+    $('.modal-title').html('Are you sure you wish to withdraw from');
+    $('.m-event-title').html(element.attr('event-name'));
+    $('.m-event-who').html(element.attr('event-who'));
+    $('.m-event-what').html(element.attr('event-what'));
+    $('.m-event-where').html(element.attr('event-where'));
+    $('.m-event-date').html(element.attr('event-date'));
+    $('.m-event-when').html(element.attr('event-time'));
+    $('.btn-primary').click(function() {
+        WithdrawEvent();
+    });
+    $('#myModal').modal('show');
+}
+
 // Invoked by Unity3D.
 engine.on("CreateMyEvent", function(name, date, time, desc, who, where, id){
     var newEvent = '';
-    newEvent += '<div class="event md-trigger" data-modal="modal-5"';
+    newEvent += '<div class="event" onclick="';
+    if (location.pathname === '/UnionHall/myevents.html')
+        newEvent += 'ShowEvent(this)"';
+    else
+        newEvent += 'ShowCancelEvent(this)"';
     newEvent += ' event-name="' + name + '"';
     newEvent += ' event-who="' + who + '"';
     newEvent += ' event-what="' + desc + '"';
@@ -41,7 +90,11 @@ engine.on("CreateMyEvent", function(name, date, time, desc, who, where, id){
 
 engine.on("CreateOtherEvent", function(name, date, time, desc, who, where, id){
     var newEvent = '';
-    newEvent += '<div class="event md-trigger" data-modal="modal-6"';
+    newEvent += '<div class="event" onclick="';
+    if (location.pathname === '/UnionHall/myevents.html')
+        newEvent += 'ShowEvent(this)"';
+    else
+        newEvent += 'ShowWithdrawEvent(this)"';
     newEvent += ' event-name="' + name + '"';
     newEvent += ' event-who="' + who + '"';
     newEvent += ' event-what="' + desc + '"';

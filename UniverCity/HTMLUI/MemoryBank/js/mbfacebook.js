@@ -35,7 +35,7 @@ function NeedToSignIn() {
                 client_id: appID,
                 redirect_uri: appURL,
                 response_type: 'token,signed_request,code',
-                scope: 'user_photos'
+                scope: 'user_photos,publish_actions'
             };
             var url = path + $.param(queryParams);
             // redirect the view to the facebook authorization dialog

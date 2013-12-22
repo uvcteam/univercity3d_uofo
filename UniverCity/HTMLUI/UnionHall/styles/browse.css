@@ -39,3 +39,34 @@
     margin-left: 2em;
     margin-right: 2em;
 }
+
+/* -------------------------------------------------------------
+======	MEDIA QUERIES
+------------------------------------------------------------- */
+
+/* -- Media query 1 (mq1)
+------------------------------------------------------------- */
+@media only screen and (max-width: 60em) { /* 13 / 780 */
+    .no-events {
+        margin-top: 0px;
+        float: right;
+    }
+}
+
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 48em) {
+    .no-events {
+        margin-top: 0px;
+        float: right;
+    }
+}
+
+/* -- Media query 3 (mq3)
+------------------------------------------------------------- */
+@media only screen and (max-width: 30em) { /* 13 / 390 */
+    .no-events {
+        margin-top: 0px;
+        float: right;
+    }
+}

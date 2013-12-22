@@ -20,6 +20,10 @@
     margin-right: 5px;
 }
 
+.nav li > a {
+    color: rgb(62, 129, 112);
+}
+
 .nav-pills > li.active > a {
     background-color: rgb(62, 129, 112);
 }

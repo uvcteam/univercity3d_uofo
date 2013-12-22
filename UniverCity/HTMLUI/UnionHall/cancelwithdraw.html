@@ -23,25 +23,25 @@
     <link rel="stylesheet" type="text/css" href="styles/cancelwithdraw.css" />
 </head>
 <body>
-<div class="md-modal md-effect-5" id="modal-5">
-    <div class="md-content">
-        <h3>Do you want to cancel</h3>
-        <div>
-            <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
-            <p class="m-event-when">February 13th - 7:30PM</p>
-            <p class="m-event-note">To change your mind, tap off of this dialog box.</p>
-            <button class="md-cancel" onclick="CancelEvent()">Yes!</button>
-        </div>
-    </div>
-</div>
-<div class="md-modal md-effect-5" id="modal-6">
-    <div class="md-content">
-        <h3>Do you want to withdraw from</h3>
-        <div>
-            <h2 class="m-event-title">Edgar Allen Poe Study Group</h2>
-            <p class="m-event-when">February 13th - 7:30PM</p>
-            <p class="m-event-note">To change your mind, tap off of this dialog box.</p>
-            <button class="md-cancel" onclick="WithdrawEvent()">Yes!</button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Are you sure you wish to cancel</h4>
+            </div>
+            <div class="modal-body">
+                <h6 class="m-event-title"></h6>
+                <h6>Who</h6>
+                <p class="m-event-who">All participants in the play and anyone who wants to see it.</p>
+                <h6>What</h6>
+                <p class="m-event-what">We will be practicing our performance of the play King Lear. Anyone who is not participating in the play is free to watch the practice.</p>
+                <h6>Where</h6>
+                <span class="m-event-where">University Theatre</span><span> on </span><span class="m-event-date"></span><span> at </span><span class="m-event-when">6:00PM</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">NO</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">YES</button>
+            </div>
         </div>
     </div>
 </div>

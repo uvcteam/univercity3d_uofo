@@ -19,11 +19,23 @@
 .modal-footer > .btn-primary {
     background-color: rgb(62, 129, 112) !important;
     font-weight: 700;
+    border-color: rgb(62, 129, 112);
 }
 
 .modal-body p {
     font-family: 'Open Sans';
     color: #686a6e;
+}
+
+.modal-body > h6 {
+    color: rgb(62, 129, 112);
+    font-family: 'Oswald';
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.modal-body > span {
+    color: #686a6e !important;
 }
 
 #menu_btn {
@@ -407,16 +419,32 @@
 /* -- Media query 1 (mq1)
 ------------------------------------------------------------- */
 @media only screen and (max-width: 60em) { /* 13 / 780 */
+    .st-container {
+        overflow-y: hidden;
+    }
+
+    .st-content-inner {
+        height: 90%;
+    }
+
+    .upcoming-events {
+        height: 25%;
+    }
 }
     
 /* -- Media query 2 (mq2)
 ------------------------------------------------------------- */
-@media only screen and (max-width: 48em) { /* 13 / 624 */
+@media only screen and (max-width: 48em) {
+
+    .upcoming-events {
+        height: 25%;
+    }
 }
     
 /* -- Media query 3 (mq3)
 ------------------------------------------------------------- */
 @media only screen and (max-width: 30em) { /* 13 / 390 */
+
     .fc-calendar-container {
         height: 300px;
     }
@@ -435,6 +463,7 @@
     .upcoming-events {
         width: 100%;
         margin-left: 5px;
+        height: 25%;
     }
 
     .upcoming-events > h1 {

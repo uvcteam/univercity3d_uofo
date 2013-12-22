@@ -2,6 +2,8 @@
  * Created by Jacob on 11/24/13.
  */
 // Web Functions.
+var lastEventID = -1;
+
 var currentCategory = 'All Categories';
 $(function () {
     $('.category-dropdown').val('All Categories');
@@ -31,6 +33,18 @@ function CreateEvent(name, date, time, desc)
     ModalEffects();
 }
 
+function ShowEvent(caller) {
+    var element = $(caller);
+    lastEventID = element.attr('event-id');
+    $('.m-event-title').html(element.attr('event-name'));
+    $('.m-event-who').html(element.attr('event-who'));
+    $('.m-event-what').html(element.attr('event-what'));
+    $('.m-event-where').html(element.attr('event-where'));
+    $('.m-event-date').html(element.attr('event-date'));
+    $('.m-event-when').html(element.attr('event-time'));
+    $('#myModal').modal('show');
+}
+
 function JoinEvent() {
     console.log("Join event " + lastEventID);
     engine.call("JoinEvent", lastEventID);
@@ -39,7 +53,7 @@ function JoinEvent() {
 // Invoked by Unity3D.
 engine.on("CreateEvent", function(name, date, time, desc, who, where, id){
     var newEvent = '';
-    newEvent += '<div class="event md-trigger" data-modal="modal-5"';
+    newEvent += '<div class="event" onclick="ShowEvent(this)"';
     newEvent += ' event-name="' + name + '"';
     newEvent += ' event-who="' + who + '"';
     newEvent += ' event-what="' + desc + '"';

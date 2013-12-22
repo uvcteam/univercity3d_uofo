@@ -1,6 +1,6 @@
 .st-content-inner {
-    overflow-y: hidden !important;
     height: 90%;
+    margin-top: 10px;
 }
 
 #user-quotes {
@@ -15,7 +15,7 @@
 .upcoming-events {
     width: 90%;
     margin: 0 auto;
-    height: 50%;
+    height: 20%;
     float: none;
 }
 
@@ -316,6 +316,10 @@
 	    margin-top: 3em;
 		width: 100%;
 	}
+
+    .pin-div form input[type=button]{
+        width: 100%;
+    }
 }
     
 /* -- Media query 2 (mq2)
@@ -334,6 +338,10 @@
 	    margin-top: 3em;
 		width: 100%;
 	}
+
+    .pin-div form input[type=button]{
+        width: 100%;
+    }
     
     .preferences {
         width: 90%;
@@ -416,5 +424,9 @@
 
     .ac-custom svg path {
 	    stroke-width: 6px;
+    }
+
+    .pin-div form input[type=button]{
+        width: 100%;
     }
 }
