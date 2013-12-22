@@ -18,25 +18,9 @@
 </head>
 <body>
 <div id="fb-root"></div>
-<script>
-    window.fbAsyncInit = function() {
-        // init the FB JS SDK
-        FB.init({
-            appId      : '178630832342722',                        // App ID from the app dashboard
-            status     : true,                                 // Check Facebook Login status
-            xfbml      : true                                  // Look for social plugins on the page
-        });
-
-        // Additional initialization code such as adding Event Listeners goes here
-    };
-
-    (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=178630832342722";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+<script type="text/javascript">
+    // You probably don't want to use globals, but this is just example code
+    var fbAppId = '178630832342722';
 
 </script>
     <div id="st-container" class="st-container coui-inputcallback">
@@ -76,7 +60,7 @@
                             <li><button class="fav-btn">Save to<br/><span class="fa fa-star"></span>Notifications</button></li>
                             <li><button class="mega-btn" href="#mega-deal" data-toggle="tab">Mega Deal</button></li>
                             <li><button disabled class="members-btn" href="#members-only" data-toggle="modal" data-target="#myModal" onclick="buttonSelected()">Members Only</button></li>
-                            <li><div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div></li>
+                            <li><button class="facebook" onclick="postLike();">f</button></li>
                             <button id="details-btn" class="details-btn"><img src="images/details.png"/><p id="details-text">See Details</p></button>
                         </ul>
 <!--                        <div id="cbp-fwslider" class="cbp-fwslider tab-pane active fade ">
@@ -113,6 +97,7 @@
             </div>
         </div>
     </div>
+<div id="result"></div>
     <script src="../libs/js/coherent.js"></script>
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
     <script src="../libs/js/jquery-1.10.0.js"></script>
@@ -123,6 +108,7 @@
     <script src="js/jquery.cbpFWSlider.min.js"></script>
     <script src="../libs/owl-carousel/owl.carousel.js"></script>
     <script src="js/adplayer.js"></script>
+<script src="js/facebook.js"></script>
     <script type="text/javascript">
         shouldChangeMenu = false;
         HideMenu();

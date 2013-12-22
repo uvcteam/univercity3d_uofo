@@ -29,22 +29,18 @@
     <script src="../libs/js/pace.js"></script>
 </head>
 <body>
-<!-- Preloader -->
-<div id="preloader">
-    <div id="status">&nbsp;</div>
-</div>
-        <nav class="st-menu st-effect-1" id="menu-1">
-            <h2><i class="icon-cart"></i>&nbsp;Virtual Mall</h2>
-            <ul>
-                <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
-                <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;My Vault</a></li>
-                <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
-                <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
-            </ul>
-        </nav>            
     <div id="st-container" class="st-container"><!-- content push wrapper -->
+    <nav class="st-menu st-effect-1" id="menu-1">
+        <h2><i class="icon-cart"></i>&nbsp;Virtual Mall</h2>
+        <ul>
+            <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
+            <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;My Vault</a></li>
+            <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
+            <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
+        </ul>
+    </nav>
         <div class="st-pusher">
-            <div class="st-content">
+            <div class="st-content" id="st-content">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
                 <div class="st-content-inner">
                 <div class="owl-carousel flash-carousel">
@@ -692,7 +688,7 @@
     <script src="../libs/js/jquery.scrollbox.js"></script>
     <script src="../libs/owl-carousel/owl.carousel.js"></script>
     <script src="js/virtualmall.js"></script>
-<script src="../libs/js/preloader.js"></script>
+    <script src="../libs/js/preloader.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.category-carousel').owlCarousel({

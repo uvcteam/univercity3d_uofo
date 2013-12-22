@@ -1,5 +1,16 @@
 $(document).ready(function(){
     engine.call('LoadFlashDeals');
+
+    $(function () {
+        $('.sub-category').click(function () {
+            console.log(this.getAttribute('catid'));
+            engine.call('GetBusinessSubCat', this.getAttribute('catid'));
+        });
+
+        var URL = "http://app2.univercity3d.com/univercity/GetFlashDeals";
+        //Parameter passing breaks iOS so comment out hen building to iOS
+
+    });
 })
 
 engine.on('LoadFlashDeals', function(URL){
@@ -16,16 +27,6 @@ engine.on('LoadFlashDeals', function(URL){
     }});
 })
 
-$(function () {
-    $('.sub-category').click(function () {
-        console.log(this.getAttribute('catid'));
-        engine.call('GetBusinessSubCat', this.getAttribute('catid'));
-    });
-    
-    var URL = "http://app2.univercity3d.com/univercity/GetFlashDeals";
-    //Parameter passing breaks iOS so comment out hen building to iOS
-
-});
 
 function AddFlashDeals(flashDealData) {
 

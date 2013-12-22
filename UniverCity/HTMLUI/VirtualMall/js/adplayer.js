@@ -1,6 +1,8 @@
 
 
 var mediaURL = "http://app2.univercity3d.com/univercity/admedia?id=";
+var objectToLike = 'http://samples.ogp.me/126210144220828';
+
 $(document).ready(function () {
     console.log("Ready for Unity.");
 
@@ -20,6 +22,7 @@ $(document).ready(function () {
 
 
 engine.on('LoadAdPlayer', function(id, URL){
+    //objectToLike += id;
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
     console.log('LoadAdPlauer');
@@ -331,3 +334,22 @@ $('.done-btn').click(function(){
     $('#side-btns button:first').tab('show');
     $('.selected').removeClass('selected');
 });
+
+function postLike() {
+    FB.api(
+        '/me/og.likes',
+        'post',
+        {
+            object: objectToLike
+        },
+        function(response) {
+            if (!response) {
+                alert('Error occurred.');
+            } else if (response.error) {
+                alert(response.error.message);
+            } else {
+                alert("Succesfully posted to your TimeLine.");
+            }
+        }
+    );
+}
