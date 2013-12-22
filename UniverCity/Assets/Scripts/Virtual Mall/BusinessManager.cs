@@ -47,11 +47,11 @@ public class BusinessManager : MonoBehaviour
     // ---------------------------------------------------
     public IEnumerator GetBusinessInformation()
     {
-        if (Application.platform == RuntimePlatform.WindowsEditor) ;
-            //loader.SetActive(true);
-        else if (Application.platform == RuntimePlatform.Android ||
-                 Application.platform == RuntimePlatform.IPhonePlayer)
-            NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Businesses", false, false);  
+        //if (Application.platform == RuntimePlatform.WindowsEditor) ;
+        //    //loader.SetActive(true);
+        //else if (Application.platform == RuntimePlatform.Android ||
+        //         Application.platform == RuntimePlatform.IPhonePlayer)
+        //    NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Businesses", false, false);  
         string bURL = serverURL + "BusinessInfo?u=UofO";
         string bLURL = serverURL + "BusinessLogos?b=";
         string bName = "";
@@ -175,11 +175,11 @@ public class BusinessManager : MonoBehaviour
             businesses[i].logo.Apply();
         }
 
-        if (Application.platform == RuntimePlatform.WindowsEditor) ;
-            //loader.SetActive(false);
-        else if (Application.platform == RuntimePlatform.Android ||
-                 Application.platform == RuntimePlatform.IPhonePlayer)
-            NativeDialogs.Instance.HideProgressDialog();
+        //if (Application.platform == RuntimePlatform.WindowsEditor) ;
+        //    //loader.SetActive(false);
+        //else if (Application.platform == RuntimePlatform.Android ||
+        //         Application.platform == RuntimePlatform.IPhonePlayer)
+        //    NativeDialogs.Instance.HideProgressDialog();
     }
 }
 
