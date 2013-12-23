@@ -376,6 +376,11 @@
     .ac-custom svg path {
 	    stroke-width: 6px;
     }
+
+    .pin-div {
+        width: 90%;
+        left: 5%;
+    }
 }
     
 /* -- Media query 3 (mq3)
@@ -428,5 +433,10 @@
 
     .pin-div form input[type=button]{
         width: 100%;
+    }
+
+    .pin-div {
+        width: 90%;
+        left: 5%;
     }
 }

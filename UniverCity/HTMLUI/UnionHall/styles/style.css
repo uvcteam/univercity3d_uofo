@@ -87,7 +87,7 @@
     text-align: right;
     padding: 10px;
     margin-bottom: 75px;
-    visibility: hidden;
+    display: none;
     color: #686a6e;
     font-style: italic;
 }
@@ -99,7 +99,6 @@
 
 .events {
     visibility: visible;
-    margin-top: -60px;
 }
 
 .event {
@@ -435,9 +434,12 @@
 /* -- Media query 2 (mq2)
 ------------------------------------------------------------- */
 @media only screen and (max-width: 48em) {
-
     .upcoming-events {
         height: 25%;
+    }
+
+    .event {
+        height: 75px;
     }
 }
     
@@ -468,5 +470,9 @@
 
     .upcoming-events > h1 {
         margin-right: 1em;
+    }
+
+    .event {
+        height: 75px;
     }
 }

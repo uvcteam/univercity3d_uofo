@@ -60,6 +60,9 @@
         margin-top: 0px;
         float: right;
     }
+    .event {
+        height: 75px;
+    }
 }
 
 /* -- Media query 3 (mq3)
@@ -68,5 +71,8 @@
     .no-events {
         margin-top: 0px;
         float: right;
+    }
+    .event {
+        height: 75px;
     }
 }
