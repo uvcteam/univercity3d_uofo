@@ -195,12 +195,7 @@ public class UnionHallCreateEngagement : MonoBehaviour
 		else
 			drawRect = new Rect((Screen.width / 2) - (Screen.width * 0.135f), (Screen.height / 2) - (Screen.height * 0.05f), Screen.height / 3, Screen.width / 4);
         UnionHallEvent eventScript = GameObject.Find("NewEvent").GetComponent<UnionHallEvent>();
-        NativePicker.Instance.ShowDatePicker(drawRect, DateTime.Parse(eventDate), (long val) =>
-        {
-            eventDate = NativePicker.ConvertToDateTime(val).ToString("yyyy-MM-dd");
-            startDate.text = DateTime.Parse(eventDate).ToString("MMMM dd, yyyy");
-            eventScript.Start = DateTime.Parse(eventDate + " " + eventTime);
-        });
+        
     }
 	
 	void OnTimeClicked()
@@ -211,12 +206,7 @@ public class UnionHallCreateEngagement : MonoBehaviour
 		else
 			drawRect = new Rect((Screen.width / 2) - (Screen.width * 0.135f), (Screen.height / 2) - (Screen.height * 0.05f), Screen.height / 3, Screen.width / 4);
         UnionHallEvent eventScript = GameObject.Find("NewEvent").GetComponent<UnionHallEvent>();
-        NativePicker.Instance.ShowTimePicker(drawRect, DateTime.Parse(eventTime), (long val) =>
-        {
-            eventTime = NativePicker.ConvertToDateTime(val).ToString("HH:mm");
-            startTime.text = DateTime.Parse(eventTime).ToString("h:mm tt");
-            eventScript.Start = DateTime.Parse(eventDate + " " + eventTime);
-        });
+        
 	}
 
     Rect toScreenRect(Rect rect)

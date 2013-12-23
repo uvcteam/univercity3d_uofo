@@ -24,8 +24,9 @@
     <link href="styles/reset.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="styles/adscroll.css" media="screen" rel="stylesheet" />
     <link href="styles/style.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="../libs/css/preloader.css" media="screen" rel="stylesheet" />
     <link href="../libs/css/pace_vm.css" media="screen" rel="stylesheet" />
+    <script src="../libs/js/jquery-1.10.0.js"></script>
+    <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/pace.js"></script>
 </head>
 <body>
@@ -678,17 +679,12 @@
         </div>
     </div>
     <!-- main JS libs -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="../libs/js/coherent.js"></script>
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
-    <script src="../libs/js/jquery-1.10.0.js"></script>
-    <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
-    <script src="../libs/js/jquery.scrollbox.js"></script>
     <script src="../libs/owl-carousel/owl.carousel.js"></script>
     <script src="js/virtualmall.js"></script>
-    <script src="../libs/js/preloader.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.category-carousel').owlCarousel({
@@ -697,24 +693,7 @@
                 itemsTablet: [768, 4],
                 pagination: true
             });
-            
-            $('nav').scroll(function() {
-            	alert('BODY SCROLLED!');
-            });
         });
-        
-        function hasScroll(el, direction) {
-        	direction = (direction === 'vertical') ? 'scrollTop' : 'scrollLeft';
-        	var result = !!el[direction];
-        	
-        	if (!result) {
-        		el[direction] = 1;
-        		result = !!el[direction];
-        		el[direction] = 0;
-        	}
-        	
-        	return result;	
-        }
     </script>
 </body>
 </html>

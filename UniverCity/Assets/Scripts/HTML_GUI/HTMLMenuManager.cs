@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using System.Collections;
 using Object = UnityEngine.Object;
@@ -79,6 +79,7 @@ public class HTMLMenuManager : MonoBehaviour
                                                            false,
             (string login, string password, string button) =>
             {
+			Debug.Log ("OK clicked with " + login + " and " + password);
                 if (button == "OK")
                     StartCoroutine(manager.GetComponent<UserManager>().SignIn(login, password, index));
             });
@@ -122,6 +123,7 @@ public class HTMLMenuManager : MonoBehaviour
             PlayerPrefs.HasKey("FacebookEmail") &&
             PlayerPrefs.GetString("FacebookEmail") == _userManager.CurrentUser.Email)
         {
+        	Debug.Log("YES!");
             _view.View.TriggerEvent("FacebookAuthorized",
                 PlayerPrefs.GetString("AccessToken"),
                 PlayerPrefs.GetString("SignedRequest"),
@@ -130,6 +132,7 @@ public class HTMLMenuManager : MonoBehaviour
         }
         else
         {
+        	Debug.Log("NO!");
             _view.View.TriggerEvent("FacebookNotAuthorized");
         }
     }

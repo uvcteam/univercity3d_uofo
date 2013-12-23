@@ -1,13 +1,12 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEditor;
 
 [CustomEditor(typeof(CoherentUISystem))]
 public class CoherentSystemEditor : Editor {
 	
 	private CoherentUISystem m_Target;
-	private CoherentFoldout[] m_Fields;
+	private CoherentPropertyField[] m_Fields;
 	
 	public void OnEnable() {
 		m_Target = target as CoherentUISystem;

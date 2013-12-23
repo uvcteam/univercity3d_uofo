@@ -1,4 +1,14 @@
+#if !UNITY_3_5 || !UNITY_3_4
+// This preprocessor condition always evaluates to true.
+// The #if block is needed for successful compilation of this script before installation.
+// After installing, the CoherentUIView script is moved to Standard Assets and is compiled first,
+// so it can be referenced by other scripts of different language, in this case HUD.js.
+
+// This preprocessor block should contain all the public fields of the real script so they can be assigned.
+public var characterMotor : CharacterMotor;
+#else
 #pragma strict
+
 #if UNITY_STANDALONE || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX || UNITY_EDITOR
 import Coherent.UI.Binding; // to use View.TriggerEvent with extra arguments
 
@@ -50,5 +60,6 @@ function Update () {
 		}
 	}
 }
+#endif
 
 #endif

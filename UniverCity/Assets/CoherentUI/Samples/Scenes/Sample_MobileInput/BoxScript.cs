@@ -23,11 +23,9 @@ public class BoxScript : MonoBehaviour
 		if (m_CameraView && !m_CameraView.ClickToFocus)
 		{
 			m_CameraView.ReceivesInput = true;
-		}
-		if (m_CameraView)
-		{
 			m_CameraView.Listener.ReadyForBindings += HandleReadyForBindings;
 		}
+
 		ToggleMouseLook(); // Disable mouse look initially
 	}
 	

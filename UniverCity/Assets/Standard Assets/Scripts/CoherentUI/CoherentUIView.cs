@@ -25,7 +25,6 @@ using Coherent.UI.Mobile.Binding;
 /// <summary>
 /// Component containing a Coherent UI view.
 /// </summary>
-[AddComponentMenu("Coherent UI/UI View")]
 public class CoherentUIView : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
@@ -37,10 +36,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The loaded URL of view
 	/// </value>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "URL",
-							Tooltip="Indicates the URL that will be initially loaded",
-							IsStatic=false)]
+	[CoherentExposeProperty]
 	public string Page
 	{
 		get {
@@ -67,10 +63,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The width.
 	/// </value>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Width",
-							Tooltip="Indicates the width of the View",
-							IsStatic=false)]
+	[CoherentExposeProperty]
 	public int Width
 	{
 		get {
@@ -93,10 +86,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The height.
 	/// </value>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Height",
-							Tooltip="Indicates the height of the View",
-							IsStatic=false)]
+	[CoherentExposeProperty]
 	public int Height
 	{
 		get {
@@ -119,10 +109,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The X position.
 	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "X Position",
-							Tooltip="The X coordinate of the origin of the View",
-							IsStatic=false)]
+	[CoherentExposePropertyiOS]
 	public int XPos
 	{
 		get {
@@ -147,10 +134,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The Y position.
 	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Y Position",
-							Tooltip="The Y coordinate of the origin of the View",
-							IsStatic=false)]
+	[CoherentExposePropertyiOS]
 	public int YPos
 	{
 		get {
@@ -175,10 +159,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The scale-to-fit property.
 	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
-							PrettyName = "Retina rescale",
-							Tooltip="If set the content will be scaled to fit the View",
-							IsStatic=true)]
+	[CoherentExposePropertyiOS]
 	public bool ScaleToFit
 	{
 		get {
@@ -186,29 +167,6 @@ public class CoherentUIView : MonoBehaviour {
 		}
 		set {
 			m_ScaleToFit = value;
-		}
-	}
-
-	[HideInInspector]
-	[SerializeField]
-	private bool m_EnableWebGLSupport = false;
-	/// <summary>
-	/// If enabled, WebGL will be supported in the view.
-	/// </summary>
-	/// <value>
-	/// The EnableWebGLSupport property.
-	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
-							PrettyName = "Enable WebGL support",
-							Tooltip="If set to true, the view will be created with WebGL support.",
-							IsStatic=true)]
-	public bool EnableWebGLSupport
-	{
-		get {
-			return m_EnableWebGLSupport;
-		}
-		set {
-			m_EnableWebGLSupport = value;
 		}
 	}
 
@@ -222,10 +180,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The script.
 	/// </value>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.Scripting,
-							PrettyName = "Pre-load script",
-							Tooltip="The script will be executed before any other code in the UI View",
-							IsStatic=true)]
+	[CoherentExposeProperty]
 	public string InitialScript
 	{
 		get {
@@ -250,10 +205,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The new input state.
 	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.Input,
-							PrettyName = "Input behavior",
-							Tooltip="How the View will handle incoming touches",
-							IsStatic=false)]
+	[CoherentExposePropertyiOS]
 	public CoherentViewInputState InputState
 	{
 		get {
@@ -281,10 +233,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <exception cref='System.ApplicationException'>
 	/// Is thrown when the property is modified and the view has already been created
 	/// </exception>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Transparent",
-							Tooltip="Toggles the View opacity",
-							IsStatic=true)]
+	[CoherentExposeProperty]
 	public bool IsTransparent
 	{
 		get {
@@ -314,10 +263,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <exception cref='System.ApplicationException'>
 	/// Is thrown when the property is modified and the view has already been created
 	/// </exception>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.Input,
-							PrettyName = "Smart input",
-							Tooltip="The View will be able to determine if a pixel is on the UI or the game",
-							IsStatic=true)]
+	[CoherentExposeProperty]
 	public bool SupportClickThrough
 	{
 		get {
@@ -344,10 +290,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The alpha threshold for click through checks.
 	/// </value>
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.Input,
-							PrettyName = "Smart input alpha",
-							Tooltip="Alpha threshold value used to distinguish UI opaque pixels",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public float ClickThroughAlphaThreshold
 	{
 		get {
@@ -376,10 +319,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// <c>true</c> if this view takes input focus when clicked; otherwise, <c>false</c>.
 	/// </value>
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.Input,
-							PrettyName = "Lockable focus",
-							Tooltip="Users should click on a View for it to become focused",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public bool ClickToFocus
 	{
 		get {
@@ -403,10 +343,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <exception cref='System.ApplicationException'>
 	/// Is thrown when the property is modified and the view has already been created
 	/// </exception>
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "On-demand",
-							Tooltip="UI is perfectly synced with the game",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public bool IsOnDemand
 	{
 		get {
@@ -437,10 +374,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <exception cref='System.ApplicationException'>
 	/// Is thrown when the property is modified and the view has already been created
 	/// </exception>
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "Timer override",
-							Tooltip="The UI uses the in-game timer (requires On-demand)",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public bool ControlTimeOnDemand
 	{
 		get {
@@ -467,10 +401,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The target framerate.
 	/// </value>
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "Max. frame-rate",
-							Tooltip="The maximum frame-rate that the UI will achieve",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public int TargetFramerate
 	{
 		get {
@@ -488,28 +419,21 @@ public class CoherentUIView : MonoBehaviour {
 		}
 	}
 	#endif
-	
-	public enum DrawOrder {
-		Normal,
-		AfterPostEffects
-	}	
+
 	[HideInInspector]
 	[SerializeField]
-	private DrawOrder m_DrawAfterPostEffects = DrawOrder.Normal;
+	private bool m_DrawAfterPostEffects = false;
 	/// <summary>
 	/// Gets or sets a value indicating whether this view is drawn after post effects.
 	/// </summary>
 	/// <value>
-	/// <c>AfterPostEffects</c> if the view is drawn after post effects; otherwise, <c>false</c>.
+	/// <c>true</c> if the view is drawn after post effects; otherwise, <c>false</c>.
 	/// </value>
 	/// <exception cref='System.ApplicationException'>
 	/// Is thrown when the application exception.
 	/// </exception>
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
-							PrettyName = "Draw order",
-							Tooltip="When to draw the View (camera Views only)",
-							IsStatic=true)]
-	public DrawOrder DrawAfterPostEffects
+	[CoherentExposePropertyStandalone]
+	public bool DrawAfterPostEffects
 	{
 		get {
 			return m_DrawAfterPostEffects;
@@ -523,7 +447,6 @@ public class CoherentUIView : MonoBehaviour {
 			}
 			#endif
 			m_DrawAfterPostEffects = value;
-          
 		}
 	}
 
@@ -536,10 +459,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// <c>true</c> if the Y axis is flipped; otherwise, <c>false</c>.
 	/// </value>
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
-							PrettyName = "Flip Y",
-							Tooltip="Will flip the View vertically",
-							IsStatic=false)]
+	[CoherentExposePropertyStandalone]
 	public bool FlipY
 	{
 		get {
@@ -607,10 +527,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <exception cref='System.ApplicationException'>
 	/// Is thrown when the property is modified and the view has already been created
 	/// </exception>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.Scripting,
-							PrettyName = "Auto UI messages",
-							Tooltip="Events triggered in the UI will fire Unity messages",
-							IsStatic=true)]
+	[CoherentExposeProperty]
 	public bool InterceptAllEvents
 	{
 		get {
@@ -630,7 +547,7 @@ public class CoherentUIView : MonoBehaviour {
 
 	[HideInInspector]
 	[SerializeField]
-	private bool m_EnableBindingAttribute = true;
+	private bool m_EnableBindingAttribute = false;
 	/// <summary>
 	/// Gets or sets a value indicating whether this <see cref="CoherentUIView"/> enables usage of the CoherentMethod attribute
 	/// in components in the host GameObject.
@@ -641,10 +558,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// <c>true</c> if usage of the CoherentMethod is enabled; otherwise, <c>false</c>.
 	/// </value>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.Scripting,
-							PrettyName = "Enable [CoherentMethodAttribute]",
-							Tooltip="Allows automatic binding of methods to the UI",
-							IsStatic=true)]
+	[CoherentExposeProperty]
 	public bool EnableBindingAttribute
 	{
 		get {
@@ -664,10 +578,7 @@ public class CoherentUIView : MonoBehaviour {
     /// <value>
     /// <c>true</c> if it is independent; otherwise <c>false</c>.
     /// </value>
-    [CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "Always on top",
-							Tooltip="Ignores the content of the depth buffer",
-							IsStatic=true)]
+    [CoherentExposePropertyStandalone]
     public bool IsIndependentOfZBuffer
     {
         get
@@ -689,10 +600,7 @@ public class CoherentUIView : MonoBehaviour {
     /// <value>
     /// <c>true</c> if a dialog is to be shown automatically; otherwise <c>false</c>.
     /// </value>
-    [CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.Scripting,
-							PrettyName = "Show JS dialogs",
-							Tooltip="Shows JS alerts, prompts, auths, confirmations",
-							IsStatic=false)]
+    [CoherentExposePropertyStandalone]
     public bool ShowJavaScriptDialogs
     {
         get
@@ -716,10 +624,7 @@ public class CoherentUIView : MonoBehaviour {
     /// <value>
     /// <c>true</c> if the view is to use software rendering; otherwise <c>false</c>.
     /// </value>
-    [CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "Software only rendering",
-							Tooltip="The view will be rendered without hardware acceleration",
-							IsStatic=true)]
+    [CoherentExposePropertyStandalone]
     public bool ForceSoftwareRendering
     {
         get
@@ -746,10 +651,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// The scale-to-fit property.
 	/// </value>
-	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
-							PrettyName = "Match camera size",
-							Tooltip="The View will be automatically resized to always match the size of the camera",
-							IsStatic=true)]
+	[CoherentExposeProperty]
 	public bool UseCameraDimensions
 	{
 		get {
@@ -769,10 +671,7 @@ public class CoherentUIView : MonoBehaviour {
     /// <value>
     /// <c>true</c> if gamma is corrected; otherwise, <c>false</c>.
     /// </value>
-    [CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "Compensate gamma",
-							Tooltip="The view will compensate for gamma correction",
-							IsStatic=true)]
+    [CoherentExposePropertyStandalone]
     public bool CorrectGamma
     {
         get
@@ -911,7 +810,6 @@ public class CoherentUIView : MonoBehaviour {
 		viewInfo.ShowImmediately = this.enabled;
 		viewInfo.InitialInputState = (ViewInputState)this.m_ViewInputState;
 		viewInfo.ScaleToFit = m_ScaleToFit;
-		viewInfo.EnableWebGLSupport = m_EnableWebGLSupport;
 		#endif
 
 		#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
@@ -1072,7 +970,8 @@ public class CoherentUIView : MonoBehaviour {
 			view.Resize((uint)m_Width, (uint)m_Height);
 			if(m_Listener.RTTexture != null)
 			{
-				m_Listener.ResizeTexture(m_Width, m_Height);
+				m_Listener.RTTexture.width = m_Width;
+				m_Listener.RTTexture.height = m_Height;
 			}
 		}
 	}
@@ -1219,8 +1118,6 @@ public class CoherentUIView : MonoBehaviour {
 	public delegate float CalculateArbitraryTimeHandler();
 	public CalculateArbitraryTimeHandler CalculateArbitraryTime;
 }
-
-
 
 
 

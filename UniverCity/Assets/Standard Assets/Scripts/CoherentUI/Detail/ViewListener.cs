@@ -55,8 +55,8 @@ namespace Coherent.UI.Mobile
 			{
 				ViewRenderer = cameraComponent.gameObject.AddComponent("CoherentUIViewRenderer") as CoherentUIViewRenderer;
 				// this is only supported for Views directly attached to cameras
-				ViewRenderer.DrawAfterPostEffects = (m_ViewComponent.DrawAfterPostEffects == CoherentUIView.DrawOrder.AfterPostEffects);
-                
+				ViewRenderer.DrawAfterPostEffects = m_ViewComponent.DrawAfterPostEffects;
+
 				// make sure added components are destroyed too
 				m_ObjectsToDestroy.Add(ViewRenderer);
 			}
@@ -107,33 +107,6 @@ namespace Coherent.UI.Mobile
 			#endif
 		}
 		
-		public void ResizeTexture(int width, int height)
-		{
-			#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
-			var viewCamObject = GameObject.Find("Main Camera");
-			var viewCamComponent = viewCamObject.GetComponent("Camera") as Camera;
-			var clearFlags = viewCamComponent.clearFlags;
-			viewCamComponent.clearFlags = CameraClearFlags.Nothing;
-
-			m_ObjectsToDestroy.Remove(RTTexture);
-			RTTexture.Release();
-
-			var id = m_View.GetId();
-			var renderingCamera = GameObject.Find("CoherentRenderingCamera" + id);
-			var camComponent = renderingCamera.GetComponent("Camera") as Camera;
-
-			RTTexture = new RenderTexture(width, height, 1, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Default);
-			RTTexture.name = "CoherentRenderingRTT" + id;
-			RTTexture.Create();
-			m_ObjectsToDestroy.Add(RTTexture);
-			camComponent.targetTexture = RTTexture;
-
-			m_ViewComponent.gameObject.renderer.material.mainTexture = RTTexture;
-
-			viewCamComponent.clearFlags = clearFlags;
-			#endif
-		}
-
 		public void OnJavaScriptMessageHandler(string message, string defaultPrompt, string frameUrl, int messageType)
 		{
 			if (HasModalDialogOpen)

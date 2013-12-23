@@ -197,20 +197,20 @@ extern void UnitySendMessage(const char *, const char *, const char *);
 
 @end
 
-NSString* createNSString (const char* string);
-NSArray* createArray(const char** array, int num);
-void createPluginIfNeeded();
+NSString* nativeDialogsCreateNSString (const char* string);
+NSArray* nativeDialogsCreateArray(const char** array, int num);
+void nativeDialogsCreatePluginIfNeeded();
 int messageBox(const char* caption, const char* message, const char** buttons, int numButtons, const char* gameObject);
 void MBprogressDialog(const char* caption, const char* message);
 void progressDialog(const char* caption, const char* message);
 void hideProgressDialog();
 
-static NativeDialogsPlugin* g_plugin = nil;
-static UIAlertView* g_progress = nil;
-static MBProgressHUD* g_mb_progress;
+static NativeDialogsPlugin* g_nativeDialogsPlugin = nil;
+static UIAlertView* g_nativialogsProgress = nil;
+static MBProgressHUD* g_nativeDialogs_mb_progress;
 
 // Converts C style string to NSString
-NSString* createNSString (const char* string)
+NSString* nativeDialogsCreateNSString (const char* string)
 {
 	if (string)
 		return [NSString stringWithUTF8String: string];
@@ -218,32 +218,32 @@ NSString* createNSString (const char* string)
 		return [NSString stringWithUTF8String: ""];
 }
 
-NSArray* createArray(const char** array, int num)
+NSArray* nativeDialogsCreateArray(const char** array, int num)
 {
     NSMutableArray* retval = [[NSMutableArray alloc] init];
     
     for (int i = 0 ; i < num ; i++)
     {
-        [retval addObject:createNSString(array[i])];
+        [retval addObject:nativeDialogsCreateNSString(array[i])];
     }
     
     return retval;
 }
 
-void createPluginIfNeeded()
+void nativeDialogsCreatePluginIfNeeded()
 {
-    if (g_plugin == nil)
-        g_plugin = [[NativeDialogsPlugin alloc] init];
+    if (g_nativeDialogsPlugin == nil)
+        g_nativeDialogsPlugin = [[NativeDialogsPlugin alloc] init];
 }
 
 int messageBox(const char* caption, const char* message, const char** buttons, int numButtons, const char* gameObject)
 {
-    createPluginIfNeeded();
+    nativeDialogsCreatePluginIfNeeded();
     
-    return [g_plugin messageBoxWithCaption:createNSString(caption) 
-                                andMessage:createNSString(message)
-                                andButtons:createArray(buttons, numButtons)
-                             andGameObject:createNSString(gameObject)
+    return [g_nativeDialogsPlugin messageBoxWithCaption:nativeDialogsCreateNSString(caption) 
+                                andMessage:nativeDialogsCreateNSString(message)
+                                andButtons:nativeDialogsCreateArray(buttons, numButtons)
+                             andGameObject:nativeDialogsCreateNSString(gameObject)
                                   andStyle:UIAlertViewStyleDefault
                                   andText1:@""
                                   andText2:@""];
@@ -251,66 +251,66 @@ int messageBox(const char* caption, const char* message, const char** buttons, i
 
 int loginPasswordMessageBox(const char* caption, const char* message, const char* login, const char* password, const char** buttons, int numButtons, const char* gameObject)
 {
-    createPluginIfNeeded();
+    nativeDialogsCreatePluginIfNeeded();
     
-    return [g_plugin messageBoxWithCaption:createNSString(caption) 
-                                andMessage:createNSString(message)
-                                andButtons:createArray(buttons, numButtons)
-                             andGameObject:createNSString(gameObject)
+    return [g_nativeDialogsPlugin messageBoxWithCaption:nativeDialogsCreateNSString(caption) 
+                                andMessage:nativeDialogsCreateNSString(message)
+                                andButtons:nativeDialogsCreateArray(buttons, numButtons)
+                             andGameObject:nativeDialogsCreateNSString(gameObject)
                                   andStyle:UIAlertViewStyleLoginAndPasswordInput
-                                  andText1:createNSString(login)
-                                  andText2:createNSString(password)];
+                                  andText1:nativeDialogsCreateNSString(login)
+                                  andText2:nativeDialogsCreateNSString(password)];
 }
 
 int promptMessageBox(const char* caption, const char* message, const char* prompt, const char** buttons, int numButtons, const char* gameObject)
 {
-    createPluginIfNeeded();
+    nativeDialogsCreatePluginIfNeeded();
     
-    return [g_plugin messageBoxWithCaption:createNSString(caption) 
-                                andMessage:createNSString(message)
-                                andButtons:createArray(buttons, numButtons)
-                             andGameObject:createNSString(gameObject)
+    return [g_nativeDialogsPlugin messageBoxWithCaption:nativeDialogsCreateNSString(caption) 
+                                andMessage:nativeDialogsCreateNSString(message)
+                                andButtons:nativeDialogsCreateArray(buttons, numButtons)
+                             andGameObject:nativeDialogsCreateNSString(gameObject)
                                   andStyle:UIAlertViewStylePlainTextInput
-                                  andText1:createNSString(prompt)
+                                  andText1:nativeDialogsCreateNSString(prompt)
                                   andText2:@""];
 }
 
 int securePromptMessageBox(const char* caption, const char* message, const char* prompt, const char** buttons, int numButtons, const char* gameObject)
 {
-    createPluginIfNeeded();
+    nativeDialogsCreatePluginIfNeeded();
     
-    return [g_plugin messageBoxWithCaption:createNSString(caption) 
-                                andMessage:createNSString(message)
-                                andButtons:createArray(buttons, numButtons)
-                             andGameObject:createNSString(gameObject)
+    return [g_nativeDialogsPlugin messageBoxWithCaption:nativeDialogsCreateNSString(caption) 
+                                andMessage:nativeDialogsCreateNSString(message)
+                                andButtons:nativeDialogsCreateArray(buttons, numButtons)
+                             andGameObject:nativeDialogsCreateNSString(gameObject)
                                   andStyle:UIAlertViewStyleSecureTextInput
-                                  andText1:createNSString(prompt)
+                                  andText1:nativeDialogsCreateNSString(prompt)
                                   andText2:@""];
 }
 
 void MBProgressDialog(const char* caption, const char* message) {
-    createPluginIfNeeded();
+    nativeDialogsCreatePluginIfNeeded();
     
-    if (g_mb_progress != nil)
+    if (g_nativeDialogs_mb_progress != nil)
     {
         hideProgressDialog();
     }
     
-    g_mb_progress = [g_plugin displayMBProgressWithCaption:createNSString(caption) andMessage:createNSString(message)];
+    g_nativeDialogs_mb_progress = [g_nativeDialogsPlugin displayMBProgressWithCaption:nativeDialogsCreateNSString(caption) andMessage:nativeDialogsCreateNSString(message)];
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
 }
 
 void progressDialog(const char* caption, const char* message)
 {
-    createPluginIfNeeded();
+    nativeDialogsCreatePluginIfNeeded();
  
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0) {
-        if (g_progress != nil)
+        if (g_nativialogsProgress != nil)
         {
             hideProgressDialog();
         }
         
-        g_progress = [g_plugin displayProgressAlertWithCaption:createNSString(caption) andMessage:createNSString(message)];
+        g_nativialogsProgress = [g_nativeDialogsPlugin displayProgressAlertWithCaption:nativeDialogsCreateNSString(caption) andMessage:nativeDialogsCreateNSString(message)];
     } else {
         MBProgressDialog(caption, message);
     }
@@ -318,18 +318,18 @@ void progressDialog(const char* caption, const char* message)
 
 void hideProgressDialog()
 {
-    createPluginIfNeeded();
+    nativeDialogsCreatePluginIfNeeded();
     
-    if (g_progress != nil)
+    if (g_nativialogsProgress != nil)
     {
-        [g_plugin dismissProgressAlert:g_progress];
-        g_progress = nil;
+        [g_nativeDialogsPlugin dismissProgressAlert:g_nativialogsProgress];
+        g_nativialogsProgress = nil;
     }
     
-    if (g_mb_progress != nil)
+    if (g_nativeDialogs_mb_progress != nil)
     {
-        [g_plugin dismissMBProgress:g_mb_progress];
-        g_mb_progress = nil;
+        [g_nativeDialogsPlugin dismissMBProgress:g_nativeDialogs_mb_progress];
+        g_nativeDialogs_mb_progress = nil;
 
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     }

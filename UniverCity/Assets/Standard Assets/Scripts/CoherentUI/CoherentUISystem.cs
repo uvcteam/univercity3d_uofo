@@ -19,7 +19,6 @@ using Coherent.UI.Mobile;
 /// <summary>
 /// Component controlling the CoherentUI System
 /// </summary>
-[AddComponentMenu("Coherent UI/UI System")]
 public class CoherentUISystem : MonoBehaviour {
 
 	private static CoherentUISystem m_Instance = null;
@@ -259,10 +258,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private string m_HostDirectory = GetDefaultHostDirectory();
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Host directory",
-							Tooltip="The directory where the Host executable is located",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public string HostDirectory
 	{
 		get {
@@ -279,10 +275,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private bool m_EnableProxy = false;
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Proxy",
-							Tooltip="Enables proxy support",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public bool EnableProxy
 	{
 		get {
@@ -299,10 +292,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private bool m_AllowCookies = true;
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Cookies",
-							Tooltip="Enables support for cookies",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public bool AllowCookies
 	{
 		get {
@@ -319,10 +309,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private string m_CookiesResource = "cookies.dat";
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Cookies file",
-							Tooltip="The file where cookies will be saved",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public string CookiesResource
 	{
 		get {
@@ -339,10 +326,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private string m_CachePath = "cui_cache";
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Cache path",
-							Tooltip="The folder where the navigation cache will be saved",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public string CachePath
 	{
 		get {
@@ -359,10 +343,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private string m_HTML5LocalStoragePath = "cui_app_cache";
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Local storage path",
-							Tooltip="The directory where the HTML5 local storage will be saved",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public string HTML5LocalStoragePath
 	{
 		get {
@@ -379,10 +360,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private bool m_ForceDisablePluginFullscreen = true;
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Disable fullscreen plugins",
-							Tooltip="All plugins will have their fullscreen support disabled",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public bool ForceDisablePluginFullscreen
 	{
 		get {
@@ -399,10 +377,7 @@ public class CoherentUISystem : MonoBehaviour {
 	[HideInInspector]
 	[SerializeField]
 	private bool m_DisableWebSecutiry = false;
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Disable web security",
-							Tooltip="Allows loading making HTTP requests from coui://",
-							IsStatic=true)]
+	[CoherentExposePropertyStandalone]
 	public bool DisableWebSecutiry
 	{
 		get {
@@ -418,11 +393,8 @@ public class CoherentUISystem : MonoBehaviour {
 	/// </summary>
 	[HideInInspector]
 	[SerializeField]
-	private int m_DebuggerPort = 9999;
-	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Debugger port",
-							Tooltip="The port where the system will listen for the debugger",
-							IsStatic=true)]
+	private int m_DebuggerPort = -1;
+	[CoherentExposePropertyStandalone]
 	public int DebuggerPort
 	{
 		get {
@@ -430,32 +402,6 @@ public class CoherentUISystem : MonoBehaviour {
 		}
 		set {
 			m_DebuggerPort = value;
-		}
-	}
-
-	[HideInInspector]
-	[SerializeField]
-	private bool m_SupportForAltTab = true;
-	[CoherentExposePropertyStandalone(
-		Category = CoherentExposePropertyInfo.FoldoutType.General,
-		PrettyName = "Supports ALT+TAB",
-		Tooltip="Should ALT+TAB be supported in fullscreen",
-		IsStatic=true)]
-	/// <summary>
-	/// Indicates whether the application should support Alt+Tab
-	/// functionality in fullscreen mode, when using DirectX9
-	/// or DirectX9Ex. (Windows-only)
-	/// </summary>
-	/// <returns>
-	/// <c>true</c> if should support Alt+Tab functionality;
-	/// otherwise <c>false</c>.
-	/// </returns>
-	public bool SupportForAltTab {
-		get {
-			return m_SupportForAltTab;
-		}
-		set {
-			m_SupportForAltTab = value;
 		}
 	}
 
@@ -477,10 +423,7 @@ public class CoherentUISystem : MonoBehaviour {
 	/// <value>
 	/// If to set the cache
 	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "URL cache",
-							Tooltip="Use the URL cache of the device",
-							IsStatic=true)]
+	[CoherentExposePropertyiOS]
 	public bool UseURLCache
 	{
 		get {
@@ -500,10 +443,7 @@ public class CoherentUISystem : MonoBehaviour {
 	/// <value>
 	/// The maximum size of the in-memory cache
 	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Memory cache size",
-							Tooltip="The maximum size of the in-memory cache",
-							IsStatic=true)]
+	[CoherentExposePropertyiOS]
 	public int MemoryCacheSize
 	{
 		get {
@@ -523,10 +463,7 @@ public class CoherentUISystem : MonoBehaviour {
 	/// <value>
 	/// The maximum size of the on-disk cache
 	/// </value>
-	[CoherentExposePropertyiOS(Category = CoherentExposePropertyInfo.FoldoutType.General,
-							PrettyName = "Disk cache size",
-							Tooltip="The maximum size of the disk cache",
-							IsStatic=true)]
+	[CoherentExposePropertyiOS]
 	public int DiskCacheSize
 	{
 		get {
@@ -541,31 +478,17 @@ public class CoherentUISystem : MonoBehaviour {
 	{
 		var activation = new System.Diagnostics.Process();
 		string hostDir = Path.Combine(Application.dataPath, this.HostDirectory);
+		activation.StartInfo.FileName = Path.Combine(Application.dataPath, "Activator");
 		activation.StartInfo.Arguments = string.Format("--unity3d --host \"{0}\"", hostDir);
-		string activator = null;
-		switch (Application.platform)
+		if (Application.platform == RuntimePlatform.WindowsPlayer)
 		{
-		case RuntimePlatform.WindowsPlayer:
-			activator = Path.Combine(Application.dataPath, "Activator.exe");
-			break;
-		case RuntimePlatform.OSXPlayer:
-			activator = Path.Combine(Application.dataPath,
-				"Activator.app/Contents/MacOS/Activator");
-			break;
-		case RuntimePlatform.WindowsEditor:
-			activator = Path.Combine(Application.dataPath,
-				"CoherentUI/Activator/Activator.exe");
-			break;
-		case RuntimePlatform.OSXEditor:
-			activator = Path.Combine(Application.dataPath,
-				"CoherentUI/Activator/Activator.app/Contents/MacOS/Activator");
-			break;
-		default:
-			// set the path for Linux Player
-			activator = Path.Combine(Application.dataPath, "Activator");
-			break;
+			activation.StartInfo.FileName += ".exe";
 		}
-		activation.StartInfo.FileName = activator;
+		else if (Application.platform == RuntimePlatform.OSXPlayer)
+		{
+			activation.StartInfo.FileName += ".app/Contents/MacOS/Activator";
+		}
+		// Do nothing for Linux, the executable is named just "Activator"
 
 		int activationCode = 0;
 		if (File.Exists(activation.StartInfo.FileName) || Directory.Exists(activation.StartInfo.FileName))
@@ -585,15 +508,7 @@ public class CoherentUISystem : MonoBehaviour {
 	void Start () {
 		StartActivator();
 
-#if UNITY_STANDALONE_WIN
-        if(SupportForAltTab && Screen.fullScreen && SystemInfo.graphicsDeviceVersion.StartsWith("Direct3D 9"))
-		{
-			m_IsFullscreenApp = true;
-			Screen.SetResolution(Screen.width, Screen.height, false);
-		}
-#endif
-
-        if (SystemInfo.graphicsDeviceVersion.StartsWith("Direct3D 11") || SystemInfo.operatingSystem.Contains("Mac"))
+		if(SystemInfo.graphicsDeviceVersion.StartsWith("Direct3D 11") || SystemInfo.operatingSystem.Contains("Mac"))
 		{
 			DeviceSupportsSharedTextures = true;
 		}
@@ -627,28 +542,23 @@ public class CoherentUISystem : MonoBehaviour {
 				DisableWebSecurity = this.DisableWebSecutiry,
 				DebuggerPort = this.DebuggerPort,
 			};
-			int sdkVersion = Coherent.UI.Versioning.SDKVersion;
 			#elif UNITY_IPHONE || UNITY_ANDROID
 			SystemSettings settings = new SystemSettings() {
 				iOS_UseURLCache = m_UseURLCache,
 				iOS_URLMemoryCacheSize = (uint)m_MemoryCacheSize,
 				iOS_URLDiskCacheSize = (uint)m_DiskCacheSize,
 			};
-			int sdkVersion = Coherent.UI.Mobile.Versioning.SDKVersion;
 			#endif
 			if (string.IsNullOrEmpty(Coherent.UI.License.COHERENT_KEY))
 			{
 				throw new System.ApplicationException("You must supply a license key to start Coherent UI! Follow the instructions in the manual for editing the License.cs file.");
 			}
-			m_UISystem = CoherentUI_Native.InitializeUISystem(sdkVersion, Coherent.UI.License.COHERENT_KEY, settings, m_SystemListener, Severity.Info, m_LogHandler, m_FileHandler);
+			m_UISystem = CoherentUI_Native.InitializeUISystem(Coherent.UI.License.COHERENT_KEY, settings, m_SystemListener, Severity.Info, m_LogHandler, m_FileHandler);
 			if (m_UISystem == null)
 			{
 				throw new System.ApplicationException("UI System initialization failed!");
 			}
 			Debug.Log ("Coherent UI system initialized..");
-            #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
-			CoherentUIViewRenderer.WakeRenderer();
-			#endif
 		}
 		m_StartTime = Time.realtimeSinceStartup;
 
@@ -661,13 +571,6 @@ public class CoherentUISystem : MonoBehaviour {
 		{
 			SystemReadyHandlers();
 		}
-
-#if UNITY_STANDALONE_WIN
-        if (SupportForAltTab && m_IsFullscreenApp)
-        {
-            Screen.SetResolution(Screen.width, Screen.height, true);
-        }
-#endif
 	}
 
 	/// <summary>
@@ -1045,6 +948,4 @@ public class CoherentUISystem : MonoBehaviour {
 		}
 	}
 	private float m_StartTime;
-
-    private bool m_IsFullscreenApp = false;
 }

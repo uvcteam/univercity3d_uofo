@@ -1,0 +1,699 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>Virtual Mall Main</title>
+    <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet" />
+    <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
+    <link href="../libs/owl-carousel/owl.carousel.css" media="screen" rel="stylesheet" />
+    <link href="../libs/owl-carousel/owl.theme.css" media="screen" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
+
+    <link href="styles/virtualmallmain.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="styles/reset.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="styles/adscroll.css" media="screen" rel="stylesheet" />
+    <link href="styles/style.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="../libs/css/pace_vm.css" media="screen" rel="stylesheet" />
+    <script src="../libs/js/jquery-1.10.0.js"></script>
+    <script src="../libs/js/jquery-ui.min.js"></script>
+    <script src="../libs/js/pace.js"></script>
+</head>
+<body>
+    <div id="st-container" class="st-container"><!-- content push wrapper -->
+    <nav class="st-menu st-effect-1" id="menu-1">
+        <h2><i class="icon-cart"></i>&nbsp;Virtual Mall</h2>
+        <ul>
+            <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
+            <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;My Vault</a></li>
+            <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
+            <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
+        </ul>
+    </nav>
+        <div class="st-pusher">
+            <div class="st-content" id="st-content">
+                <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
+                <div class="st-content-inner">
+                <div class="owl-carousel flash-carousel">
+                </div>
+                <div class="category">
+                    <h4>Arts & Entertainment</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="AAE_Upscale">
+                            <img src="icons/Upscale.png" />
+                            <p>
+                                Upscale
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="AAE_FunStuff">
+                            <img src="icons/Fun Stuff.png" />
+                            <p>
+                                Fun Stuff
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="AAE_Howlin">
+                            <img src="icons/Howlin'.png" />
+                            <p>
+                                Howlin'
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="AAE_Samples">
+                            <img src="icons/adv_samples.png" />
+                            <p>
+                                Advertising Samples
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Food & Dining</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="FDD_Restaurants">
+                            <img src="icons/Restaurants.png" />
+                            <p>
+                                Restaurants
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="FDD_SpecialTastes">
+                            <img src="icons/Special Tastes.png" />
+                            <p>
+                                Special Tastes
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="FDD_NowFood">
+                            <img src="icons/Now Food.png" />
+                            <p>
+                                Now Foods
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="FDD_CoffeeTeaJuice">
+                            <img src="icons/coffees and teas.png" />
+                            <p>
+                                Coffee, Tea & Juice
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Places to Stay</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="PTS_BedBreakfast">
+                            <img src="icons/bed and breakfast.png" />
+                            <p>
+                                Bed & Breakfast
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="PTS_Campgrounds">
+                            <img src="icons/campgrounds.png" />
+                            <p>
+                                Campgrounds
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="PTS_GuestHousesHostels">
+                            <img src="icons/guest houses and hostels.png" />
+                            <p>
+                                Guest Houses & Hostels
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="PTS_HotelsMotels">
+                            <img src="icons/hotels and motels.png" />
+                            <p>
+                                Houses & Motels
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="PTS_Resorts">
+                            <img src="icons/resorts.png" />
+                            <p>
+                                Resorts
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Travel, Tours & Transportation</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="TTT_TravelAgencies">
+                            <img src="icons/travel agencies.png" />
+                            <p>
+                                Travel Agencies
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="TTT_Tickets">
+                            <img src="icons/tickets.png" />
+                            <p>
+                                Tickets
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="TTT_Tours">
+                            <img src="icons/tours.png" />
+                            <p>
+                                Tours
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="TTT_TaxisAndLimos">
+                            <img src="icons/taxis and limos.png" />
+                            <p>
+                                Taxis & Limos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Health, Fitness & Beauty </h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="HFB_BodyArt">
+                            <img src="icons/body art.png" />
+                            <p>
+                                Body Art
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="HFB_HairTreatment">
+                            <img src="icons/hair.png" />
+                            <p>
+                                Hair
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="HFB_CosmeticPlasticSurgery">
+                            <img src="icons/cosmetics and plastic surgery.png" />
+                            <p>
+                                Cosmetic & Plastic Surgery
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="HFB_Fitness">
+                            <img src="icons/fitness.png" />
+                            <p>
+                                Fitness
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Medical</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="MED_Accupuncture">
+                            <img src="icons/accupuncture.png" />
+                            <p>
+                                Accupuncture
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_LasikSurgery">
+                            <img src="icons/lastik surgery.png" />
+                            <p>
+                                Lasik Surgery
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_MassageTherapy">
+                            <img src="icons/massage therapy.png" />
+                            <p>
+                                Message Therapy
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_Nutritionists">
+                            <img src="icons/nutritionists2.png" />
+                            <p>
+                                Nutritionists
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_PhysicalTherapy">
+                            <img src="icons/physical therapy.png" />
+                            <p>
+                                Physical Therapy
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_Physicians">
+                            <img src="icons/physicians.png" />
+                            <p>
+                                Physicians
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_SpeechTherapy">
+                            <img src="icons/speech therapy.png" />
+                            <p>
+                                Speech Therapy
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_UrgentCare">
+                            <img src="icons/urgent care.png" />
+                            <p>
+                                Urgent Care
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_AddictionTreatment">
+                            <img src="icons/addiction treatment.png" />
+                            <p>
+                                Addiction Treatment
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_AudiologyHearing">
+                            <img src="icons/audiology.png" />
+                            <p>
+                                Audiology/Hearing
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_Chiropractors">
+                            <img src="icons/chiropractors.png" />
+                            <p>
+                                Chiropractors
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_CounselingMentalHealth">
+                            <img src="icons/counseling and mental health.png" />
+                            <p>
+                                Counseling & Mental Health
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_Dentists">
+                            <img src="icons/dentists.png" />
+                            <p>
+                                Dentists
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_OptometryEyeGlassesContacts">
+                            <img src="icons/optometry.png" />
+                            <p>
+                                Optometry, Eye Galsses & Contacts
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_HerbalMedicine">
+                            <img src="icons/herbal medicine.png" />
+                            <p>
+                                Herbal Medicore
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MED_Hospitals">
+                            <img src="icons/hospital.png" />
+                            <p>
+                                Hospitals
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Financial & Legal Services</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="FLS_MoneyPeople">
+                            <img src="icons/money people.png" />
+                            <p>
+                                Money People
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="FLS_Insurance">
+                            <img src="icons/insurance.png" />
+                            <p>
+                                Insurance
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="FLS_Attorneys">
+                            <img src="icons/attorneys.png" />
+                            <p>
+                                Attorneys/Law Firms
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Home Hook-up & Services</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="HHS_Utilities">
+                            <img src="icons/electrical sevices.png" />
+                            <p>
+                                Utilities
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="HHS_Professional">
+                            <img src="icons/professional services.png" />
+                            <p>
+                                Professional Services
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Housing</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="H_Rent">
+                            <img src="icons/electrical sevices.png" />
+                            <p>
+                                Housing to Rent/Share
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="H_Realtors">
+                            <img src="icons/realtors.png" />
+                            <p>
+                                Realtors
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Apartment/Home Furnishings</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="AHF_Antiques">
+                            <img src="icons/antiques.png" />
+                            <p>
+                                Antiques
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="AHF_ExteriorDecor">
+                            <img src="icons/outdoor furniture and appliances.png" />
+                            <p>
+                                Exterior Door
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="AHF_InteriorDecor">
+                            <img src="icons/interior decor.png" />
+                            <p>
+                                Interior Decor
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Clothing & Accessories</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="CAA_Accessories">
+                            <img src="icons/athletic.png" />
+                            <p>
+                                Accessories
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="CAA_ClothingAndApparel">
+                            <img src="icons/clothing.png" />
+                            <p>
+                                Clothing and Apparel
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="CAA_Shoes">
+                            <img src="icons/shoes.png" />
+                            <p>
+                                Shoes
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="CAA_VintageClothing">
+                            <img src="icons/vintage.png" />
+                            <p>
+                                Vintage Clothing & Accessories
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="CAA_DiscountClothingAndApparel">
+                            <img src="icons/clothing.png" />
+                            <p>
+                                Discount Clothing & Apparel
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Moving & Storage</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="MAS_MoversMovingCompanies">
+                            <img src="icons/movers and moving companies.png" />
+                            <p>
+                                Movers/Moving Companies
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MAS_MovingBoxesSupplies">
+                            <img src="icons/moving boxes and supplies.png" />
+                            <p>
+                                Moving Boxes and Supplies
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MAS_PodsMobileStorage">
+                            <img src="icons/pods-mobile storage.png" />
+                            <p>
+                                Pods/Mobile Storage
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MAS_RentalMovingTrucksVansTrailers">
+                            <img src="icons/movers and moving companies.png" />
+                            <p>
+                                Rental Moving Trucks/Vans/Trailers
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MAS_SelfStorageFacilities">
+                            <img src="icons/self storage facilities.png" />
+                            <p>
+                                Self-Storage Facilities
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Materials & Supply</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="MS_BuildingMaterials">
+                            <img src="icons/building materials.png" />
+                            <p>
+                                Building Materials
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="MS_Finishings">
+                            <img src="icons/finishing.png" />
+                            <p>
+                                Finishings
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Community Connections</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="CC_Government">
+                            <img src="icons/government.png" />
+                            <p>
+                                Government
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="CC_Religious">
+                            <img src="icons/religious worship.png" />
+                            <p>
+                                Religious Worship
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="CC_CommunityPlaces">
+                            <img src="icons/religious worship.png" />
+                            <p>
+                                Community Places
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="CC_CommunityServices">
+                            <img src="icons/community services.png" />
+                            <p>
+                                Community Services
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Snail Mail</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="SM_PostOffice">
+                            <img src="icons/post office.png" />
+                            <p>
+                                Post Office
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SM_OvernightDeliveryService">
+                            <img src="icons/overnight delivery services.png" />
+                            <p>
+                                Overnight Delivery Services
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Vehicle Sales & Service</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="VSS_Sales">
+                            <img src="icons/vehicle sales.png" />
+                            <p>
+                                Vehicle Sales
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="VSS_Services">
+                            <img src="icons/vehicle services.png" />
+                            <p>
+                                Vehicle Services
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="VSS_TrickingOutRide">
+                            <img src="icons/tricking out your ride.png" />
+                            <p>
+                                Tricking Out Your Ride
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Stuff You Just Gotta Have</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="SGH_ComputerElectronics">
+                            <img src="icons/consumer electronics.png" />
+                            <p>
+                                Consumer Electronics
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SGH_PowerTools">
+                            <img src="icons/power tools.png" />
+                            <p>
+                                Power Tools
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SGH_CardsAndGifts">
+                            <img src="icons/cards and gifts.png" />
+                            <p>
+                                Cards and Gifts
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Sporting Goods & Facilities</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="SGF_OutdoorSports">
+                            <img src="icons/outdoor sports.png" />
+                            <p>
+                                Outdoor Sports
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SGF_IndoorSports">
+                            <img src="icons/indoor sports.png" />
+                            <p>
+                                Indoor Sports
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SGF_IndoorSports">
+                            <img src="icons/indoor sports faclilties.png" />
+                            <p>
+                                Indoor Sports Facilities
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>Stores & Places to Shop</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="SPS_MallsShoppingCenters">
+                            <img src="icons/mall.png" />
+                            <p>
+                                Mails & Shopping Centers
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SPS_BigBoxStores">
+                            <img src="icons/big box stores.png" />
+                            <p>
+                                Big Box Stores
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SPS_GroceryStores">
+                            <img src="icons/outlet stores.png" />
+                            <p>
+                                Grocery Stores
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SPS_ClothingStores">
+                            <img src="icons/clothing stores.png" />
+                            <p>
+                                Clothing Stores
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SPS_PetStores">
+                            <img src="icons/petshop.png" />
+                            <p>
+                                Pet Stores
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SPS_SecondHandConsignment">
+                            <img src="icons/second consignment.png" />
+                            <p>
+                                2nd Hand & Consignment
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SPS_LiquorStores">
+                            <img src="icons/liquor.png" />
+                            <p>
+                                Liquor Stores
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="SPS_ConvenienceStores">
+                            <img src="icons/shop.png" />
+                            <p>
+                                Convenience Stores
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="category">
+                    <h4>In Case of Emergency</h4>
+                    <div class="owl-carousel category-carousel">
+                        <div class="sub-category" catid="ICE_Police">
+                            <img src="icons/police.png" />
+                            <p>
+                                Police
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="ICE_Fire">
+                            <img src="icons/fire.png" />
+                            <p>
+                                Fire
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="ICE_CampusSecurity">
+                            <img src="icons/campus security.png" />
+                            <p>
+                                Campus Security
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="ICE_Ambulance">
+                            <img src="icons/ambulance.png" />
+                            <p>
+                                Ambulance
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="ICE_PoisonControl">
+                            <img src="icons/poison control.png" />
+                            <p>
+                                Poison Control
+                            </p>
+                        </div>
+                        <div class="sub-category" catid="ICE_EmergencyMedical">
+                            <img src="icons/emergency medical.png" />
+                            <p>
+                                Emergency Medical
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main JS libs -->
+    <script src="../libs/js/coherent.js"></script>
+    <script src="../libs/js/modernizr-2.6.2.min.js"></script>
+    <script src="../libs/js/classie.js"></script>
+    <script src="../libs/js/menumanager.js"></script>
+    <script src="../libs/owl-carousel/owl.carousel.js"></script>
+    <script src="js/virtualmall.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.category-carousel').owlCarousel({
+                itemsDesktop: [1199, 4],
+                itemsDesktopSmall: [979, 4],
+                itemsTablet: [768, 4],
+                pagination: true
+            });
+        });
+    </script>
+</body>
+</html>
