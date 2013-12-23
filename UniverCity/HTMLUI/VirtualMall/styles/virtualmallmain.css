@@ -7,9 +7,8 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
     cursor: pointer;
     text-align: center;
     position: relative;
-    float: left;
     width: 250px;
-    margin: 2em 10px 1em;
+    margin: 10px auto 10px auto;
     background: #FFF;
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
@@ -100,8 +99,7 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
     text-align: center;
     display: inline-block;
     width: 250px;
-    margin: 0.25em;
-    margin-right: 1em;
+    margin: 10px auto 10px auto;
 }
 
 .business:hover {
@@ -172,6 +170,13 @@ figure p {
     .sub-category{width: 100%;}
     .business figcaption {
         width: 80%;
+    }
+    .business {
+        text-align: center;
+        display: block;
+        width: 450px;
+        margin: 10px auto 10px auto;
+        margin-right: 1em;
     }
 }
 

@@ -236,6 +236,16 @@ video {
     -o-transition: all .1s ease;
     transition: all .1s ease;
 }
+/* -- Media query 2 (mq2)
+------------------------------------------------------------- */
+@media only screen and (max-width: 960px) {
+    #side-btns li button {
+        width: 55px;
+        height: 55px;
+        font-size: 12px;
+    }
+}
+
 #side-btns li .home-btn{
 
     background: dodgerblue;
@@ -324,11 +334,13 @@ video {
     background: #14BDE3;
     color: white;
     text-shadow: 0 0 0.2em white;
-    font-size: 11px;
+    font-size: 20px;
     -webkit-box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
     -moz-box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
     box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
     text-align: center;
+    vertical-align: middle;
+    padding-top: -10px;
 /*     background: radial-gradient(yellow, orange, darkorange);*/
 }
 
@@ -353,8 +365,8 @@ video {
     text-transform: lowercase;
     text-align: center;
     font-weight: bold;
-    font-size: 80px;
-    font: 80px Verdana, sans-serif;
+    font-size: 20px;
+    font: 20px Verdana, sans-serif;
     font-weight: bold;
     line-height: 66px;
     color: #fff;
@@ -374,7 +386,6 @@ video {
 }
 
 .details-btn {
-
     background: transparent;
     border: none;
 /*    position: absolute;

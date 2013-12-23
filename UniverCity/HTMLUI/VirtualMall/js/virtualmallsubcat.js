@@ -36,7 +36,8 @@ function AddFlashDeals(flashDealData) {
     $('.flash-carousel').owlCarousel({
         itemsDesktop: [1199, 3],
         itemsDesktopSmall: [979, 3],
-        itemsTablet: [768, 3],
+        itemsTablet: [1199, 3],
+        itemsMobile:[960, 1],
         pagination: true,
         autoPlay: 3000
     });
@@ -81,7 +82,8 @@ engine.on('AttachEventToBusinesses', function () {
     $('.subcat-carousel').owlCarousel({
         itemsDesktop: [1199, 3],
         itemsDesktopSmall: [979, 3],
-        itemsTablet: [768, 3],
+        itemsTablet: [960, 2],
+        itemsMobile: [640, 1],
         pagination: true
     });
 
