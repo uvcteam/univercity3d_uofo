@@ -85,8 +85,8 @@ body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
 
 .sub-category img {
     border-radius: 15px;
-    width: 100px;
-    height: 100px;
+    width: 128px;
+    height: 128px;
 }
 
 .sub-category figcaption {
