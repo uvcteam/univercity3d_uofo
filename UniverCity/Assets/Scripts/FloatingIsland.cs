@@ -14,12 +14,6 @@ public class FloatingIsland : MonoBehaviour
         ObjectToTween = GameObject.Find("Main Camera");
         myTween = ObjectToTween.GetComponent<TweenTransform>();
 		
-		Screen.orientation = ScreenOrientation.LandscapeLeft;
-        Screen.autorotateToPortrait = false;
-        Screen.autorotateToPortraitUpsideDown = false;
-        Screen.autorotateToLandscapeLeft = true;
-        Screen.autorotateToLandscapeRight = true;
-		Screen.orientation = ScreenOrientation.AutoRotation;
     }
 
     void Update()
