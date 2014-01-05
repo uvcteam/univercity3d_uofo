@@ -273,6 +273,25 @@ video {
     #side-btns li .facebook {
         line-height: 20px;
     }
+
+    .details-btn {
+        background-image: url("../images/details.png");
+        background-color: transparent;
+        border: none;
+        width: 150px;
+        height: 58px;
+        background-size: 150px 58px;
+        display: block;
+    }
+
+    .details-btn p {
+        color: black;
+        vertical-align: middle;
+        position: absolute;
+        z-index: 6;
+        bottom: 5px;
+        left: 10px;
+    }
 }
 
 #side-btns li .home-btn{
@@ -416,10 +435,11 @@ video {
 
 .details-btn {
     background-image: url("../images/details.png");
+    background-color: transparent;
     border: none;
-    width: 150px;
-    height: 58px;
-    background-size: 150px 58px;
+    width: 200px;
+    height: 77px;
+    background-size: 200px 77px;
     display: block;
 }
 
@@ -429,11 +449,11 @@ video {
     position: absolute;
     z-index: 6;
     bottom: 5px;
-    left: 10px;
+    left: 30px;
 }
 
 .details-btn img{
-    width: 200px;
+    width: 300px;
 }
 
 
