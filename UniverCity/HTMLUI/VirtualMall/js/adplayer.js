@@ -2,6 +2,8 @@
 
 var mediaURL = "http://app2.univercity3d.com/univercity/admedia?id=";
 var objectToLike = 'http://samples.ogp.me/126210144220828';
+var hasLiked = false;
+var likeID;
 
 $(document).ready(function () {
     console.log("Ready for Unity.");
@@ -22,16 +24,17 @@ $(document).ready(function () {
 
 
 engine.on('LoadAdPlayer', function(id, URL){
-    //objectToLike += id;
+    objectToLike = URL + '/fbo?b=' + id;
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
-    console.log('LoadAdPlauer');
+
     $.ajax({url: URL + id, success: function(adPlayerData){
         console.log(adPlayerData);
         PopulateAdPlayer(adPlayerData);
         SetMegaDeal(adPlayerData.megadeal);
         AttachEventToPages();
         SetNarrator(mediaURL + adPlayerData.expert.id);
+        checkIfLiked(id);
 
     }});
 })
@@ -336,20 +339,71 @@ $('.done-btn').click(function(){
 });
 
 function postLike() {
+    console.log(likeID);
+    if (hasLiked)
+    {
+        FB.api(
+            '/' + likeID,
+            'delete',
+            function(response) {
+                if (!response) {
+                    alert('Error occurred.');
+                } else if (response.error) {
+                    alert(response.error.message);
+                } else {
+                    alert("You no longer like this ad.");
+                }
+            }
+        );
+    }
+
+    else
+    {
+        FB.api(
+            '/me/og.likes',
+            'post',
+            {
+                object: objectToLike
+            },
+            function(response) {
+                if (!response) {
+                    alert('Error occurred.');
+                } else if (response.error) {
+                    alert(response.error.message);
+                } else {
+                    alert("Succesfully posted to your TimeLine.");
+                }
+            }
+        );
+    }
+
+}
+
+function checkIfLiked(id) {
+    console.log(objectToLike);
     FB.api(
         '/me/og.likes',
-        'post',
-        {
-            object: objectToLike
-        },
         function(response) {
             if (!response) {
                 alert('Error occurred.');
             } else if (response.error) {
                 alert(response.error.message);
             } else {
-                alert("Succesfully posted to your TimeLine.");
+                console.log(response);
+                var businessID;
+                for ( var i = 0; i < response.data.length; ++i)
+                {
+                    console.log(response.data[i].data.object.url);
+
+                    businessID  = response.data[i].data.object.url.split("=")[1];
+                    console.log(businessID);
+                    if( businessID === id )
+                        hasLiked = true;
+                        likeID = response.data[i].id;
+                }
             }
         }
     );
+
+
 }
