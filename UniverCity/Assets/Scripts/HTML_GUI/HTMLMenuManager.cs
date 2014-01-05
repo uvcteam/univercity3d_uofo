@@ -17,9 +17,12 @@ public class HTMLMenuManager : MonoBehaviour
     private bool _viewReady;
     private const string FacebookAppURL = "http://www.univercity3d.com/mobileapp.html";
     private string LocalAppURL = "";
+    private OrientationManager orientationManager;
 
     void Start()
     {
+        gameObject.AddComponent("OrientationManager");
+        orientationManager = gameObject.GetComponent<OrientationManager>();
         CoherentUISystem system = Object.FindObjectOfType(typeof (CoherentUISystem)) as CoherentUISystem;
         if (system != null)
         {
@@ -97,27 +100,27 @@ public class HTMLMenuManager : MonoBehaviour
         switch (destination)
         {
             case "virtual_mall":
-                ChangeOrientationToAuto();
+                orientationManager.ChangeOrientationToAuto();
                 Application.LoadLevel(5);
                 break;
             case "union_hall":
-                ChangeOrientationToAuto();
+                orientationManager.ChangeOrientationToAuto();
                 CheckLogin(3);
                 break;
             case "memory_bank":
-                ChangeOrientationToAuto();
+               orientationManager.ChangeOrientationToAuto();
                 CheckLogin(4);
                 break;
             case "explorer":
-                ChangeOrientationToLandscape();
+                orientationManager.ChangeOrientationToLandscape();
                 Application.LoadLevel(1);
                 break;
             case "arcade":
-                ChangeOrientationToLandscape();
+                orientationManager.ChangeOrientationToLandscape();
                 Application.LoadLevel(2);
                 break;
             default:
-                ChangeOrientationToAuto();
+                orientationManager.ChangeOrientationToAuto();
                 break;
         }
     }
@@ -166,26 +169,6 @@ public class HTMLMenuManager : MonoBehaviour
         PlayerPrefs.SetString("Code", c);
     }
 
-    void ChangeOrientationToLandscape()
-    {
-        Screen.orientation = ScreenOrientation.LandscapeRight;
-        Screen.autorotateToPortrait = false;
-        Screen.autorotateToPortraitUpsideDown = false;
-        Screen.autorotateToLandscapeLeft = true;
-        Screen.autorotateToLandscapeRight = true;
-        Screen.orientation = ScreenOrientation.AutoRotation;
-        iPhoneSettings.screenOrientation = iPhoneScreenOrientation.LandscapeRight;
-    }
-
-    void ChangeOrientationToAuto()
-    {
-        Screen.orientation = ScreenOrientation.AutoRotation;
-        Screen.autorotateToPortrait = true;
-        Screen.autorotateToPortraitUpsideDown = true;
-        Screen.autorotateToLandscapeLeft = true;
-        Screen.autorotateToLandscapeRight = true;
-        iPhoneSettings.screenOrientation = iPhoneScreenOrientation.Unknown;
-    }
 
     #endregion
 }

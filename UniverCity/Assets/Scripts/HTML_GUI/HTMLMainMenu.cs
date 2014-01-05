@@ -15,9 +15,12 @@ public class HTMLMainMenu : MonoBehaviour
     private bool _viewReady;
     private const string FacebookAppURL = "http://www.univercity3d.com/login.html";
     private const string LocalAppURL = "coui://HTML_UI/Login/login.html";
+    private OrientationManager orientationManager;
 
     void Start()
     {
+        gameObject.AddComponent("OrientationManager");
+        orientationManager = gameObject.GetComponent<OrientationManager>();
         _view = this.GetComponent<CoherentUIView>();
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
 
@@ -82,18 +85,23 @@ public class HTMLMainMenu : MonoBehaviour
         switch (destination)
         {
             case "virtual_mall":
+                orientationManager.ChangeOrientationToAuto();
                 Application.LoadLevel(5);
                 break;
             case "union_hall":
+                orientationManager.ChangeOrientationToAuto();
                 CheckLogin(3);
                 break;
             case "memory_bank":
+                orientationManager.ChangeOrientationToAuto();
                 CheckLogin(4);
                 break;
             case "explorer":
+                orientationManager.ChangeOrientationToLandscape();
                 Application.LoadLevel(1);
                 break;
             case "arcade":
+                orientationManager.ChangeOrientationToLandscape();
                 Application.LoadLevel(2);
                 break;
             default:

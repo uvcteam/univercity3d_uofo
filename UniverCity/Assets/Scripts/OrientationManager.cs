@@ -4,11 +4,10 @@ using System.Collections;
 public class OrientationManager : MonoBehaviour
 {
     public ScreenOrientation orientation;
-    public EasyJoystick left;
-    public EasyJoystick right;
 	// Use this for initialization
-	void Start()
-	{
+
+    public void ChangeOrientationToLandscape()
+    {
         Screen.orientation = ScreenOrientation.LandscapeRight;
         Screen.autorotateToPortrait = false;
         Screen.autorotateToPortraitUpsideDown = false;
@@ -16,6 +15,16 @@ public class OrientationManager : MonoBehaviour
         Screen.autorotateToLandscapeRight = true;
         Screen.orientation = ScreenOrientation.AutoRotation;
         iPhoneSettings.screenOrientation = iPhoneScreenOrientation.LandscapeRight;
-	}
+    }
+
+    public void ChangeOrientationToAuto()
+    {
+        Screen.orientation = ScreenOrientation.AutoRotation;
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+        iPhoneSettings.screenOrientation = iPhoneScreenOrientation.Unknown;
+    }
 
 }
