@@ -97,21 +97,27 @@ public class HTMLMenuManager : MonoBehaviour
         switch (destination)
         {
             case "virtual_mall":
+                ChangeOrientationToAuto();
                 Application.LoadLevel(5);
                 break;
             case "union_hall":
+                ChangeOrientationToAuto();
                 CheckLogin(3);
                 break;
             case "memory_bank":
+                ChangeOrientationToAuto();
                 CheckLogin(4);
                 break;
             case "explorer":
+                ChangeOrientationToLandscape();
                 Application.LoadLevel(1);
                 break;
             case "arcade":
+                ChangeOrientationToLandscape();
                 Application.LoadLevel(2);
                 break;
             default:
+                ChangeOrientationToAuto();
                 break;
         }
     }
@@ -158,6 +164,27 @@ public class HTMLMenuManager : MonoBehaviour
         PlayerPrefs.SetString("SignedRequest", sr);
         PlayerPrefs.SetString("ExpiresIn", ei);
         PlayerPrefs.SetString("Code", c);
+    }
+
+    void ChangeOrientationToLandscape()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeRight;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+        Screen.orientation = ScreenOrientation.AutoRotation;
+        iPhoneSettings.screenOrientation = iPhoneScreenOrientation.LandscapeRight;
+    }
+
+    void ChangeOrientationToAuto()
+    {
+        Screen.orientation = ScreenOrientation.AutoRotation;
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+        iPhoneSettings.screenOrientation = iPhoneScreenOrientation.Unknown;
     }
 
     #endregion
