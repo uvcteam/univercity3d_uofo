@@ -608,8 +608,8 @@
 				}
 			};
 		};
-	
-		(function() {
+		
+		var setupCoherentForAndroidFunc = function() {
 			document.body.addEventListener('touchstart', touchListener(0));
 			document.body.addEventListener('touchend', touchListener(3));
 			document.body.addEventListener('touchcancel', touchListener(4));
@@ -618,10 +618,19 @@
 			var newdiv = document.createElement('div');
 			newdiv.setAttribute('id', '__CoherentBackground');
 			newdiv.setAttribute('class', 'coui-noinput');
-			newdiv.setAttribute('style', 'background-color: "rgba(0,0,0,0)"; width: 100%; height: 100%; position: absolute; z-index: -1000000;');
+			newdiv.setAttribute('style', 'background-color: "rgba(0,0,0,0)";' +
+				'width: 100%; height: 100%; position: absolute;' +
+				'z-index: -1000000;');
 			
 			document.body.insertBefore(newdiv, document.body.firstChild);
-		})();
+		};
+
+		if (document.body) {
+			setupCoherentForAndroidFunc();
+		} else {
+			document.addEventListener('DOMContentLoaded',
+				setupCoherentForAndroidFunc);
+		}
 	}	
 
 	if (hasOnLoad) {
@@ -637,6 +646,35 @@
 		engine._WindowLoaded = true;
 	}
 
+	engine._coherentGlobalCanvas = document.createElement('canvas');
+	engine._coherentGlobalCanvas.id     = "coherentGlobalCanvas";
+	engine._coherentGlobalCanvas.width  = 1;
+	engine._coherentGlobalCanvas.height = 1;
+	engine._coherentGlobalCanvas.style.zIndex   = 0;
+	engine._coherentGlobalCanvas.style.position = "absolute";
+	engine._coherentGlobalCanvas.style.border   = "0px solid";
+
+	engine._coherentLiveImageData = new Array();
+	engine._coherentCreateImageData = function(name, guid) {
+		var ctx = engine._coherentGlobalCanvas.getContext("2d");
+
+		var coherentImage = ctx.coherentCreateImageData(guid);
+		engine._coherentLiveImageData[name] = coherentImage;
+	}
+	engine._coherentUpdatedImageData = function(name) {
+		engine._coherentLiveImageData[name].coherentUpdate();
+		var canvases = document.getElementsByTagName('canvas');
+		for(var i = 0; i < canvases.length; ++i) {
+			if(canvases[i].onEngineImageDataUpdated != null) {
+				canvases[i].onEngineImageDataUpdated(name,
+					engine._coherentLiveImageData[name]);
+			}
+		}
+	}
+
+	engine.on("_coherentCreateImageData", engine._coherentCreateImageData);
+	engine.on("_coherentUpdatedImageData", engine._coherentUpdatedImageData);
+
 	engine.on('_Result', engine._Result, engine);
 	engine.on('_Register', engine._Register, engine);
 	engine.on('_Unregister', engine._Unregister, engine);
@@ -647,3 +685,4 @@
 
 	return engine;
 });
+
