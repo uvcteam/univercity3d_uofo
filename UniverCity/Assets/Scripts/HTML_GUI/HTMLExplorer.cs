@@ -73,7 +73,7 @@ public class HTMLExplorer : MonoBehaviour
     public void LoadAdPlayer(string businessid)
     {
         _businessID = businessid;
-        GetComponent<CoherentUIView>().View.Load("coui://HTML_UI/VirtualMall/adplayer.html");
+        GetComponent<CoherentUIView>().View.Load("coui://HTMLUI/VirtualMall/adplayer.html");
     }
     void LoadAdData()
     {
@@ -129,7 +129,7 @@ public class HTMLExplorer : MonoBehaviour
     {
         Debug.Log(businessid);
         _businessID = businessid;
-        _view.View.Load("coui://HTML_UI/VirtualMall/businesscard.html");
+        _view.View.Load("coui://HTMLUI/VirtualMall/businesscard.html");
     }
 
     void LoadBusinessCard()

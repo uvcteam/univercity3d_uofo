@@ -23,8 +23,7 @@ public class OrientationManager : MonoBehaviour
         Screen.autorotateToPortrait = true;
         Screen.autorotateToPortraitUpsideDown = true;
         Screen.autorotateToLandscapeLeft = true;
-        Screen.autorotateToLandscapeRight = true;
-        iPhoneSettings.screenOrientation = iPhoneScreenOrientation.Unknown;
+		Screen.autorotateToLandscapeRight = true;
+		Screen.orientation = ScreenOrientation.AutoRotation;
     }
-
 }
