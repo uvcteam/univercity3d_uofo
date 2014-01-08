@@ -23,7 +23,7 @@
 	function Emitter() {
 		this.events = {};
 	}
-
+ 
 	function Handler(code, context) {
 		this.code = code;
 		this.context = context;
@@ -372,6 +372,13 @@
 				frame.width = '1px';
 				frame.height = '1px';
 				document.documentElement.appendChild(frame);
+				if (!frame.parentNode) {
+					frame = document.createElement('iframe');
+					frame.src = prefix + arguments[0] + ':' + arguments[1] + ':' + encodeURIComponent(json);
+					frame.width = '1px';
+					frame.height = '1px';
+					document.documentElement.appendChild(frame);
+				}
 				frame.parentNode.removeChild(frame);
 			};
 		};
@@ -685,4 +692,3 @@
 
 	return engine;
 });
-
