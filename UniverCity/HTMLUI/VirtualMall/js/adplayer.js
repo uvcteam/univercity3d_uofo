@@ -188,9 +188,17 @@ var AddPage = function (adpage, detailsPage, index) {
 
 var SetMegaDeal = function(megaDeal){
     if (megaDeal){
-        $('mega-btn')[0].css('background','radial-gradient(yellow, yellowgreen, limegreen)');
+        $('.mega-btn').click(function (e) {
+            e.preventDefault();
+            $('#mega-deal').show();
+            $('#adpages').hide();
+            $('#details-btn').hide();
+            console.log(this);
+        })
+        //$('.mega-btn')[0].css('background','radial-gradient(yellow, yellowgreen, limegreen)');
         $('#title').text(megaDeal.title);
-        $('#description').text(megaDeal.description);
+        $('#description').append(megaDeal.description);
+        //$('#description').text(megaDeal.description);
         $('#price').text('Deal Price: ' + megaDeal.price);
         $('#list').text(megaDeal.list);
         $('#end').text('Hurry! Deal Ends ' + megaDeal.end);
@@ -346,7 +354,9 @@ $('#side-btns').children('li').each(function(){
 
 $('.done-btn').click(function(){
     console.log($('#cbp-fwslider'));
-    $('#side-btns button:first').tab('show');
+    $('#adpages').show();
+    $('#details-btn').show();
+    $('#mega-deal').hide();
     $('.selected').removeClass('selected');
 });
 
