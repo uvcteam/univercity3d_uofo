@@ -369,11 +369,11 @@ function postLike() {
             'delete',
             function(response) {
                 if (!response) {
-                    alert('Error occurred.');
+                    //alert('Error occurred.');
                 } else if (response.error) {
-                    alert(response.error.message);
+                    //alert(response.error.message);
                 } else {
-                    alert("You no longer like this ad.");
+                    //alert("You no longer like this ad.");
                 }
             }
         );
@@ -389,11 +389,11 @@ function postLike() {
             },
             function(response) {
                 if (!response) {
-                    alert('Error occurred.');
+                    //alert('Error occurred.');
                 } else if (response.error) {
-                    alert(response.error.message);
+                    //alert(response.error.message);
                 } else {
-                    alert("Succesfully posted to your TimeLine.");
+                    //alert("Succesfully posted to your TimeLine.");
                 }
             }
         );
