@@ -19,60 +19,71 @@ engine.on('LoadFlashPlayer', function(flashdeal, URL){
     var  pageItem = '<div class="page"><table class="adpage" data-title="" data-details="" data-narration="' + adpage.narrative + '">';
     var partType = "one";
 
-    switch (adpage.parts.length)
+    if(adpage.parts[0].type !== "video")
     {
-        case 1 :
-            partType = "one";
-            break;
-        case  2:
-            partType = "two";
-            break;
-        case 3:
-            partType = "three";
-            break;
-        case 4:
-            partType = "four";
-            break;
-    }
-    pageItem += '<tr>';
 
-
-    for (var i =0; i < adpage.parts.length; ++i){
-
-        if( adpage.parts.length == 4 && i == 2)
+        switch (adpage.parts.length)
         {
-            pageItem += '</tr><tr>';
-        }
-
-        pageItem += '<td class="'+ partType +'">';
-
-        switch(adpage.parts[i].type)
-        {
-            case "image":
-                pageItem += '<img src="' + mediaURL + adpage.parts[i].id + '"/>';
+            case 1 :
+                partType = "one";
                 break;
-            case "video":
-                pageItem += '<div class="vzaar_media_player">'
-                    +'<video draggable="true" data-played="false" preload="metadata" controls id="" onclick="this.play();" poster="'+ mediaURL + adpage.parts[i].id +'&thumbnail=1'
-                    +'"preload="none" src="' + mediaURL + adpage.parts[i].id + '"></video>'
-                    +'</div>';
+            case  2:
+                partType = "two";
                 break;
-            case "text":
-                pageItem += '<div>'
-                    + adpage.parts[i].text + '</div>';
+            case 3:
+                partType = "three";
+                break;
+            case 4:
+                partType = "four";
+                break;
         }
+        pageItem += '<tr>';
 
-        pageItem += '</td>';
+
+        for (var i =0; i < adpage.parts.length; ++i){
+
+            if( adpage.parts.length == 4 && i == 2)
+            {
+                pageItem += '</tr><tr>';
+            }
+
+            pageItem += '<td class="'+ partType +'">';
+
+            switch(adpage.parts[i].type)
+            {
+                case "image":
+                    pageItem += '<img src="' + mediaURL + adpage.parts[i].id + '"/>';
+                    break;
+                case "video":
+                    pageItem += '<div class="vzaar_media_player">'
+                        +'<video draggable="true" data-played="false" preload="metadata" controls id="" onclick="this.play();" poster="'+ mediaURL + adpage.parts[i].id +'&thumbnail=1'
+                        +'"preload="none" src="' + mediaURL + adpage.parts[i].id + '"></video>'
+                        +'</div>';
+                    break;
+                case "text":
+                    pageItem += '<div>'
+                        + adpage.parts[i].text + '</div>';
+            }
+
+            pageItem += '</td>';
+        }
+        pageItem += '</tr>';
+
+        pageItem += '</table>';
     }
-    pageItem += '</tr>';
-
-    pageItem += '</table>';
+    else //videos need to be in div to size properly.
+    {
+        pageItem = '<div class="page"><div class="adpage" data-title="" data-details="" data-narration="' + adpage.narrative + '"><div class="vzaar_media_player">'
+        +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid" onclick="this.play();" poster="'+ mediaURL + adpage.parts[0].id +'&thumbnail=1'
+        +'"preload="none" src="' + mediaURL + adpage.parts[0].id + '"></video>'
+        +'</div></div></div>';
+    }
     
     if (adpage.expert)
-    	SetNarrator(URL + adpage.expert.id);
+        SetNarrator(URL + adpage.expert.id);
     else
-    	$('#narrator-img').attr('style', 'display:none');
-    	
+        $('#narrator-img').attr('style', 'display:none');
+        
     if (adpage.narrative === "")
         $('#narrator-bubble').hide();
     $('#narrator-text').text(adpage.narrative);
