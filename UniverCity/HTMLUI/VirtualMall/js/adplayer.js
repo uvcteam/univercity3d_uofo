@@ -2,6 +2,9 @@
 
 var mediaURL = "http://app2.univercity3d.com/univercity/admedia?id=";
 var objectToLike = 'http://samples.ogp.me/126210144220828';
+var urlToUse = "http://app2.univercity3d.com/univercity/";
+var userToken = "";
+var businessID = -1;
 var hasLiked = false;
 var likeID;
 
@@ -23,7 +26,11 @@ $(document).ready(function () {
 });
 
 
-engine.on('LoadAdPlayer', function(id, URL){
+engine.on('LoadAdPlayer', function(id, URL, token){
+    console.log("LoadAdPlayer");
+    urlToUse = URL;
+    userToken = token;
+    businessID = id;
     objectToLike = URL + '/fbo?b=' + id;
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
@@ -193,7 +200,7 @@ var SetMegaDeal = function(megaDeal){
             $('#mega-deal').show();
             $('#adpages').hide();
             $('#details-btn').hide();
-            console.log(this);
+            TrackUserAction(businessID, "MegaDeal", "deal", Date.now());
         })
         //$('.mega-btn')[0].css('background','radial-gradient(yellow, yellowgreen, limegreen)');
         $('#title').text(megaDeal.title);
@@ -344,12 +351,23 @@ var goBack = function(){
 }
 
 $('#side-btns').children('li').each(function(){
-
-    $(this).children('button').click(function(){
-
+/*
+    $('.deal-btn').click(function(){
+        console.log("deal");
         $('.selected').removeClass('selected');
         $(this).addClass('selected');
-    });
+    });*/
+
+    $(this).children('button').click(function(){
+        $(this).addClass('selected');
+    })
+
+});
+
+$('.deal-btn').click(function(){
+    console.log("deal");
+    $('.deal-btn').removeClass('selected');
+    $(this).addClass('selected');
 });
 
 $('.done-btn').click(function(){
@@ -357,7 +375,7 @@ $('.done-btn').click(function(){
     $('#adpages').show();
     $('#details-btn').show();
     $('#mega-deal').hide();
-    $('.selected').removeClass('selected');
+    $('.deal-btn').removeClass('selected');
 });
 
 function postLike() {
@@ -426,6 +444,53 @@ function checkIfLiked(id) {
             }
         }
     );
+}
 
+function TrackUserAction(businessID, title, eventName, play_id)
+{
+    var trackURL = urlToUse + "track?id=" + businessID
+        + "&title=" + title
+        + "&event=" + eventName
+        + "&play_id=" + play_id;
+    var result = "";
 
+    if(userToken != "")
+    {
+        trackURL += "&token=" + userToken;
+    }
+
+    console.log(trackURL);
+
+    $.ajax({
+        type: "POST",
+        url: trackURL,
+        success: function(result){
+            console.log(result);
+        }
+    });
+}
+
+function SaveBusiness()
+{
+    var saveURL = urlToUse + "SaveBusiness?token=" + userToken
+            + "&id=" + businessID;
+    $.ajax({
+        type: 'POST',
+        url: saveURL,
+        success: function(result){
+            console.log(result);
+        }
+    })
+}
+
+function PurchaseMegaDeal()
+{
+   var  purchaseURL = urlToUse + "mdpurchase?b=" + businessID
+        + "&token=" + userToken;
+
+    console.log(purchaseURL);
+
+    $('#mega-deal').load(purchaseURL);
+
+    //location.href = purchaseURL;
 }

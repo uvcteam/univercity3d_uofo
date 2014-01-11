@@ -60,19 +60,16 @@
                     <div class="tab-content">
                         <ul id="side-btns">
                             <li><button style="display:none" class="home-btn" href="#cbp-fwslider" data-toggle="tab">Home</button></li>
-                            <li><button class="fav-btn"><span class="fa fa-star"></span></button></li>
-                            <li><button class="mega-btn" href="#mega-deal" data-toggle="tab">Mega Deal</button></li>
-                            <li><button disabled class="members-btn" href="#members-only" data-toggle="modal" data-target="#myModal" onclick="buttonSelected()">Members Only</button></li>
+                            <li><button class="fav-btn" onclick="SaveBusiness()"><span class="fa fa-star"></span></button></li>
+                            <li><button class="mega-btn deal-btn" href="#mega-deal" data-toggle="tab">Mega Deal</button></li>
+                            <li><button disabled class="members-btn deal-btn" href="#members-only" data-toggle="modal" data-target="#myModal" onclick="buttonSelected()">Members Only</button></li>
                             <li><button class="facebook" onclick="postLike();">f</button></li>
                             <button id="details-btn" class="details-btn"><p id="details-text">See Details</p></button>
                         </ul>
-<!--                        <div id="cbp-fwslider" class="cbp-fwslider tab-pane active fade ">
-                            <ul id="adpages"></ul>
-                        </div>-->
-                        <div id="adpages" class="owl-carousel">
+                        <div id="adpages" class="owl-carousel fade">
 
                         </div>
-                        <div id="mega-deal" class="tab-pane fade">
+                        <div id="mega-deal" class="fade">
                             <p id="title"></p>
                             <p id="description"></p>
                             <p id="price"></p>
@@ -82,7 +79,7 @@
                                 Mega Deals can only be purchased through the Univercity system.
                                 This Mega Deal is not available in store elsewhere.
                             </p>
-                            <button id="mega-deal-btn"type="button" class="btn btn-success">Purchase</button>
+                            <button id="mega-deal-btn"type="button" onclick="PurchaseMegaDeal()" btn btn-success">Purchase</button>
                             <div>
                                 <button class="done-btn btn">Done</button>
                             </div>
