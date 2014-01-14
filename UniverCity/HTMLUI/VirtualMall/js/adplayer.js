@@ -319,9 +319,8 @@ var AttachEventToPages = function () {
     
 	$('.st-content').css('transform', 'rotate(360deg)');
 
-    console.log($("video"));
     $("video").bind("ended", function() {
-        alert("I'm done!");
+        engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "media");
     });
 
 }
