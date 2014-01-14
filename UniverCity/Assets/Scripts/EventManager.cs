@@ -22,10 +22,17 @@ public class EventManager : MonoBehaviour
     public UnionHallEvent currentEvent = null;
 
 	// Use this for initialization
-	void Start () 
+	void Start ()
     {
         DontDestroyOnLoad(this);
-        StartCoroutine(GetEventInformation());
+        if (GameObject.FindGameObjectWithTag("EventManager") == null)
+        {
+            gameObject.tag = "EventManager";
+            StartCoroutine(GetEventInformation());    
+        }
+        else
+            Destroy(gameObject);
+        
 	}
 
     // ***************************************************
