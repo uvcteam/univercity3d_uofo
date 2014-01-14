@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Facebook;
 using MiniJSON;
 using UnityEngine;
 using System.Collections;
@@ -43,6 +44,7 @@ public class HTMLMemoryBank : MonoBehaviour
             _view.View.BindCall("GetCategories", (System.Action)GetCategories);
             _view.View.BindCall("UpdateCategories", (System.Action<string>)UpdateCategories);
             _view.View.BindCall("SignOut", (System.Action)SignOut);
+            _view.View.BindCall("GetFacebookInfoMB", (System.Action)GetFacebookInfoMB);
         };
         
         _viewReady = false;
@@ -88,7 +90,6 @@ public class HTMLMemoryBank : MonoBehaviour
             NativeDialogs.Instance.HideProgressDialog();
         }
     }
-
     IEnumerator SaveEntry(string title, string content)
     {
         GameObject manager = GameObject.FindGameObjectWithTag("UserManager");
@@ -119,7 +120,6 @@ public class HTMLMemoryBank : MonoBehaviour
                 new string[] { "OK" }, false, (string button) => { });
         }
     }
-	
 	IEnumerator DeleteJournal(int id)
 	{
 		Debug.Log("Deleting journal " + id);
@@ -160,25 +160,21 @@ public class HTMLMemoryBank : MonoBehaviour
         Debug.Log("Updating username.");
         _view.View.TriggerEvent("UpdateUsername", _userManager.CurrentUser.Name);
     }
-
     public void OnJournalClicked(string pin)
     {
         Debug.Log("Check PIN " + pin);
         StartCoroutine(CheckPIN(pin));
-    }
-    
+    }  
     public void OnSaveEntryClicked(string title, string content)
     {
         NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Saving entry.", false, false);
         StartCoroutine(SaveEntry(title, content));
     }
-	
 	public void DeleteEntry(string id)
 	{
 		Debug.Log("Trying to delete: " + Convert.ToInt32(id));
 		StartCoroutine(DeleteJournal(Convert.ToInt32(id)));
 	}
-
     public void GetCategories()
     {
         Debug.Log("Getting the categories");
@@ -189,7 +185,6 @@ public class HTMLMemoryBank : MonoBehaviour
         }
         _view.View.TriggerEvent("CategoriesFinished");
     }
-
     public void UpdateCategories(string newCats)
     {
         string setURL = serverURL + "SetSocialInterests?token=";
@@ -212,12 +207,21 @@ public class HTMLMemoryBank : MonoBehaviour
 
         WWW page = new WWW(setURL);
     }
-
     public void SignOut()
     {
         _userManager.SignOut();
         Application.LoadLevel(0);
     }
 
+    public void GetFacebookInfoMB()
+    {
+        Debug.Log("================== TRYING TO GET INFORMATION ==================");
+        FB.API("/me/picture", HttpMethod.GET, RetrievedInfo);
+    }
+
+    public void RetrievedInfo(FBResult response)
+    {
+        _view.View.TriggerEvent("FacebookInfoMB", response.Text);
+    }
     #endregion
 }

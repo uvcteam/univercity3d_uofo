@@ -301,6 +301,20 @@
 .general-button {
     visibility: hidden;
 }
+
+.help_block {
+    margin-left: 1em;
+}
+
+.help_block h1 {
+    font-family: 'Oswald';
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.help_block p {
+    color: #686a6e;
+}
 /* -------------------------------------------------------------
 ======	MEDIA QUERIES
 ------------------------------------------------------------- */

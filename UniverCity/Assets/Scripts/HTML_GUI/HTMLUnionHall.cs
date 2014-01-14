@@ -190,7 +190,6 @@ public class HTMLUnionHall : MonoBehaviour
 			}
 		}
 
-
         if (!hasEvents)
         {
             Debug.Log("No events!");

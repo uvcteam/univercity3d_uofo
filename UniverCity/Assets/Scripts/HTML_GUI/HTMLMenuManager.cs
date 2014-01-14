@@ -54,10 +54,7 @@ public class HTMLMenuManager : MonoBehaviour
     {
         if (url.StartsWith(FacebookAppURL))
         {
-            // change the url, keeping all parameters intact
-            Debug.Log("Intercepted " + url);
             string redirectURL = LocalAppURL + url.Substring(FacebookAppURL.Length);
-            Debug.Log("REDIRECT TO: " + redirectURL);
             response.RedirectRequest(redirectURL);
             return;
         }
