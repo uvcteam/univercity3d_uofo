@@ -171,8 +171,8 @@ public class HTMLVirtualMall : MonoBehaviour
         Debug.Log("Sending: " + trackURL);
         WWW track = new WWW(trackURL);
 
-        while (!track.isDone) { }
+        //while (!track.isDone) { }
 
-        Debug.Log("Response: " + track.text);
+        //Debug.Log("Response: " + track.text);
     }
 }

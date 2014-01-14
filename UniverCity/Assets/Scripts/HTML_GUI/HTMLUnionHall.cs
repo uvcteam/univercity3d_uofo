@@ -173,19 +173,23 @@ public class HTMLUnionHall : MonoBehaviour
         DateTime nextSunday = DateTime.Now.AddDays(7 - dayOfTheWeek).Date;
         bool hasEvents = false;
 
-        foreach (UnionHallEvent ev in _eventManager.events)
-        {
-            if (_userManager.CurrentUser.AttendingEvent(ev.Id))
-            {
-                if (ev.Start >= today && ev.Start < nextSunday)
-                {
-                    string date = ev.Start.ToString("MMMM dd");
-                    string time = ev.Start.ToString("hh:mm tt");
-                    _view.View.TriggerEvent("AddWeekEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
-                    hasEvents = true;
-                }
-            }
-        }
+		if(_eventManager.events != null)
+		{
+			foreach (UnionHallEvent ev in _eventManager.events)
+			{
+				if ( ev != null && _userManager.CurrentUser.AttendingEvent(ev.Id))
+				{
+					if (ev.Start >= today && ev.Start < nextSunday)
+					{
+						string date = ev.Start.ToString("MMMM dd");
+						string time = ev.Start.ToString("hh:mm tt");
+						_view.View.TriggerEvent("AddWeekEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+						hasEvents = true;
+					}
+				}
+			}
+		}
+
 
         if (!hasEvents)
         {
@@ -198,8 +202,11 @@ public class HTMLUnionHall : MonoBehaviour
         Debug.Log("Adding events.");
         foreach (UnionHallEvent ev in _eventManager.events)
         {
-            Debug.Log(ev.Start.ToString("MM-dd-yyyy") + ": " + ev.Title);
-            _view.View.TriggerEvent("AddEvent", ev.Start.ToString("MM-dd-yyyy"), ev.Title, ev.Start.ToString("hh:mm tt"));
+			if(ev != null)
+			{
+				Debug.Log(ev.Start.ToString("MM-dd-yyyy") + ": " + ev.Title);
+            	_view.View.TriggerEvent("AddEvent", ev.Start.ToString("MM-dd-yyyy"), ev.Title, ev.Start.ToString("hh:mm tt"));
+			}
         }
         _view.View.TriggerEvent("EventsFinished");
     }
