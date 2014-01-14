@@ -379,13 +379,13 @@ video {
 
 #side-btns li .fav-btn{
 
-    background: #14BDE3;
+    background: orange;
     color: white;
-    text-shadow: 0 0 0.2em white;
-    font-size: 20px;
-    -webkit-box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
-    -moz-box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
-    box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
+/*    text-shadow: 0 0 0.2em white;*/
+    font-size: 12px;
+    -webkit-box-shadow: 0px 9px 0px darkorange, 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px darkorange, 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px darkorange, 0px 9px 25px rgba(0,0,0,.7);
     text-align: center;
     vertical-align: middle;
     padding-top: -10px;
@@ -393,23 +393,23 @@ video {
 }
 
 #side-btns li .fav-btn:active {
-    -webkit-box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
-    -moz-box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
-    box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
+    -webkit-box-shadow: 0px 3px 0px orange, 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px orange, 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px orange, 0px 3px 6px rgba(0,0,0,.9);
     position: relative;
     top: 6px;
 }
 
 #side-btns li .fav-btn.selected {
-    -webkit-box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
-    -moz-box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
-    box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
+    -webkit-box-shadow: 0px 3px 0px orange, 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px orange, 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px orange, 0px 3px 6px rgba(0,0,0,.9);
     position: relative;
     top: 6px;
 }
 
 #side-btns li .facebook {
-    border-color: #3c5a98;
+    background: #14BDE3;
     text-transform: lowercase;
     text-align: center;
     font-weight: bold;
@@ -418,10 +418,18 @@ video {
     font-weight: bold;
     line-height: 20px;
     color: #fff;
-    background: #3c5a98;
-    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.4);
-    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.4);
-    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    background: #14BDE3;
+    -webkit-box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px #1095B3, 0px 9px 25px rgba(0,0,0,.7);
+}
+
+#side-btns li .facebook.selected {
+    -webkit-box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px #1095B3, 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
 }
 
 #side-btns li button:disabled {

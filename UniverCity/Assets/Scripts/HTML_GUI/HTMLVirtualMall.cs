@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
 using Coherent.UI.Binding;
@@ -29,7 +30,7 @@ public class HTMLVirtualMall : MonoBehaviour
     private string _businessID = null;
     private int _flashdealID = -1;
     private Dictionary<int,string> _flashDeals = new Dictionary<int,string>();
-    byte[] foo;
+    private Business currentBusiness;
 	// Use this for initialization
     void Start()
     {
@@ -48,6 +49,8 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("LoadFlashDeal", (System.Action)LoadFlashDeal);
             _view.View.BindCall("ClearFlashDeals", (System.Action)ClearFlashDeals);
             _view.View.BindCall("LoadFlashDeals", (System.Action)LoadFlashDeals);
+            _view.View.BindCall("TrackUserAction", (System.Action<string, string, string>)TrackUserAction);
+            _view.View.BindCall("OnAdPlayerWasClosed", (System.Action)OnAdPlayerWasClosed);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -99,6 +102,7 @@ public class HTMLVirtualMall : MonoBehaviour
     void SetBusinessID(string businessid)
     {
         _businessID = businessid;
+         currentBusiness = _businessManager.businesses.Where(x => x.id.ToString() == _businessID).FirstOrDefault();
         _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html");       
     }
 
@@ -110,8 +114,9 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void LoadAdData()
     {
-        Debug.Log("LoadAdPlayer");
-        _view.View.TriggerEvent("LoadAdPlayer", _businessID, serverURL);
+        TrackUserAction(_businessID, currentBusiness.name, "start");
+        _view.View.TriggerEvent("LoadAdPlayer", _businessID, serverURL,  
+            GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token);
     }
 
     void SetFlashDealID(int flashdealID)
@@ -144,5 +149,30 @@ public class HTMLVirtualMall : MonoBehaviour
     void ClearFlashDeals()
     {
         _flashDeals.Clear();
+    }
+
+    void OnAdPlayerWasClosed()
+    {
+        TrackUserAction(_businessID, currentBusiness.name, "close");
+    }
+
+    void TrackUserAction(string businessID, string title, string eventName)
+    {
+        string trackURL = serverURL + "track?id=";
+        trackURL += businessID;
+        trackURL += "&title=" + title.Replace(" ", string.Empty);
+        trackURL += "&event=" + eventName.Replace(" ", string.Empty);
+        trackURL += "&play_id=" + DateTime.Now.Ticks;
+
+        if (PlayerPrefs.GetInt("loggedIn") == 1)
+            trackURL += "&token=" +
+                        GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
+
+        Debug.Log("Sending: " + trackURL);
+        WWW track = new WWW(trackURL);
+
+        while (!track.isDone) { }
+
+        Debug.Log("Response: " + track.text);
     }
 }

@@ -22,12 +22,13 @@ $(document).ready(function () {
 
     }});
 
+
     engine.call('LoadAdData');
 });
 
 
 engine.on('LoadAdPlayer', function(id, URL, token){
-    console.log("LoadAdPlayer");
+
     urlToUse = URL;
     userToken = token;
     businessID = id;
@@ -35,15 +36,31 @@ engine.on('LoadAdPlayer', function(id, URL, token){
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
 
-    $.ajax({url: URL + id, success: function(adPlayerData){
-        console.log(adPlayerData);
-        PopulateAdPlayer(adPlayerData);
-        SetMegaDeal(adPlayerData.megadeal);
-        AttachEventToPages();
-        SetNarrator(mediaURL + adPlayerData.expert.id);
-        checkIfLiked(id);
+    $.ajax({
+        url: URL + id,
+        success: function(adPlayerData){
+            console.log(adPlayerData);
+            PopulateAdPlayer(adPlayerData);
+            SetMegaDeal(adPlayerData.megadeal);
+            AttachEventToPages();
+            SetNarrator(mediaURL + adPlayerData.expert.id);
+            checkIfLiked(id);
 
     }});
+
+    console.log(urlToUse + "ListSaved?token=" + token);
+
+    $.ajax({
+        url: urlToUse + "ListSaved?token=" + token,
+        success: function(result){
+            console.log(result);
+        }
+    });
+
+    console.log($(".htmlvid"));
+    $("video").bind("ended", function() {
+        alert("I'm done!");
+    });
 })
 
 var PopulateAdPlayer = function(adpage ) {
@@ -108,7 +125,7 @@ var AddPage = function (adpage, detailsPage, index) {
                     break;
                 case "video":
                     pageItem += '<div class="vzaar_media_player">'
-                        +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[i].id +'&thumbnail=1'
+                        +'<video draggable="true" data-played="false" preload="metadata" controls class="htmlvid" id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[i].id +'&thumbnail=1'
                         +'"preload="none" src="' + mediaURL + adpage.parts[i].id + '"></video>'
                         +'</div>';
                     break;
@@ -200,7 +217,7 @@ var SetMegaDeal = function(megaDeal){
             $('#mega-deal').show();
             $('#adpages').hide();
             $('#details-btn').hide();
-            TrackUserAction(businessID, "MegaDeal", "deal", Date.now());
+            engine.call("TrackUserAction",businessID, "MegaDeal", "deal");
         })
         //$('.mega-btn')[0].css('background','radial-gradient(yellow, yellowgreen, limegreen)');
         $('#title').text(megaDeal.title);
@@ -258,6 +275,8 @@ var AttachEventToPages = function () {
             $('#htmlvid'+listItemIndex).get(0).play();
         }
 
+        engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "click");
+
     });
 
     $('#details-btn').click(function () {
@@ -299,6 +318,11 @@ var AttachEventToPages = function () {
     }
     
 	$('.st-content').css('transform', 'rotate(360deg)');
+
+    console.log($("video"));
+    $("video").bind("ended", function() {
+        alert("I'm done!");
+    });
 
 }
 
@@ -446,30 +470,6 @@ function checkIfLiked(id) {
     );
 }
 
-function TrackUserAction(businessID, title, eventName, play_id)
-{
-    var trackURL = urlToUse + "track?id=" + businessID
-        + "&title=" + title
-        + "&event=" + eventName
-        + "&play_id=" + play_id;
-    var result = "";
-
-    if(userToken != "")
-    {
-        trackURL += "&token=" + userToken;
-    }
-
-    console.log(trackURL);
-
-    $.ajax({
-        type: "POST",
-        url: trackURL,
-        success: function(result){
-            console.log(result);
-        }
-    });
-}
-
 function SaveBusiness()
 {
     var saveURL = urlToUse + "SaveBusiness?token=" + userToken
@@ -480,7 +480,7 @@ function SaveBusiness()
         success: function(result){
             console.log(result);
         }
-    })
+    });
 }
 
 function PurchaseMegaDeal()
@@ -490,7 +490,7 @@ function PurchaseMegaDeal()
 
     console.log(purchaseURL);
 
-    $('#mega-deal').load(purchaseURL);
+    //$('#mega-deal').load(purchaseURL);
 
-    //location.href = purchaseURL;
+    location.href = purchaseURL;
 }
