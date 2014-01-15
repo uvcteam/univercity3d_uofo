@@ -6,6 +6,7 @@ using System.Linq;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
 using Coherent.UI.Binding;
+using Facebook;
 #elif UNITY_IPHONE || UNITY_ANDROID
 using Coherent.UI.Mobile;
 using Coherent.UI.Mobile.Binding;
@@ -51,6 +52,8 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("LoadFlashDeals", (System.Action)LoadFlashDeals);
             _view.View.BindCall("TrackUserAction", (System.Action<string, string, string>)TrackUserAction);
             _view.View.BindCall("OnAdPlayerWasClosed", (System.Action)OnAdPlayerWasClosed);
+            _view.View.BindCall("FacebookLike", (System.Action<string>)FacebookLike);
+            _view.View.BindCall("CheckIfBusinessIsLiked", (System.Action)CheckIfBusinessIsLiked);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
@@ -154,6 +157,34 @@ public class HTMLVirtualMall : MonoBehaviour
     void OnAdPlayerWasClosed()
     {
         TrackUserAction(_businessID, currentBusiness.name, "close");
+    }
+
+    void FacebookLike(string objectToLike)
+    {
+        Dictionary<string,string> formData = new Dictionary<string, string>();
+        formData.Add("object", objectToLike);
+
+        FB.API("/me/og.likes", HttpMethod.POST, RetrievedInfo, formData);
+    }
+
+    void FacebookUnLike(string likeID)
+    {
+        FB.API("/" + likeID + "/delete", HttpMethod.POST, RetrievedInfo);
+    }
+
+    void CheckIfBusinessIsLiked()
+    {
+        FB.API("/me/og.likes", HttpMethod.POST, RetrievedInfo);
+    }
+
+    public void RetrievedInfo(FBResult response)
+    {
+        Debug.Log(response.Text);
+    }
+
+    public void RetrievedLikes(FBResult likes)
+    {
+        _view.View.TriggerEvent("CheckIfLiked", likes);
     }
 
     void TrackUserAction(string businessID, string title, string eventName)

@@ -44,7 +44,7 @@ engine.on('LoadAdPlayer', function(id, URL, token){
             SetMegaDeal(adPlayerData.megadeal);
             AttachEventToPages();
             SetNarrator(mediaURL + adPlayerData.expert.id);
-            checkIfLiked(id);
+            engine.call("CheckIfBusinessIsLiked");
 
     }});
 
@@ -53,14 +53,19 @@ engine.on('LoadAdPlayer', function(id, URL, token){
     $.ajax({
         url: urlToUse + "ListSaved?token=" + token,
         success: function(result){
-            console.log(result);
+
+            for(var i = 0; result.savedBusinesses && i < result.savedBusinesses.length; ++i)
+            {
+                if(result.savedBusinesses[i] == businessID)
+                {
+                    $('.fav-btn').attr('disabled', 'disabled');
+                    break;
+                }
+            }
+
         }
     });
 
-    console.log($(".htmlvid"));
-    $("video").bind("ended", function() {
-        alert("I'm done!");
-    });
 })
 
 var PopulateAdPlayer = function(adpage ) {
@@ -338,6 +343,9 @@ var SetPage = function (index) {
     var narration;
     var details;
 
+    if(!adpage)
+        return;
+
     if($(adpage).css('display') == 'none'){
         narration = pageDetails.dataset.narration;
         details = pageDetails.dataset.details;
@@ -402,72 +410,35 @@ $('.done-btn').click(function(){
 });
 
 function postLike() {
-    console.log(likeID);
     if (hasLiked)
     {
-        FB.api(
-            '/' + likeID,
-            'delete',
-            function(response) {
-                if (!response) {
-                    //alert('Error occurred.');
-                } else if (response.error) {
-                    //alert(response.error.message);
-                } else {
-                    //alert("You no longer like this ad.");
-                }
-            }
-        );
+        engine.call("FacebookLike", objectToLike);
+        alert("Liked");
     }
 
     else
     {
-        FB.api(
-            '/me/og.likes',
-            'post',
-            {
-                object: objectToLike
-            },
-            function(response) {
-                if (!response) {
-                    //alert('Error occurred.');
-                } else if (response.error) {
-                    //alert(response.error.message);
-                } else {
-                    //alert("Succesfully posted to your TimeLine.");
-                }
-            }
-        );
+        engine.call("FacebookUnLike", likeID)
+        alert("Unliked");
     }
 
 }
 
-function checkIfLiked(id) {
+engine.on("CheckIfLiked", function(likes) {
     console.log(objectToLike);
-    FB.api(
-        '/me/og.likes',
-        function(response) {
-            if (!response) {
-                alert('Error occurred.');
-            } else if (response.error) {
-                alert(response.error.message);
-            } else {
-                console.log(response);
-                var businessID;
-                for ( var i = 0; i < response.data.length; ++i)
-                {
-                    console.log(response.data[i].data.object.url);
+    var response = jQuery.parseJSON(likes);
+    var id;
+    for ( var i = 0; i < response.data.length; ++i)
+    {
+        console.log(response.data[i].data.object.url);
 
-                    businessID  = response.data[i].data.object.url.split("=")[1];
-                    console.log(businessID);
-                    if( businessID === id )
-                        hasLiked = true;
-                        likeID = response.data[i].id;
-                }
-            }
-        }
-    );
-}
+        id  = response.data[i].data.object.url.split("=")[1];
+        console.log(businessID);
+        if( id === businessID )
+            hasLiked = true;
+            likeID = response.data[i].id;
+    }
+})
 
 function SaveBusiness()
 {
