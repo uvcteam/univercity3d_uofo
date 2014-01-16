@@ -174,7 +174,8 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void CheckIfBusinessIsLiked()
     {
-        FB.API("/me/og.likes", HttpMethod.POST, RetrievedInfo);
+        Debug.Log("---------------------Getting Likes-----------------------");
+        FB.API("/me/og.likes", HttpMethod.GET, RetrievedLikes);
     }
 
     public void RetrievedInfo(FBResult response)

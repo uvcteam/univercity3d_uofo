@@ -410,7 +410,7 @@ $('.done-btn').click(function(){
 });
 
 function postLike() {
-    if (hasLiked)
+    if (!hasLiked)
     {
         engine.call("FacebookLike", objectToLike);
         alert("Liked");
@@ -425,18 +425,19 @@ function postLike() {
 }
 
 engine.on("CheckIfLiked", function(likes) {
-    console.log(objectToLike);
+    alert(objectToLike);
     var response = jQuery.parseJSON(likes);
     var id;
     for ( var i = 0; i < response.data.length; ++i)
     {
-        console.log(response.data[i].data.object.url);
+        alert(response.data[i].data.object.url);
 
         id  = response.data[i].data.object.url.split("=")[1];
-        console.log(businessID);
         if( id === businessID )
             hasLiked = true;
             likeID = response.data[i].id;
+            alert("Liked: " + hasLiked);
+            //$('.facebook').attr('disabled', 'disabled');
     }
 })
 
