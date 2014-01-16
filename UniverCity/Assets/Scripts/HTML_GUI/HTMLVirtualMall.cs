@@ -53,6 +53,7 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("TrackUserAction", (System.Action<string, string, string>)TrackUserAction);
             _view.View.BindCall("OnAdPlayerWasClosed", (System.Action)OnAdPlayerWasClosed);
             _view.View.BindCall("FacebookLike", (System.Action<string>)FacebookLike);
+			_view.View.BindCall("FacebookUnLike", (System.Action<string>)FacebookUnLike);
             _view.View.BindCall("CheckIfBusinessIsLiked", (System.Action)CheckIfBusinessIsLiked);
         };
 
@@ -169,6 +170,7 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void FacebookUnLike(string likeID)
     {
+		Debug.Log("Liked: " + likeID); 
         FB.API("/" + likeID, HttpMethod.DELETE, RetrievedInfo);
     }
 

@@ -264,7 +264,7 @@ var AttachEventToPages = function () {
 
 
     $('.owl-page').click(function () {
-    	
+        
         if ($('#htmlvid'+listItemIndex).length)
             $('#htmlvid'+listItemIndex).get(0).pause();
         if ($('#htmlvid-details'+listItemIndex).length)
@@ -322,7 +322,7 @@ var AttachEventToPages = function () {
         });
     }
     
-	$('.st-content').css('transform', 'rotate(360deg)');
+    $('.st-content').css('transform', 'rotate(360deg)');
 
     $("video").bind("ended", function() {
         engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "media");
@@ -412,35 +412,36 @@ $('.done-btn').click(function(){
 function postLike() {
     if (!hasLiked)
     {
+        $('.facebook').attr("style", "color:red");
         engine.call("FacebookLike", objectToLike);
-        alert("Liked");
+        //alert("Liked");
     }
 
     else
     {
-        engine.call("FacebookUnLike", likeID)
-        alert("Unliked");
+        $('.facebook').attr("style", "color:white");
+        engine.call("FacebookUnLike", likeID);
+        //alert("Unliked");
     }
 
 }
 
 engine.on("CheckIfLiked", function(likes) {
-    alert(objectToLike);
+    //alert(objectToLike);
     var response = jQuery.parseJSON(likes);
     console.log(response);
     var id;
     for ( var i = 0; i < response.data.length; ++i)
     {
-        alert(response.data[i].data.object.url);
+        //alert(response.data[i].data.object.url);
 
         id  = response.data[i].data.object.url.split("=")[1];
         if( id === businessID )
         {
             hasLiked = true;
             likeID = response.data[i].id;
-            alert("Liked: " + businessID);
+            $('.facebook').attr("style", "color:red");
         }
-            //$('.facebook').attr('disabled', 'disabled');
     }
 })
 
