@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Facebook;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
 using Coherent.UI.Binding;
-using Facebook;
 #elif UNITY_IPHONE || UNITY_ANDROID
 using Coherent.UI.Mobile;
 using Coherent.UI.Mobile.Binding;
@@ -169,7 +169,7 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void FacebookUnLike(string likeID)
     {
-        FB.API("/" + likeID + "/delete", HttpMethod.POST, RetrievedInfo);
+        FB.API("/" + likeID, HttpMethod.DELETE, RetrievedInfo);
     }
 
     void CheckIfBusinessIsLiked()
@@ -185,7 +185,7 @@ public class HTMLVirtualMall : MonoBehaviour
 
     public void RetrievedLikes(FBResult likes)
     {
-        _view.View.TriggerEvent("CheckIfLiked", likes);
+        _view.View.TriggerEvent("CheckIfLiked", likes.Text);
     }
 
     void TrackUserAction(string businessID, string title, string eventName)

@@ -427,6 +427,7 @@ function postLike() {
 engine.on("CheckIfLiked", function(likes) {
     alert(objectToLike);
     var response = jQuery.parseJSON(likes);
+    console.log(response);
     var id;
     for ( var i = 0; i < response.data.length; ++i)
     {
@@ -434,9 +435,11 @@ engine.on("CheckIfLiked", function(likes) {
 
         id  = response.data[i].data.object.url.split("=")[1];
         if( id === businessID )
+        {
             hasLiked = true;
             likeID = response.data[i].id;
-            alert("Liked: " + hasLiked);
+            alert("Liked: " + businessID);
+        }
             //$('.facebook').attr('disabled', 'disabled');
     }
 })
