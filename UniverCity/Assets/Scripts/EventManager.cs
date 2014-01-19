@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Linq;
 using UnityEngine;
 using System;
 using System.Collections;
@@ -34,6 +35,11 @@ public class EventManager : MonoBehaviour
             Destroy(gameObject);
         
 	}
+
+    public UnionHallEvent GetEventForId(int id)
+    {
+        return events.FirstOrDefault(ev => ev.Id == id);
+    }
 
     // ***************************************************
     // Initial pull from the UniverCity server for the 

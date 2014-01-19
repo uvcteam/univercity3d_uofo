@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using System.Collections;
 using MiniJSON;
-using Object = UnityEngine.Object;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM || UNITY_STANDALONE_WIN
 using Coherent.UI;
 using Coherent.UI.Binding;
@@ -109,7 +108,6 @@ public class UserManager : MonoBehaviour
             Categories = Categories.OrderBy(o => o.Name).ToList();
         }
     }
-	
     public IEnumerator SignIn(string email, string password, int index = -1)
     {
         if (PlayerPrefs.GetInt("loggedIn") == 0)
@@ -256,6 +254,62 @@ public class UserManager : MonoBehaviour
                 Debug.Log("Attending event: " + aeId);
             }
         }
+
+        string iURL = serverURL + "ListMyInvitations?token=";
+        iURL += CurrentUser.Token;
+
+        goodDownload = false;
+        Debug.Log(iURL);
+
+        while (!goodDownload)
+        {
+            page = new WWW(iURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+
+        Debug.Log("===============INVITED EVENTS==================");
+        Debug.Log(page.text);
+
+        results = Json.Deserialize(page.text) as Dictionary<string, object>;
+        if (Convert.ToBoolean(results["s"]))
+        {
+            foreach (object id in results["invitations"] as List<object>)
+            {
+                Debug.Log("INVITED TO EVENT " + Convert.ToInt32(id));
+                CurrentUser.EventInvitations.Add(Convert.ToInt32(id));
+            }
+        }
+
+        string bURL = serverURL + "ListSaved?token=";
+        bURL += CurrentUser.Token;
+
+        goodDownload = false;
+        Debug.Log(bURL);
+
+        while (!goodDownload)
+        {
+            page = new WWW(bURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+        
+        Debug.Log("===============SAVED BUSINESSESS==================");
+        Debug.Log(page.text);
+
+        results = Json.Deserialize(page.text) as Dictionary<string, object>;
+        if (Convert.ToBoolean(results["s"]))
+        {
+            foreach (object id in results["savedBusinesses"] as List<object>)
+            {
+                Debug.Log("SAVING BUSINESS: " + Convert.ToInt32(id));
+                CurrentUser.SavedBusinesses.Add(Convert.ToInt32(id));
+            }
+        }
     }
 
     public void SignOut()
@@ -296,6 +350,17 @@ public class UserManager : MonoBehaviour
             return c.Id;
         return -1;
     }
+
+    public void UpdateUser()
+    {
+        CurrentUser = new User(
+            PlayerPrefs.GetString("token"),
+            PlayerPrefs.GetString("name"),
+            PlayerPrefs.GetString("email"),
+            PlayerPrefs.GetString("university"));
+
+        StartCoroutine(GetUserCategories());
+    }
 }
 
 [Serializable]
@@ -310,7 +375,9 @@ public class User
 
     private List<SocialInterest> categories;
     private List<JournalEntry> journals;
+    private List<int> eventInvitations; 
     private List<int> attendedEvents;
+    private List<int> savedBusinesses; 
 
     public bool LoggedIn
     {
@@ -352,6 +419,16 @@ public class User
         get { return journals; }
         set { journals = value; }
     }
+    public List<int> EventInvitations
+    {
+        get { return eventInvitations; }
+        set { eventInvitations = value; }
+    }
+    public List<int> SavedBusinesses
+    {
+        get { return savedBusinesses; }
+        set { savedBusinesses = value; }
+    }
     public List<int> AttendedEvents
     {
         get { return attendedEvents; }
@@ -368,6 +445,8 @@ public class User
         categories = new List<SocialInterest>();
         journals = new List<JournalEntry>();
         attendedEvents = new List<int>();
+        eventInvitations = new List<int>();
+        savedBusinesses = new List<int>();
     }
     public User(string t, string n, string e, string u)
     {
@@ -379,6 +458,8 @@ public class User
         categories = new List<SocialInterest>();
         journals = new List<JournalEntry>();
         attendedEvents = new List<int>();
+        eventInvitations = new List<int>();
+        savedBusinesses = new List<int>();
     }
 
     public void SetCategories(List<SocialInterest> categories)

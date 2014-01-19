@@ -12,6 +12,43 @@
     margin: 0 auto;
 }
 
+
+.business {
+    text-align: center;
+    display: inline-block;
+    width: 250px;
+    margin: 10px auto 10px auto;
+}
+
+.business:hover {
+    cursor: pointer;
+}
+
+.business figure {
+    margin: 0 0 10px 0;
+    overflow: hidden;
+}
+
+.business img {
+    width: 90px;
+    height: 90px;
+    float: left;
+}
+
+figure p {
+    height: 130px;
+    text-overflow: ellipsis;
+    padding-bottom: 10px;
+}
+
+.business header {
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align:left;
+    color: rgb(0, 117, 111);
+}
+
 .upcoming-events {
     width: 90%;
     margin: 0 auto;

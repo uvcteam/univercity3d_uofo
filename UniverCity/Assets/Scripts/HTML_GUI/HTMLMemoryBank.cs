@@ -45,6 +45,12 @@ public class HTMLMemoryBank : MonoBehaviour
             _view.View.BindCall("UpdateCategories", (System.Action<string>)UpdateCategories);
             _view.View.BindCall("SignOut", (System.Action)SignOut);
             _view.View.BindCall("GetFacebookInfoMB", (System.Action)GetFacebookInfoMB);
+            _view.View.BindCall("RetrieveInvitations", (System.Action)RetrieveInvitations);
+            _view.View.BindCall("RetrieveBusinesses", (System.Action)RetrieveBusinesses);
+            _view.View.BindCall("JoinEvent", (System.Action<string>)JoinEvent);
+            _view.View.BindCall("IsFacebookLoggedIn", (System.Action)IsFacebookLoggedIn);
+            _view.View.BindCall("SignIntoFacebook", (System.Action)SignIntoFacebook);
+            _view.View.BindCall("SignOutOfFacebook", (System.Action)SignOutOfFacebook);
         };
         
         _viewReady = false;
@@ -222,6 +228,99 @@ public class HTMLMemoryBank : MonoBehaviour
     public void RetrievedInfo(FBResult response)
     {
         _view.View.TriggerEvent("FacebookInfoMB", response.Text);
+    }
+
+    public void RetrieveInvitations()
+    {
+        Debug.Log("RETRIEVING INVITATIONS!");
+        EventManager em = GameObject.Find("EventManager").GetComponent<EventManager>();
+        bool hasEvents = false;
+        foreach (int id in _userManager.CurrentUser.EventInvitations)
+        {
+            UnionHallEvent ev = em.GetEventForId(id);
+            if ( ev != null && !_userManager.CurrentUser.AttendingEvent(id))
+            {
+                string date = ev.Start.ToString("MMMM dd");
+                string time = ev.Start.ToString("hh:mm tt");
+                _view.View.TriggerEvent("AddInvitation", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+                hasEvents = true;
+            }
+        }
+
+        Debug.Log("HAS INVITATIONS: " + hasEvents.ToString());
+
+        if (!hasEvents) _view.View.TriggerEvent("NoInvitations");
+        else _view.View.TriggerEvent("InvitationsFinished");
+    }
+
+    public void RetrieveBusinesses()
+    {
+        BusinessManager bm = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
+        bool hasBusinesses = false;
+        Debug.Log("CHECKING FOR SAVED BUSINESSES!");
+        foreach (int id in _userManager.CurrentUser.SavedBusinesses)
+        {
+            Business b = bm.GetBusinessForID(id);
+            if (b != null)
+            {
+                Debug.Log("GOT SAVED BUSINESS: " + b.name);
+                _view.View.TriggerEvent("AddBusiness", b.name, b.desc, b.id, Convert.ToBase64String(b.logo.EncodeToPNG()));
+                hasBusinesses = true;
+            }
+        }
+
+        if (!hasBusinesses) _view.View.TriggerEvent("NoBusinesses");
+        else _view.View.TriggerEvent("BusinessesFinished");
+    }
+    public void JoinEvent(string id)
+    {
+        Debug.Log("Join event " + id);
+        string joinURL = serverURL + "AttendEvent?token=";
+        joinURL += _userManager.CurrentUser.Token;
+        joinURL += "&id=" + id;
+
+        StartCoroutine(SendJoinRequest(joinURL, Convert.ToInt32(id)));
+    }
+    IEnumerator SendJoinRequest(string url, int id)
+    {
+        WWW page = new WWW(url);
+        yield return page;
+
+        // Create an IList of all of the businesses returned to me.
+        Dictionary<string, object> createSuccess = Json.Deserialize(page.text) as Dictionary<string, object>;
+
+        if ((bool)createSuccess["s"])
+        {
+            _userManager.CurrentUser.AttendedEvents.Add(id);
+            _view.View.Reload(false);
+            NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully joined!",
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+        else
+        {
+            Debug.Log("There was an error: " + createSuccess["reason"].ToString());
+            NativeDialogs.Instance.ShowMessageBox("Error!", createSuccess["reason"].ToString(),
+                new string[] { "OK" }, false, (string button) =>
+                {
+                });
+        }
+    }
+
+    public void IsFacebookLoggedIn()
+    {
+        _view.View.TriggerEvent("FacebookLoggedIn", FB.IsLoggedIn);
+    }
+
+    public void SignIntoFacebook()
+    {
+        FB.Login("user_photos,publish_actions", result => _view.View.TriggerEvent("FacebookLoggedIn", FB.IsLoggedIn));
+    }
+
+    public void SignOutOfFacebook()
+    {
+        FB.Logout();
     }
     #endregion
 }

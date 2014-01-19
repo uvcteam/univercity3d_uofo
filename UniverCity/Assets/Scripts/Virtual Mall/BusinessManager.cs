@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Net.Security;
 using UnityEngine;
 using System;
@@ -41,6 +42,10 @@ public class BusinessManager : MonoBehaviour
         
 	}
 
+    public Business GetBusinessForID(int id)
+    {
+        return businesses.FirstOrDefault(bu => bu.id == id);
+    }
     // ***************************************************
     // Initial pull from the UniverCity servert for the 
     // business information.
