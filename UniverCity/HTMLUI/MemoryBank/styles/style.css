@@ -1,6 +1,22 @@
+a {
+    color: rgb(0, 117, 111);
+}
+
+.btn-info {
+    color: #fff;
+    background-color: rgb(0, 117, 111);
+    border-color: rgb(0, 117, 111);
+}
+
 .st-content-inner {
     height: 90%;
     margin-top: 10px;
+}
+
+#fb_link {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 
 #editor {
@@ -121,7 +137,7 @@ figure p {
 
 .sign-out {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
 }
 
 .sign-out a {
@@ -161,7 +177,7 @@ figure p {
     position: relative;
     width: 30%;
     left: 35%;
-    margin: 3em auto 3em auto;
+    margin: 1em auto 3em auto;
     padding-bottom: 0.1em;
 }
 
@@ -391,6 +407,30 @@ figure p {
 .pin-div form input[type=button]:active{
     background: rgb(0, 104, 99);
 }
+.create-div form input[type=button]{
+
+    border: 1px solid #fff;
+    border-radius: 3px 3px 3px 3px; color: #D3EBFF;
+    cursor: pointer;
+    display: block;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 1.25em;
+    letter-spacing: 0.07em;
+    margin: 1em auto auto auto;
+    color: #FFF;
+    padding: 10px 10px 10px 10px;
+    width: 50%;
+    background: rgb(0, 117, 111);
+}
+
+.create-div form input[type=button]:hover{
+    background: rgb(0, 104, 99);
+}
+
+.create-div form input[type=button]:active{
+    background: rgb(0, 104, 99);
+}
 
 .general-button {
     visibility: hidden;
@@ -419,13 +459,22 @@ figure p {
     #user-name {
         border-top: 0.1em solid rgb(0, 117, 111);
     }
-	
-	.pin-div input[type=button]{
-	    margin-top: 3em;
-		width: 100%;
-	}
+
+    .pin-div input[type=button]{
+        margin-top: 3em;
+        width: 100%;
+    }
 
     .pin-div form input[type=button]{
+        width: 100%;
+    }
+
+    .create-div input[type=button]{
+        margin-top: 3em;
+        width: 100%;
+    }
+
+    .create-div form input[type=button]{
         width: 100%;
     }
 }
@@ -448,6 +497,19 @@ figure p {
 	}
 
     .pin-div form input[type=button]{
+        width: 100%;
+    }
+
+    .create-div h1 {
+        font-size: 2em !important;
+    }
+
+    .create-div input[type=button]{
+        margin-top: 3em;
+        width: 100%;
+    }
+
+    .create-div form input[type=button]{
         width: 100%;
     }
     
@@ -504,6 +566,11 @@ figure p {
 		width: 100%;
 		margin-top: 0.5em;
 	}
+
+    .create-div form input[type=button]{
+        width: 100%;
+        margin-top: 0.5em;
+    }
     
     .preferences {
         width: 90%;
@@ -543,7 +610,16 @@ figure p {
         width: 100%;
     }
 
+    .create-div form input[type=button]{
+        width: 100%;
+    }
+
     .pin-div {
+        width: 90%;
+        left: 5%;
+    }
+
+    .create-div {
         width: 90%;
         left: 5%;
     }

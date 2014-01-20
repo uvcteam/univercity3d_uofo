@@ -99,6 +99,9 @@
 
 .events {
     visibility: visible;
+    margin-top: 2%;
+    float: left;
+    width: 90%;
 }
 
 .event {
