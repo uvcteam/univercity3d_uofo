@@ -336,5 +336,18 @@ public class HTMLMemoryBank : MonoBehaviour
 
         gameObject.GetComponent<HTMLVirtualMall>().SetBusinessID(id);
     }
-    #endregion
+	
+	public void GetFacebookAuth()
+	{
+		Debug.Log("================== TRYING TO GET PHOTOS ==================");
+		FB.API("/me?fields=albums.fields(id,name,cover_photo,photos.fields(name,picture,source))", HttpMethod.GET, RetrievedPhotos);
+		_view.View.TriggerEvent("FacebookAuth", FB.AccessToken);
+	}
+	
+	public void RetrievedPhotos(FBResult response)
+	{
+		Debug.Log (response.Text);
+		_view.View.TriggerEvent("PhotosRetrieved", response.Text);
+	}
+	#endregion
 }

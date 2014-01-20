@@ -51,7 +51,7 @@
                     <div class="pin-div">
                         <h1>Enter Your Pin</h1>
                         <p>We require your pin to ensure that your content is securely stored and only accessible by you.</p>
-                        <form>
+                        <form id='pin_form'>
                             <div class="input-group shrinker">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                                 <input type="password" class="form-control" name="pin" placeholder="pin">
@@ -71,5 +71,11 @@
         <script src="../libs/js/classie.js"></script>
         <script src="../libs/js/menumanager.js"></script>
         <script src="js/privatejournal.js"></script>
+        <script>
+            $('#pin_form').submit(function(e) {
+                e.preventDefault();
+                OnPinSubmitted();
+            });
+        </script>
 </body>
 </html>

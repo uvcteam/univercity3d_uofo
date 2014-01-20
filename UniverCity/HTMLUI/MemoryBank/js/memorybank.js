@@ -12,7 +12,7 @@ function SignOut() {
 }
 
 $(function() {
-    //RequestUsername();
+    RequestUsername();
 });
 
 function RequestUsername() {

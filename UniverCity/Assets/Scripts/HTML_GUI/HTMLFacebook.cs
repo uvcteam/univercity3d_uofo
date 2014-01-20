@@ -29,7 +29,7 @@ public class HTMLFacebook : MonoBehaviour
     private void SetInit()
     {
         enabled = true;
-        FacebookLogin("user_photos,publish_actions");
+        //FacebookLogin("user_photos,publish_actions");
     }
 
     private void OnHideUnity(bool isGameShown)

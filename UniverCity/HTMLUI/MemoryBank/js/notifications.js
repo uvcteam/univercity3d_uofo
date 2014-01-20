@@ -75,16 +75,13 @@ engine.on("BusinessesFinished", function() {
 
 engine.on("InvitationsFinished", function() {
     console.log("INVITATIONS DONE!");
-    engine.call("RetrieveBusinesses");
 });
 
 engine.on("NoInvitations", function() {
     console.log("NO INVITATIONS!");
     $("#invitations").html('<h1>You have no new notifications.</h1>');
-    engine.call("RetrieveBusinesses");
 });
 
 engine.on("NoBusinesses", function() {
     console.log("NO BUSINESSES!");
-   $("#businesses").html('<h1>You have no saved businesses.</h1>');
 });

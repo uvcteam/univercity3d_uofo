@@ -3,6 +3,47 @@
     margin-top: 10px;
 }
 
+#editor {
+    text-align: left;
+    max-height: 500px;
+    height: 350px;
+    background-color: white;
+    border-collapse: separate; 
+    border: 1px solid rgb(204, 204, 204); 
+    padding: 4px; 
+    box-sizing: content-box; 
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; 
+    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+    border-top-right-radius: 3px; border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; border-top-left-radius: 3px;
+    overflow: scroll;
+    outline: none;
+    color: #686a6e;
+}
+
+#editor img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.thumbnail.selected {
+    background-color: #428bca;
+}
+.loading {
+    text-align: center;
+}
+.modal-body {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+div[data-role="editor-toolbar"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #user-quotes {
     width: 25%;
     display: block;
@@ -149,6 +190,22 @@ figure p {
 }
 
 .pin-div h1 {
+    font-family: "Oswald";
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.create-div {
+    position: absolute;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+    margin-top: 5%;
+    width: 50%;
+    left: 25%;
+}
+
+.create-div h1 {
     font-family: "Oswald";
     font-weight: 400;
     text-transform: uppercase;

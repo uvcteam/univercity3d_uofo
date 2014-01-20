@@ -20,6 +20,8 @@
     <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/modal.css" />
+    <link rel="stylesheet" href="../libs/css/csphotoselector.css" />
     <script src="../libs/js/jquery-1.10.0.js"></script>
     <script src="../libs/js/bugsense.js"></script>
     <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
@@ -48,19 +50,76 @@
                 <button type="button" class="back_button" onclick="window.location.href='privatejournal.html'"><i class="fa fa-arrow-left"></i></button>
                 <a href="createjournal.html" class="general-button">New Entry</a>
                 <div class="st-content-inner">
-                    <div class="pin-div">
+                    <div class="create-div">
                         <h1>New Journal</h1>
                         <form>
                             <div class="input-group shrinker">
                                 <span class="input-group-addon">Title</span>
                                 <input type="text" class="form-control" name="title" placeholder="title">
                             </div>
-                            <div class="input-group shrinker">
+                            <!--<div class="input-group shrinker">
                                 <span class="input-group-addon">Entry</span>
                                 <textarea class="form-control" name="entry" placeholder="entry"></textarea>
+                            </div>-->
+                            <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+                                <div class="btn-group">
+                                    <a class="btn" data-edit="bold"><i class="fa fa-bold"></i></a>
+                                    <a class="btn" data-edit="italic"><i class="fa fa-italic"></i></a>
+                                    <a class="btn" data-edit="underline"><i class="fa fa-underline"></i></a>
+                                </div>
+                                <div class="btn-group">
+                                    <a class="btn" title="" id="pictureBtn" data-original-title="Insert picture from phone"><i class="fa fa-picture-o"></i></a>
+                                    <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="opacity: 0; position: absolute; top: 0px; left: 0px; width: 36px; height: 30px;"/>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn photoSelect"><i class="fa fa-facebook"></i></button>
+                                </div>
                             </div>
+                            <div id="editor" contenteditable="true">Write your journal here.</div>
                             <input type="button" value="Create Journal" onclick="OnJournalSubmitted()" />
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Markup for Carson Shold's Photo Selector -->
+        <div id="CSPhotoSelector">
+            <div class="CSPhotoSelector_dialog">
+                <a href="#" id="CSPhotoSelector_buttonClose">x</a>
+                <div class="CSPhotoSelector_form">
+                    <div class="CSPhotoSelector_header">
+                        <p>Choose from Photos</p>
+                    </div>
+
+                    <div class="CSPhotoSelector_content CSAlbumSelector_wrapper">
+                        <p>Browse your albums until you find a picture you want to use</p>
+                        <div class="CSPhotoSelector_searchContainer CSPhotoSelector_clearfix">
+                            <div class="CSPhotoSelector_selectedCountContainer">Select an album</div>
+                        </div>
+                        <div class="CSPhotoSelector_photosContainer CSAlbum_container"></div>
+                    </div>
+
+                    <div class="CSPhotoSelector_content CSPhotoSelector_wrapper">
+                        <p>Select a new photo</p>
+                        <div class="CSPhotoSelector_searchContainer CSPhotoSelector_clearfix">
+                            <div class="CSPhotoSelector_selectedCountContainer"><span class="CSPhotoSelector_selectedPhotoCount">0</span> / <span class="CSPhotoSelector_selectedPhotoCountMax">0</span> photos selected</div>
+                            <a href="#" id="CSPhotoSelector_backToAlbums">Back to albums</a>
+                        </div>
+                        <div class="CSPhotoSelector_photosContainer CSPhoto_container"></div>
+                    </div>
+
+                    <div id="CSPhotoSelector_loader"></div>
+
+
+                    <div class="CSPhotoSelector_footer CSPhotoSelector_clearfix">
+                        <a href="#" id="CSPhotoSelector_pagePrev" class="CSPhotoSelector_disabled">Previous</a>
+                        <a href="#" id="CSPhotoSelector_pageNext">Next</a>
+                        <div class="CSPhotoSelector_pageNumberContainer">
+                            Page <span id="CSPhotoSelector_pageNumber">1</span> / <span id="CSPhotoSelector_pageNumberTotal">1</span>
+                        </div>
+                        <a href="#" id="CSPhotoSelector_buttonOK">OK</a>
+                        <a href="#" id="CSPhotoSelector_buttonCancel">Cancel</a>
                     </div>
                 </div>
             </div>
@@ -71,7 +130,17 @@
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
     <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
+    <script src="../libs/js/jquery.hotkeys.js"></script>
+    <script src="../libs/js/boostrap.js"></script>
+    <script src="../libs/js/bootstrap-wysiwyg.js"></script>
     <script src="../libs/js/menumanager.js"></script>
+    <script src="../libs/js/csphotoselector.js"></script>
     <script src="js/createjournal.js"></script>
+    <script type="text/javascript">
+        $('#editor').wysiwyg();
+    </script>
+
+        <script>
+        </script>
 </body>
 </html>
