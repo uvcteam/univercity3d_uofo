@@ -51,6 +51,7 @@ public class HTMLMemoryBank : MonoBehaviour
             _view.View.BindCall("IsFacebookLoggedIn", (System.Action)IsFacebookLoggedIn);
             _view.View.BindCall("SignIntoFacebook", (System.Action)SignIntoFacebook);
             _view.View.BindCall("SignOutOfFacebook", (System.Action)SignOutOfFacebook);
+            _view.View.BindCall("BusinessClicked", (System.Action<string>)BusinessClicked);
         };
         
         _viewReady = false;
@@ -325,6 +326,13 @@ public class HTMLMemoryBank : MonoBehaviour
     public void SignOutOfFacebook()
     {
         FB.Logout();
+    }
+
+    void BusinessClicked(string id)
+    {
+        GameObject userManager = GameObject.Find("UserManager");
+        UserManager user = userManager.GetComponent<UserManager>();
+        user.OpenSavedBusinessInAdplayer(id);
     }
     #endregion
 }

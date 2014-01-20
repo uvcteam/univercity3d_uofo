@@ -6,6 +6,7 @@ var urlToUse = "http://app2.univercity3d.com/univercity/";
 var userToken = "";
 var businessID = -1;
 var hasLiked = false;
+var businessIsSaved = false;
 var likeID;
 
 $(document).ready(function () {
@@ -58,7 +59,8 @@ engine.on('LoadAdPlayer', function(id, URL, token){
             {
                 if(result.savedBusinesses[i] == businessID)
                 {
-                    $('.fav-btn').attr('disabled', 'disabled');
+                    $('.fav-btn').html("Unsave");
+                    businessIsSaved = true;
                     break;
                 }
             }
@@ -154,7 +156,7 @@ var AddPage = function (adpage, detailsPage, index) {
         +'</div></div>';
     }
 
-    
+
 
     if(adpage.more.parts.length !== 0){
         switch (adpage.more.parts.length)
@@ -264,7 +266,7 @@ var AttachEventToPages = function () {
 
 
     $('.owl-page').click(function () {
-        
+
         if ($('#htmlvid'+listItemIndex).length)
             $('#htmlvid'+listItemIndex).get(0).pause();
         if ($('#htmlvid-details'+listItemIndex).length)
@@ -321,7 +323,7 @@ var AttachEventToPages = function () {
             $('#htmlvid0').get(0).play();
         });
     }
-    
+
     $('.st-content').css('transform', 'rotate(360deg)');
 
     $("video").bind("ended", function() {
@@ -447,8 +449,21 @@ engine.on("CheckIfLiked", function(likes) {
 
 function SaveBusiness()
 {
-    var saveURL = urlToUse + "SaveBusiness?token=" + userToken
+    var saveURL = ""
+    if (businessIsSaved === true)
+    {
+        saveURL = urlToUse + "UnsaveBusiness?token=" + userToken
             + "&id=" + businessID;
+        engine.call("UnsaveBusiness", businessID);
+    }
+
+    else
+    {
+        saveURL = urlToUse + "SaveBusiness?token=" + userToken
+            + "&id=" + businessID;
+        engine.call("SaveBusiness", businessID);
+    }
+
     $.ajax({
         type: 'POST',
         url: saveURL,

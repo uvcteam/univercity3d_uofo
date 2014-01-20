@@ -27,14 +27,17 @@ public class HTMLVirtualMall : MonoBehaviour
     private FormMallDetailedCategories _MallCateGories = new FormMallDetailedCategories();
     private BusinessManager _businessManager;
     private bool _loadSubCats = false;
+    private bool _loadAdplayerOnStart = false;
     private string _subCat;
     private string _businessID = null;
     private int _flashdealID = -1;
     private Dictionary<int,string> _flashDeals = new Dictionary<int,string>();
     private Business currentBusiness;
+    private User _user;
 	// Use this for initialization
     void Start()
     {
+        _user = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser;
         _view = this.GetComponent<CoherentUIView>();
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
@@ -55,10 +58,13 @@ public class HTMLVirtualMall : MonoBehaviour
             _view.View.BindCall("FacebookLike", (System.Action<string>)FacebookLike);
 			_view.View.BindCall("FacebookUnLike", (System.Action<string>)FacebookUnLike);
             _view.View.BindCall("CheckIfBusinessIsLiked", (System.Action)CheckIfBusinessIsLiked);
+            _view.View.BindCall("SaveBusiness", (System.Action<string>)SaveBusiness);
+            _view.View.BindCall("UnsaveBusiness", (System.Action<string>)UnsaveBusiness);
         };
 
         _adManager = GameObject.FindGameObjectWithTag("AdManager").GetComponent<AdManager>();
         _businessManager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
+
     }
 
     void OnViewReady(View view)
@@ -110,6 +116,13 @@ public class HTMLVirtualMall : MonoBehaviour
         _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html");       
     }
 
+    public void LoadAdplayerOnStart(string businessId)
+    {
+        _businessID = businessId;
+        _loadAdplayerOnStart = true;
+
+    }
+
     void SetJsonString(string json, int id)
     {
         Debug.Log(id);
@@ -142,11 +155,16 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void LoadFlashDeal()
     {
-        Debug.Log("LoadFlashPlayer");
         _view.View.TriggerEvent("LoadFlashPlayer", _flashDeals[_flashdealID], serverURL);
     }
     void LoadFlashDeals()
     {
+        Debug.Log("LoadFlashPlayer: " + _businessID);
+        if (_loadAdplayerOnStart)
+        {
+            SetBusinessID(_businessID);
+            return;
+        }
         _view.View.TriggerEvent("LoadFlashDeals", serverURL);
     }
 
@@ -208,5 +226,17 @@ public class HTMLVirtualMall : MonoBehaviour
         //while (!track.isDone) { }
 
         //Debug.Log("Response: " + track.text);
+    }
+
+    void SaveBusiness(string id)
+    {
+        Debug.Log(id);
+        _user.SavedBusinesses.Add(Int32.Parse(id));
+    }
+
+    void UnsaveBusiness(string id)
+    {
+        Debug.Log(id);
+        _user.SavedBusinesses.Remove(Int32.Parse(id));
     }
 }

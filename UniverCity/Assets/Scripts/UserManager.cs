@@ -31,6 +31,7 @@ public class UserManager : MonoBehaviour
 
     public CoherentUIView _view = null;
     private bool _viewReady = false;
+    private string _businessIdFromNotifications;
 
 
     void Start()
@@ -39,7 +40,9 @@ public class UserManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("UserManager") == null)
             gameObject.tag = "UserManager";
         else
+        {
             Destroy(gameObject);
+        }
 
         _view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
         //_view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
@@ -53,6 +56,13 @@ public class UserManager : MonoBehaviour
             Destroy(GameObject.Find("VirtualMall(Material)"));
             Debug.Log("HUR");
         }
+
+        if (level == 5 && _businessIdFromNotifications != null)
+        {
+            Camera.main.GetComponent<HTMLVirtualMall>().LoadAdplayerOnStart(_businessIdFromNotifications);
+        }
+        else
+            _businessIdFromNotifications = null;
     }
     void OnViewReady(View view)
     {
@@ -74,6 +84,13 @@ public class UserManager : MonoBehaviour
         }
         else
             CurrentUser = null;
+    }
+
+    public void OpenSavedBusinessInAdplayer(string id)
+    {
+        Application.LoadLevel(5);
+        _businessIdFromNotifications = id;
+        //Camera.main.GetComponent<HTMLVirtualMall>().SetBusinessID(id);
     }
 
     IEnumerator GetCategories()

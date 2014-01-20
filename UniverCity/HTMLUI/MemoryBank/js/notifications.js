@@ -49,7 +49,7 @@ engine.on("AddInvitation", function(name, date, time, desc, who, where, id){
 
 engine.on("AddBusiness", function (name, desc, id, image) {
     console.log("ADDING BUSINESS: " + name);
-    $('#business-c').append('<div class="business">' +
+    $('#business-c').append('<div class="business" busid="'+id+'">' +
         '<header>' + name + '</header>' +
         '<figure>' +
         '<img src="data:image/png;base64,' + image + '" />' +
@@ -67,6 +67,10 @@ engine.on("BusinessesFinished", function() {
         itemsMobile:[960, 1],
         pagination: true
     });
+
+    $('.business').click(function(){
+        engine.call("BusinessClicked", this.getAttribute('busid'));
+    })
 });
 
 engine.on("InvitationsFinished", function() {

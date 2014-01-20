@@ -1,6 +1,10 @@
 $(document).ready(function(){
     engine.call('LoadFlashDeals');
 
+})
+
+engine.on('LoadFlashDeals', function(URL){
+
     $(function () {
         $('.sub-category').click(function () {
             console.log(this.getAttribute('catid'));
@@ -11,9 +15,6 @@ $(document).ready(function(){
         //Parameter passing breaks iOS so comment out hen building to iOS
 
     });
-})
-
-engine.on('LoadFlashDeals', function(URL){
 
     console.log(URL);
     $.ajax({url: URL + 'GetFlashDeals', success: function(flashDealData){
