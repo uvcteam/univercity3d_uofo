@@ -25,8 +25,6 @@
 </head>
 <body>
 <script src="../libs/js/coherent.js"></script>
-<div id="fb-root"></div>
-<!--<script src="js/mbfacebook.js"></script>-->
     <div id="st-container" class="st-container">
         <nav class="st-menu st-effect-1" id="menu-1">
             <h2><i class="icon-books"></i>&nbsp;My Vault</h2>
@@ -54,7 +52,8 @@
                     <div class="sign-out">
                         <a href="#" onclick="SignOut()">Sign out of your profile.</a>
                     </div>
-                    <div class="sign-out" id="fb_link">
+                    <div id="fb_link">
+                        <a href="#" onclick="FBSignIn()">Connect to Facebook!</a>
                     </div>
                 </div>
             </div>
@@ -66,5 +65,6 @@
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
     <script src="js/memorybank.js"></script>
+    <script src="js/mbfacebook.js"></script>
 </body>
 </html>

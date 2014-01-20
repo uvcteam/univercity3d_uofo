@@ -2,9 +2,9 @@
 function SignInClicked() {
     var values = $(":input").serializeArray();
 
-    engine.call('CheckLoginInformation', values[0]["value"], values[1]["value"]).then(function () {
-        console.log("Calling 'CheckLoginInformation' in Unity3D!");
-    });
+    //engine.call('CheckLoginInformation', values[0]["value"], values[1]["value"]).then(function () {
+    //    console.log("Calling 'CheckLoginInformation' in Unity3D!");
+    //});
 }
 
 function SignOut() {
@@ -12,7 +12,7 @@ function SignOut() {
 }
 
 $(function() {
-    RequestUsername();
+    //RequestUsername();
 });
 
 function RequestUsername() {

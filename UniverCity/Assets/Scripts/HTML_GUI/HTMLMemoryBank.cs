@@ -219,10 +219,10 @@ public class HTMLMemoryBank : MonoBehaviour
         Application.LoadLevel(0);
     }
 
-    public void GetFacebookInfoMB()
+	public void GetFacebookInfoMB()
     {
         Debug.Log("================== TRYING TO GET INFORMATION ==================");
-        FB.API("/me/picture", HttpMethod.GET, RetrievedInfo);
+        FB.API("/me?fields=picture.width(500),name,quotes", HttpMethod.GET, RetrievedInfo);
     }
 
     public void RetrievedInfo(FBResult response)
@@ -310,12 +310,16 @@ public class HTMLMemoryBank : MonoBehaviour
 
     public void IsFacebookLoggedIn()
     {
+		Debug.Log ("CHECKING IF FACEBOOK IS LOGGED IN - RESULT: " + FB.IsLoggedIn);
         _view.View.TriggerEvent("FacebookLoggedIn", FB.IsLoggedIn);
+		if (FB.IsLoggedIn) GetFacebookInfoMB();
     }
 
     public void SignIntoFacebook()
     {
-        FB.Login("user_photos,publish_actions", result => _view.View.TriggerEvent("FacebookLoggedIn", FB.IsLoggedIn));
+        FB.Login("user_photos,publish_actions", result => {
+			Application.LoadLevel(Application.loadedLevel);
+		});
     }
 
     public void SignOutOfFacebook()
