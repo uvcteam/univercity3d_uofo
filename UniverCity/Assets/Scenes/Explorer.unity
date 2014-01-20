@@ -43282,6 +43282,7 @@ GameObject:
   - 114: {fileID: 1722524916}
   - 114: {fileID: 1722524917}
   - 114: {fileID: 1722524918}
+  - 114: {fileID: 1722524909}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -43353,6 +43354,17 @@ Behaviour:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1722524903}
   m_Enabled: 1
+--- !u!114 &1722524909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722524903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c16b2daa15f7374f8507f427bc0fe68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1722524910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43499,7 +43511,7 @@ MonoBehaviour:
   m_ScaleToFit: 1
   m_EnableWebGLSupport: 0
   m_InitialScript: 
-  m_ViewInputState: 1
+  m_ViewInputState: 2
   m_IsTransparent: 1
   m_SupportClickThrough: 1
   m_ClickThroughAlphaThreshold: 0

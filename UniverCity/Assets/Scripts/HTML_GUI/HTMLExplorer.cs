@@ -39,13 +39,10 @@ public class HTMLExplorer : MonoBehaviour
         _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
             _view.View.BindCall("LoadAdPlayer", (System.Action<string>)LoadAdPlayer);
-            _view.View.BindCall("OnAdPlayerWasClosed", (System.Action)OnAdPlayerWasClosed);
             _view.View.BindCall("OnBusinessWasSelected", (System.Action)OnBusinessWasSelected);
             _view.View.BindCall("AddBusinesses", (System.Action)AddBusinesses);
             _view.View.BindCall("CloseBusinessList", (System.Action)CloseBusinessList);
             _view.View.BindCall("LoadAdData", (System.Action)LoadAdData);
-            _view.View.BindCall("SetBusinessIDForCard", (System.Action<string>)SetBusinessIDForCard);
-            _view.View.BindCall("LoadBusinessCard", (System.Action)LoadBusinessCard);
             _view.View.BindCall("MenuClosed", (System.Action)MenuClosed);
         };
        
@@ -66,14 +63,16 @@ public class HTMLExplorer : MonoBehaviour
     public void AddClickEventsToBusinesses()
     {
         Debug.Log("takeall");
-        _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
+        if(Application.platform == RuntimePlatform.IPhonePlayer)
+            _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
         _view.View.TriggerEvent("AttachEventToBusinesses");
     }
 
     public void LoadAdPlayer(string businessid)
     {
         _businessID = businessid;
-        GetComponent<CoherentUIView>().View.Load("coui://HTMLUI/VirtualMall/adplayer.html");
+        gameObject.GetComponent<HTMLVirtualMall>().SetBusinessID(businessid);
+        //GetComponent<CoherentUIView>().View.Load("coui://HTMLUI/VirtualMall/adplayer.html");
     }
     void LoadAdData()
     {
@@ -117,7 +116,8 @@ public class HTMLExplorer : MonoBehaviour
     {
         _view.View.TriggerEvent("ClearBusinessList");
         OnCancelClicked();
-        _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+            _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
     }
 
     public void SetReturnPosition()
@@ -140,13 +140,17 @@ public class HTMLExplorer : MonoBehaviour
     public void OpenMenu()
     {
         _view.View.TriggerEvent("OpenMenu", _businessID);
-        _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+            _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
+        Debug.Log(_view.InputState.ToString());
     }
 
     public void MenuClosed()
     {
         Debug.Log("close");
-        _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
+        Debug.Log(_view.InputState.ToString());
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+            _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
     }
 
     public void OnCancelClicked()

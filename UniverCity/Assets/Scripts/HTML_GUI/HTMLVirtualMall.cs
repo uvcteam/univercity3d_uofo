@@ -109,8 +109,9 @@ public class HTMLVirtualMall : MonoBehaviour
         _view.View.TriggerEvent("AttachEventToBusinesses");
     }
 
-    void SetBusinessID(string businessid)
+    public void SetBusinessID(string businessid)
     {
+        Debug.Log(businessid);
         _businessID = businessid;
          currentBusiness = _businessManager.businesses.Where(x => x.id.ToString() == _businessID).FirstOrDefault();
         _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html");       
@@ -159,12 +160,6 @@ public class HTMLVirtualMall : MonoBehaviour
     }
     void LoadFlashDeals()
     {
-        Debug.Log("LoadFlashPlayer: " + _businessID);
-        if (_loadAdplayerOnStart)
-        {
-            SetBusinessID(_businessID);
-            return;
-        }
         _view.View.TriggerEvent("LoadFlashDeals", serverURL);
     }
 
@@ -175,7 +170,13 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void OnAdPlayerWasClosed()
     {
-        TrackUserAction(_businessID, currentBusiness.name, "close");
+        if (currentBusiness != null)
+            TrackUserAction(_businessID, currentBusiness.name, "close");
+
+        if(Application.loadedLevel == 1)
+        {
+            gameObject.GetComponent<HTMLExplorer>().OnAdPlayerWasClosed();
+        }
     }
 
     void FacebookLike(string objectToLike)

@@ -330,9 +330,11 @@ public class HTMLMemoryBank : MonoBehaviour
 
     void BusinessClicked(string id)
     {
-        GameObject userManager = GameObject.Find("UserManager");
-        UserManager user = userManager.GetComponent<UserManager>();
-        user.OpenSavedBusinessInAdplayer(id);
+        //GameObject userManager = GameObject.Find("UserManager");
+        //UserManager user = userManager.GetComponent<UserManager>();
+        //user.OpenSavedBusinessInAdplayer(id);
+
+        gameObject.GetComponent<HTMLVirtualMall>().SetBusinessID(id);
     }
     #endregion
 }
