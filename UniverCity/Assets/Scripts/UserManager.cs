@@ -20,7 +20,7 @@ public class UserManager : MonoBehaviour
 #else
     private static string serverURL = "http://www.univercity3d.com/univercity/";
 #endif
-    
+
     public User CurrentUser;
     public GameObject signingInDialog;
     public GameObject PageToDisable;
@@ -31,7 +31,6 @@ public class UserManager : MonoBehaviour
 
     public CoherentUIView _view = null;
     private bool _viewReady = false;
-    private string _businessIdFromNotifications;
 
 
     void Start()
@@ -40,9 +39,7 @@ public class UserManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("UserManager") == null)
             gameObject.tag = "UserManager";
         else
-        {
             Destroy(gameObject);
-        }
 
         _view = GameObject.Find("Main Camera").GetComponent<CoherentUIView>();
         //_view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
@@ -56,13 +53,6 @@ public class UserManager : MonoBehaviour
             Destroy(GameObject.Find("VirtualMall(Material)"));
             Debug.Log("HUR");
         }
-
-        if (level == 5 && _businessIdFromNotifications != null)
-        {
-            Camera.main.GetComponent<HTMLVirtualMall>().LoadAdplayerOnStart(_businessIdFromNotifications);
-        }
-        else
-            _businessIdFromNotifications = null;
     }
     void OnViewReady(View view)
     {
@@ -84,13 +74,6 @@ public class UserManager : MonoBehaviour
         }
         else
             CurrentUser = null;
-    }
-
-    public void OpenSavedBusinessInAdplayer(string id)
-    {
-        Application.LoadLevel(5);
-        _businessIdFromNotifications = id;
-        //Camera.main.GetComponent<HTMLVirtualMall>().SetBusinessID(id);
     }
 
     IEnumerator GetCategories()
@@ -130,8 +113,8 @@ public class UserManager : MonoBehaviour
         if (PlayerPrefs.GetInt("loggedIn") == 0)
         {
             if (Application.platform == RuntimePlatform.WindowsEditor ||
-			Application.platform == RuntimePlatform.WindowsWebPlayer ||
-			Application.platform == RuntimePlatform.OSXWebPlayer)
+            Application.platform == RuntimePlatform.WindowsWebPlayer ||
+            Application.platform == RuntimePlatform.OSXWebPlayer)
             {
                 if (signingInDialog != null)
                 {
@@ -142,7 +125,7 @@ public class UserManager : MonoBehaviour
             }
             else if (Application.platform == RuntimePlatform.Android ||
                      Application.platform == RuntimePlatform.IPhonePlayer)
-                NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Signing In", false, false); 
+                NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Signing In", false, false);
         }
 
         string loginURL = serverURL + "DeviceLogin?";
@@ -160,8 +143,8 @@ public class UserManager : MonoBehaviour
             CurrentUser = null;
 
             if (Application.platform == RuntimePlatform.WindowsEditor ||
-			Application.platform == RuntimePlatform.WindowsWebPlayer ||
-			Application.platform == RuntimePlatform.OSXWebPlayer)
+            Application.platform == RuntimePlatform.WindowsWebPlayer ||
+            Application.platform == RuntimePlatform.OSXWebPlayer)
             {
                 if (signingInDialog != null)
                     signingInDialog.GetComponentInChildren<UILabel>().text = "Wrong username or password!";
@@ -172,7 +155,7 @@ public class UserManager : MonoBehaviour
                      Application.platform == RuntimePlatform.IPhonePlayer)
             {
                 NativeDialogs.Instance.HideProgressDialog();
-                NativeDialogs.Instance.ShowMessageBox("Error", "Invalid username/password.", new string[] {"OK"}, false, (string button) => NativeDialogs.Instance.HideProgressDialog());
+                NativeDialogs.Instance.ShowMessageBox("Error", "Invalid username/password.", new string[] { "OK" }, false, (string button) => NativeDialogs.Instance.HideProgressDialog());
             }
         }
         else
@@ -185,14 +168,14 @@ public class UserManager : MonoBehaviour
             PlayerPrefs.SetString("email", CurrentUser.Email);
             PlayerPrefs.SetString("password", password);
             PlayerPrefs.SetString("university", CurrentUser.University);
-			Debug.Log (CurrentUser.Token);
+            Debug.Log(CurrentUser.Token);
             if (PageToDisable != null)
                 PageToDisable.SetActive(false);
             if (signingInDialog != null)
             {
                 if (Application.platform == RuntimePlatform.WindowsEditor ||
-			Application.platform == RuntimePlatform.WindowsWebPlayer ||
-			Application.platform == RuntimePlatform.OSXWebPlayer)
+            Application.platform == RuntimePlatform.WindowsWebPlayer ||
+            Application.platform == RuntimePlatform.OSXWebPlayer)
                     signingInDialog.SetActive(false);
                 else if (Application.platform == RuntimePlatform.Android ||
                      Application.platform == RuntimePlatform.IPhonePlayer)
@@ -210,12 +193,12 @@ public class UserManager : MonoBehaviour
             NativeDialogs.Instance.HideProgressDialog();
 
             StartCoroutine(GetUserCategories());
-			if (index != -1)
-				Application.LoadLevel(index);
+            if (index != -1)
+                Application.LoadLevel(index);
             //GameObject.Find("ExitButton").SetActive(false);
         }
 
-        
+
     }
     public IEnumerator GetUserCategories()
     {
@@ -237,7 +220,7 @@ public class UserManager : MonoBehaviour
             if (page.error == null && page.text != null && page.isDone)
                 goodDownload = true;
         }
-        
+
         Dictionary<string, object> results = Json.Deserialize(page.text) as Dictionary<string, object>;
         if (Convert.ToBoolean(results["s"]))
         {
@@ -314,7 +297,7 @@ public class UserManager : MonoBehaviour
             if (page.error == null && page.text != null && page.isDone)
                 goodDownload = true;
         }
-        
+
         Debug.Log("===============SAVED BUSINESSESS==================");
         Debug.Log(page.text);
 
@@ -333,8 +316,8 @@ public class UserManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("loggedIn", 0);
         CurrentUser = null;
-		if (PageToDisable != null)
-        	PageToDisable.SetActive(true);
+        if (PageToDisable != null)
+            PageToDisable.SetActive(true);
     }
     public bool IsSignedIn()
     {
@@ -392,9 +375,9 @@ public class User
 
     private List<SocialInterest> categories;
     private List<JournalEntry> journals;
-    private List<int> eventInvitations; 
+    private List<int> eventInvitations;
     private List<int> attendedEvents;
-    private List<int> savedBusinesses; 
+    private List<int> savedBusinesses;
 
     public bool LoggedIn
     {
@@ -490,7 +473,7 @@ public class User
         foreach (Dictionary<string, object> entry in json)
         {
             journals.Add(new JournalEntry(Convert.ToInt32(entry["id"]),
-										  entry["title"] as string,
+                                          entry["title"] as string,
                                           entry["entry"] as string,
                                           entry["ts"] as string));
             NativeDialogs.Instance.HideProgressDialog();
@@ -531,16 +514,16 @@ public class User
 [Serializable]
 public class JournalEntry
 {
-	private int id;
+    private int id;
     private string title;
     private string entry;
     private DateTime timeStamp;
-	
-	public int Id
-	{
-		get { return id; }
-		set { id = value; }
-	}
+
+    public int Id
+    {
+        get { return id; }
+        set { id = value; }
+    }
     public string Title
     {
         get { return title; }
@@ -559,7 +542,7 @@ public class JournalEntry
 
     public JournalEntry(int i, string t, string e, string ts)
     {
-		id = i;
+        id = i;
         title = t;
         entry = e;
         timeStamp = DateTime.Parse(ts);
