@@ -175,8 +175,10 @@ public class HTMLUnionHall : MonoBehaviour
 
 		if(_eventManager.events != null)
 		{
-			foreach (UnionHallEvent ev in _eventManager.events)
-			{
+			//foreach (UnionHallEvent ev in _eventManager.events)
+            for(int i = 0; i < _eventManager.events.Count; ++i)
+            {
+                UnionHallEvent ev = _eventManager.events[i];
 				if ( ev != null && _userManager.CurrentUser.AttendingEvent(ev.Id))
 				{
 					if (ev.Start >= today && ev.Start < nextSunday)
@@ -199,13 +201,12 @@ public class HTMLUnionHall : MonoBehaviour
     public void PopulateCalendar()
     {
         Debug.Log("Adding events.");
-        foreach (UnionHallEvent ev in _eventManager.events)
+        Debug.Log("NUMBER OF EVENTS" + _eventManager.events.Count);
+        for(int i = 0; i < _eventManager.events.Count; ++i)
         {
-			if(ev != null)
-			{
-				Debug.Log(ev.Start.ToString("MM-dd-yyyy") + ": " + ev.Title);
-            	_view.View.TriggerEvent("AddEvent", ev.Start.ToString("MM-dd-yyyy"), ev.Title, ev.Start.ToString("hh:mm tt"));
-			}
+            UnionHallEvent ev = _eventManager.events[i];
+			Debug.Log(ev.Start.ToString("MM-dd-yyyy") + ": " + ev.Title);
+            _view.View.TriggerEvent("AddEvent", ev.Start.ToString("MM-dd-yyyy"), ev.Title, ev.Start.ToString("hh:mm tt"));
         }
         _view.View.TriggerEvent("EventsFinished");
     }
@@ -260,8 +261,10 @@ public class HTMLUnionHall : MonoBehaviour
 
         if (cat == "All Categories" || cat == "")
         {
-            foreach (UnionHallEvent ev in _eventManager.events)
+            //foreach (UnionHallEvent ev in _eventManager.events)
+            for(int i = 0; i < _eventManager.events.Count; ++i)
             {
+                UnionHallEvent ev = _eventManager.events[i];
                 if (ev.Email == _userManager.CurrentUser.Email) continue;
                 if (_userManager.CurrentUser.AttendingEvent(ev.Id)) continue;
                 string date = ev.Start.ToString("MMMM dd");
@@ -273,8 +276,10 @@ public class HTMLUnionHall : MonoBehaviour
         }
         else if (_eventManager.eventsByCategory.ContainsKey(cat))
         {
-            foreach (UnionHallEvent ev in _eventManager.eventsByCategory[cat])
+            //foreach (UnionHallEvent ev in _eventManager.eventsByCategory[cat])
+            for(int i = 0; i < _eventManager.eventsByCategory[cat].Count; ++i)
             {
+                UnionHallEvent ev = _eventManager.eventsByCategory[cat][i];
                 if (ev.Email == _userManager.CurrentUser.Email) continue;
                 if (_userManager.CurrentUser.AttendingEvent(ev.Id)) continue;
                 string date = ev.Start.ToString("MMMM dd");
@@ -304,8 +309,11 @@ public class HTMLUnionHall : MonoBehaviour
 
         if (_userManager.CurrentUser.LoggedIn)
         {
-            foreach (UnionHallEvent ev in _eventManager.events.Where(x => x.Email == _userManager.CurrentUser.Email))
+            //foreach (UnionHallEvent ev in _eventManager.events.Where(x => x.Email == _userManager.CurrentUser.Email))
+            for(int i = 0; i < _eventManager.events.Count; ++i)
             {
+                UnionHallEvent ev = _eventManager.events[i];
+                if (ev.Email != _userManager.CurrentUser.Email) continue;
                 string date = ev.Start.ToString("MMMM dd");
                 string time = ev.Start.ToString("hh:mm tt");
                 Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
@@ -324,8 +332,11 @@ public class HTMLUnionHall : MonoBehaviour
 
         if (_userManager.CurrentUser.LoggedIn)
         {
-            foreach (UnionHallEvent ev in _eventManager.events.Where(x => _userManager.CurrentUser.AttendingEvent(x.Id)))
+            //foreach (UnionHallEvent ev in _eventManager.events.Where(x => _userManager.CurrentUser.AttendingEvent(x.Id)))
+            for (int i = 0; i < _eventManager.events.Count; ++i)
             {
+                UnionHallEvent ev = _eventManager.events[i];
+                if (!_userManager.CurrentUser.AttendingEvent(ev.Id)) continue;
                 string date = ev.Start.ToString("MMMM dd");
                 string time = ev.Start.ToString("hh:mm tt");
                 Debug.Log("Adding event " + ev.Title + " - " + date + " - " + time + " - " + ev.Desc);
