@@ -1,6 +1,7 @@
 var menuShown = false;
 var prevWidth = 0;
 var shouldChangeMenu = true;
+var num_invitations = 0;
 
 $(function () {
     prevWidth = $(window).width();
@@ -20,6 +21,7 @@ $(function () {
     $('.st-container').click(function (event) {
         classie.remove(document.getElementById('st-container'), 'st-menu-open');
     });
+    engine.call("GetInvitationCount");
 });
 
 $(window).resize(function() {
@@ -81,3 +83,12 @@ function GoToDestination(destination) {
     console.log('Calling GoToDestination("' + destination + '") in Unity3D!');
     engine.call('GoToDestination', destination);
 }
+
+engine.on("InvitationCount", function(count) {
+    console.log(count);
+    num_invitations = count;
+    var el = $('.pull-right');
+    if (el) {
+        el.html(count);
+    }
+});

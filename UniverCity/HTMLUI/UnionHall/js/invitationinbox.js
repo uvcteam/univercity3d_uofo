@@ -1,12 +1,12 @@
 /**
- * Created by Jacob on 14/01/17.
+ * Created by Jacob on 14/01/20.
  */
-// Web Functions.
 var lastEventID = -1;
 
+// Web Functions.
 $(function() {
-    console.log("Searching for saved invitations.");
-    engine.call("RetrieveInvitations");
+    console.log("Getting events.");
+    engine.call("GetInvitationEvents");
 });
 
 function ShowEvent(caller) {
@@ -27,7 +27,7 @@ function JoinEvent() {
 }
 
 // Invoked by Unity3D.
-engine.on("AddInvitation", function(name, date, time, desc, who, where, id){
+engine.on("AddEvent", function(name, date, time, desc, who, where, id){
     var newEvent = '';
     newEvent += '<div class="event" onclick="ShowEvent(this)"';
     newEvent += ' event-name="' + name + '"';
@@ -43,45 +43,6 @@ engine.on("AddInvitation", function(name, date, time, desc, who, where, id){
     newEvent += '<p>' + desc + '</p>';
     newEvent += '</div>';
     console.log('Creating event ' + name);
-    $('#invitations').append(newEvent);
+    $('.events').append(newEvent);
     ModalEffects();
-});
-
-engine.on("AddBusiness", function (name, desc, id, image) {
-    console.log("ADDING BUSINESS: " + name);
-    $('#business-c').append('<div class="business" busid="'+id+'">' +
-        '<header>' + name + '</header>' +
-        '<figure>' +
-        '<img src="data:image/png;base64,' + image + '" />' +
-        '<p>' + desc + '</p>' +
-        '</figure></div>');
-});
-
-engine.on("BusinessesFinished", function() {
-    console.log("BUSINESSES DONE!");
-    $('#business-c').owlCarousel({
-        items: 3,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [979, 3],
-        itemsTablet: [1199, 3],
-        itemsMobile:[960, 1],
-        pagination: true
-    });
-
-    $('.business').click(function(){
-        engine.call("BusinessClicked", this.getAttribute('busid'));
-    })
-});
-
-engine.on("InvitationsFinished", function() {
-    console.log("INVITATIONS DONE!");
-});
-
-engine.on("NoInvitations", function() {
-    console.log("NO INVITATIONS!");
-    $("#invitations").html('<h1>You have no new notifications.</h1>');
-});
-
-engine.on("NoBusinesses", function() {
-    console.log("NO BUSINESSES!");
 });

@@ -106,6 +106,7 @@ perspective effects (not including the modals and the overlay).
 .md-content > div p {
 	margin: 0;
 	padding: 10px 0;
+    color: #686a6e;
 }
 
 .md-content > div ul {

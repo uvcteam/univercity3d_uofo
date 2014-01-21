@@ -236,22 +236,22 @@ public class HTMLMemoryBank : MonoBehaviour
         Debug.Log("RETRIEVING INVITATIONS!");
         EventManager em = GameObject.Find("EventManager").GetComponent<EventManager>();
         bool hasEvents = false;
-        foreach (int id in _userManager.CurrentUser.EventInvitations)
+        //foreach (int id in _userManager.CurrentUser.EventInvitations)
+        for(int i = 0; i < _userManager.CurrentUser.EventInvitations.Count; ++i)
         {
+            int id = _userManager.CurrentUser.EventInvitations[i];
             UnionHallEvent ev = em.GetEventForId(id);
-            if ( ev != null && !_userManager.CurrentUser.AttendingEvent(id))
-            {
-                string date = ev.Start.ToString("MMMM dd");
-                string time = ev.Start.ToString("hh:mm tt");
-                _view.View.TriggerEvent("AddInvitation", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
-                hasEvents = true;
-            }
+            if (_userManager.CurrentUser.AttendingEvent(id)) continue;
+            string date = ev.Start.ToString("MMMM dd");
+            string time = ev.Start.ToString("hh:mm tt");
+            _view.View.TriggerEvent("AddInvitation", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+            hasEvents = true;
         }
 
-        Debug.Log("HAS INVITATIONS: " + hasEvents.ToString());
 
         if (!hasEvents) _view.View.TriggerEvent("NoInvitations");
         else _view.View.TriggerEvent("InvitationsFinished");
+        RetrieveBusinesses();
     }
 
     public void RetrieveBusinesses()
@@ -259,9 +259,10 @@ public class HTMLMemoryBank : MonoBehaviour
         BusinessManager bm = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
         bool hasBusinesses = false;
         Debug.Log("CHECKING FOR SAVED BUSINESSES!");
-        foreach (int id in _userManager.CurrentUser.SavedBusinesses)
+        //foreach (int id in _userManager.CurrentUser.SavedBusinesses)
+        for(int i = 0; i < _userManager.CurrentUser.SavedBusinesses.Count; ++i)
         {
-            Business b = bm.GetBusinessForID(id);
+            Business b = bm.GetBusinessForID(_userManager.CurrentUser.SavedBusinesses[i]);
             if (b != null)
             {
                 Debug.Log("GOT SAVED BUSINESS: " + b.name);

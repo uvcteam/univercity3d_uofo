@@ -44,6 +44,7 @@ public class HTMLUnionHall : MonoBehaviour
             _view.View.BindCall("CancelEvent", (System.Action<string>)CancelEvent);
             _view.View.BindCall("WithdrawEvent", (System.Action<string>)WithdrawEvent);
             _view.View.BindCall("JoinEvent", (System.Action<string>)JoinEvent);
+            _view.View.BindCall("GetInvitationEvents", (System.Action)GetInvitationEvents);
         };
 
         _viewReady = false;
@@ -375,6 +376,22 @@ public class HTMLUnionHall : MonoBehaviour
         joinURL += "&id=" + id;
 
         StartCoroutine(SendJoinRequest(joinURL, Convert.ToInt32(id)));
+    }
+
+    public void GetInvitationEvents()
+    {
+        if (_eventManager.events != null)
+        {
+            //foreach (UnionHallEvent ev in _eventManager.events)
+            for (int i = 0; i < _userManager.CurrentUser.EventInvitations.Count; ++i)
+            {
+                UnionHallEvent ev = _eventManager.GetEventForId(_userManager.CurrentUser.EventInvitations[i]);
+                if (_userManager.CurrentUser.AttendingEvent(ev.Id)) continue;
+                string date = ev.Start.ToString("MMMM dd");
+                string time = ev.Start.ToString("hh:mm tt");
+                _view.View.TriggerEvent("AddEvent", ev.Title, date, time, ev.Desc, ev.Who, ev.Loc, ev.Id);
+            }
+        }
     }
     #endregion
 }

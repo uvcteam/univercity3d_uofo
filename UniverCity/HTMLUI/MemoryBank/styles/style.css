@@ -2,6 +2,46 @@ a {
     color: rgb(0, 117, 111);
 }
 
+.modal-title {
+    color: rgb(0, 117, 111);
+    font-family: 'Oswald';
+    text-transform: uppercase;
+}
+
+#myModalLabel em {
+    color: #686a6e;
+    font-size: 0.75em;
+    font-family: 'Open Sans';
+    text-transform: lowercase;
+}
+
+.modal-footer button {
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+
+.modal-footer > .btn-primary {
+    background-color: rgb(0, 117, 111) !important;
+    font-weight: 700;
+    border-color: rgb(0, 117, 111);
+}
+
+.modal-body p {
+    font-family: 'Open Sans';
+    color: #686a6e;
+}
+
+.modal-body > h6 {
+    color: rgb(0, 117, 111);
+    font-family: 'Oswald';
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.modal-body > span {
+    color: #686a6e !important;
+}
+
 .btn-info {
     color: #fff;
     background-color: rgb(0, 117, 111);
@@ -69,7 +109,6 @@ div[data-role="editor-toolbar"] {
     margin: 0 auto;
 }
 
-
 .business {
     text-align: center;
     display: inline-block;
@@ -109,7 +148,6 @@ figure p {
 .upcoming-events {
     width: 90%;
     margin: 0 auto;
-    height: 20%;
     float: none;
 }
 
@@ -448,6 +486,51 @@ figure p {
 
 .help_block p {
     color: #686a6e;
+}
+
+.event {
+    font-family: 'Open Sans';
+    height: 50px;
+    background: #f6f6f6;
+    margin-bottom: 5px;
+    border-left: 2px solid rgb(62, 129, 112);
+    padding: 5px;
+    cursor: pointer;
+}
+
+.event p {
+    overflow: hidden;
+    height: 18px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    color: #686a6e;
+    font-style: italic;
+}
+
+.event-name {
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+.event-name:after {
+    content: ' - ';
+}
+
+.event-date {
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+
+.event-time:before {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    content: ' @ ';
+}
+
+.event-time {
+    font-family: 'Open Sans';
+    font-weight: 400;
 }
 /* -------------------------------------------------------------
 ======	MEDIA QUERIES

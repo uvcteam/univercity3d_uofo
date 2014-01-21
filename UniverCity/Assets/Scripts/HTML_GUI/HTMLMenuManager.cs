@@ -39,6 +39,7 @@ public class HTMLMenuManager : MonoBehaviour
             _view.View.BindCall("IsFacebookSignedIn", (System.Action)IsFacebookSignedIn);
             _view.View.BindCall("FacebookSignOut", (System.Action)FacebookSignOut);
             _view.View.BindCall("StoreFacebook", (System.Action<string, string, string, string>)StoreFacebook);
+            _view.View.BindCall("GetInvitationCount", (System.Action)GetInvitationCount);
         };
 
         _view.OnViewCreated += (view) => view.InterceptURLRequests(true);
@@ -166,6 +167,13 @@ public class HTMLMenuManager : MonoBehaviour
         PlayerPrefs.SetString("Code", c);
     }
 
-
+    public void GetInvitationCount()
+    {
+        int count = 0;
+        for(int i = 0; i < _userManager.CurrentUser.EventInvitations.Count; ++i)
+            if (!_userManager.CurrentUser.AttendingEvent(
+                _userManager.CurrentUser.EventInvitations[i])) ++count;
+        _view.View.TriggerEvent("InvitationCount", count);
+    }
     #endregion
 }
