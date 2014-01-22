@@ -51,39 +51,10 @@
                 <button type="button" class="back_button" onclick="window.location.href='privatejournal.html'"><i class="fa fa-arrow-left"></i></button>
                 <a href="createjournal.html" class="general-button">New Entry</a>
                 <div class="st-content-inner">
-                    <div class="create-div">
-                        <h1>New Journal</h1>
-                        <form>
-                            <div class="input-group shrinker">
-                                <span class="input-group-addon">Title</span>
-                                <input type="text" class="form-control" name="title" placeholder="title">
-                            </div>
-                            <!--<div class="input-group shrinker">
-                                <span class="input-group-addon">Entry</span>
-                                <textarea class="form-control" name="entry" placeholder="entry"></textarea>
-                            </div>-->
-                            <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
-                                <div class="btn-group">
-                                    <a class="btn" data-edit="bold"><i class="fa fa-bold"></i></a>
-                                    <a class="btn" data-edit="italic"><i class="fa fa-italic"></i></a>
-                                    <a class="btn" data-edit="underline"><i class="fa fa-underline"></i></a>
-                                </div>
-                                <div class="btn-group">
-                                    <a class="btn" title="" id="pictureBtn" data-original-title="Insert picture from phone"><i class="fa fa-picture-o"></i></a>
-                                    <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="opacity: 0; position: absolute; top: 0px; left: 0px; width: 36px; height: 30px;"/>
-                                </div>
-                                <!--<div class="btn-group">
-                                    <a class="btn" onclick="ShowFacebookPhotos()"><i class="fa fa-facebook"></i></a>
-                                </div>-->
-                            </div>
-                            <div id="editor" contenteditable="true">Write your journal here.</div>
-                            <input type="button" value="Create Journal" onclick="OnJournalSubmitted()" />
-                        </form>
-                    </div>
-                </div>
+                <div id="plusgallery" data-userid="filson" data-type="facebook" class="no-touch pg loaded"><ul id="pgalbums" class="clearfix" style="display:block"></ul></div>
+
             </div>
-            <div id="plusgallery" data-userid="jeremiahjmartin" data-exclude="5661509162266509185,5629998122921652161" data-type="google" class="no-touch pg loaded"><ul id="pgalbums" class="clearfix" style="display:none"></ul></div>
-        </div>
+
 
     </div>
     <!-- main JS libs -->
@@ -98,7 +69,6 @@
     <script src="js/createjournal.js"></script>
     <script src="js/plusgallery.js"></script>
     <script type="text/javascript">
-        $('#editor').wysiwyg();
         $('#plusgallery').plusGallery();
     </script>
 

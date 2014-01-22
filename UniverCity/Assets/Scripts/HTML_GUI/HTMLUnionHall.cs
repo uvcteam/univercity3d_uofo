@@ -31,8 +31,9 @@ public class HTMLUnionHall : MonoBehaviour
         _view = this.GetComponent<CoherentUIView>();
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
         _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
-        _eventManager = Object.FindObjectOfType(typeof(EventManager)) as EventManager;
-        _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
+		_eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+		_eventManager.RepopulateEvents();
+		_view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
             _view.View.BindCall("GetWeekEvents", (System.Action)GetWeekEvents);
             _view.View.BindCall("PopulateCalendar", (System.Action)PopulateCalendar);

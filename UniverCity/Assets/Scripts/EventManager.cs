@@ -81,8 +81,11 @@ public class EventManager : MonoBehaviour
         {
             List<object> eventIt = eventInfo["events"] as List<object>;
             // Iterate through each of the dictionaries in the list.
-            foreach (Dictionary<string, object> uhEvent in eventIt)
+
+            //foreach (Dictionary<string, object> uhEvent in eventIt)
+			for(int i = 0; i < eventIt.Count; ++i)
             {
+				Dictionary<string, object> uhEvent = eventIt[i] as Dictionary<string, object>;
                 // Retrieve the ID, Name, and Description of each business.
                 id = Convert.ToInt32(uhEvent["id"]);
                 title = uhEvent["title"] as string;
@@ -102,12 +105,13 @@ public class EventManager : MonoBehaviour
                     "Loc: " + loc +
                     "Start: " + start.ToString("MMM dd '-' h':'mm tt", CultureInfo.InvariantCulture));
 
-                UnionHallEvent ev = new UnionHallEvent(id, title, desc, who, email, phone, loc, start);
-                events.Add(ev);
-
+				events.Add(new UnionHallEvent(id, title, desc, who, email, phone, loc, start));
+				UnionHallEvent ev = events.Last();
                 // All arrays in JSON come in as List<object>.
-                foreach (string category in uhEvent["interests"] as List<object>)
+                //foreach (string category in uhEvent["interests"] as List<object>)
+				for(int j = 0; j < (uhEvent["interests"] as List<object>).Count; ++j)
                 {
+					string category = (uhEvent["interests"] as List<object>)[j] as string;
                     Debug.Log("Event " + title + " in " + category);
                     // If the category does not exist, we need to create it...
                     if (!eventsByCategory.ContainsKey(category))

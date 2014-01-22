@@ -26,16 +26,19 @@ public class HTMLMemoryBank : MonoBehaviour
     private UserManager _userManager;
     private bool _viewReady;
     private const string FacebookAppURL = "http://www.univercity3d.com/mobileapp.html";
-    private string LocalAppURL = "";
-
-    void Start()
+	private string LocalAppURL = "";
+	private EventManager _eventManager;
+	
+	void Start()
     {
         _view = this.GetComponent<CoherentUIView>();
         LocalAppURL = _view.Page;
         _view.OnViewCreated += new UnityViewListener.CoherentUI_OnViewCreated(this.OnViewReady);
-        _userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
-
-        _view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
+		_userManager = Object.FindObjectOfType(typeof(UserManager)) as UserManager;
+		_eventManager = GameObject.Find("EventManager").GetComponent<EventManager>();
+		_eventManager.RepopulateEvents();
+		
+		_view.Listener.ReadyForBindings += (frameId, path, isMainFrame) =>
         {
             _view.View.BindCall("RequestUsername", (System.Action)RequestUsername);
             _view.View.BindCall("CheckPin", (System.Action<string>)OnJournalClicked);
