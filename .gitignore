@@ -13,7 +13,7 @@
 /*.exe
 /*.dll
 /*.DS_Store
-/*.meta
+*.*.meta
 
 [Tt]humbs.db.meta
 
