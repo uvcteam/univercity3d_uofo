@@ -64,6 +64,8 @@ engine.on('LoadAdPlayer', function(id, URL, token){
                     break;
                 }
             }
+            $('#turtle').hide();
+            $('#container').show();
 
         }
     });
