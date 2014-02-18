@@ -19,7 +19,7 @@ public class UnionHallSearch : MonoBehaviour
 
     void GetCategories()
     {
-        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
+        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().SocialCategories)
         {
             Transform newCat = Instantiate(catButton, buttonTransform.position, buttonTransform.rotation) as Transform;
             newCat.Find("CategoryName").GetComponent<UILabel>().text = cat.Name;

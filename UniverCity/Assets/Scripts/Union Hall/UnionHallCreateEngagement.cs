@@ -116,7 +116,7 @@ public class UnionHallCreateEngagement : MonoBehaviour
         scrollPanel.SetActive(true);
         UnionHallEvent eventScript = GameObject.Find("NewEvent").GetComponent<UnionHallEvent>();
         Debug.Log("Awake was called!");
-        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
+        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().SocialCategories)
         {
             GameObject newInt = Instantiate(Resources.Load("Prefabs/SocialInterest"), InterestTransform.position, InterestTransform.rotation) as GameObject;
             newInt.name = "SocialInterest";

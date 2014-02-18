@@ -21,7 +21,7 @@ public class Preferences : MonoBehaviour
     {
         cUser = GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser;
         StartCoroutine(GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().GetUserCategories());
-        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
+        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().SocialCategories)
         {
             GameObject newInt = Instantiate(Resources.Load("Prefabs/SocialInterest"), InterestTransform.position, InterestTransform.rotation) as GameObject;
             newInt.name = "SocialInterest";

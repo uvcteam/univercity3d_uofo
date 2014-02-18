@@ -46,6 +46,8 @@ public class HTMLMemoryBank : MonoBehaviour
 			_view.View.BindCall("DeleteEntry", (System.Action<string>)DeleteEntry);
             _view.View.BindCall("GetCategories", (System.Action)GetCategories);
             _view.View.BindCall("UpdateCategories", (System.Action<string>)UpdateCategories);
+            _view.View.BindCall("GetCommerce", (System.Action)GetCommerce);
+            _view.View.BindCall("UpdateCommerce", (System.Action<string>)UpdateCommerce);
             _view.View.BindCall("SignOut", (System.Action)SignOut);
             _view.View.BindCall("GetFacebookInfoMB", (System.Action)GetFacebookInfoMB);
             _view.View.BindCall("RetrieveInvitations", (System.Action)RetrieveInvitations);
@@ -185,10 +187,11 @@ public class HTMLMemoryBank : MonoBehaviour
 		Debug.Log("Trying to delete: " + Convert.ToInt32(id));
 		StartCoroutine(DeleteJournal(Convert.ToInt32(id)));
 	}
+
     public void GetCategories()
     {
         Debug.Log("Getting the categories");
-        foreach (SocialInterest interest in _userManager.Categories)
+        foreach (SocialInterest interest in _userManager.SocialCategories)
         {
             Debug.Log("Adding interest " + interest.Id);
             _view.View.TriggerEvent("AddCategory", interest.Id, interest.Name, _userManager.CurrentUser.HasInterest(interest.Id));
@@ -217,23 +220,53 @@ public class HTMLMemoryBank : MonoBehaviour
 
         WWW page = new WWW(setURL);
     }
+    public void GetCommerce()
+    {
+        Debug.Log("Getting the commerce");
+        foreach (SocialInterest interest in _userManager.CommerceCategories)
+        {
+            Debug.Log("Adding commerce " + interest.Id);
+            _view.View.TriggerEvent("AddCommerce", interest.Id, interest.Name, interest.Parent, _userManager.CurrentUser.HasInterest(interest.Id));
+        }
+        _view.View.TriggerEvent("CommerceFinished");
+    }
+    public void UpdateCommerce(string newCats)
+    {
+        string setURL = serverURL + "SetCommerceInterests ?token=";
+        setURL += _userManager.CurrentUser.Token;
+        setURL += newCats;
+
+        Debug.Log("Updating commerce " + newCats);
+
+        string[] splitCategories = Regex.Split(newCats, "&i=");
+        List<SocialInterest> newInterests = new List<SocialInterest>();
+
+        foreach (string split in splitCategories)
+        {
+            if (split == "") continue;
+            if (_userManager.GetCategoryById(Convert.ToInt32(split)) != null)
+                newInterests.Add(_userManager.GetCategoryById(Convert.ToInt32(split)));
+        }
+
+        _userManager.CurrentUser.SetCommerce(newInterests);
+
+        WWW page = new WWW(setURL);
+    }
+
     public void SignOut()
     {
         _userManager.SignOut();
         Application.LoadLevel(0);
     }
-
 	public void GetFacebookInfoMB()
     {
         Debug.Log("================== TRYING TO GET INFORMATION ==================");
         FB.API("/me?fields=picture.width(500),name,quotes", HttpMethod.GET, RetrievedInfo);
     }
-
     public void RetrievedInfo(FBResult response)
     {
         _view.View.TriggerEvent("FacebookInfoMB", response.Text);
     }
-
     public void RetrieveInvitations()
     {
         Debug.Log("RETRIEVING INVITATIONS!");
@@ -256,7 +289,6 @@ public class HTMLMemoryBank : MonoBehaviour
         else _view.View.TriggerEvent("InvitationsFinished");
         RetrieveBusinesses();
     }
-
     public void RetrieveBusinesses()
     {
         BusinessManager bm = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
@@ -312,26 +344,22 @@ public class HTMLMemoryBank : MonoBehaviour
                 });
         }
     }
-
     public void IsFacebookLoggedIn()
     {
 		Debug.Log ("CHECKING IF FACEBOOK IS LOGGED IN - RESULT: " + FB.IsLoggedIn);
         _view.View.TriggerEvent("FacebookLoggedIn", FB.IsLoggedIn);
 		if (FB.IsLoggedIn) GetFacebookInfoMB();
     }
-
     public void SignIntoFacebook()
     {
         FB.Login("user_photos,publish_actions", result => {
 			Application.LoadLevel(Application.loadedLevel);
 		});
     }
-
     public void SignOutOfFacebook()
     {
         FB.Logout();
     }
-
     void BusinessClicked(string id)
     {
         //GameObject userManager = GameObject.Find("UserManager");
@@ -340,14 +368,12 @@ public class HTMLMemoryBank : MonoBehaviour
 
         gameObject.GetComponent<HTMLVirtualMall>().SetBusinessID(id);
     }
-	
 	public void GetFacebookAuth()
 	{
 		Debug.Log("================== TRYING TO GET PHOTOS ==================");
 		FB.API("/me?fields=albums.fields(id,name,cover_photo,photos.fields(name,picture,source))", HttpMethod.GET, RetrievedPhotos);
 		_view.View.TriggerEvent("FacebookAuth", FB.AccessToken);
-	}
-	
+	}	
 	public void RetrievedPhotos(FBResult response)
 	{
 		Debug.Log (response.Text);

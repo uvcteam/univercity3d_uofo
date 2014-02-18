@@ -30,7 +30,7 @@ public class UnionHallChooseCategory : MonoBehaviour
 
     void GetCategories()
     {
-        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
+        foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().SocialCategories)
         {
             Transform newCat = Instantiate(catButton, buttonTransform.position, buttonTransform.rotation) as Transform;
             newCat.Find("CategoryName").GetComponent<UILabel>().text = cat.Name;
@@ -63,7 +63,7 @@ public class UnionHallChooseCategory : MonoBehaviour
             UISlicedSprite background =
                 UICamera.lastHit.collider.gameObject.transform.Find("Background").GetComponent<UISlicedSprite>();
 
-            foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().Categories)
+            foreach (SocialInterest cat in GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().SocialCategories)
             {
                 if (cat.Name == categoryName.text)
                 {

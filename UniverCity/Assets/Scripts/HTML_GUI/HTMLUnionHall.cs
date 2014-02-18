@@ -301,7 +301,7 @@ public class HTMLUnionHall : MonoBehaviour
     }
     public void GetCategories()
     {
-        foreach(SocialInterest si in _userManager.Categories)
+        foreach(SocialInterest si in _userManager.SocialCategories)
             _view.View.TriggerEvent("AddCategory", si.Name);
         _view.View.TriggerEvent("CategoriesFinished");
     }

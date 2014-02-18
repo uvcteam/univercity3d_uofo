@@ -27,7 +27,8 @@ public class UserManager : MonoBehaviour
     public GameObject exitBtn;
     public GameObject loginPanel;
 
-    public List<SocialInterest> Categories = new List<SocialInterest>();
+    public List<SocialInterest> SocialCategories = new List<SocialInterest>();
+    public List<SocialInterest> CommerceCategories = new List<SocialInterest>();
 
     public CoherentUIView _view = null;
     private bool _viewReady = false;
@@ -61,7 +62,7 @@ public class UserManager : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(GetCategories());
+        StartCoroutine(GetAllInterests());
 
         if (PlayerPrefs.HasKey("loggedIn") && PlayerPrefs.GetInt("loggedIn") == 1)
         {
@@ -102,12 +103,74 @@ public class UserManager : MonoBehaviour
             {
                 catId = Convert.ToInt32(cat["id"]);
                 catName = cat["name"] as string;
-                Categories.Add(new SocialInterest(catId, catName));
+                SocialCategories.Add(new SocialInterest(catId, catName));
             }
 
-            Categories = Categories.OrderBy(o => o.Name).ToList();
+            SocialCategories = SocialCategories.OrderBy(o => o.Name).ToList();
         }
     }
+
+    IEnumerator GetAllInterests()
+    {
+        string cURL = serverURL + "ListSocialInterests";
+        int catId = 0;
+        string catName = "";
+        int catParent = 0;
+        WWW page = null;
+        bool goodDownload = false;
+
+        while (!goodDownload)
+        {
+            page = new WWW(cURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+
+        //Dictionary<string, object> results = Json.Deserialize(page.text) as Dictionary<string, object>;
+        IList<object> results = Json.Deserialize(page.text) as IList<object>;
+
+        foreach (Dictionary<string, object> cat in results)
+        {
+            catId = Convert.ToInt32(cat["id"]);
+            catName = cat["int"] as string;
+            if (cat.ContainsKey("parent")) catParent = Convert.ToInt32(cat["parent"]);
+            else catParent = -1;
+
+            SocialCategories.Add(new SocialInterest(catId, catName, catParent));
+        }
+
+        cURL = serverURL + "ListCommerceInterests";
+        catId = 0;
+        catName = "";
+        catParent = 0;
+        page = null;
+        goodDownload = false;
+
+        while (!goodDownload)
+        {
+            page = new WWW(cURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+
+        //Dictionary<string, object> results = Json.Deserialize(page.text) as Dictionary<string, object>;
+        results = Json.Deserialize(page.text) as IList<object>;
+
+        foreach (Dictionary<string, object> cat in results)
+        {
+            catId = Convert.ToInt32(cat["id"]);
+            catName = cat["int"] as string;
+            if (cat.ContainsKey("parent")) catParent = Convert.ToInt32(cat["parent"]);
+            else catParent = -1;
+
+            CommerceCategories.Add(new SocialInterest(catId, catName, catParent));
+        }
+    }
+
     public IEnumerator SignIn(string email, string password, int index = -1)
     {
         if (PlayerPrefs.GetInt("loggedIn") == 0)
@@ -209,6 +272,7 @@ public class UserManager : MonoBehaviour
         int catId = 0;
         int aeId = 0;
         string catName = "";
+        int catParent = 0;
         WWW page = null;
         bool goodDownload = false;
 
@@ -228,7 +292,37 @@ public class UserManager : MonoBehaviour
             {
                 catId = Convert.ToInt32(id);
                 catName = CategoryNameForId(catId);
-                CurrentUser.AddInterest(catName, catId);
+                catParent = GetCategoryById(catId).Parent;
+                CurrentUser.AddInterest(catName, catId, catParent);
+            }
+        }
+
+        cURL = serverURL + "GetCommerceInterests?token=" +
+            CurrentUser.Token;
+        catId = 0;
+        catName = "";
+        catParent = 0;
+        page = null;
+        goodDownload = false;
+
+        while (!goodDownload)
+        {
+            page = new WWW(cURL);
+            yield return page;
+
+            if (page.error == null && page.text != null && page.isDone)
+                goodDownload = true;
+        }
+
+        results = Json.Deserialize(page.text) as Dictionary<string, object>;
+        if (Convert.ToBoolean(results["s"]))
+        {
+            foreach (object id in results["interests"] as List<object>)
+            {
+                catId = Convert.ToInt32(id);
+                catName = CommerceNameForId(catId);
+                catParent = GetCommerceById(catId).Parent;
+                CurrentUser.AddInterest(catName, catId, catParent);
             }
         }
 
@@ -332,21 +426,41 @@ public class UserManager : MonoBehaviour
 
     private string CategoryNameForId(int id)
     {
-        foreach (SocialInterest t in Categories)
+        foreach (SocialInterest t in SocialCategories)
+            if (t.Id == id) return t.Name;
+
+        return "";
+    }
+    private string CommerceNameForId(int id)
+    {
+        foreach (SocialInterest t in CommerceCategories)
             if (t.Id == id) return t.Name;
 
         return "";
     }
     public SocialInterest GetCategoryById(int id)
     {
-        foreach (SocialInterest t in Categories)
+        foreach (SocialInterest t in SocialCategories)
             if (t.Id == id) return t;
 
         return null;
     }
     public int GetIDForCategory(string cat)
     {
-        foreach (SocialInterest c in Categories.Where(c => c.Name == cat))
+        foreach (SocialInterest c in SocialCategories.Where(c => c.Name == cat))
+            return c.Id;
+        return -1;
+    }
+    public SocialInterest GetCommerceById(int id)
+    {
+        foreach (SocialInterest t in CommerceCategories)
+            if (t.Id == id) return t;
+
+        return null;
+    }
+    public int GetIDForCommerce(string cat)
+    {
+        foreach (SocialInterest c in CommerceCategories.Where(c => c.Name == cat))
             return c.Id;
         return -1;
     }
@@ -374,6 +488,7 @@ public class User
     private string pin = "";
 
     private List<SocialInterest> categories;
+    private List<SocialInterest> commerce; 
     private List<JournalEntry> journals;
     private List<int> eventInvitations;
     private List<int> attendedEvents;
@@ -409,6 +524,11 @@ public class User
         get { return categories; }
         set { categories = value; }
     }
+    public List<SocialInterest> Commerce
+    {
+        get { return commerce; }
+        set { commerce = value; }
+    }
     public string PIN
     {
         get { return pin; }
@@ -443,6 +563,7 @@ public class User
         email = e;
         university = user["university"] as string;
         categories = new List<SocialInterest>();
+        commerce = new List<SocialInterest>();
         journals = new List<JournalEntry>();
         attendedEvents = new List<int>();
         eventInvitations = new List<int>();
@@ -456,6 +577,7 @@ public class User
         email = e;
         university = u;
         categories = new List<SocialInterest>();
+        commerce = new List<SocialInterest>();
         journals = new List<JournalEntry>();
         attendedEvents = new List<int>();
         eventInvitations = new List<int>();
@@ -466,6 +588,11 @@ public class User
     {
         this.categories.Clear();
         this.categories.AddRange(categories);
+    }
+    public void SetCommerce(List<SocialInterest> commerce)
+    {
+        this.commerce.Clear();
+        this.commerce.AddRange(commerce);
     }
     public void PopulateJournal(List<object> json)
     {
@@ -485,24 +612,56 @@ public class User
             if (interest.Name == name) return true;
         return false;
     }
+    public bool HasCommerce(string name)
+    {
+        foreach (SocialInterest interest in commerce)
+            if (interest.Name == name) return true;
+        return false;
+    }
     public bool HasInterest(int id)
     {
         return categories.Any(interest => interest.Id == id);
     }
-
-    public void AddInterest(string name, int id)
+    public bool HasCommerce(int id)
+    {
+        return commerce.Any(interest => interest.Id == id);
+    }
+    public void AddInterest(string name, int id, int parent = -1)
     {
         if (!HasInterest(id))
-            categories.Add(new SocialInterest(id, name));
+            categories.Add(new SocialInterest(id, name, parent));
     }
-    public void RemoveInterest(string name)
+    public void AddCommerce(string name, int id, int parent = -1)
+    {
+        if (!HasCommerce(id))
+            commerce.Add(new SocialInterest(id, name, parent));
+    }
+    public void RemoveInterest(string name, int parent = -1)
     {
         foreach (SocialInterest interest in categories)
+        {
             if (interest.Name == name)
-            {
                 categories.Remove(interest);
-                return;
-            }
+            if (parent != -1 && interest.Parent == parent)
+                categories.Remove(interest);
+        }
+
+        //foreach (SocialInterest interest in categories)
+        //    if (interest.Name == name)
+        //    {
+        //        categories.Remove(interest);
+        //        return;
+        //    }
+    }
+    public void RemoveCommerce(string name, int parent = -1)
+    {
+        foreach (SocialInterest interest in commerce)
+        {
+            if (interest.Name == name)
+                commerce.Remove(interest);
+            if (parent != -1 && interest.Parent == parent)
+                commerce.Remove(interest);
+        }
     }
 
     public bool AttendingEvent(int id)
