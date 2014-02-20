@@ -93,7 +93,7 @@ var PopulateAdPlayer = function(adpage ) {
 }
 var AddPage = function (adpage, detailsPage, index) {
 
-
+    console.log(adpage);
     var style = "";
     var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
     var partType = "one";
@@ -117,6 +117,11 @@ var AddPage = function (adpage, detailsPage, index) {
         }
         pageItem += '<tr>';
 
+        if(adpage.audio)
+        {
+            pageItem += '<audio id="htmlaudio'+ index +'"><srouce src="'+ mediaURL + adpage.audio.id +'&alt=yes" type="audio/ogg"/></autio>';
+        }
+
 
         for (var i =0; i < adpage.parts.length; ++i){
 
@@ -125,6 +130,7 @@ var AddPage = function (adpage, detailsPage, index) {
                 pageItem += '</tr><tr>';
             }
 
+            console.log(adpage.parts[i].type);
             pageItem += '<td class="'+ partType +'">';
 
             switch(adpage.parts[i].type)
@@ -141,6 +147,10 @@ var AddPage = function (adpage, detailsPage, index) {
                 case "text":
                     pageItem += '<div>'
                         + adpage.parts[i].text + '</div>';
+                    break;
+                case "audio":
+                    pageItem += '<audio><srouce src="'+ + mediaURL + adpage.parts[i].id +'" type="audio/ogg"/></autio>';
+
             }
 
             pageItem += '</td>';
@@ -268,20 +278,30 @@ var AttachEventToPages = function () {
 
 
     $('.owl-page').click(function () {
-
-        if ($('#htmlvid'+listItemIndex).length)
-            $('#htmlvid'+listItemIndex).get(0).pause();
+        var htmlVideo = $('#htmlvid'+listItemIndex);
+        var htmlAudio = $('htmlaudio'+listItemIndex);
+        if (htmlVideo.length)
+            htmlVideo.get(0).pause();
         if ($('#htmlvid-details'+listItemIndex).length)
             $('#htmlvid-details'+listItemIndex).get(0).pause();
+
         $($('.details-page')[listItemIndex]).hide();
+
         $($('.adpage')[listItemIndex]).show();
+
         listItemIndex = $('.owl-page.active').index();
+
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
         SetPage(listItemIndex);
-        if ($('#htmlvid'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
-            $('#htmlvid'+listItemIndex)[0].dataset.played = "true";
-            $('#htmlvid'+listItemIndex).get(0).play();
+
+        if(htmlAudio.length) {
+            htmlAudio.get(0).play();
+        }
+
+        else if (htmlVideo.length && htmlVideo[0].dataset.played === "false") {
+            htmlVideo[0].dataset.played = "true";
+            htmlVideo.get(0).play();
         }
 
         engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "click");
@@ -327,6 +347,10 @@ var AttachEventToPages = function () {
     }
 
     $('.st-content').css('transform', 'rotate(360deg)');
+
+    $('audio').bind("ended", function(){
+        $('#htmlvid'+listItemIndex).get(0).play();
+    });
 
     $("video").bind("ended", function() {
         engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "media");
