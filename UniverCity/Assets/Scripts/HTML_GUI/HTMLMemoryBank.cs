@@ -194,9 +194,10 @@ public class HTMLMemoryBank : MonoBehaviour
         foreach (SocialInterest interest in _userManager.SocialCategories)
         {
             Debug.Log("Adding interest " + interest.Id);
-            _view.View.TriggerEvent("AddCategory", interest.Id, interest.Name, _userManager.CurrentUser.HasInterest(interest.Id));
+            _view.View.TriggerEvent("AddCategory", interest.Id, interest.Name,interest.Parent, _userManager.CurrentUser.HasInterest(interest.Id));
         }
         _view.View.TriggerEvent("CategoriesFinished");
+        GetCommerce();
     }
     public void UpdateCategories(string newCats)
     {
@@ -225,17 +226,18 @@ public class HTMLMemoryBank : MonoBehaviour
         Debug.Log("Getting the commerce");
         foreach (SocialInterest interest in _userManager.CommerceCategories)
         {
-            Debug.Log("Adding commerce " + interest.Id);
-            _view.View.TriggerEvent("AddCommerce", interest.Id, interest.Name, interest.Parent, _userManager.CurrentUser.HasInterest(interest.Id));
+            Debug.Log("Adding commerce " + interest.Id + _userManager.CurrentUser.HasCommerce(interest.Id));
+            _view.View.TriggerEvent("AddCommerce", interest.Id, interest.Name, interest.Parent, _userManager.CurrentUser.HasCommerce(interest.Id));
+            
         }
         _view.View.TriggerEvent("CommerceFinished");
     }
     public void UpdateCommerce(string newCats)
     {
-        string setURL = serverURL + "SetCommerceInterests ?token=";
+        string setURL = serverURL + "SetCommerceInterests?token=";
         setURL += _userManager.CurrentUser.Token;
         setURL += newCats;
-
+        Debug.Log((setURL));
         Debug.Log("Updating commerce " + newCats);
 
         string[] splitCategories = Regex.Split(newCats, "&i=");
