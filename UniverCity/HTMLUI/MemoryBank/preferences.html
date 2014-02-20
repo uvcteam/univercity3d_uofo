@@ -19,6 +19,7 @@
     <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel='stylesheet' type='text/css' href='styles/skin/ui.dynatree.css'>
     <script src="../libs/js/jquery-1.10.0.js"></script>
     <script src="../libs/js/bugsense.js"></script>
     <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
@@ -50,8 +51,36 @@
                         <h1>Preferences</h1>
                         <p>Please select the categories that you are interested in.</p>
                         <form class="ac-custom ac-checkbox ac-boxfill">
-                            <ul class="preferences-list">
-                            </ul>
+
+
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <h4 class="panel-title">
+                                                Social Interest
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul class="category-preferences">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                            Commerce Interests
+                                        </h4>
+                                    </div>
+                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="commerce-preferences">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -65,7 +94,9 @@
     <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
+    <script src="../libs/js/bootstrap.min.js"></script>
     <script src="js/svgcheckbx.js"></script>
+    <script src="js/jquery.dynatree.js"></script>
     <script src="js/preferences.js"></script>
 </body>
 </html>
