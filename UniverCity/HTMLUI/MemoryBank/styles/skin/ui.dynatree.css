@@ -1,23 +1,32 @@
+@font-face {
+    font-family: 'FontAwesome';
+    src:url('../../../font-awesome-4.0.3/fonts/fontawesome-webfont.eot');
+    url('../../../font-awesome-4.0.3/fonts/fontawesome-webfont.ttf') format('truetype'),
+    url('../../../font-awesome-4.0.3/fonts/fontawesome-webfont.woff') format('woff'),
+    url('../../../font-awesome-4.0.3/fonts/fontawesome-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*******************************************************************************
  * Tree container
  */
 ul.dynatree-container
 {
-	font-family: tahoma, arial, helvetica;
-	font-size: 10pt; /* font size should not be too big */
+	font-family: 'Open Sans';
+	font-size: 14pt; /* font size should not be too big */
 	white-space: nowrap;
 	padding: 3px;
 	margin: 0; /* issue 201 */
 	background-color: white;
-	border: 1px dotted gray;
 	overflow: auto;
 	height: 100%; /* issue 263 */
 }
 
 ul.dynatree-container ul
 {
-	padding: 0 0 0 16px;
-	margin: 0;
+/*	padding: 0 0 0 16px;
+	margin: 0;*/
 }
 
 ul.dynatree-container li
@@ -28,6 +37,7 @@ ul.dynatree-container li
 	-moz-background-clip:border;
 	-moz-background-inline-policy: continuous;
 	-moz-background-origin: padding;
+    /*
 	background-attachment: scroll;
 	background-color: transparent;
 	background-repeat: repeat-y;
@@ -56,7 +66,7 @@ ul.dynatree-no-connector > li
 {
 	opacity: 0.5;
 /*	filter: alpha(opacity=50); /* Yields a css warning */
-	background-color: silver;
+	background-color: rgb(0, 117, 111);
 }
 
 /*******************************************************************************
@@ -66,22 +76,25 @@ span.dynatree-empty,
 span.dynatree-vline,
 span.dynatree-connector,
 span.dynatree-expander,
-span.dynatree-icon,
 span.dynatree-checkbox,
 span.dynatree-radio,
 span.dynatree-drag-helper-img,
 #dynatree-drop-marker
 {
-	width: 16px;
-	height: 16px;
+	width: 32px;
+	height: 32px;
 /*	display: -moz-inline-box; /* @ FF 1+2 removed for issue 221 */
 /*	-moz-box-align: start; /* issue 221 */
 	display: inline-block; /* Required to make a span sizeable */
 	vertical-align: top;
 	background-repeat: no-repeat;
 	background-position: left;
-	background-image: url("icons.gif");
+	/*background-image: url("icons.gif");*/
 	background-position: 0 0;
+}
+span.dynatree-icon {
+    width: 0px;
+    height: 0px;
 }
 
 /** Used by 'icon' node option: */
@@ -115,65 +128,163 @@ span.dynatree-connector
  * 3rd character (optional): 'l': Last sibling
  */
 
-span.dynatree-expander
+span.dynatree-expander:before
 {
-	background-position: 0px -80px;
-	cursor: pointer;
+    content: "\f055";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: white;
+    font-size: 24px;
+    padding-left: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
+/* \f055 */
+
+.dynatree-exp-cl span.dynatree-expander:before,
+.dynatree-exp-cd span.dynatree-expander:before,
+.dynatree-exp-cdl span.dynatree-expander:before
+{
+    content: "\f055";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: white;
+    font-size: 24px;
+    padding-left: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*
 .dynatree-exp-cl span.dynatree-expander /* Collapsed, not delayed, last sibling */
+/*
 {
 	background-position: 0px -96px;
 }
 .dynatree-exp-cd span.dynatree-expander /* Collapsed, delayed, not last sibling */
+/*
 {
 	background-position: -64px -80px;
 }
 .dynatree-exp-cdl span.dynatree-expander /* Collapsed, delayed, last sibling */
+/*
 {
 	background-position: -64px -96px;
 }
+
+/* \f056 */
+
+.dynatree-exp-e span.dynatree-expander:before,
+.dynatree-exp-ed span.dynatree-expander:before,
+.dynatree-exp-el span.dynatree-expander:before,
+.dynatree-exp-edl span.dynatree-expander:before
+{
+    content: "\f056";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: white;
+    font-size: 24px;
+    padding-left: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*
 .dynatree-exp-e span.dynatree-expander,  /* Expanded, not delayed, not last sibling */
+/*
 .dynatree-exp-ed span.dynatree-expander  /* Expanded, delayed, not last sibling */
+/*
 {
 	background-position: -32px -80px;
 }
 .dynatree-exp-el span.dynatree-expander,  /* Expanded, not delayed, last sibling */
-.dynatree-exp-edl span.dynatree-expander  /* Expanded, delayed, last sibling */
-{
+/*.dynatree-exp-edl span.dynatree-expander  /* Expanded, delayed, last sibling */
+/*{
 	background-position: -32px -96px;
 }
 .dynatree-loading span.dynatree-expander  /* 'Loading' status overrides all others */
-{
+/*{
 	background-position: 0 0;
 	background-image: url("loading.gif");
-}
+}*/
 
 
 /*******************************************************************************
  * Checkbox icon
  */
-span.dynatree-checkbox
+span.dynatree-checkbox:before
+{
+    content: "\f096";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: white;
+    font-size: 24px;
+    margin-left: 31px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*
 {
 	margin-left: 3px;
 	background-position: 0px -32px;
 }
+*/
 span.dynatree-checkbox:hover
 {
 	background-position: -16px -32px;
 }
 
-.dynatree-partsel span.dynatree-checkbox
+.dynatree-partsel span.dynatree-checkbox:before
 {
-	background-position: -64px -32px;
+    content: "\f0c8";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: white;
+    font-size: 24px;
+    margin-left: 31px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .dynatree-partsel span.dynatree-checkbox:hover
 {
 	background-position: -80px -32px;
 }
 
-.dynatree-selected span.dynatree-checkbox
+.dynatree-selected span.dynatree-checkbox:before
 {
-	background-position: -32px -32px;
+    content: "\f046";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    color: white;
+    font-size: 24px;
+    margin-left: 31px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 .dynatree-selected span.dynatree-checkbox:hover
 {
@@ -271,7 +382,7 @@ span.dynatree-node
 ul.dynatree-container a
 /*, ul.dynatree-container a:visited*/
 {
-	color: black; /* inherit doesn't work on IE */
+	color: white; /* inherit doesn't work on IE */
 	text-decoration: none;
 	vertical-align: top;
 	margin: 0px;
@@ -282,13 +393,13 @@ ul.dynatree-container a
 ul.dynatree-container a:hover
 {
 /*	text-decoration: underline; */
-	background-color: #F2F7FD; /* light blue */
-	border-color: #B8D6FB; /* darker light blue */
+	background-color: rgb(0, 117, 111); /* light blue */
+	border-color: rgb(0, 117, 111); /* darker light blue */
 }
 
 span.dynatree-node a
 {
-	font-size: 10pt; /* required for IE, quirks mode */
+	font-size: 14pt; /* required for IE, quirks mode */
 	display: inline-block; /* Better alignment, when title contains <br> */
 /*	vertical-align: top;*/
 	padding-left: 3px;
@@ -303,7 +414,7 @@ span.dynatree-folder a
 ul.dynatree-container a:focus,
 span.dynatree-focused a:link  /* @IE */
 {
-	background-color: #EFEBDE; /* gray */
+	background-color: rgb(0, 117, 111); /* gray */
 }
 
 span.dynatree-has-children a
@@ -316,13 +427,12 @@ span.dynatree-expanded a
 
 span.dynatree-selected a
 {
-	color: green;
-	font-style: italic;
+	color: white;
 }
 
 span.dynatree-active a
 {
-	background-color: #3169C6 !important;
+	background-color: rgb(0, 117, 111) !important;
 	color: white !important; /* @ IE6 */
 }
 
