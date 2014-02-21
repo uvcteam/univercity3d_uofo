@@ -129,7 +129,9 @@ var AddPage = function (adpage, detailsPage, index) {
 
         if(adpage.audio)
         {
-            //$('#container').prepend('<audio controls autoplay loop id="htmlaudio'+ index +'"><srouce src="'+ mediaURL + adpage.audio.id +'" type="audio/mpeg"/></audio>');
+            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
+            + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
+            + '</audio>';
         }
 
 
@@ -289,13 +291,14 @@ var AttachEventToPages = function () {
 
     $('.owl-page').click(function () {
         var htmlVideo = $('#htmlvid'+listItemIndex);
-        var htmlAudio = $('htmlaudio'+listItemIndex);
+        var htmlAudio = $('#htmlaudio'+listItemIndex);
 
         if (htmlVideo.length)
             htmlVideo.get(0).pause();
 
-        if(htmlAudio.length)
+        if(htmlAudio.length) {
             htmlAudio.get(0).pause();
+        }
 
         if ($('#htmlvid-details'+listItemIndex).length)
             $('#htmlvid-details'+listItemIndex).get(0).pause();
@@ -356,7 +359,10 @@ var AttachEventToPages = function () {
     $('.st-content').css('transform', 'rotate(360deg)');
 
     $('audio').bind("ended", function(){
-        $('#htmlvid'+listItemIndex).get(0).play();
+        var htmlVideo = $('#htmlvid'+listItemIndex);
+
+        if (htmlVideo.length)
+            htmlVideo.get(0).play();
     });
 
     $("video").bind("ended", function() {
@@ -371,16 +377,30 @@ var AttachEventToPages = function () {
 
 
     $('.owl-page').each(function(i){
-        console.log($(this).html());
         $(this).append($('.adpage')[i].dataset.title);
-        console.log($(this).html());
     })
 
 }
 
 var HideSpeechBubble = function () {
 
-        $('#narrator-bubble').toggle();
+    var narrator = $('#narrator-bubble');
+    var htmlAudio =  $('#htmlaudio' + $('.owl-page.active').index());
+
+    if (narrator.css('visibility') === 'hidden') {
+
+        if(htmlAudio.length)
+            htmlAudio.get(0).play();
+
+        narrator.css('visibility', 'visible');
+    }
+    else {
+
+        if(htmlAudio.length)
+            htmlAudio.get(0).pause();
+
+        narrator.css('visibility', 'hidden')
+    }
 
 }
 
@@ -444,13 +464,11 @@ $('#side-btns').children('li').each(function(){
 });
 
 $('.deal-btn').click(function(){
-    console.log("deal");
     $('.deal-btn').removeClass('selected');
     $(this).addClass('selected');
 });
 
 $('.done-btn').click(function(){
-    console.log($('#cbp-fwslider'));
     $('#adpages').show();
     $('#details-btn').show();
     $('#mega-deal').hide();
@@ -477,7 +495,6 @@ function postLike() {
 engine.on("CheckIfLiked", function(likes) {
     //alert(objectToLike);
     var response = jQuery.parseJSON(likes);
-    console.log(response);
     var id;
     for ( var i = 0; i < response.data.length; ++i)
     {
@@ -514,7 +531,6 @@ function SaveBusiness()
         type: 'POST',
         url: saveURL,
         success: function(result){
-            console.log(result);
         }
     });
 }
@@ -523,8 +539,6 @@ function PurchaseMegaDeal()
 {
    var  purchaseURL = urlToUse + "mdpurchase?b=" + businessID
         + "&token=" + userToken;
-
-    console.log(purchaseURL);
 
     //$('#mega-deal').load(purchaseURL);
 
