@@ -320,9 +320,11 @@ public class UserManager : MonoBehaviour
             foreach (object id in results["interests"] as List<object>)
             {
                 catId = Convert.ToInt32(id);
+
+                Debug.Log(catId);
                 catName = CommerceNameForId(catId);
                 catParent = GetCommerceById(catId).Parent;
-                CurrentUser.AddInterest(catName, catId, catParent);
+                CurrentUser.AddCommerce(catName, catId, catParent);
             }
         }
 
