@@ -10,16 +10,20 @@ var businessIsSaved = false;
 var likeID;
 
 $(document).ready(function () {
-    console.log("Ready for Unity.");
+    //console.log("Ready for Unity.");
 
     var URL = "http://app2.univercity3d.com/univercity/getAd?b=";
     //Parameter passing breaks iOS so comment out hen building to iOS
-    $.ajax({url: URL + urlParam("id"), success: function(adPlayerData){
-        console.log(adPlayerData);
-        PopulateAdPlayer(adPlayerData);
-        SetMegaDeal(adPlayerData.megadeal);
-        AttachEventToPages();
-        SetNarrator(mediaURL + adPlayerData.expert.id);
+    $.ajax({
+        url: URL + urlParam("id"),
+        success: function(adPlayerData){
+            console.log(adPlayerData);
+            PopulateAdPlayer(adPlayerData);
+            SetMegaDeal(adPlayerData.megadeal);
+            AttachEventToPages();
+            SetNarrator(mediaURL + adPlayerData.expert.id);
+            $('#turtle').hide();
+            $('#container').show();
 
     }});
 
@@ -36,11 +40,11 @@ engine.on('LoadAdPlayer', function(id, URL, token){
     objectToLike = URL + '/fbo?b=' + id;
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
+    console.log(URL+id);
 
     $.ajax({
         url: URL + id,
         success: function(adPlayerData){
-            console.log(adPlayerData);
             PopulateAdPlayer(adPlayerData);
             SetMegaDeal(adPlayerData.megadeal);
             AttachEventToPages();
@@ -69,6 +73,12 @@ engine.on('LoadAdPlayer', function(id, URL, token){
 
         }
     });
+
+/*    $('.owl-page').each(function(i){
+        console.log($(this).html());
+        $(this).innerHTML = $('.adpage')[i].dataset.title;
+        console.log($(this).html());
+    })*/
 
 })
 
@@ -119,7 +129,7 @@ var AddPage = function (adpage, detailsPage, index) {
 
         if(adpage.audio)
         {
-            pageItem += '<audio id="htmlaudio'+ index +'"><srouce src="'+ mediaURL + adpage.audio.id +'&alt=yes" type="audio/ogg"/></autio>';
+            //$('#container').prepend('<audio controls autoplay loop id="htmlaudio'+ index +'"><srouce src="'+ mediaURL + adpage.audio.id +'" type="audio/mpeg"/></audio>');
         }
 
 
@@ -280,8 +290,13 @@ var AttachEventToPages = function () {
     $('.owl-page').click(function () {
         var htmlVideo = $('#htmlvid'+listItemIndex);
         var htmlAudio = $('htmlaudio'+listItemIndex);
+
         if (htmlVideo.length)
             htmlVideo.get(0).pause();
+
+        if(htmlAudio.length)
+            htmlAudio.get(0).pause();
+
         if ($('#htmlvid-details'+listItemIndex).length)
             $('#htmlvid-details'+listItemIndex).get(0).pause();
 
@@ -290,6 +305,9 @@ var AttachEventToPages = function () {
         $($('.adpage')[listItemIndex]).show();
 
         listItemIndex = $('.owl-page.active').index();
+
+        htmlVideo = $('#htmlvid'+listItemIndex);
+        htmlAudio = $('htmlaudio'+listItemIndex);
 
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
@@ -326,17 +344,6 @@ var AttachEventToPages = function () {
 
     })
 
-
-    $('.owl-page').each(function(i){
-        $(this).html($('.adpage')[i].dataset.title);
-    })
-
-
-    $('#home').click(function(){
-        $('#home').css('color', 'black');
-    })
-
-
     $('#side-btns button:first').tab('show');
 
     if($('#htmlvid0').length){
@@ -355,6 +362,19 @@ var AttachEventToPages = function () {
     $("video").bind("ended", function() {
         engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "media");
     });
+
+
+    $('#home').click(function(){
+        $('#home').css('color', 'black');
+    })
+
+
+
+    $('.owl-page').each(function(i){
+        console.log($(this).html());
+        $(this).append($('.adpage')[i].dataset.title);
+        console.log($(this).html());
+    })
 
 }
 

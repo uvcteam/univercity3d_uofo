@@ -462,11 +462,11 @@ if ( typeof Object.create !== "function" ) {
 					var paginationButton = $("<div/>",{
 						"class" : "owl-page"
 						});
-					var paginationButtonInner = $("<span></span>",{
+/*					var paginationButtonInner = $("<span></span>",{
 						"text": base.options.paginationNumbers === true ? counter : "",
 						"class": base.options.paginationNumbers === true ? "owl-numbers" : ""
-					});
-					paginationButton.append(paginationButtonInner);
+					});*/
+					//paginationButton.append(paginationButtonInner);
 
 					paginationButton.data("owl-page",lastPage === i ? lastItem : i);
 					paginationButton.data("owl-roundPages",counter);
