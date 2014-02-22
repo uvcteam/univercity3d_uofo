@@ -128,16 +128,9 @@ var AddPage = function (adpage, detailsPage, index) {
     var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
     var partType = "one";
 
-    if(adpage.audio)
-    {
-        pageItem += '<audio data-played="false" autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
-        + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
-        + '</audio>';
-    }
-
     if(adpage.parts[0].type !== "video")
     {
-            switch (adpage.parts.length)
+        switch (adpage.parts.length)
         {
             case 1 :
                 partType = "one";
@@ -153,6 +146,13 @@ var AddPage = function (adpage, detailsPage, index) {
                 break;
         }
         pageItem += '<tr>';
+
+        if(adpage.audio)
+        {
+            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
+                + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
+                + '</audio>';
+        }
 
 
         for (var i =0; i < adpage.parts.length; ++i){
@@ -194,10 +194,19 @@ var AddPage = function (adpage, detailsPage, index) {
     }
     else //videos need to be in div to size properly.
     {
+        pageItem = '<div class="page"><div class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
+
+        if(adpage.audio)
+        {
+            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
+                + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
+                + '</audio>';
+        }
+
         pageItem += '<div class="vzaar_media_player">'
-        +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[0].id +'&thumbnail=1'
-        +'"preload="none" src="' + mediaURL + adpage.parts[0].id + '"></video>'
-        +'</div></div>';
+            +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[0].id +'&thumbnail=1'
+            +'"preload="none" src="' + mediaURL + adpage.parts[0].id + '"></video>'
+            +'</div></div>';
     }
 
 
@@ -294,6 +303,7 @@ var SetNarrator = function (imageURL) {
 }
 
 var AttachEventToPages = function () {
+
 
     var listItemIndex = 0;
 
