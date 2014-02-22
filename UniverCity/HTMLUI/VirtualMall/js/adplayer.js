@@ -74,11 +74,31 @@ engine.on('LoadAdPlayer', function(id, URL, token){
         }
     });
 
-/*    $('.owl-page').each(function(i){
-        console.log($(this).html());
-        $(this).innerHTML = $('.adpage')[i].dataset.title;
-        console.log($(this).html());
-    })*/
+    var touchStart = function(){
+
+        var htmlAudio =  $('#htmlaudio' + $('.owl-page.active').index());
+        var htmlVideo =  $('#htmlvid' + $('.owl-page.active').index());
+
+        if(htmlAudio.length && htmlAudio[0].dataset.played === 'false')  {
+            htmlAudio[0].dataset.played = "true";
+            htmlAudio.get(0).load();
+            htmlAudio.get(0).play();
+        }
+
+        if(htmlVideo.length && htmlVideo[0].dataset.played === 'false') {
+            htmlVideo[0].dataset.played = "true";
+            htmlVideo.get(0).load();
+            htmlVideo.get(0).play();
+        }
+
+        document.removeEventListener('touchstart', touchStart);
+
+    }
+
+    document.addEventListener('touchstart', touchStart);
+
+
+
 
 })
 
@@ -108,6 +128,13 @@ var AddPage = function (adpage, detailsPage, index) {
     var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
     var partType = "one";
 
+    if(adpage.audio)
+    {
+        pageItem += '<audio data-played="false" autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
+        + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
+        + '</audio>';
+    }
+
     if(adpage.parts[0].type !== "video")
     {
             switch (adpage.parts.length)
@@ -126,13 +153,6 @@ var AddPage = function (adpage, detailsPage, index) {
                 break;
         }
         pageItem += '<tr>';
-
-        if(adpage.audio)
-        {
-            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
-            + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
-            + '</audio>';
-        }
 
 
         for (var i =0; i < adpage.parts.length; ++i){
@@ -174,7 +194,7 @@ var AddPage = function (adpage, detailsPage, index) {
     }
     else //videos need to be in div to size properly.
     {
-        pageItem = '<div class="page"><div class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '"><div class="vzaar_media_player">'
+        pageItem += '<div class="vzaar_media_player">'
         +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[0].id +'&thumbnail=1'
         +'"preload="none" src="' + mediaURL + adpage.parts[0].id + '"></video>'
         +'</div></div>';
@@ -289,7 +309,8 @@ var AttachEventToPages = function () {
     });
 
 
-    $('.owl-page').click(function () {
+    $('.owl-page').bind('click', function (e) {
+
         var htmlVideo = $('#htmlvid'+listItemIndex);
         var htmlAudio = $('#htmlaudio'+listItemIndex);
 
@@ -310,22 +331,28 @@ var AttachEventToPages = function () {
         listItemIndex = $('.owl-page.active').index();
 
         htmlVideo = $('#htmlvid'+listItemIndex);
-        htmlAudio = $('htmlaudio'+listItemIndex);
+        htmlAudio = $('#htmlaudio'+listItemIndex);
 
         var narration = $('.adpage')[listItemIndex].dataset.narration;
         $('#narrator-text').text(narration);
         SetPage(listItemIndex);
 
-        if(htmlAudio.length) {
+
+        if(htmlAudio.length && htmlAudio[0].dataset.played === "false") {
+            htmlAudio[0].dataset.played = "true";
+            htmlAudio.get(0).load();
             htmlAudio.get(0).play();
         }
 
-        else if (htmlVideo.length && htmlVideo[0].dataset.played === "false") {
+        if (htmlVideo.length && htmlVideo[0].dataset.played === "false") {
             htmlVideo[0].dataset.played = "true";
+            htmlVideo.get(0).load();
             htmlVideo.get(0).play();
         }
 
         engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "click");
+
+        e.stopPropogation();
 
     });
 
@@ -358,12 +385,6 @@ var AttachEventToPages = function () {
 
     $('.st-content').css('transform', 'rotate(360deg)');
 
-    $('audio').bind("ended", function(){
-        var htmlVideo = $('#htmlvid'+listItemIndex);
-
-        if (htmlVideo.length)
-            htmlVideo.get(0).play();
-    });
 
     $("video").bind("ended", function() {
         engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "media");
