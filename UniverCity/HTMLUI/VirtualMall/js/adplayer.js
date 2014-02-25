@@ -128,7 +128,7 @@ var PopulateAdPlayer = function(adPlayerData ) {
 var AddPage = function (adpage, detailsPage, index) {
 
     var style = "";
-    var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '"' + "data-expertimage=" + mediaURL + adpage.expert.id +'>';
+    var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + " data-expertimage=" + mediaURL + adpage.expert.id +'">';
     var partType = "one";
 
     if(adpage.parts[0].type !== "video")
@@ -196,7 +196,7 @@ var AddPage = function (adpage, detailsPage, index) {
     }
     else //videos need to be in div to size properly.
     {
-        pageItem = '<div class="page"><div class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '"' + "data-expertimage=" + mediaURL + adpage.expert.id +'>';
+        pageItem = '<div class="page"><div class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + " data-expertimage=" + mediaURL + adpage.expert.id +'">';
 
         if(adpage.audio)
         {
