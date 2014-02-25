@@ -41,6 +41,8 @@ engine.on('LoadAdPlayer', function(id, URL, token){
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
 
+    console.log(id);
+
     $.ajax({
         url: URL + id,
         success: function(adPlayerData){
@@ -50,7 +52,26 @@ engine.on('LoadAdPlayer', function(id, URL, token){
             SetNarrator(mediaURL + adPlayerData.expert.id);
             SetPage(0);
             engine.call("CheckIfBusinessIsLiked");
-            $('.st-content').css('background', 'linear-gradient(#' + adPlayerData.background.color + ',#' + adPlayerData.background.color2 + ')');
+
+            console.log(adPlayerData.background.type);
+
+            switch(adPlayerData.background.type)
+            {
+                case 'gradient':
+                    $('.st-content').css('background', 'linear-gradient(#' + adPlayerData.background.color + ',#' + adPlayerData.background.color2 + ')');
+                    break;
+
+                case 'solid':
+                    $('.st-content').css('background', '#' + adPlayerData.background.color);
+                    break;
+
+                case 'tile':
+                    $('.st-content').css('background-image', 'url("' + mediaURL + adPlayerData.background.image.id + '")');
+                    $('.st-content').css(' background-repeat', 'repeat-x');
+                    break;
+
+            }
+
     }});
 
 
@@ -114,7 +135,7 @@ var PopulateAdPlayer = function(adPlayerData ) {
 
             if (adPlayerData.more){
 
-                AddPage(adpage.pages[i], adpage.more.pages[i], i);
+                AddPage(adPlayerData.pages[i], adPlayerData.more.pages[i], i);
             }
 
             else
