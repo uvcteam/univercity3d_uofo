@@ -17,11 +17,11 @@ $(document).ready(function () {
     $.ajax({
         url: URL + urlParam("id"),
         success: function(adPlayerData){
-            console.log(adPlayerData);
             PopulateAdPlayer(adPlayerData);
             SetMegaDeal(adPlayerData.megadeal);
             AttachEventToPages();
             SetNarrator(mediaURL + adPlayerData.expert.id);
+            SetPage(0);
             $('#turtle').hide();
             $('#container').show();
 
@@ -40,7 +40,6 @@ engine.on('LoadAdPlayer', function(id, URL, token){
     objectToLike = URL + '/fbo?b=' + id;
     mediaURL = URL + "admedia?id=";
     URL += "getAd?b=";
-    console.log(URL+id);
 
     $.ajax({
         url: URL + id,
@@ -49,11 +48,11 @@ engine.on('LoadAdPlayer', function(id, URL, token){
             SetMegaDeal(adPlayerData.megadeal);
             AttachEventToPages();
             SetNarrator(mediaURL + adPlayerData.expert.id);
+            SetPage(0);
             engine.call("CheckIfBusinessIsLiked");
-
+            $('.st-content').css('background', 'linear-gradient(#' + adPlayerData.background.color + ',#' + adPlayerData.background.color2 + ')');
     }});
 
-    console.log(urlToUse + "ListSaved?token=" + token);
 
     $.ajax({
         url: urlToUse + "ListSaved?token=" + token,
@@ -102,30 +101,34 @@ engine.on('LoadAdPlayer', function(id, URL, token){
 
 })
 
-var PopulateAdPlayer = function(adpage ) {
+var PopulateAdPlayer = function(adPlayerData ) {
 
-    for (var i = 0; i < adpage.pages.length; ++i) {
-        if (adpage.pages[i].title !== "") {
+    for (var i = 0; i < adPlayerData.pages.length; ++i) {
 
-            if (adpage.more){
+        if (adPlayerData.pages[i].title !== "") {
+
+            if(adPlayerData.pages[i].expert === null) //if a page doesn't have an expert, default to the main one
+            {
+                adPlayerData.pages[i].expert = adPlayerData.expert.id;
+            }
+
+            if (adPlayerData.more){
+
                 AddPage(adpage.pages[i], adpage.more.pages[i], i);
             }
 
             else
-                AddPage(adpage.pages[i], null, i);
+                AddPage(adPlayerData.pages[i], null, i);
 
         }
 
     }
 
-    $('.st-content').css('background', 'linear-gradient(#' + adpage.background.color + ',#' + adpage.background.color2 + ')');
-
 }
 var AddPage = function (adpage, detailsPage, index) {
 
-    console.log(adpage);
     var style = "";
-    var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
+    var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '"' + "data-expertimage=" + mediaURL + adpage.expert.id +'>';
     var partType = "one";
 
     if(adpage.parts[0].type !== "video")
@@ -149,7 +152,7 @@ var AddPage = function (adpage, detailsPage, index) {
 
         if(adpage.audio)
         {
-            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
+            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">'
                 + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
                 + '</audio>';
         }
@@ -162,7 +165,6 @@ var AddPage = function (adpage, detailsPage, index) {
                 pageItem += '</tr><tr>';
             }
 
-            console.log(adpage.parts[i].type);
             pageItem += '<td class="'+ partType +'">';
 
             switch(adpage.parts[i].type)
@@ -194,11 +196,11 @@ var AddPage = function (adpage, detailsPage, index) {
     }
     else //videos need to be in div to size properly.
     {
-        pageItem = '<div class="page"><div class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '">';
+        pageItem = '<div class="page"><div class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '"' + "data-expertimage=" + mediaURL + adpage.expert.id +'>';
 
         if(adpage.audio)
         {
-            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">' +
+            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">'
                 + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
                 + '</audio>';
         }
@@ -288,7 +290,6 @@ var SetMegaDeal = function(megaDeal){
         $('#end').text('Hurry! Deal Ends ' + megaDeal.end);
     }
     else {
-        console.log($('.mega-btn'));
         $('.mega-btn').attr('disabled', 'disabled');
         $('#mega-deal').html('<p>There is currently no Mega Deal</p>');
         $('#mega-deal').css('margin-top', '20%');
@@ -299,7 +300,6 @@ var SetNarrator = function (imageURL) {
 
     $('#narrator-img').attr('src', imageURL);
 
-    SetPage(0);
 }
 
 var AttachEventToPages = function () {
@@ -344,8 +344,12 @@ var AttachEventToPages = function () {
         htmlAudio = $('#htmlaudio'+listItemIndex);
 
         var narration = $('.adpage')[listItemIndex].dataset.narration;
+
         $('#narrator-text').text(narration);
+
         SetPage(listItemIndex);
+
+        SetNarrator($('.adpage')[listItemIndex].dataset.expertimage);
 
 
         if(htmlAudio.length && htmlAudio[0].dataset.played === "false") {
@@ -362,7 +366,6 @@ var AttachEventToPages = function () {
 
         engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "click");
 
-        e.stopPropogation();
 
     });
 
@@ -439,13 +442,14 @@ var SetPage = function (index) {
     var adpage = $('.adpage')[index];
     var pageDetails = $('.details-page')[index];
 
+
     var narration;
     var details;
 
     if(!adpage)
         return;
 
-    if($(adpage).css('display') == 'none'){
+    if($(adpage).css('display') === 'none'){
         narration = pageDetails.dataset.narration;
         details = pageDetails.dataset.details;
     }
@@ -529,7 +533,6 @@ engine.on("CheckIfLiked", function(likes) {
     var id;
     for ( var i = 0; i < response.data.length; ++i)
     {
-        //alert(response.data[i].data.object.url);
 
         id  = response.data[i].data.object.url.split("=")[1];
         if( id === businessID )
