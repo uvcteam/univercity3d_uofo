@@ -129,12 +129,19 @@ public class HTMLMainMenu : MonoBehaviour
 		return;
     }
 
-	public void UpdateProgressBar() 
+	public void UpdateProgressBar()
 	{
-		if(_viewReady)
-			_view.View.TriggerEvent("UpdateProgressBar");
-
+	    StartCoroutine(WaitForView());
+		_view.View.TriggerEvent("UpdateProgressBar");
 	}
+
+    public IEnumerator WaitForView()
+    {
+        while (!_viewReady)
+        {
+            yield return null;
+        }
+    }
 
     #endregion
 }

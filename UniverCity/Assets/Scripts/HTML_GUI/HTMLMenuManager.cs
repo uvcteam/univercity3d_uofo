@@ -170,10 +170,14 @@ public class HTMLMenuManager : MonoBehaviour
     public void GetInvitationCount()
     {
         int count = 0;
-        for(int i = 0; i < _userManager.CurrentUser.EventInvitations.Count; ++i)
-            if (!_userManager.CurrentUser.AttendingEvent(
-                _userManager.CurrentUser.EventInvitations[i])) ++count;
-        _view.View.TriggerEvent("InvitationCount", count);
+		
+		if(_userManager.IsSignedIn())
+		{
+	        for(int i = 0; i < _userManager.CurrentUser.EventInvitations.Count; ++i)
+	            if (!_userManager.CurrentUser.AttendingEvent(
+	                _userManager.CurrentUser.EventInvitations[i])) ++count;
+	        _view.View.TriggerEvent("InvitationCount", count);
+		}
     }
     #endregion
 }
