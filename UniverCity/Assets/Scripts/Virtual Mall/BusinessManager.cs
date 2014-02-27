@@ -56,7 +56,7 @@ public class BusinessManager : MonoBehaviour
         //    //loader.SetActive(true);
         //else if (Application.platform == RuntimePlatform.Android ||
         //         Application.platform == RuntimePlatform.IPhonePlayer)
-        NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Businesses", false, false);  
+        //NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading Businesses", false, false);  
         string bURL = serverURL + "BusinessInfo?u=UofO";
         string bLURL = serverURL + "BusinessLogos?b=";
         string bName = "";
@@ -184,7 +184,7 @@ public class BusinessManager : MonoBehaviour
         //    //loader.SetActive(false);
         //else if (Application.platform == RuntimePlatform.Android ||
         //         Application.platform == RuntimePlatform.IPhonePlayer)
-        NativeDialogs.Instance.HideProgressDialog();
+        //NativeDialogs.Instance.HideProgressDialog();
     }
 }
 

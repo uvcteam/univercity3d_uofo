@@ -1,9 +1,10 @@
-.custom-content-reveal {
-    font-family: 'Open Sans';
-    font-size: 1em;
-    text-align: left;
-    color: rgb(62, 129, 112);
-    text-decoration: underline;
+.custom-content-reveal>span {
+    font-family: 'Open Sans' !important;
+    font-size: 1em !important;
+    text-align: left !important;
+    color: rgb(62, 129, 112) !important;;
+    text-decoration: underline !important;
+    background-color: white !important;
 }
 
 .modal-title {

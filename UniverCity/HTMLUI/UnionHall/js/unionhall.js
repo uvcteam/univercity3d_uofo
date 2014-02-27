@@ -1,3 +1,5 @@
+var lastEventID = -1;
+
 // Web Functions.
 $(function() {
     console.log("Getting week's events.");
