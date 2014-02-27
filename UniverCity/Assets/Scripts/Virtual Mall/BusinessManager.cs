@@ -180,12 +180,8 @@ public class BusinessManager : MonoBehaviour
             businesses[i].logo.Apply();
         }
 
-        //if (Application.platform == RuntimePlatform.WindowsEditor) ;
-        //    //loader.SetActive(false);
-        //else if (Application.platform == RuntimePlatform.Android ||
-        //         Application.platform == RuntimePlatform.IPhonePlayer)
-        //NativeDialogs.Instance.HideProgressDialog();
-    }
+		Camera.main.GetComponent<HTMLMainMenu> ().UpdateProgressBar ();
+	}
 }
 
 [Serializable]

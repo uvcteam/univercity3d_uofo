@@ -8,7 +8,7 @@
 	    <meta charset="utf-8" />
 	    <meta name="author" content="" />
 	    <meta name="keywords" content="" />
-	    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 	    <meta name="apple-mobile-web-app-capable" content="yes" />
 	    <title>UniverCity3D Login</title>
 	    
@@ -17,15 +17,21 @@
 		<link rel="stylesheet" type="text/css" href="css/form.css" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
-        <link href="../libs/css/pace_vm.css" media="screen" rel="stylesheet" />
         <script src="../libs/js/jquery-1.10.0.js"></script>
         <script src="../libs/js/bugsense.js"></script>
-        <script src="../libs/js/pace.js"></script>
+        <script src="js/modernizr.custom.63321.js"></script>
         <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
 	</head>
 	
 	<body>
-		<div class="home-page main">
+        <ul class="spinner">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+		<div class="home-page main" style="display: none;">
 			<section class="grid-wrap">
 				<div id="main" class="grid col-one-half mq1-col-full">
                     <img src="images/logo.png" />

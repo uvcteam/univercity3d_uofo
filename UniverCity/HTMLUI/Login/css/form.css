@@ -179,6 +179,108 @@
 .hidden {
     display: none;
 }
+
+.spinner {
+    /* Size and position */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    font-size: 100px; /* 1em */
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    margin: auto;
+    vertical-align: middle;
+
+    /* Styles */
+    list-style: none;
+    border-radius: 50%;
+    border: .01em solid rgba(150,150,150,0.1); /* Subtle white line circling the dots */
+}
+
+.spinner li {
+    width: .2em;
+    height: .2em;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.spinner li:nth-child(1) {
+    background: rgb(102, 147, 124); /* Blue */
+    top: 0;
+    left: 50%;
+    margin-left: -.1em; /* Width/2 */
+    transform-origin: 50% 250%;
+    animation:
+        rota 1.13s linear infinite,
+        opa 3.67s ease-in-out infinite alternate;
+    -webkit-transform-origin: 50% 250%;
+    -webkit-animation:
+        rota 1.13s linear infinite,
+        opa 3.67s ease-in-out infinite alternate;
+}
+
+.spinner li:nth-child(2) {
+    background: rgb(62, 129, 112); /* Red */
+    top: 50%;
+    right: 0;
+    margin-top: -.1em; /* Height/2 */
+    transform-origin: -150% 50%;
+    animation:
+        rota 1.86s linear infinite,
+        opa 4.29s ease-in-out infinite alternate;
+    -webkit-transform-origin: -150% 50%;
+    -webkit-animation:
+        rota 1.86s linear infinite,
+        opa 4.29s ease-in-out infinite alternate;
+}
+
+.spinner li:nth-child(3) {
+    background: rgb(0, 117, 111); /* Yellow */
+    bottom: 0;
+    left: 50%;
+    margin-left: -.1em; /* Width/2 */
+    transform-origin: 50% -150%;
+    animation:
+        rota 1.45s linear infinite,
+        opa 5.12s ease-in-out infinite alternate;
+    -webkit-transform-origin: 50% -150%;
+    -webkit-animation:
+        rota 1.45s linear infinite,
+        opa 5.12s ease-in-out infinite alternate;
+}
+
+.spinner li:nth-child(4) {
+    background: rgb(255, 165, 58); /* Green */
+    top: 50%;
+    left: 0;
+    margin-top: -.1em; /* Height/2 */
+    transform-origin: 250% 50%;
+    animation:
+        rota 1.72s linear infinite,
+        opa 5.25s ease-in-out infinite alternate;
+    -webkit-transform-origin: 250% 50%;
+    -webkit-animation:
+        rota 1.72s linear infinite,
+        opa 5.25s ease-in-out infinite alternate;
+}
+
+.spinner li:nth-child(5) {
+    background: rgb(238, 123, 43); /* Green */
+    top: 50%;
+    left: 0;
+    margin-top: -.1em; /* Height/2 */
+    transform-origin: 250% 50%;
+    animation:
+        rota 1.72s linear infinite,
+        opa 5.25s ease-in-out infinite alternate;
+    -webkit-transform-origin: 250% 50%;
+    -webkit-animation:
+        rota 1.5s linear infinite,
+        opa 3.25s ease-in-out infinite alternate;
+}
+
 /* -------------------------------------------------------------
 ====== GRID  https://github.com/mattberridge/Proportional-Grids/
 ------------------------------------------------------------- */
@@ -279,6 +381,57 @@ body {
 .alignright {float: right;clear: right;margin: 0.38em 0 0.38em 1.62em;}
 .aligncenter {margin: 0 auto 1.62em;display: block;}
 
+
+
+@-webkit-keyframes rota {
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes rota {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
+
+@-webkit-keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
+
+@-moz-keyframes opa {
+    12.0% { opacity: 0.80; }
+    19.5% { opacity: 0.88; }
+    37.2% { opacity: 0.64; }
+    40.5% { opacity: 0.52; }
+    52.7% { opacity: 0.69; }
+    60.2% { opacity: 0.60; }
+    66.6% { opacity: 0.52; }
+    70.0% { opacity: 0.63; }
+    79.9% { opacity: 0.60; }
+    84.2% { opacity: 0.75; }
+    91.0% { opacity: 0.87; }
+}
 
 /* -------------------------------------------------------------
 ======	MEDIA QUERIES

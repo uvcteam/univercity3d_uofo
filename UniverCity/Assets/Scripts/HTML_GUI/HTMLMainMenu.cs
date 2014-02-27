@@ -129,5 +129,12 @@ public class HTMLMainMenu : MonoBehaviour
 		return;
     }
 
+	public void UpdateProgressBar() 
+	{
+		if(_viewReady)
+			_view.View.TriggerEvent("UpdateProgressBar");
+
+	}
+
     #endregion
 }

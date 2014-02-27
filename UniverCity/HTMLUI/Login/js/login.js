@@ -46,3 +46,8 @@ engine.on('LoggedIn', function (name) {
 engine.on('RequestApproved', function() {
     engine.call('CheckLoginInformation', '', '', true);
 });
+
+engine.on('UpdateProgressBar', function() {
+    $('.spinner').hide();
+    $('.home-page').show();
+});
