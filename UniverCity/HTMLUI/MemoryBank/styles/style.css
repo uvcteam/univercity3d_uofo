@@ -65,6 +65,13 @@ a {
     border-color: rgb(0, 117, 111);
 }
 
+.top-button button {
+    font-family: 'Open Sans';
+    background-color: rgb(0, 117, 111) !important;
+    font-weight: 400;
+    border-color: rgb(0, 117, 111);
+}
+
 .modal-body p {
     font-family: 'Open Sans';
     color: #686a6e;
@@ -75,6 +82,7 @@ a {
     font-family: 'Oswald';
     font-weight: 400;
     text-transform: uppercase;
+    float: left;
 }
 
 .modal-body > span {

@@ -76,9 +76,20 @@ function ShowEvent(caller) {
 }
 
 // Invoked by Unity3D.
-engine.on("AddEvent", function(date, name, time) {
+engine.on("AddEvent", function(name, date, time, desc, who, where, id, cdate) {
     console.log('Adding event - ' + name);
-    codropsEvents[date] = '<span>' + name + ' - ' + time + '</span>';
+    var newEvent = '';
+    newEvent += '<span onclick="ShowEvent(this)"';
+    newEvent += ' event-name="' + name + '"';
+    newEvent += ' event-who="' + who + '"';
+    newEvent += ' event-what="' + desc + '"';
+    newEvent += ' event-date="' + date + '"';
+    newEvent += ' event-time="' + time + '"';
+    newEvent += ' event-where="' + where + '"';
+    newEvent += ' event-id="' + id + '">';
+    newEvent += name + ' - ' + time;
+    newEvent += '</span>';
+    codropsEvents[cdate] = newEvent;
 });
 
 engine.on("AddWeekEvent", function(name, date, time, desc, who, where, id){

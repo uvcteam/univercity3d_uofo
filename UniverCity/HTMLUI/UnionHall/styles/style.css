@@ -1,3 +1,11 @@
+.custom-content-reveal {
+    font-family: 'Open Sans';
+    font-size: 1em;
+    text-align: left;
+    color: rgb(62, 129, 112);
+    text-decoration: underline;
+}
+
 .modal-title {
     color: rgb(62, 129, 112);
     font-family: 'Oswald';

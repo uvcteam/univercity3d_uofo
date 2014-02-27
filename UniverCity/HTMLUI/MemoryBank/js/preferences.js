@@ -10,7 +10,6 @@ $(window).load(function () {
 });
 
 function SavePreferences() {
-
     var checkboxes = $(':input');
     var newString = '';
     for (var i = 2; i < checkboxes.length; ++i) {
@@ -29,8 +28,30 @@ function SavePreferences() {
         engine.call("UpdateCommerce", GetCheckedNodes(
             $(".commerce-preferences").dynatree("getSelectedNodes")));
     }
-    
+
     window.location.href = 'memorybank.html';
+}
+
+function QuickSavePreferences() {
+    var checkboxes = $(':input');
+    var newString = '';
+    for (var i = 2; i < checkboxes.length; ++i) {
+        if (checkboxes[i].name.search('cat') !== -1 && $('#' + checkboxes[i].name).prop('checked')) {
+            newString += '&i=' + checkboxes[i].name.substring(3);
+        }
+    }
+
+    if (changeCategories) {
+        engine.call("UpdateCategories", GetCheckedNodes(
+            $('.category-preferences').dynatree("getSelectedNodes")));
+
+    }
+
+    if(changedCommerce) {
+        engine.call("UpdateCommerce", GetCheckedNodes(
+            $(".commerce-preferences").dynatree("getSelectedNodes")));
+    }
+    console.log("PREFERENCES QUICK SAVED!");
 }
 
 // Invoked by Unity3D.
