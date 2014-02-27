@@ -1,6 +1,18 @@
 $(document).ready(function(){
+
     engine.call('LoadFlashDeals');
 
+    $(document).ready(function() {
+        $('.category-carousel').owlCarousel({
+            itemsDesktop: [1199, 4],
+            itemsDesktopSmall: [979, 4],
+            itemsTablet: [1199, 4],
+            pagination: true,
+            itemsMobile: [640, 1]
+        });
+    });
+
+    $('.spinner-modal').hide();
 })
 
 engine.on('LoadFlashDeals', function(URL){
