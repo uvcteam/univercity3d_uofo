@@ -9,6 +9,7 @@ Material:
   m_Name: Building_Generic
   m_Shader: {fileID: 4800000, guid: 747e8a84138fc0a408a6afb102030e74, type: 3}
   m_ShaderKeywords: []
+  m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:

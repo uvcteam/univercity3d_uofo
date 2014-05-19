@@ -38,7 +38,8 @@ public class EventManager : MonoBehaviour
 
     public UnionHallEvent GetEventForId(int id)
     {
-        return events.FirstOrDefault(ev => ev.Id == id);
+        UnionHallEvent evnt = events.FirstOrDefault(ev => ev.Id == id);
+        return evnt;
     }
 
     // ***************************************************

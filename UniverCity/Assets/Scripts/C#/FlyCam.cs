@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -7,16 +8,18 @@ using System.Collections;
  * Shift : Makes the camera accelerate.
  */
 
-public class FlyCam : MonoBehaviour 
+public class FlyCam : MonoBehaviour
 {
-	public float mainSpeed = 100.0f; // Regular speed.
-	public float shiftAdd = 250.0f; // Multiplied by how long shift is held.
-									// Think sprinting.
-	public float maxShift = 1000.0f; // Maximum speed.
-	public float maxHeight = 85.0f; // The max height the camera can go.
-	public float minHeight = 20.0f; // The min height the camera can go.
-	
-	//private Vector3 lastMouse = new Vector3(255, 255, 255); // So the camera doesn't jump.
+    public GUIText HUDText = null;
+    public GUIText HUDSubText = null;
+    public float mainSpeed = 100.0f; // Regular speed.
+    public float shiftAdd = 250.0f; // Multiplied by how long shift is held.
+    // Think sprinting.
+    public float maxShift = 1000.0f; // Maximum speed.
+    public float maxHeight = 85.0f; // The max height the camera can go.
+    public float minHeight = 20.0f; // The min height the camera can go.
+
+    //private Vector3 lastMouse = new Vector3(255, 255, 255); // So the camera doesn't jump.
     private float totalRun = 1.0f;
     public float activationDistance = 50.0f;
 
@@ -37,9 +40,10 @@ public class FlyCam : MonoBehaviour
     public bool isHidden = false;
 
     Quaternion originalRotation = Quaternion.identity;
-	
-	void Update()
-	{
+    private GameObject LastHitObject = null;
+
+    void Update()
+    {
         /*
         if (Application.loadedLevel != 2)
         {
@@ -113,60 +117,60 @@ public class FlyCam : MonoBehaviour
             rigidbody.velocity = Vector3.zero;
             rigidbody.angularVelocity = Vector3.zero;
         }
-        
+
         if (FloatingBubble.HasAdUp) return;
         if (Camera.main == null) return;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-	    if (Input.GetMouseButtonDown(0))
-	    {
-            Debug.Log(Camera.main.WorldToViewportPoint(ray.origin));
-	        if (Camera.main.WorldToViewportPoint(ray.origin).x <= 0.1 &&
-	            Camera.main.WorldToViewportPoint(ray.origin).y >= 0.9)
-	        {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Camera.main.WorldToViewportPoint(ray.origin).x <= 0.1 &&
+                Camera.main.WorldToViewportPoint(ray.origin).y >= 0.9)
+            {
                 GetComponent<HTMLExplorer>().OpenMenu();
-	        }
-	        else if (Physics.Raycast(ray, out hit))
-	        {
-                
-                Debug.Log((Vector3.Distance(
+            }
+            else if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "Blocker")
+                {
+                    Debug.Log("RETURNING");
+                    return;
+                }
+                if ((hit.collider.tag == "FloatingSphere" || hit.collider.tag == "HoverCollision") &&
+                    (Vector3.Distance(
                         GameObject.FindWithTag("MainCamera").transform.position,
-                        transform.position) <= activationDistance));
-	            if (hit.collider.tag == "FloatingSphere" &&
-	                (Vector3.Distance(
-	                    GameObject.FindWithTag("MainCamera").transform.position,
-	                    transform.position) <= activationDistance))
-	            {
-	                hit.collider.gameObject.GetComponent<FloatingBubble>().BubbleClicked();
-	            }
-	        }
-	    }
-	}
-	
-	Vector3 GetBaseInput()
-	{
-		Vector3 p_Velocity = new Vector3(0.0f, 0.0f, 0.0f);
-		
-		if (Input.GetKey(KeyCode.W))
+                        transform.position) <= activationDistance))
+                {
+                    hit.collider.gameObject.GetComponent<FloatingBubble>().BubbleClicked();
+                }
+            }
+        }
+    }
+
+    Vector3 GetBaseInput()
+    {
+        Vector3 p_Velocity = new Vector3(0.0f, 0.0f, 0.0f);
+
+        if (Input.GetKey(KeyCode.W))
             p_Velocity += new Vector3(0, 0, 1.0f);
-		if (Input.GetKey (KeyCode.S))
-			p_Velocity += new Vector3(0, 0, -1.0f);
-		if (Input.GetKey(KeyCode.A))
-			p_Velocity += new Vector3(-1.0f, 0, 0);
-		if (Input.GetKey (KeyCode.D))
-			p_Velocity += new Vector3(1.0f, 0, 0);
-		if (Input.GetKey(KeyCode.Q))
-			p_Velocity += new Vector3(0, -1.0f, 0);
-		if (Input.GetKey (KeyCode.E))
-			p_Velocity += new Vector3(0, 1.0f, 0);
+        if (Input.GetKey(KeyCode.S))
+            p_Velocity += new Vector3(0, 0, -1.0f);
+        if (Input.GetKey(KeyCode.A))
+            p_Velocity += new Vector3(-1.0f, 0, 0);
+        if (Input.GetKey(KeyCode.D))
+            p_Velocity += new Vector3(1.0f, 0, 0);
+        if (Input.GetKey(KeyCode.Q))
+            p_Velocity += new Vector3(0, -1.0f, 0);
+        if (Input.GetKey(KeyCode.E))
+            p_Velocity += new Vector3(0, 1.0f, 0);
         if (Input.GetKeyDown(KeyCode.H) && Application.loadedLevel == 2)
             isHidden = !isHidden;
         if (Input.GetKeyDown(KeyCode.M) && Application.loadedLevel == 2)
             Application.LoadLevel(0);
-	    rigidbody.velocity = Vector3.zero;
-		return p_Velocity;
-	}
+        rigidbody.velocity = Vector3.zero;
+        return p_Velocity;
+    }
 
     public static float ClampAngle(float angle, float min, float max)
     {
@@ -175,5 +179,36 @@ public class FlyCam : MonoBehaviour
         if (angle > 360F)
             angle -= 360F;
         return Mathf.Clamp(angle, min, max);
+    }
+
+    void FixedUpdate()
+    {
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+        RaycastHit hit;
+        int num_business = 0;
+
+        if (HUDText != null)
+        {
+            if (Physics.Raycast(ray, out hit, activationDistance) && hit.collider.tag == "HoverCollision")
+            {
+                if (LastHitObject != null && LastHitObject != hit.collider.gameObject)
+                    LastHitObject.GetComponent<ExplorerBusiness>().DeactivateHighlight();
+                LastHitObject = hit.collider.gameObject;
+                hit.collider.GetComponent<ExplorerBusiness>().ActivateHighlight();
+                num_business = hit.collider.GetComponent<ExplorerBusiness>().num_businesses;
+                HUDText.text = hit.collider.gameObject.name;
+                HUDSubText.text = num_business + " Business" + (num_business != 1 ? "es" : "");
+            }
+            else
+            {
+                if (LastHitObject)
+                {
+                    LastHitObject.GetComponent<ExplorerBusiness>().DeactivateHighlight();
+                    LastHitObject = null;
+                }
+                HUDText.text = "";
+                HUDSubText.text = "";
+            }
+        }
     }
 }

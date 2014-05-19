@@ -21,6 +21,7 @@ public class UserManager : MonoBehaviour
     private static string serverURL = "http://www.univercity3d.com/univercity/";
 #endif
 
+
     public User CurrentUser;
     public GameObject signingInDialog;
     public GameObject PageToDisable;
@@ -488,6 +489,7 @@ public class User
     private string email = "";
     private string university = "";
     private string pin = "";
+    private bool usePin = false;
 
     private List<SocialInterest> categories;
     private List<SocialInterest> commerce; 
@@ -535,6 +537,11 @@ public class User
     {
         get { return pin; }
         set { pin = value; }
+    }
+    public bool UsePIN
+    {
+        get { return usePin; }
+        set { usePin = value; }
     }
     public List<JournalEntry> Journals
     {

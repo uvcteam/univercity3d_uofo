@@ -1,12 +1,8 @@
 // Web Functions.
 var FBAUTH = null;
-
-$(function() {
-    engine.call("GetFacebookAuth");
-});
-
+var userToken = "";
 $(document).ready(function () {
-    
+    engine.call("GetFacebookAuth");
 });
 
 function ShowFacebookPhotos() {
@@ -20,13 +16,23 @@ function ShowFacebookPhotos() {
 function OnJournalSubmitted() {
     var values = $(":input").serializeArray();
     var entryText = $('#editor').html();
+    var title = values[0]['value'];
     //console.log(values[0]['value'] + ' ---- ' + values[1]['value']);
     //alert('Save entry ' + values[0]['value'] + ' -- ' + entryText);
-    engine.call('OnSaveEntryClicked', values[0]['value'], entryText);
+    $.get(window.server_url + 'AddJournalEntry?token=' + window.token + '&pin=' + window.pin + '&title=' + title + '&entry=' + encodeURI(entryText), function(data) {
+        if (data.s) {
+            console.log("SUCCESSFUL JOURNAL ENTRY!");
+            $("input[name=title]").val('');
+            $("textarea[name=entry]").val('');
+        }
+    });
+    //engine.call('OnSaveEntryClicked', values[0]['value'], entryText);
 }
 
 // Invoked by Unity3D.
-engine.on("PinCorrect", function() {
+engine.on("PinCorrect", function(token) {
+    console.log(token);
+    userToken = token;
     $('.pin-div').css("visibility", "hidden");
     $('.journals').css("visibility", "visible");
 });
@@ -61,4 +67,10 @@ engine.on("FacebookAuth", function(auth) {
 
     FBAUTH = auth;     
     //FacebookPhotoSelector.setFacebookSDK(FB);
+});
+
+engine.on("UserInfo", function(token, pin, server_url) {
+    window.token = token;
+    window.pin = pin;
+    window.server_url = server_url;
 });

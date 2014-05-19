@@ -57,9 +57,16 @@ public class HTMLMemoryBank : MonoBehaviour
             _view.View.BindCall("SignIntoFacebook", (System.Action)SignIntoFacebook);
             _view.View.BindCall("SignOutOfFacebook", (System.Action)SignOutOfFacebook);
             _view.View.BindCall("BusinessClicked", (System.Action<string>)BusinessClicked);
+            _view.View.BindCall("JournalsLoaded", (System.Action)JournalsLoaded);
+            _view.View.BindCall("GetFacebookAuth", (System.Action)GetFacebookAuth);
         };
         
         _viewReady = false;
+    }
+
+    void JournalsLoaded()
+    {
+        NativeDialogs.Instance.HideProgressDialog();
     }
     
     IEnumerator CheckPIN(string pin)
@@ -87,9 +94,9 @@ public class HTMLMemoryBank : MonoBehaviour
         {
             if (Application.platform == RuntimePlatform.IPhonePlayer)
                 NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading journal entries.", false, false);
-            _view.View.TriggerEvent("PinCorrect");
+            _view.View.TriggerEvent("PinCorrect", manager.GetComponent<UserManager>().CurrentUser.Token, pin, serverURL);
             _userManager.CurrentUser.PIN = pin;
-            _userManager.CurrentUser.PopulateJournal(
+            /*_userManager.CurrentUser.PopulateJournal(
                 result["entries"] as List<object>);
 
             foreach (JournalEntry entry in _userManager.CurrentUser.Journals)
@@ -98,8 +105,7 @@ public class HTMLMemoryBank : MonoBehaviour
                 _view.View.TriggerEvent("AddJournal", entry.Id, entry.Title, entry.TimeStamp.ToString("MMMM dd, yyyy"), entry.Entry);
             }
 			
-			_view.View.TriggerEvent("JournalsFinished");
-            NativeDialogs.Instance.HideProgressDialog();
+			_view.View.TriggerEvent("JournalsFinished");*/
         }
     }
     IEnumerator SaveEntry(string title, string content)
@@ -279,6 +285,7 @@ public class HTMLMemoryBank : MonoBehaviour
         {
             int id = _userManager.CurrentUser.EventInvitations[i];
             UnionHallEvent ev = em.GetEventForId(id);
+            if (ev == null) continue;
             if (_userManager.CurrentUser.AttendingEvent(id)) continue;
             string date = ev.Start.ToString("MMMM dd");
             string time = ev.Start.ToString("hh:mm tt");
@@ -370,8 +377,10 @@ public class HTMLMemoryBank : MonoBehaviour
 
         gameObject.GetComponent<HTMLVirtualMall>().SetBusinessID(id);
     }
-	public void GetFacebookAuth()
+    public void GetFacebookAuth()
 	{
+        Debug.Log("SENDING INFO");
+        _view.View.TriggerEvent("UserInfo", _userManager.CurrentUser.Token, _userManager.CurrentUser.PIN, serverURL);
 		Debug.Log("================== TRYING TO GET PHOTOS ==================");
 		FB.API("/me?fields=albums.fields(id,name,cover_photo,photos.fields(name,picture,source))", HttpMethod.GET, RetrievedPhotos);
 		_view.View.TriggerEvent("FacebookAuth", FB.AccessToken);

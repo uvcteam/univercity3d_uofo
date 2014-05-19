@@ -386,7 +386,9 @@ public class HTMLUnionHall : MonoBehaviour
             //foreach (UnionHallEvent ev in _eventManager.events)
             for (int i = 0; i < _userManager.CurrentUser.EventInvitations.Count; ++i)
             {
+                Debug.Log("Getting event for ID: " + _userManager.CurrentUser.EventInvitations[i]);
                 UnionHallEvent ev = _eventManager.GetEventForId(_userManager.CurrentUser.EventInvitations[i]);
+                if (ev == null) continue;
                 if (_userManager.CurrentUser.AttendingEvent(ev.Id)) continue;
                 string date = ev.Start.ToString("MMMM dd");
                 string time = ev.Start.ToString("hh:mm tt");

@@ -28,6 +28,7 @@ public class HTMLExplorer : MonoBehaviour
     private GameObject _floatingBubble;
     public GameObject leftStick;
     public GameObject rightStick;
+    public GameObject collisions;
     private string _businessID;
 
     // Use this for initialization
@@ -94,6 +95,7 @@ public class HTMLExplorer : MonoBehaviour
         _floatingBubble = myBubble;
         rightStick.SetActive(false);
         leftStick.SetActive(false);
+        collisions.SetActive(false);
         AddBusinesses();
     }
 
@@ -169,6 +171,7 @@ public class HTMLExplorer : MonoBehaviour
         _floatingBubble.SetActive(true);
         rightStick.SetActive(true);
         leftStick.SetActive(true);
+        collisions.SetActive(true);
         Destroy(oldPos);
         FloatingBubble.HasAdUp = false;
     }

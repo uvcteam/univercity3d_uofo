@@ -24,3 +24,10 @@ UniverCity/Assembly-UnityScript-Editor.pidb
 UniverCity/Assembly-UnityScript-firstpass.pidb
 
 UniverCity/ProjectSettings/ProjectSettings.asset
+UniverCity/Assets/CoherentUI/
+*.csproj
+*.unityproj
+*.dll
+*.exe
+*.sln
+*.suo

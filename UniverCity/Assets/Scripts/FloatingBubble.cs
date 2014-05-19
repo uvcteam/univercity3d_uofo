@@ -15,6 +15,7 @@ public class FloatingBubble : MonoBehaviour
 
     void Awake()
     {
+        ExplorerBusiness eb = GetComponent<ExplorerBusiness>();
 		ObjectToTween = GameObject.Find("Main Camera");
         myTween = ObjectToTween.GetComponent<TweenTransform>();
 		if (ObjectToTween == null)
@@ -22,7 +23,7 @@ public class FloatingBubble : MonoBehaviour
         manager = GameObject.Find("BusinessManager").GetComponent<BusinessManager>();
         myPos = new Vector2(transform.localPosition.x, transform.localPosition.z);
         gameObject.SetActive(
-            manager.busByCoord.ContainsKey(myPos));
+            manager.busByCoord.ContainsKey(eb.Coordinates));
     }
 
 	// Update is called once per frame
@@ -33,9 +34,10 @@ public class FloatingBubble : MonoBehaviour
 
     void OnTweenFinished(UITweener tweener)
     {
+        ExplorerBusiness eb = GetComponent<ExplorerBusiness>();
         adPanel = GameObject.Find("Main Camera");
         adPanel.SetActive(true);
-        adPanel.GetComponent<HTMLExplorer>().SetPosition(myPos, gameObject);
+        adPanel.GetComponent<HTMLExplorer>().SetPosition(eb.Coordinates, gameObject);
         adPanel.GetComponent<HTMLExplorer>().SetReturnPosition();
         gameObject.SetActive(false);
     }

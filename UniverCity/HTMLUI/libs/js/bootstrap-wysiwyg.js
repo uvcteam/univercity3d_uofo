@@ -13,8 +13,8 @@
       tempImg.src = e.target.result;
       tempImg.onload = function() {
    
-          var MAX_WIDTH = 50;
-          var MAX_HEIGHT = 50;
+          var MAX_WIDTH = 500;
+          var MAX_HEIGHT = 500;
           var tempW = tempImg.width;
           var tempH = tempImg.height;
           if (tempW > tempH) {
@@ -34,7 +34,7 @@
           canvas.height = tempH;
           var ctx = canvas.getContext("2d");
           ctx.drawImage(this, 0, 0, tempW, tempH);
-          var dataURL = canvas.toDataURL("image/jpeg", 0.1);
+          var dataURL = canvas.toDataURL("image/jpeg", 1);
           loader.resolve(dataURL);
         }
     }

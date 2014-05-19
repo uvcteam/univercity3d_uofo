@@ -246,6 +246,10 @@ figure p {
     background: rgb(0, 117, 111);
 }
 
+.st-menu h2 {
+    font-size: 1.5em !important;
+}
+
 .st-container {
     color: rgb(0, 117, 111);
 }
