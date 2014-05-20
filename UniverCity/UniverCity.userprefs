@@ -1,13 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Plugins/NativeDialogs/NativeDialogs.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\3DTextShader.shader">
     <Files>
-      <File FileName="Assets/Scripts/Virtual Mall/BusinessManager.cs" Line="53" Column="71" />
-      <File FileName="Assets/Scripts/Union Hall/UnionHallCreateEngagement.cs" Line="209" Column="9" />
-      <File FileName="../../Downloads/OverlayUI/Assets/ShowDatePicker.cs" Line="5" Column="1" />
-      <File FileName="Assets/Plugins/NativeDialogs/NativeDialogs.cs" Line="229" Column="31" />
-      <File FileName="Assets/Scripts/UserManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/HTML_GUI/HTMLMenuManager.cs" Line="82" Column="64" />
+      <File FileName="Assets\Scripts\Virtual Mall\BusinessManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Union Hall\UnionHallCreateEngagement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Plugins\NativeDialogs\NativeDialogs.cs" Line="229" Column="2" />
+      <File FileName="Assets\Scripts\UserManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HTML_GUI\HTMLMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Shaders\3DTextShader.shader" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
