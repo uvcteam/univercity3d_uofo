@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <link rel="stylesheet" type="text/css" href="styles/createform.css" />
     <link rel="stylesheet" type="text/css" href="styles/modal.css" />
+    <link rel="stylesheet" type="text/css" href="../libs/chosen/chosen.css">
     <script src="../libs/js/jquery-1.10.0.js"></script>
     <script src="../libs/js/bugsense.js"></script>
     <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
@@ -351,8 +352,9 @@
                             <input type="text" id="event_where" name="event_where" placeholder="University Theatre">
                         </div>
                         <div class="cbp-mc-column">
+                            <fieldset data-role="controlgroup" data-mini="true">
                             <label for="event_category">Category</label>
-                            <select id="event_category" name="event_category" class="cd-select">
+                            <select id="event_category" name="event_category" class="chzn-select">
                                 <option>Choose a category</option>
                                 <option>Arts/Culture</option>
                                 <option>Automotive</option>
@@ -381,6 +383,123 @@
                                 <option>Social Issues</option>
                                 <option>Sports</option>
                             </select>
+                            <select id="event_category_1" name="event_category_1" class="chzn-select">
+                                <option>Choose a category</option>
+                                <option>Arts/Culture</option>
+                                <option>Automotive</option>
+                                <option>Career/Business</option>
+                                <option>Computers/Technology</option>
+                                <option>Dancing</option>
+                                <option>Education</option>
+                                <option>Exercise</option>
+                                <option>Fashion/Beauty</option>
+                                <option>Food & Drink</option>
+                                <option>Games & Gaming</option>
+                                <option>Gardening</option>
+                                <option>Health/Medicine</option>
+                                <option>History</option>
+                                <option>Hobbies & Crafts</option>
+                                <option>Language</option>
+                                <option>Literature</option>
+                                <option>Music</option>
+                                <option>News/Journalism</option>
+                                <option>Pets & Animals</option>
+                                <option>Philosophy/Religion</option>
+                                <option>Photography</option>
+                                <option>Politics</option>
+                                <option>Science</option>
+                                <option>Shopping</option>
+                                <option>Social Issues</option>
+                                <option>Sports</option>
+                            </select>
+                            <select id="event_category_2" name="event_category_2" class="chzn-select">
+                                <option>Choose a category</option>
+                                <option>Arts/Culture</option>
+                                <option>Automotive</option>
+                                <option>Career/Business</option>
+                                <option>Computers/Technology</option>
+                                <option>Dancing</option>
+                                <option>Education</option>
+                                <option>Exercise</option>
+                                <option>Fashion/Beauty</option>
+                                <option>Food & Drink</option>
+                                <option>Games & Gaming</option>
+                                <option>Gardening</option>
+                                <option>Health/Medicine</option>
+                                <option>History</option>
+                                <option>Hobbies & Crafts</option>
+                                <option>Language</option>
+                                <option>Literature</option>
+                                <option>Music</option>
+                                <option>News/Journalism</option>
+                                <option>Pets & Animals</option>
+                                <option>Philosophy/Religion</option>
+                                <option>Photography</option>
+                                <option>Politics</option>
+                                <option>Science</option>
+                                <option>Shopping</option>
+                                <option>Social Issues</option>
+                                <option>Sports</option>
+                            </select>
+                            <select id="event_category_3" name="event_category_3" class="chzn-select">
+                                <option>Choose a category</option>
+                                <option>Arts/Culture</option>
+                                <option>Automotive</option>
+                                <option>Career/Business</option>
+                                <option>Computers/Technology</option>
+                                <option>Dancing</option>
+                                <option>Education</option>
+                                <option>Exercise</option>
+                                <option>Fashion/Beauty</option>
+                                <option>Food & Drink</option>
+                                <option>Games & Gaming</option>
+                                <option>Gardening</option>
+                                <option>Health/Medicine</option>
+                                <option>History</option>
+                                <option>Hobbies & Crafts</option>
+                                <option>Language</option>
+                                <option>Literature</option>
+                                <option>Music</option>
+                                <option>News/Journalism</option>
+                                <option>Pets & Animals</option>
+                                <option>Philosophy/Religion</option>
+                                <option>Photography</option>
+                                <option>Politics</option>
+                                <option>Science</option>
+                                <option>Shopping</option>
+                                <option>Social Issues</option>
+                                <option>Sports</option>
+                            </select>
+                            <select id="event_category_4" name="event_category_4" class="chzn-select">
+                                <option>Choose a category</option>
+                                <option>Arts/Culture</option>
+                                <option>Automotive</option>
+                                <option>Career/Business</option>
+                                <option>Computers/Technology</option>
+                                <option>Dancing</option>
+                                <option>Education</option>
+                                <option>Exercise</option>
+                                <option>Fashion/Beauty</option>
+                                <option>Food & Drink</option>
+                                <option>Games & Gaming</option>
+                                <option>Gardening</option>
+                                <option>Health/Medicine</option>
+                                <option>History</option>
+                                <option>Hobbies & Crafts</option>
+                                <option>Language</option>
+                                <option>Literature</option>
+                                <option>Music</option>
+                                <option>News/Journalism</option>
+                                <option>Pets & Animals</option>
+                                <option>Philosophy/Religion</option>
+                                <option>Photography</option>
+                                <option>Politics</option>
+                                <option>Science</option>
+                                <option>Shopping</option>
+                                <option>Social Issues</option>
+                                <option>Sports</option>
+                            </select>
+                            </fieldset>
                             <label for="event_what">What will the event entail?</label>
                             <textarea id="event_what" name="event_what" placeholder="We will be practicing our performance of the play King Lear. Anyone who is not participating in the play is free to watch the practice."></textarea>
                             <label for="event_time">What time is the event?</label>
@@ -405,6 +524,7 @@
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
     <script src="../libs/js/bootstrap.min.js"></script>
+    <script src="../libs/chosen/chosen.jquery.min.js"></script>
     <script src="js/createevent.js"></script>
     <script src="../libs/datepicker/picker.js"></script>
     <script src="../libs/datepicker/picker.date.js"></script>

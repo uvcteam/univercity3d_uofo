@@ -2,6 +2,33 @@
  * Created by Jacob on 11/21/13.
  */
 // Web Functions.
+// cache selects for use later
+var selects = $('.chzn-select');
+
+// whenever the selection changes, either disable or enable the 
+// option in the other selects
+selects.chosen().change(function() {
+    var selected = [];
+
+    // add all selected options to the array in the first loop
+    selects.find("option").each(function() {
+        if (this.selected) {
+            selected[this.value] = this;
+        }
+    })
+
+    // then either disabled or enable them in the second loop:
+    .each(function() {
+
+        // if the current option is already selected in another select disable it.
+        // otherwise, enable it.
+        this.disabled = selected[this.value] && selected[this.value] !== this;
+    });
+
+    // trigger the change in the "chosen" selects
+    selects.trigger("chosen:updated");
+});
+
 
 function OnEventCreate() {
     $('#myModal').modal('show');
