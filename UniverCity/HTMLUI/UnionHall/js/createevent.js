@@ -2,8 +2,8 @@
  * Created by Jacob on 11/21/13.
  */
 // Web Functions.
-// cache selects for use later
 
+// cache selects for use later
 var selects = $('.chzn-select');
 
 
