@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="styles/createform.css" />
     <link rel="stylesheet" type="text/css" href="styles/modal.css" />
     <link rel="stylesheet" type="text/css" href="../libs/chosen/chosen.css">
+    <link rel="stylesheet" type="text/css" href="../libs/chosen/docsupport/style.css">
     <script src="../libs/js/jquery-1.10.0.js"></script>
     <script src="../libs/js/bugsense.js"></script>
     <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
@@ -352,9 +353,9 @@
                             <textarea id="event_who" name="event_who" placeholder="All participants in the play and anyone who wants to see it."></textarea>
                         </div>
                         <div class="cbp-mc-column">
-                            <fieldset data-role="controlgroup" data-mini="true">
+                            <fieldset id="controlgroup" data-role="controlgroup" data-mini="true">
                                 <label for="event_category">Categories</label>
-                                <select id="event_category" name="event_category" class="chzn-select" style="width: 500px">
+                                <select id="event_category" name="event_category" class="chosen-select">
                                     <option>Choose a category</option>
                                     <option>Arts/Culture</option>
                                     <option>Automotive</option>
@@ -383,7 +384,7 @@
                                     <option>Social Issues</option>
                                     <option>Sports</option>
                                 </select>
-                                <select id="event_category_1" name="event_category_1" class="chzn-select"  style="width: 500px">
+                                <select id="event_category_1" name="event_category_1" class="chosen-select">
                                     <option>Choose a category</option>
                                     <option>Arts/Culture</option>
                                     <option>Automotive</option>
@@ -412,7 +413,7 @@
                                     <option>Social Issues</option>
                                     <option>Sports</option>
                                 </select>
-                                <select id="event_category_2" name="event_category_2" class="chzn-select" style="width: 500px">
+                                <select id="event_category_2" name="event_category_2" class="chosen-select">
                                     <option>Choose a category</option>
                                     <option>Arts/Culture</option>
                                     <option>Automotive</option>
@@ -441,7 +442,7 @@
                                     <option>Social Issues</option>
                                     <option>Sports</option>
                                 </select>
-                                <select id="event_category_3" name="event_category_3" class="chzn-select" style="width: 500px">
+                                <select id="event_category_3" name="event_category_3" class="chosen-select">
                                     <option>Choose a category</option>
                                     <option>Arts/Culture</option>
                                     <option>Automotive</option>
@@ -470,7 +471,7 @@
                                     <option>Social Issues</option>
                                     <option>Sports</option>
                                 </select>
-                                <select id="event_category_4" name="event_category_4" class="chzn-select" style="width: 500px">
+                                <select id="event_category_4" name="event_category_4" class="chosen-select">
                                     <option>Choose a category</option>
                                     <option>Arts/Culture</option>
                                     <option>Automotive</option>

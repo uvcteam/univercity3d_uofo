@@ -4,7 +4,7 @@
 // Web Functions.
 
 // cache selects for use later
-var selects = $('.chzn-select');
+var selects = $('.chosen-select');
 
 
 // whenever the selection changes, either disable or enable the 
@@ -31,7 +31,6 @@ selects.chosen().change(function() {
     // trigger the change in the "chosen" selects
     selects.trigger("chosen:updated");
 });
-
 
 function OnEventCreate() {
     $('#myModal').modal('show');
