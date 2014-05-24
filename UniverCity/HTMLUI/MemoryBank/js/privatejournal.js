@@ -20,22 +20,17 @@ engine.on("PinCorrect", function(token, pin, url) {
             data.entries.forEach(function(entry) {
                 var date = new Date(entry.ts);
                 var date_string = GetMonth(date.getMonth()) + ' ' + date.getDate() + ', ' + date.getFullYear();
-                $('.journals').append('<div class="journal" id="' + entry.id + '"><h1>' + entry.title + '</h1><h6>' + date_string + '</h6><p>' + entry.entry + '</p><button type="button" class="btn btn-danger" journalid="' + entry.id + '">Delete</button></div>');
-            });
-
-            $('.btn-danger').click(function() {
-                console.log('Delete entry: ' + this.getAttribute('journalid'));
-                $.get(window.serverUrl + '/DeleteJournalEntry?token=' + window.token + '&pin=' + window.pin + '&id=' + this.getAttribute('journalid'), function(data) {
-                    if (data.s) {
-                        $("#" + this.getAttribute('journalid')).remove();
-                    }
-                });
+                $('.journals').append('<div class="journal" id="' + entry.id + '"><h1>' + entry.title + '</h1><h6>' + date_string + '</h6><p>' + entry.entry + '</p><a href="#" onclick="DeleteJournal(this)" class="btn btn-danger" journalid="' + entry.id + '">Delete</a></div>');
             });
         }
     });
 
     //engine.call("JournalsLoaded");
 });
+
+function DeleteJournal(e) {
+    engine.call('DeleteEntry', e.getAttribute('journalid'));
+}
 
 engine.on("AddJournal", function(id, title, date, content) {
     console.log('adding journal: ' + id + ' - ' + title + ' - ' + date + ' - ' + content);
@@ -50,11 +45,8 @@ engine.on("CreateSuccess", function() {
 	$('textarea[input=entry]').val('');	
 });
 
-engine.on("DeleteSuccess", function() {
-	$('.journals').html('');
-    var values = $(":input").serializeArray();
-    console.log(values);
-    engine.call('CheckPin', values[0]['value']);
+engine.on("DeleteSuccess", function(id) {
+    $("#" + id).remove();
 });
 
 function GetMonth(month) {
