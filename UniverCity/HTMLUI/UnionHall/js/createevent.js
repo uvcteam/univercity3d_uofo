@@ -12,8 +12,11 @@ $(document).ready(function() {
     $.get(server_url + "/ListSocialInterests", function(data) {
         $(data).each(function() {
             interests.push(this);
+            selects.append('<option>'+ this.int +'</option>');
         });
+         selects.trigger("chosen:updated");
     });
+   
 });
 
 
