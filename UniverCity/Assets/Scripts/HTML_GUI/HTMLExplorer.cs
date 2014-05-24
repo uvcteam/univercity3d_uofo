@@ -46,7 +46,9 @@ public class HTMLExplorer : MonoBehaviour
             _view.View.BindCall("LoadAdData", (System.Action)LoadAdData);
             _view.View.BindCall("MenuClosed", (System.Action)MenuClosed);
         };
-       
+		
+		if (Application.platform == RuntimePlatform.IPhonePlayer)
+			_view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
     }
 
     void OnViewReady(View view)
@@ -63,7 +65,6 @@ public class HTMLExplorer : MonoBehaviour
 
     public void AddClickEventsToBusinesses()
     {
-        Debug.Log("takeall");
         if(Application.platform == RuntimePlatform.IPhonePlayer)
             _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
         _view.View.TriggerEvent("AttachEventToBusinesses");
@@ -149,8 +150,6 @@ public class HTMLExplorer : MonoBehaviour
 
     public void MenuClosed()
     {
-        Debug.Log("close");
-        Debug.Log(_view.InputState.ToString());
         if (Application.platform == RuntimePlatform.IPhonePlayer)
             _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
     }

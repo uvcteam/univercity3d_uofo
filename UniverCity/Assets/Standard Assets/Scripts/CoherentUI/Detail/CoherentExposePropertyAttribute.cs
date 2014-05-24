@@ -15,8 +15,13 @@ public class CoherentExposePropertyInfo : Attribute
 		
 		Count
 	};
-		
-	public CoherentExposePropertyInfo(FoldoutType category = FoldoutType.General)
+
+	public CoherentExposePropertyInfo()
+	{
+		this.Category = FoldoutType.General;
+	}
+
+	public CoherentExposePropertyInfo(FoldoutType category)
 	{
 		this.Category = category;
 	}

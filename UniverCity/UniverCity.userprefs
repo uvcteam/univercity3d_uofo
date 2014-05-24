@@ -1,14 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\3DTextShader.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/C#/FlyCam.cs">
     <Files>
-      <File FileName="Assets\Shaders\3DTextShader.shader" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Virtual Mall\BusinessManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Union Hall\UnionHallCreateEngagement.cs" Line="1" Column="1" />
-      <File FileName="Assets\Plugins\NativeDialogs\NativeDialogs.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UserManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\HTML_GUI\HTMLMenuManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Shaders\3DTextShader.shader" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/C#/FlyCam.cs" Line="53" Column="1" />
+      <File FileName="Assets/Scripts/EventManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HTML_GUI/HTMLExplorer.cs" Line="110" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

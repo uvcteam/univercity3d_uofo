@@ -81,34 +81,12 @@ public partial class CoherentPostProcessor {
 			}
 			File.Move(sourceDll64Native, targetDll64Native);
 			File.Move(sourceDll64Managed, targetDllManaged);
-
-			// Move the 64-bit D3D files to Plugins
-			string sourceD3DX9Dll64 = dataDirectory + "StreamingAssets/d3dx9_43.dll";
-			string sourceD3DCompilerDll64 = dataDirectory + "StreamingAssets/D3DCompiler_43.dll";
-
-			if (!File.Exists(sourceD3DX9Dll64) || !File.Exists(sourceD3DCompilerDll64))
-			{
-				Debug.LogError("Unable to copy Direct3D files needed for the Coherent UI runtime!");
-				return;
-			}
-			string targetD3DX9Dll64 = dataDirectory + "Plugins/d3dx9_43.dll";
-			string targetD3DCompilerDll64 = dataDirectory + "Plugins/D3DCompiler_43.dll";
-
-			DeleteFileIfExists(targetD3DX9Dll64);
-			DeleteFileIfExists(targetD3DCompilerDll64);
-
-			File.Move(sourceD3DX9Dll64, targetD3DX9Dll64);
-			File.Move(sourceD3DCompilerDll64, targetD3DCompilerDll64);
 		}
 		else
 		{
 			// Delete the unneeded CoherentUI x64 DLLs
 			DeleteFileIfExists(sourceDll64Native);
 			DeleteFileIfExists(sourceDll64Managed);
-
-			// Delete the unneeded 64-bit D3D DLLs
-			DeleteFileIfExists(dataDirectory + "StreamingAssets/d3dx9_43.dll");
-			DeleteFileIfExists(dataDirectory + "StreamingAssets/D3DCompiler_43.dll");
 		}
 		
 		if (Directory.Exists(dataDirectory + "StreamingAssets/CoherentUI_Host/macosx"))
@@ -129,12 +107,8 @@ public partial class CoherentPostProcessor {
 		string[] windowsDlls = {
 			dataDirectory + "CoherentUI64_Native.dll",
 			dataDirectory + "CoherentUINet.dll64",
-			dataDirectory + "d3dx9_43.dll",
-			dataDirectory + "D3DCompiler_43.dll",
 			pluginsDirectory + "CoherentUI_Native.dll",
 			pluginsDirectory + "CoherentUINet.dll",
-			pluginsDirectory + "d3dx9_43.dll",
-			pluginsDirectory + "D3DCompiler_43.dll",
 		};
 		
 		foreach (var file in windowsDlls)
@@ -158,10 +132,6 @@ public partial class CoherentPostProcessor {
 		string[] windowsDlls = {
 			dataDirectory + "StreamingAssets/CoherentUI64_Native.dll",
 			dataDirectory + "StreamingAssets/CoherentUINet.dll64",
-			dataDirectory + "StreamingAssets/d3dx9_43.dll",
-			dataDirectory + "StreamingAssets/D3DCompiler_43.dll",
-			dataDirectory + "Plugins/d3dx9_43.dll",
-			dataDirectory + "Plugins/D3DCompiler_43.dll",
 		};
 		
 		foreach (var file in windowsDlls)
@@ -185,8 +155,6 @@ public partial class CoherentPostProcessor {
 		string[] dlls = {
 			dataFolder + "CoherentUINet.dll64",
 			dataFolder + "CoherentUI64_Native.dll",
-			dataFolder + "d3dx9_43.dll",
-			dataFolder + "D3DCompiler_43.dll",
 		};
 		
 		foreach (var file in dlls)

@@ -6,6 +6,10 @@
 #define COHERENT_UNITY_UNSUPPORTED_PLATFORM
 #endif
 
+#if UNITY_EDITOR && (UNITY_IPHONE || UNITY_ANDROID)
+#define COHERENT_SIMULATE_MOBILE_IN_EDITOR
+#endif
+
 using UnityEngine;
 using System.Collections;
 using Coherent.UI;
@@ -297,18 +301,18 @@ namespace Coherent.UI.Mobile
 			public TouchPhase phase;
 		}
 
-#if UNITY_ANDROID && !UNITY_EDITOR
+		#if UNITY_ANDROID || COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
 		private const int MAX_TOUCHES = 8;
 		private static CoherentTouch[] m_Touches = new CoherentTouch[MAX_TOUCHES];
 		private static CoherentTouch[] m_TouchesForNextFrame = new CoherentTouch[MAX_TOUCHES];
 		private static float[] m_LastChangedTime = new float[MAX_TOUCHES];
 		private static int m_TouchCount = 0;
 		private static int m_TouchCountForNextFrame = 0;
-#endif
+		#endif
 		
 		public static void ProcessTouchEvent(int id, int phase, int x, int y)
 		{
-#if UNITY_ANDROID && !UNITY_EDITOR
+			#if UNITY_ANDROID || COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
 			// Check if we already have an event with that ID
 			int foundIndex = -1;
 			for (int i = 0; i < m_TouchCountForNextFrame; ++i)
@@ -352,14 +356,14 @@ namespace Coherent.UI.Mobile
 					}
 				}
 			}
-#endif
+			#endif
 		}
 		
 		public static int TouchesCount
 		{
 			get
 			{
-				#if UNITY_ANDROID && !UNITY_EDITOR
+				#if UNITY_ANDROID || COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
 				return m_TouchCount;
 				#else
 				return Input.touchCount;
@@ -369,7 +373,7 @@ namespace Coherent.UI.Mobile
 		
 		public static CoherentTouch GetTouch(int index)
 		{
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID || COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
 			if (index >= 0 && index < m_TouchCount)
 			{
 				return m_Touches[index];
@@ -393,7 +397,7 @@ namespace Coherent.UI.Mobile
 		
 		public static void PrepareForNextFrame()
 		{
-#if UNITY_ANDROID && !UNITY_EDITOR
+#if UNITY_ANDROID || COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
 			// Copy the 'next' touches in the 'current' array
 			for (int i = 0; i < m_TouchCountForNextFrame; ++i)
 			{

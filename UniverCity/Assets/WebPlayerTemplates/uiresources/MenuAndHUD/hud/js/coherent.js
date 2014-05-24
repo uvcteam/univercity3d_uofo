@@ -361,7 +361,21 @@
 		engine.__observeLifetime = function () {
 		};
 	} else if (engine.SendMessage === undefined) {
+
 		var toArray = Array.prototype.slice;
+
+		if(window.__couiAndroid == undefined) {
+			var _trigger = Emitter.prototype.trigger;
+			engine._trigger = function () {
+				var _self = this,
+					args = toArray.call(arguments, 0),
+					stub = function () {
+						_trigger.apply(_self, args);
+					};
+				setTimeout(stub);
+			};
+		}
+
 		var frame = document.createElement('iframe');
 
 		var createSendMessage = function () {
@@ -396,7 +410,8 @@
 		};
 
 		var unload = simpleEvent('u');
-		window.addEventListener('unload', unload);
+		var unloadEvent = ((window.__couiAndroid === undefined) ? 'unload' : 'beforeunload');
+		window.addEventListener(unloadEvent, unload);
 
 		engine.__observeLifetime = function () {
 		};
@@ -553,7 +568,7 @@
 	};
 
 	engine._hasClass = function (element, cls) {
-		return element.classList.contains(cls);
+		return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 	}
 
 	engine.checkClickThrough = function(x, y) {
@@ -579,18 +594,36 @@
 	{
 		var touchListener = function(phase) {
 			return function(event) {
-				var touches = event.changedTouches;
-				
-				for (var i = 0; i < touches.length; ++i) {
-					var isConsumed = engine && engine.checkClickThrough && engine.checkClickThrough(touches[i].pageX, touches[i].pageY);
-					if (phase != 0 || isConsumed == "N") {
+				if (window.__couiAndroid.inputState == 0)
+				{
+					// Input state: Take all (all events go to the UI only)
+					return;
+				}
+				else if (window.__couiAndroid.inputState == 1)
+				{
+					// Input state: Take none
+					event.preventDefault();
+					
+					var touches = event.changedTouches;
+					for (var i = 0; i < touches.length; ++i) {
 						window.__couiAndroid.addTouchEvent(Number(touches[i].identifier), phase, touches[i].screenX, touches[i].screenY);
+					}
+				}
+				else
+				{
+					// Input state: Transparent
+					var touches = event.changedTouches;
+					for (var i = 0; i < touches.length; ++i) {
+						var isConsumed = engine && engine.checkClickThrough && engine.checkClickThrough(touches[i].pageX, touches[i].pageY);
+						if (phase != 0 || isConsumed == "N") {
+							window.__couiAndroid.addTouchEvent(Number(touches[i].identifier), phase, touches[i].screenX, touches[i].screenY);
+						}
 					}
 				}
 			};
 		};
-	
-		(function() {
+		
+		var setupCoherentForAndroidFunc = function() {
 			document.body.addEventListener('touchstart', touchListener(0));
 			document.body.addEventListener('touchend', touchListener(3));
 			document.body.addEventListener('touchcancel', touchListener(4));
@@ -599,10 +632,19 @@
 			var newdiv = document.createElement('div');
 			newdiv.setAttribute('id', '__CoherentBackground');
 			newdiv.setAttribute('class', 'coui-noinput');
-			newdiv.setAttribute('style', 'background-color: "rgba(0,0,0,0)"; width: 100%; height: 100%; position: absolute; z-index: -1000000;');
+			newdiv.setAttribute('style', 'background-color: "rgba(0,0,0,0)";' +
+				'width: 100%; height: 100%; position: absolute;' +
+				'z-index: -1000000;');
 			
 			document.body.insertBefore(newdiv, document.body.firstChild);
-		})();
+		};
+
+		if (document.body) {
+			setupCoherentForAndroidFunc();
+		} else {
+			document.addEventListener('DOMContentLoaded',
+				setupCoherentForAndroidFunc);
+		}
 	}	
 
 	if (hasOnLoad) {
@@ -618,6 +660,35 @@
 		engine._WindowLoaded = true;
 	}
 
+	engine._coherentGlobalCanvas = document.createElement('canvas');
+	engine._coherentGlobalCanvas.id     = "coherentGlobalCanvas";
+	engine._coherentGlobalCanvas.width  = 1;
+	engine._coherentGlobalCanvas.height = 1;
+	engine._coherentGlobalCanvas.style.zIndex   = 0;
+	engine._coherentGlobalCanvas.style.position = "absolute";
+	engine._coherentGlobalCanvas.style.border   = "0px solid";
+
+	engine._coherentLiveImageData = new Array();
+	engine._coherentCreateImageData = function(name, guid) {
+		var ctx = engine._coherentGlobalCanvas.getContext("2d");
+
+		var coherentImage = ctx.coherentCreateImageData(guid);
+		engine._coherentLiveImageData[name] = coherentImage;
+	}
+	engine._coherentUpdatedImageData = function(name) {
+		engine._coherentLiveImageData[name].coherentUpdate();
+		var canvases = document.getElementsByTagName('canvas');
+		for(var i = 0; i < canvases.length; ++i) {
+			if(canvases[i].onEngineImageDataUpdated != null) {
+				canvases[i].onEngineImageDataUpdated(name,
+					engine._coherentLiveImageData[name]);
+			}
+		}
+	}
+
+	engine.on("_coherentCreateImageData", engine._coherentCreateImageData);
+	engine.on("_coherentUpdatedImageData", engine._coherentUpdatedImageData);
+
 	engine.on('_Result', engine._Result, engine);
 	engine.on('_Register', engine._Register, engine);
 	engine.on('_Unregister', engine._Unregister, engine);
@@ -628,3 +699,4 @@
 
 	return engine;
 });
+

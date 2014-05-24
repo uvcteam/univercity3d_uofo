@@ -35,8 +35,23 @@ public class ObjectPicker : MonoBehaviour {
 			var view = cameraView.View;
 			if (view != null)
 			{
+				var factorY = cameraView.Height / m_MainCamera.pixelHeight;
+
+				//Normalize the view coordinates. We need this when we use view dimensions
+				//are different than the camera ones
 				var normX = Input.mousePosition.x / cameraView.Width;
 				var normY = 1 - Input.mousePosition.y / cameraView.Height;
+
+				//After the normalizations, the Normalized Y coordinate will be displaced because Y coords
+				//grow downwards and we have to put it back into the [0-1] range.
+
+				//E.g. if the view height is two times smaller
+				//than the camera height, the normalized Y coords will start from -1 and end to +1.
+				//If the view's height is 4 times smaller, the normalized coords will start from -3 and end to +1
+
+				//The formula puts the Y coord back in [0-1] range.
+				normY = ( (normY * factorY) + (1 - factorY) ) / factorY;
+
 				if (normX >= 0 && normX <= 1 && normY >= 0 && normY <= 1)
 				{
 					view.IssueMouseOnUIQuery(normX, normY);
@@ -44,7 +59,6 @@ public class ObjectPicker : MonoBehaviour {
 					if (view.IsMouseOnView())
 					{
 						cameraView.ReceivesInput = true;
-						cameraView.SetMousePosition((int)Input.mousePosition.x, cameraView.Height - (int)Input.mousePosition.y);
 						return;
 					}
 				}

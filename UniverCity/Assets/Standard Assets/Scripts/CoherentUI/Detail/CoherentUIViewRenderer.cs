@@ -37,7 +37,7 @@ public class CoherentUIViewRenderer : MonoBehaviour
 			DummyUnityCall64();
 		}
 
-		GL.IssuePluginEvent(MakeEvent(CoherentUISystem.CoherentRenderingEventType.WakeRenderer, CoherentUISystem.CoherentRenderingFlags.None, 0));
+		GL.IssuePluginEvent(MakeEvent(CoherentUISystem.CoherentRenderingEventType.WakeRenderer, CoherentUISystem.CoherentRenderingFlags.None, 0, 0));
 	}
 #else
 	[DllImport("CoherentUI_Native")]
@@ -57,17 +57,19 @@ public class CoherentUIViewRenderer : MonoBehaviour
 	{
 		DummyUnityCall();
 
-        GL.IssuePluginEvent(MakeEvent(CoherentUISystem.CoherentRenderingEventType.WakeRenderer, CoherentUISystem.CoherentRenderingFlags.None, 0));
+		GL.IssuePluginEvent(MakeEvent(CoherentUISystem.CoherentRenderingEventType.WakeRenderer, CoherentUISystem.CoherentRenderingFlags.None, 0, 0));
 	}
 #endif
 
-	private static int MakeEvent(CoherentUISystem.CoherentRenderingEventType evType, CoherentUISystem.CoherentRenderingFlags renderingFlags, short viewId)
-	{
-		int eventId = CoherentUISystem.COHERENT_PREFIX << 24;
-		eventId |= ((int)renderingFlags) << 20;
+private static int MakeEvent(CoherentUISystem.CoherentRenderingEventType evType, CoherentUISystem.CoherentRenderingFlags renderingFlags, CoherentUISystem.CoherentFilteringModes filteringMode, short viewId)
+ 	{
+ 		int eventId = CoherentUISystem.COHERENT_PREFIX << 24;
+		
+ 		eventId |= ((int)renderingFlags) << 20;
+ 		eventId |= ((int)filteringMode) << 18;
 		eventId |= ((int)evType) << 16;
-		eventId |= viewId;
-
+ 		eventId |= viewId;
+		
 		return eventId;
 	}
 
@@ -122,8 +124,8 @@ public class CoherentUIViewRenderer : MonoBehaviour
 		{
 			renderingFlags |= CoherentUISystem.CoherentRenderingFlags.CorrectGamma;
 		}
-		
-		GL.IssuePluginEvent(MakeEvent(CoherentUISystem.CoherentRenderingEventType.DrawView, renderingFlags, ViewId));
+
+		GL.IssuePluginEvent(MakeEvent(CoherentUISystem.CoherentRenderingEventType.DrawView, renderingFlags, FilteringMode, ViewId));
 	}
 
 	internal short ViewId
@@ -145,8 +147,13 @@ public class CoherentUIViewRenderer : MonoBehaviour
 	}
 
 	internal bool FlipY;
-
-    internal bool ShouldCorrectGamma
+	
+	internal CoherentUISystem.CoherentFilteringModes FilteringMode
+	{
+		get;
+		set;
+	}
+	internal bool ShouldCorrectGamma
     {
         get;
         set;

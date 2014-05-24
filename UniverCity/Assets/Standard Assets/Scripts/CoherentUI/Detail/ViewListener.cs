@@ -6,6 +6,10 @@
 #define COHERENT_UNITY_UNSUPPORTED_PLATFORM
 #endif
 
+#if UNITY_EDITOR && (UNITY_IPHONE || UNITY_ANDROID)
+#define COHERENT_SIMULATE_MOBILE_IN_EDITOR
+#endif
+
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -24,9 +28,12 @@ namespace Coherent.UI.Mobile
 		public UnityViewListener(CoherentUIView component, int width, int height)
 		{
 	        m_ViewComponent = component;
+
+			#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
 			m_Width = width;
 			m_Height = height;
-			
+			#endif
+
 			m_ObjectsToDestroy = new List<Object>();
 			
 			HasModalDialogOpen = false;
@@ -40,7 +47,68 @@ namespace Coherent.UI.Mobile
 				this.GetAuthCredentials += new CoherentUI_OnGetAuthCredentials(OnGetAuthCredentialsHandler);
 				#endif
 			}
+
+			#if COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
+			this.ReadyForBindings += (frameId, path, isMainFrame) =>
+			{
+				m_View.BindCall("__couiTouchEvent",
+				(System.Action<int, int, int, int>)this.NewTouchEventHandler);
+			};
+			#endif
+
+			#if UNITY_ANDROID && !UNITY_EDITOR
+			this.FailLoad += (frame, path, isMain, errorMsg) =>
+			{
+				if (FailLoadSubscribersCount() > 1)
+				{
+					// The user is handling FailLoads
+					return;
+				}
+
+				if (!path.StartsWith("coui"))
+				{
+					Debug.LogError("URL \"" + path + "\" failed loading!");
+					return;
+				}
+
+				if (m_View == null)
+				{
+					Debug.LogError("Coherent UI View is null inside " +
+						"FailLoad handler for url \" + path +\"!");
+					return;
+				}
+
+				string escapedData = System.Uri.EscapeUriString(
+					"<!DOCTYPE html>" +
+					"<html lang=\"en\">" +
+					"<head><title>Resource not available</title></head>" +
+					"<body style=\"background-color: rgba(0, 0, 0, 0);" +
+						"color: #e35;\">" +
+					"<h1>Unable to find coui resource to be loaded!</h1>" +
+					"<br/><br/>" +
+					"<div style=\"font-size: 140%;\">" +
+					"Please ensure that you didn't use 'Build & run' since " +
+					"this function is not supported. Use 'Build' or an " +
+					"Eclipse project instead." +
+					"<br/><br/>" +
+					"If you're building on a Mac, please also make sure that " +
+					"the aapt executable in the <b>Assets/CoherentUI/Editor/" +
+					"apktool-1.5.2</b> folder has executable permissions so " +
+					"the repack step is successful." +
+					"</div>" +
+					"</body></html>");
+
+				m_View.Load("data:text/html;charset=utf-8," + escapedData);
+			};
+			#endif
 		}
+
+		#if COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
+		private void NewTouchEventHandler(int id, int phase, int x, int y)
+		{
+			InputManager.ProcessTouchEvent(id, phase, x, y);
+		}
+		#endif
 
 		public void OnViewCreatedHandler(View view)
 		{
@@ -104,16 +172,53 @@ namespace Coherent.UI.Mobile
 			var flipY =  m_ViewComponent.FlipY;
 			ViewRenderer.FlipY = m_ViewComponent.ForceInvertY() ? !flipY : flipY;
 			ViewRenderer.ShouldCorrectGamma = m_ViewComponent.CorrectGamma;
+			ViewRenderer.FilteringMode = m_ViewComponent.Filtering;
 			#endif
 		}
 		
 		public void ResizeTexture(int width, int height)
 		{
 			#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
-			var viewCamObject = GameObject.Find("Main Camera");
-			var viewCamComponent = viewCamObject.GetComponent("Camera") as Camera;
-			var clearFlags = viewCamComponent.clearFlags;
-			viewCamComponent.clearFlags = CameraClearFlags.Nothing;
+			GameObject viewCamObject = GameObject.Find("Main Camera");
+			Camera secondCamera = null;
+			if (viewCamObject == null)
+			{
+				if (Camera.main != null)
+				{
+					viewCamObject = Camera.main.gameObject;
+				}
+
+				if (viewCamObject == null)
+				{
+					secondCamera =
+						GameObject.FindObjectOfType(typeof(Camera)) as Camera;
+				}
+
+				if (viewCamObject == null && !secondCamera)
+				{
+					return;
+				}
+			}
+
+			Camera viewCamComponent = null;
+			CameraClearFlags clearFlags = CameraClearFlags.Skybox;
+
+			if(viewCamObject != null || secondCamera)
+			{
+				viewCamComponent = viewCamObject ?
+					viewCamObject.GetComponent<Camera>() : secondCamera;
+
+				//Cache the current clear flags of the main camera and set
+				//them to Nothing. This will prevent visual artifacts
+				//when the render texutre is changed.
+				clearFlags = viewCamComponent.clearFlags;
+				viewCamComponent.clearFlags = CameraClearFlags.Nothing;
+			}
+			else
+			{
+				//Unable to find camera, abort the resizing
+				return;
+			}
 
 			m_ObjectsToDestroy.Remove(RTTexture);
 			RTTexture.Release();
@@ -130,6 +235,7 @@ namespace Coherent.UI.Mobile
 
 			m_ViewComponent.gameObject.renderer.material.mainTexture = RTTexture;
 
+			//Restore the previously cached clear flags
 			viewCamComponent.clearFlags = clearFlags;
 			#endif
 		}
@@ -226,8 +332,12 @@ namespace Coherent.UI.Mobile
 	
 		private View m_View;
 		private CoherentUIView m_ViewComponent;
+
+		#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
 		private int m_Width;
 		private int m_Height;
+		#endif
+
 		private List<Object> m_ObjectsToDestroy;
 		internal CoherentUIViewRenderer ViewRenderer;
 		internal RenderTexture RTTexture;

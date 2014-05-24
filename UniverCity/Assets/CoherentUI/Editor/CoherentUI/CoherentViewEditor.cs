@@ -37,7 +37,8 @@ class CoherentUIHierarchy
 		if(go) {
 			var view = go.GetComponent(typeof(CoherentUIView));
 			var sys = go.GetComponent(typeof(CoherentUISystem));
-			if(view || sys)
+			var live = go.GetComponent(typeof(CoherentUILiveGameView));
+			if(view || sys || live)
 			{
 				if(!m_Texture)
 				{

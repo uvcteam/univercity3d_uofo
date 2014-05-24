@@ -11,15 +11,21 @@
 #define COHERENT_UNITY_UNSUPPORTED_PLATFORM
 #endif
 
+#if UNITY_EDITOR && (UNITY_IPHONE || UNITY_ANDROID)
+#define COHERENT_SIMULATE_MOBILE_IN_EDITOR
+#endif
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 #if UNITY_EDITOR || COHERENT_UNITY_STANDALONE || COHERENT_UNITY_UNSUPPORTED_PLATFORM
 using Coherent.UI;
 using Coherent.UI.Binding;
+using CoherentUI = Coherent.UI;
 #elif UNITY_IPHONE || UNITY_ANDROID
 using Coherent.UI.Mobile;
 using Coherent.UI.Mobile.Binding;
+using CoherentUI = Coherent.UI.Mobile;
 #endif
 
 /// <summary>
@@ -235,7 +241,7 @@ public class CoherentUIView : MonoBehaviour {
 			m_InitialScript = value;
 		}
 	}
-	
+
 	public enum CoherentViewInputState {
 		TakeAll = 0,
 		TakeNone,
@@ -265,6 +271,12 @@ public class CoherentUIView : MonoBehaviour {
 			m_ViewInputState = value;
 			#if (UNITY_IPHONE || UNITY_ANDROID) && !UNITY_EDITOR
 			SetInputState(m_ViewInputState);
+			#elif COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
+			if (View != null && IsReadyForBindings)
+			{
+				View.ExecuteScript("__couiMobileEmulator.inputState = " +
+					(int)value);
+			}
 			#endif
 		}
 	}
@@ -523,7 +535,6 @@ public class CoherentUIView : MonoBehaviour {
 			}
 			#endif
 			m_DrawAfterPostEffects = value;
-          
 		}
 	}
 
@@ -550,12 +561,42 @@ public class CoherentUIView : MonoBehaviour {
 				return;
 			m_FlipY = value;
 
-			if(m_Listener != null)
+			if (m_Listener != null && m_Listener.ViewRenderer != null)
 			{
 				m_Listener.ViewRenderer.FlipY = ForceInvertY() ? !m_FlipY : m_FlipY;
 			}
 		}
 	}
+	
+#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
+	[HideInInspector]
+	[SerializeField]
+	private CoherentUISystem.CoherentFilteringModes m_Filtering =
+		CoherentUISystem.CoherentFilteringModes.PointFiltering;
+	[CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
+							PrettyName = "Texture filtering",
+							Tooltip="Defines the way the Coherent UI texture will be filtered on the final Unity texture",
+							IsStatic=false)]
+	public CoherentUISystem.CoherentFilteringModes Filtering
+	{
+		get {
+			return m_Filtering;
+		}
+		set {
+			if(m_Filtering == value)
+			{
+				return;
+			}
+			
+			m_Filtering = value;
+
+			if(m_Listener != null && m_Listener.ViewRenderer != null)
+			{
+				m_Listener.ViewRenderer.FilteringMode = value;
+			}
+		}
+	}
+#endif
 
 	// Invert flipping on camera-attached views on OpenGL
 	internal bool ForceInvertY()
@@ -578,7 +619,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// <value>
 	/// <c>true</c> if this view receives input; otherwise, <c>false</c>.
 	/// </value>
-	public bool ReceivesInput
+	public virtual bool ReceivesInput
 	{
 		get {
 			return m_ReceivesInput;
@@ -705,21 +746,23 @@ public class CoherentUIView : MonoBehaviour {
         }
     }
 
-#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
     [HideInInspector]
     [SerializeField]
     private bool m_ForceSoftwareRendering = false;
     /// <summary>
     /// Forces the view to use software rendering. For GPU-bound applications software views might be a good choice.
     /// CSS 3D transforms, WebGL and accelerated Canvas don't work with software views. This option doesn't work with OnDemand.
+	///
+	/// Not available for iOS.
     /// </summary>
     /// <value>
     /// <c>true</c> if the view is to use software rendering; otherwise <c>false</c>.
     /// </value>
-    [CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "Software only rendering",
-							Tooltip="The view will be rendered without hardware acceleration",
-							IsStatic=true)]
+	[CoherentExposeProperty(
+		Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
+		PrettyName = "Software only rendering",
+		Tooltip = "The view will be rendered without hardware acceleration",
+		IsStatic = true)]
     public bool ForceSoftwareRendering
     {
         get
@@ -731,7 +774,6 @@ public class CoherentUIView : MonoBehaviour {
             m_ForceSoftwareRendering = value;
         }
     }
-#endif
 
 	private Camera m_Camera;
 
@@ -744,7 +786,7 @@ public class CoherentUIView : MonoBehaviour {
 	/// If checked, the view will use the camera's width and height
 	/// </summary>
 	/// <value>
-	/// The scale-to-fit property.
+	/// <c>true</c> if we want to use camera's width and height; otherwise <c>false</c>.
 	/// </value>
 	[CoherentExposeProperty(Category = CoherentExposePropertyInfo.FoldoutType.Rendering,
 							PrettyName = "Match camera size",
@@ -760,37 +802,75 @@ public class CoherentUIView : MonoBehaviour {
 		}
 	}
 
-    [HideInInspector]
-    [SerializeField]
-    private bool m_CorrectGamma = false;
-    /// <summary>
-    /// Gets or sets a value indicating whether this view should have gamma corrected.
-    /// </summary>
-    /// <value>
-    /// <c>true</c> if gamma is corrected; otherwise, <c>false</c>.
-    /// </value>
-    [CoherentExposePropertyStandalone(Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
-							PrettyName = "Compensate gamma",
-							Tooltip="The view will compensate for gamma correction",
-							IsStatic=true)]
-    public bool CorrectGamma
-    {
-        get
-        {
-            return m_CorrectGamma;
-        }
-        set
-        {
-            if (m_CorrectGamma == value)
-                return;
-            m_CorrectGamma = value;
+	[HideInInspector]
+	[SerializeField]
+	private bool m_CorrectGamma = false;
+	/// <summary>
+	/// Gets or sets a value indicating whether this view should have gamma
+	/// corrected.
+	/// </summary>
+	/// <value>
+	/// <c>true</c> if gamma is corrected; otherwise, <c>false</c>.
+	/// </value>
+	[CoherentExposePropertyStandalone(
+		Category = CoherentExposePropertyInfo.FoldoutType.AdvancedRendering,
+		PrettyName = "Compensate gamma",
+		Tooltip="The view will compensate for gamma correction",
+		IsStatic=true)]
+	public bool CorrectGamma
+	{
+		get
+		{
+			return m_CorrectGamma;
+		}
+		set
+		{
+			if (m_CorrectGamma != value)
+			{
+				m_CorrectGamma = value;
 
-            if (m_Listener != null)
-            {
-                m_Listener.ViewRenderer.ShouldCorrectGamma = m_CorrectGamma;
-            }
-        }
-    }
+				if (m_Listener != null && m_Listener.ViewRenderer != null)
+				{
+					m_Listener.ViewRenderer.ShouldCorrectGamma = m_CorrectGamma;
+				}
+			}
+		}
+	}
+
+	[HideInInspector]
+	[SerializeField]
+	private bool m_EnableIME = false;
+	/// <summary>
+	/// Gets or sets a value indicating whether the view should have IME enabled
+	/// </summary>
+	/// <value>
+	/// <c>true</c> if IME is enabled; otherwise, <c>false</c>.
+	/// </value>
+	[CoherentExposePropertyStandalone(Category =
+		CoherentExposePropertyInfo.FoldoutType.Input,
+		PrettyName = "Enable IME",
+		Tooltip="The view will have IME enabled",
+		IsStatic=false)]
+	public bool EnableIME
+	{
+		get {
+			return m_EnableIME;
+		}
+		set {
+			#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
+			if(m_EnableIME != value)
+			{
+				m_EnableIME = value;
+				var imeComponent = gameObject.GetComponent<IMEHandler>();
+				if(imeComponent == null)
+				{
+					imeComponent = gameObject.AddComponent<IMEHandler>();
+				}
+				imeComponent.enabled = m_EnableIME;
+			}
+			#endif
+		}
+	}
 
 	internal int MouseX { get; set; }
 	internal int MouseY { get; set; }
@@ -830,7 +910,11 @@ public class CoherentUIView : MonoBehaviour {
 		m_Listener.BindingsReleased += this.BindingsReleased;
 		IsReadyForBindings = false;
 #if !UNITY_EDITOR && UNITY_ANDROID
-		m_Listener.NewTouchEvent += (id, phase, x, y) => { InputManager.ProcessTouchEvent(id, phase, x + this.XPos, y + this.YPos); };
+		m_Listener.NewTouchEvent += (id, phase, x, y) =>
+		{
+			CoherentUI.InputManager.ProcessTouchEvent(id, phase,
+				x + this.XPos, y + this.YPos);
+		};
 #endif
 
 		m_Camera = GetComponent<Camera>();
@@ -900,9 +984,9 @@ public class CoherentUIView : MonoBehaviour {
 		viewInfo.TargetFrameRate = (int)this.m_TargetFramerate;
 		#endif
 		viewInfo.SupportClickThrough = this.m_SupportClickThrough;
+		viewInfo.ForceSoftwareRendering = this.m_ForceSoftwareRendering;
 
 		#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
-		viewInfo.ForceSoftwareRendering = this.m_ForceSoftwareRendering;
 		viewInfo.ClickThroughAlphaThreshold = this.m_ClickThroughAlphaThreshold;
 		viewInfo.UsesSharedMemory = !m_System.DeviceSupportsSharedTextures || this.m_ForceSoftwareRendering;
 		#elif UNITY_IPHONE || UNITY_ANDROID
@@ -912,16 +996,76 @@ public class CoherentUIView : MonoBehaviour {
 		viewInfo.InitialInputState = (ViewInputState)this.m_ViewInputState;
 		viewInfo.ScaleToFit = m_ScaleToFit;
 		viewInfo.EnableWebGLSupport = m_EnableWebGLSupport;
+		viewInfo.IsSurfaceView = IsSurfaceView;
+		viewInfo.ResizeOnRotation = UseCameraDimensions;
 		#endif
 
 		#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
-		if (InitialScript == null)
+		var initialScript = InitialScript;
+
+			#if COHERENT_SIMULATE_MOBILE_IN_EDITOR || COHERENT_SIMULATE_MOBILE_IN_PLAYER
+			initialScript = string.Format(
+				"var __couiMobileEmulator = {{ inputState: {0} }};",
+				(int)this.m_ViewInputState) +
+			@"var touchListener = function(phase) {
+				return function(event) {
+					if (phase == 1 && event.which == 0)
+					{
+						// Ignore mousemove events with no button pressed.
+						// This is something that cannot happen on mobile.
+						return;
+					}
+
+					if (__couiMobileEmulator.inputState == 0)
+					{
+						// Input state: Take all (all events go to the UI only)
+						return;
+					}
+					else if (__couiMobileEmulator.inputState == 1)
+					{
+						// Input state: Take none
+						event.preventDefault();
+						engine.call('__couiTouchEvent', event.which, phase,
+							event.x, event.y);
+					}
+					else
+					{
+						var isConsumed = engine && engine.checkClickThrough &&
+							engine.checkClickThrough(event.x, event.y);
+						if (phase != 0 || isConsumed == 'N') {
+							engine.call('__couiTouchEvent', event.which, phase,
+								event.x, event.y);
+						}
+					}
+				};
+			};
+
+			document.addEventListener('DOMContentLoaded', function() {
+				document.addEventListener('mousedown', touchListener(0));
+				document.addEventListener('mouseup', touchListener(3));
+				document.addEventListener('mousemove', touchListener(1));
+
+				var newdiv = document.createElement('div');
+				newdiv.setAttribute('id', '__CoherentBackground');
+				newdiv.setAttribute('class', 'coui-noinput');
+				newdiv.setAttribute('style',
+					'background-color: rgba(0,0,0,0); width: 100%;' +
+					'height: 100%; position: absolute; z-index: -1000000;');
+
+				document.body.insertBefore(newdiv, document.body.firstChild);
+			});
+			" +
+			(string.IsNullOrEmpty(initialScript) ? "" : initialScript);
+			#endif
+
+		if (initialScript == null)
 		{
 			m_System.UISystem.CreateView(viewInfo, Page, m_Listener);
 		}
 		else
 		{
-			m_System.UISystem.CreateView(viewInfo, Page, m_Listener, InitialScript);
+			m_System.UISystem.CreateView(viewInfo, Page, m_Listener,
+				initialScript);
 		}
 		#else
 		m_System.UISystem.CreateView(viewInfo, Page, m_Listener);
@@ -977,13 +1121,17 @@ public class CoherentUIView : MonoBehaviour {
 				}
 			}
 			#endif
-			if (m_Camera != null)
+			
+			if(m_UseCameraDimensions)
 			{
-				var width = (int)m_Camera.pixelWidth;
-				var height = (int)m_Camera.pixelHeight;
-				if (m_UseCameraDimensions && (width != m_Width || height != m_Height))
+				int width = 0;
+				int height = 0;
+				if(GetCamDimensions(ref width, ref height))
 				{
-					Resize(width, height);
+					if(width != m_Width || height != m_Height)
+					{
+						Resize(width, height);
+					}
 				}
 			}
 		}
@@ -1179,6 +1327,35 @@ public class CoherentUIView : MonoBehaviour {
 	}
 
 	/// <summary>
+	/// Returns the camera dimensions of the current view.
+	/// </summary>
+	public bool GetCamDimensions(ref int x, ref int y)
+	{
+		if (m_Camera != null)
+		{
+			x = (int)m_Camera.pixelWidth;
+			y = (int)m_Camera.pixelHeight;
+
+			return true;
+		}
+		else if(m_Listener.ViewRenderer != null)
+		{
+			GameObject rendererGO = m_Listener.ViewRenderer.gameObject;
+
+			if(rendererGO != null)
+			{
+				var camera = rendererGO.GetComponent<Camera>();
+				x = (int)camera.pixelWidth;
+				y = (int)camera.pixelHeight;
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/// <summary>
 	/// Occurs when the underlying Coherent.UI.View is created
 	/// </summary>
 	public event UnityViewListener.CoherentUI_OnViewCreated OnViewCreated {
@@ -1216,11 +1393,70 @@ public class CoherentUIView : MonoBehaviour {
 		get { return m_Listener; }
 	}
 
+	#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
+	public float WidthToCamWidthRatio(float camWidth)
+	{
+		return m_Width / camWidth;
+	}
+
+	public float HeightToCamHeightRatio(float camHeight)
+	{
+		return m_Height / camHeight;
+	}
+	#endif
+
+	#if UNITY_EDITOR || COHERENT_UNITY_STANDALONE
+	/// <summary>
+	/// Handler for calculating the screen position of the IME candidate
+	/// list window.
+	/// </summary>
+	/// <param name='x'>
+	/// X coordinate of the current caret position in view space.
+	/// </param>
+	/// <param name='y'>
+	/// Y coordinate of the current caret position in view space.
+	/// </param>
+	/// <param name='width'>
+	/// The width of the text input control, on which the caret is positioned.
+	/// </param>
+	/// <param name='height'>
+	/// The height of the text input control, on which the caret is positioned.
+	/// </param>
+	/// <returns>
+	/// The position of the candaidate list window in screen space coordinates.
+	/// </returns>
+	public event IMEHandler.CalculateIMECandidateListPositionHandler
+		CalculateIMECandidateListPosition
+	{
+		add
+		{
+			var imeComponent = gameObject.GetComponent<IMEHandler>();
+			if(imeComponent != null)
+			{
+				imeComponent.CalculateIMECandidateListPosition += value;
+			}
+		}
+		remove
+		{
+			var imeComponent = gameObject.GetComponent<IMEHandler>();
+			if(imeComponent != null)
+			{
+				imeComponent.CalculateIMECandidateListPosition -= value;
+			}
+		}
+	}
+	#endif
+
 	public delegate float CalculateArbitraryTimeHandler();
 	public CalculateArbitraryTimeHandler CalculateArbitraryTime;
+
+	/// <summary>
+	/// whether this is a mobile surface view
+	/// </summary>
+	public virtual bool IsSurfaceView
+	{
+		get { return false; }
+	}
 }
-
-
-
 
 

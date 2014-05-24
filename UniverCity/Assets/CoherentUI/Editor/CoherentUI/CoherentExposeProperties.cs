@@ -61,15 +61,18 @@ public static class CoherentExposeProperties
 			}
 			if(!hasPropertiesToShow)
 				continue;
-			
+						
 			fold.Show = EditorGUILayout.Foldout(fold.Show, new GUIContent(fold.Name, fold.Tooltip));
-			if(fold.Show && Selection.activeTransform) {
+
+			if(fold.Show) {
 				foreach ( CoherentPropertyField field in fold.Fields )
 				{
 					if(Application.isPlaying && field.IsStatic) {
 						continue;						
 					}
 					
+					var realType = field.RealType;
+						
 					EditorGUILayout.BeginHorizontal( emptyOptions );
 					GUIContent content = new GUIContent(field.Name);
 					if(field.Tooltip.Length > 0)
@@ -106,19 +109,18 @@ public static class CoherentExposeProperties
 					case SerializedPropertyType.Enum:
 							field.SetValue(EditorGUILayout.EnumPopup( content, (Enum)field.GetValue(), emptyOptions));
 						break;
+					case SerializedPropertyType.ObjectReference:
+							field.SetValue(EditorGUILayout.ObjectField( content.text, (UnityEngine.Object)field.GetValue(), realType, true, emptyOptions));
+						break;
 		 
 					default:
 		 
 						break;
 		 
 					}
-		 
+
 					EditorGUILayout.EndHorizontal();	 
 				}
-			}
-			
-			if(!Selection.activeTransform) {
-				fold.Show = false;
 			}
 		}
 		EditorGUILayout.EndVertical();
@@ -139,7 +141,7 @@ public static class CoherentExposeProperties
 			object[] attributes = info.GetCustomAttributes( true );
  
 			bool isExposed = false;
- 			object infoAttribute = null;
+			object infoAttribute = null;
 			
 			foreach( object o in attributes )
 			{
@@ -198,6 +200,14 @@ public class CoherentPropertyField
 	MethodInfo m_Getter;
 	MethodInfo m_Setter;
  
+	public System.Type RealType
+	{
+		get
+		{
+			return m_Info.PropertyType;
+		}
+	}
+	
 	public SerializedPropertyType Type
 	{
 		get
@@ -276,11 +286,14 @@ public class CoherentPropertyField
  
 	public void SetValue( System.Object value )
 	{
+#pragma warning disable 618
 		if (!Equal(value))
 		{
 			Undo.RegisterUndo((UnityEngine.Object)m_Instance, this.Name);
 			m_Setter.Invoke( m_Instance, new System.Object[] { value } );
+			EditorUtility.SetDirty((UnityEngine.Object)m_Instance);
 		}
+#pragma warning restore 618
 	}
  
 	public static bool GetPropertyType( PropertyInfo info, out SerializedPropertyType propertyType )
@@ -330,6 +343,14 @@ public class CoherentPropertyField
 			propertyType = SerializedPropertyType.Enum;
 			return true;
 		}
+		
+		if ( type == typeof(GameObject) 
+			|| type == typeof(UnityEngine.Object)
+			|| type == typeof(Texture2D))
+		{
+			propertyType = SerializedPropertyType.ObjectReference;
+			return true;
+		}
  
 		return false;
 	}
@@ -358,7 +379,10 @@ public class CoherentPropertyField
 
 		case SerializedPropertyType.Enum:
 				return (Enum)GetValue() == (Enum)other;
-
+			
+		case SerializedPropertyType.ObjectReference:
+				return (UnityEngine.Object)GetValue() == (UnityEngine.Object)other;
+			
 		default:
 
 			break;

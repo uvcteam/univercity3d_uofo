@@ -38,9 +38,6 @@ public static class IOSPostProcessor {
 	
 	public static void PostProcess(string pathToBuiltProject)
 	{
-#if !UNITY_IPHONE
-		Debug.LogError("iOS PostProcessor called for a non-iOS target!");
-#endif
 		List<FrameworkRef> frameworks = new List<FrameworkRef>() {
 			new FrameworkRef("Security.framework", "0174E86F175698E3008CCAF7", "0174E86E175698E3008CCAF7"),
 			new FrameworkRef("MobileCoreServices.framework", "0174E8741756A4A9008CCAF7", "0174E8731756A4A9008CCAF7")

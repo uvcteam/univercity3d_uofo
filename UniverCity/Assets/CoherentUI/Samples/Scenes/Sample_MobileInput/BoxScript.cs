@@ -19,6 +19,11 @@ public class BoxScript : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+#if COHERENT_UNITY_STANDALONE
+		Debug.LogWarning("The mobile input emulation in the Editor " +
+			"works only when you switch to Android/iOS!");
+#endif
+
 		m_CameraView = m_MainCamera.gameObject.GetComponent<CoherentUIView>();
 		if (m_CameraView && !m_CameraView.ClickToFocus)
 		{
@@ -76,12 +81,6 @@ public class BoxScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-#if COHERENT_UNITY_STANDALONE || UNITY_EDITOR
-		if (Input.GetMouseButtonDown(0))
-		{
-			ShootRayFromCamera(Input.mousePosition);
-		}
-#else
 		for (int i = 0; i < InputManager.TouchesCount; ++i)
 		{
 			var touch = InputManager.GetTouch(i);
@@ -90,6 +89,5 @@ public class BoxScript : MonoBehaviour
 				ShootRayFromCamera(touch.position);
 			}
 		}
-#endif
 	}
 }
