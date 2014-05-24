@@ -15,16 +15,26 @@ engine.on("PinCorrect", function(token, pin, url) {
     $('.general-button').css("visibility", "visible");
 
     $.get(url + 'ListJournal?token=' + token + '&pin=' + pin + '&start=0&count=50', function(data) {
+        window.rdata = data;
         if (data.s) {
             data.entries.forEach(function(entry) {
                 var date = new Date(entry.ts);
                 var date_string = GetMonth(date.getMonth()) + ' ' + date.getDate() + ', ' + date.getFullYear();
-                $('.journals').append('<div class="journal"><h1>' + entry.title + '</h1><h6>' + date_string + '</h6><p>' + entry.entry + '</p><button type="button" class="btn btn-danger" journalid="' + entry.id + '">Delete</button></div>');
+                $('.journals').append('<div class="journal" id="' + entry.id + '"><h1>' + entry.title + '</h1><h6>' + date_string + '</h6><p>' + entry.entry + '</p><button type="button" class="btn btn-danger" journalid="' + entry.id + '">Delete</button></div>');
+            });
+
+            $('.btn-danger').click(function() {
+                console.log('Delete entry: ' + this.getAttribute('journalid'));
+                $.get(window.serverUrl + '/DeleteJournalEntry?token=' + window.token + '&pin=' + window.pin + '&id=' + this.getAttribute('journalid'), function(data) {
+                    if (data.s) {
+                        $("#" + this.getAttribute('journalid')).remove();
+                    }
+                });
             });
         }
     });
 
-    engine.call("JournalsLoaded");
+    //engine.call("JournalsLoaded");
 });
 
 engine.on("AddJournal", function(id, title, date, content) {
@@ -33,10 +43,6 @@ engine.on("AddJournal", function(id, title, date, content) {
 });
 
 engine.on("JournalsFinished", function() {
-	$('.btn-danger').click(function() {
-		console.log('Delete entry: ' + this.getAttribute('journalid'));
-		engine.call('DeleteEntry', this.getAttribute('journalid'));
-	});
 });
 
 engine.on("CreateSuccess", function() {

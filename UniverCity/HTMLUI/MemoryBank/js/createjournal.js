@@ -15,7 +15,7 @@ function ShowFacebookPhotos() {
 
 function OnJournalSubmitted() {
     var values = $(":input").serializeArray();
-    var entryText = $('#editor').html();
+    var entryText = $('#edit').editable("getHTML");
     var title = values[0]['value'];
     //console.log(values[0]['value'] + ' ---- ' + values[1]['value']);
     //alert('Save entry ' + values[0]['value'] + ' -- ' + entryText);
@@ -68,6 +68,22 @@ engine.on("FacebookAuth", function(auth) {
     FBAUTH = auth;     
     //FacebookPhotoSelector.setFacebookSDK(FB);
 });
+
+engine.on('PhotosRetrieved', function(data) {
+    var photos = $.parseJSON(data);
+    $(photos.albums.data).each(function(index, album) {
+        $(album.photos.data).each(function(index2, photo) {
+            $('.modal-body').append('<div class="fbphoto" onclick="FBPhotoClicked(this)" data-urlpath="' + photo.source +'"><img src="' + photo.picture + '" /></div>');
+        });
+    });
+});
+
+function FBPhotoClicked(e) {
+        console.log('Clicked on ');
+        console.log($(e));
+        $('#edit').editable('insertHTML', '<img src="' + $(e).data('urlpath') + '" />', true);
+        $('#myModal').modal('hide');
+}
 
 engine.on("UserInfo", function(token, pin, server_url) {
     window.token = token;
