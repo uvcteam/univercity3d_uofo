@@ -12,7 +12,7 @@ $(document).ready(function() {
     $.get(server_url + "/ListSocialInterests", function(data) {
         $(data).each(function() {
             interests.push(this);
-            selects.append('<option>'+ this.int +'</option>');
+            selects.append('<option data-catid="' + this.id + '">' + this.int +'</option>');
         });
          selects.trigger("chosen:updated");
     });
@@ -64,7 +64,7 @@ function SubmitEvent()
 
     $('.chosen-select').find("option").each(function() {
         if (this.selected && this.value != 'Choose a category')
-            categories.push(this.value);
+            categories.push($(this).data('catid'));
     });
 
     // var values = $(":input").serializeArray();

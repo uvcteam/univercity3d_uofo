@@ -10,8 +10,9 @@ engine.on("PinCorrect", function(token, pin, url) {
     window.pin = pin;
     window.serverUrl = url;
 
-    $('.pin-div').css("visibility", "hidden");
-    $('.journals').css("visibility", "visible");
+    $('.pin-div').remove();
+    //$('.journals').css("visibility", "visible");
+    $('.st-content').append('<div class="journals"></div>');
     $('.general-button').css("visibility", "visible");
 
     $.get(url + 'ListJournal?token=' + token + '&pin=' + pin + '&start=0&count=50', function(data) {
