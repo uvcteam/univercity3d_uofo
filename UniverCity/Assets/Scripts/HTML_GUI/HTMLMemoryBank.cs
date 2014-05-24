@@ -94,7 +94,7 @@ public class HTMLMemoryBank : MonoBehaviour
         {
             if (Application.platform == RuntimePlatform.IPhonePlayer)
                 NativeDialogs.Instance.ShowProgressDialog("Please Wait", "Loading journal entries.", false, false);
-            _view.View.TriggerEvent("PinCorrect", manager.GetComponent<UserManager>().CurrentUser.Token, pin, serverURL);
+            _view.View.TriggerEvent("PinCorrect", manager.GetComponent<UserManager>().CurrentUser.Token, pin);
             _userManager.CurrentUser.PIN = pin;
             /*_userManager.CurrentUser.PopulateJournal(
                 result["entries"] as List<object>);

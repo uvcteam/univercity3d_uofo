@@ -5,28 +5,26 @@ function OnPinSubmitted() {
 }
 
 // Invoked by Unity3D.
-engine.on("PinCorrect", function(token, pin, url) {
+engine.on("PinCorrect", function(token, pin) {
     window.token = token;
     window.pin = pin;
-    window.serverUrl = url;
 
     $('.pin-div').remove();
-    //$('.journals').css("visibility", "visible");
-    $('.st-content').append('<div class="journals"></div>');
+    $('.journals').css("visibility", "visible");
     $('.general-button').css("visibility", "visible");
 
-    $.get(url + 'ListJournal?token=' + token + '&pin=' + pin + '&start=0&count=50', function(data) {
+    $.get(server_url + 'ListJournal?token=' + token + '&pin=' + pin + '&start=0&count=50', function(data) {
         window.rdata = data;
         if (data.s) {
-            data.entries.forEach(function(entry) {
-                var date = new Date(entry.ts);
+            $(data.entries).each(function() {
+                var date = new Date(this.ts);
                 var date_string = GetMonth(date.getMonth()) + ' ' + date.getDate() + ', ' + date.getFullYear();
-                $('.journals').append('<div class="journal" id="' + entry.id + '"><h1>' + entry.title + '</h1><h6>' + date_string + '</h6><p>' + entry.entry + '</p><a href="#" onclick="DeleteJournal(this)" class="btn btn-danger" journalid="' + entry.id + '">Delete</a></div>');
+                $('.journals').append('<div class="journal" id="' + this.id + '"><h1>' + this.title + '</h1><h6>' + date_string + '</h6><p>' + this.entry + '</p><a href="#" onclick="DeleteJournal(this)" class="btn btn-danger" journalid="' + this.id + '">Delete</a></div>');
             });
         }
     });
 
-    //engine.call("JournalsLoaded");
+    engine.call("JournalsLoaded");
 });
 
 function DeleteJournal(e) {

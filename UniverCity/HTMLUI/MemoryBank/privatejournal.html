@@ -59,10 +59,12 @@
                             <input type="button" value="View Journal" onclick="OnPinSubmitted()" />
                         </form>
                     </div>
+                    <div class="journals"></div>
                 </div>
             </div>
         </div>
         <!-- main JS libs -->
+        <script src="../libs/server_url.js"></script>
         <script src="../libs/js/coherent.js"></script>
         <script src="../libs/js/modernizr-2.6.2.min.js"></script>
         <script src="../libs/js/jquery-ui.min.js"></script>
@@ -72,7 +74,7 @@
         <script>
             $('#pin_form').submit(function(e) {
                 e.preventDefault();
-                OnPinSubmitted();
+                //OnPinSubmitted();
             });
         </script>
 </body>
