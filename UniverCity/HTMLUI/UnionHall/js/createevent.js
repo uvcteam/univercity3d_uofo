@@ -51,16 +51,29 @@ function OnEventCreate() {
 
 function SubmitEvent() 
 {
-    window.event_name = $("#event_name");
-    window.event_date = $("#event_date");
-    window.event_time = $("#event_time");
-    window.event_what = $("#event_what");
-    window.event_who = $("#event_who");
-    window.event_min = $("#event_min");
-    window.event_max = $("#event_max");
-    window.event_where = $("#event_where");
-    window.event_phone = $("#event_phone");
-    window.categories = [];
+    var event_name = $("#event_name");
+    var event_date = $("#event_date");
+    var event_time = $("#event_time");
+    var event_what = $("#event_what");
+    var event_who = $("#event_who");
+    var event_min = $("#event_min");
+    var event_max = $("#event_max");
+    var event_where = $("#event_where");
+    var event_phone = $("#event_phone");
+    var categories = [];
+    var inputs = [];
+
+    window.phone = event_phone;
+
+    inputs.push($(event_name).val());
+    inputs.push($(event_who).val());
+    inputs.push($(event_what).val());
+    inputs.push($(event_where).val());
+    inputs.push($(event_date).val());
+    inputs.push($(event_time).val());
+    inputs.push($(event_phone).val());
+    inputs.push($(event_min).val());
+    inputs.push($(event_max).val());
 
     $('.chosen-select').find("option").each(function() {
         if (this.selected && this.value != 'Choose a category')
@@ -79,8 +92,9 @@ function SubmitEvent()
     // inputs[7]  = values[9]['value'];
     // inputs[8]  = values[3]['value'];
     // inputs[9] = values[8]['value'];
-    
-    // engine.call('CreateEvent', inputs);
+    console.log(inputs);
+    console.log(categories);
+    engine.call('CreateEvent', inputs, categories);
 }
 
 // Unity3D Functions.

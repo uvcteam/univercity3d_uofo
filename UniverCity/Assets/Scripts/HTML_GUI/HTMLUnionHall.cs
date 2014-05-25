@@ -37,7 +37,7 @@ public class HTMLUnionHall : MonoBehaviour
         {
             _view.View.BindCall("GetWeekEvents", (System.Action)GetWeekEvents);
             _view.View.BindCall("PopulateCalendar", (System.Action)PopulateCalendar);
-            _view.View.BindCall("CreateEvent", (System.Action<string[]>)CreateEvent);
+            _view.View.BindCall("CreateEvent", (System.Action<string[], int[]>)CreateEvent);
             _view.View.BindCall("GetEvents", (System.Action<string>)GetEvents);
             _view.View.BindCall("GetCategories", (System.Action)GetCategories);
             _view.View.BindCall("GetMyEvents", (System.Action)GetMyEvents);
@@ -212,20 +212,22 @@ public class HTMLUnionHall : MonoBehaviour
         }
         _view.View.TriggerEvent("EventsFinished");
     }
-    public void CreateEvent(string[] inputs)
+    public void CreateEvent(string[] inputs, int[] categories)
     {
-        string phoneRegEx = @"^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$";
+        string phoneRegEx = @"^(?:\([2-9]\d{2}\)\ ?|[2-9]\d{2}(?:\-?|\ ?))[2-9]\d{2}[- ]?\d{4}$";
         foreach (string s in inputs)
             if (s == "")
             {
+                Debug.Log("All inputs must have a value!");
                 NativeDialogs.Instance.ShowMessageBox("Error!", "All inputs must have a value!",
                     new string[] { "OK" }, false, (string button) =>
                     {
                     });
                 return;
             }
-        if (!Regex.IsMatch(inputs[7], phoneRegEx))
+        if (!Regex.IsMatch(inputs[6], phoneRegEx))
         {
+            Debug.Log("Invalid phone number! Accepted formats:\n(###) ###-####\n##########\n###-###-####");
             NativeDialogs.Instance.ShowMessageBox("Error!", "Invalid phone number! Accepted formats:\n(###) ###-####\n##########\n###-###-####",
                 new string[] { "OK" }, false, (string button) =>
                 {
@@ -239,17 +241,21 @@ public class HTMLUnionHall : MonoBehaviour
         string createURL = serverURL + "CreateEvent?token=";
         createURL += GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token;
         createURL += "&title=" + WWW.EscapeURL(inputs[0]);
-        createURL += "&desc=" + WWW.EscapeURL(inputs[2]);
         createURL += "&who=" + WWW.EscapeURL(inputs[1]);
+        createURL += "&desc=" + WWW.EscapeURL(inputs[2]);
         createURL += "&location=" + WWW.EscapeURL(inputs[3]);
-        createURL += "&phone=" + WWW.EscapeURL(inputs[7]);
-        createURL += "&min=" + inputs[8];
-        createURL += "&max=" + inputs[9];
+        createURL += "&phone=" + WWW.EscapeURL(inputs[6]);
+        createURL += "&min=" + inputs[7];
+        createURL += "&max=" + inputs[8];
         createURL += "&start=" + WWW.EscapeURL(
             start.ToString("yyyy-MM-dd HH:mm"));
         createURL += "&end=" + WWW.EscapeURL(
             start.AddHours(1).ToString("yyyy-MM-dd HH:mm"));
-        createURL += "&interests=" + _userManager.GetIDForCategory(inputs[6]);
+
+        Debug.Log(createURL);
+
+        createURL = categories.Aggregate(createURL, (current, cat) => current + ("&interests=" + cat));
+        //createURL += "&interests=" + _userManager.GetIDForCategory(inputs[6]);
 
         Debug.Log(createURL);
         StartCoroutine(SendCreateRequest(createURL));
@@ -378,7 +384,6 @@ public class HTMLUnionHall : MonoBehaviour
 
         StartCoroutine(SendJoinRequest(joinURL, Convert.ToInt32(id)));
     }
-
     public void GetInvitationEvents()
     {
         if (_eventManager.events != null)
