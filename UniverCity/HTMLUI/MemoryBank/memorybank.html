@@ -15,7 +15,9 @@
     <title>UniverCity3D Memory Bank</title>
 
     <!-- Style CSS -->
+    <link href="../libs/css/normalize.css" media="screen" rel="stylesheet">
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet">
+    <link href="../libs/css/foundation.css" media="screen" rel="stylesheet">
     <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
@@ -26,7 +28,90 @@
 </head>
 <body>
 <script src="../libs/js/coherent.js"></script>
-    <div id="st-container" class="st-container">
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar hide-for-medium-up">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+            <h1 class="title">Personal Vault</h1>
+          </section>
+        </nav>
+
+        <nav class="top-bar show-for-medium-up" data-topbar>
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="#"><i class="icon-books"></i>&nbsp;Personal Vault</a></h1>
+            </li>
+          </ul>
+
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li destination="internal"><a href="privatejournal.html">Private Journal</a></li>
+                <li destination="internal"><a href="mynotifications.html">My Notifications</a></li>
+                <!-- <li destination="internal"><a href="#">Photos &amp; Videos</a></li> -->
+                <li destination="internal"><a href="preferences.html">Preferences</a></li>
+                <li destination="internal"><a href="help.html">Help</a></li>
+              <li class="has-dropdown">
+                <a href="#">Other Places</a>
+                <ul class="dropdown">
+                    <li destination="virtual_mall"><a href="#">Virtual Mall</a></li>
+                    <li destination="union_hall"><a href="#">Union Hall</a></li>
+                    <li destination="explorer"><a href="#">Explorer</a></li>
+                    <li destination="arcade"><a href="#">Arcade</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label><i class="icon-books"></i>&nbsp;Personal Vault</label></li>
+            <li destination="internal"><a href="privatejournal.html">Private Journal</a></li>
+            <li destination="internal"><a href="mynotifications.html">My Notifications</a></li>
+            <!-- <li destination="internal"><a href="#">Photos &amp; Videos</a></li> -->
+            <li destination="internal"><a href="preferences.html">Preferences</a></li>
+            <li destination="internal"><a href="help.html">Help</a></li>
+            <li><label>Other Places</label></li>
+            <li destination="virtual_mall"><a href="#"><i class="icon-cart"></i>&nbsp;&nbsp;&nbsp;Virtual Mall</a></li>
+            <li destination="union_hall"><a href="#"><i class="icon-bubbles"></i>&nbsp;&nbsp;&nbsp;Union Hall</a></li>
+            <li destination="explorer"><a href="#"><i class="icon-compass"></i>&nbsp;&nbsp;&nbsp;Explorer</a></li>
+            <li destination="arcade"><a href="#"><i class="icon-pacman"></i>&nbsp;&nbsp;&nbsp;Arcade</a></li>
+          </ul>
+        </aside>
+
+        <section class="main-section text-center">
+            <div class="row">
+                <div class="small-12 columns">
+                    <img src="images/profile.svg" id="profile-pic" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <h1 id="user-name">Jacob Foster</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-12 columns text-left">
+                    <blockquote id="user-quotes">I am and always will be the optimist. The hoper of far-flung hopes and the dreamer of improbable dreams. The creative adult is the child who has survived.</blockquote>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-3 small-centered columns text-center">
+                    <a class="button tiny radius alert" href="#" onclick="SignOut()">Sign out of your profile.</a>
+                </div>
+            </div>
+            <div id="fb_link">
+                <button class="button tiny radius facebook" onclick="FBSignIn()"><i class="fa fa-facebook"></i> | Connect with Facebook</button>
+            </div>
+        </section>
+        <a class="exit-off-canvas"></a>
+      </div>
+    </div>
+<!--     <div id="st-container" class="st-container">
         <nav class="st-menu st-effect-1" id="menu-1">
             <h2><i class="icon-books"></i>&nbsp;Personal Vault</h2>
             <ul>
@@ -42,7 +127,7 @@
                 <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
                 <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
             </ul>
-        </nav>            <!-- content push wrapper -->
+        </nav>           
         <div class="st-pusher">
             <div class="st-content">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
@@ -59,13 +144,18 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- main JS libs -->
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
     <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
+    <script src="../libs/js/vendor/jquery.js"></script>
+    <script src="../libs/js/foundation.min.js"></script>
     <script src="js/memorybank.js"></script>
     <script src="js/mbfacebook.js"></script>
+    <script>
+    $(document).foundation();
+    </script>
 </body>
 </html>

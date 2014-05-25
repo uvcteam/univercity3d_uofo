@@ -1,3 +1,77 @@
+.accent-background {
+    background: rgb(0, 117, 111);
+}
+
+.accent-background:hover {
+    background: rgb(0, 92, 86);   
+}
+
+.accent-color {
+    color: rgb(0, 92, 86);
+}
+
+.main-section {
+    padding-top: 15px;
+}
+
+.off-canvas-wrap {
+    overflow: visible;
+}
+
+.off-canvas-wrap,.inner-wrap{
+    height:100%;   
+}
+
+.top-bar .name h1 {
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+.top-bar, .tab-bar {
+    background: rgb(0, 117, 111);
+}
+
+.left-small {
+    border-right-color: rgb(0, 92, 86);
+}
+
+.right-small {
+    border-left-color: rgb(0, 92, 86);
+}
+
+.left-off-canvas-menu {
+ background: rgb(0, 92, 86);   
+}
+
+.top-bar-section li:not(.has-form) a:not(.button),
+ul.off-canvas-list li a {
+    background: rgb(0, 117, 111);
+    color: white;
+    border-bottom-color: rgb(0, 92, 86);
+}
+
+ul.off-canvas-list li label {
+    background: rgb(0, 92, 86);
+    border-top-color: rgb(0, 92, 86);
+    color: white;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button),
+ul.off-canvas-list li.active a {
+    background: #333;
+}
+
+.tab-bar .back-icon {
+    text-indent: 2.1875rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
+    display: block;
+    line-height: 2.0625rem;
+    padding: 0;
+    color: white;
+    position: relative;
+}
+
 .fbphoto {
     display: inline-block;
     margin: 15px;
@@ -5,6 +79,10 @@
 
 .tab-content {
     margin-top: 20px;
+}
+
+.btn-row {
+    margin-top: 15px !important;
 }
 
 .nav li {
@@ -43,7 +121,7 @@ a {
 }
 
 .preference-heading{
-    background-color: rgb(0, 117, 111);;
+    background-color: rgb(0, 117, 111);
 }
 
 .modal-title {
@@ -144,49 +222,33 @@ div[data-role="editor-toolbar"] {
   user-select: none;
 }
 
-#user-quotes {
+/*#user-quotes {
     width: 25%;
     display: block;
     text-align: justify;
     font-size: 1em;
     color: #686a6e;
     margin: 0 auto;
-}
+}*/
 
 .business {
     text-align: center;
     display: inline-block;
-    width: 250px;
+    max-width: 500px;
     margin: 10px auto 10px auto;
+}
+
+.business p {
+    margin-left: 5px;
 }
 
 .business:hover {
     cursor: pointer;
 }
 
-.business figure {
-    margin: 0 0 10px 0;
-    overflow: hidden;
-}
-
 .business img {
-    width: 90px;
-    height: 90px;
-    float: left;
-}
-
-figure p {
-    height: 130px;
-    text-overflow: ellipsis;
-    padding-bottom: 10px;
-}
-
-.business header {
-    font-family: "Oswald";
-    font-weight: 400;
-    text-transform: uppercase;
-    text-align:left;
-    color: rgb(0, 117, 111);
+    width: 100px;
+    height: 100px;
 }
 
 .upcoming-events {
@@ -262,23 +324,14 @@ figure p {
 #profile-pic {
     position: relative;
     width: 30%;
-    left: 35%;
-    margin: 1em auto 3em auto;
     padding-bottom: 0.1em;
 }
 
 #user-name {
     position: relative;
-    border-top: 0.1em solid rgb(0, 117, 111);
-    color: #000;
-    font-family: 'Oswald';
-    font-weight: 700;
-    font-size: 5em;
+    font-weight: 300;
+    font-size: 3em;
     text-align: center;
-    text-transform: uppercase;
-    margin: 0 auto;
-    width: 50%;
-    padding-top: 0.1em;
 }
 
 .pin-div {
@@ -292,9 +345,7 @@ figure p {
 }
 
 .pin-div h1 {
-    font-family: "Oswald";
-    font-weight: 400;
-    text-transform: uppercase;
+    font-weight: 300;
 }
 
 .create-div {
@@ -315,11 +366,19 @@ figure p {
 
 .journals {
     position: relative;
-    height: 100%;
+    /*height: 100%;*/
+    margin: 15px 0 15px 0;
     visibility: hidden;
 }
 
-.journal {
+.journal.panel {
+    background: white;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #CCC;
+}
+
+/*.journal {
     border-bottom: 0.1em solid rgb(0, 117, 111);
     color: #000;
     text-align: justify;
@@ -338,7 +397,7 @@ figure p {
     text-transform: uppercase;
     color: #888;
     font-weight: 700;
-}
+}*/
 
 .input-group {
     margin-top: 2em;
@@ -366,110 +425,12 @@ figure p {
     text-transform: uppercase;
 }
 
-.ac-custom ul,
-.ac-custon ol {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 800px;
-}
 
-.ac-custom li {
-    text-align: left;
-    margin: 0 auto;
-    padding: 2em 0;
-    position: relative;
-    background-color: rgb(0, 117, 111);
-    border-bottom: 3px solid #FFF;
-}
-
-.ac-custom label {
-    display: inline-block;
-    position: relative;
-    font-size: 2em;
-    padding: 0 0 0 80px;
-    vertical-align: top;
-    color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-	-webkit-transition: color 0.3s;
-    transition: color 0.3s;
-}
-
-.ac-custom input[type="checkbox"],
-.ac-custom label::before {
-	width: 50px;
-	height: 50px;
-	top: 50%;
-	left: 1%;
-	margin-top: -25px;
-	position: absolute;
-	cursor: pointer;
-}
-
-.ac-custom input[type="checkbox"] {
-    opacity: 0;
-	-webkit-appearance: none;
-    display: inline-block;
-    vertical-align: middle;
-    z-index: 100;
-}
-
-.ac-custom label::before {
-    content: '';
-    border: 4px solid #fff;
-	-webkit-transition: opacity 0.3s;
-    transition: opacity 0.3s;
-}
-
-.ac-custom input[type="checkbox"]:checked + label {
-    color: #fff;
-}
-
-.ac-custom input[type="checkbox"]:checked + label::before {
-    opacity: 0.8;
-}
-
-/* General SVG and path styles */
-
-.ac-custom svg {
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	top: 49%;
-	margin-top: -20px;
-	left: 1.5%;
-	pointer-events: none;
-}
-
-.ac-custom svg path {
-	stroke: #fdfcd3;
-	stroke-width: 10px;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	fill: none;
-}
-
-/* Specific input, SVG and path styles */
-
-/* Circle */
-.ac-circle input[type="checkbox"],
-.ac-circle label::before {
-	width: 30px;
-	height: 30px;
-	margin-top: -15px;
-	left: 10px;
-	position: absolute;
-}
-
-.ac-circle label::before {
-	background-color: #fff;
-	border: none;
-}
 
 /*----------------------------
 	The Submit Button
 -----------------------------*/
-.pin-div form input[type=button]{
+/*.pin-div form input[type=button]{
 	
 	border: 1px solid #fff;
     border-radius: 3px 3px 3px 3px; color: #D3EBFF;
@@ -516,7 +477,7 @@ figure p {
 
 .create-div form input[type=button]:active{
     background: rgb(0, 104, 99);
-}
+}*/
 
 .general-button {
     visibility: hidden;
@@ -536,10 +497,19 @@ figure p {
     color: #686a6e;
 }
 
+#invitations {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 40em) { 
+    #invitations {
+        border-bottom: 1px solid #CCC;
+    }
+}
+
 .event {
     font-family: 'Open Sans';
-    height: 50px;
-    background: #f6f6f6;
     margin-bottom: 5px;
     border-left: 2px solid rgb(62, 129, 112);
     padding: 5px;
@@ -547,10 +517,6 @@ figure p {
 }
 
 .event p {
-    overflow: hidden;
-    height: 18px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     width: 100%;
     color: #686a6e;
     font-style: italic;
@@ -579,179 +545,4 @@ figure p {
 .event-time {
     font-family: 'Open Sans';
     font-weight: 400;
-}
-/* -------------------------------------------------------------
-======	MEDIA QUERIES
-------------------------------------------------------------- */
-
-/* -- Media query 1 (mq1)
-------------------------------------------------------------- */
-@media only screen and (max-width: 60em) { /* 13 / 780 */
-    #user-name {
-        border-top: 0.1em solid rgb(0, 117, 111);
-    }
-
-    .pin-div input[type=button]{
-        margin-top: 3em;
-        width: 100%;
-    }
-
-    .pin-div form input[type=button]{
-        width: 100%;
-    }
-
-    .create-div input[type=button]{
-        margin-top: 3em;
-        width: 100%;
-    }
-
-    .create-div form input[type=button]{
-        width: 100%;
-    }
-}
-    
-/* -- Media query 2 (mq2)
-------------------------------------------------------------- */
-@media only screen and (max-width: 48em) { /* 13 / 624 */
-    #user-name {
-        font-size: 3em;
-        border-top: 0.2em solid rgb(0, 117, 111);
-    }
-
-    .pin-div h1 {
-        font-size: 2em !important;    
-    }
-	
-	.pin-div input[type=button]{
-	    margin-top: 3em;
-		width: 100%;
-	}
-
-    .pin-div form input[type=button]{
-        width: 100%;
-    }
-
-    .create-div h1 {
-        font-size: 2em !important;
-    }
-
-    .create-div input[type=button]{
-        margin-top: 3em;
-        width: 100%;
-    }
-
-    .create-div form input[type=button]{
-        width: 100%;
-    }
-    
-    .preferences {
-        width: 90%;
-    }
-
-    .ac-custom label {
-        font-size: 1.5em;
-        padding: 0 0 0 70px;
-    }
-
-    .ac-custom input[type="checkbox"],
-    .ac-custom label::before {
-	    width: 40px;
-	    height: 40px;
-	    left: 10px;
-	    margin-top: -15px;
-    }
-
-    .ac-custom label::before {
-        border: 2px solid #fff;
-    }
-
-    /* General SVG and path styles */
-
-    .ac-custom svg {
-	    width: 40px;
-	    height: 40px;
-	    left: 12px;
-	    margin-top: -15px;
-    }
-
-    .ac-custom svg path {
-	    stroke-width: 6px;
-    }
-
-    .pin-div {
-        width: 90%;
-        left: 5%;
-    }
-}
-    
-/* -- Media query 3 (mq3)
-------------------------------------------------------------- */
-@media only screen and (max-width: 30em) { /* 13 / 390 */
-    #user-name {
-        width: 75%;
-        font-size: 2em;
-        border-top: 0.3em solid rgb(0, 117, 111);
-    }
-
-	.pin-div form input[type=button]{
-		width: 100%;
-		margin-top: 0.5em;
-	}
-
-    .create-div form input[type=button]{
-        width: 100%;
-        margin-top: 0.5em;
-    }
-    
-    .preferences {
-        width: 90%;
-    }
-
-    .ac-custom label {
-        font-size: 1em;
-        padding: 0 10px 0 70px;
-    }
-
-    .ac-custom input[type="checkbox"],
-    .ac-custom label::before {
-	    width: 30px;
-	    height: 30px;
-	    left: 10px;
-	    margin-top: -15px;
-    }
-
-    .ac-custom label::before {
-        border: 2px solid #fff;
-    }
-
-    /* General SVG and path styles */
-
-    .ac-custom svg {
-	    width: 30px;
-	    height: 30px;
-	    left: 12px;
-	    margin-top: -15px;
-    }
-
-    .ac-custom svg path {
-	    stroke-width: 6px;
-    }
-
-    .pin-div form input[type=button]{
-        width: 100%;
-    }
-
-    .create-div form input[type=button]{
-        width: 100%;
-    }
-
-    .pin-div {
-        width: 90%;
-        left: 5%;
-    }
-
-    .create-div {
-        width: 90%;
-        left: 5%;
-    }
 }

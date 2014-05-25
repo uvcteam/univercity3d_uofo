@@ -10,13 +10,15 @@
     <meta charset="utf-8">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>UniverCity3D Memory Bank - Create Journal</title>
 
 
     <!-- Style CSS -->
+    <link href="../libs/css/normalize.css" media="screen" rel="stylesheet">
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet">
+    <link href="../libs/css/foundation.css" media="screen" rel="stylesheet">
     <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
@@ -48,7 +50,93 @@
             </div>
         </div>
     </div>
-    <div id="st-container" class="st-container">
+
+    <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar hide-for-medium-up">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+            <h1 class="title">Create Journal</h1>
+          </section>
+        </nav>
+
+        <nav class="top-bar show-for-medium-up" data-topbar>
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="memorybank.html"><i class="icon-books"></i>&nbsp;Personal Vault</a></h1>
+            </li>
+          </ul>
+
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+                <li destination="internal"><a href="privatejournal.html">Private Journal</a></li>
+                <li destination="internal"><a href="mynotifications.html">My Notifications</a></li>
+                <!-- <li destination="internal"><a href="#">Photos &amp; Videos</a></li> -->
+                <li destination="internal"><a href="preferences.html">Preferences</a></li>
+                <li destination="internal"><a href="help.html">Help</a></li>
+              <li class="has-dropdown">
+                <a href="#">Other Places</a>
+                <ul class="dropdown">
+                    <li destination="virtual_mall"><a href="#">Virtual Mall</a></li>
+                    <li destination="union_hall"><a href="#">Union Hall</a></li>
+                    <li destination="explorer"><a href="#">Explorer</a></li>
+                    <li destination="arcade"><a href="#">Arcade</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label><i class="icon-books"></i>&nbsp;Personal Vault</label></li>
+            <li destination="internal"><a href="memorybank.html">Home</a></li>
+            <li destination="internal"><a href="privatejournal.html">Private Journal</a></li>
+            <li destination="internal"><a href="mynotifications.html">My Notifications</a></li>
+            <!-- <li destination="internal"><a href="#">Photos &amp; Videos</a></li> -->
+            <li destination="internal"><a href="preferences.html">Preferences</a></li>
+            <li destination="internal"><a href="help.html">Help</a></li>
+            <li><label>Other Places</label></li>
+            <li destination="virtual_mall"><a href="#"><i class="icon-cart"></i>&nbsp;&nbsp;&nbsp;Virtual Mall</a></li>
+            <li destination="union_hall"><a href="#"><i class="icon-bubbles"></i>&nbsp;&nbsp;&nbsp;Union Hall</a></li>
+            <li destination="explorer"><a href="#"><i class="icon-compass"></i>&nbsp;&nbsp;&nbsp;Explorer</a></li>
+            <li destination="arcade"><a href="#"><i class="icon-pacman"></i>&nbsp;&nbsp;&nbsp;Arcade</a></li>
+          </ul>
+        </aside>
+
+        <section class="main-section">
+        <div class="row">
+            <div class="small-12 columns">
+                <h1 class="text-center">New Journal</h1>
+                <form>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <h4>Title</h4>
+                            <input type="text" name="title" placeholder="Title">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <div id="edit"></div>
+                        </div>
+                    </div>
+                    <div class="row btn-row">
+                        <div class="small-6 small-centered columns text-center">
+                            <input class="button radius accent-background" type="button" value="Create Journal" onclick="OnJournalSubmitted()" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </section>
+        <a class="exit-off-canvas"></a>
+      </div>
+    </div>
+
+    <!-- <div id="st-container" class="st-container">
         <nav class="st-menu st-effect-1" id="menu-1">
             <h2><i class="icon-books"></i>&nbsp;Personal Vault</h2>
             <ul>
@@ -64,7 +152,7 @@
                 <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
                 <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
             </ul>
-        </nav>            <!-- content push wrapper -->
+        </nav>            content push wrapper
         <div class="st-pusher">
             <div class="st-content">
                 <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
@@ -86,7 +174,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
     <!-- main JS libs -->
     <script src="../libs/server_url.js"></script>
     <script src="../libs/js/coherent.js"></script>
@@ -97,31 +185,34 @@
     <script src="../libs/js/bootstrap.js"></script>
     <script src="../libs/js/bootstrap-wysiwyg.js"></script>
     <script src="../libs/js/menumanager.js"></script>
+    <script src="../libs/js/vendor/jquery.js"></script>
+    <script src="../libs/js/foundation.min.js"></script>
     <script src="js/createjournal.js"></script>
     <script src="js/plusgallery.js"></script>
     <script src="../libs/js/froala_editor.min.js"></script>
     <script type="text/javascript">
         //$('#editor').wysiwyg();
         //$('#plusgallery').plusGallery();
-          $(function(){
-              $('#edit').editable({inlineMode: false, alwaysBlank: true,
-                        buttons: ['bold', 'italic', 'underline', 'strikeThrough',
-                                  'color', 'align', 'insertOrderedList', 'insertUnorderedList',
-                                  'outdent', 'indent', 'insertImage', 'facebook'],
-                        imageUploadURL: 'http://www.jacob-foster.com/univercity3d/upload.php',
-                        imageParams: {id: 'my_editor'},
-                        customButtons: {
-                            facebook: {
-                                title: 'Facebook',
-                                icon: {
-                                    type: 'font',
-                                    value: 'fa fa-facebook-square'
-                                },
-                                callback: function(editor) {
-                                    $('#myModal').modal('show');
-                                }
-                            }  
-                        }});
+        $(document).foundation();
+        $(function(){
+            $('#edit').editable({inlineMode: false, alwaysBlank: true,
+                    buttons: ['bold', 'italic', 'underline', 'strikeThrough',
+                              'color', 'align', 'insertOrderedList', 'insertUnorderedList',
+                              'outdent', 'indent', 'insertImage', 'facebook'],
+                    imageUploadURL: 'http://www.jacob-foster.com/univercity3d/upload.php',
+                    imageParams: {id: 'my_editor'},
+                    customButtons: {
+                        facebook: {
+                            title: 'Facebook',
+                            icon: {
+                                type: 'font',
+                                value: 'fa fa-facebook-square'
+                            },
+                            callback: function(editor) {
+                                $('#myModal').modal('show');
+                            }
+                        }  
+                    }});
           });
     </script>
 </body>

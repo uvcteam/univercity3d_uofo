@@ -28,6 +28,8 @@ function JoinEvent() {
 
 // Invoked by Unity3D.
 engine.on("AddInvitation", function(name, date, time, desc, who, where, id){
+    var ele = $('.noinv');
+    if ($('.noinv')) $('.noinv').remove();
     var newEvent = '';
     newEvent += '<div class="event" onclick="ShowEvent(this)"';
     newEvent += ' event-name="' + name + '"';
@@ -37,36 +39,38 @@ engine.on("AddInvitation", function(name, date, time, desc, who, where, id){
     newEvent += ' event-time="' + time + '"';
     newEvent += ' event-where="' + where + '"';
     newEvent += ' event-id="' + id + '">';
-    newEvent += '<span class="event-name">' + name + '</span>';
-    newEvent += '<span class="event-date">' + date + '</span>';
-    newEvent += '<span class="event-time">' + time + '</span>';
+    newEvent += '<h4>' + name + ' <small>' + date + ' at ' + time + '</small></h4>';
     newEvent += '<p>' + desc + '</p>';
     newEvent += '</div>';
-    console.log('Creating event ' + name);
     $('#invitations').append(newEvent);
     ModalEffects();
 });
 
 engine.on("AddBusiness", function (name, desc, id, image) {
-    console.log("ADDING BUSINESS: " + name);
-    $('#business-c').append('<div class="business" busid="'+id+'">' +
-        '<header>' + name + '</header>' +
-        '<figure>' +
-        '<img src="data:image/png;base64,' + image + '" />' +
-        '<p>' + desc + '</p>' +
-        '</figure></div>');
+    var ele = $('.nosav');
+    if ($('.nosav')) $('.nosav').remove(); 
+    $('#business-c').append(
+        '<div class="business text-left" busid="'+id+'">' +
+            '<dl>' +
+                '<dt>' + name + '</dt>' +
+                '<dd class="clearfix">' +
+                    '<img src="data:image/png;base64,' + image + '" class="left" />' +
+                    '<p class="right">' + desc + '</p>' +
+                '</dd>' +
+            '</dl>' +
+        '</div>');
 });
 
 engine.on("BusinessesFinished", function() {
     console.log("BUSINESSES DONE!");
-    $('#business-c').owlCarousel({
-        items: 3,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [979, 3],
-        itemsTablet: [1199, 3],
-        itemsMobile:[960, 1],
-        pagination: true
-    });
+    // $('#business-c').owlCarousel({
+    //     items: 3,
+    //     itemsDesktop: [1199, 3],
+    //     itemsDesktopSmall: [979, 3],
+    //     itemsTablet: [1199, 3],
+    //     itemsMobile:[960, 1],
+    //     pagination: true
+    // });
 
     $('.business').click(function(){
         engine.call("BusinessClicked", this.getAttribute('busid'));
@@ -79,7 +83,6 @@ engine.on("InvitationsFinished", function() {
 
 engine.on("NoInvitations", function() {
     console.log("NO INVITATIONS!");
-    $("#invitations").html('<h1>You have no new notifications.</h1>');
 });
 
 engine.on("NoBusinesses", function() {

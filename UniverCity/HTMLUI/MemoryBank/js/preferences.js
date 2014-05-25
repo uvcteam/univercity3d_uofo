@@ -9,24 +9,16 @@ $(window).load(function () {
     engine.call("GetCategories");
 });
 
-function SavePreferences() {
-    var checkboxes = $(':input');
-    var newString = '';
-    for (var i = 2; i < checkboxes.length; ++i) {
-        if (checkboxes[i].name.search('cat') !== -1 && $('#' + checkboxes[i].name).prop('checked')) {
-            newString += '&i=' + checkboxes[i].name.substring(3);
-        }
-    }
-    
+function SavePreferences() {  
     if (changeCategories) {
         engine.call("UpdateCategories", GetCheckedNodes(
-            $('.category-preferences').dynatree("getSelectedNodes")));
+            $('.category-preferences').fancytree('getTree').getSelectedNodes()));
 
     }
 
     if(changedCommerce) {
         engine.call("UpdateCommerce", GetCheckedNodes(
-            $(".commerce-preferences").dynatree("getSelectedNodes")));
+            $(".commerce-preferences").fancytree('getTree').getSelectedNodes()));
     }
 
     window.location.href = 'memorybank.html';
@@ -56,7 +48,7 @@ function QuickSavePreferences() {
 
 // Invoked by Unity3D.
 engine.on("AddCategory", function (id, name, parentID, checked) {
-    var child = {title: name, key: id, select: checked, children: []};
+    var child = {title: name, key: id, selected: checked, children: []};
     if(parentID !== -1) {
         for(var i = 0; i < CategoriesChildren.length; ++i) {
             if(CategoriesChildren[i]['key'] === parentID) {
@@ -70,24 +62,23 @@ engine.on("AddCategory", function (id, name, parentID, checked) {
 
 engine.on("CategoriesFinished", function() {
 
-    $('.category-preferences').dynatree({
-        onActivate: function(node) {
-        },
-        children: CategoriesChildren,
+    $('.category-preferences').fancytree({
+        source: CategoriesChildren,
         checkbox: true,
         selectMode: 3,
-        onSelect: function(flag, dtNode){
+        beforeSelect: function(event, data){
             changeCategories = true;
 /*            console.log(GetCheckedNodes(
                 $(".commerce-preferences").dynatree("getSelectedNodes")));*/
-        }
+        },
+        cookieId: "category-tree",
+        idPrefix: "category-tree-"
 
     });
 });
 
 engine.on('AddCommerce', function(id, name, parentID, checked) {
-    var child = {title: name, key: id, select: checked, children: []};
-        console.log(name + "----" + checked + ":" + id);
+    var child = {title: name, key: id, selected: checked, children: []};
     if(parentID !== -1) {
         for(var i = 0; i < CommerceChildren.length; ++i) {
             if(CommerceChildren[i]['key'] === parentID) {
@@ -101,18 +92,15 @@ engine.on('AddCommerce', function(id, name, parentID, checked) {
 
 engine.on('CommerceFinished', function(){
     console.log(CommerceChildren);
-    $('.commerce-preferences').dynatree({
-        onActivate: function(node) {
-        },
-        children: CommerceChildren,
+    $('.commerce-preferences').fancytree({
+        source: CommerceChildren,
         checkbox: true,
         selectMode: 3,
-        onSelect: function(flag, dtNode){
-            console.log( GetCheckedNodes(
-                $(".commerce-preferences").dynatree("getSelectedNodes")));
+        beforeSelect: function(event, data){
             changedCommerce = true;
-        }
-
+        },
+        cookieId: "commerce-tree",
+        idPrefix: "commerce-tree-"
     });
 })
 
@@ -120,7 +108,7 @@ function GetCheckedNodes(nodes)
 {
     var prefIds = "";
     for( var i = 0; i < nodes.length; ++i) {
-        prefIds += '&i=' + nodes[i].data.key;
+        prefIds += '&i=' + nodes[i].key;
 
     }
 

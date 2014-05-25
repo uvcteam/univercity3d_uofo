@@ -19,7 +19,14 @@ engine.on("PinCorrect", function(token, pin) {
             $(data.entries).each(function() {
                 var date = new Date(this.ts);
                 var date_string = GetMonth(date.getMonth()) + ' ' + date.getDate() + ', ' + date.getFullYear();
-                $('.journals').append('<div class="journal" id="' + this.id + '"><h1>' + this.title + '</h1><h6>' + date_string + '</h6><p>' + this.entry + '</p><a href="#" onclick="DeleteJournal(this)" class="btn btn-danger" journalid="' + this.id + '">Delete</a></div>');
+                $('.journals').append(
+                    '<div class="journal row panel" id="' + this.id + '">' +
+                        '<div class="small-12 columns">' +
+                            '<h1>' + this.title + ' <small>' + date_string + '</small></h1>' +
+                            '<div>' + this.entry + '</div>' +
+                            '<a href="#" onclick="DeleteJournal(this)" class="button tiny radius alert" journalid="' + this.id + '">Delete</a>' +
+                        '</div>' +
+                    '</div>');
             });
         }
     });

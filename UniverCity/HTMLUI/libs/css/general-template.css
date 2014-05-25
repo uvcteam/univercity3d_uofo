@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
 
 @font-face {
 	font-family: 'icomoon';
@@ -61,8 +61,8 @@ body,
 }
 
 body {
-    background: #444;
-    color: #48a770;
+    background: white;
+    /*color: #48a770;*/
     font-weight: 400;
     font-family: 'Open Sans';
     overflow-x: hidden;
@@ -72,6 +72,10 @@ a {
     text-decoration: none;
     color: #48a770;
     outline: none;
+}
+
+.facebook {
+    background: #4c66a4;
 }
 
 #menu_btn {

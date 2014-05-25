@@ -22,8 +22,8 @@ function OnJournalSubmitted() {
     $.get(window.server_url + 'AddJournalEntry?token=' + window.token + '&pin=' + window.pin + '&title=' + title + '&entry=' + encodeURI(entryText), function(data) {
         if (data.s) {
             console.log("SUCCESSFUL JOURNAL ENTRY!");
-            $("input[name=title]").val('');
-            $("textarea[name=entry]").val('');
+            $('input[name=title]').val('');
+            $('#edit').editable("setHTML", "", true);
         }
     });
     //engine.call('OnSaveEntryClicked', values[0]['value'], entryText);
