@@ -92,3 +92,7 @@ engine.on("InvitationCount", function(count) {
         el.html(count);
     }
 });
+
+engine.on("UserToken", function(token) {
+    localStorage.setItem('userToken', token);
+});
