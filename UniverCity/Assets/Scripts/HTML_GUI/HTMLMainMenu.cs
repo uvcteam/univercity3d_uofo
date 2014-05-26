@@ -82,6 +82,7 @@ public class HTMLMainMenu : MonoBehaviour
 
     public void GoToDestination(string destination)
     {
+        if (_userManager.IsSignedIn()) _view.View.TriggerEvent("UserToken", _userManager.CurrentUser.Token);
         switch (destination)
         {
             case "virtual_mall":
