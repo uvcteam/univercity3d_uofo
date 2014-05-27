@@ -1,3 +1,22 @@
+
+.Explorer-color-theme {
+    background-color: rgb(255, 165, 58) !important;
+}
+.inner-wrap {
+    height: 100vh;
+}
+
+.top-bar .name h1 {
+    color: white;
+}
+.left-small {
+    border-right-color: #E68C21;
+}
+
+.right-small {
+    border-left-color: #E68C21;
+}
+
 .st-content {
     background: transparent;
 }

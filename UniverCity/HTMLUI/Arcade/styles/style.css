@@ -1,6 +1,31 @@
 body {
     background: transparent !important;
 }
+.Arcade-color-theme {
+   background: rgb(238, 123, 43) !important;
+   color: white !important;
+}
+
+ .Arcade-color-theme-dark {
+   background: #D56212 !important;
+   color: white !important;
+} 
+
+.inner-wrap {
+    height: 100vh;
+}
+
+.top-bar .name h1 {
+    color: white;
+}
+
+.left-small {
+    border-right-color: #D56212;
+}
+
+.right-small {
+    border-left-color: #D56212;
+}
 
 #container > h1 {
     font-family: 'Oswald';

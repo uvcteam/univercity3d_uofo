@@ -6,13 +6,67 @@
     <title>Virtual Mall Main</title>
     <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet" />
     <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
+    <link href="../libs/css/foundation.css" media="screen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
     <link href="styles/style.css" media="screen" rel="stylesheet" />
 
     <!-- main JS libs -->
 </head>
 <body class="coui-noinput">
-<div id="st-container" class="st-container">
+<div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar hide-for-medium-up Arcade-color-theme">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+          <div>
+            <h2><i class="icon-compass"></i>&nbsp;Arcade</h2>
+          </div>
+          </section>
+        </nav>
+
+        <nav class="top-bar show-for-medium-up Arcade-color-theme" data-topbar>
+          <ul class="title-area">
+            <li class="name">
+            <div>
+              <h1><i class="icon-pacman"></i>&nbsp;Arcade</h1>
+            </div>
+            </li>
+          </ul>
+
+          <section class="top-bar-section Arcade-color-theme">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="has-dropdown Arcade-color-theme">
+                <a class="Arcade-color-theme" href="#">Other Places</a>
+                <ul class="dropdown ">
+                    <li destination="memory_bank"><a href="#">Personal Vault</a></li>
+                    <li destination="union_hall"><a href="#">Union Hall</a></li>
+                    <li destination="virtual_mall"><a href="#">Virtual Mall</a></li>
+                    <li destination="explorer"><a href="#">Explorer</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu Arcade-color-theme">
+          <ul class="off-canvas-list">
+          <li><label class="Arcade-color-theme-dark"><i class="icon-pacman"></i>&nbsp;Arcade</label></li>
+            <li destination="virtual_mall"><a class="icon-cart" href="#">&nbsp;Virtual Mall</a></li>
+            <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
+            <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;Personal Vault</a></li>
+            <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
+            </ul>
+          </ul>
+        </aside>
+
+        <section class="main-section">
+                 <h1>Coming Soon!</h1>
+        </section>
+</div>
+<!-- <div id="st-container" class="st-container">
     <nav class="st-menu st-effect-1" id="menu-1">
         <h2><i class="icon-pacman"></i>&nbsp;Arcade</h2>
         <ul>
@@ -21,7 +75,7 @@
             <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;Personal Vault</a></li>
             <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
         </ul>
-    </nav>            <!-- content push wrapper -->
+    </nav>            content push wrapper
     <div class="st-pusher">
         <div class="st-content">
             <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
@@ -30,7 +84,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <script src="../libs/js/coherent.js"></script>
 <script src="../libs/js/modernizr-2.6.2.min.js"></script>
 <script src="../libs/js/jquery-1.10.0.js"></script>
@@ -40,6 +94,10 @@
 <script type="text/javascript">
     shouldChangeMenu = false;
     HideMenu();
+</script>
+<script src="../libs/js/foundation.min.js"></script>
+<script type="text/javascript">
+    $(document).foundation();
 </script>
 </body>
 </html>

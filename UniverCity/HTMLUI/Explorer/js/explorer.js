@@ -4,7 +4,7 @@
 $(document).ready(function () {
     console.log("Ready for Unity.");
     engine.call('AddBusinesses');
-    $(".st-container").click(function(){
+    $("#container").click(function(){
         engine.call("MenuClosed");
     })
 });
@@ -22,14 +22,14 @@ engine.on('PopulateCategory', function (name, desc, id, image, hasAd) {
 })
 
 engine.on('ClearBusinessList', function(){
-    $(".st-container").unbind('click');
+    $("#container").unbind('click');
     document.getElementById('business-list').innerHTML = "";
 
-    $('.st-container').click(function (event) {
+    $('#container').click(function (event) {
         console.log("click");
-        classie.remove(document.getElementById('st-container'), 'st-menu-open');
+        classie.remove(document.getElementById('container'), 'st-menu-open');
     });
-    $(".st-container").click(function(){
+    $("#container").click(function(){
         engine.call("MenuClosed");
     })
 })
@@ -46,7 +46,7 @@ engine.on('AttachEventToBusinesses', function () {
         engine.call('OnBusinessWasSelected');
     });
 
-    $(".st-container").click(function(){
+    $("#container").click(function(){
         engine.call("CloseBusinessList");
     })
 })
