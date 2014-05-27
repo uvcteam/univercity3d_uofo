@@ -68,6 +68,7 @@ public class HTMLUnionHall : MonoBehaviour
         {
             _view.View.TriggerEvent("CreateSuccess");
             _eventManager.RepopulateEvents();
+            _view.View.TriggerEvent("Reload");
             NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully created!",
                 new string[] { "OK" }, false, (string button) =>
                 {
@@ -93,7 +94,8 @@ public class HTMLUnionHall : MonoBehaviour
         if ((bool)createSuccess["s"])
         {
             _eventManager.RepopulateEvents();
-            _view.View.Reload(false);
+            //_view.View.Reload(false);
+            _view.View.TriggerEvent("Reload");
             NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully cancelled!",
                 new string[] { "OK" }, false, (string button) =>
                 {
@@ -119,7 +121,7 @@ public class HTMLUnionHall : MonoBehaviour
         if ((bool)createSuccess["s"])
         {
             _userManager.CurrentUser.AttendedEvents.Add(id);
-            _view.View.Reload(false);
+            _view.View.TriggerEvent("Reload");
             NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully joined!",
                 new string[] { "OK" }, false, (string button) =>
                 {
@@ -145,7 +147,8 @@ public class HTMLUnionHall : MonoBehaviour
         if ((bool)createSuccess["s"])
         {
             _userManager.CurrentUser.AttendedEvents.Remove(id);
-            _view.View.Reload(false);
+            //_view.View.Reload(false);
+            _view.View.TriggerEvent("Reload");
             NativeDialogs.Instance.ShowMessageBox("Success!", "Event successfully withdrawn from!",
                 new string[] { "OK" }, false, (string button) =>
                 {

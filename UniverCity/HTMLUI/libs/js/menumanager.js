@@ -96,3 +96,7 @@ engine.on("InvitationCount", function(count) {
 engine.on("UserToken", function(token) {
     localStorage.setItem('userToken', token);
 });
+
+engine.on("Reload", function() {
+    location.reload();
+});
