@@ -18,7 +18,7 @@ function ShowEvent(caller) {
     $('.m-event-where').html(element.attr('event-where'));
     $('.m-event-date').html(element.attr('event-date'));
     $('.m-event-when').html(element.attr('event-time'));
-    $('#myModal').modal('show');
+    $('#myModal').foundation('reveal', 'open');
 }
 
 function JoinEvent() {
@@ -43,7 +43,6 @@ engine.on("AddInvitation", function(name, date, time, desc, who, where, id){
     newEvent += '<p>' + desc + '</p>';
     newEvent += '</div>';
     $('#invitations').append(newEvent);
-    ModalEffects();
 });
 
 engine.on("AddBusiness", function (name, desc, id, image) {

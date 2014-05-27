@@ -31,24 +31,14 @@
     <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
 </head>
 <body>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Insert Facebook Photo
-                        <div class="top-button" style="float: right; clear: both;">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </h4>
-                </div>
-                <div class="modal-body">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
+    <div id="myModal" class="reveal-modal" data-reveal>
+      <div class="row">
+          <div class="small-12 columns">
+              <div class="modal-body">
+              </div>
+          </div>
+      </div>
+      <a class="close-reveal-modal">&#215;</a>
     </div>
 
     <div class="off-canvas-wrap" data-offcanvas>
@@ -77,15 +67,15 @@
                 <!-- <li destination="internal"><a href="#">Photos &amp; Videos</a></li> -->
                 <li destination="internal"><a href="preferences.html">Preferences</a></li>
                 <li destination="internal"><a href="help.html">Help</a></li>
-              <li class="has-dropdown">
-                <a href="#">Other Places</a>
-                <ul class="dropdown">
-                    <li destination="virtual_mall"><a href="#">Virtual Mall</a></li>
-                    <li destination="union_hall"><a href="#">Union Hall</a></li>
-                    <li destination="explorer"><a href="#">Explorer</a></li>
-                    <li destination="arcade"><a href="#">Arcade</a></li>
-                </ul>
-              </li>
+                <li class="has-dropdown">
+                    <a href="#">Menu</a>
+                    <ul class="dropdown">
+                        <li destination="virtual_mall"><a href="#">Virtual Mall</a></li>
+                        <li destination="union_hall"><a href="#">Union Hall</a></li>
+                        <li destination="explorer"><a href="#">Explorer</a></li>
+                        <li destination="arcade"><a href="#">Arcade</a></li>
+                    </ul>
+                </li>
             </ul>
           </section>
         </nav>
@@ -108,29 +98,33 @@
         </aside>
 
         <section class="main-section">
-        <div class="row">
-            <div class="small-12 columns">
-                <h1 class="text-center">New Journal</h1>
-                <form>
-                    <div class="row">
-                        <div class="small-12 columns">
-                            <h4>Title</h4>
-                            <input type="text" name="title" placeholder="Title">
+            <div class="row">
+                <div id="success-alert" data-alert class="alert-box success radius">
+                    Journal entry successfully created!
+                    <a href="#" class="close">&times;</a>
+                </div>
+                <div class="small-12 columns">
+                    <h1 class="text-center">New Journal</h1>
+                    <form>
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <h4>Title</h4>
+                                <input type="text" name="title" placeholder="Title">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="small-12 columns">
-                            <div id="edit"></div>
+                        <div class="row">
+                            <div class="small-12 columns">
+                                <div id="edit"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row btn-row">
-                        <div class="small-6 small-centered columns text-center">
-                            <input class="button radius accent-background" type="button" value="Create Journal" onclick="OnJournalSubmitted()" />
+                        <div class="row btn-row">
+                            <div class="small-6 small-centered columns text-center">
+                                <input class="button radius accent-background" type="button" value="Create Journal" onclick="OnJournalSubmitted()" />
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
         </section>
         <a class="exit-off-canvas"></a>
       </div>
@@ -209,7 +203,7 @@
                                 value: 'fa fa-facebook-square'
                             },
                             callback: function(editor) {
-                                $('#myModal').modal('show');
+                                $('#myModal').foundation('reveal', 'open')
                             }
                         }  
                     }});

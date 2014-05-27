@@ -42,16 +42,19 @@ function ShowEvent(caller) {
     $('.m-event-where').html(element.attr('event-where'));
     $('.m-event-date').html(element.attr('event-date'));
     $('.m-event-when').html(element.attr('event-time'));
-    $('#myModal').modal('show');
+    $('#myModal').foundation('reveal', 'open');
 }
 
 function JoinEvent() {
+    $('#myModal').foundation('reveal', 'close');
     console.log("Join event " + lastEventID);
     engine.call("JoinEvent", lastEventID);
 }
 
 // Invoked by Unity3D.
 engine.on("CreateEvent", function(name, date, time, desc, who, where, id){
+    var ele = $('.no-events');
+    if ($('.no-events')) $('.no-events').css('visibility', 'hidden');
     var newEvent = '';
     newEvent += '<div class="event" onclick="ShowEvent(this)"';
     newEvent += ' event-name="' + name + '"';
@@ -61,18 +64,17 @@ engine.on("CreateEvent", function(name, date, time, desc, who, where, id){
     newEvent += ' event-time="' + time + '"';
     newEvent += ' event-where="' + where + '"';
     newEvent += ' event-id="' + id + '">';
-    newEvent += '<span class="event-name">' + name + '</span>';
-    newEvent += '<span class="event-date">' + date + '</span>';
-    newEvent += '<span class="event-time">' + time + '</span>';
+    newEvent += '<h4>' + name + ' <small>' + date + ' at ' + time + '</small></h4>';
     newEvent += '<p>' + desc + '</p>';
     newEvent += '</div>';
-    console.log('Creating event ' + name);
+
     $('.events').append(newEvent);
     ModalEffects();
 });
 
 engine.on("NoEvents", function(){
     $('.no-events').css('visibility', 'visible');
+    $('.events').html('');
     $('.events').css('visibility', 'hidden');
 });
 

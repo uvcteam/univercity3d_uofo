@@ -34,43 +34,45 @@ function ShowEvent(caller) {
 function ShowCancelEvent(caller) {
     var element = $(caller);
     lastEventID = element.attr('event-id');
-    $('.modal-title').html('Are you sure you wish to cancel');
+    $('.modal-title').html('Are you sure you wish to cancel this event?');
     $('.m-event-title').html(element.attr('event-name'));
     $('.m-event-who').html(element.attr('event-who'));
     $('.m-event-what').html(element.attr('event-what'));
     $('.m-event-where').html(element.attr('event-where'));
     $('.m-event-date').html(element.attr('event-date'));
     $('.m-event-when').html(element.attr('event-time'));
-    $('.btn-primary').click(function() {
+    $('.button.tiny.radius.alert').html("Cancel Event");
+    $('.button.tiny.radius.alert').click(function() {
+        $('#myModal').foundation('reveal', 'close');
         CancelEvent();
     });
-    $('#myModal').modal('show');
+    $('#myModal').foundation('reveal', 'open');
 }
 
 function ShowWithdrawEvent(caller) {
     var element = $(caller);
     lastEventID = element.attr('event-id');
-    $('.modal-title').html('Are you sure you wish to withdraw from');
+    $('.modal-title').html('Are you sure you wish to withdraw from this event?');
     $('.m-event-title').html(element.attr('event-name'));
     $('.m-event-who').html(element.attr('event-who'));
     $('.m-event-what').html(element.attr('event-what'));
     $('.m-event-where').html(element.attr('event-where'));
     $('.m-event-date').html(element.attr('event-date'));
     $('.m-event-when').html(element.attr('event-time'));
-    $('.btn-primary').click(function() {
+    $('.button.tiny.radius.alert').html("Withdraw From Event");
+    $('.button.tiny.radius.alert').click(function() {
+        $('#myModal').foundation('reveal', 'close');
         WithdrawEvent();
     });
-    $('#myModal').modal('show');
+    $('#myModal').foundation('reveal', 'open');
 }
 
 // Invoked by Unity3D.
 engine.on("CreateMyEvent", function(name, date, time, desc, who, where, id){
+    if ($('#my-events > .no-events')) 
+        $('#my-events > .no-events').css('display', 'none');
     var newEvent = '';
-    newEvent += '<div class="event" onclick="';
-    if (location.pathname === '/UnionHall/myevents.html')
-        newEvent += 'ShowEvent(this)"';
-    else
-        newEvent += 'ShowCancelEvent(this)"';
+    newEvent += '<div class="event" onclick="ShowCancelEvent(this)"';
     newEvent += ' event-name="' + name + '"';
     newEvent += ' event-who="' + who + '"';
     newEvent += ' event-what="' + desc + '"';
@@ -78,23 +80,19 @@ engine.on("CreateMyEvent", function(name, date, time, desc, who, where, id){
     newEvent += ' event-time="' + time + '"';
     newEvent += ' event-where="' + where + '"';
     newEvent += ' event-id="' + id + '">';
-    newEvent += '<span class="event-name">' + name + '</span>';
-    newEvent += '<span class="event-date">' + date + '</span>';
-    newEvent += '<span class="event-time">' + time + '</span>';
+    newEvent += '<h4>' + name + ' <small>' + date + ' at ' + time + '</small></h4>';
     newEvent += '<p>' + desc + '</p>';
     newEvent += '</div>';
-    console.log('Creating event ' + name);
+
     $('#my-events > .events').append(newEvent);
     ModalEffects();
 })
 
 engine.on("CreateOtherEvent", function(name, date, time, desc, who, where, id){
+    if ($('#other-events > .no-events')) 
+        $('#other-events > .no-events').css('display', 'none');
     var newEvent = '';
-    newEvent += '<div class="event" onclick="';
-    if (location.pathname === '/UnionHall/myevents.html')
-        newEvent += 'ShowEvent(this)"';
-    else
-        newEvent += 'ShowWithdrawEvent(this)"';
+    newEvent += '<div class="event" onclick="ShowWithdrawEvent(this)"';
     newEvent += ' event-name="' + name + '"';
     newEvent += ' event-who="' + who + '"';
     newEvent += ' event-what="' + desc + '"';
@@ -102,9 +100,7 @@ engine.on("CreateOtherEvent", function(name, date, time, desc, who, where, id){
     newEvent += ' event-time="' + time + '"';
     newEvent += ' event-where="' + where + '"';
     newEvent += ' event-id="' + id + '">';
-    newEvent += '<span class="event-name">' + name + '</span>';
-    newEvent += '<span class="event-date">' + date + '</span>';
-    newEvent += '<span class="event-time">' + time + '</span>';
+    newEvent += '<h4>' + name + ' <small>' + date + ' at ' + time + '</small></h4>';
     newEvent += '<p>' + desc + '</p>';
     newEvent += '</div>';
     console.log('Creating event ' + name);

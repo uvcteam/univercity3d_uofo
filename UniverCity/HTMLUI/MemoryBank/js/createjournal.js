@@ -24,6 +24,7 @@ function OnJournalSubmitted() {
             console.log("SUCCESSFUL JOURNAL ENTRY!");
             $('input[name=title]').val('');
             $('#edit').editable("setHTML", "", true);
+            $('#success-alert').css('display', 'block');
         }
     });
     //engine.call('OnSaveEntryClicked', values[0]['value'], entryText);
@@ -43,7 +44,7 @@ engine.on("AddJournal", function(title, date, content) {
 });
 
 engine.on("CreateSuccess", function() {
-    console.log("Created successfully!");
+    $('#success-alert').css('display', 'block');
     $("input[name=title]").val('');
     $("textarea[name=entry]").val('');
 });
@@ -82,7 +83,7 @@ function FBPhotoClicked(e) {
         console.log('Clicked on ');
         console.log($(e));
         $('#edit').editable('insertHTML', '<img src="' + $(e).data('urlpath') + '" />', true);
-        $('#myModal').modal('hide');
+        $('#myModal').foundation('reveal', 'close');
 }
 
 engine.on("UserInfo", function(token, pin, server_url) {

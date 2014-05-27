@@ -1,3 +1,11 @@
+#myModal {
+    z-index: 1000;
+}
+
+#success-alert {
+    display: none;
+}
+
 .accent-background {
     background: rgb(0, 117, 111);
 }
@@ -181,29 +189,6 @@ a {
     text-align: center;
 }
 
-#editor {
-    text-align: left;
-    max-height: 500px;
-    height: 350px;
-    background-color: white;
-    border-collapse: separate; 
-    border: 1px solid rgb(204, 204, 204); 
-    padding: 4px; 
-    box-sizing: content-box; 
-    -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset; 
-    box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
-    border-top-right-radius: 3px; border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px; border-top-left-radius: 3px;
-    overflow: scroll;
-    outline: none;
-    color: #686a6e;
-}
-
-#editor img {
-    max-width: 500px;
-    max-height: 500px;
-}
-
 .thumbnail.selected {
     background-color: #428bca;
 }
@@ -213,6 +198,12 @@ a {
 .modal-body {
     max-height: 600px;
     overflow-y: auto;
+}
+
+#invitations h2, #business-c h2 {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-size: 2em;
 }
 
 div[data-role="editor-toolbar"] {
@@ -328,9 +319,10 @@ div[data-role="editor-toolbar"] {
 }
 
 #user-name {
+    font-family: 'Open Sans';
     position: relative;
     font-weight: 300;
-    font-size: 3em;
+    font-size: 3rem;
     text-align: center;
 }
 
@@ -345,6 +337,7 @@ div[data-role="editor-toolbar"] {
 }
 
 .pin-div h1 {
+    font-family: 'Open Sans';
     font-weight: 300;
 }
 

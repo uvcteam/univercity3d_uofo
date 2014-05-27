@@ -87,7 +87,7 @@ function GoToDestination(destination) {
 engine.on("InvitationCount", function(count) {
     console.log(count);
     num_invitations = count;
-    var el = $('.pull-right');
+    var el = $('.invitation-count');
     if (el) {
         el.html(count);
     }

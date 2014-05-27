@@ -23,7 +23,7 @@ public class EventManager : MonoBehaviour
     public UnionHallEvent currentEvent = null;
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
         DontDestroyOnLoad(this);
         if (GameObject.FindGameObjectWithTag("EventManager") == null)
@@ -38,8 +38,12 @@ public class EventManager : MonoBehaviour
 
     public UnionHallEvent GetEventForId(int id)
     {
-        UnionHallEvent evnt = events.FirstOrDefault(ev => ev.Id == id);
-        return evnt;
+        UnionHallEvent foundEvent = null;
+        for (int i = 0; i < events.Count; ++i)
+            if (events[i].Id == id) foundEvent = events[i];
+
+        Debug.Log(foundEvent.Id);
+        return foundEvent;
     }
 
     // ***************************************************

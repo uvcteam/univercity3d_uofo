@@ -46,7 +46,7 @@ selects.chosen().change(function() {
 });
 
 function OnEventCreate() {
-    $('#myModal').modal('show');
+    $('#myModal').foundation('reveal', 'open');
 }
 
 function SubmitEvent() 
@@ -102,5 +102,5 @@ function SubmitEvent()
 // Invoked by Unity3D.
 engine.on("CreateSuccess", function() {
     $(':input:not(:button)').val('');
-    window.location.href = 'myevents.html';
+    window.location.href = 'cancelwithdraw.html';
 });

@@ -21,7 +21,7 @@ function SavePreferences() {
             $(".commerce-preferences").fancytree('getTree').getSelectedNodes()));
     }
 
-    window.location.href = 'memorybank.html';
+    $('#success-alert').css('display', 'block');
 }
 
 function QuickSavePreferences() {

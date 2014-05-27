@@ -1,3 +1,89 @@
+.accent-background {
+    background: rgb(62, 129, 112);
+}
+
+.accent-background-dark {
+    background: rgb(37, 104, 87);
+}
+
+.accent-background:hover {
+    background: rgb(37, 104, 87);   
+}
+
+.accent-color {
+    color: rgb(37, 104, 87);
+}
+
+.count-dark {
+    background: rgb(30, 30, 30);
+}
+
+.row {
+    max-width: 80rem;
+}
+
+.main-section {
+    padding-top: 15px;
+}
+
+.off-canvas-wrap {
+    overflow: visible;
+}
+
+.off-canvas-wrap,.inner-wrap{
+    height:100%;   
+}
+
+.top-bar .name h1 {
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+.top-bar, .tab-bar {
+    background: rgb(62, 129, 112);
+}
+
+.left-small {
+    border-right-color: rgb(37, 104, 87);
+}
+
+.right-small {
+    border-left-color: rgb(37, 104, 87);
+}
+
+.left-off-canvas-menu {
+ background: rgb(37, 104, 87);   
+}
+
+.top-bar-section li:not(.has-form) a:not(.button),
+ul.off-canvas-list li a {
+    background: rgb(62, 129, 112);
+    color: white;
+    border-bottom-color: rgb(37, 104, 87);
+}
+
+ul.off-canvas-list li label {
+    background: rgb(37, 104, 87);
+    border-top-color: rgb(37, 104, 87);
+    color: white;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button),
+ul.off-canvas-list li.active a {
+    background: #333;
+}
+
+.tab-bar .back-icon {
+    text-indent: 2.1875rem;
+    width: 2.8125rem;
+    height: 2.8125rem;
+    display: block;
+    line-height: 2.0625rem;
+    padding: 0;
+    color: white;
+    position: relative;
+}
+
 .custom-content-reveal>span {
     font-family: 'Open Sans' !important;
     font-size: 1em !important;
@@ -9,8 +95,7 @@
 
 .modal-title {
     color: rgb(62, 129, 112);
-    font-family: 'Oswald';
-    text-transform: uppercase;
+    font-family: 'Open Sans';
 }
 
 #myModalLabel em {
@@ -77,59 +162,39 @@
 }
 
 .upcoming-events {
-    width: 90%;
-    margin: 0 auto;
-    height: 50%;
-    float: none;
 }
 
 .upcoming-events > h1 {
-    font-family: 'Oswald';
-    font-weight: 400;
-    font-size: 1.5em;
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-size: 2em;
     color: #686a6e;
-    text-align: right;
-    text-transform: uppercase;
 }
 
 .no-events {
-    text-align: right;
-    padding: 10px;
+    text-align: left;
     margin-bottom: 75px;
-    display: none;
     color: #686a6e;
     font-style: italic;
-}
-
-.no-events h1 {
-    font-size: 1.25em;
     font-family: 'Open Sans';
 }
 
 .events {
     visibility: visible;
-    margin-top: 2%;
-    float: left;
-    width: 90%;
 }
 
 .event {
-    font-family: 'Open Sans';
-    height: 50px;
-    background: #f6f6f6;
-    margin-bottom: 5px;
-    border-left: 2px solid rgb(62, 129, 112);
     padding: 5px;
+    font-family: 'Open Sans';
+    margin-bottom: 5px;
+    border-left: 1px solid rgb(62, 129, 112);
     cursor: pointer;
 }
 
 .event p {
-    overflow: hidden;
-    height: 18px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     width: 100%;
     color: #686a6e;
+    text-align: justify;
     font-style: italic;
 }
 
@@ -159,11 +224,9 @@
 }
 
 .custom-calendar-wrap {
-	    margin: 10px auto;
-        width: 90%;
-	    position: relative;
-	    overflow: hidden;
-        float: none;
+    position: relative;
+    overflow: hidden;
+    float: none;
 }
 
 .custom-inner {
@@ -209,17 +272,19 @@
 
 .custom-header h2 {
 	color: #495468;
-    font-family: 'Oswald';
-	font-weight: 400;
-	font-size: 18px;
-	margin-top: 10px;
+    font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 32px;
+    margin: 0;
+    padding: 0;
 }
 
 .custom-header h3 {
 	font-size: 12px;
 	font-weight: 400;
 	color: #ACACAC;
-    margin-top: -5px;
+    margin: 0;
+    padding: 0;
 }
 
 .custom-header nav span {
@@ -351,8 +416,8 @@
 .fc-calendar .fc-head {
     background: transparent;
     color: rgb(62, 129, 112);
-    font-weight: bold;
-    text-transform: uppercase;
+    font-family: 'Open Sans';
+    font-weight: 800;
     font-size: 12px;
 }
 
@@ -428,9 +493,8 @@
 }
 
 .help_block h1 {
-    font-family: 'Oswald';
-    font-weight: 400;
-    text-transform: uppercase;
+    font-family: 'Open Sans';
+    font-weight: 300;
 }
 
 .help_block p {
@@ -460,13 +524,6 @@
 /* -- Media query 2 (mq2)
 ------------------------------------------------------------- */
 @media only screen and (max-width: 48em) {
-    .upcoming-events {
-        height: 25%;
-    }
-
-    .event {
-        height: 75px;
-    }
 }
     
 /* -- Media query 3 (mq3)
@@ -486,19 +543,5 @@
 
     .fc-calendar .fc-row > div > span.fc-date {
         top: 25%;
-    }
-
-    .upcoming-events {
-        width: 100%;
-        margin-left: 5px;
-        height: 25%;
-    }
-
-    .upcoming-events > h1 {
-        margin-right: 1em;
-    }
-
-    .event {
-        height: 75px;
     }
 }

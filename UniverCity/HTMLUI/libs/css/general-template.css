@@ -339,3 +339,12 @@ a:hover, a:focus {
 .st-effect-1.st-menu::after {
 	display: none;	
 }
+
+.m-event-title {
+    font-family: 'Open Sans';
+    font-weight: 300;
+}
+
+.m-event-title small {
+    font-size: 14px;
+}
