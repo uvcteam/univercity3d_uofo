@@ -12,7 +12,7 @@ $(function () {
         event.stopPropagation();
         OpenMenu();
     });
-    $('li').click(function (event) {
+    $('nav li').click(function (event) {
         event.stopPropagation();
         if (this.getAttribute('destination') != 'internal') {
             GoToDestination(this.getAttribute('destination'));
