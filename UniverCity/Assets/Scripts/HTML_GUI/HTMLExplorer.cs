@@ -49,6 +49,7 @@ public class HTMLExplorer : MonoBehaviour
 		
 		if (Application.platform == RuntimePlatform.IPhonePlayer)
 			_view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
+		gameObject.GetComponent<CoherentUIView>().FlipY = true;
     }
 
     void OnViewReady(View view)
@@ -143,15 +144,15 @@ public class HTMLExplorer : MonoBehaviour
     public void OpenMenu()
     {
         _view.View.TriggerEvent("OpenMenu", _businessID);
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-            _view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
+        //if (Application.platform == RuntimePlatform.IPhonePlayer)
+            //_view.InputState = CoherentUIView.CoherentViewInputState.TakeAll;
         Debug.Log(_view.InputState.ToString());
     }
 
     public void MenuClosed()
     {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-            _view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
+        //if (Application.platform == RuntimePlatform.IPhonePlayer)
+            //_view.InputState = CoherentUIView.CoherentViewInputState.TakeNone;
     }
 
     public void OnCancelClicked()
