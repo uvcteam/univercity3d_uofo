@@ -37,11 +37,13 @@ engine.on('ClearBusinessList', function(){
 engine.on('AttachEventToBusinesses', function () {
     $(".business > button").click(function (ev) {
         ev.stopPropagation();
+        localStorage.setItem('busid', this.getAttribute('busid'));
         engine.call('LoadAdPlayer', this.getAttribute('busid'));
         engine.call('OnBusinessWasSelected');
     });
     $(".business > a").click(function (ev) {
         ev.stopPropagation();
+        localStorage.setItem('busid', this.getAttribute('busid'));
         engine.call('SetBusinessIDForCard', this.getAttribute('busid'));
         engine.call('OnBusinessWasSelected');
     });

@@ -115,7 +115,7 @@ public class HTMLVirtualMall : MonoBehaviour
         Debug.Log(businessid);
         _businessID = businessid;
          currentBusiness = _businessManager.businesses.Where(x => x.id.ToString() == _businessID).FirstOrDefault();
-        _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html?id=" + currentBusiness.id.ToString());       
+        _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html");       
     }
 
     public void LoadAdplayerOnStart(string businessId)
@@ -136,7 +136,7 @@ public class HTMLVirtualMall : MonoBehaviour
 		Debug.Log ("LoadAdPlayer");
         TrackUserAction(_businessID, currentBusiness.name, "start");
         _view.View.TriggerEvent("LoadAdPlayer", _businessID, serverURL,  
-        	GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token, currentBusiness.name);
+        	GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token);
     }
 
     void SetFlashDealID(int flashdealID)
