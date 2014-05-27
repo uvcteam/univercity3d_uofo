@@ -6,596 +6,603 @@ var urlToUse = "http://app2.univercity3d.com/univercity/";
 var userToken = "";
 var businessID = -1;
 var hasLiked = false;
-var businessIsSaved = false;
 var likeID;
+var URL = "http://app2.univercity3d.com/univercity/";
 
-$(document).ready(function () {
-    //console.log("Ready for Unity.");
+engine.call('LoadAdData');
 
-    var URL = "http://app2.univercity3d.com/univercity/getAd?b=";
-    //Parameter passing breaks iOS so comment out hen building to iOS
-    $.ajax({
-        url: URL + urlParam("id"),
-        success: function(adPlayerData){
-            PopulateAdPlayer(adPlayerData);
-            SetMegaDeal(adPlayerData.megadeal);
-            AttachEventToPages();
-            SetNarrator(mediaURL + adPlayerData.expert.id);
-            SetPage(0);
-            $('#turtle').hide();
-            $('#container').show();
+engine.on('LoadAdPlayer', function(id, URL, token, businessName) {
 
-    }});
-
-
-    engine.call('LoadAdData');
-});
-
-
-engine.on('LoadAdPlayer', function(id, URL, token){
-
-    urlToUse = URL;
+/*    URL = "http://app2.univercity3d.com/univercity/getAd?b=" + id;
     userToken = token;
     businessID = id;
-    objectToLike = URL + '/fbo?b=' + id;
-    mediaURL = URL + "admedia?id=";
-    URL += "getAd?b=";
+    console.log('LoadAdPlayer:' + token);*/
 
-    console.log(id);
-
-    $.ajax({
-        url: URL + id,
-        success: function(adPlayerData){
-            PopulateAdPlayer(adPlayerData);
-            SetMegaDeal(adPlayerData.megadeal);
-            AttachEventToPages();
-            SetNarrator(mediaURL + adPlayerData.expert.id);
-            SetPage(0);
-            engine.call("CheckIfBusinessIsLiked");
-
-            console.log(adPlayerData.background.type);
-
-            switch(adPlayerData.background.type)
-            {
-                case 'gradient':
-                    $('.st-content').css('background', 'linear-gradient(#' + adPlayerData.background.color + ',#' + adPlayerData.background.color2 + ')');
-                    break;
-
-                case 'solid':
-                    $('.st-content').css('background', '#' + adPlayerData.background.color);
-                    break;
-
-                case 'tile':
-                    $('.st-content').css('background-image', 'url("' + mediaURL + adPlayerData.background.image.id + '")');
-                    $('.st-content').css(' background-repeat', 'repeat-x');
-                    break;
-
-            }
-
-    }});
-
-
-    $.ajax({
-        url: urlToUse + "ListSaved?token=" + token,
-        success: function(result){
-
-            for(var i = 0; result.savedBusinesses && i < result.savedBusinesses.length; ++i)
-            {
-                if(result.savedBusinesses[i] == businessID)
-                {
-                    $('.fav-btn').html("Unsave");
-                    businessIsSaved = true;
-                    break;
-                }
-            }
-            $('#turtle').hide();
-            $('#container').show();
-
-        }
+    scope.$apply(function(){
+        scope.BusinessName = businessName;
     });
 
-    var touchStart = function(){
+});
 
-        var htmlAudio =  $('#htmlaudio' + $('.owl-page.active').index());
-        var htmlVideo =  $('#htmlvid' + $('.owl-page.active').index());
-
-        if(htmlAudio.length && htmlAudio[0].dataset.played === 'false')  {
-            htmlAudio[0].dataset.played = "true";
-            htmlAudio.get(0).load();
-            htmlAudio.get(0).play();
-        }
-
-        if(htmlVideo.length && htmlVideo[0].dataset.played === 'false') {
-            htmlVideo[0].dataset.played = "true";
-            htmlVideo.get(0).load();
-            htmlVideo.get(0).play();
-        }
-
-        document.removeEventListener('touchstart', touchStart);
-
-    }
-
-    document.addEventListener('touchstart', touchStart);
-
-
-
-
-})
-
-var PopulateAdPlayer = function(adPlayerData ) {
-
-    for (var i = 0; i < adPlayerData.pages.length; ++i) {
-
-        if (adPlayerData.pages[i].title !== "") {
-
-            if(adPlayerData.pages[i].expert === null) //if a page doesn't have an expert, default to the main one
-            {
-                adPlayerData.pages[i].expert = adPlayerData.expert.id;
+angular.module('AdPlayer', [])
+    .factory('AdPlayerData', function($http){
+        return {
+            get: function(id) {
+                 return $http.get("http://app2.univercity3d.com/univercity/getAd?b=" + id);
             }
+        };
+    })
+    .service('BusinessSaved', ['$http', function($http){
+        return {
+            get: function(token) {
+                console.log("Token "  + token);
+                return $http.get("http://app2.univercity3d.com/univercity/ListSaved?token=" + token);
+            }
+            
+        };
+    }])
+    .controller('AdPlayerController', function($scope, $http, AdPlayerData, BusinessSaved ){
+        window.scope = $scope;
+        $scope.mediaURL = "http://app2.univercity3d.com/univercity/admedia?id=";
 
-            if (adPlayerData.more){
+        $scope.landscape = (window.innerWidth > window.innerHeight) && isMobile.any() ? true : false;
 
-                AddPage(adPlayerData.pages[i], adPlayerData.more.pages[i], i);
+
+        $scope.portrait =  (window.innerHeight > window.innerWidth) || !isMobile.any() ? true : false;
+
+
+        if ($(window).height() > $(window).width() || !isMobile.any()) {
+
+            $('.orientation').removeClass('small-7');
+            $('.orientation').addClass('small-12 large-9');
+            $scope.orientation = 'portrait'
+        }
+        else {
+
+            $('.orientation').removeClass('small-12 large-9');
+            $('.orientation').addClass('small-7');
+            $scope.orientation = 'landscape';
+
+        }
+
+
+
+        $(window).on("orientationchange",function(event){
+                //location.reload();
+            
+            scope.$apply(function()
+            {
+               if ($(window).height() > $(window).width() ) {
+                    scope.landscape = false;
+                    scope.portrait = true;
+                    $('.orientation').removeClass('small-7');
+                    $('.orientation').addClass('small-12 large-9');
+                    scope.orientation = 'portrait';
+                }
+                else {
+                    scope.portrait = false;
+                    scope.landscape = true;
+                    $('.orientation').removeClass('small-12 large-9');
+                    $('.orientation').addClass('small-7');
+                    scope.orientation = 'landscape';
+                }
+            });
+         
+
+        });
+
+        $scope.SaveBusiness = function() {
+            var saveURL = ""
+            if (scope.BusinessSaved === true)
+            {
+                saveURL = "http://app2.univercity3d.com/univercity/UnsaveBusiness?token=" + userToken
+                    + "&id=" + businessID;
+
+                scope.AdFavorited = '';
+                console.log("UnSaving..")
+
+                scope.BusinessSaved = false;
+
+                engine.call("UnsaveBusiness", businessID);
             }
 
             else
-                AddPage(adPlayerData.pages[i], null, i);
-
-        }
-
-    }
-
-}
-var AddPage = function (adpage, detailsPage, index) {
-
-    var style = "";
-    var  pageItem = '<div class="page"><table class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '" data-expertimage="' + mediaURL + adpage.expert.id +'">';
-    var partType = "one";
-
-    if(adpage.parts[0].type !== "video")
-    {
-        switch (adpage.parts.length)
-        {
-            case 1 :
-                partType = "one";
-                break;
-            case  2:
-                partType = "two";
-                break;
-            case 3:
-                partType = "three";
-                break;
-            case 4:
-                partType = "four";
-                break;
-        }
-        pageItem += '<tr>';
-
-        if(adpage.audio)
-        {
-            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">'
-                + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
-                + '</audio>';
-        }
-
-
-        for (var i =0; i < adpage.parts.length; ++i){
-
-            if( adpage.parts.length == 4 && i == 2)
             {
-                pageItem += '</tr><tr>';
+                saveURL = "http://app2.univercity3d.com/univercity/SaveBusiness?token=" + userToken
+                    + "&id=" + businessID;
+
+                scope.AdFavorited = 'favorited';
+
+                scope.BusinessSaved = true;
+
+                engine.call("SaveBusiness", businessID);
             }
 
-            pageItem += '<td class="'+ partType +'">';
+            $http({
+                type: 'POST',
+                url: saveURL,
+                success: function(result) {
+                    console.log("Worked!~")
+                }
+            });  
+        } 
 
-            switch(adpage.parts[i].type)
-            {
-                case "image":
-                    pageItem += '<img src="' + mediaURL + adpage.parts[i].id + '"/>';
+
+        $scope.Init = function() {
+
+            userToken = localStorage.getItem('userToken');
+
+            businessID = urlParam("id");
+
+            AdPlayerData.get(businessID).then(function(result){
+                var data = result.data;
+                console.log(data)
+                for( var i = 0; i < data.pages.length; i++) {
+                    if(data.pages[i].title === "")
+                        data.pages.splice(i--,1);
+                }
+                $scope.AdPlayerData = data;
+            });
+            BusinessSaved.get(userToken).then(function(result) {
+                $scope.BusinessSaved = false;
+                var businesses = result.data;
+                for(var i = 0; i < businesses.savedBusinesses.length; ++i)
+                {
+                    console.log(businessID);
+                    if(businesses.savedBusinesses[i] == businessID)
+                    {
+                        $scope.BusinessSaved = true;
+                        $scope.AdFavorited = 'favorited';
+                        break;
+                    }
+                }
+            });
+        }
+
+
+
+    })
+    .directive('addVideo', function() {
+        return {
+            restrict: "A",
+            link: function(scope, element, attributes) {
+                element.html('<video src="' + attributes.addVideo + '" data-played="false" preload="none" controls class="htmlvid" ></video>');
+            }       
+        }
+    })
+    .directive('addAudio', function() {
+        return {
+            restrict: "A",
+            link: function(scope, element, attributes) {
+                element.html('<audio src="' +  attributes.addAudio + '" type="audio/ogg"></audio>');
+            }       
+        }
+    })
+    .directive('initiateRightMenu', function($timeout) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attributes) {
+
+                $timeout(function() {
+/*
+                    $(document).foundation({
+                          offcanvas : {
+                            open_method: 'move',
+                            close_on_click : true
+                          }
+                        });*/
+                })
+            }
+        }
+    })
+    .directive('initiateOrbitCarousel', function($timeout) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attributes) {
+
+                if(scope.$last) {
+
+                    $timeout(function() {
+
+                        element.parent().owlCarousel({
+                            items: 1,
+                            itemsMobile: [2000, 1],
+                            itemsTablet: [2000, 1],
+                            itemsScaleUp: true,
+                            responsive: true,
+                            responsiveRefreshRate: 200,
+                            pagination: false,
+                            afterInit: function() {
+                                $($('.slide-btn.bottom')[0]).addClass('active');
+                                $($('.slide-btn.side')[0]).addClass('active');
+                                $('.spinner-modal').css('display', 'none');
+                            },
+                            afterMove: function(){
+                                var currentSlide = $(".owl-carousel").data('owlCarousel').currentItem;
+
+                                $('.active').each(function()
+                                {
+                                    $(this).removeClass('active');
+                                });
+
+                                $($('.slide-btn.bottom')[currentSlide]).addClass('active');
+                                $($('.slide-btn.side')[currentSlide]).addClass('active');
+                             
+                                PlayVideoOnPage(currentSlide);
+
+                            }
+                        });
+
+                        //TODO put in own directive without error*/  
+                        $(document).foundation({
+                            offcanvas : {
+                                open_method: 'move',
+                                close_on_click : true
+                            }
+                        });
+
+                    })
+                };
+            }
+        }
+    })
+    .directive('initiateOrbitButtons', function($timeout) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attributes) {
+
+            var parts = angular.fromJson(attributes.initiateOrbitButtons);
+
+             switch (parts[0].type) {
+                    case "image":
+                        element.html('<img class="page-icon" src="' + mediaURL + parts[0].id + '"></img>');
                     break;
-                case "video":
-                    pageItem += '<div class="vzaar_media_player">'
-                        +'<video draggable="true" data-played="false" preload="metadata" controls class="htmlvid" id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[i].id +'&thumbnail=1'
-                        +'"preload="none" src="' + mediaURL + adpage.parts[i].id + '"></video>'
-                        +'</div>';
+
+                    case "video":
+                        element.html('<img class="page-icon" src="' + mediaURL + parts[0].id + '&thumbnail=1"></img>');
                     break;
-                case "text":
-                    pageItem += '<div>'
-                        + adpage.parts[i].text + '</div>';
+
+                    case "audio":
+                        element.html('<div add-audio="' + mediaURL + parts[0].id + '">');
                     break;
-                case "audio":
-                    pageItem += '<audio><srouce src="'+ + mediaURL + adpage.parts[i].id +'" type="audio/ogg"/></autio>';
+
+
+                    case "text":
+                        element.html('<div class="icon-text"><div>'+scope.AdPlayerData.pages[scope.$index].title+'</div></div>');
+                    break;
+                }
+
+
+
+
+            var height = rowHeight();
+            if(parts[0].type === "text")
+                height -= 6;
+            element.height(height);
+            element.width(height);
+            element.nailthumb();
+
+            element.click(function() {
+                var owl = $(".owl-carousel").data('owlCarousel');
+                owl.goTo(scope.$index);
+            })
+
+
+            if(scope.$last) {
+
+                $timeout(function() {
+
+                    if( element.parent().parent().hasClass('owl-carousel')) {
+
+                        element.parent().parent().owlCarousel({
+                            items: 5,
+                            itemsMobile: [479, 3],
+                            itemsTablet: [768, 3],
+                            itemsScaleUp: false,
+                            responsive: true,
+                            responsiveRefreshRate: 200,
+                            pagination: false
+                        });
+                    }
+
+
+                });
+                
+            }
+
+        }
+    }
+    })
+    .directive('initLikeButton', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attributes) {
+
+                var height = rowHeight();
+                element.css('line-height', height + 'px');
+                //element.css('width', height + 'px');
+            } 
+        }
+    })
+    .directive('initFlowtype', function(){
+        return {
+            restrict: "A",
+            link: function(scope, element, attributes) {
+                element.flowtype({
+                    minFont: 11,
+                    maxFont: 50,
+                    minimum : 300,
+                    maximum : 1200
+                })
+            }
+        }
+    })
+    .directive('singleImagePage', function() {
+        return {
+
+            restrict: "A",
+            link: function(scope, element, attributes) {
+
+                var parts = angular.fromJson(attributes.singleImagePage);
+
+                //var size = ResizeImage(parts[i].width, parts[i].height, window.innerWidth, window.innerHeight, 0.8);
+
+                switch (parts[0].type) {
+                    case "image":
+                        element.html('<img class="ad-page-img" src="' + mediaURL + parts[0].id + '"></img>');
+                    break;
+
+                    case "video":
+                        element.html('<video data-played="false" poster="' + mediaURL + parts[0].id  + '&thumbnail=1' + '"class="ad-page-img" controls preload="auto"><source type="audio/ogg; codecs=\'vorbis\'" src="' + mediaURL + parts[0].id + '&alt=yes' + '"></source></video>');
+                    break;
+
+                    case "audio":
+                        element.html('<div add-audio="' + mediaURL + parts[0].id + '">');
+                    break;
+
+
+                    case "text":
+                        element.html(parts[0].text);
+                    break;
+                }
+            }
+        }
+    })
+    .directive('doubleImagePage', function() {
+        return {
+
+            restrict: "A",
+            link: function(scope, element, attributes) {
+
+            var parts = angular.fromJson(attributes.doubleImagePage);
+
+            var html = '<div class="row">';
+
+            for( var i = 0; i < parts.length; ++i ) {
+
+                    var size = ResizeImage(parts[i].width, parts[i].height, window.innerWidth, window.innerHeight, 0.4);
+
+                    switch (parts[i].type) {
+                        case "image":
+                            //html = '<div class="col-xs-5" style="background-image: url(' + mediaURL + parts[i].id + '); background-position: center center; background-size: contain; background-repeat: no-repeat; width: ' + size.width + 'px; height: ' + size.height + 'px;"></div>';
+                            html += '<img class="col-xs-6 col-sm-6" src="' + mediaURL + parts[i].id + '"></img>';
+                        break;
+
+                        case "video":
+                            html += '<div class="col-xs-6 col-sm-6" add-video="' + mediaURL + parts[i].id + '">';
+                        break;
+
+                        case "audio":
+                            html += '<div class="col-xs-6 col-sm-6" add-audio="' + mediaURL + parts[i].id + '">';
+                        break;
+
+                        case "text":
+                            html += '<div class="col-xs-6 col-sm-6">' + parts[i].text + '</div>';
+                        break;
+                    }
+                }
+
+            html += '</div>';
+
+            element.append(html);
 
             }
 
-            pageItem += '</td>';
         }
-        pageItem += '</tr>';
+        
+    })
+    .directive('tripleImagePage', function() {
 
-        pageItem += '</table>';
+        return {
 
-    }
-    else //videos need to be in div to size properly.
-    {
-        pageItem = '<div class="page"><div class="adpage" data-title="' + adpage.title + '" data-details="' + adpage.more.title + '" data-narration="' + adpage.narrative + '" data-expertimage="' + mediaURL + adpage.expert.id +'">';
+            restrict: "A",
+            link: function(scope, element, attributes) {
 
-        if(adpage.audio)
-        {
-            pageItem += '<audio autoplay="true" preload="auto" id="htmlaudio'+ index +'"><source type="audio/mpeg; codecs=\'mp3\';" src="'+ mediaURL + adpage.audio.id +'">'
-                + '<source type="audio/ogg; codecs=\'vorbis\'" src="'+ mediaURL + adpage.audio.id + '&alt=yes' +'">'
-                + '</audio>';
-        }
+            var parts = angular.fromJson(attributes.tripleImagePage);
 
-        pageItem += '<div class="vzaar_media_player">'
-            +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.parts[0].id +'&thumbnail=1'
-            +'"preload="none" src="' + mediaURL + adpage.parts[0].id + '"></video>'
-            +'</div></div>';
-    }
+            var html = '<div class="row">';
 
+            for( var i = 0; i < parts.length; ++i ) {
 
+                    var size = ResizeImage(parts[i].width, parts[i].height, window.innerWidth, window.innerHeight, 0.33);
 
-    if(adpage.more.parts.length !== 0){
-        switch (adpage.more.parts.length)
-        {
-            case 1 :
-                partType = "one";
-                break;
-            case  2:
-                partType = "two";
-                break;
-            case 3:
-                partType = "three";
-                break;
-            case 4:
-                partType = "four";
-                break;
-        }
+                    switch (parts[i].type) {
+                        case "image":
+                            //html = '<div class="two" style="background-image: url(' + mediaURL + parts[i].id + '); background-position: center center; background-size: contain; background-repeat: no-repeat; width: ' + size.width + 'px; height: ' + size.height + 'px;"></div>';
 
-        pageItem += '<table class="details-page" data-title="' + adpage.more.title + '" data-details="' + adpage.title + '" data-narration="' + adpage.more.narrative + '">';
+                            //html += '<div class="col-xs-3" style="background-image: url(' + mediaURL + parts[i].id + '); background-position: center center; background-size: contain; background-repeat: no-repeat;></div>';
+                            html += '<img class="col-xs-4 col-md-4" src="' + mediaURL + parts[i].id + '"></img>';
 
-        pageItem += '<tr>';
+                        break;
 
-        for (var i = 0; i < adpage.more.parts.length; ++i)
-        {
-            if( adpage.more.parts.length == 4 && i == 2)
-            {
-                pageItem += '</tr><tr>';
+                        case "video":
+                            html += '<div class="col-xs-4 col-md-4" add-video="' + mediaURL + parts[i].id + '">';
+                        break;
+
+                        case "audio":
+                            html += '<div class="col-xs-4 col-md-4" add-audio="' + mediaURL + parts[i].id + '">';
+                        break;
+
+                        case "text":
+                            html += '<div class="col-xs-4 col-md-4">' + parts[i].text + '</div>';
+                        break;
+                    }
+                }
+
+            html += '</div>';
+            element.append(html);
+
             }
-
-            pageItem += '<td class="'+ partType +'">';
-            switch (adpage.more.parts[i].type)
-            {
-                case "image":
-                    pageItem += '<img src="' + mediaURL + adpage.more.parts[i].id + '"/></div>';
-                    break;
-                case "video":
-                    pageItem += '<div class="vzaar_media_player">'
-                        +'<video draggable="true" data-played="false" preload="metadata" controls id="htmlvid-details'+ index +'" onclick="this.play();" poster="'+ mediaURL + adpage.more.parts[i].id +'&thumbnail=1'
-                        +'"preload="none" src="' + mediaURL + adpage.more.parts[i].id + '"></video>'
-                        +'</div>';
-                    break;
-                case "text":
-                    pageItem += '<div>'
-                        + adpage.more.parts[i].text + '</div>';
-            }
-            pageItem += '</td>';
         }
+    })
+    .directive('quadrupleImagePage', function() {
 
-        pageItem += '</tr>';
+        return {
 
-        pageItem += '</table>';
+            restrict: "A",
+            link: function(scope, element, attributes) {
 
-    }
-    else //Ad an empty details page so ul item indexing gives the correct index.
-        pageItem += '<div style="display:none"  class="details-page"/>';
+            var parts = angular.fromJson(attributes.quadrupleImagePage);
 
-    document.getElementById('adpages').innerHTML += pageItem + '</div>';
-    $('.details-page').css('display', 'none');
-}
+            var html = '<div class="row">';
 
-var SetMegaDeal = function(megaDeal){
-    if (megaDeal){
-        $('.mega-btn').click(function (e) {
-            e.preventDefault();
-            $('#mega-deal').show();
-            $('#adpages').hide();
-            $('#details-btn').hide();
-            engine.call("TrackUserAction",businessID, "MegaDeal", "deal");
-        })
-        //$('.mega-btn')[0].css('background','radial-gradient(yellow, yellowgreen, limegreen)');
-        $('#title').text(megaDeal.title);
-        $('#description').append(megaDeal.description);
-        //$('#description').text(megaDeal.description);
-        $('#price').text('Deal Price: ' + megaDeal.price);
-        $('#list').text(megaDeal.list);
-        $('#end').text('Hurry! Deal Ends ' + megaDeal.end);
-    }
-    else {
-        $('.mega-btn').attr('disabled', 'disabled');
-        $('#mega-deal').html('<p>There is currently no Mega Deal</p>');
-        $('#mega-deal').css('margin-top', '20%');
-    }
-}
+            for( var i = 0; i < parts.length; ++i ) {
 
-var SetNarrator = function (imageURL) {
+                    var size = ResizeImage(parts[i].width, parts[i].height, window.innerWidth, window.innerHeight, 0.2);
 
-    $('#narrator-img').attr('src', imageURL);
+                    if(i % 2 === 0)
+                        html += '</div><div class="row">';
 
-}
+                    switch (parts[i].type) {
 
-var AttachEventToPages = function () {
+                        case "image":
+                            //html = '<div class="two" style="background-image: url(' + mediaURL + parts[i].id + '); background-position: center center; background-size: contain; background-repeat: no-repeat; width: ' + size.width + 'px; height: ' + size.height + 'px;"></div>';
 
+                             //html += '<div class="four" style="background-image: url(' + mediaURL + parts[i].id + '); background-position: center center; background-size: contain; background-repeat: no-repeat;></div>';
+                             html += '<img class="col-xs-5 col-sm-5" src="' + mediaURL + parts[i].id + '"></img>';
+                        break;
+                        case "video":
+                            html += '<div class="col-xs-5 col-sm-5" add-video="' + mediaURL + parts[i].id + '">';
+                        break;
 
-    var listItemIndex = 0;
+                        case "audio":
+                            html += '<div class="col-xs-5 col-sm-5" add-audio="' + mediaURL + parts[i].id + '">';
+                        break;
 
-    $('.owl-carousel').owlCarousel({
-        navigation : true, // Show next and prev buttons
-        slideSpeed : 300,
-        paginationSpeed : 400,
-        singleItem: true,
-        navigation: false,
-        afterMove: function(){
-            $('.owl-page.active').trigger('click');
+                        case "text":
+                            html += '<div class="col-xs-5 col-sm-5">' + parts[i].text + '</div>';
+                        break;
+                    }
+                }
+
+            html += '</div>';
+
+            element.append(html);
+
+            }
+        }
+    })
+    .directive('slide-button', function() {
+
+    })
+    .directive('autoMargin', function() {
+        return {
+            restrict: "C",
+            link: function (scope, element, attrs) {
+                element.css('margin-top', (  ( 100 - (element.height() / $('#adpages').height()) * 100) / 4 ) + '%');
+
+                console.log(element.css('margin-top'));            
+
+            }
+        }
+    })
+    .filter('filterEmptyPages', function(){
+        return function(page){
+            console.log(page);
+            return page.title.length > 0 ? 'true' : 'false';
         }
     });
 
-
-    $('.owl-page').bind('click', function (e) {
-
-        var htmlVideo = $('#htmlvid'+listItemIndex);
-        var htmlAudio = $('#htmlaudio'+listItemIndex);
-
-        if (htmlVideo.length)
-            htmlVideo.get(0).pause();
-
-        if(htmlAudio.length) {
-            htmlAudio.get(0).pause();
-        }
-
-        if ($('#htmlvid-details'+listItemIndex).length)
-            $('#htmlvid-details'+listItemIndex).get(0).pause();
-
-        $($('.details-page')[listItemIndex]).hide();
-
-        $($('.adpage')[listItemIndex]).show();
-
-        listItemIndex = $('.owl-page.active').index();
-
-        htmlVideo = $('#htmlvid'+listItemIndex);
-        htmlAudio = $('#htmlaudio'+listItemIndex);
-
-        var narration = $('.adpage')[listItemIndex].dataset.narration;
-
-        $('#narrator-text').text(narration);
-
-        SetPage(listItemIndex);
-
-        SetNarrator($('.adpage')[listItemIndex].dataset.expertimage);
-
-
-        if(htmlAudio.length && htmlAudio[0].dataset.played === "false") {
-            htmlAudio[0].dataset.played = "true";
-            htmlAudio.get(0).load();
-            htmlAudio.get(0).play();
-        }
-
-        if (htmlVideo.length && htmlVideo[0].dataset.played === "false") {
-            htmlVideo[0].dataset.played = "true";
-            htmlVideo.get(0).load();
-            htmlVideo.get(0).play();
-        }
-
-        engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "click");
-
-
-    });
-
-    $('#details-btn').click(function () {
-
-        var adpage = $('.adpage')[listItemIndex];
-        var pageDetails = $('.details-page')[listItemIndex];
-        $(adpage).toggle();
-        $(pageDetails).toggle();
-
-        SetPage(listItemIndex);
-
-        if ($('#htmlvid-details'+listItemIndex).length && $('#htmlvid'+listItemIndex)[0].dataset.played === "false") {
-            $('#htmlvid-details'+listItemIndex)[0].dataset.played = "true";
-            $('#htmlvid-details'+listItemIndex).get(0).play();
-        }
-        else if($('#htmlvid-details'+listItemIndex).length)
-            $('#htmlvid-details'+listItemIndex).get(0).pause();
-
-    })
-
-    $('#side-btns button:first').tab('show');
-
-    if($('#htmlvid0').length){
-        $('#htmlvid0').get(0).addEventListener('canplay',function(){
-            $('#htmlvid0')[0].dataset.played = "true";
-            $('#htmlvid0').get(0).play();
-        });
-    }
-
-    $('.st-content').css('transform', 'rotate(360deg)');
-
-
-    $("video").bind("ended", function() {
-        engine.call("TrackUserAction",businessID, $('.owl-page.active').text(), "media");
+    angular.element(document).ready(function() {
+        shouldChangeMenu = false;
+        HideMenu();
     });
 
 
-    $('#home').click(function(){
-        $('#home').css('color', 'black');
-    })
+var ResizeImage = function(width, height, cWidth, cHeight, ratioRed) {
+    if ( cHeight > cWidth ) {
+        var temp = cHeight;
+        cHeight = cWidth;
+        cWidth = temp;
+    }
+    var finalWidth = 0, finalHeight = 0;
 
+    if ( width > height ) {
+        var ratio = height / width;
+        finalWidth = cWidth * ratioRed;
+        finalHeight = cHeight * ratioRed * ratio;
+    } else {
+        var ratio = width / height;
+        finalWidth = cWidth * ratioRed * ratio;
+        finalHeight = cHeight * ratioRed;
+    }
 
-
-    $('.owl-page').each(function(i){
-        $(this).append($('.adpage')[i].dataset.title);
-    })
-
+    return { width: Math.floor(finalWidth), height: Math.floor(finalHeight) };
 }
 
-var HideSpeechBubble = function () {
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
 
-    var narrator = $('#narrator-bubble');
-    var htmlAudio =  $('#htmlaudio' + $('.owl-page.active').index());
+var rowHeight = function() {
+    var screen = $(window);
 
-    if (narrator.css('visibility') === 'hidden') {
+    var adpageHeight = 0;
 
-        if(htmlAudio.length)
-            htmlAudio.get(0).play();
+    if(screen.height() > screen.width()) {
 
-        narrator.css('visibility', 'visible');
+        adpageHeight = screen.height() * 0.80;
+        return $(window).height() - adpageHeight - $('.tab-bar').height() - 20;
     }
     else {
 
-        if(htmlAudio.length)
-            htmlAudio.get(0).pause();
-
-        narrator.css('visibility', 'hidden')
+        adpageHeight = screen.width() * 0.80;
+        return screen.width()  - adpageHeight - $('.tab-bar').height() - 20;
     }
-
 }
 
-var SetPage = function (index) {
-    var adpage = $('.adpage')[index];
-    var pageDetails = $('.details-page')[index];
 
+var PlayVideoOnPage = function(pageIndex) {
+    var videos = $('video');
 
-    var narration;
-    var details;
+    videos.each(function(){
+        this.pause();
+    });
 
-    if(!adpage)
-        return;
-
-    if($(adpage).css('display') === 'none'){
-        narration = pageDetails.dataset.narration;
-        details = pageDetails.dataset.details;
+    if(videos.length && videos[pageIndex].dataset.played === "false") {
+        videos[pageIndex].dataset.played = "true";
+        videos[pageIndex].play();
     }
-    else{
-        narration = adpage.dataset.narration;
-        details = adpage.dataset.details;
-    }
-
-    if (narration === "")
-        $('#narrator-bubble').hide();
-    $('#narrator-text').text(narration);
-
-    if (details === "")
-        $('#details-btn').css('visibility', 'hidden');
-    else {
-        $('#details-btn').css('visibility', 'visible');
-        $('#details-text').text(details);
-    }
-
-
 }
-
-engine.on('ChangeToExplorerStyle', function(){
-    document.getElementById('adplayer-style').setAttribute('href', 'styles/explorer-adplayer.css');
-    document.getElementById('style').setAttribute('href', '../Explorer/styles/style.css');
-
-})
-
 
 var goBack = function(){
     window.history.back();
     engine.call('OnAdPlayerWasClosed');
-}
-
-$('#side-btns').children('li').each(function(){
-/*
-    $('.deal-btn').click(function(){
-        console.log("deal");
-        $('.selected').removeClass('selected');
-        $(this).addClass('selected');
-    });*/
-
-    $(this).children('button').click(function(){
-        $(this).addClass('selected');
-    })
-
-});
-
-$('.deal-btn').click(function(){
-    $('.deal-btn').removeClass('selected');
-    $(this).addClass('selected');
-});
-
-$('.done-btn').click(function(){
-    $('#adpages').show();
-    $('#details-btn').show();
-    $('#mega-deal').hide();
-    $('.deal-btn').removeClass('selected');
-});
-
-function postLike() {
-    if (!hasLiked)
-    {
-        $('.facebook').attr("style", "color:red");
-        engine.call("FacebookLike", objectToLike);
-        //alert("Liked");
-    }
-
-    else
-    {
-        $('.facebook').attr("style", "color:white");
-        engine.call("FacebookUnLike", likeID);
-        //alert("Unliked");
-    }
-
-}
-
-engine.on("CheckIfLiked", function(likes) {
-    //alert(objectToLike);
-    var response = jQuery.parseJSON(likes);
-    var id;
-    for ( var i = 0; i < response.data.length; ++i)
-    {
-
-        id  = response.data[i].data.object.url.split("=")[1];
-        if( id === businessID )
-        {
-            hasLiked = true;
-            likeID = response.data[i].id;
-            $('.facebook').attr("style", "color:red");
-        }
-    }
-})
-
-function SaveBusiness()
-{
-    var saveURL = ""
-    if (businessIsSaved === true)
-    {
-        saveURL = urlToUse + "UnsaveBusiness?token=" + userToken
-            + "&id=" + businessID;
-        engine.call("UnsaveBusiness", businessID);
-    }
-
-    else
-    {
-        saveURL = urlToUse + "SaveBusiness?token=" + userToken
-            + "&id=" + businessID;
-        engine.call("SaveBusiness", businessID);
-    }
-
-    $.ajax({
-        type: 'POST',
-        url: saveURL,
-        success: function(result){
-        }
-    });
-}
-
-function PurchaseMegaDeal()
-{
-   var  purchaseURL = urlToUse + "mdpurchase?b=" + businessID
-        + "&token=" + userToken;
-
-    //$('#mega-deal').load(purchaseURL);
-
-    location.href = purchaseURL;
 }

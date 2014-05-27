@@ -98,8 +98,9 @@ public class HTMLVirtualMall : MonoBehaviour
             {
                 foreach (Business business in _businessManager.businessesByCategory[mallCat])
                 {
+					Debug.Log (business.discountName);
                     _view.View.TriggerEvent("PopulateCategory", business.name, business.desc, business.id, 
-                        Convert.ToBase64String(business.logo.EncodeToPNG()), i, business.hasAd);
+					                        Convert.ToBase64String(business.logo.EncodeToPNG()), i, business.hasAd, business.discountName);
                 }
             }
             else
@@ -114,7 +115,7 @@ public class HTMLVirtualMall : MonoBehaviour
         Debug.Log(businessid);
         _businessID = businessid;
          currentBusiness = _businessManager.businesses.Where(x => x.id.ToString() == _businessID).FirstOrDefault();
-        _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html");       
+        _view.View.Load("coui://HTMLUI/VirtualMall/adplayer.html?id=" + currentBusiness.id.ToString());       
     }
 
     public void LoadAdplayerOnStart(string businessId)
@@ -132,9 +133,10 @@ public class HTMLVirtualMall : MonoBehaviour
 
     void LoadAdData()
     {
+		Debug.Log ("LoadAdPlayer");
         TrackUserAction(_businessID, currentBusiness.name, "start");
         _view.View.TriggerEvent("LoadAdPlayer", _businessID, serverURL,  
-            GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token);
+        	GameObject.FindGameObjectWithTag("UserManager").GetComponent<UserManager>().CurrentUser.Token, currentBusiness.name);
     }
 
     void SetFlashDealID(int flashdealID)

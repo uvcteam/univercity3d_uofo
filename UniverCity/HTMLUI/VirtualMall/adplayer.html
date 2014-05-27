@@ -1,116 +1,167 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app="AdPlayer">
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
     <meta http-equiv="content-type" content="text/html">
     <title>Virtual Mall Main</title>
-    <link href="../libs/css/bootstrap.css" media="screen" rel="stylesheet" />
+    <link href="../libs/css/foundation.css" media="screen" rel="stylesheet" />
     <link href="../libs/css/general-template.css" media="screen" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
-    <link href="styles/virtualmallmain.css" media="screen" rel="stylesheet" />
-    <link id="style" href="styles/style.css" media="screen" rel="stylesheet" />
-    <link href="styles/video-js.css" rel="stylesheet" type="text/css">
-    <link id="adplayer-style" href="styles/adplayer.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles/adplayer.css" />
     <link href="../libs/owl-carousel/owl.carousel.css" media="screen" rel="stylesheet" />
     <link href="../libs/owl-carousel/owl.theme.css" media="screen" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="nailthumb/jquery.nailthumb.1.1.css">
+        <link href="styles/virtualmallmain.css" media="screen" rel="stylesheet" />
+    <link href="../libs/css/spinner.css" rel="stylesheet"/>
+    <!--<script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>-->
     <script src="../libs/js/jquery-1.10.0.js"></script>
-    <script src="../libs/js/bugsense.js"></script>
-    <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
+    
 
 </head>
-<body>
-<div id="fb-root"></div>
-<script type="text/javascript">
-    // You probably don't want to use globals, but this is just example code
-    var fbAppId = '178630832342722';
+<body ng-controller="AdPlayerController" ng-init="Init()">
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+    // You probably don't want to use globals, but this is just example codes
+        var fbAppId = '178630832342722';
 
-</script>
-    <div id="st-container" class="st-container coui-inputcallback">
-        <nav class="st-menu st-effect-1" id="menu-1">
-            <h2><i class="icon-cart"></i>&nbsp;Virtual Mall</h2>
-            <ul>
+    </script>
+  <div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar hide-for-medium-up virtualmall-color-theme">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+          <div>
+            <a class="left back-btn" onclick="goBack()"><i class="fa fa-arrow-left"></i></a>
+            <h1 class="title" ng-cloak class="ng-cloak">{{BusinessName}}</h1>
+          </div>
+          </section>
+        </nav>
+
+        <nav class="top-bar show-for-medium-up virtualmall-color-theme" data-topbar>
+         <a class="left back-btn" onclick="goBack()"><i class="fa fa-arrow-left"></i></a>
+          <ul class="title-area">
+            <li class="name">
+            <div>
+              <h1><a ng-cloak class="ng-cloak" href="#">{{BusinessName}}</a></h1>
+            </div>
+            </li>
+          </ul>
+
+          <section class="top-bar-section virtualmall-color-theme">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="has-dropdown virtualmall-color-theme">
+                <a class="virtualmall-color-theme" href="#">Other Places</a>
+                <ul class="dropdown ">
+                    <li destination="memory_bank"><a href="#">Personal Vault</a></li>
+                    <li destination="union_hall"><a href="#">Union Hall</a></li>
+                    <li destination="explorer"><a href="#">Explorer</a></li>
+                    <li destination="arcade"><a href="#">Arcade</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu virtualmall-color-theme">
+          <h2><i class="icon-cart"></i>&nbsp;Ad Player</h2>
+          <ul class="off-canvas-list">
                 <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
                 <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;Personal Vault</a></li>
                 <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
                 <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
             </ul>
-        </nav>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Sorry!</h4>
-                    </div>
-                    <div class="modal-body">
-                        No discount is being offered at this time.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div><!-- content push wrapper -->
-        <div class="st-pusher coui-inputcallback">
-            <div class="st-content coui-inputcallback">
-                <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
-                <button type="button" class="back_button" onclick="goBack()"><i class="fa fa-arrow-left"></i></button>
-                <div id="turtle" style="text-align: center">
-                    <img src="images/turtle.png">
-                </div>
-                <div id="container" class="coui-inputcallback">
-                    <div class="tab-content">
-                        <ul id="side-btns">
-                            <li><button style="display:none" class="home-btn" href="#cbp-fwslider" data-toggle="tab">Home</button></li>
-                            <li><button class="fav-btn" onclick="SaveBusiness()">Save to<br/><span class="fa fa-star"><br/>Notifications</span></button></li>
-                            <li><button disabled class="members-btn deal-btn" href="#members-only" data-toggle="modal" data-target="#myModal" onclick="buttonSelected()">Members Only</button></li>
-                            <li><button class="facebook" onclick="postLike();"><img src="images/Facebook_like_thumb_sml_2.png"/></button></li>
-                            <button id="details-btn" class="details-btn"><p id="details-text">See Details</p></button>
-                        </ul>
-                        <div id="adpages" class="owl-carousel fade">
+          </ul>
+        </aside>
 
-                        </div>
-                        <div id="mega-deal" class="fade">
-                            <p id="title"></p>
-                            <p id="description"></p>
-                            <p id="price"></p>
-                            <p id="list"></p>
-                            <p id="end"></p>
-                            <p id="disclaimer">
-                                Mega Deals can only be purchased through the Univercity system.
-                                This Mega Deal is not available in store elsewhere.
-                            </p>
-                            <button id="mega-deal-btn" type="button" onclick="PurchaseMegaDeal()" class="btn btn-success" >Purchase</button>
-                            <div>
-                                <button class="done-btn btn">Done</button>
-                            </div>
-                        </div>
-                        <div id="members-only" class="tab-pane fade">
-                            There is currently no Member's Only Deal
+        <section class="main-section">
+                <div class="spinner-modal">
+                    <ul class="spinner">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                 </div>
+                <div class="row">
+                 <div ng-show="landscape" class="small-5 columns slide-buttons-landscape">
+                        <div class="row">
+                            <ul class="small-block-grid-2 medium-block-grid-2 large-block-grid-2">
+                                <li ng-repeat="page in AdPlayerData.pages">
+                                    <a data-orbit-link="slide-{{$index}}">
+                                        <div class="slide-btn side" initiate-orbit-buttons="{{ page.parts }}"></div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div id="narrator-bubble" class="bubble"><p id="narrator-text"></p></div>
-                    <button id="narrator" onclick="HideSpeechBubble()">
-                        <img id="narrator-img" src="" />
-                    </button>
+                     <a ng-show="landscape" ng-click="SaveBusiness()"><i ng-class="AdFavorited" class="favorite-landscape fa fa-heart fa-2x"></i></a>  
+                    <div class="small-12 large-9 columns orientation">
+                        <div>
+                            <ul class="ad-pages owl-carousel" ng-class="orientation">
+                                <li class="ad-page" ng-class="orientation" ng-repeat="page in AdPlayerData.pages" data-title="{{ page.title }}" data-orbit-slide="slide-{{$index}}" initiate-orbit-carousel>                                   
+                                    <div ng-show="page.audio" add-audio="{{mediaURL}}{{page.audio.id}}">
+                                    </div>
+                                    <div ng-show="page.parts.length" single-image-page="{{ page.parts }}" >
+                                    </div>
+                                    <a ng-show="page.more.parts.length" data-reveal-id="details{{$index}}">
+                                        <img  class="details-icon" src="images/paper-clip.svg" alt="">                                        
+                                    </a>
+                                    <div id="details{{$parent.$index}}" class="reveal-modal full" ng-repeat="part in page.more.parts" data-reveal>
+                                        <h1>{{ page.more.title }}</h1>
+                                         <img ng-show="part.type == 'image'" ng-src="{{mediaURL}}{{ part.id }}" alt="">
+                                         {{part.text}}
+                                         <a href="#" onclick="$('.reveal-modal').foundation('reveal', 'close');" class="button disabled modal-close-button">Close</a>
+                                    </div>
+                                    <div class="narrator-row">
+                                        <div class="small-4 columns">
+                                            <img ng-src="{{mediaURL}}{{page.expert.id}}" class="narrator-img">
+                                        </div>
+                                        <div ng-show="{{page}}" class="small-8 columns page-text" init-flowtype> 
+                                            {{page.narrative}}                      
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="row slide-buttons" >
+                    <div class="small-9 columns">
+                        <div class="row owl-carousel">
+                            <a ng-repeat="page in AdPlayerData.pages" data-orbit-link="slide-{{$index}}">
+                                <div  class="slide-btn bottom" initiate-orbit-buttons="{{ page.parts }}">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="small-3 column like-button" init-like-button>
+                        <a ng-show="portrait" ng-click="SaveBusiness()"><i class="favorite fa fa-heart fa-2x" ng-class="AdFavorited"></i></a>
+                    </div>
+                </div>
+            </section>
+            <a class="exit-off-canvas" initiate-right-menu ></a>
         </div>
     </div>
 <div id="result"></div>
     <script src="../libs/js/coherent.js"></script>
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
-    <script src="../libs/js/jquery-ui.min.js"></script>
     <script src="../libs/js/classie.js"></script>
     <script src="../libs/js/menumanager.js"></script>
-    <script src="../libs/js/bootstrap.min.js"></script>
-    <script src="js/jquery.cbpFWSlider.min.js"></script>
-    <script src="../libs/owl-carousel/owl.carousel.js"></script>
+    <script src="../libs/js/bugsense.js"></script>
+    <script src="js/flowtype.js"></script>
+    <script src="../libs/js/foundation.min.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/angular-resource.js"></script>
+    <script type="text/javascript" src="js/angular-route.js"></script>
+    <script type="text/javascript" src="js/angular-touch.js"></script>
     <script src="js/adplayer.js"></script>
-    <script type="text/javascript">
-        shouldChangeMenu = false;
-        HideMenu();
-    </script>
+    <script src="../libs/owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/flowtype.js"></script>
+    <script type="text/javascript" src="nailthumb/jquery.nailthumb.1.1.js"></script>
 </body>
 </html>

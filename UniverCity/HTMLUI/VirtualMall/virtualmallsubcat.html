@@ -10,8 +10,9 @@
     <link href="../libs/owl-carousel/owl.theme.css" media="screen" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.0.3/css/font-awesome.min.css" />
     <link href="styles/adscroll.css" media="screen" rel="stylesheet" />
-    <link href="styles/virtualmallmain.css" media="screen" rel="stylesheet" />
     <link href="styles/style.css" media="screen" rel="stylesheet" />
+    <link href="../libs/css/foundation.css" media="screen" rel="stylesheet">
+    <link href="styles/virtualmallmain.css" media="screen" rel="stylesheet" />
     <script src="../libs/js/jquery-1.10.0.js"></script>
     <script src="../libs/js/bugsense.js"></script>
     <script>var bugsense = new Bugsense( { apiKey: "60c926e6" } );</script>
@@ -19,27 +20,82 @@
     <!-- main JS libs -->
 </head>
 <body>
-    <div id="st-container" class="st-container">
-        <nav class="st-menu st-effect-1" id="menu-1">
-            <h2><i class="icon-cart"></i>&nbsp;Virtual Mall</h2>
-            <ul>
+<div class="off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar hide-for-medium-up virtualmall-color-theme">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+          </section>
+          <section class="middle tab-bar-section">
+          <div>
+            <a class="left back-btn" onclick="goBack()"><i class="fa fa-arrow-left"></i></a>
+            <h1 class="title">Virtual Mall</h1>
+          </div>
+          </section>
+        </nav>
+
+        <nav class="top-bar show-for-medium-up virtualmall-color-theme" data-topbar>
+         <a class="left back-btn" onclick="goBack()"><i class="fa fa-arrow-left"></i></a>
+          <ul class="title-area">
+            <li class="name">
+            <div>
+              <h1><a href="#"><i class="icon-cart"></i>&nbsp;Virtual Mall</a></h1>
+            </div>
+            </li>
+          </ul>
+
+          <section class="top-bar-section virtualmall-color-theme">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li class="has-dropdown virtualmall-color-theme">
+                <a class="virtualmall-color-theme" href="#">Other Places</a>
+                <ul class="dropdown ">
+                    <li destination="memory_bank"><a href="#">Personal Vault</a></li>
+                    <li destination="union_hall"><a href="#">Union Hall</a></li>
+                    <li destination="explorer"><a href="#">Explorer</a></li>
+                    <li destination="arcade"><a href="#">Arcade</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu virtualmall-color-theme">
+          <ul class="off-canvas-list">
+          <li class="virtualmall-color-theme-dark"><label><i class="icon-cart"></i>&nbsp;Virtual Mall</label></li>
                 <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
                 <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;Personal Vault</a></li>
                 <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
                 <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
             </ul>
-        </nav>            <!-- content push wrapper -->
-        <div class="st-pusher">
-            <div class="st-content">
-                <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
-                <button type="button" class="back_button" onclick="window.location.href='virtualmall.html'"><i class="fa fa-arrow-left"></i></button>
-                <div class="owl-carousel flash-carousel">
-                </div>
-                <div id="container">
-                </div>
-            </div>
-        </div>
-    </div>
+          </ul>
+        </aside>
+
+        <section class="main-section">
+         <div id="container">
+         </div>
+        </section>
+</div>
+   <!--  <div id="st-container" class="st-container">
+       <nav class="st-menu st-effect-1" id="menu-1">
+           <h2><i class="icon-cart"></i>&nbsp;Virtual Mall</h2>
+           <ul>
+               <li destination="union_hall"><a class="icon-bubbles" href="#">&nbsp;Union Hall</a></li>
+               <li destination="memory_bank"><a class="icon-books" href="#">&nbsp;Personal Vault</a></li>
+               <li destination="explorer"><a class="icon-compass" href="#">&nbsp;Explorer</a></li>
+               <li destination="arcade"><a class="icon-pacman" href="#">&nbsp;Arcade</a></li>
+           </ul>
+       </nav>            content push wrapper
+       <div class="st-pusher">
+           <div class="st-content">
+               <button type="button" id="menu_btn"><i class="fa fa-bars"></i></button>
+               <button type="button" class="back_button" onclick="window.location.href='virtualmall.html'"><i class="fa fa-arrow-left"></i></button>
+               <div class="owl-carousel flash-carousel">
+               </div>
+              
+           </div>
+       </div>
+   </div> -->
     <script src="../libs/js/coherent.js"></script>
     <script src="../libs/js/modernizr-2.6.2.min.js"></script>
     <script src="../libs/js/jquery-ui.min.js"></script>
@@ -48,5 +104,9 @@
     <script src="../libs/js/jquery.scrollbox.js"></script>
     <script src="../libs/owl-carousel/owl.carousel.js"></script>
     <script src="js/virtualmallsubcat.js"></script>
+    <script src="../libs/js/foundation.min.js"></script>
+    <script type="text/javascript">
+        $(document).foundation();
+    </script>
 </body>
 </html>

@@ -1,197 +1,305 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
+/* line 4, ../scss/virtualmallmain.scss */
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  background-color: #EEE;
+}
 
-body { font-family: "Open Sans"; font-weight: 400; background-color: #EEE; }
+.virtualmall-color-theme {
+  background: #66937c !important;
+  color: white !important;
+}
+.virtualmall-color-theme-dark {
+  background: #4D7A63 !important;
+  color: white !important;
+}
 
+.left-small {
+    border-right-color: #4D7A63;
+}
+
+.right-small {
+    border-left-color: #4D7A63 ;
+}
+
+.fa-arrow-left {
+  color: white;
+}
+.back-btn {
+  width: 45px;
+  text-align: center;
+}
+
+/* line 6, ../scss/virtualmallmain.scss */
 .flash-deal {
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-    width: 250px;
-    margin: 10px auto 10px auto;
-    background: #FFF;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  width: 250px;
+  margin: 10px auto 10px auto;
+  background: #FFF;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-.flash-deal i, h1 {
-    display: inline-block;
-    text-transform: uppercase;
+/* line 17, ../scss/virtualmallmain.scss */
+.flash-deal i h1 {
+  display: inline-block;
+  text-transform: uppercase;
 }
 
+/* line 22, ../scss/virtualmallmain.scss */
 .flash-deal h1 {
-    font-family: 'Oswald';
-    font-size: 2em;
+  font-family: 'Oswald';
+  font-size: 2em;
 }
 
+/* line 27, ../scss/virtualmallmain.scss */
 .flash-deal i {
-    font-size: 1.9em;
+  font-size: 1.9em;
 }
 
+/* line 31, ../scss/virtualmallmain.scss */
 .flash-deal:before {
-    top: 50%;
-    bottom: 0;
-    left: 10px;
-    right: 10px;
-    border-radius: 100px / 10px;
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  top: 50%;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  border-radius: 100px / 10px;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
+/* line 41, ../scss/virtualmallmain.scss */
 .category ul {
-    overflow: hidden;
-    overflow-x: scroll;
-    width: 100%;
-    height: 150px;
-    white-space: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 100%;
+  height: 150px;
+  white-space: nowrap;
 }
 
+/* line 49, ../scss/virtualmallmain.scss */
 .category ul li {
-    display: inline-block;
-    width: 200px;
-    height: 150px;
+  display: inline-block;
+  width: 200px;
+  height: 150px;
 }
 
+/* line 55, ../scss/virtualmallmain.scss */
 .category {
-    border-bottom: 2px solid rgb(102, 147, 124);
-    color: #000;
-    padding: 10px;
-    background-color:white;
-    width: 100%;
+  border-bottom: 2px solid #66937c;
+  color: #000;
+  padding: 10px;
+  background-color: white;
+  width: 100%;
+  height: 275px;
 }
 
+/* line 63, ../scss/virtualmallmain.scss */
 .category h4 {
-    font-family: "Oswald";
-    font-weight: 400;
-    text-transform: uppercase;
+  font-family: "Oswald";
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
+/* line 69, ../scss/virtualmallmain.scss */
 .category p {
-    font-family: "Open Sans";
-    font-weight: 400;
-    width: 100%;
+  font-family: "Open Sans";
+  font-weight: 400;
+  width: 100%;
 }
 
+/* line 75, ../scss/virtualmallmain.scss */
 .sub-category {
-    text-align: center;
-    display: inline-block;
-    width: 200px;
-    margin-bottom: 20px;
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+  margin-bottom: 20px;
 }
 
+/* line 82, ../scss/virtualmallmain.scss */
 .sub-category:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
+/* line 86, ../scss/virtualmallmain.scss */
 .sub-category img {
-    border-radius: 15px;
-    width: 128px;
-    height: 128px;
+  border-radius: 15px;
+  width: 128px;
+  height: 128px;
 }
 
+/* line 92, ../scss/virtualmallmain.scss */
 .sub-category figcaption {
-    font-size: 1.2em;
-    line-height: 1em;
-    padding-top: 0.5em;
+  font-size: 1em;
+  line-height: 1em;
+  padding-top: 0.5em;
 }
 
+/* line 98, ../scss/virtualmallmain.scss */
 .business {
-    text-align: center;
-    display: inline-block;
-    width: 250px;
-    margin: 10px auto 10px auto;
+  text-align: center;
+  display: inline-block;
+  width: 250px;
+  margin: 10px auto 10px auto;
 }
 
+/* line 105, ../scss/virtualmallmain.scss */
 .business:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
+/* line 109, ../scss/virtualmallmain.scss */
 .business figure {
-    margin: 0 0 10px 0;
-    overflow: hidden;
+  margin: 0 0 10px 0;
+  overflow: hidden;
 }
 
+/* line 114, ../scss/virtualmallmain.scss */
 .business img {
-    width: 90px;
-    height: 90px;
-    float: left;
+  width: 90px;
+  height: 90px;
+  float: left;
 }
 
+/* line 120, ../scss/virtualmallmain.scss */
 figure p {
-    height: 130px;
-    text-overflow: ellipsis;
-    padding-bottom: 10px;
+  height: 130px;
+  text-overflow: ellipsis;
+  padding-bottom: 10px;
 }
 
+/* line 126, ../scss/virtualmallmain.scss */
 .business header {
-    font-family: "Oswald";
-    font-weight: 400;
-    text-transform: uppercase;
-    text-align:left;
-    color: rgb(102, 147, 124);
+  font-family: "Oswald";
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: left;
+  color: #66937c;
 }
 
+/* line 134, ../scss/virtualmallmain.scss */
 .business figcaption {
-    color: #000;
-    padding-left: 1em;
-    padding-right: 1em;
-    text-align: left;
-    height: 7em;
-    text-wrap: normal;
-    text-overflow: ellipsis;
+  color: #000;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: left;
+  height: 7em;
+  text-wrap: normal;
+  text-overflow: ellipsis;
 }
+
+/* line 143, ../scss/virtualmallmain.scss */
 .business a {
-    color: rgb(102, 147, 124);
-    margin-left: auto;
-    margin-right: auto;
-    width: 100px;
-    display: block;
+  color: #66937c;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  display: block;
 }
-.btn-see-more{
-    background-color: rgb(102, 147, 124);
-    border-color: rgb(102, 147, 124);
-    color: white;
-    float: left;
+
+/* line 150, ../scss/virtualmallmain.scss */
+.btn-see-more {
+  background-color: #66937c;
+  border-color: #66937c;
+  color: white;
+  float: left;
 }
+
 /* -- Media query 1 (mq1)
 ------------------------------------------------------------- */
-@media only screen and (max-width: 60em) { /* 13 / 780 */
-    .category {
-        width: 100%;
-    }
+@media only screen and (max-width: 60em) {
+  /* 13 / 780 */
+  /* line 159, ../scss/virtualmallmain.scss */
+  .category {
+    width: 100%;
+  }
 }
-
 /* -- Media query 2 (mq2)
 ------------------------------------------------------------- */
-@media only screen and (max-width: 48em){
-    .category{
-        width: 100%;
-    }
-    .sub-category{width: 100%;}
-    .business figcaption {
-        width: 80%;
-    }
-    .business {
-        text-align: center;
-        display: block;
-        width: 450px;
-        margin: 10px auto 10px auto;
-        margin-right: 1em;
-    }
-}
+@media only screen and (max-width: 48em) {
+  /* line 167, ../scss/virtualmallmain.scss */
+  .category {
+    width: 100%;
+  }
 
+  /* line 170, ../scss/virtualmallmain.scss */
+  .sub-category {
+    width: 100%;
+  }
+
+  /* line 171, ../scss/virtualmallmain.scss */
+  .business figcaption {
+    width: 80%;
+  }
+
+  /* line 174, ../scss/virtualmallmain.scss */
+  .business {
+    text-align: center;
+    display: block;
+    width: 450px;
+    margin: 10px auto 10px auto;
+    margin-right: 1em;
+  }
+}
 /* -- Media query 3 (mq3)
 ------------------------------------------------------------- */
-@media only screen and (max-width: 30em){
-    .category{
-        width: 100%;
-    }
-    .sub-category{width: 100%;}
-    .business img{
-        width: 50px;
-        height: 50px;
-    }
-    .business figcaption {
-        width: 80%;
-    }
+@media only screen and (max-width: 30em) {
+  /* line 186, ../scss/virtualmallmain.scss */
+  .category {
+    width: 100%;
+  }
+
+  /* line 189, ../scss/virtualmallmain.scss */
+  .sub-category {
+    width: 100%;
+  }
+
+  /* line 190, ../scss/virtualmallmain.scss */
+  .business img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* line 194, ../scss/virtualmallmain.scss */
+  .business figcaption {
+    width: 80%;
+  }
+}
+
+.ribbon {
+  background-color: blue;
+  overflow: hidden;
+  white-space: nowrap;
+  /* top left corner */
+  position: absolute;
+  left: 0px;
+  top: 40px;
+  margin-top: 20px;
+  z-index: 100;
+  /* 45 deg ccw rotation */
+  -webkit-transform: rotate(-45deg);
+     -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  /* shadow */
+  -webkit-box-shadow: 0 0 10px #888;
+     -moz-box-shadow: 0 0 10px #888;
+          box-shadow: 0 0 10px #888;
+}
+.ribbon a {
+  border: 1px solid #faa;
+  color: #fff;
+  display: block;
+  font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 1px 0;
+/*   padding: 10px 50px; */
+  text-align: center;
+  text-decoration: none;
+  /* shadow */
+  text-shadow: 0 0 5px #444;
 }
