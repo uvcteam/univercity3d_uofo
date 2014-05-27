@@ -132,7 +132,8 @@ angular.module('AdPlayer', [])
 
             userToken = localStorage.getItem('userToken');
 
-            businessID = urlParam("id");
+            //businessID = urlParam("id");
+            businessID = localStorage.getItem('busid')
 
             AdPlayerData.get(businessID).then(function(result){
                 var data = result.data;

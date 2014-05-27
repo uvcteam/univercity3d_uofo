@@ -83,9 +83,11 @@ engine.on('AttachEventToBusinesses', function () {
 
     $(".business > button").click(function () {
         engine.call('SetBusinessID', this.getAttribute('busid'));
+        localStorage.setItem('busid', this.getAttribute('busid'));
     });
     $(".business > a").click(function () {
         engine.call('SetBusinessIDForCard', this.getAttribute('busid'));
+        localStorage.setItem('busid', this.getAttribute('busid'));
     });
 })
 
